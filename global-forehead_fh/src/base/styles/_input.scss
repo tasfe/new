@@ -1,0 +1,20 @@
+.input-append {
+  position: relative;
+  vertical-align: middle;
+  input {
+    display: block !important;
+    width: 176px;
+    padding-right: 25px;
+    height: 100%;
+    box-sizing: border-box;
+  }
+
+  .add-on {
+    display: inline-block;
+    position: absolute;
+    top: 2px;
+    right: 7px;
+    font-size: 15px;
+    line-height: 22px;
+  }
+}

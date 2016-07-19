@@ -1,0 +1,65 @@
+<form class="js-uc-cbCardBindingForm form-horizontal uc-cbCardBindingForm">
+  <div class="control-group">
+    <label class="control-label text-bold-dark">开户行：</label>
+
+    <div class="controls">
+      <select class="js-uc-cbBankId select1" required>
+        <option value="">请选择</option>
+      </select>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label text-bold-dark">卡号：</label>
+
+    <div class="controls">
+      <input type="text" class="js-uc-cbCardNo uc-lg-input input2"  data-parsley-num data-parsley-length="[13,19]" required>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <label class="control-label text-bold-dark">开户人姓名：</label>
+
+    <div class="controls">
+      <input type="text" class="js-uc-cbAccountName input2" data-parsley-length="[2,50]" data-parsley-zhAndLDBMaxLen="20" required >
+    </div>
+  </div>
+
+  <div class="control-group">
+    <label class="control-label text-bold-dark">开户省市：</label>
+
+    <div class="controls">
+      <select class="js-uc-cbProvince select2" required>
+        <option value="">省份</option>
+      </select>
+      <select class="js-uc-cbCity select3" required>
+        <option value="">城市</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <label class="control-label text-bold-dark">开户支行：</label>
+
+    <div class="controls">
+      <select class="js-uc-cbBankBranch select1 "  required >
+        <option value="">支行</option>
+      </select>
+    </div>
+
+  </div>
+
+  <div class="control-group uc-cm-fund-pwd-notice-div">
+    <div class="controls">
+      <ul class="js-uc-cm-bingCardNotice parsley-errors-list filled font-sm">
+      </ul>
+    </div>
+  </div>
+
+
+  <div class="control-group">
+    <div class="controls">
+      <button type="button" class="js-uc-cbCardBinding-check btn btn-sun btn-liner width-250" data-loading-text="绑定中">绑定</button>
+    </div>
+  </div>
+
+</form>

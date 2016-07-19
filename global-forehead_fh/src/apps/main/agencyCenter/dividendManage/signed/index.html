@@ -1,0 +1,50 @@
+<form class="js-ac-signed-form ac-signed-form form-horizontal" action="javascript:void(0);">
+  <div class="control-group">
+    <label class="control-label">用户名：</label>
+    <div class="controls">
+      <input type="text" class="input-sm" name="username" <% if (obj.userData) { %>readonly<% } %>
+      value="<%=obj.userData && obj.userData.username %>"
+      data-parsley-username required
+      data-parsley-remote data-parsley-remote-validator="accheckusername"
+      data-parsley-remote-options='{"type": "POST"}'
+      required />
+      <span class="help-inline"><%=dividConf.formatRebateLimit %>%返点以下用户不可签约</span>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <label class="control-label">分红比例</label>
+    <div class="controls">
+      <input type="text" class="js-ac-divid input-sm" name="divid" value="<%=obj.userData && userData.formatDivid %>"
+         data-parsley-twodecimal required />
+
+      <span class="help-inline">% 可分红范围（<%=dividConf.formatDividMin %>-<%=dividConf.formatDividMax %>%）</span>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label">协议内容</label>
+    <div class="controls">
+      <textarea maxlength="100" name="agreement" required data-parsley-zhmaxlength="50"><%=obj.userData && obj.userData.agreement %></textarea>
+      <span class="help-inline vertical-bottom">限50字</span>
+    </div>
+  </div>
+  <div class="control-group">
+    <div class="controls">
+      <label>
+        <span class="custom-checkbox checkbox-inverse">
+          <input type="checkbox" id="jsAcAgreeSign">
+          <label for="jsAcAgreeSign"></label>
+        </span>
+        同意此<a href="javascript:void(0)" class="js-ac-check-agreement btn-link btn-link-pleasant">协议条款</a>
+      </label>
+    </div>
+  </div>
+  <div class="dot-divider dot-divider-md"></div>
+  <div class="controls-group control-confirm">
+    <div class="controls">
+      <button type="submit" class="js-ac-next btn btn-cool" disabled>下一步</button>
+    </div>
+  </div>
+</form>
+<div class="js-ac-verify"></div>
+

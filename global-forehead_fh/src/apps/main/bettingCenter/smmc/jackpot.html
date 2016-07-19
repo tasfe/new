@@ -1,0 +1,26 @@
+<div class="bc-smmc-jackpot" >
+  <div class="bc-smmc-jackpot-head">
+    <span class="bc-smmc-jackpot-title1">恭喜您进入奖池</span>
+    </br>
+    <span class="bc-smmc-jackpot-title2">请选择图案</span>
+  </div>
+
+  <div>
+    <% _(_.range(9)).each(function(icon,index){%>
+    <div class="js-bc-smmc-jackpot bc-smmc-jackpot-mode " >
+      <div class="bc-smmc-jackpot-mode-wrapper">
+        <div class="js-bc-smmc-jackpot-mode-item-wrapper bc-smmc-jackpot-mode-item-wrapper"><div class="js-bc-smmc-jackpot-mode-item bc-smmc-jackpot-mode-item  "></div></div>
+        <div class="js-bc-smmc-jackpot-mode-item-unknown bc-smmc-jackpot-mode-item-unknown"></div>
+      </div>
+    </div>
+    <!--<div class="js-bc-smmc-jackpot bc-smmc-jackpot">-->
+    <!--<div>2倍奖金</br>角模式</div>-->
+    <!--<div>5次</br>分模式</div>-->
+    <!--</div>-->
+    <!--<div class="js-bc-smmc-jackpot bc-smmc-jackpot">-->
+    <!--<div>1倍奖金</br>角模式</div>-->
+    <!--<div>10次</br>厘模式</div>-->
+    <!--</div>-->
+    <%})%>
+  </div>
+</div>

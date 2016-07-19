@@ -1,0 +1,24 @@
+.scroll-btn {
+  position: absolute;
+  right: -35px;
+  top: 20px;
+  display: inline-block;
+  cursor: pointer;
+  z-index: 10;
+  @include sprite($sfa-double-up);
+
+  &.scroll-btn-bottom {
+    top: inherit;
+    bottom: 0;
+  }
+  //&:hover {
+  //  @include sprite($sfa-double-up-active);
+  //}
+
+  &.down {
+    @include sprite($sfa-double-down);
+    //&:hover {
+      //@include sprite($sfa-double-down-active);
+    //}
+  }
+}

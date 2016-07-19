@@ -1,0 +1,47 @@
+<div class="search-condition-table m-LR-smd">
+  <!--<div class="control-group row1">-->
+    <!--<div class="fc-trade-no-label ">-->
+      <!--<label class="control-label">交易流水号:</label>-->
+      <!--<input type="text" name="tradeNo" class="fc-trade-no-input " data-parsley-maxlength="30">-->
+    <!--</div>-->
+
+    <!--<div class="fc-page-size-label ">-->
+      <!--<label class="control-label">每页展示:</label>-->
+      <!--<select class="input-md" name="pageSize">-->
+        <!--<option value="10">10条</option>-->
+        <!--<option value="20">20条</option>-->
+        <!--<option value="50">50条</option>-->
+        <!--<option value="100">100条</option>-->
+        <!--<option value="500">500条</option>-->
+      <!--</select>-->
+    <!--</div>-->
+    <!--<div class="pull-right">-->
+
+    <!--</div>-->
+  <!--</div>-->
+
+  <div class="control-group row1">
+    <label class="control-label">投注时间：</label>
+    <span class="js-pf-timeset input-date"></span>
+    <label class="control-label">交易类型：</label>
+    <select name="tradeType" class="select1"></select>
+    <% if (obj.viewType !== 'team') { %>
+    <div class="pull-right">
+      <button type="submit" class="btn btn-link text-hot">搜索</button>
+      <button type="reset" class="btn btn-link text-hot">清空条件</button>
+    </div>
+    <% } else { %>
+    <% } %>
+  </div>
+  <div class="control-group row2">
+    <% if (obj.viewType === 'team') { %>
+    <label class="control-label">账号：</label>
+    <input type="text" name="username" class="input3 margin-add">
+    <div class="pull-right">
+      <button type="submit" class="btn btn-link text-hot">搜索</button>
+      <button type="reset" class="btn btn-link text-hot">清空条件</button>
+    </div>
+    <% } %>
+  </div>
+</div>
+

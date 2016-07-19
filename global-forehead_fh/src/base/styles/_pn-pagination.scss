@@ -1,0 +1,28 @@
+.pn-pagination {
+  .pn-text {
+    vertical-align: text-bottom;
+    text-decoration: underline;
+    line-height: 14px;
+  }
+  .pn-op {
+    background-color: $main-deep-color;
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    text-align: center;
+    font-size: 14px;
+
+    transition: all 0.3s linear;
+
+    //&:hover {
+    //  box-shadow: 0 0 2px 2px #39C3D8;
+    //}
+
+    //&.disabled {
+    //  background-color: #909191;
+    //  &:hover {
+    //    box-shadow: 0 0 0 0;
+    //  }
+    //}
+  }
+}

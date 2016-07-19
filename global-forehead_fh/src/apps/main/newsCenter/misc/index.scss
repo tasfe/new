@@ -1,0 +1,197 @@
+@charset "UTF-8";
+
+@import
+"~base/styles/imports";
+
+.nc-panel-wrapper {
+  margin: 15px 18px 20px 56px;
+  .nc-panel {
+    height: 521px;
+    overflow: auto;
+    display: inline-block;
+    float: left;
+    color: $new-black-color;
+  }
+
+  .nc-pic {
+    display: inline-block;
+    float: right;
+    img {
+      height: 523px;
+      width: 255px !important;
+    }
+  }
+  &.inner {
+    .nc-panel {
+      width: 553px;
+    }
+  }
+}
+
+.nc-platformNews {
+  padding: 14px 18px 0 35px;
+}
+
+//.news-setting {
+//  height: 390px;
+//  width: 240px;
+//  display: inline-block;
+//  margin-right: 67px;
+//  background-color: #eaeaea;
+//  color: $new-black-color;
+//  vertical-align: top;
+//  text-align: left;
+//  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25);
+//
+//  &:last-child {
+//    margin-right: 0;
+//  }
+//}
+
+//.news-setting-header {
+//  height: 50px;
+//  padding: 20px;
+//  border-bottom: 1px dashed $light-color;
+//  .sfa {
+//    vertical-align: middle;
+//  }
+//  .news-title {
+//    margin-left: 10px;
+//    font-size: 16px;
+//    color: $new-main-deep-color;
+//    font-weight: bold;
+//  }
+//
+//  border-bottom: 1px dashed $light-color;
+//}
+
+//.news-setting-content {
+//  margin: 20px 30px 0 60px;
+//
+//  .news-setting-content-item {
+//    margin-bottom: 35px;
+//    .custom-checkbox {
+//      margin-right: 10px;
+//    }
+//  }
+//}
+
+.nc-setting-btn {
+  position: relative;
+  top: -28px;
+  left: 70px;
+  padding: 1px 10px;
+  color: $light-color;
+  &:hover {
+    color: $light-color;
+  }
+  .fa {
+    color: $light-color;
+  }
+}
+
+.il-detail {
+  .nc-panel {
+    width: 746px;
+    margin-left: 60px;
+    border: 1px solid $light-color;
+  }
+  .nc-chat-title {
+    height: 40px;
+    line-height: 40px;
+    background: $new-main-deep-color;
+    text-align: center;
+    color: $dark-color;
+    font-size: $font-md;
+  }
+  .nc-chat-container {
+    color: $dark-color;
+    border-bottom: 1px dashed $light-color;
+    padding: 20px;
+    height: 350px;
+    overflow: auto;
+    margin-bottom: 10px;
+  }
+
+  .nc-il-content {
+    width: 637px;
+    border-radius: 0;
+    border: 1px solid $light-color;
+    background-color: $light-color;
+    height: 70px;
+    padding-left: 15px;
+    margin: 0 10px;
+  }
+
+  .nc-il-confirm {
+    width: 70px;
+    font-size: 18px;
+    padding: 26px 10px;
+  }
+}
+
+
+.nc-grid {
+  top: -23px;
+  position: relative;
+  //margin-left: 8px;
+  tbody {
+    tr {
+      border-bottom: 1px solid $gray-color !important;
+      td {
+        padding: 10px 20px;
+        font-size: 12px;
+        .badge {
+          font-size: 14px;
+        }
+      }
+      //td:nth-of-type(n + 3) {
+      //  border-bottom: 1px dotted $light-color;
+      //}
+    }
+  }
+  .slimScrollDiv, .js-wt-body-main {
+    height: 580px;
+  }
+}
+
+.nc-letter-send {
+  .nc-panel {
+    width: 870px;
+    margin-right: 20px;
+    border: 1px solid #e6e6e6;
+    box-shadow: 1px 1px 1px 0 rgba(0, 0, 0, 0.3);
+  }
+
+  .nc-ilSendForm {
+    padding: 35px 35px 0;
+    .control-label {
+      width: 44px;
+    }
+    .controls {
+      margin-left: 53px;
+    }
+  }
+
+  .nc-ilTitle, textarea {
+    width: 342px;
+  }
+
+  .nc-ilSend-sendTo-div {
+    margin-bottom: 20px;
+  }
+
+  .control-confirm {
+    .btn {
+      width: 166px;
+    }
+    padding-top: 10px;
+  }
+  .btn {
+    width: 80px;
+    font-size: 14px;
+  }
+  .btn-right {
+    margin-left: 20px;
+  }
+}

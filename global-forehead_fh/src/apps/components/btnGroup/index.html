@@ -1,0 +1,6 @@
+<% _(btnGroup).each(function(btnOps) { %>
+<button type="button" class="<%=prevClass %>-btn-group btn btn-silent" data-<%=inputName %>="<%=btnOps.value %>">
+  <%=btnOps.title %>
+</button>
+<% }); %>
+<input type="hidden" class="<%=prevClass %>-hidden-input" name="<%=inputName %>">

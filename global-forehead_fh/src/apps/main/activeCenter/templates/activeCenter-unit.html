@@ -1,0 +1,32 @@
+<div class="ad">
+  <a class="ad-link" <% if (bannerStatus != 2) { %> href="<%=bannerUrl %>" target="_blank" <% } %> >
+    <% if (obj.badge) { %>
+    <div class="ad-badge <%=badgeClass %> no-border "><%=badge %></div>
+    <% } %>
+    <div class="ad-img"><img src="<%=bannerPicUrl %>" /></div>
+
+    <% if (bannerStatus !== 0) { %>
+    <div class="ad-backdrop <% if (bannerStatus === 1) { %>ad-backdrop-light<% } %>">
+      <div class="ad-backdrop-inner rubberBand animated">
+      <% if (bannerStatus === 2) { %>
+        <div class="ad-logo sfa-ad-logo-mid"></div>
+        <div class="ad-title"><%=activityTitle %></div>
+        <div class="ad-option">活动时间： <%=startTime %> 至 <%=endTime %></div>
+      <% } else { %>
+        <div class="pulse pulse-white"></div>
+        <div class="ad-logo sfa-ad-lock"></div>
+        <div class="ad-title">即将开启</div>
+      <% } %>
+      </div>
+    </div>
+    <% } %>
+
+    <% if (bannerStatus !== 2) { %>
+    <div class="ad-footer">
+      <div class="ad-option">活动时间： <%=startTime %> 至 <%=endTime %></div>
+      <div class="ad-logo sfa-ad-logo-yb"></div>
+      <div class="ad-title"><%=activityTitle %></div>
+    </div>
+    <% } %>
+  </a>
+</div>

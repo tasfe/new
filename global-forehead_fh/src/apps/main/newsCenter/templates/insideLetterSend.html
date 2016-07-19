@@ -1,0 +1,60 @@
+<div class="nc-panel">
+  <form class="js-nc-ilSendForm  nc-ilSendForm  form-horizontal" action="javascript:void(0);">
+    <div class="nc-ilSend-sendTo-div">
+      <label class="inline-block m-right-md">
+        <span class="custom-radio">
+          <input type="radio" id="jsIlSendTo1" name="sendTo" value="1">
+          <label for="jsIlSendTo1"></label>
+        </span>
+        <span class="js-nc-inside-letter-send-to-superior-span">给上级发站内信</span>
+      </label>
+      <label class="inline-block">
+        <span class="custom-radio">
+          <input type="radio" id="jsIlSendTo2" name="sendTo" value="2" checked>
+          <label for="jsIlSendTo2"></label>
+        </span>
+        <span class="js-nc-inside-letter-send-to-sub-span">给下级发站内信</span>
+      </label>
+    </div>
+    <div class="control-group">
+      <label class="control-label">收信人:</label>
+
+      <div class="controls">
+        <span class="js-nc-ilSendToSuperior hidden">我的上级</span>
+        <div class="js-nc-ilSendToSub m-bottom-sm">
+          <button type="button" class='js-nc-ilSelectSub-btn btn btn-cool'>选择下级</button>
+          <input type="hidden" class="js-nc-ilTo">
+        </div>
+        <div class="js-nc-ilSendUsers"></div>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label">标题:</label>
+
+      <div class="controls">
+        <input type="text" class="js-nc-ilTitle nc-ilTitle" maxlength="15" required /> 限15字
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label">内容:</label>
+
+      <div class="controls">
+        <textarea class="js-nc-ilContent nc-ilTitle-input-width height-smd vertical-bottom no-resize" required maxlength="50"></textarea>
+        <span class="js-nc-il-statistics"></span>字
+      </div>
+    </div>
+
+    <div class="control-group">
+      <div class="controls control-confirm">
+        <button type="button" class="js-nc-ilSend-submit btn" data-loading-text="发送中">发送</button>
+        <button type="reset" class="btn btn-cool btn-right">重置</button>
+      </div>
+    </div>
+  </form>
+
+</div>
+
+<div id="jsCarousel" class="carousel slide nc-pic no-margin">
+  <ol class="js-nc-ol carousel-indicators carousel-outside"></ol>
+  <div class="js-nc-ad carousel-inner"></div>
+</div>

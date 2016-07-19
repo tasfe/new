@@ -1,0 +1,72 @@
+@charset "UTF-8";
+
+@import
+"~base/styles/imports";
+
+.clock {
+  position: relative;
+  .clock-inner {
+    width: 100%;
+    height: 100%;
+  }
+  .time-wrapper {
+    height: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+  }
+  .hour {
+    width: 8px;
+    height: 100%;
+    margin: 0 auto;
+    animation: time 86400s infinite linear;
+    &:before {
+      position: absolute;
+      content: "";
+      background: url('./hour.png') no-repeat no-repeat;
+      height: 52px;
+      width: 8px;
+      top: 17px;
+    }
+  }
+  .minute {
+    width: 8px;
+    height: 100%;
+    margin: 0 auto;
+    animation: time 3600s infinite linear;
+    &:before {
+      position: absolute;
+      content: "";
+      background: url('./minute.png') no-repeat no-repeat;
+      height: 52px;
+      width: 8px;
+      top: 17px;
+    }
+  }
+  .second {
+    width: 8px;
+    height: 100%;
+    margin: 0 auto;
+    animation: time 60s infinite linear;
+    &:before {
+      position: absolute;
+      content: "";
+      background: url('./second.png') no-repeat no-repeat;
+      height: 52px;
+      width: 8px;
+      top: 17px;
+    }
+  }
+}
+.clock-digit {
+  text-align: center;
+  font-size: 28px;
+  line-height: 28px;
+  margin-top: 25px;
+}
+
+@keyframes time {
+  to {
+    transform: rotate(360deg);
+  }
+}

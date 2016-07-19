@@ -1,0 +1,22 @@
+@mixin alert($class, $props) {
+  background-color: map_get($props, bg-color);
+  color: map_get($props, color);
+  a {
+    color: map_get($props, color);
+  }
+  .close {
+    color: map_get($props, color);
+  }
+}
+
+@mixin alerts($alerts) {
+  @each $class, $props in $alerts {
+    @if ($class == default) {
+      @include alert($class, $props);
+    } @else {
+      &.alert-#{$class} {
+        @include alert($class, $props);
+      }
+    }
+  }
+}

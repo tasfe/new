@@ -1,0 +1,7 @@
+@mixin select-factory($style) {
+  border-color: map_get($style, border-color);
+  color: map_get($style, color);
+
+  background: map_get($style, background);
+  background: transparent \9;
+}

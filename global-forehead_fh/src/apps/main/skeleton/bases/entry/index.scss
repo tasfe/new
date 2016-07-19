@@ -1,0 +1,279 @@
+@charset "UTF-8";
+
+@import
+"~base/styles/imports";
+
+$quick-entry-width: 128px;
+$quick-entry-height: 30px;
+$quick-vertical-margin: 2px;
+
+$quickEntry-active-bg-color: #057c86 !default;
+$quickEntryPaddingTop: 6px !default;
+$quickEntryPaddingX: 5px !default;
+
+.entry-container {
+  background-color: $deep-gray-color;
+}
+
+.quick-entry {
+  a {
+    text-decoration: none;
+  }
+
+  .quick-ticket-entry {
+    float: left;
+    height: 30px;
+    width: 158px;
+    line-height: 30px;
+    font-size: 16px;
+    z-index: 99;
+
+    .dropdown-toggle {
+      display: block;
+    }
+
+    .dropdown-caret {
+      float: right;
+      margin-right: 10px;
+    }
+    > ul {
+      padding: 0 10px;
+    }
+    > a {
+      .dropdown-caret {
+        transition: opacity 0.5s ease, transform 0.5s ease;
+        transform: rotate(180deg);
+      }
+      &:hover {
+        .dropdown-caret {
+          transform: rotate(0);
+        }
+      }
+    }
+  }
+
+  .quick-setting {
+    position: relative;
+    display: inline-block;
+    float: left;
+    width: 58px;
+    height: $quick-entry-height - $quick-vertical-margin * 2;
+    border-right: 1px solid $gray-color;
+    border-left: none;
+    font-size: 40px;
+    text-align: center;
+    cursor: pointer;
+    margin: $quick-vertical-margin 0;
+
+    .sfa {
+      vertical-align: top;
+      margin-top: 5px;
+    }
+  }
+  .entry-group {
+    float: left;
+
+    a {
+      display: inline-block;
+      float: left;
+    }
+    .quick-item {
+      background-color: $deep-gray-color;
+    }
+
+    .active {
+      .quick-item {
+        color: $light-color;
+        background-color: $dark-color;
+        &:after {
+          border-right: 0;
+        }
+      }
+    }
+  }
+
+  .quick-item {
+    position: relative;
+    display: inline-block;
+    float: left;
+    font-size: 13px;
+    min-width: $quick-entry-width;
+    height: $quick-entry-height;
+    line-height: $quick-entry-height;
+    padding-left: 10px;
+    &:after {
+      position: absolute;
+      content: '';
+      height: $quick-entry-height - $quick-vertical-margin * 2;
+      top: $quick-vertical-margin;
+      right: 0;
+      border-right: 1px solid $gray-color;
+    }
+  }
+
+  .sfa-entry-letter {
+    vertical-align: sub;
+    margin-top: 6px;
+  }
+
+  .quick-title {
+    position: relative;
+    z-index: 10;
+    .fa-stack {
+      vertical-align: inherit;
+    }
+    .sfa {
+      position: relative;
+      vertical-align: text-bottom;
+    }
+  }
+
+  .drop-menu {
+    > li {
+      > a {
+        padding: 0;
+        background: #d5d5d5;
+        color: $dark-color;
+        padding-left: 10px;
+      }
+    }
+  }
+
+  .drop-submenu {
+    width: 170%;
+    a {
+      padding: 0;
+    }
+  }
+
+  .dropdown-title {
+    font-size: 14px;
+    padding: 10px 0 5px;
+    color: $light-color;
+  }
+
+  .divider {
+    width: 100%;
+    overflow: hidden;
+    border-bottom: 1px dashed #a79b8b;
+  }
+  .dropdown-row {
+
+    ul {
+      list-style: none;
+    }
+
+    .dropdown-item {
+      position: relative;
+      float: left;
+      width: 89px;
+      min-height: 25px;
+      line-height: 29px;
+      font-size: 13px;
+      &:nth-child(3n) {
+        width: auto;
+      }
+    }
+  }
+}
+
+.btn-insideLetter {
+  cursor: pointer;
+}
+
+
+//活动入口位置
+.float-activitys {
+  height: 0px;
+  .quick-improveReward {
+
+  	position: fixed;
+  	left: 51%;
+  	margin-left: 500px;
+  	transition: background-image 0.4s ease-in-out;
+   
+  	top: 65%;
+
+    width: 65px;
+    height: 60px;
+
+    background-image: url('~base/images/act/icon_01.png');
+    background-repeat: no-repeat;
+    font-size: 40px;
+    cursor: pointer;
+  }
+
+  .quick-returnReward {
+
+    position: fixed;
+    left: 51%;
+    margin-left: 500px;
+    transition: background-image 0.4s ease-in-out;
+
+    top: 65%;
+
+    width: 65px;
+    height: 60px;
+
+    background-image: url('~base/images/act/icon_return.png');
+    background-repeat: no-repeat;
+    font-size: 40px;
+    cursor: pointer;
+  }
+
+  .quick-signin-gift {
+
+      position: fixed;
+      left: 51%;
+      margin-left: 500px;
+      transition: background-image 0.4s ease-in-out;
+
+      top: 57%;
+
+      width: 65px;
+      height: 60px;
+
+      background-image: url('~base/images/act/btn_01.png');
+      background-repeat: no-repeat;
+      font-size: 40px;
+      cursor: pointer;
+    }
+
+  .quick-signin {
+
+    position: fixed;
+    left: 50%;
+    margin-left: 512px;
+    transition: background-image 0.4s ease-in-out;
+    top: 49%;
+    width: 65px;
+    height: 60px;
+
+    background-image: url('~base/images/act/btn_02.png');
+    background-repeat: no-repeat;
+    font-size: 40px;
+    cursor: pointer;
+  }
+
+  .quick-mmc {
+
+    position: fixed;
+    left: 51%;
+    margin-left: 500px;
+    transition: background-image 0.4s ease-in-out;
+
+    top: 15%;
+
+    width: 85px;
+    height: 300px;
+
+    background-image: url('~base/images/act/mmc.png');
+    background-repeat: no-repeat;
+    font-size: 40px;
+    cursor: pointer;
+  }
+}
+
+.gl-ticket-smmc-title{
+  color: #ffff00 !important;
+}

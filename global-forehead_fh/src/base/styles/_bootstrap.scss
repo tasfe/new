@@ -1,0 +1,214 @@
+/*!
+ * Bootstrap v2.3.2
+ *
+ * Copyright 2013 Twitter, Inc
+ * Licensed under the Apache License v2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Designed and built with all the love in the world by @mdo and @fat.
+ */
+
+.hide-text {
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+
+.input-block-level {
+  display: block;
+  width: 100%;
+  min-height: 30px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  *zoom: 1;
+  &:before {
+    display: table;
+    line-height: 0;
+    content: "";
+  }
+  &:after {
+    display: table;
+    line-height: 0;
+    content: "";
+    clear: both;
+  }
+}
+
+.text-warning {
+  color: #c09853;
+}
+
+a.text-warning {
+  &:hover, &:focus {
+    color: #a47e3c;
+  }
+}
+
+.text-error {
+  color: #b94a48;
+}
+
+a.text-error {
+  &:hover, &:focus {
+    color: #953b39;
+  }
+}
+
+.text-info {
+  color: #3a87ad;
+}
+
+a.text-info {
+  &:hover, &:focus {
+    color: #2d6987;
+  }
+}
+
+.text-success {
+  color: #468847;
+}
+
+a.text-success {
+  &:hover, &:focus {
+    color: #356635;
+  }
+}
+
+.radio, .checkbox {
+  min-height: 20px;
+  padding-left: 20px;
+}
+
+.radio input[type="radio"], .checkbox input[type="checkbox"] {
+  //float: left;
+  margin-left: -20px;
+}
+
+.controls > {
+  .radio:first-child, .checkbox:first-child {
+    padding-top: 5px;
+  }
+}
+
+.radio.inline, .checkbox.inline {
+  display: inline-block;
+  padding-top: 5px;
+  margin-bottom: 0;
+  vertical-align: middle;
+}
+
+.radio.inline + .radio.inline, .checkbox.inline + .checkbox.inline {
+  margin-left: 10px;
+}
+
+/* Allow for input prepend/append in search forms */
+
+.caret {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  vertical-align: top;
+  border-top: 4px solid #000000;
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+  content: "";
+}
+
+.tabs-stacked .open > a {
+  &:hover, &:focus {
+    border-color: #999999;
+  }
+}
+
+.tabbable {
+  *zoom: 1;
+  &:before {
+    display: table;
+    line-height: 0;
+    content: "";
+  }
+  &:after {
+    display: table;
+    line-height: 0;
+    content: "";
+    clear: both;
+  }
+}
+
+.tab-content {
+  //overflow: auto;
+}
+
+.tab-content > .tab-pane, .pill-content > .pill-pane {
+  display: none;
+}
+
+.tab-content > .active, .pill-content > .active {
+  display: block;
+}
+
+a {
+  &.label {
+    &:hover, &:focus {
+      color: #ffffff;
+      text-decoration: none;
+      cursor: pointer;
+    }
+  }
+  &.badge {
+    &:hover, &:focus {
+      color: #ffffff;
+      text-decoration: none;
+      cursor: pointer;
+    }
+  }
+}
+
+.label-important, .badge-important {
+  background-color: #b94a48;
+}
+
+.label-important[href], .badge-important[href] {
+  background-color: #953b39;
+}
+
+.label-warning, .badge-warning {
+  background-color: #f89406;
+}
+
+.label-warning[href], .badge-warning[href] {
+  background-color: #c67605;
+}
+
+.label-success, .badge-success {
+  background-color: #468847;
+}
+
+.label-success[href], .badge-success[href] {
+  background-color: #356635;
+}
+
+.label-info, .badge-info {
+  background-color: #3a87ad;
+}
+
+.label-info[href], .badge-info[href] {
+  background-color: #2d6987;
+}
+
+.label-inverse, .badge-inverse {
+  background-color: #333333;
+}
+
+.label-inverse[href], .badge-inverse[href] {
+  background-color: #1a1a1a;
+}
+

@@ -1,0 +1,40 @@
+@mixin radio($props) {
+
+  $bgColor: map_get($props, bg-color);
+  $wrapperColor: map_get($props, wrapper-color);
+  $innerColor: map_get($props, inner-color);
+  $disabledBgColor: map_get($props, disabled-bg-color);
+  $disabledWrapperColor: map_get($props, disabled-wrapper-color);
+  $disabledInnerColor: map_get($props, disabled-inner-color);
+
+  background: $bgColor;
+  border: 1px solid $wrapperColor;
+
+  label {
+    &:after {
+      background: $innerColor;
+    }
+  }
+  &.disabled {
+    background: $disabledBgColor;
+    border: 2px solid $disabledWrapperColor;
+    cursor: default;
+    label {
+      &:after {
+        background: $disabledInnerColor;
+      }
+    }
+  }
+}
+
+@mixin radios($styles) {
+  @each $class, $props in $styles {
+    @if ($class == default) {
+      @include radio($props);
+    } @else {
+      &.radio-#{$class} {
+        @include radio($props);
+      }
+    }
+  }
+}

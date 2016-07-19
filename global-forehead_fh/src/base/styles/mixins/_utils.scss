@@ -1,0 +1,230 @@
+@mixin utils_factory($classPrev, $propName, $lengths) {
+  @each $classSuffix, $val in $lengths {
+    .#{$classPrev}-#{$classSuffix} {
+      #{$propName}: $val !important;
+    }
+  }
+}
+
+@mixin modal($modals) {
+  @each $classSuffix, $val in $modals {
+    .modal-#{$classSuffix} {
+      width: $val !important;
+      margin-left: -$val / 2 !important;
+    }
+  }
+}
+
+@mixin squares($squares) {
+  @each $classSuffix, $val in $squares {
+    .square-#{$classSuffix} {
+      width: $val !important;
+      height: $val !important;
+    }
+  }
+}
+
+@mixin spans($spans) {
+  @each $class, $val in $spans {
+    .span-#{$class} {
+      display: inline-block;
+      width: $val;
+    }
+  }
+}
+
+@mixin filters_factory($classPrev, $propName, $filters) {
+  @each $classSuffix, $val in $filters {
+    .#{$classPrev}-top-#{$classSuffix} {
+      #{$propName}-top: $val !important;
+    }
+    .#{$classPrev}-right-#{$classSuffix} {
+      #{$propName}-right: $val !important;
+    }
+    .#{$classPrev}-bottom-#{$classSuffix} {
+      #{$propName}-bottom: $val !important;
+    }
+    .#{$classPrev}-left-#{$classSuffix} {
+      #{$propName}-left: $val !important;
+    }
+    .#{$propName}-#{$classSuffix} {
+      #{$propName}: $val !important;
+    }
+    .#{$classPrev}-LR-#{$classSuffix} {
+      #{$propName}-left: $val !important;
+      #{$propName}-right: $val !important;
+    }
+    .#{$classPrev}-TB-#{$classSuffix} {
+      #{$propName}-top: $val !important;
+      #{$propName}-bottom: $val !important;
+    }
+  }
+}
+
+@mixin no-filler($classPrev, $propName) {
+  .no-#{$classPrev}-top {
+    #{$propName}-top: 0 !important;
+  }
+  .no-#{$classPrev}-right {
+    #{$propName}-right: 0 !important;
+  }
+  .no-#{$classPrev}-bottom {
+    #{$propName}-bottom: 0 !important;
+  }
+  .no-#{$classPrev}-left {
+    #{$propName}-left: 0 !important;
+  }
+
+  .no-#{$classPrev}-LR {
+    #{$propName}-left: 0 !important;
+    #{$propName}-right: 0 !important;
+  }
+  .no-#{$classPrev}-TB {
+    #{$propName}-top: 0 !important;
+    #{$propName}-bottom: 0 !important;
+  }
+
+  .no-#{$propName} {
+    #{$propName}: 0 !important;
+  }
+}
+
+@mixin text-color($class, $color, $font-weight: false) {
+  @if ($font-weight) {
+    .text-#{$font-weight}-#{$class} {
+      color: $color !important;
+      font-weight: $font-weight;
+
+      &:hover,&:focus {
+        color: ($color) !important;
+      }
+    }
+  } @else {
+    .text-#{$class} {
+      color: $color !important;
+
+      &:hover,&:focus {
+        color: ($color) !important;
+      }
+    }
+  }
+}
+
+@mixin text-colors($colors, $font-weight: false) {
+  @each $class, $color in $colors {
+    @include text-color($class, $color, $font-weight);
+  }
+}
+
+@mixin bg-color($class, $props, $font-weight: false) {
+  @if ($font-weight) {
+    .bg-#{$font-weight}-#{$class} {
+      background-color: map-get($props, bg);
+      color: map-get($props, color);
+      font-weight: $font-weight;
+    }
+  } @else {
+    .bg-#{$class} {
+      background-color: map-get($props, bg);
+      color: map-get($props, color);
+    }
+  }
+}
+
+@mixin bg-colors($colors, $font-weight: false) {
+  @each $class, $props in $colors {
+    @include bg-color($class, $props, $font-weight);
+  }
+}
+
+
+@mixin border($class, $colors) {
+  @if $class == default {
+    .border-all {
+      border: 1px solid $colors !important;
+    }
+
+    .border-left {
+      border-left: 1px solid $colors !important;
+    }
+
+    .border-right {
+      border-right: 1px solid $colors !important;
+    }
+
+    .border-top {
+      border-top: 1px solid $colors !important;
+    }
+
+    .border-bottom {
+      border-bottom: 1px solid $colors !important;
+    }
+  } @else {
+    .border-#{$class}-all {
+      border: 1px solid $colors !important;
+    }
+
+    .border-#{$class}-left {
+      border-left: 1px solid $colors !important;
+    }
+
+    .border-#{$class}-right {
+      border-right: 1px solid $colors !important;
+    }
+
+    .border-#{$class}-top {
+      border-top: 1px solid $colors !important;
+    }
+
+    .border-#{$class}-bottom {
+      border-bottom: 1px solid $colors !important;
+    }
+  }
+}
+
+@mixin borders($colors) {
+  @each $class, $props in $colors {
+    @include border($class, $props);
+  }
+}
+
+@mixin basic($class, $props) {
+  @if ($props != null) {
+    $select: map_get($props, select);
+    $input: map_get($props, input);
+    $disabled: map_get($props, disabled);
+
+    select {
+      @include select-factory($select);
+    }
+
+    input {
+      @include input-factory($input);
+    }
+
+    textarea {
+      @include input-factory($input);
+    }
+
+    @include disabled-factory($disabled);
+
+    @if ($class) {
+      background-color: map_get($props, bg-color);
+      color: map_get($props, color);
+    }
+  }
+}
+
+
+@mixin basics($basics) {
+  @each $class, $props in $basics {
+    @if ($class == default) {
+      @include basic($class, $props);
+    } @else {
+      .basic-#{$class} {
+        @include basic($class, $props);
+      }
+    }
+  }
+}
+

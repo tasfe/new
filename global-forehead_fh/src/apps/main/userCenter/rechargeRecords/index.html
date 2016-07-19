@@ -1,0 +1,46 @@
+<div class="search-condition-table m-LR-smd">
+  <div class="control-group row1">
+    <label class="control-label">充值时间：</label>
+    <span class="js-pf-timeset input-date"></span>
+    <% if (obj.viewType === 'team') { %>
+    <label class="control-label">账号：</label>
+    <input type="text" name="username" class="input3 margin-add" data-parsley-maxlength="30">
+    <% }else { %>
+    <label>交易流水号：</label>
+    <input type="text" name="tradeNo" class="input3 margin-add" data-parsley-maxlength="30">
+    <label class="control-label">充值方式：</label>
+    <select name="type" style="width:90px">
+      <option value="0">全部</option>
+      <option value="1">银联支付</option>
+      <option value="2">支付宝</option>
+      <option value="3">微信</option>
+    </select>
+    <% }%>
+  </div>
+
+  <% if (obj.viewType !== 'team') { %>
+  <div class="control-group row2 ">
+
+    <label class="control-label">状态：</label>
+    <select name="status" style="width:100px">
+      <option value="-1">全部</option>
+      <option value="0">等待支付</option>
+      <option value="1">支付成功</option>
+      <option value="2">支付失败</option>
+    </select>
+
+    <div class="pull-right">
+      <button type="submit" class="btn btn-link text-hot">搜索</button>
+      <button type="reset" class="btn btn-link text-hot">清空条件</button>
+    </div>
+  </div>
+
+  <% }else {%>
+  <div class="control-group row2 " align="right">
+    <div>
+      <button type="submit" class="btn btn-link text-hot">搜索</button>
+      <button type="reset" class="btn btn-link text-hot">清空条件</button>
+    </div>
+  </div>
+  <% }%>
+</div>

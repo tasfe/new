@@ -1,0 +1,14 @@
+<div class="portlet portlet-<%=obj.type %> no-margin">
+  <div class="portlet-header <%=obj.headerClass %>">
+    <span class="portlet-title">
+      <% if (obj.icon) { %><span class="portlet-icon sfa sfa-sub-title-<%=obj.icon %>"></span><% } %>
+      <%=obj.title %>
+    </span>
+    <span class="portlet-option">
+      <% if (obj.subReturn) { %>
+      <button class="btn btn-pure sub-return" type="button">返回</button>
+      <% } %>
+    </span>
+  </div>
+  <div class="js-rt-main rt-main portlet-body no-padding"></div>
+</div>

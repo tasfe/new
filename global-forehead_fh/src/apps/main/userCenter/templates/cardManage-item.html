@@ -1,0 +1,17 @@
+<li class="js-fc-payment">
+  <div class="js-uc-cmSingleCard-container binding-card">
+    <div class="binding-card-bg" style="background-image: url(<%=card.pic%>);">
+      <div class="binding-card-main ">
+        <div style="margin-left: 32px;margin-bottom: 5px;"><%=card.name %> </div>
+        <div class="js-uc-cmSingCardName&Num" style="margin-left: 32px;margin-bottom: 5px;"><%=card.cardNo %></div>
+        <div class="js-uc-cmSingCardBindTime  ">绑定时间:<%=_(card.bindTime).toTime() %></div>
+      </div>
+      <div class="js-uc-cm-option binding-card-op" data-type="<%=card.cardId %>">
+        <div class="js-uc-binding-card-triangle binding-card-triangle-yellow"></div>
+        <div class="js-uc-binding-card-sign <%= locked? 'binding-card-sign-locked':'binding-card-sign-checkMark'%>"></div>
+        <!--checkMark cross-->
+      </div>
+    </div>
+    <div class="bank-card-backdrop <%= locked? '':'hidden'%>"></div>
+  </div>
+</li>

@@ -1,0 +1,11 @@
+<ul class="js-bc-basic-rules bc-rule-container nav nav-tabs nav-tabs-border" data-id="<%=obj.id %>" data-title="<%=obj.title %>">
+  <% _(rules).each(function(rule) { %>
+  <li class="<%=ruleClass %>" data-id="<%=rule.id %>" data-title="<%=rule.title %>" data-type="<%=rule.type %>">
+    <a href="javascript:void(0)">
+      <div>
+        <div class="bc-first-title" ><%=rule.title %></div>
+      </div>
+    </a>
+  </li>
+  <% }); %>
+</ul>

@@ -1,0 +1,17 @@
+<div class="js-bc-rules-toolbar bc-advance-rules-container <%=obj.containerClass %>" data-id="<%=obj.id %>" data-title="<%=obj.title %>">
+  <!--<% if (obj.title) { %>-->
+  <!--<div class="tab-title"><%=obj.title %></div>-->
+  <!--<% } %>-->
+  <!--<div class="tab-group <% if (!obj.title) { %>no-margin<% } %>">-->
+    <% _(rules).each(function(rule) { %>
+    <% var id = _.uniqueId() %>
+    <label class="<%=ruleClass %> bc-advance-rule" data-id="<%=rule.id %>" data-title="<%=rule.title %>" data-type="<%=rule.type %>">
+      <span class="custom-radio radio-full">
+        <input type="radio" id="js<%=id %>" class="js-gl-function" name="ticketId[]" value="9">
+        <label for="js<%=id %>"></label>
+      </span>
+      <%=rule.title %>
+    </label>
+    <% }); %>
+  <!--</div>-->
+</div>

@@ -1,0 +1,45 @@
+.rain {
+  .raindrop {
+    position: fixed;
+    z-index: 10000;
+    transition: top 12s ease, left 12s ease;
+    cursor: pointer;
+
+    top: -50%;
+    left: 40%;
+
+    &.redbag-blur {
+      animation-delay: 1s;
+      margin-left: -200px;
+      margin-top: -62px;
+    }
+
+    &.raindrop-filpx {
+      img {
+        transform: scaleX(-1);
+      }
+    }
+
+    .redbag {
+      width: 150px;
+      float: left;
+      max-width: inherit;
+    }
+  }
+  &.rain-back {
+    .raindrop {
+      z-index: 10;
+    }
+  }
+}
+.rain-close {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+  font-size: 50px !important;
+  cursor: pointer;
+  &:hover {
+    color: #cccccc;
+  }
+}

@@ -1,0 +1,188 @@
+@charset "UTF-8";
+
+@import
+"~base/styles/imports";
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1040;
+  background-color: #000000;
+  &.fade {
+    opacity: 0;
+    &.in {
+      opacity: $modal-fade-opacity;
+    }
+  }
+  opacity: $modal-fade-opacity;
+}
+
+.modal-open {
+  overflow: hidden;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  //bottom: 0;
+  //right: 0;
+  z-index: 1050;
+  outline: 0;
+  color: $font-deep-color;
+
+  width: 520px;
+  margin-left: -260px;
+
+  &.fade {
+    top: -25%;
+    transition: opacity 0.3s linear, top 0.3s ease-out;
+    &.in {
+      top: 5%;
+    }
+
+    &.ten {
+      &.in {
+        top: 10%;
+      }
+    }
+  }
+
+
+  &.modal-notification {
+
+    .modal-dialog {
+      //opacity: 0.85;
+    }
+
+    &.in {
+      top: 20%;
+    }
+  }
+
+  &.modal-notification-3sec {
+    &.in {
+      top: 20%;
+    }
+    .modal-dialog, .modal-body {
+      margin: 30px auto;
+      opacity: 0.9;
+      background-color: $background-dark;
+      color: $background-color;
+      border-radius: 5px;
+    }
+  }
+
+  .btn.confirm-agree {
+    color: $font-color-coffee;
+    background: $color-sunshine;
+    border: 0px;
+    border-radius: 2px;
+  }
+  .btn.btn-link {
+    color: $font-color-coffee;
+  }
+}
+
+.modal-dialog {
+  width: 100%;
+  //border: 1px solid $new-main-dark-color;
+  overflow: hidden;
+}
+
+.modal-content {
+  outline: 0;
+}
+
+.modal-header {
+  color: $background-color;
+  background-color: $light-dark-color;
+  padding: 10px;
+  border-bottom: 1px solid $new-main-dark-color;
+  .close {
+    margin-top: 2px;
+    width: 28px;
+    height: 28px;
+    margin-right: 15px;
+  }
+  h4 {
+    font-weight: normal;
+    font-size: 16px;
+    margin: 0 0 0 20px;
+    line-height: 28px;
+  }
+}
+
+.modal-body {
+  background-color: #fff;
+  color: $dark-color;
+  position: relative;
+  padding: 15px;
+  overflow-y: auto;
+
+}
+
+.modal-form {
+  margin-bottom: 0;
+}
+
+.modal-footer {
+  padding: 14px 15px 15px;
+  margin-bottom: 0;
+  text-align: right;
+  background-color: $light-color;
+  //border-top: 1px solid $main-light-color;
+  *zoom: 1;
+  &:before {
+    display: table;
+    line-height: 0;
+    content: "";
+  }
+  &:after {
+    display: table;
+    line-height: 0;
+    content: "";
+    clear: both;
+  }
+  .btn + .btn {
+    margin-bottom: 0;
+    margin-left: 5px;
+  }
+  .btn-group .btn + .btn {
+    margin-left: -1px;
+  }
+  .btn-block + .btn-block {
+    margin-left: 0;
+  }
+}
+
+.close {
+  float: right;
+  font-size: 23px;
+  font-weight: normal;
+  line-height: 17px;
+  //color: $main-light-color;
+  outline: 0;
+  width: 17px;
+  height: 17px;
+  //background: url('close_btn.png') no-repeat;
+  &:hover, &:focus {
+    //color: #000000;
+    text-decoration: none;
+    cursor: pointer;
+    outline: 0;
+
+    opacity: 0.4;
+  }
+}
+
+button.close {
+  padding: 0;
+  cursor: pointer;
+  //background-color: $font-color;
+  border: 0;
+  -webkit-appearance: none;
+}

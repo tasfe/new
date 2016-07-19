@@ -1,0 +1,17 @@
+<div class="btn-group btn-group-justified">
+  <a class="router btn btn-default" href="#nc/pn">系统通知（<%=unReadNotice %>）</a>
+  <a class="router btn btn-default" href="#nc/il">站内信（<%=unReadLetter %>）</a>
+</div>
+<div class="m-top-xs tab-content">
+  <div id="jsGlNews" class="tab-pane fade active in m-bottom-sm overflow-auto max-height-md">
+    <% if(_(noticeList).isEmpty()) { %>
+      <p class="p-top-xs p-bottom-xs border-bottom">暂无新的消息</p>
+    <% } else { %>
+      <% _(noticeList).each(function(notice) { %>
+      <p class="p-top-xs p-bottom-xs border-bottom"><%=notice.title %></p>
+      <% }); %>
+    <% } %>
+  </div>
+
+  <a href="#nc/pn" class="router btn btn-block btn-cool">查看更多</a>
+</div>

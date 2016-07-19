@@ -1,0 +1,28 @@
+<form class="js-fc-wd-form form-inline  row" action="javascript:void(0);" >
+    <div class=" m-top-md m-right-md fc-wd-div1 text-left">
+        <div class=" m-bottom-md">
+            <span>  提现金额&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            <div class="inline-block">
+                <input type="text" name="amount"  class="js-fc-wd-amount fc-wd-amount " autocomplete="off"
+                                                  required data-parsley-type="integer"> 元</div>
+        </div>
+        <div class=" m-bottom-md">
+            <ul class="js-fc-wd-quickAmounts fc-wd-quickAmount">
+
+            </ul>
+        </div>
+        <div class="m-bottom-md">
+            <span >提现银行卡&nbsp;&nbsp;</span><select class="js-fc-wd-bankList fc-wd-bankList"></select>
+        </div>
+    </div>
+    <div class="text-center m-top-md m-bottom-md">
+        需消费充值及转账金额的20%，方可全额提现，您的当前可提现金额:
+        <span class="text-hot"><span class="js-fc-valid-balance">-</span>元</span>
+    </div>
+    <div class="text-center m-bottom-lg">
+        <div>新绑定的提款银行卡需要3 小时后才能发起提款。</div>
+        <button type="button" class="js-fc-wd-commit btn btn-sun btn-linear fc-wd-commit">申请提现</button>
+    </div>
+    <input type="hidden" name="token" value="<%=Global.memoryCache.get('acctInfo').token %>">
+    <input type="hidden" class="js-fc-wd-payPwd">
+</form>

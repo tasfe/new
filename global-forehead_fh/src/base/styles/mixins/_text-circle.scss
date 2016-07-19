@@ -1,0 +1,36 @@
+@mixin text-circle-size($class, $sizeProps) {
+
+  $sizeProp: map_get($sizeProps, $class);
+  $size: map_get($sizeProp, width);
+  $font-size: map_get($sizeProp, font-size);
+
+  border-radius: $size;
+
+  width: $size;
+  height: $size;
+  line-height: $size;
+  font-size: $font-size;
+}
+
+@mixin text-circle-color($class, $colorProp) {
+
+  $color: map_get($colorProp, color);
+  $background: map_get($colorProp, background);
+  $border-color: map_get($colorProp, border-color);
+
+  color: $color;
+  background: $background;
+  border: 1px solid $border-color;
+}
+
+@mixin text-circle-colors($styles) {
+  @each $class, $props in $styles {
+    @if ($class == default) {
+      @include text-circle-color($class, $props);
+    } @else {
+      &.text-circle-#{$class} {
+        @include text-circle-color($class, $props);
+      }
+    }
+  }
+}

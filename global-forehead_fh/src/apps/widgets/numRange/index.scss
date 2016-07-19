@@ -1,0 +1,55 @@
+@charset "UTF-8";
+
+@import
+"~base/styles/imports";
+
+.num-range {
+  display: inline-block;
+  border: 1px solid $gray-color;
+
+  > {
+    .num-range-left {
+      font-size: 12px;
+      float: left;
+      padding: 0 6px;
+      border-right: 1px solid $gray-color;
+      background: linear-gradient(to bottom, #ffbd11, #ffa701);
+      cursor: pointer;
+
+      &.disabled {
+        cursor: default;
+        color: #c1c1c1;
+        background: transparent;
+      }
+    }
+    .num-range-center {
+      float: left;
+      height: 22px;
+      line-height: 22px;
+      width: 32px;
+      border: none;
+      //padding: 1px;
+      box-sizing: border-box;
+      text-align: center;
+      background-color: transparent;
+      outline: 0;
+      &:hover, &:active {
+        outline: 0;
+      }
+    }
+    .num-range-right {
+      font-size: 12px;
+      float: left;
+      padding: 0 6px;
+      border-left: 1px solid $gray-color;
+      cursor: pointer;
+      background: linear-gradient(to bottom, #ffbd11, #ffa701);
+
+      &.disabled {
+        cursor: default;
+        color: #c1c1c1;
+        background: transparent;
+      }
+    }
+  }
+}

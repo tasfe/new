@@ -1,0 +1,247 @@
+@charset "UTF-8";
+
+@import "~base/styles/imports";
+
+$wrapperWidth: 1366px;
+$dashboard-slide-nav-item-width: 123px;
+$dashboard-slide-nav-item-height: 127px;
+$dashboard-slide-nav-item-a-width: 156px;
+$dashboard-slide-nav-item-a-height: 158px;
+$main-height: 540px !default;
+
+$main-top: 110px !default;
+
+.db-main {
+  border: 1px solid $gray-color;
+}
+
+.db-ticket-scroll {
+  bottom: $main-top !important;
+}
+
+.carousel-inner {
+  height: 215px;
+  img {
+    height: 215px;
+  }
+}
+
+.db-slogan {
+  background: url(../misc/slogan.png) no-repeat no-repeat center center;
+  width: 347px;
+  height: 40px;
+  margin: 30px auto 15px;
+}
+
+.dynamic {
+  width: 242px;
+  height: 196px;
+  background: #fff;
+  box-shadow: 2px 2px 5px #868686;
+  position: absolute;
+  top: 8px;
+  right: 45px;
+
+  .dynamic-header {
+    padding: 11px 14px;
+    background: url(red-tag.png) no-repeat;
+    font-size: 16px;
+    height: 24px;
+    font-weight: bold;
+    line-height: 20px;
+    color: #fff;
+    top: -4px;
+    position: relative;
+  }
+
+  .dynamic-body {
+    height: 125px;
+    position: relative;
+    margin: -3px 20px 0 20px;
+    ul {
+      list-style: none;
+    }
+    li {
+      position: relative;
+      a {
+        padding: 2px;
+        border-bottom: 1px dashed #cccccc;
+        display: block;
+
+        &:hover {
+          color: #fdbe4a;
+        }
+      }
+      //&:last-of-type {
+      //  a {
+      //    border-bottom: 0;
+      //  }
+      //}
+      &:first-of-type {
+        a {
+          padding-top: 0;
+        }
+      }
+    }
+
+    .text-circle {
+      line-height: 22px;
+      font-size: 15px;
+    }
+    .dynamic-day {
+      font-size: 18px;
+      margin-top: 5px;
+    }
+
+    .dynamic-main {
+      vertical-align: middle;
+      //color: $new-black-color;
+
+      .dynamic-title {
+        font-size: 12px;
+        height: 20px;
+        line-height: 20px;
+      }
+    }
+    .dynamic-text {
+      width: 60px;
+    }
+  }
+
+  .dynamic-footer {
+    height: 30px;
+    line-height: 24px;
+  }
+
+  .pn-pagination {
+    padding-left: 10px;
+    padding-right: 10px;
+
+    //.pn-prev {
+    //  margin-right: 10px;
+    //  float: left;
+    //  .fa {
+    //    padding-right: 2px;
+    //  }
+    //}
+    .pn-next {
+      float: right;
+      .fa {
+        padding-left: 2px;
+      }
+      &:hover {
+        color: #fdbe4a;
+      }
+    }
+  }
+}
+
+@mixin slide-nav-item($sfas, $size) {
+  @each $class, $val in $sfas {
+    &.#{$class} {
+      background: url(map_get($val, default)) no-repeat no-repeat;
+      width: $size;
+      height: $size;
+      display: block;
+      margin: 0 auto;
+    }
+  }
+}
+
+.ticket-list {
+  margin: 0 -1px;
+  .ticket-item {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    width: 165.5px;
+    height: 182px;
+    padding-top: 27px;
+    float: left;
+    border: 1px solid #d4d4d4;
+    margin-right: -1px;
+    margin-top: -1px;
+    background: url(./ticket-bg.png) repeat-x;
+
+    .sfa {
+      @include slide-nav-item($sfa-d-tickets, 90px);
+    }
+  }
+
+  .ticket-badge {
+    transform: rotate(-45deg);
+    position: absolute;
+    width: 100px;
+    left: -25px;
+    top: 15px;
+    font-size: 13px;
+    font-weight: bold;
+  }
+
+  .ticket-title {
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  .ticket-brief {
+    margin-top: 5px;
+    color: $light-dark-color-2;
+  }
+}
+
+$float-bottom: 191px;
+$float-height: 38px;
+.customer-service {
+  bottom: $float-bottom;
+  width: 64px;
+  height: 64px;
+  background-image: url(~base/images/contact_service.png);
+
+  &:hover {
+    background-image: url(~base/images/contact_service1.png);
+  }
+}
+
+.upgrade-intro {
+  bottom: $float-bottom + $float-height;
+  width: 42px;
+  height: $float-height;
+  background-image: url(~base/images/upgrade.png);
+
+  &:hover {
+    background-image: url(~base/images/upgrade2.png);
+  }
+}
+
+.history-record {
+  bottom: $float-bottom + $float-height * 2;
+  width: 42px;
+  height: $float-height;
+  background-image: url(~base/images/hrecord.png);
+
+  &:hover {
+    background-image: url(~base/images/hrecord2.png);
+  }
+}
+
+.customer-service, .upgrade-intro, .history-record {
+  position: fixed;
+  left: 50%;
+  margin-left: 512px;
+  transition: background-image 0.4s ease-in-out;
+}
+
+@media (max-height: 930px) {
+  $float-bottom: $float-bottom - 91px;
+  .customer-service {
+    bottom: $float-bottom;
+  }
+  .upgrade-intro {
+    bottom: $float-bottom + $float-height;
+  }
+
+  .history-record {
+    bottom: $float-bottom + $float-height * 2;
+  }
+}

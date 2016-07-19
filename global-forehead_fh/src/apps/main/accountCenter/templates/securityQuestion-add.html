@@ -1,0 +1,151 @@
+<div  class="js-as-stepContainer js-as-addSecurityQuestion as-step-container-short wizard-long">
+  <!-- Step1 选择密码找回方式 -->
+  <h3>输入密保问题</h3>
+  <div class="alert fade in m-bottom-smd text-center as-security-add-notice">
+    <!--<span class="as-securityQuestion-notice-logo"> </span>-->
+    提示：密保问题用于找回登录密码和资金密码，请谨慎填写。
+  </div>
+  <form action="javascript:void(0);" class="js-as-inputSQForm form-horizontal security-question ">
+    <div class="as-securityQuestion-step1-div">
+      <div class="step-inner">
+        <!--<div class="step-number">1</div>-->
+        <div class="step-inner-main">
+          <div class="control-group">
+            <label class="control-label">问题一：</label>
+            <div class="controls">
+              <select  class="js-as-questionSelect required" >
+                <option  value="">请选择密保问题</option>
+              </select>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label">答案：</label>
+            <div class="controls">
+              <input type="text" class="js-as-answer required">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step-inner">
+        <!--<div class="step-number">2</div>-->
+        <div class="step-inner-main">
+          <div class="control-group">
+            <label class="control-label " >问题二：</label>
+
+            <div class="controls">
+              <select class="js-as-questionSelect required">
+                <option  value="">请选择密保问题</option>
+              </select>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label">答案：</label>
+
+            <div class="controls">
+              <input type="text" class="js-as-answer required">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step-inner">
+        <!--<div class="step-number">3</div>-->
+        <div class="step-inner-main">
+          <div class="control-group">
+            <label  class="control-label " >问题三：</label>
+
+            <div class="controls">
+              <select class="js-as-questionSelect required">
+                <option  value="">请选择密保问题</option>
+              </select>
+            </div>
+          </div>
+          <div class="control-group">
+            <label  class="control-label">答案：</label>
+            <div class="controls">
+              <input type="text" class="js-as-answer required">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="control-confirm text-center text-center">
+      <button type="button" class="js-as-inputSecurityQuestion-submit btn btn-sun btn-linear input1">下一步</button>
+      <button type="reset" class="js-as-inputSecurityQuestion-reset btn btn-b-white input1 btn-right">重置</button>
+    </div>
+  </form>
+
+  <!-- Step2 验证密保信息 -->
+  <h3>确认密保问题</h3>
+  <form action="javascript:void(0);" class="form-horizontal" >
+    <div class="as-securityQuestion-step1-div">
+      <div class="step-inner">
+        <!--<div class="step-number">1</div>-->
+        <div class="step-inner-main">
+          <div class="control-group">
+            <label  class="control-label">问题一： </label>
+            <div class="controls">
+              <span class="js-as-showQuestion"></span>
+            </div>
+          </div>
+          <div class="control-group">
+            <label  class="control-label"> 答案：</label>
+            <div class="controls">
+              <span class="js-as-showAnswer" ></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step-inner">
+        <!--<div class="step-number">2</div>-->
+        <div class="step-inner-main">
+          <div class="control-group">
+            <label  class="control-label">问题二： </label>
+            <div class="controls">
+              <span class="js-as-showQuestion"></span>
+            </div>
+          </div>
+          <div class="control-group">
+            <label  class="control-label"> 答案：</label>
+            <div class="controls">
+              <span  class="js-as-showAnswer"   ></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step-inner">
+        <!--<div class="step-number">3</div>-->
+        <div class="step-inner-main">
+          <div class="control-group">
+            <label class="control-label">问题三： </label>
+            <div class="controls">
+              <span class="js-as-showQuestion"></span>
+            </div>
+          </div>
+          <div class="control-group">
+            <label  class="control-label"> 答案：</label>
+            <div class="controls">
+              <span class="js-as-showAnswer"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    <div class="control-confirm text-center">
+      <button type="button" class="js-as-confirmSecurityQuestion-submit btn btn-sun btn-linear input1" data-loading-text="保存中">下一步</button>
+      <button type="button" class="js-as-SecurityQuestion-return btn btn-b-white input1 btn-right" data-type="0">返回</button>
+    </div>
+  </form>
+
+  <!-- Step3 重置资金密码 -->
+  <!--<h3>设置成功</h3>-->
+  <!--<form action="javascript:void(0);" class="form-horizontal" >-->
+    <!--<div class="text-center">-->
+      <!--<span class="sfa sfa-face-success m-TB-md"></span>-->
+      <!--<p class="font-md">恭喜你，设置成功</p>-->
+    <!--</div>-->
+  <!--</form>-->
+</div>

@@ -1,0 +1,57 @@
+@mixin nav-tab($props) {
+
+  $borderColor: map_get($props, border-color);
+  $color: map_get($props, color);
+  $bgColor: map_get($props, bg-color);
+  $activeColor: map_get($props, active-color);
+  $activeBgColor: map_get($props, active-bg-color);
+
+  border-bottom: 1px solid $borderColor;
+
+  padding-left: 2rem;
+
+  > {
+    li {
+      > a {
+        color: $color;
+        //background-color: $bgColor;
+
+        border: 1px solid transparent;
+
+        &:hover, &:focus {
+          //color: $hoverColor;
+          background-color: transparent;
+          //background-color: $main-color;
+        }
+      }
+
+      &.active > a {
+        color: $activeColor;
+        border: 1px solid $borderColor;
+        border-bottom-color: transparent;
+
+        background-color: $bgColor;
+
+        &:hover, &:focus {
+          color: $activeColor;
+          background-color: $bgColor;
+        }
+        &:after {
+          background-color: $activeBgColor;
+        }
+      }
+    }
+  }
+}
+
+@mixin nav-tabs($styles) {
+  @each $class, $props in $styles {
+    @if ($class == default) {
+      @include nav-tab($props);
+    } @else {
+      &.nav-#{$class} {
+        @include nav-tab($props);
+      }
+    }
+  }
+}

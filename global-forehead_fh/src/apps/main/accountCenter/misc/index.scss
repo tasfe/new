@@ -1,0 +1,186 @@
+@charset "UTF-8";
+
+@import
+"~base/styles/imports";
+
+.as-passwordManage {
+  padding: 13px 15px 0 15px;
+  //.control-label {
+  //  width: 120px;
+  //  font-size: 13px;
+  //  font-weight: bold;
+  //}
+  form {
+    margin: 0 auto;
+    width: 715px;
+  }
+  .input1 {
+    width: 200px;
+  }
+  .btn-md {
+    width: 118px;
+    height: 32px;
+    font-size: 16px;
+  }
+  .btn-md-a {
+    width: 118px;
+    height: 22px;
+    font-size: 16px;
+  }
+}
+
+.as-loginLog {
+  //padding: 16px 16px 0 19px;
+  .login-table table {
+    border-left: 0;
+    border-right: 0;
+    thead {
+      color: $font-color-coffee;
+    }
+  }
+}
+
+.as-alert-bar {
+  color: $light-dark-color-2;
+  padding: 13px;
+}
+
+.as-step-container {
+  width: 600px;
+  margin: 0 auto;
+  margin-top: 15px;
+  .content {
+    height: 470px;
+  }
+}
+
+.as-step-container-short {
+  width: 600px;
+  margin: 0 auto;
+  margin-top: 30px;
+  .content {
+    height: 450px;
+    margin: 15px 0px;
+  }
+}
+
+.step-inner-find {
+  border: 1px solid #c2c2c2;
+  &.step-inner {
+    margin-bottom: 0px;
+  }
+
+  &:first-of-type {
+    border-bottom: 0px;
+  }
+
+  .step-inner-SQNotSet {
+
+    position: relative;
+    margin-top: -13px;
+  }
+
+  .step-inner-setSQ-div {
+    margin-top: 5px;
+  }
+}
+
+.ac-selectWay {
+  .btn {
+    //padding: 8px;
+    width: 118px;
+    //font-size: 16px;
+    //font-weight: bold;
+    box-sizing: border-box;
+  }
+}
+
+.ac-find-by-card {
+  width: 400px;
+  margin: 0 auto;
+}
+
+.control-confirm {
+  .btn {
+    width: 214px;
+    height: 32px;
+    //font-size: 14px;
+  }
+  .btn-right {
+    margin-left: 13px;
+  }
+}
+
+.control-confirm-special {
+  margin-top: 10px;
+
+  .btn-left{
+    width: 100px;
+    height: 30px;
+  }
+  .btn-right {
+    margin-left: 4px !important;
+    color: $main-color;
+  }
+}
+
+.security-question {
+  .control-confirm {
+    margin-top: 20px;
+    .btn {
+      width: 166px;
+      height: 32px;
+      margin-left: 30px;
+    }
+    .btn-right {
+      margin-left: 13px;
+    }
+  }
+
+  .control-group {
+    margin-bottom: 10px;
+  }
+}
+
+.find-select {
+  padding-top: 35px;
+  overflow: hidden;
+  padding-right: 20px;
+}
+
+.ac-reset-div {
+  width: 300px;
+  padding: 5px 10px;
+  margin: 10px auto;
+  .control-label {
+    width: 80px;
+  }
+  .controls {
+    margin-left: 80px;
+  }
+}
+
+.as-fund-pwd-head{
+  margin-bottom: 20px;
+}
+
+.as-security-add-notice {
+  width: 325px;
+  padding: 5px 10px;
+  margin: 10px auto;
+}
+
+.as-securityQuestion-step1-div {
+  width: 400px;
+  margin: 0 auto;
+}
+
+.ac-securityQuestion-divider {
+  width: 380px;
+}
+
+//.as-securityQuestion-notice-logo {
+//  padding-left:20px;
+//  background-image: url(./securityNotice.png);
+//  background-repeat: no-repeat;
+//}

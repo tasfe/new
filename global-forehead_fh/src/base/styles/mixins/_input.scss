@@ -1,0 +1,8 @@
+@mixin input-factory($style) {
+  color: map_get($style, color);
+
+  &[type="text"], &[type="password"], &[type="datetime"], &[type="datetime-local"], &[type="date"], &[type="month"], &[type="time"], &[type="week"], &[type="number"], &[type="email"], &[type="url"], &[type="search"], &[type="tel"], &[type="color"] {
+    background-color: map_get($style, bg-color);
+    border: 1px solid map_get($style, border-color);
+  }
+}

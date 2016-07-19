@@ -1,0 +1,95 @@
+@charset "UTF-8";
+
+@import
+"~base/styles/imports";
+
+$pg-filter: 5px !default;
+
+$pg-item: (
+  color: $font-color,
+  bg-color: linear-gradient(to bottom, #ffc233, #f2a701),
+  hover-color: $font-color,
+  bg-hover-color: linear-gradient(to bottom, #ffc233, #f2a701),
+  active-color: $font-default,
+  bg-active-color: $color-pleasant,
+  disabled-color: #666666,
+  disabled-bg: linear-gradient(to bottom, #f0f0f0, #e0e0e0),
+  disabled-border: $gray-color
+);
+
+.pagination {
+  margin: 0;
+  ul {
+    display: inline-block;
+    *display: inline;
+    margin-right: 20px;
+    *zoom: 1;
+    > {
+      li {
+        display: inline-block;
+        margin-left: $pg-filter;
+        > {
+          span {
+            padding: 3px 10px;
+            border: 1px solid #666666;
+            line-height: 15px;
+            display: inline-block;
+            cursor: pointer;
+
+            background: map_get($pg-item, bg-color);
+            color: map_get($pg-item, color);
+            &:hover, &:focus {
+              background-color: map_get($pg-item, bg-hover-color);
+              color: map_get($pg-item, hover-color);
+            }
+          }
+        }
+      }
+      .active > {
+        span {
+          background: map_get($pg-item, bg-active-color);
+          color: map_get($pg-item, active-color);
+          //cursor: default;
+        }
+      }
+      .disabled > {
+        span {
+          background: map_get($pg-item, disabled-bg);
+          color: map_get($pg-item, disabled-color);
+          cursor: default;
+          border-color: map_get($pg-item, disabled-border);
+
+          &:hover, &:focus {
+            background: map_get($pg-item, disabled-bg);
+            color: map_get($pg-item, disabled-color);
+          }
+        }
+      }
+    }
+  }
+
+  >.active {
+    > span,
+    > span:focus,
+    > span:hover {
+      background-color: #1bbb9e;
+      border: 1px solid #05b499;
+    }
+  }
+  .pagination-curt-page {
+    width: 23px;
+    padding: 3px;
+    vertical-align: initial;
+    text-align: center;
+    color: $color-hot;
+  }
+
+  .pagination-go-to {
+    border: 1px solid #a13636;
+    color: $light-color;
+    font-weight: bold;
+    background: linear-gradient(to bottom, #ed584d, #bb261b);
+    padding: 3px 10px;
+    vertical-align: initial;
+  }
+}

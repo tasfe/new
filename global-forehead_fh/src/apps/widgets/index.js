@@ -1,0 +1,12 @@
+require('./confirm');
+require('./securityTip');
+require('./pagination');
+require('./grid');
+require('./staticGrid');
+require('./textCopy');
+require('./statistics');
+require('./treeView');
+require('./fileLoad');
+require('./numRange');
+require('./dropMenu');
+require('./verifyFundPwd');

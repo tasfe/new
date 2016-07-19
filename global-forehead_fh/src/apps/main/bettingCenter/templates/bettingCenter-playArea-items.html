@@ -1,0 +1,47 @@
+<div class="js-bc-playArea-items js-bc-playArea-items-<%=row.id %> bc-playArea-items" data-id="<%=row.id %>">
+  <div class="js-be-playArea-items-toolbar inline-block tab-toolbar tab-circle vertical-top">
+  <% if (row.title) { %>
+    <div class="js-bc-select-item-title tab-title">
+      <div><%=row.title %></div>
+    </div>
+  <% } else { %>
+    <div class="js-bc-select-item-title tab-title">
+      <div>号码</div>
+    </div>
+  <% } %>
+    <div class="tab-group">
+      <% _(row.items).each(function(item) { %>
+      <div class="tab-wrapper bc-select-item">
+        <span class="js-bc-select-item cbutton cbutton--effect-novak <%=limit %> tab" <%=limitProps %> data-num="<%=item %>">
+          <%=item %>
+        </span>
+        <!--<div class="bc-yirou">8</div>-->
+      </div>
+      <% }); %>
+    </div>
+  </div>
+  <% if (row.hasOp) { %>
+  <div class="tab-toolbar tab-border tab-toolbar-sm inline-block">
+    <div class="tab-group m-left-md">
+      <% if (row.op.all) { %>
+      <span class="js-bc-select-op tab" data-op="all">全</span>
+      <% } %>
+      <% if (row.op.big) { %>
+      <span class="js-bc-select-op tab" data-op="big">大</span>
+      <% } %>
+      <% if (row.op.small) { %>
+      <span class="js-bc-select-op tab" data-op="small">小</span>
+      <% } %>
+      <% if (row.op.odd) { %>
+      <span class="js-bc-select-op tab" data-op="odd">单</span>
+      <% } %>
+      <% if (row.op.even) { %>
+      <span class="js-bc-select-op tab" data-op="even">双</span>
+      <% } %>
+      <% if (row.op.clear) { %>
+      <span class="js-bc-select-op tab" data-op="clear">清</span>
+      <% } %>
+    </div>
+  </div>
+  <% } %>
+</div>

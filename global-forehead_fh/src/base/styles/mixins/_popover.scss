@@ -1,0 +1,54 @@
+@mixin popover($props) {
+
+  $titleColor: map_get($props, title-color);
+  $titleBgColor: map_get($props, title-bg-color);
+  $contentColor: map_get($props, content-color);
+  $contentBgColor: map_get($props, content-bg-color);
+
+  &.top .arrow {
+    border-top-color: #999;
+    &:after {
+      border-top-color: $contentBgColor;
+    }
+  }
+  &.right .arrow {
+    border-right-color: #999;
+    &:after {
+      border-right-color: $contentBgColor;
+    }
+  }
+  &.bottom .arrow {
+    border-bottom-color: #999;
+    &:after {
+      border-bottom-color: $contentBgColor;
+    }
+  }
+  &.left .arrow {
+    border-left-color: #999;
+    &:after {
+      border-left-color: $contentBgColor;
+    }
+  }
+
+  .popover-title {
+    color: $titleColor;
+    background-color: $titleBgColor;
+  }
+
+  .popover-content {
+    color: $contentColor;
+    background-color: $contentBgColor;
+  }
+}
+
+@mixin popovers($styles) {
+  @each $class, $props in $styles {
+    @if ($class == default) {
+      @include popover($props);
+    } @else {
+      &.popover-#{$class} {
+        @include popover($props);
+      }
+    }
+  }
+}

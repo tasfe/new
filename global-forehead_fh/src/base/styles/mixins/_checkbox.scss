@@ -1,0 +1,42 @@
+@mixin checkbox($props) {
+
+  $borderColor: map_get($props, border-color);
+  $hookColor: map_get($props, hook-color);
+
+  label {
+    border-color: $borderColor;
+    background-color: map_get($props, bg-color);
+
+    &:after {
+      border-left: 2px solid $hookColor;
+      border-bottom: 2px solid $hookColor;
+    }
+  }
+
+  input[type=checkbox] {
+    &:checked + label {
+      background: map_get($props, active-bg-color);
+      border-color: transparent;
+    }
+  }
+
+  &.checkbox-linear {
+    input[type=checkbox] {
+      &:checked + label {
+        background: map_get($props, linear-color);
+      }
+    }
+  }
+}
+
+@mixin checkboxes($styles) {
+  @each $class, $props in $styles {
+    @if ($class == default) {
+      @include checkbox($props);
+    } @else {
+      &.checkbox-#{$class} {
+        @include checkbox($props);
+      }
+    }
+  }
+}

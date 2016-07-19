@@ -1,0 +1,57 @@
+@charset "UTF-8";
+
+@import "~base/styles/imports";
+
+.progressbar_1{
+  background-color:#eee;
+  height:5px;
+  width:620px;
+  border:1px solid #bbb;
+  color:#222;
+}
+
+.progressbar_1 .bar {
+  //background-color:#6CAF00;
+  background: url("./misc/points.png") no-repeat;
+  height:5px;
+  //width:0;
+  text-align: left;
+}
+
+.uc-vip-head-data{
+  //position: relative;
+  display: inline-block;
+  width: 131px;
+  text-align: center;
+}
+.uc-vip-head-grade {
+  display: inline-block;
+  background: url("./misc/points.png") no-repeat;
+  height:17px;
+  width:620px;
+  >span{
+    //position: relative;
+    display: inline-block;
+    width: 83px;
+    border-left: 1px solid $gray-color;
+  }
+  >span :last-child{
+    border-right: 1px solid $gray-color;
+  }
+}
+
+.uc-vip-head-grade1 {
+  display: inline-block;
+  //background: url("./misc/points.png") no-repeat;
+  height:17px;
+  width:620px;
+  >span{
+    //position: relative;
+    display: inline-block;
+    width: 83px;
+    border-left: 1px solid $white-color;
+  }
+  >span :last-child{
+    border-right: 1px solid $white-color;
+  }
+}

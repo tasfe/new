@@ -1,0 +1,16 @@
+<div class="js-bc-playArea-position form-inline tab-toolbar no-margin bc-playArea-position">
+  <!--<div class="tab-title">选择位置</div>-->
+  <div class="bc-optional-main">
+    <% _(optionals).each(function(optional) { %>
+    <% var uniqueId = _.uniqueId('js');%>
+    <label class="m-right-mlg">
+      <span class="custom-checkbox checkbox-linear checkbox-lg">
+        <input type="checkbox" id="<%=uniqueId %>" class="js-bc-playArea-position-item" name="optional"
+               value="<%=optional.id %>" <% if (optional.checked) { %>checked<% } %>>
+        <label class="checkbox-label" for="<%=uniqueId %>"></label>
+      </span>
+      <%=optional.title %>
+    </label>
+    <% }); %>
+  </div>
+</div>

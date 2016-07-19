@@ -1,0 +1,79 @@
+<div class="relative">
+  <table class="<%=tableClass %> no-margin">
+    <colgroup>
+      <% if (checkable) { %>
+      <col>
+      <% } %>
+      <% _.each(columnDefinitions, function(columnDefinition) { %>
+      <col width="<%=columnDefinition.width %>">
+      <% }) %>
+    </colgroup>
+
+    <thead class="<%=showHead %>">
+      <tr>
+        <% if (checkable) { %>
+        <th class="text-center no-padding">
+          <!--<div class="custom-checkbox checkbox-small hidden">-->
+            <!--<input type="checkbox" id="<%=chkAllId %>" class="js-wt-select-all">-->
+            <!--<label for="<%=chkAllId %>"></label>-->
+          <!--</div>-->
+        </th>
+        <% } %>
+        <% _.each(columnDefinitions, function(columnDefinition) { %>
+        <% if (columnDefinition.name) { %>
+        <th data-id="<%=columnDefinition.id %>">
+          <% if(columnDefinition.sortable) { %>
+          <a href="javascript:void(0);" class="btn-sm no-padding text-white sortable-grid-col-header">
+            <%=columnDefinition.name %>
+            <i class="table-sort fa <%=columnDefinition.sortable.defaultDir ? ('fa-sort-' + columnDefinition.sortable.defaultDir) : 'fa-sort' %>"></i>
+          </a>
+          <% } else { %>
+          <%=columnDefinition.name %>
+          <% } %>
+        </th>
+        <% } %>
+        <% }); %>
+      </tr>
+    </thead>
+  </table>
+</div>
+
+<div class="js-wt-body-main relative">
+  <table class="<%=tableClass %> no-margin <% if (hasBorder) { %>no-b-top no-b-bottom<% } %>">
+    <colgroup>
+      <% if (checkable) { %>
+      <col>
+      <% } %>
+      <% _.each(columnDefinitions, function(columnDefinition) { %>
+      <col width="<%=columnDefinition.width %>">
+      <% }) %>
+    </colgroup>
+    <tbody></tbody>
+  </table>
+
+  <%=loading %>
+  <%=emptyTip %>
+</div>
+
+<div class="js-wt-footer-main relative">
+  <table class="<%=tableClass %> no-margin">
+    <colgroup>
+      <% if (checkable) { %>
+      <col>
+      <% } %>
+      <% _.each(columnDefinitions, function(columnDefinition) { %>
+      <col width="<%=columnDefinition.width %>">
+      <% }) %>
+    </colgroup>
+    <tbody></tbody>
+  </table>
+</div>
+
+<div class="p-top-smd m-right-xs <%=footerClass %>">
+  <% if (tip) { %>
+  <div class="js-wt-tip pull-left grid-notice">
+    <%=tip %>
+  </div>
+  <% } %>
+  <div class="js-wt-pagination"></div>
+</div>

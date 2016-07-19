@@ -1,0 +1,127 @@
+@charset "UTF-8";
+@import "~base/styles/imports";
+
+.chat {
+
+  //chat
+  $chat: (
+    header-color: $font-passion,
+    left: (
+      bg-color: #ffffff,
+      color: $new-black-color,
+      border-color: #ffdece
+    ),
+    right: (
+      bg-color: #ffdece,
+      color: $new-black-color,
+      border-color: #ffdece
+    )
+  );
+
+  $left: map_get($chat, left);
+  $right: map_get($chat, right);
+
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+
+  li {
+    margin: 10px 0;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &.left {
+      .chat-title {
+        color: $new-black-color;
+        //text-align: left;
+      }
+      .chat-body {
+        margin-right: 70px;
+        float: left;
+        color: map_get($left, color);
+        background-color: map_get($left, bg-color);
+        border: 1px solid map_get($left, border-color);
+        position: relative;
+
+        &:after {
+          content: '';
+          position: absolute;
+          top: 9px;
+          left: -5px;
+          width: 10px;
+          height: 10px;
+          background: map_get($left, bg-color);
+          border: 1px solid map_get($left, border-color);
+          transform: rotate(45deg);
+          border-right: 0;
+          border-top: 0;
+        }
+      }
+
+      .chat-name {
+        text-align: right;
+      }
+    }
+
+    &.right {
+      .chat-title {
+        color: $new-black-color;
+        //text-align: right;
+      }
+      .chat-body {
+        float: right;
+        color: map_get($right, color);
+        background-color: map_get($right, bg-color);
+        border: 1px solid map_get($right, border-color);
+
+        &:after {
+          content: '';
+          position: absolute;
+          top: 9px;
+          right: -5px;
+          width: 10px;
+          height: 10px;
+          background: map_get($right, bg-color);
+          border: 1px solid map_get($right, border-color);
+          transform: rotate(45deg);
+          border-left: 0;
+          border-bottom: 0;
+        }
+      }
+
+      .chat-name {
+        text-align: left;
+      }
+    }
+
+    .chat-title {
+      text-align: center;
+      margin-bottom: 15px;
+
+      .chat-name {
+        font-weight: bold;
+        display: inline-block;
+      }
+
+      .chat-date {
+        display: inline-block;
+        position: relative;
+
+      }
+    }
+
+    .chat-body {
+      position: relative;
+      padding: 5px 10px;
+      min-width: 40px;
+      border-radius: 5px;
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+
+      p {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

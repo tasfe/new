@@ -1,0 +1,7 @@
+@mixin disabled-factory($style) {
+  input[disabled], select[disabled], textarea[disabled], input[readonly], select[readonly], textarea[readonly] {
+    color: map_get($style, color);
+    border-color: map_get($style, border-color);
+    background-color: map_get($style, bg-color);
+  }
+}

@@ -1,0 +1,66 @@
+<div class="nc-panel clearfix">
+  <div class="js-nc-ilSend nc-ilSend-container form-horizontal">
+
+    <div class="nc-ilSend-sendTo-type m-bottom-md">
+      <div class="js-nc-type-toggle letter-type-btn inline-block text-center active" data-type="single">
+        <span>单聊</span>
+      </div>
+      <div class="js-nc-type-toggle letter-type-btn inline-block text-center" data-type="multi">
+        <span>群发</span>
+      </div>
+    </div>
+
+    <form class="js-nc-single" action="javascript:void(0);">
+      <div class="clearfix">
+        <div class="nc-ilSend-sendTo-list pull-left">
+          <div class="js-single-lowLevelSelect nc-lowLevelSelect "></div>
+        </div>
+
+        <div class="nc-ilSend-sendTo-content pull-right">
+          <div class="js-single-detail-form il-detail-form form-horizontal">
+            <div class="nc-chat">
+              <div class="js-chat-title nc-chat-title hidden">
+                正在与 <span class="js-chat-partner font-bold"></span> 聊天……
+              </div>
+              <div class="js-single-container nc-chat-container"></div>
+              <textarea class="js-single-content nc-il-content input-block-level"
+                        placeholder="点击回复" name="content" autocomplete="off"></textarea>
+              <div class="pull-right m-right-sm">
+                <span class="js-single-statistics"></span>字
+              </div>
+              <input class="js-single-to-user" type="hidden" name="toUser" value="">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="control-confirm-special">
+        <button type="submit" class="js-single-submit btn btn-left pull-right" data-loading-text="发送中">发送</button>
+      </div>
+    </form>
+    <form class="js-nc-multi hidden" action="javascript:void(0);">
+      <div class="clearfix">
+        <div class="nc-ilSend-sendTo-list pull-left">
+          <div class="js-multi-lowLevelSelect nc-lowLevelSelect"></div>
+        </div>
+
+        <div class="nc-ilSend-sendTo-content pull-right">
+          <div class="il-detail-form form-horizontal">
+            <div class="nc-chat">
+              <div class="js-multi-container nc-chat-container"></div>
+              <textarea id="btn-input" class="js-multi-content nc-il-content input-block-level"
+                      placeholder="点击回复" name="content" autocomplete="off"></textarea>
+              <div class="pull-right m-right-sm">
+                <span class="js-multi-statistics"></span>字
+              </div>
+              <input class="js-multi-to-user" type="hidden" name="toUser" value="">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="control-confirm-special">
+        <button type="submit" class="js-multi-submit btn btn-left pull-right" data-loading-text="发送中">发送</button>
+      </div>
+    </form>
+  </div>
+</div>

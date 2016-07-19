@@ -1,0 +1,114 @@
+.dropdown-menu {
+  > li > a {
+    padding: 4px 20px;
+    &:focus, &:hover {
+      background: #f4f8fb;
+      color: #666;
+    }
+    img {
+      float: left;
+      width: 40px;
+      height: 40px;
+      border-radius: 50em;
+    }
+  }
+  &.message {
+    width: 280px;
+    padding: 0;
+    li {
+      border-bottom: 1px solid #ddd;
+      &:first-child a {
+        border-radius: 2px 2px 0 0;
+        background: #fff;
+        color: #777;
+        &:focus, &:hover {
+          background: #fff;
+          color: #777;
+        }
+      }
+      &:last-child {
+        border: none;
+        a {
+          border-radius: 0 0 2px 2px;
+          -moz-border-radius: 0 0 2px 2px;
+          -webkit-border-radius: 0 0 2px 2px;
+          background: #fff;
+          color: #777;
+        }
+      }
+      a {
+        padding: 10px;
+        text-align: left;
+        p {
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+        }
+        img {
+          float: left;
+          width: 40px;
+          height: 40px;
+          border-radius: 50em;
+        }
+        .detail {
+          float: left;
+          margin-left: 10px;
+          white-space: normal;
+        }
+        &:focus, &:hover {
+          background-color: #efefef;
+          color: #626262;
+          transition: all .2s ease;
+        }
+      }
+    }
+  }
+  &.notification {
+    top: 95%;
+    padding: 0;
+    width: 250px;
+    li {
+      border-bottom: 1px solid #ddd;
+      &:first-child a {
+        border-radius: 2px 2px 0 0;
+        background-color: #fff;
+        color: #777;
+        &:focus, &:hover {
+          background: #fff;
+          color: #777;
+        }
+      }
+      &:last-child {
+        border: none;
+        a {
+          border-radius: 0 0 2px 2px;
+          background-color: #fff;
+          color: #777;
+        }
+      }
+      a {
+        padding: 10px;
+        cursor: pointer;
+        position: relative;
+        &:focus, &:hover {
+          background-color: #eee;
+          color: #777;
+          transition: all .2s ease;
+        }
+        .notification-icon {
+          display: inline-block;
+          width: 20px;
+          height: 20px;
+          text-align: center;
+          border-radius: 3px;
+          font-size: 14px;
+        }
+        .time {
+          position: absolute;
+          right: 5px;
+          top: 12px;
+        }
+      }
+    }
+  }
+}

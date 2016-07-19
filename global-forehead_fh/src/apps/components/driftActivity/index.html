@@ -1,0 +1,145 @@
+<div class="js-com-mask fullscreen_mask hidden"></div>
+<div class="js-com-bottle-modal pop_shut hidden">
+  <div class="js-com-modal-close pop_close"></div>
+  <div class="pop_text">您确定要关闭<br>扔瓶子送福利吗？</div>
+  <div class="js-com-shut-bottle pop_btn_sure">确定</div>
+  <div class="pop_btn_return js-com-modal-close">返回</div>
+  <div class="clear_div"></div>
+</div>
+<div class="js-com-pop-description js-com-bottle-modal pop_description hidden">
+  <div class="js-com-modal-close pop_close" data-check-finished="true"></div>
+  <div class="pop_status">
+    <div></div>
+  </div>
+  <div class="pop_description_text"></div>
+  <div class="js-com-throw-btn js-com-throw pop_btn_throw">扔个漂流瓶</div>
+  <a class="js-com-get-prize js-com-modal-close pop_btn_throw block" target="_blank" href="activity.html?id=12">前往领取奖励</a>
+</div>
+<form class="js-com-throw-form js-com-bottle-modal pop_throw hidden" action="javascript:void(0)">
+  <div class="js-com-modal-close pop_close"></div>
+  <div class="pop_input_lump">
+    <div>第一步：选择祝福语（必选）</div>
+    <select name="words">
+      <% _(greetings).each(function(greeting) { %>
+      <option value="<%=greeting.id %>"><%=greeting.title %></option>
+      <% }); %>
+    </select>
+
+    <div>第二步：选择福字（必选）</div>
+    <select name="bottletype">
+      <% _(types).each(function(type) { %>
+      <option value="<%=type.id %>"><%=type.name %></option>
+      <% }); %>
+    </select>
+
+    <div>第三步：塞个红包</div>
+    <input type="text" class="js-com-bottle-money" name="bottlemoney" placeholder="不填表示不发红包" autocomplete="off"
+           data-parsley-range="[0, 10000]" data-parsley-threedecimal data-parsley-threedecimal-message="红包最小单位为厘">
+
+    <div>包多包少看心情，一元一角也是爱！</div>
+    <input type="password" class="js-com-money-pwd" name="moneypwd" placeholder="请输入您的资金密码" autocomplete="off">
+  </div>
+  <button type="submit" class="btn pop_btn_throwing">扔出去</button>
+</form>
+<div class="js-com-bottle-modal pop_throw_false hidden">
+  <div class="js-com-modal-close pop_close" data-check-finished="true"></div>
+  <div class="pop_status2">
+    <div class="pop_status_pic_07"></div>
+  </div>
+  <div class="pop_description_text2">您扔的是无红包漂流瓶，一小时仅能扔一个<br>请稍后再试。红包漂流瓶不限个数。</div>
+  <div class="js-com-modal-close pop_btn_throw_return" data-check-finished="true">返回</div>
+</div>
+<div class="js-com-throwed js-com-bottle-modal pop_throwing hidden">
+  <div class="js-com-modal-close pop_close" data-check-finished="true"></div>
+  <div class="pop_status2">
+    <div class="pop_status_pic_07"></div>
+  </div>
+  <div class="pop_description_text2">咚！ 您的漂流瓶已扔入漂流河，财源即将滚滚而来！<br>别忘了捡漂流瓶哟！</div>
+  <div class="js-com-modal-close pop_btn_end" data-check-finished="true">返回</div>
+</div>
+<div class="js-com-bottle js-com-throw bottle_btn hidden">
+  <div class="bottle_btn_water">
+    <div class="water">
+      <div class="river_bottle_02">
+        <ul>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </div>
+      <div class="river_bottle_01">
+        <ul>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="js-com-bottle bottle_btn_pic"><img src="images/20160305/bottle_btn.png" width="93" height="154"></div>
+  <div class="js-com-bottle-close bottle_close"></div>
+</div>
+
+<div class="js-com-river"></div>

@@ -1,0 +1,76 @@
+.alert {
+  padding: 5px 45px 5px 14px;
+  margin-bottom: 10px;
+
+  .alert-content {
+    position: relative;
+    height: 20px;
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: bottom;
+    > ul {
+      position: relative;
+      top: 0;
+    }
+  }
+
+  .pn {
+    display: inline-block;
+    position: relative;
+    height: 15px;
+    right: -5px;
+    float: right;
+
+    .pn-up {
+      position: absolute;
+      top: -3px;
+      font-size: 14px;
+    }
+    .pn-down {
+      position: absolute;
+      bottom: -5px;
+      font-size: 14px;
+    }
+
+    .pn-up, .pn-down {
+      &.disabled {
+        opacity: 0.7;
+      }
+    }
+
+    .fa {
+      &:hover, &:focus {
+        text-decoration: none;
+        cursor: pointer;
+        outline: 0;
+
+        opacity: 0.7;
+      }
+    }
+  }
+
+  .close {
+    position: relative;
+    font-size: 18px;
+    top: 0;
+    right: -40px;
+    line-height: 17px;
+
+    float: right;
+    //font-weight: normal;
+    outline: 0;
+    width: 17px;
+    height: 17px;
+
+    &:hover, &:focus {
+      text-decoration: none;
+      cursor: pointer;
+      outline: 0;
+
+      opacity: 0.6;
+    }
+  }
+
+  @include alerts($alerts);
+}
+

@@ -1,0 +1,39 @@
+.error-wrapper .error-inner {
+    width: 400px;
+    margin: 80px auto;
+    text-align: center
+}
+
+@media (max-width:481px) {
+    .error-wrapper .error-inner {
+        width: 100%;
+        padding-left: 15px;
+        padding-right: 15px;
+        margin-top: 30px
+    }
+}
+
+.error-wrapper .error-inner .error-type {
+    position: relative;
+    font-size: 15em;
+    visibility: hidden
+}
+
+@media (max-width:481px) {
+    .error-wrapper .error-inner .error-type {
+        font-size: 10em
+    }
+}
+
+.error-wrapper .error-inner .error-type.animated {
+    visibility: visible;
+    animation: fadeInDown 1s ease;
+    -webkit-animation: fadeInDown 1s ease;
+    -moz-animation: fadeInDown 1s ease;
+    -ms-animation: fadeInDown 1s ease;
+    -o-animation: fadeInDown 1s ease
+}
+
+.tooltip {
+  z-index: 99!important;
+}

@@ -1,0 +1,42 @@
+html, body {
+  height: 100%;
+  font-family: Tahoma,Arial,"\5B8B\4F53",sans-serif;
+}
+
+.main-404-div{
+  height: 100%;
+  min-height: 360px;
+  text-align: center;
+  color: #555555;
+  font-size: 20px;
+}
+.main-404-div2 {
+  height: 100%;
+  padding-bottom: 269px;
+  background-image: url('backgroud.png') ;
+}
+.not-found-main-div{
+  position: relative;
+  top: 50%;
+  margin: 0 auto;
+  margin-top: -269px;
+  .not-found-404 {
+    font-size: 320px;
+    line-height: 100%;
+    color: black;
+  }
+  .not-found-a {
+    color: #02a9ab;
+    text-decoration:underline
+  }
+
+  .not-found-text1 {
+    margin:  52px auto 38px auto;
+
+  }
+
+  .not-found-text2 {
+    line-height:  27px;
+  }
+
+}

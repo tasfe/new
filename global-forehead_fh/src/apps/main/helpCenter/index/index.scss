@@ -1,0 +1,76 @@
+@charset "UTF-8";
+
+@import
+"~base/styles/imports";
+
+.hc-return-btn {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  padding: 5px 10px;
+  font-size: 14px;
+}
+
+.hc-catalog {
+  list-style: none;
+  height: 580px;
+  overflow: auto;
+  > li {
+    border-bottom: 1px solid $gray-color;
+    margin: 0 30px;
+    padding: 15px 0;
+
+    &:last-of-type {
+      border-bottom: 0;
+    }
+  }
+
+  .hc-catalog-title {
+    display: table-cell;
+    width: 140px;
+    margin: 20px 0;
+    text-align: center;
+    vertical-align: middle;
+  }
+  .hc-catalog-title-icon {
+    margin-bottom: 10px;
+  }
+  .hc-catalog-title-inner {
+    font-size: $font-md;
+  }
+
+  .hc-catalog-contents {
+    display: table-cell;
+    list-style: none;
+    width: 755px;
+    padding: 10px 0 10px 40px;
+    border-left: 1px solid $gray-color;
+    vertical-align: middle;
+    min-width: 75px;
+    > li {
+      float: left;
+      > a {
+        display: inline-block;
+        margin: 7px 15px 7px 0;
+        min-width: 145px;
+        text-align: center;
+        height: 25px;
+        line-height: 25px;
+        border: 1px solid $gray-color;
+        padding: 0 10px;
+      }
+    }
+  }
+}
+
+.hc-container {
+  height: 579px;
+  .sidebar {
+    margin-left: -1px;
+  }
+  .hc-p {
+    p {
+      text-indent: 20px;
+    }
+  }
+}

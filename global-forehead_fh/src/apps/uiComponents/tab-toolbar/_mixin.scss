@@ -1,0 +1,35 @@
+@mixin tab-toolbar-size($class, $sizeProps) {
+
+  $sizeProp: map_get($sizeProps, $class);
+  $size: map_get($sizeProp, width);
+  $font-size: map_get($sizeProp, font-size);
+  
+  //.tab-title {
+  //  height: $size;
+  //  line-height: $size;
+  //}
+  .tab {
+    border-radius: $size;
+    height: $size;
+    width: $size;
+    line-height: $size;
+    padding: 0;
+    font-size: $font-size;
+  }
+}
+
+@mixin tab-toolbar-color($class, $colorProps) {
+
+  $colorProp: map_get($colorProps, $class);
+  $default: map_get($colorProp, default);
+  $hover: map_get($colorProp, hover);
+  $active: map_get($colorProp, active);
+
+  color: map-get($default, color);
+  background-color: map-get($default, background);
+
+  &.active {
+    color: map-get($active, color);
+    background-color: map-get($active, background);
+  }
+}

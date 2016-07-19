@@ -1,0 +1,472 @@
+body, html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: $background-color;
+  color: $font-default;
+  font-family: "Microsoft YaHei", Tahoma,Arial,"宋体",sans-serif;
+  //font-size: 14px;
+  font-size: 12px;
+  //line-height: 20px;
+  margin: 0;
+}
+
+article, aside, details, figcaption, figure, footer, header, nav, section {
+  display: block;
+}
+
+audio, canvas, video {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+
+audio:not([controls]) {
+  display: none;
+}
+
+html {
+  font-size: 75%;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+a {
+  color: $dark-color;
+  text-decoration: none;
+  outline: 0;
+
+  &:focus {
+    color: $dark-color;
+    outline: 0;
+    text-decoration: none;
+  }
+  &:hover, &:active {
+    color: $dark-color;
+    outline: 0;
+  }
+}
+
+img {
+  width: auto\9;
+  height: auto;
+  max-width: 100%;
+  vertical-align: middle;
+  border: 0;
+  -ms-interpolation-mode: bicubic;
+}
+
+button, input, select, textarea {
+  margin: 0;
+  font-size: 100%;
+  vertical-align: middle;
+}
+
+//input, select {
+//  border-radius: $globalInputRadius;
+//}
+
+button, input {
+  *overflow: visible;
+  line-height: normal;
+}
+
+button::-moz-focus-inner, input::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+button, html input[type="button"] {
+  cursor: pointer;
+  -webkit-appearance: button;
+}
+
+input {
+  &[type="reset"], &[type="submit"] {
+    cursor: pointer;
+    -webkit-appearance: button;
+  }
+}
+
+label, select, button {
+  cursor: pointer;
+}
+
+input {
+  &[type="button"], &[type="reset"], &[type="submit"], &[type="radio"], &[type="checkbox"] {
+    cursor: pointer;
+  }
+  &[type="search"] {
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    -webkit-appearance: textfield;
+    &::-webkit-search-decoration, &::-webkit-search-cancel-button {
+      -webkit-appearance: none;
+    }
+  }
+}
+
+textarea {
+  overflow: auto;
+  vertical-align: top;
+}
+
+::-webkit-scrollbar {
+  height: 7px;
+  width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(50, 50, 50, 0.3);
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgba(50, 50, 50, 0.1);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 10px 0;
+  font-family: inherit;
+  font-weight: bold;
+  line-height: 20px;
+  color: inherit;
+  text-rendering: optimizelegibility;
+}
+
+h1, h2, h3 {
+  line-height: 40px;
+}
+
+h1 {
+  font-size: 38.5px;
+}
+
+h2 {
+  font-size: 31.5px;
+}
+
+h3 {
+  font-size: 24.5px;
+}
+
+h4 {
+  font-size: 17.5px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  font-size: 11.9px;
+}
+
+.page-header {
+  padding-bottom: 9px;
+  margin: 20px 0 30px;
+  border-bottom: 1px solid #eeeeee;
+}
+
+ul, ol {
+  padding: 0;
+  margin: 0 0 10px 25px;
+}
+
+ul {
+  ul, ol {
+    margin-bottom: 0;
+  }
+}
+
+ol {
+  ol, ul {
+    margin-bottom: 0;
+  }
+}
+
+//li {
+//  line-height: 20px;
+//}
+
+ul.unstyled, ol.unstyled, ul.inline, ol.inline {
+  margin-left: 0;
+  list-style: none;
+}
+
+ul.inline > li, ol.inline > li {
+  display: inline-block;
+  *display: inline;
+  padding-right: 5px;
+  padding-left: 5px;
+  *zoom: 1;
+}
+
+dl {
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+dt, dd {
+  line-height: 20px;
+}
+
+dt {
+  font-weight: bold;
+}
+
+dd {
+  margin-left: 10px;
+}
+
+.dl-horizontal {
+  *zoom: 1;
+  &:before {
+    display: table;
+    line-height: 0;
+    content: "";
+  }
+  &:after {
+    display: table;
+    line-height: 0;
+    content: "";
+    clear: both;
+  }
+  dt {
+    float: left;
+    width: 160px;
+    overflow: hidden;
+    clear: left;
+    text-align: right;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  dd {
+    margin-left: 160px;
+  }
+}
+
+hr {
+  margin: 20px 0;
+  border: 0;
+  border-top: 1px solid #eeeeee;
+  border-bottom: 1px solid #ffffff;
+}
+
+.pre-scrollable {
+  max-height: 340px;
+  overflow-y: scroll;
+}
+
+p {
+  margin: 0 0 10px;
+}
+
+strong {
+  font-weight: bold;
+}
+
+em {
+  font-style: italic;
+}
+
+form {
+  margin: 0 0 10px;
+}
+
+fieldset {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+legend {
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin-bottom: 20px;
+  font-size: 21px;
+  line-height: 40px;
+  color: #333333;
+  border: 0;
+  border-bottom: 1px solid #e5e5e5;
+  small {
+    font-size: 15px;
+    color: #999999;
+  }
+}
+
+label, input, button, select, textarea {
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+select, textarea {
+  display: inline-block;
+  height: 20px;
+  padding: 3px 6px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  line-height: 20px;
+  color: $font-color;
+  vertical-align: middle;
+}
+
+img {
+  max-width: 100%;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+select {
+  width: 175px;
+  height: 28px;
+  line-height: 15px;
+  outline: 0;
+  /* In IE7, the height of the select element cannot be changed by height, only font-size */
+  *margin-top: 4px;
+  /* For IE7, add top margin to align select with labels */
+
+  appearance: none;
+  border: 1px solid $gray-color;
+
+  @include select-factory(map_get($select, default));
+  padding-right: 14px;
+  padding-right: 6px\9;
+
+  &[multiple], &[size] {
+    height: auto;
+  }
+  &:focus {
+    outline: 0;
+  }
+  &::-ms-expand {
+    display: none
+  }
+
+  option {
+    color: $font-color;
+  }
+
+  &.select-inverse {
+    @include select-factory(map_get($select, inverse));
+  }
+}
+
+input, textarea {
+  width: 162px;
+  margin-left: 0;
+}
+
+textarea {
+  height: auto;
+  background-color: transparent;
+  border: 1px solid $light-color;
+
+  &:focus {
+    //border-color: rgba(82, 168, 236, 0.8);
+    outline: 0;
+    //outline: thin dotted \9;
+  }
+}
+
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+  //color: #dddddd;
+}
+
+input {
+  color: $font-color;
+  &[type="file"]:focus, &[type="radio"]:focus, &[type="checkbox"]:focus {
+    outline: thin dotted #333;
+    outline-offset: -2px;
+  }
+
+  &[type="radio"], &[type="checkbox"] {
+    margin: 4px 0 0;
+    margin-top: 1px \9;
+    *margin-top: 0;
+    line-height: normal;
+  }
+
+  &[type="text"], &[type="password"], &[type="datetime"], &[type="datetime-local"], &[type="date"], &[type="month"], &[type="time"], &[type="week"], &[type="number"], &[type="email"], &[type="url"], &[type="search"], &[type="tel"], &[type="color"] {
+    display: inline-block;
+    height: 18px;
+    padding: 4px 6px;
+    margin-bottom: 0;
+    font-size: 12px;
+    line-height: 15px;
+    color: $font-color;
+    vertical-align: middle;
+    background-color: transparent;
+    border: 1px solid $font-color;
+    &:focus {
+      outline: 0;
+      outline: thin dotted \9;
+    }
+  }
+
+  &[type="file"], &[type="image"], &[type="submit"], &[type="reset"], &[type="button"], &[type="radio"], &[type="checkbox"] {
+    width: auto;
+  }
+
+  &[type="file"] {
+    height: 25px;
+    /* In IE7, the height of the select element cannot be changed by height, only font-size */
+    *margin-top: 4px;
+    /* For IE7, add top margin to align select with labels */
+    line-height: 30px;
+  }
+  @include input-factory(map_get($inputs, default));
+
+  &.input-reverse {
+    @include input-factory(map_get($inputs, inverse));
+  }
+
+  &[type="radio"][disabled], &[type="checkbox"][disabled], &[type="radio"][readonly], &[type="checkbox"][readonly] {
+    background-color: transparent;
+  }
+}
+
+input[disabled], select[disabled], textarea[disabled], input[readonly], select[readonly], textarea[readonly] {
+  cursor: not-allowed;
+}
+
+@include disabled-factory(map_get($disabled, default));
+
+input:-ms-input-placeholder, textarea:-ms-input-placeholder {
+  //color: #dddddd;
+}
+
+input:-moz-placeholder, textarea:-moz-placeholder {
+  //color: #dddddd;
+}
+
+.fade {
+  opacity: 0;
+  transition: opacity 0.15s linear;
+  &.in {
+    opacity: 1;
+  }
+}
+
+.collapse {
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  transition: height 0.35s ease;
+  &.in {
+    height: auto;
+  }
+}

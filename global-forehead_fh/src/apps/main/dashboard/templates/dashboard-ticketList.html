@@ -1,0 +1,25 @@
+<div class="ticket-list">
+  <% _(ticketList).each(function(tickets, ticketsIndex) { %>
+  <% _(tickets.list).each(function(ticket, index) { %>
+  <% if (ticket.board) { %>
+  <a href="#bc/<%=ticket.id %>" class="js-db-ticketList-item-<%=ticket.id%> router">
+    <div class="ticket-item">
+      <% if (ticket.badge === 'hot') { %>
+      <div class="ticket-badge bg-hot">火 爆</div>
+      <% } else if (ticket.badge === 'recommend') { %>
+      <div class="ticket-badge bg-sunshine">推 荐</div>
+      <% } else if (ticket.badge === 'new') { %>
+      <div class="ticket-badge bg-blue-new">新 品</div>
+      <% } else if (ticket.badge === 'purple') { %>
+      <div class="ticket-badge bg-purple">新 品</div>
+      <% } %>
+      <div class="ticket-icon sfa sfa-d-<%=tickets.id %>-<%=ticket.mark %>"></div>
+      <div class="ticket-title"><%=ticket.zhName %></div>
+      <div class="ticket-brief"><%=ticket.desc %></div>
+    </div>
+  </a>
+  <% } %>
+
+  <% }); %>
+  <% }); %>
+</div>

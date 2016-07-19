@@ -1,0 +1,745 @@
+//global setting
+$body-width: 1000px !default;
+
+$package-main-width: 768px;
+
+//new
+$new-main-dark-color: #057c86 !default;
+$new-main-deep-color: #16a4aa !default;
+//$dark-color: #2c2c2c !default;
+$dark-color: #562e0f !default;
+$light-dark-color: #4e4e4e !default;
+$light-dark-color-2: #7e7e7e !default;
+$inverse-color: #666666 !default;
+
+$light-color: #f0efee !default;
+$white-color: #ffffff !default;
+$gray-color: #c2c2c2 !default;
+$deep-gray-color: #e4e4e4 !default;
+
+$new-hot-color: #fe6760 !default;
+$pink-color: #f59192 !default;
+$blue-color: #5eaffa !default;
+
+$blue-new-color: #05c2bb !default;
+
+$new-black-color: $dark-color !default;
+
+$main-pale-color: #3dafc0 !default;
+$main-light-color: #10a4aa !default;
+$main-color: #0197ad !default;
+$main-deep-color: $new-main-deep-color;
+$color-pleasant: #e8675d !default;
+$color-peaceful: #48bfd1 !default;
+$color-hot: #e22919 !default;
+$color-sunshine: #ffba00 !default;
+
+$color-deep-gray: #d5d5d5!default;
+
+//$font-color-coffee: #562e0f!default;
+$font-color-coffee: $dark-color;
+
+$font-color: $dark-color;
+$font-deep-color: $main-color;
+
+$input-disable-color: #cac9ca !default;
+
+$inverse-border-color: #878585 !default;
+
+$table-border-color: $gray-color;
+
+$background-color: $white-color;
+
+$main-bg: #ffffff;
+
+$background-dark: #40454b;
+
+$background-light-gray: #666c78;
+
+//
+$brand-primary: #eae8e6 !default;
+$brand-info: #eae8e6 !default;
+
+$color-bright-red: #e82e20 !default;
+
+//global-props
+$globalBtnRadius: 6px;
+$globalInputRadius: 0;
+
+//font-size
+$font-xs: 12px !default;
+$font-sm: 14px !default;
+$font-md: 16px !default;
+$font-lg: 18px !default;
+$font-jb: 20px !default;
+$font-30: 30px !default;
+$font-40: 40px !default;
+$font-80: 80px !default;
+
+$font-sizes: (
+  xs: $font-xs,
+  sm: $font-sm,
+  md: $font-md,
+  lg: $font-lg,
+  jb: $font-jb,
+  30: $font-30,
+  40: $font-40,
+  80: $font-80
+);
+
+//font-color
+$font-default: $dark-color;
+$font-dark: #2a2a2a !default;
+$font-mute: #ededed !default;
+$font-primary: $font-color;
+$font-light: $light-color;
+$font-light-primary: $main-pale-color;
+$font-info: $main-color;
+$font-success: #2baab1 !default;
+$font-danger: #e8675d !default;
+$font-warning: #e8675d !default;
+$font-light-pleasant: #fc9792 !default;
+$font-main: #e8675d !default;
+$font-inverse: $light-color;
+$font-passion: #fbd663 !default;
+
+$font-colors: (
+  default: $dark-color,
+  primary: $font-primary,
+  pleasant: $color-pleasant,
+  light: $light-color,
+  inverse: $light-color,
+  dark: $dark-color,
+  passion: $font-passion,
+  cool: $new-main-deep-color,
+  sunshine: $color-sunshine,
+  sun: $color-sunshine,
+  hot: $color-hot,
+  pink: $pink-color,
+  black: $new-black-color,
+  blue: $blue-color,
+
+  important: $font-light-pleasant,
+  info: $font-info,
+  success: $font-success,
+  warning: $font-warning,
+  danger: $font-danger,
+  main: $font-main
+);
+
+$bg-mute: $font-mute;
+$bg-mute-font-color: $inverse-color;
+
+$bg-info: $font-info;
+$bg-info-font-color: $font-default;
+
+$bg-success: $font-success;
+$bg-success-font-color: $font-default;
+
+$bg-warning: $font-warning;
+$bg-warning-font-color: $font-default;
+
+$bg-danger: $font-danger;
+$bg-danger-font-color: $font-default;
+
+$bg-main: $font-main;
+$bg-main-font-color: $font-default;
+
+$bg-colors: (
+  default: (bg: $dark-color, color: $font-color),
+  deep: (bg: $new-main-deep-color, color: $font-color),
+  deep-gray: (bg: $deep-gray-color, color: $font-color),
+  hot: (bg: $new-hot-color, color: $white-color),
+  sunshine: (bg: $color-sunshine, color: $white-color),
+  sun: (bg: $color-sunshine, color: $white-color),
+  pink: (bg: $pink-color, color: $white-color),
+  blue: (bg: $blue-color, color: $white-color),
+  blue-new: (bg: $blue-new-color, color: $white-color),
+  primary: (bg: $main-light-color, color: $dark-color),
+  black: (bg: $dark-color, color: $new-black-color),
+  footer: (bg: #f3d5d3, color: $new-black-color),
+  mute: (bg: $bg-mute, color: $bg-mute-font-color),
+  info: (bg: $bg-info, color: $bg-info-font-color),
+  success: (bg: $bg-success, color: $bg-success-font-color),
+  warning: (bg: $bg-warning, color: $bg-warning-font-color),
+  danger: (bg: $bg-danger, color: $bg-danger-font-color),
+  bread: (bg: #f3d5d3, color: $new-black-color),
+  purple: (bg: #e50699, color: $white-color)
+);
+
+
+$width-xs: 50px !default;
+$width-sm: 100px !default;
+$width-smd: 176px !default;
+$width-md: 300px !default;
+$width-lg: 500px !default;
+$width-jb: 905px !default;
+
+$widths: (xs: $width-xs, sm: $width-sm, smd: $width-smd, md: $width-md, lg: $width-lg, jb: $width-jb);
+
+$height-xs: 50px !default;
+$height-sm: 100px !default;
+$height-smd: 200px !default;
+$height-md: 300px !default;
+$height-mlg: 500px !default;
+$height-lg: 500px !default;
+$height-jb: 760px !default;
+
+$heights: (xs: $height-xs, sm: $height-sm, smd: $height-smd, md: $height-md, mlg: $height-mlg, lg: $height-lg, jb: $height-jb);
+
+$filter-xs: 5px !default;
+$filter-sm: 10px !default;
+$filter-smd: 15px !default;
+$filter-md: 20px !default;
+$filter-mlg: 30px !default;
+$filter-lg: 40px !default;
+
+$filters: (xs: $filter-xs, sm: $filter-sm, smd: $filter-smd, md: $filter-md, mlg: $filter-mlg, lg: $filter-lg);
+
+$spans: (
+  1: 75px,
+  2: 150px,
+  3: 215px,
+  4: 300px
+);
+
+$squares: (
+  xs: 50px,
+  60: 60px,
+  75: 75px,
+  120: 120px,
+  125: 125px,
+  150: 150px,
+  sm: 100px,
+  md: 300px,
+  lg: 500px
+);
+
+$input-widths: (
+  xs: 50px,
+  sm: 90px,
+  md: 134px,
+  lg: 210px,
+  jb: 270px
+);
+
+//input
+$inputs: (
+  default: (
+    color: $light-color,
+    bg-color: transparent,
+    border-color: $gray-color
+  ),
+  inverse: (
+    color: $inverse-color,
+    bg-color: transparent,
+    border-color: $inverse-border-color
+  ),
+  black: (
+    color: $new-black-color,
+    bg-color: transparent,
+    border-color: $light-color
+  )
+);
+
+//select
+$select: (
+  default: (
+    border-color: $gray-color,
+    color: $font-color,
+    background: url(~base/images/select-caret.png) no-repeat scroll 97% center transparent
+  ),
+  inverse: (
+    border-color: $light-color,
+    color: $inverse-color,
+    background: url(~base/images/select-caret-black.png) no-repeat scroll 97% center transparent
+  ),
+  black: (
+    border-color: $light-color,
+    color: $new-black-color,
+    background: url(~base/images/select-caret-black.png) no-repeat scroll 97% center transparent
+  )
+);
+
+$disabled: (
+  default: (
+    color: $font-color-coffee,
+    border-color: #b4b4b4,
+    bg-color: $deep-gray-color
+  ),
+  inverse: (
+    bg-color: $input-disable-color
+  ),
+  black: (
+    bg-color: $input-disable-color
+  )
+);
+
+$borders: (
+  default: $gray-color,
+  cool: $main-deep-color,
+  table: $table-border-color,
+  inverse: $light-color
+);
+
+$basics: (
+  default: (
+    select: map_get($select, default),
+    input: map_get($inputs, default),
+    disabled: map_get($disabled, default)
+  ),
+  white: (
+    select: map_get($select, inverse),
+    input: map_get($inputs, inverse),
+    disabled: map_get($disabled, inverse),
+    bg-color: #ffffff,
+    color: $inverse-color
+  ),
+  inverse: (
+    select: map_get($select, inverse),
+    input: map_get($inputs, inverse),
+    disabled: map_get($disabled, inverse),
+    bg-color: $dark-color,
+    color: $light-color
+  ),
+  side-main: (
+    select: map_get($select, inverse),
+    input: map_get($inputs, inverse),
+    disabled: map_get($disabled, inverse),
+    bg-color: $dark-color,
+    color: $light-color
+  )
+);
+
+//checkbox
+$checkboxes: (
+  default: (
+    bg-color: $light-color,
+    active-bg-color: $color-sunshine,
+    linear-color: linear-gradient(to bottom, #fdbe29, #e3a511),
+    hook-color: $light-color,
+    border-color: #929092
+  )
+//  inverse: (
+//    bg-color: $font-color,
+//    active-bg-color: $main-color,
+//    hook-color: $font-color,
+//    border-color: #929092
+//  )
+);
+
+//radio
+$radios: (
+  default: (
+    bg-color: $light-color,
+    wrapper-color: $color-sunshine,
+    inner-color: linear-gradient(to bottom, #ffcc53, #ffb70d)
+  ),
+  blue: (
+    bg-color: $light-color,
+    wrapper-color: $blue-color,
+    inner-color: $blue-color
+  ),
+  //inverse: (
+  //  bg-color: $font-color,
+  //  wrapper-color: $inverse-color,
+  //  inner-color: $inverse-color,
+  //
+  //  disabled-bg-color: #70999e,
+  //  disabled-wrapper-color: #989898,
+  //  disabled-inner-color: #989898
+  //)
+);
+
+//popover
+$popovers: (
+  default: (
+    title-color: $light-color,
+    title-bg-color: $color-sunshine,
+    content-color: $font-color,
+    content-bg-color: $white-color
+  )
+);
+
+$btns: (
+  default: (
+    color: $white-color,
+    bg-color: $color-pleasant,
+    border-color: $color-pleasant,
+    hover: (
+      color: $white-color,
+      bg-color: $color-pleasant
+    ),
+    focus: (
+      color: $white-color,
+      bg-color: $color-pleasant
+    ),
+    active: (
+      color: $white-color,
+      bg-color: $color-pleasant
+    )
+  ),
+  hot: (
+    color: $white-color,
+    bg-color: $color-hot,
+    linear-color: linear-gradient(to bottom, #ed584d, #bb261b),
+    border-color: #ed584d,
+    hover: (
+      color: $white-color,
+      bg-color: $color-hot,
+      linear-color: linear-gradient(to bottom, #ed584d, #bb261b),
+    ),
+    focus: (
+      color: $white-color,
+      bg-color: $color-hot,
+      linear-color: linear-gradient(to bottom, #ed584d, #bb261b),
+    ),
+    active: (
+      color: $white-color,
+      bg-color: $color-hot,
+      linear-color: linear-gradient(to bottom, #ed584d, #bb261b),
+    )
+  ),
+  sun: (
+    color: $dark-color,
+    bg-color: $color-sunshine,
+    linear-color: linear-gradient(to bottom, #ffbb1a, #e6a101),
+    border-color: $color-sunshine,
+    hover: (
+      color: $dark-color,
+      bg-color: $color-sunshine,
+      linear-color: linear-gradient(to bottom, #ffbb1a, #e6a101)
+    ),
+    focus: (
+      color: $dark-color,
+      bg-color: $color-sunshine,
+      linear-color: linear-gradient(to bottom, #ffbb1a, #e6a101)
+    ),
+    active: (
+      color: $dark-color,
+      bg-color: $color-sunshine,
+      linear-color: linear-gradient(to bottom, #ffbb1a, #e6a101)
+    )
+  ),
+  dark: (
+    color: $white-color,
+    bg-color: $dark-color,
+    border-color: $dark-color,
+    hover: (
+      color: $white-color,
+      bg-color: $dark-color
+    ),
+    focus: (
+      color: $white-color,
+      bg-color: $dark-color
+    ),
+    active: (
+      color: $white-color,
+      bg-color: $dark-color
+    )
+  ),
+  peaceful: (
+    //color: #ffffff,
+    bg-color: $color-peaceful,
+    border-color: $color-peaceful,
+    hover: (
+      //color: #ffffff,
+      bg-color: $color-peaceful
+    ),
+    focus: (
+      //color: #ffffff,
+      bg-color: $color-peaceful
+    ),
+    active: (
+      //color: #ffffff,
+      bg-color: $color-peaceful
+    )
+  ),
+  pure: (
+    color: $dark-color,
+    bg-color: $light-color,
+    border-color: $gray-color,
+    hover: (
+      color: $dark-color,
+      bg-color: $light-color
+    ),
+    focus: (
+      color: $dark-color,
+      bg-color: $light-color
+    ),
+    active: (
+      color: $dark-color,
+      bg-color: $light-color
+    )
+  ),
+  b-white: (
+    color: $dark-color,
+    bg-color: transparent,
+    border-color: #aaaaaa,
+    hover: (
+      color: $dark-color,
+      bg-color: transparent
+    ),
+    focus: (
+      color: $dark-color,
+      bg-color: transparent
+      //box-shadow: none
+    ),
+    active: (
+      color: $dark-color,
+      bg-color: transparent,
+      //box-shadow: none
+    )
+  ),
+  silent: (
+    color: $font-color-coffee,
+    bg-color: transparent,
+    border-color: transparent,
+    hover: (
+      color: $font-color-coffee,
+      bg-color: $color-deep-gray
+    ),
+    focus: (
+      color: $font-color-coffee,
+      bg-color: $color-deep-gray
+      //box-shadow: none
+    ),
+    active: (
+      color: $font-color-coffee,
+      bg-color: $color-sunshine,
+      //box-shadow: none
+    )
+  )
+);
+
+//==========================================
+
+//cursors
+$cursors: (
+  default: default,
+  pointer: pointer,
+  text: text,
+  move: move
+);
+
+$top-nav-height: 40px;
+
+//icon block
+$icon-block: (
+  bg-color: #b2afb0,
+  color: $light-color,
+  icon-size: 18px,
+  size: 17px,
+  radius: 17px
+);
+
+//modal
+$modals: (
+  xs: 150px,
+  sm: 290px,
+  smd: 350px,
+  md: 520px,
+  md2: 560px,
+  lg: 825px
+);
+
+$tables: (
+  similar: (
+    th-bg-color: $main-light-color,
+    th-color: $font-color,
+    td-bg-color: $main-light-color,
+    td-bg-hover-color: $main-pale-color,
+    td-color: $font-color
+  ),
+  deep: (
+    th-bg-color: $new-main-deep-color,
+    th-color: $font-color,
+    td-bg-color: #1daab0,
+    td-color: $font-color
+  )
+);
+
+//portlet
+
+$portlets: (
+  similar: (
+    header-bg: $main-light-color,
+    header-color: $font-color,
+    border-color: $main-deep-color,
+    body-bg: $main-light-color,
+    body-color: $font-color
+  ),
+  inverse: (
+    header-bg: $main-deep-color,
+    header-color: $font-color,
+    border-color: $main-deep-color,
+    body-bg: $dark-color,
+    body-color: $new-black-color
+  )
+);
+
+//alert
+$alerts: (
+  default: (
+    bg-color: $deep-gray-color,
+    color: $dark-color
+  ),
+
+  warning: (
+    bg-color: #fcf8e3,
+    color: $main-deep-color
+  ),
+  info: (
+    bg-color: #e2f1fc,
+    color: #446e77
+  ),
+  light: (
+    bg-color: $main-light-color,
+    color: $font-color
+  )
+);
+
+//nav-pills
+$nav-pills-TB: 21px !default;
+
+//carousel
+$carousel-indicators-width: 25px;
+$carousel-indicators-margin: 0 10px;
+
+//text-circle
+
+$text-circle-colors: (
+  default: (
+    color: $dark-color,
+    background: linear-gradient(to bottom, #ffbd11, #ffa701),
+    border-color: #fe9405
+  ),
+  pleasant: (
+    color: $dark-color,
+    background: $color-pleasant
+  )
+);
+
+$text-circle-sizes: (
+  sm: (
+    width: 28px,
+    font-size: $font-jb
+  ),
+  md: (
+    width: 33px,
+    font-size: $font-lg
+  )
+);
+
+//nav
+$navTabs: (
+  default: (
+    border-color: $color-sunshine,
+    color: $font-color-coffee,
+    bg-color: $white-color,
+    active-color: $dark-color,
+    active-bg-color: $color-sunshine
+  ),
+  inverse: (
+    border-color: $main-deep-color,
+    color: $font-color-coffee,
+    bg-color: transparent,
+    active-color: $font-color,
+    active-bg-color: $main-deep-color
+  )
+);
+
+$tab-circle-sizes: (
+  sm: (
+    width: 30px,
+    font-size: $font-md
+  ),
+  md: (
+    width: 40px,
+    font-size: $font-jb
+  )
+);
+
+//wrapper
+$wrapper-margin-left: 0 !default;
+$wrapper-margin-right: 0 !default;
+
+//modal
+$modal-fade-opacity: 0.3 !default;
+
+//header
+$header-color: $light-dark-color;
+$header-height: 52px !default;
+
+//card
+$cards-width: 241px !default;
+$cards-height: 138px !default;
+
+//steps
+$steps: (
+  indent: 20px,
+  active-color: $color-sunshine,
+  disabled-color: $light-dark-color-2
+);
+
+$validate: (
+  invalid-border-color: $color-pleasant
+);
+
+$sfa-d-tickets: (
+  sfa-d-ne-ssc-smmc: (
+          default: '~base/images/tickets/d-ne-ssc-smmc.png'
+  ),
+  sfa-d-sp-ssc-ffc: (
+    default: '~base/images/tickets/d-sp-ssc-ffc.png'
+  ),
+  sfa-d-sp-ssc-sfc: (
+    default: '~base/images/tickets/d-sp-ssc-sfc.png'
+  ),
+  sfa-d-sp-ssc-wfc: (
+    default: '~base/images/tickets/d-sp-ssc-wfc.png'
+  ),
+  sfa-d-sp-num-ffc: (
+    default: '~base/images/tickets/d-sp-num-ffc.png'
+  ),
+  sfa-d-sp-num-sfc: (
+    default: '~base/images/tickets/d-sp-num-sfc.png'
+  ),
+  sfa-d-sp-3d-ffc: (
+    default: '~base/images/tickets/d-sp-3d-ffc.png'
+  ),
+  sfa-d-sp-3d-wfc: (
+    default: '~base/images/tickets/d-sp-3d-wfc.png'
+  ),
+
+  sfa-d-ssc-cq: (
+    default: '~base/images/tickets/d-ssc-cq.png'
+  ),
+  sfa-d-ssc-jx: (
+    default: '~base/images/tickets/d-ssc-jx.png'
+  ),
+  sfa-d-ssc-hlj: (
+    default: '~base/images/tickets/d-ssc-hlj.png'
+  ),
+  sfa-d-ssc-xj: (
+    default: '~base/images/tickets/d-ssc-xj.png'
+  ),
+  sfa-d-ssc-tj: (
+    default: '~base/images/tickets/d-ssc-tj.png'
+  ),
+  sfa-d-num-gd: (
+    default: '~base/images/tickets/d-num-gd.png'
+  ),
+  sfa-d-num-jx: (
+    default: '~base/images/tickets/d-num-jx.png'
+  ),
+  sfa-d-num-sd: (
+    default: '~base/images/tickets/d-num-sd.png'
+  ),
+  sfa-d-low-3d: (
+    default: '~base/images/tickets/d-low-3d.png'
+  ),
+  sfa-d-low-p5p3: (
+    default: '~base/images/tickets/d-low-p5p3.png'
+  ),
+);

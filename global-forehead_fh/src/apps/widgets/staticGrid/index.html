@@ -1,0 +1,44 @@
+<div class="<%=obj.wrapperClass %>">
+  <% if (showHeader) { %>
+  <table class="<%=tableClass %> no-margin">
+    <colgroup>
+      <% _(colModel).each(function(headInfo) { %>
+      <col width="<%=headInfo.width %>">
+      <% }); %>
+    </colgroup>
+
+    <thead>
+    <tr>
+      <% _(colModel).each(function(headInfo) { %>
+      <th><%=headInfo.label %></th>
+      <% }); %>
+    </tr>
+    </thead>
+  </table>
+  <% } %>
+
+  <div class="js-wt-body-main relative">
+    <table class="<%=tableClass %> no-margin <% if (hasBorder) { %>no-b-top no-b-bottom<% } %>">
+      <colgroup>
+        <% _(colModel).each(function(headInfo) { %>
+        <col width="<%=headInfo.width %>">
+        <% }); %>
+      </colgroup>
+      <tbody class="js-wt-tbody"></tbody>
+    </table>
+
+    <%=loading %>
+    <%=emptyTip %>
+  </div>
+
+  <div class="js-wt-footer-main relative">
+    <table class="<%=tableClass %> no-margin">
+      <colgroup>
+        <% _.each(colModel, function(headInfo) { %>
+        <col width="<%=headInfo.width %>">
+        <% }) %>
+      </colgroup>
+      <tbody></tbody>
+    </table>
+  </div>
+</div>

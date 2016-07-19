@@ -1,0 +1,25 @@
+.text-circle {
+  display: inline-block;
+  font-weight: bold;
+  text-align: center;
+  line-height: 35px;
+  font-size: 20px;
+  margin-right: 5px;
+
+  &:last-of-type {
+    margin-right: 0;
+  }
+
+  @include text-circle-size('md', $text-circle-sizes);
+
+  &.text-circle-sm {
+    @include text-circle-size('sm', $text-circle-sizes);
+  }
+
+  @include text-circle-colors($text-circle-colors);
+}
+.text-circle-red{
+  color: #fff;
+  background: linear-gradient(to bottom, #ef392e, #e2021a);
+  border: 1px solid #e61c29;
+}

@@ -1,0 +1,20 @@
+<div class="search-condition-table m-LR-smd">
+  <div class="control-group row1">
+    <label class="control-label">投注时间：</label>
+    <span class="js-pf-timeset input-date"></span>
+    <label class="control-label">订单号：</label>
+    <input type="text" name="tradeNo" class="input3 margin-add" data-parsley-maxlength="30">
+  </div>
+  <div class="control-group row2">
+    <label class="control-label">订单状态：</label>
+    <select name="betStatus" class=" select1"></select>
+    <% if (obj.viewType === 'team') { %>
+    <label class="control-label">账号：</label>
+    <input type="text" name="username" class="input3 margin-add">
+    <% } %>
+    <div class="pull-right">
+      <button type="submit" class="btn btn-link text-hot">搜索</button>
+      <button type="reset" class="btn btn-link text-hot">清空条件</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,54 @@
+<form class="js-gl-setting-main" action="javascript:void(0);">
+  <div class="js-gl-tickets setting-container">
+    <% _(ticketList).each(function(ticket) { %>
+    <% if (ticket.list) { %>
+    <div class="setting">
+      <!--<div class="setting-title">-->
+        <!--<span class="sfa sfa-setting-<%=ticket.icon %>"></span>-->
+        <!--<%=ticket.title %>-->
+      <!--</div>-->
+      <div class="setting-group">
+        <% _(ticket.list).each(function(subTickets) { %>
+        <% var uniqueId = _.uniqueId('js') %>
+        <label class="setting-tab">
+          <span class="custom-checkbox">
+            <input type="checkbox" id="<%=uniqueId %>" class="js-gl-function" name="ticketId[]" value="<%=subTickets.id %>"
+              <% if (_(ticketId).contains(subTickets.id)) { %>checked<% } %>>
+            <label for="<%=uniqueId %>"></label>
+          </span>
+          <%=subTickets.zhName %>
+        </label>
+        <% }); %>
+      </div>
+    </div>
+    <% } %>
+    <% }); %>
+
+    <% _(menuList).each(function(menu) { %>
+    <% if (!menu.notShow && menu.sub) { %>
+    <div class="setting">
+      <!--<div class="setting-title">-->
+        <!--<span class="sfa sfa-setting-<%=menu.icon %>"></span>-->
+        <!--<%=menu.name %>-->
+      <!--</div>-->
+      <div class="setting-group">
+        <% _(menu.sub).each(function(subMenus) { %>
+        <% if ((!subMenus.needAuth || subMenus.auth) && !subMenus.notShow) { %>
+        <% var uniqueId = _.uniqueId('js') %>
+        <label class="setting-tab">
+          <span class="custom-checkbox">
+            <input type="checkbox" id="<%=uniqueId %>" class="js-gl-function" name="ticketId[]" value="<%=subMenus.id %>"
+              <% if (_(ticketId).contains(subMenus.id)) { %>checked<% } %>>
+            <label for="<%=uniqueId %>"></label>
+          </span>
+          <%=subMenus.name %>
+        </label>
+        <% } %>
+        <% }); %>
+      </div>
+    </div>
+    <% } %>
+    <% }); %>
+  </div>
+  <p class="text-pleasant text-center">注：最多可自由选择4个快捷菜单。</p>
+</form>

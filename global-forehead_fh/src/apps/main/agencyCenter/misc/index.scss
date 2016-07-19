@@ -1,0 +1,403 @@
+@charset "UTF-8";
+
+@import "~base/styles/imports";
+
+.text-coffee {
+  color: $font-color-coffee
+}
+
+.lowLevelManage-view {
+
+  .ac-user-name-div {
+    .control-label{
+      width:100px;
+    }
+    width: 235px;
+    display: inline-block;
+  }
+
+  .ac-balance-label {
+    .control-label{
+      width: 86px;
+    }
+    display: inline-block;
+    width: 395px;
+    span {
+      margin: 0 0 0 -4px;
+    }
+    input {
+      margin: 0 4px ;
+    }
+  }
+
+  .ac-register-ime-label {
+    .control-label{
+      width: 86px;
+    }
+    width: 384px;
+    display: inline-block;
+  }
+
+  .ac-unActive-day-label {
+    width: 235px;
+    display: inline-block;
+  }
+
+  .ac-llm-btn {
+    margin-right: 4px;
+  }
+}
+.ac-llm-online {
+  color: #15c815;
+  font-size: 16px;
+  padding-left: 3px;
+}
+
+.ac-register {
+  &.btn[disabled] {
+    opacity: 1;
+  }
+}
+
+.ac-query-name-label {
+  width: 55px;
+  display: inline-block;
+}
+
+.ac-range-label {
+  width: 249px;
+  display: inline-block;
+}
+
+.ac-page-size-label {
+  display: inline-block;
+}
+
+.ac-query-btn {
+  width: 70px;
+}
+
+.ac-report-username-div {
+  width: 157px;
+  display: inline-block;
+}
+
+.ac-report-data-div {
+  width: 360px;
+  display: inline-block;
+}
+
+.ac-report-ticket-div {
+  width: 135px;
+  display: inline-block;
+}
+
+.ac-report-range-div {
+  display: inline-block;
+}
+
+//teamDynamic
+.ac-chart {
+  height: 260px;
+}
+
+.table {
+  tbody tr {
+    &:hover {
+      .ac-expend-btn {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.ac-expend-btn {
+  float: right;
+  position: absolute;
+  top: 0;
+  right: 15px;
+  vertical-align: bottom;
+  cursor: pointer;
+  opacity: 1;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.ac-expend {
+  transition: height 0.5s ease;
+}
+
+
+.ac-lowLevel-detail-view {
+  .ac-lowLevel-detail {
+    padding: 13px 0 0 15px;
+  }
+}
+
+.ac-lowLevel-rebate-view {
+
+  .ac-llm-rebate-div {
+    height: 255px;
+  }
+  .ac-lowLevel-quota-container {
+    margin: 10px 28px 10px 20px;
+    padding: 5px 14px 5px 14px;
+  }
+
+  .ac-lowLevel-rebate-table {
+    width: 100%;
+    padding: 60px 0 0 0;
+  }
+
+  .ac-lowLevel-rebate-btn {
+    margin: 15px 50px 0 0 ;
+    width: 166px;
+    height: 32px;
+    background-color: $color-sunshine;
+  }
+
+}
+
+.ac-ocm-copy {
+  width:240px;
+  //background-color: #e8a303;
+}
+.ac-ocm-copy-coin {
+  background: url(copy.png) no-repeat;
+  margin-left: 0;
+  padding-left: 0;
+  height: 17px;
+  width: 13px;
+}
+.ac-oam-au-save {
+  width:132px;
+  height: 32px;
+}
+
+.ac-oam-au-link {
+  color: $main-color;
+}
+
+.ac-openAccount-view {
+  ul {
+    margin: 13px 15px 5px 15px;
+    li {
+      a {
+        span {
+          padding-left: 30px !important;
+          padding-right: 30px !important;
+        }
+      }
+    }
+  }
+
+  .control-label{
+    padding: 0;
+    display: block;
+    color: #562e0f;
+  }
+
+
+
+  .ac-openAccount-rebate-notice {
+    padding: 5px 0;
+    margin: 0 0 20px 0;
+  }
+  .js-ac-openAccountManual-form {
+    margin-top: 35px;
+  }
+
+  .ac-openAccount-manual-div {
+    margin: 0 28px 0 20px;
+    .control-label {
+      width: 80px !important;
+    }
+    .controls {
+      margin-left: 80px;
+    }
+
+  }
+  .ac-op-manual-rebate-set-container {
+    margin-top: 10px;
+  }
+  .ac-op-auto-rebate-set-container {
+    width: 780px;
+    margin-top: 24px;
+    margin-right: 60px;
+  }
+  .ac-submit-btn-div {
+    padding: 0px 80px 0 0;
+    .btn {
+      width: 166px;
+      height: 32px;
+    }
+  }
+  .ac-register {
+    background-color: #16a4aa;
+    border: 1px solid #16a4aa;
+    display: inline-block;
+    padding: 4px 10px;
+    margin-bottom: 0;
+    font-size: 13px;
+    line-height: 15px;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 4px;
+    color: #fefbfa;
+  }
+
+  .ac-openAccount-link-main-div {
+    margin: 16px 0 0 0;
+  }
+
+  .ac-add-link {
+    margin-right: 15px;
+    width: 166px;
+    height: 32px;
+  }
+
+  .ac-open-account-link {
+    width: 310px;
+  }
+
+  .ac-open-account-button {
+    width: 75px;
+  }
+
+  .ac-open-account-view {
+    width: 50px;
+  }
+
+  .ac-open-account-remark {
+    width: 126px;
+    height: 60px;
+    resize: none;
+  }
+
+  .ac-auto-confirm-div {
+    padding-top: 1px;
+    .btn {
+      padding: 4px 10px;
+      height: 32px;
+      width: 116px;
+    }
+  }
+  .ac-auto-link-remark-div {
+    display: inline-block;
+  }
+}
+
+.ac-teamDynamic-view {
+  .ac-ta-statistics {
+    background-color: #d5d5d5;
+    color: $font-color-coffee;
+    font-size: 14px;
+    align: center;
+    width: 144.4px;
+    height: 64px;
+    line-height: 28px;
+    padding: 5px ;
+    border-right: 1px solid $gray-color;
+  }
+  .ac-ta-nav-manual-tabs {
+    margin: 0 ;
+    padding: 0 0 0 15px;
+    font-size: 15px;
+    li {
+      span {
+        padding: 4px;
+      }
+    }
+  }
+  .ac-tm-data-label{
+    font-size: 14px;
+    color:$font-color-coffee;
+    padding: 15px 10px 0 35px;
+  }
+  .ac-btnGroup {
+
+    //border-right: none;
+    font-size: 14px;
+    vertical-align: top;
+    .btn {
+      font-size: 14px;
+      border: 1px solid #c2c2c2 ;
+      padding: 10px 9px;
+      margin: 10px 9px;
+      min-width: 75px;
+      width: 110px;
+      height: 34px;
+      border-radius: 0px;
+      margin-right: 5px;
+    }
+  }
+  form {
+    margin: 0px 0 0 0px;
+  }
+  ul {
+    margin: 12px 12px 0 12px;
+  }
+
+  .ac-td-tab-lab {
+    padding: 0 2px;
+  }
+  .ac-td-oa-title {
+    background: url(openAccountOrder.png) no-repeat;
+    margin-left: 5px;
+    padding-left: 25px;
+    height: 21px;
+
+  }
+  .ac-td-uu-title {
+    background: url(unActiveUserOrder.png) no-repeat;
+    margin-top: -5px;
+    padding-left: 31px;
+    height: 26px;
+  }
+
+  .ac-tm-oa-order1 {
+    background-image: url(no1.png);
+    margin-left: 30px;
+    width: 18px;
+    height: 21px;
+    position: absolute;
+    left: 0;
+  }
+  .ac-tm-oa-order2 {
+    background-image: url(no2.png);
+    margin-left: 30px;
+    width: 18px;
+    height: 21px;
+    position: absolute;
+    left: 0;
+  }
+  .ac-tm-oa-order3 {
+    background-image: url(no3.png);
+    margin-left: 30px;
+    width: 18px;
+    height: 21px;
+    position: absolute;
+    left: 0;
+  }
+  //teamDynamic
+  .ac-chart {
+    height: 230px;
+    margin: 5px 20px 0 20px;
+  }
+  .ac-grid-title-div {
+    margin: 0 12px 0 12px;
+  }
+}
+
+.ac-loginDate {
+  border: 1px solid;
+  padding: 2px 5px;
+  margin: 0 3px;
+}
+
+.ac-rush-reward {
+  .table {
+    th, td {
+      padding: 2px 3px;
+    }
+  }
+}

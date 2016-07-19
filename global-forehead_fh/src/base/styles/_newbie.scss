@@ -1,0 +1,14 @@
+.newbie-container {
+  position: absolute;
+  top: 0;
+  z-index: 200;
+  width: 100%;
+  overflow: hidden;
+  .newbie {
+    .newbie-pic {
+      background-position: center center;
+      height: 1080px;
+      width: 1920px;
+    }
+  }
+}

@@ -1,0 +1,53 @@
+@charset "UTF-8";
+@import "~base/styles/imports";
+
+.sidebar {
+  border: 1px solid $gray-color;
+  width: 215px;
+  overflow: hidden;
+  height: 615px;
+
+
+  .sidebar-container {
+    //border: 1px solid $gray-color;
+    border-bottom-width: 0;
+
+    &:last-of-type {
+      border-bottom-width: 1px;
+    }
+  }
+
+  .sidebar-title {
+    font-size: 14px;
+    height: 35px;
+    line-height: 35px;
+    text-indent: 65px;
+    //border-bottom: 1px solid $gray-color;
+  }
+
+  .sidebar-icon {
+    vertical-align: text-top;
+  }
+
+  .sidebar-list {
+    min-height: 170px;
+    > li {
+      list-style: none;
+      > a {
+        //height: 32px;
+        line-height: 32px;
+        font-size: $font-xs;
+        padding: 0;
+        display: block;
+        text-indent: 90px;
+        color: $font-color-coffee;
+      }
+
+      &.active {
+        > a {
+          color: $color-sunshine;
+        }
+      }
+    }
+  }
+}

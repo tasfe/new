@@ -1,0 +1,63 @@
+.custom-checkbox {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  position: relative;
+  margin-right: 5px;
+  top: 1px;
+
+  label {
+    cursor: pointer;
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    padding-left: 0;
+    margin-top: 0;
+    top: 0;
+    left: 0;
+    margin-bottom: 0;
+    border: 1px solid;
+    &:after {
+      opacity: 0;
+      content: '';
+      position: absolute;
+      width: 8px;
+      height: 4px;
+      background: 0 0;
+      top: 2px;
+      left: 2px;
+      border-top: none;
+      border-right: none;
+      transform: rotate(-45deg);
+    }
+  }
+  input[type=checkbox] {
+    visibility: hidden;
+    vertical-align: initial;
+    margin: 0;
+    &:checked + label {
+      &:after {
+        opacity: 1;
+      }
+    }
+
+    &:disabled + label {
+      opacity: 0.5;
+    }
+  }
+
+  &.checkbox-lg {
+    width: 18px;
+    height: 19px;
+    label {
+      width: 18px;
+      height: 18px;
+      &:after {
+        width: 12px;
+        height: 6px;
+      }
+    }
+  }
+
+  @include checkboxes($checkboxes);
+}

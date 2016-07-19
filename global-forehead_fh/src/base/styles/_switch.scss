@@ -1,0 +1,58 @@
+.switch {
+  display: inline-block;
+  width: 45px;
+  height: 20px;
+  position: relative;
+  outline: 0;
+}
+
+.switch>.switch-round {
+  position: absolute;
+  top: 50%;
+  left: 25px;
+  margin-top: -8px;
+  width: 20px;
+  height: 20px;
+  -webkit-border-radius: 20px;
+  border-radius: 20px;
+  pointer-events: none;
+  -webkit-transition: left .1s linear;
+  -o-transition: left .1s linear;
+  transition: left .1s linear
+}
+
+.switch>.switch-input:checked~.switch-round {
+  left: 0;
+}
+
+.switch>.switch-input {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  cursor: pointer;
+  outline: 0;
+}
+
+.switch-white>.switch-input {
+  background-image: -webkit-linear-gradient(#d0d0d0,#dfdfdf);
+  background-image: -o-linear-gradient(#d0d0d0,#dfdfdf);
+  background-image: linear-gradient(#d0d0d0,#dfdfdf)
+}
+
+.switch-white>.switch-input:checked {
+  background-image: -webkit-linear-gradient(#5393c5,#6facd5);
+  background-image: -o-linear-gradient(#5393c5,#6facd5);
+  background-image: linear-gradient(#5393c5,#6facd5)
+}
+
+.switch-white>.switch-round {
+  background-image: -webkit-linear-gradient(white,#f1f1f1);
+  background-image: -o-linear-gradient(white,#f1f1f1);
+  background-image: linear-gradient(#fff,#f1f1f1)
+}

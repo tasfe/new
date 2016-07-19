@@ -1,0 +1,48 @@
+.portlet {
+  margin-bottom: 20px;
+  border: 1px solid $gray-color;
+
+  .portlet-header {
+    padding: 5px 9px 5px 15px;
+    line-height: 30px;
+  }
+
+  .portlet-title {
+
+    .portlet-icon {
+      vertical-align: text-top;
+      margin-right: 8px;
+    }
+
+    font-size: $font-sm;
+    font-weight: bold;
+  }
+
+  .portlet-option {
+    float: right;
+    .btn {
+      //height: 32px;
+      padding: 5px 10px;
+      vertical-align: top;
+      margin-left: 5px;
+      margin-top: -1px;
+      font-size: $font-sm;
+    }
+  }
+
+  .portlet-body {
+    padding: 10px 15px;
+  }
+
+  .portlet-footer {
+    padding: 10px 15px;
+    background-color: $main-light-color;
+    border-top: 1px solid $main-deep-color;
+  }
+
+  @include portlets($portlets);
+}
+
+.portlet-filter {
+  margin: 0 30px;
+}

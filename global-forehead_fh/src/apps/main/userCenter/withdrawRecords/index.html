@@ -1,0 +1,14 @@
+<div class="search-condition-table m-LR-smd">
+  <div class="control-group row1">
+    <label class="control-label">提现时间：</label>
+    <span class="js-pf-timeset input-date"></span>
+    <% if (obj.viewType === 'team') { %>
+    <label class="control-label">账号：</label>
+    <input type="text" name="username" class="input3 margin-add" data-parsley-maxlength="30">
+    <% } %>
+    <div class="pull-right">
+      <button type="submit" class="btn btn-link text-hot">搜索</button>
+      <button type="reset" class="btn btn-link text-hot">清空条件</button>
+    </div>
+  </div>
+</div>

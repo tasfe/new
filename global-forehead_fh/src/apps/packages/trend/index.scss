@@ -1,0 +1,156 @@
+.history {
+  .rc_con_ti .history_code {
+    background-color: #FFF;
+    margin: 5px 0;
+    table {
+      td {
+        padding: 8px 0;
+      }
+      margin: 0;
+      padding: 0;
+      background-color: #FFF;
+    }
+  }
+  .ball01 {
+    font-weight: bold;
+    color: #FFF;
+    font-size: 12px;
+    background: url(ball.png) no-repeat -34px -57px;
+    width: 26px;
+    height: 25px;
+    line-height: 25px;
+  }
+  .ball02 {
+    font-weight: bold;
+    color: #FFF;
+    font-size: 12px;
+    background: url(ball.png) no-repeat -34px -57px;
+    width: 26px;
+    height: 25px;
+    line-height: 25px;
+    background-position: -59px -57px;
+  }
+  .ball13, .ball14 {
+    color: #888;
+  }
+  .wdh {
+    width: 16px;
+    height: 25px;
+  }
+  tbody {
+    tr {
+      word-break: normal;
+    }
+  }
+  tr {
+    text-align: center;
+  }
+}
+
+#showissue {
+  width: 53px;
+  height: 21px;
+  border: 1px solid #FFFFFF;
+}
+
+.history .none {
+  background: none !important;
+}
+
+#tm {
+  height: 50px;
+  line-height: 50px;
+}
+
+.history {
+  a {
+    color: #08c;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  .div_s1 {
+    text-align: left;
+    width: 1100px;
+    background-color: #FFF;
+  }
+  .th td {
+    background-color: #CCC;
+    height: 22px;
+    line-height: 22px;
+  }
+}
+
+#chartsTable {
+  max-width: inherit;
+  font-family: 宋体, Arial;
+  background: #A5D6EF;
+  border-collapse: inherit;
+  border-spacing: 1px;
+  border: 1px solid #92ADBE;
+  padding: 0;
+  td {
+    background-color: #FFF;
+    border: 0;
+    width: 26px;
+  }
+  .th td {
+    background-color: #ffba00;
+    font-weight: bold;
+    color: #FFF;
+  }
+  td.tdwth {
+    width: 28px;
+    background-color: #F2FAFD;
+  }
+  .wth {
+    width: 28px;
+    height: 25px;
+    border: 0px;
+    color: #FFF;
+    font-weight: bold;
+    background: url(ball.png) no-repeat -9px -57px;
+    line-height: 25px;
+  }
+  .issue {
+    width: 70px;
+    height: 25px;
+    padding: 0 4px;
+    color: #000;
+  }
+  .td0 {
+    background-color: #FFF;
+  }
+  .td1 {
+    background-color: #D3EBF7;
+  }
+  .tb {
+    height: 22px;
+    line-height: 22px;
+    td {
+      color: #333;
+    }
+  }
+}
+
+.history .copyright {
+  background: #D3EBF7;
+  line-height: 40px;
+  text-align: center;
+}
+
+::-webkit-scrollbar {
+  height: 20px;
+  width: 20px;
+}
+.super3k-ok{
+  width: 20px;
+  height: 20px;
+  background: url(1.jpg) no-repeat;
+}
+.super3k-no{
+  width: 20px;
+  height: 20px;
+  background: url(2.jpg) no-repeat;
+}

@@ -1,0 +1,37 @@
+@mixin portlet($class, $props) {
+
+  $headerBg: map_get($props, header-bg);
+  $headerColor: map_get($props, header-color);
+  $bodyBg: map_get($props, body-bg);
+  $bodyColor: map_get($props, body-color);
+  $borderColor: map_get($props, border-color);
+
+  > {
+    .portlet-header {
+      background-color: $headerBg;
+      color: $headerColor;
+      border-bottom: 1px solid $borderColor;
+
+    }
+    .portlet-body {
+      background-color: $bodyBg;
+      color: $bodyColor;
+    }
+  }
+
+  background-color: $bodyBg;
+
+  @include basic(null, map_get($basics, $class));
+}
+
+@mixin portlets($styles) {
+  @each $class, $props in $styles {
+    @if ($class == default) {
+      @include portlet($class, $props);
+    } @else {
+      &.portlet-#{$class} {
+        @include portlet($class, $props);
+      }
+    }
+  }
+}

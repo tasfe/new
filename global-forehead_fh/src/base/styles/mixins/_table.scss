@@ -1,0 +1,68 @@
+@mixin table($class, $props) {
+
+  $thBgColor: map_get($props, th-bg-color);
+  $thColor: map_get($props, th-color);
+  $tdBgColor: map_get($props, td-bg-color);
+  $tdColor: map_get($props, td-color);
+  $tdHoverColor: map_get($props, td-bg-hover-color);
+
+  thead {
+    th {
+      background-color: $thBgColor;
+      color: $thColor;
+    }
+  }
+  tbody {
+    td {
+      background-color: $tdBgColor;
+      color: $tdColor;
+    }
+  }
+
+  background-color: $tdBgColor;
+
+  &.table-hover {
+    tbody tr {
+      &:hover > {
+        td, th {
+          background-color: $tdHoverColor;
+        }
+      }
+      td, th {
+        transition: background-color 0.3s linear
+      }
+    }
+  }
+
+  @include basic(null, map_get($basics, $class));
+}
+
+@mixin tables($tables) {
+  @each $class, $props in $tables {
+    @if ($class == default) {
+      @include table($class, $props);
+    } @else {
+      &.table-#{$class} {
+        @include table($class, $props);
+      }
+    }
+  }
+}
+
+@mixin tables-status-color($tables) {
+  @each $class, $props in $tables {
+    tr.tr-#{$class} {
+      td, th {
+        background-color: map-get($props, bg);
+        color: map-get($props, color);
+
+      }
+      &:hover > {
+        td, th {
+          background-color: map-get($props, bg) !important;
+          color: map-get($props, color) !important;
+        }
+      }
+    }
+  }
+}

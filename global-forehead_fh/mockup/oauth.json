@@ -1,0 +1,24 @@
+{
+  "result": 0,
+  "msg": "ok",
+  "sign": null,
+  "root": {
+    "userId": 22,
+    "token": "5b196fd7-02d8-4648-8f4a-774b3ed62687",
+    "username": "steven",
+    "uName": "赌神",
+    "loginTime": 1453263221517,
+    "loginIp": "183.16.7.134",
+    "loginAdd": "中国广东深圳",
+    "balance": 2826269663,
+    "lastLoginTime": 1453257801783,
+    "lastLoginIp": "183.16.7.134",
+    "lastLoginAdd": "中国广东深圳",
+    "userStatus": 0,
+    "newbie": false,
+    "outTime": 30,
+    "dividendStatus": 2,
+    "redEnvelope": true,
+    "userGroupLevel": 1
+  }
+}

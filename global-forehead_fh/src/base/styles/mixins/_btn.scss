@@ -1,0 +1,77 @@
+@mixin btn($props) {
+
+  $color: map_get($props, color);
+  $bgColor: map_get($props, bg-color);
+  $linearColor: map_get($props, linear-color);
+  $borderColor: map_get($props, border-color);
+  $hover: map_get($props, hover);
+  $focus: map_get($props, focus);
+  $active: map_get($props, active);
+
+  color: $color;
+  background: $bgColor;
+  border: 1px solid $borderColor;
+  &:hover {
+    color: map_get($hover, color);
+    background: map_get($hover, bg-color);
+  }
+  &:focus{
+    color: map_get($focus, color);
+    background: map_get($focus, bg-color);
+  }
+  &.active, &:active {
+    color: map_get($active, color);
+    background: map_get($active, bg-color);
+  }
+
+  &.btn-linear {
+    background: $linearColor;
+    &:hover {
+      background: map_get($hover, linear-color);
+    }
+    &:focus{
+      background: map_get($focus, linear-color);
+    }
+    &.active, &:active {
+      background: map_get($active, linear-color);
+    }
+  }
+}
+
+@mixin btns($styles) {
+  @each $class, $props in $styles {
+    @if ($class == default) {
+      @include btn($props);
+    } @else {
+      &.btn-#{$class} {
+        @include btn($props);
+      }
+    }
+  }
+}
+
+@mixin btn-link($color) {
+
+  color: $color;
+
+  &:hover, &:focus {
+    color: $color;
+  }
+  &[disabled] {
+    &:hover, &:focus {
+      color: $color;
+    }
+  }
+}
+
+@mixin btn-links($styles) {
+  @each $class, $props in $styles {
+    @if ($class == default) {
+      @include btn-link($props);
+    } @else {
+      &.btn-link-#{$class} {
+        @include btn-link($props);
+      }
+    }
+  }
+}

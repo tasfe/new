@@ -1,0 +1,167 @@
+@charset "UTF-8";
+
+@import
+"~base/styles/imports",
+"mixin";
+
+$tab-toolbar-height: 25px !default;
+$tab-toolbar-title-width: 76px !default;
+$tab-toolbar-circle-colors: (
+  default: (
+    default: (
+      color: $new-black-color,
+      background: $gray-color
+    ),
+    active: (
+      color: $dark-color,
+      background: $color-pleasant
+    )
+  )
+);
+
+.tab-toolbar {
+  margin-bottom: 15px;
+  //margin-bottom: 7px;
+  .tab-title {
+    float: left;
+    width: $tab-toolbar-title-width;
+
+    height: $tab-toolbar-height;
+    line-height: $tab-toolbar-height;
+  }
+
+  .tab-group {
+    font-size: 0;
+    margin-left: $tab-toolbar-title-width;
+
+    .tab-wrapper {
+      margin-right: $filter-sm;
+      display: inline-block;
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
+
+    .tab {
+      font-size: 12px;
+      cursor: pointer;
+      display: inline-block;
+      text-align: center;
+      height: $tab-toolbar-height;
+      line-height: $tab-toolbar-height;
+    }
+  }
+
+  &.tab-pill {
+    &.tab-pill-deep {
+      .tab {
+        margin-top: 4px;
+        font-size: $font-sm;
+        line-height: 30px;
+        height: 34px;
+        width: 73px;
+        &.active {
+          color: #16a4aa;
+          background-color: $dark-color;
+        }
+      }
+    }
+
+    &.tab-pill-main {
+      .tab-title {
+        float: left;
+        font-weight: bold;
+        width: $tab-toolbar-title-width;
+        font-size: 14px;
+        text-align: center;
+        margin-left: 10px;
+
+        height: $tab-toolbar-height;
+        line-height: $tab-toolbar-height;
+      }
+
+      .tab-group {
+        font-size: 0;
+        margin-left: $tab-toolbar-title-width;
+        .tab {
+          padding: 0 9px;
+          cursor: pointer;
+          display: inline-block;
+          text-align: center;
+          margin-right: $filter-xs;
+          min-width: 54px;
+          height: $tab-toolbar-height;
+          line-height: $tab-toolbar-height;
+          @include tab-toolbar-color(default, $tab-toolbar-circle-colors);
+
+          &:last-child {
+            margin-right: 0;
+          }
+        }
+      }
+    }
+  }
+
+  &.tab-circle {
+    margin-bottom: 0;
+
+    .tab-title {
+      font-size: 14px;
+      height: 29px;
+      line-height: 29px;
+      text-align: center;
+      width: 75px;
+      color: #434342;
+    }
+    .tab {
+      padding: 0;
+      font-size: 17px;
+      line-height: 29px;
+      height: 29px;
+      width: 29px;
+      border-radius: 100px;
+      border: 1px solid $color-sunshine;
+
+      &.active {
+        color: $dark-color;
+        background: linear-gradient(to bottom, #fdbe29, #e3a511);
+        border: 1px solid $color-sunshine;
+      }
+    }
+  }
+
+  &.tab-border {
+
+    .tab {
+      width: 24px;
+      height: 24px;
+      line-height: 24px;
+      border: 1px solid $gray-color;
+      margin-right: 13px;
+      float: left;
+      font-size: 14px;
+
+      &:hover {
+        color: $dark-color;
+        //border: 1px solid $color-pleasant;
+        background: linear-gradient(to bottom, #fdbe29, #e3a511);
+      }
+
+      &.active {
+        color: $dark-color;
+        //border: 1px solid $color-pleasant;
+        background: linear-gradient(to bottom, #fdbe29, #e3a511);
+      }
+    }
+
+    &.tab-sm {
+      .tab {
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+        font-size: 12px;
+      }
+    }
+  }
+}

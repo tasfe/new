@@ -1,0 +1,459 @@
+@charset "UTF-8";
+
+@import
+"~base/styles/imports";
+
+
+.fc-moneyTransfer-view {
+  //padding: 19px 24px 0 21px;
+  input {
+    width: 166px;
+  }
+  .fc-mt-password{
+    width: 154px;
+  }
+  .btn {
+    width: 166px;
+    height: 32px;
+  }
+}
+
+.fc-bankInfoForm {
+  width: 550px;
+  display: inline-block;
+}
+
+.fc-countdown {
+  display: inline-block;
+  margin-top: 80px;
+  vertical-align: top;
+
+  .sfa-cd-icon {
+    vertical-align: top;
+    margin-top: 5px;
+  }
+}
+
+//
+
+.fc-trade-no-label {
+  width: 330px;
+  display: inline-block;
+}
+.fc-trade-no-input {
+  width: 230px;
+  margin-left: 2px;
+}
+.fc-trade-type-label {
+  width: 231px;
+  display: inline-block;
+}
+
+.fc-bet-time-div {
+  //width: 783px;
+  display: inline-block;
+}
+
+.fc-trade-no-div {
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.fc-bet-time-label {
+   margin-left: 13px;
+   width: 57px;
+  display: inline-block;
+}
+
+.fc-page-size-label {
+  //width: 250px;
+  display: inline-block;
+}
+
+
+
+//withdrawal
+
+.fc-cardList {
+  margin-top: 5px;
+  position: relative;
+  width: 640px;
+  min-height: 55px;
+  max-height: 225px;
+  overflow: auto;
+
+  .fc-card-item {
+    list-style: none;
+    padding: 7px 0 7px 15px;
+    margin-bottom: 10px;
+    border: 1px solid $table-border-color ;
+
+    &.unActive {
+      background-color: #b1b1b1;
+    }
+
+    .fc-wd-bankName {
+      width: 100px;
+      font-size: 16px;
+      display: inline-block;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+    .fc-wd-frozenTime {
+      width: 100px;
+      float: right;
+      .fc-wd-effective-title {
+        color: white;
+        text-align: center;
+        font-size:13px;
+        font-weight: 400;
+      }
+      .fc-wd-effective-time {
+        color: white;
+        text-align: center;
+        font-size: 17px;
+        font-weight: 700;
+      }
+    }
+    .fc-wd-newCard {
+      width: 53px;
+      margin-top: -7px;
+      float: right;
+    }
+  }
+  .fc-card-pic {
+    width: 68px;
+    height: 38px;
+  }
+}
+.sfa-fee-free {
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 16px;
+  font-weight: bold;
+  .sfa-fee-free-inner {
+    color: $dark-color;
+    width: 35px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+  }
+}
+
+.fc-withdrawal-confirm {
+  width: 300px;
+  height: 240px;
+  position: relative;
+  margin: 0 0 40px 290px;
+  padding: 65px 20px 1px;
+  .fc-wd-confirm-content{
+    font-size: 16px;
+  }
+}
+
+//moneyTransfer
+
+.fc-transfer-form {
+  .fc-lowLevelSelect {
+    display: inline-block;
+    padding: 20px 15px;
+    width: 45%;
+    overflow-x: auto;
+  }
+
+  .fc-group {
+    border-left: 1px solid $gray-color;
+    display: inline-block;
+    padding: 40px 30px 0 0;
+    width: 45%;
+    height: 540px;
+  }
+}
+
+.fc-group {
+  .control-label {
+    width: 125px;
+  }
+
+  .controls {
+    margin-left: 130px;
+  }
+
+  &.fc-group-lg {
+
+    .control-label {
+      width: 120px;
+    }
+    .controls {
+      margin-left: 120px;
+    }
+  }
+}
+
+//fc
+.fc-re-nav-manual-tabs {
+  padding-left: 0 !important;
+  margin-bottom: 0 ;
+  li{
+      a{
+        border-right: 1px solid #d4d4d4
+      }
+  }
+}
+.fc-re-nav-tab-a {
+ // border-right: 1px solid #d4d4d4 !important;
+}
+.bank-card {
+  display: inline-block;
+  width: 158px;
+  height: 158px;
+  margin-right: 53px;
+  font-size: 0;
+  cursor: pointer;
+
+  border: 3px solid transparent;
+  border-radius: 35px;
+  &.bank-card-active0 {
+    &.active {
+      border-color: #bb8b88;
+    }
+  }
+  &.bank-card-active1 {
+    &.active {
+      border-color: #8ea77a;
+    }
+  }
+  &.bank-card-active2 {
+    &.active {
+      border-color: #8298b2;
+    }
+  }
+}
+
+.fc-re-alipay {
+  background: url('alipay.png') no-repeat;
+  padding-left: 30px !important;
+  margin-left: 20px;
+  line-height: 30px !important;
+}
+
+.fc-re-union {
+  background: url('union.png') no-repeat;
+  padding-left: 45px !important;
+  margin-left: 20px;
+  line-height: 30px !important;
+}
+
+.fc-re-wechat {
+  background: url('wechat.png') no-repeat;
+  padding-left: 32px !important;
+  margin-left: 20px;
+  line-height: 30px !important;
+}
+
+.uc-card-text-disable {
+  color: #a4a4a4;
+}
+
+.fc-re-div1 {
+  border: 1px solid #d4d4d4;
+  border-bottom: 0;
+}
+.fc-re-div2 {
+  border: 1px solid #d4d4d4;
+  border-top: 0;
+  padding-top: 47px;
+}
+
+.fc-re-bankList {
+  border:1px  solid #d4d4d4;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 0;
+  text-align: left;
+  width: 100%;
+
+  line-height: 46px;
+  white-space: nowrap;
+  td {
+   // border:1px solid #d4d4d4;
+    width: 25%;
+    height: 46px;
+    span {
+      display: block;
+      line-height: 30px;
+      margin-left: 10px;
+      padding-left: 50px;
+    }
+  }
+  .fc-re-bank {
+    cursor: pointer;
+    border:1px solid #d4d4d4;
+  }
+
+  td.active{
+    background-color: $color-sunshine;
+  }
+
+}
+.fc-re-quickAmount {
+  list-style-type: none;
+  margin-left: 217px;
+  li{
+    text-align: center;
+    margin-right: 5px;
+    display:inline-block;
+    border: 1px solid #d4d4d4;
+    border-radius: 4px;
+    width:auto;
+    cursor: pointer;
+
+    min-width: 25px;
+    max-width: 30px;
+    white-space: nowrap;
+  }
+  li:focus {
+    background-color: $color-sunshine;
+  }
+  li:hover {
+    background-color: $color-sunshine;
+  }
+}
+
+.fc-re-bank-zhongguo {
+  background: url('zhongguoL.png') no-repeat;
+}
+.fc-re-bank-gongshang {
+  background: url('gongshangL.png') no-repeat;
+}
+.fc-re-bank-nongye {
+  background: url('nongyeL.png') no-repeat;
+}
+.fc-re-bank-jianshe {
+   background: url('jiansheL.png') no-repeat;
+}
+
+.fc-re-bank-jiaotong {
+  background: url('jiaotongL.png') no-repeat;
+}
+.fc-re-bank-minsheng {
+  background: url('minshengL.png') no-repeat;
+}
+.fc-re-bank-guangfa {
+  background: url('guangfaL.png') no-repeat;
+}
+.fc-re-bank-guangda {
+  background: url('guangdaL.png') no-repeat;
+}
+
+.fc-re-bank-pufa {
+  background: url('pufaL.png') no-repeat;
+}
+.fc-re-bank-zhaoshang {
+  background: url('zhaoshangL.png') no-repeat;
+}
+.fc-re-bank-pingan {
+  background: url('pinganL.png') no-repeat;
+}
+.fc-re-bank-xingye {
+  background: url('xingyeL.png') no-repeat;
+}
+.fc-re-bank-zhongxin {
+  background: url('zhongxinL.png') no-repeat;
+}
+.fc-re-bank-youzheng {
+  background: url('youzhengL.png') no-repeat;
+}
+.fc-re-bank-huaxia {
+  background: url('huaxiaL.png') no-repeat;
+}
+
+.fc-re-commit {
+  width: 250px;
+  background-color: $color-bright-red;
+}
+.fc-re-resultShow {
+  margin: 10px 20px;
+}
+.fc-re-payment-input {
+  background-color: #fff !important;
+  border: 1px solid $deep-gray-color;
+}
+
+.fc-re-result-desc {
+  color: $color-bright-red;
+}
+
+.fc-re-result-btn {
+
+  width: 131px;
+  height: 30px;
+}
+
+.fc-re-succ {
+  background-color: #e94235;
+}
+.fc-re-fail {
+  background-color: #fff !important;
+  color: #000000  !important;
+}
+
+.fc-wd-div1 {
+   margin-left: 74px;
+}
+.fc-wd-quickAmount {
+  margin-left: 66px;
+  list-style-type: none;
+  li{
+    text-align: center;
+    margin-right: 5px;
+    display:inline-block;
+    border: 1px solid #d4d4d4;
+    border-radius: 4px;
+    width:auto;
+    cursor: pointer;
+
+    min-width: 25px;
+    max-width: 30px;
+    white-space: nowrap;
+
+  }
+  li:focus {
+    background-color: $color-sunshine;
+  }
+  li:hover {
+    background-color: $color-sunshine;
+  }
+}
+
+.fc-wd-commit {
+  width: 250px;
+}
+
+.fc-wd-bankList {
+  width: 250px;
+  height: 30px;
+}
+
+.fc-wd-amount {
+  width: 236px;
+  height: 30px;
+}
+
+//.modal-re {
+//  width: 755px;
+//}
+.fc-re-amount {
+  width: 236px;
+}
+.fc-re-amount-label{
+  margin-right: 20px;
+}
+.fc-re-amount-div {
+  margin-left: -35px;
+  margin-right: 20px;
+
+}

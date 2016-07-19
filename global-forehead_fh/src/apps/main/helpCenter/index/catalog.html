@@ -1,0 +1,23 @@
+<ul class="hc-catalog">
+  <% _(menus.sub).each(function(menu) { %>
+  <li class="clearfix">
+    <div
+    class="hc-catalog-title"
+    <% if (menu.icon) { %>
+    >
+    <img class="hc-catalog-title-icon" src="<%=menu.icon %>" />
+    <% } %>
+    <div class="hc-catalog-title-inner">
+      <%=menu.name %>
+    </div>
+    </div>
+    <ul class="hc-catalog-contents">
+      <% _(menu.sub).each(function(subMenu) { %>
+      <li>
+        <a class="js-hc-catalog-detail" data-parent-id="<%=menu.id %>" data-args="<%=subMenu.args %>" href="#<%=menus.router %>?<%=subMenu.args %>"><%=subMenu.name %></a>
+      </li>
+      <% }); %>
+    </ul>
+  </li>
+  <% }); %>
+</ul>

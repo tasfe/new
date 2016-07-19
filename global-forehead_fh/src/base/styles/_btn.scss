@@ -1,0 +1,188 @@
+.btn {
+  display: inline-block;
+  *display: inline;
+  padding: 6px 10px;
+  margin-bottom: 0;
+  *margin-left: .3em;
+  font-size: 13px;
+  line-height: 15px;
+  text-align: center;
+  cursor: pointer;
+  *zoom: 1;
+
+  border-radius: $globalBtnRadius;
+  &.no-radius {
+    border-radius: 0;
+  }
+
+  &:focus, &:hover {
+    outline: 0;
+    //transition: background-color .3s ease;
+  }
+  
+  &:first-child {
+    *margin-left: 0;
+  }
+  &:hover {
+    text-decoration: none;
+    background-position: 0 -15px;
+    transition: background-position 0.1s linear;
+  }
+  
+  &:focus {
+    text-decoration: none;
+    background-position: 0 -15px;
+    transition: background-position 0.1s linear;
+  }
+  &.active, &:active {
+    background-image: none;
+    outline: 0;
+    box-shadow: inset 0 3px 5px rgba(0,0,0,.125);
+  }
+  &.disabled, &[disabled] {
+    cursor: default;
+    background-image: none;
+    opacity: 0.65;
+  }
+
+  &.btn-transparent {
+    background: 0 0;
+    border: none;
+  }
+  &.btn-rounded {
+    padding-left: 15px;
+    padding-right: 15px;
+    &.btn-icon-rounded {
+      padding-left: 12px;
+      padding-right: 12px;
+      &.btn-sm {
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+    }
+  }
+
+  @include btns($btns);
+}
+
+.btn-lg {
+  padding: 10px 18px;
+  font-size: 16px;
+}
+
+.btn-sm {
+  padding: 2px 10px;
+  font-size: 12px;
+}
+
+.btn-xs {
+  padding: 0 6px;
+  font-size: 10px;
+}
+
+.btn-block {
+  display: block;
+  width: 100%;
+  padding-right: 0;
+  padding-left: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  + .btn-block {
+    margin-top: 5px;
+  }
+}
+
+input {
+  &[type="submit"].btn-block, &[type="reset"].btn-block, &[type="button"].btn-block {
+    width: 100%;
+  }
+}
+
+.btn-opacity {
+  color: $font-color;
+  background-color: transparent;
+  *background-color: transparent;
+  border-color: transparent;
+  &:hover, &:focus, &:active, &.active, &.disabled, &[disabled] {
+    color: $font-color;
+    background-color: transparent;
+    *background-color: transparent;
+    box-shadow: none;
+  }
+  &:active, &.active {
+    background-color: transparent;
+    box-shadow: none;
+  }
+}
+
+button.btn, input[type="submit"].btn {
+  *padding-top: 3px;
+  *padding-bottom: 3px;
+}
+
+button.btn::-moz-focus-inner, input[type="submit"].btn::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+button.btn.btn-lg, input[type="submit"].btn.btn-lg {
+  *padding-top: 7px;
+  *padding-bottom: 7px;
+}
+
+button.btn.btn-sm, input[type="submit"].btn.btn-sm {
+  *padding-top: 3px;
+  *padding-bottom: 3px;
+}
+
+button.btn.btn-xs, input[type="submit"].btn.btn-xs {
+  *padding-top: 1px;
+  *padding-bottom: 1px;
+}
+
+.btn-link {
+  background-color: transparent;
+  background-image: none;
+
+  &:focus, &:hover {
+    outline: 0;
+  }
+
+  display: inline-block;
+  box-shadow: none;
+
+  &:active, &[disabled] {
+    background-color: transparent;
+    background-image: none;
+    box-shadow: none;
+  }
+
+  cursor: pointer;
+  border-color: transparent;
+  text-decoration: underline;
+
+  &:hover, &:focus {
+    text-decoration: none;
+    background-color: transparent;
+  }
+  &[disabled] {
+    &:hover, &:focus {
+      text-decoration: none;
+    }
+  }
+
+  @include btn-links($font-colors);
+}
+
+.btn-toolbar {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 0;
+  > {
+    .btn + .btn, .btn-group + .btn, .btn + .btn-group {
+      margin-left: 5px;
+    }
+  }
+}
+

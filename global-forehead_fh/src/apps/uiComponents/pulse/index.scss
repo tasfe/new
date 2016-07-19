@@ -1,0 +1,159 @@
+@charset "UTF-8";
+
+@import
+"~base/styles/imports";
+
+.pulse {
+  position: absolute;
+  top: 50%;
+  margin-top: -120px;
+  border-radius: 100000px;
+  background: #014449;
+  width: 12rem;
+  height: 12rem;
+  text-align: center;
+  left: 50%;
+  margin-left: -100px;
+
+  .pulse-main {
+    position: relative;
+    z-index: 1000;
+    font-size: 2.5em;
+  }
+
+  .pulse-title {
+    margin-top: 3.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .pulse-divider {
+    width: 110px;
+    height: 5px;
+    background: #14a6bc;
+    margin: 0 auto 1rem;
+  }
+  .pulse-content {
+    font-size: 1.2rem;
+  }
+
+  &:before, &:after {
+    animation: pulse 2s infinite linear;
+    content: '';
+    border-radius: 999px;
+    background: #014449;
+    width: 140%;
+    height: 140%;
+    display: inline-block;
+    position: absolute;
+    transform: scale(0.714);
+    top: -20%;
+    left: -20%;
+  }
+
+  &:after {
+    animation-delay: 1s;
+  }
+
+
+  &.pulse-hot {
+    background: $new-hot-color;
+
+    &:before,&:after {
+      background: $new-hot-color;
+    }
+  }
+
+  &.pulse-red {
+    background: #d7a192;
+
+    &:before,&:after {
+      background: #d7a192;
+    }
+  }
+
+  &.pulse-green {
+    background: #9ce88b;
+
+    &:before,&:after {
+      background: #9ce88b;
+    }
+  }
+
+  &.pulse-purple {
+    background: #c8aeeb;
+
+    &:before,&:after {
+      background: #c8aeeb;
+    }
+  }
+
+  &.pulse-blue {
+    background: #6acbea;
+
+    &:before,&:after {
+      background: #6acbea;
+    }
+  }
+
+  &.pulse-brown {
+    background: #c6b285;
+
+    &:before,&:after {
+      background: #c6b285;
+    }
+  }
+
+  &.pulse-blueness {
+    background: #5fe7d2;
+
+    &:before,&:after {
+      background: #5fe7d2;
+    }
+  }
+
+  &.pulse-light-green {
+    background: #afe09d;
+
+    &:before,&:after {
+      background: #afe09d;
+    }
+  }
+
+  &.pulse-light-purple {
+    background: #a8b7e9;
+
+    &:before,&:after {
+      background: #a8b7e9;
+    }
+  }
+
+  &.pulse-deep-blue {
+    background: #73a9e9;
+
+    &:before,&:after {
+      background: #73a9e9;
+    }
+  }
+
+  &.pulse-deep-brown {
+    background: #b7c99d;
+
+    &:before,&:after {
+      background: #b7c99d;
+    }
+  }
+
+  &.pulse-white {
+    background: $dark-color;
+
+    &:before,&:after {
+      background: $dark-color;
+    }
+  }
+}
+
+@keyframes pulse {
+  to {
+    opacity: 0;
+    transform: scale(1);
+  }
+}

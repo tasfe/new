@@ -1,0 +1,135 @@
+.carousel {
+  position: relative;
+  margin-bottom: 20px;
+  line-height: 1;
+  overflow: hidden;
+}
+
+.carousel-inner {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  > {
+    .item {
+      position: relative;
+      display: none;
+      transition: 0.6s ease-in-out left;
+      > {
+        img, a > img {
+          width: 100%;
+          display: block;
+          line-height: 1;
+        }
+      }
+    }
+    .active, .next, .prev {
+      display: block;
+    }
+    .active {
+      left: 0;
+    }
+    .next, .prev {
+      position: absolute;
+      top: 0;
+      width: 100%;
+    }
+    .next {
+      left: 100%;
+    }
+    .prev {
+      left: -100%;
+    }
+    .next.left, .prev.right {
+      left: 0;
+    }
+    .active {
+      &.left {
+        left: -100%;
+      }
+      &.right {
+        left: 100%;
+      }
+    }
+  }
+}
+
+.carousel-control {
+  position: absolute;
+  top: 50%;
+  left: -50px;
+  width: 100px;
+  height: 100px;
+  margin-top: -50px;
+  font-size: 60px;
+  font-weight: 100;
+  line-height: 100px;
+  color: #ffffff;
+  background: #000000;
+  border-radius: 100px;
+  opacity: 0.8;
+
+  .fa-caret-left {
+    margin-left: 55px;
+  }
+  .fa-caret-right {
+    margin-left: 25px;
+  }
+
+  &.right {
+    right: -50px;
+    left: auto;
+  }
+  &:hover, &:focus {
+    color: #ffffff;
+    text-decoration: none;
+    opacity: 0.9;
+  }
+}
+
+.carousel-indicators {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  z-index: 15;
+  width: 80%;
+  padding-left: 0;
+  margin-left: -40%;
+  font-size: 0;
+  text-align: center;
+  list-style: none;
+  &.carousel-outside {
+    bottom: 5px;
+  }
+  li {
+    display: inline-block;
+    width: $carousel-indicators-width;
+    height: 5px;
+    margin: $carousel-indicators-margin;
+    text-indent: -999px;
+    cursor: pointer;
+    //background-color: #000\9;
+    background-color: #ffffff;
+  }
+  .active {
+    opacity: 0.5;
+  }
+}
+
+.carousel-caption {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 15px;
+  background: #333333;
+  h4, p {
+    line-height: 20px;
+    color: #ffffff;
+  }
+  h4 {
+    margin: 0 0 5px;
+  }
+  p {
+    margin-bottom: 0;
+  }
+}

@@ -1,0 +1,77 @@
+.binding-container {
+  width: 770px;
+  margin: 0 auto;
+  font-size: 12px;
+}
+
+.binding-card {
+
+  margin-bottom: 9px;
+  color: $dark-color;
+
+  .binding-card-bg {
+    width: $cards-width;
+    height: $cards-height;
+    position: relative;
+
+    .binding-card-main {
+      color: $background-color;
+      padding: 45px 10px 5px 30px;
+    }
+    .binding-card-op {
+      position: absolute;
+      top: 0;
+      right: 0;
+      text-align: center;
+      height: 29px;
+      line-height: 29px;
+    }
+  }
+  .uc-lockedRectangle {
+    width: $cards-width;
+    height: $cards-height;
+    text-align: center;
+    background-image: url(~base/images/lockedRectangle.png);
+    .uc-add-sign {
+      margin-top:40px;
+      display: inline-block;
+      width: 34px;
+      height: 34px;
+      background: url(~base/images/lockedAdd.png) no-repeat;
+    }
+  }
+  .binding-card-triangle-yellow {
+    width: 29px;
+    height: 29px;
+    background: url(~base/images/yellowTriangle.png) no-repeat;
+  }
+  .binding-card-triangle-red {
+    width: 29px;
+    height: 29px;
+    background: url(~base/images/redTriangle.png) no-repeat;
+  }
+  .binding-card-sign-locked {
+    width: 11px;
+    height: 12px;
+    position: absolute;
+    top: 3px;
+    right: 2px;
+    background: url(~base/images/lock.png) no-repeat;
+  }
+  .binding-card-sign-checkMark {
+    width: 14px;
+    height: 10px;
+    position: absolute;
+    top: 4px;
+    right: 2px;
+    background: url(~base/images/checkmark.png) no-repeat;
+  }
+  .binding-card-sign-cross {
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    top: 4px;
+    right: 3px;
+    background: url(~base/images/cross.png) no-repeat;
+  }
+}

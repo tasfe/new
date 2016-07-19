@@ -1,0 +1,23 @@
+.icon-block {
+
+  $bg-color: map_get($icon-block, bg-color);
+  $color: map_get($icon-block, color);
+  $icon-size: map_get($icon-block, icon-size);
+  $size: map_get($icon-block, size);
+  $radius: map_get($icon-block, radius);
+
+  display: inline-block;
+  background-color: $bg-color;
+  color: $color;
+  width: $size;
+  height: $size;
+  text-align: center;
+  line-height: $size - 2;
+  cursor: pointer;
+  border-radius: $radius;
+
+  &:before {
+    content: 'x';
+    font-size: $icon-size;
+  }
+}

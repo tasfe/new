@@ -1,0 +1,18 @@
+.main-container {
+  position: relative;
+  right: 0;
+  left: 0;
+  transition: left .5s ease;
+  background: $main-bg;
+  &.sidebar-mini {
+    margin-left: 60px;
+  }
+}
+
+.header-text {
+/*  border-bottom: 5px solid #ddd;*/
+  margin-top: 10px;
+  padding-bottom: 15px;
+  margin-bottom: 10px;
+  font-size: 28px;
+}

@@ -1,0 +1,18 @@
+<% _(chatData).each(function(chat) { %>
+<li class="<% if (chat.isSender) { %>right<% } else { %>left<% } %> clearfix">
+  <!--<span class="chat-img pull-right"></span>-->
+  <% if (chat.hasTitle) { %>
+  <div class="chat-title">
+    <!--<% if (!chat.isSender) { %><div class="chat-name"><%=chat.sender %></div><% } %>-->
+    <div class="chat-date"><%=_(chat.sendTime).toTime() %></div>
+    <!--<% if (chat.isSender) { %><div class="chat-name"><%=chat.sender %></div><% } %>-->
+  </div>
+  <% } %>
+  <div class="chat-body clearfix">
+    <!--<div class="header">-->
+      <!--<small class="pull-right"><%=_(chat.sendTime).toTime() %></small>-->
+    <!--</div>-->
+    <p><%=chat.content %></p>
+  </div>
+</li>
+<% }); %>

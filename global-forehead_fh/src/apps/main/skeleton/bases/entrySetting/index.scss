@@ -1,0 +1,36 @@
+@charset "UTF-8";
+
+@import
+"~base/styles/imports";
+
+.setting-container {
+  width: 610px;
+  border: 1px solid $gray-color;
+  margin: 45px auto 10px;
+
+  .setting {
+    border-bottom: 1px solid $gray-color;
+    padding: 10px 0;
+    &:last-of-type {
+      border-bottom: 0;
+    }
+  }
+
+  .setting-title {
+    color: $font-deep-color;
+    display: inline-block;
+    width: 110px;
+    .sfa {
+      vertical-align: middle;
+    }
+  }
+  .setting-group {
+    display: inline-block;
+    .setting-tab {
+      width: 100px;
+      padding-left: 10px;
+      display: inline-block;
+      margin: 0;
+    }
+  }
+}

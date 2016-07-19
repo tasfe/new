@@ -1,0 +1,29 @@
+<div class="font-md">
+  <dl class="clearfix m-LR-md no-padding-bottom">
+    <dt class="pull-left m-right-md">
+      <span class="sfa sfa-d-<%=ticketInfo.id %>-<%=ticketInfo.info.mark %>"></span>
+    </dt>
+    <% if (!_.isArray(planId)) { %>
+    <dd class="overflow-hidden m-TB-sm">
+      第 <span class="js-bc-confirm-planId text-pleasant"><%=planId %></span> 期
+    </dd>
+    <dd class="overflow-hidden m-bottom-sm">
+      总计 <span class="text-pleasant"><%=totalInfo.totalLottery %></span> 注，
+      总共 <span class="text-pleasant"><%=_(totalInfo.totalMoney).convert2yuan() %></span> 元</dd>
+    <% } else { %>
+    <dd class="overflow-hidden m-TB-sm">
+      从 <span class="text-pleasant"><%=planId[0] %></span>
+      至 <span class="text-pleasant"><%=planId[1] %></span> 期
+    </dd>
+    <dd class="overflow-hidden m-bottom-sm">
+      每期 <span class="text-pleasant"><%=totalInfo.totalLottery %></span> 注，
+      总共 <span class="text-pleasant"><%=_(totalInfo.totalMoney).convert2yuan() %></span> 元
+    </dd>
+    <% } %>
+  </dl>
+  <ul class="bc-confirm-list no-padding border-all min-height-smd max-height-smd overflow-auto bg-mute">
+    <% _(previewList).each(function(item) { %>
+    <li class="bc-betDetail-text " >[<%=item.levelName %>_<%=item.playName %>] <%=item.formatBettingNumber %></li>
+    <% }); %>
+  </ul>
+</div>

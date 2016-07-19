@@ -1,0 +1,41 @@
+<button class="js-uc-bdCancelBetting bc-btn-cancel btn hidden" type="button">撤销订单</button>
+
+<div class="padding-smd">
+  <dl class="dl-detail dl-horizontal no-margin">
+    <dt>彩种名称：</dt>
+    <dd id="jsPaTicketName"></dd>
+
+    <dt>投注奖期：</dt>
+    <dd id="jsPaTicketPlanId"></dd>
+
+    <dt>投注时间：</dt>
+    <dd id="jsPaBetTime"></dd>
+
+    <dt>订单编号：</dt>
+    <dd id="jsPaTicketBetNo"></dd>
+
+    <dt>投注金额：</dt>
+    <dd id="jsPaBetAllMoney" class="text-bold-pleasant">元</dd>
+
+    <dt>奖金：</dt>
+    <dd id="jsPaMoney" class="text-bold-pleasant">-元</dd>
+    <dt>开奖号码：</dt>
+    <dd>
+      <span id="jsPaOpenNum"></span>
+      <a class="js-pa-link-track btn-link router hidden" href="javascript:void(0)">相关追号记录</a>
+    </dd>
+    <dt>投注号码：</dt>
+  </dl>
+  <div class="js-pa-betting-numbers detail-betting-num m-bottom-sm"></div>
+  <div class="js-pa-quick-entry pagination text-center">
+    <ul>
+      <li class="js-pa-prev pagination-pre disabled">
+        <span><a href="javascript:void(0)">上一条</a></span>
+      </li>
+      <li class="js-pa-next pagination-next m-left-md disabled">
+        <span><a href="javascript:void(0)">下一条</a></span>
+      </li>
+    </ul>
+  </div>
+  <input type="hidden" id="jsTicketBetId">
+</div>

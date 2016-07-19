@@ -1,0 +1,629 @@
+.drift-activity {
+  .clear_div {
+    clear: both;
+  }
+   ul {
+     list-style: none;
+   }
+
+  .bottle_lump {
+    width: 1280px;
+    height: 480px;
+    margin: 0 auto;
+    position: relative;
+    opacity: 1;
+  }
+
+  .bottle_01 {
+    width: 103px;
+    height: 123px;
+    position: absolute;
+    top: -90px;
+    left: 120px;
+    z-index: 299;
+    cursor: pointer;
+    animation: float-bottle 3s infinite;
+  }
+
+  .bottle_02 {
+    width: 103px;
+    height: 123px;
+    position: absolute;
+    top: -90px;
+    left: 600px;
+    z-index: 299;
+    cursor: pointer;
+    animation: float-bottle 3s infinite 1s;
+  }
+
+  .bottle_03 {
+    width: 103px;
+    height: 123px;
+    position: absolute;
+    top: -90px;
+    left: 820px;
+    z-index: 299;
+    cursor: pointer;
+    animation: float-bottle 3s infinite 2s;
+  }
+
+  .bottle_04 {
+    width: 103px;
+    height: 123px;
+    position: absolute;
+    top: -115px;
+    left: 270px;
+    z-index: 199;
+    cursor: pointer;
+    animation: float-bottle-2 3s infinite .5s;
+  }
+
+  .bottle_05 {
+    width: 103px;
+    height: 123px;
+    position: absolute;
+    top: -115px;
+    left: 1120px;
+    z-index: 199;
+    cursor: pointer;
+    animation: float-bottle-2 3s infinite 1.5s;
+  }
+
+  .bottle_06 {
+    width: 103px;
+    height: 123px;
+    position: absolute;
+    top: -125px;
+    left: 380px;
+    z-index: 99;
+    cursor: pointer;
+    animation: float-bottle-3 3s infinite 2.5s;
+  }
+
+  .bottle_07 {
+    width: 103px;
+    height: 123px;
+    position: absolute;
+    top: -125px;
+    left: 930px;
+    z-index: 99;
+    cursor: pointer;
+    animation: float-bottle-3 3s infinite;
+  }
+
+  .river_lump {
+    min-width: 1280px;
+    width: auto;
+    height: auto;
+    //overflow: hidden;
+    position: relative;
+    z-index: 100;
+  }
+
+  .river_bg {
+    background: url("images/20160305/river_bg.jpg") no-repeat center;
+    width: 1920px;
+    height: 100px;
+    position: fixed;
+    bottom: -250px;
+    z-index: 100;
+  }
+  .river_ele_lump {
+    width: 1920px;
+    height: 120px;
+    overflow: hidden;
+    position: absolute;
+    top: -70px;
+    left: 0px;
+  }
+
+  .river_ele_01 {
+    width: 2200px;
+    height: 80px;
+    overflow: hidden;
+    position: absolute;
+    top: 30px;
+    z-index: 300;
+    animation: river 3.4s linear infinite;
+  }
+
+  .river_ele_02 {
+    width: 2200px;
+    height: 40px;
+    overflow: hidden;
+    position: absolute;
+    top: 15px;
+    left: 0;
+    z-index: 200;
+    animation: river-reverse 3.4s linear infinite;
+  }
+
+  .river_ele_03 {
+    width: 2200px;
+    height: 40px;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: -126px;
+    z-index: 100;
+    animation: river 2s linear infinite;
+  }
+
+  .river_ele_01 li {
+    background: url("images/20160305/river_ele_01.png") no-repeat center;
+    width: 68px;
+    height: 80px;
+    float: left;
+  }
+
+  .river_ele_02 li {
+    background: url("images/20160305/river_ele_02.png") no-repeat center;
+    width: 68px;
+    height: 40px;
+    float: left;
+  }
+
+  .river_ele_03 li {
+    background: url("images/20160305/river_ele_03.png") no-repeat center;
+    width: 68px;
+    height: 40px;
+    float: left;
+  }
+
+  .river_bottle_01 {
+    width: 2200px;
+    height: 80px;
+    overflow: hidden;
+    position: absolute;
+    top: -15px;
+    left: 0;
+    //left: -126px;
+    z-index: 300;
+    animation: river 2s linear infinite;
+  }
+
+  .river_bottle_02 {
+    width: 2200px;
+    height: 40px;
+    overflow: hidden;
+    position: absolute;
+    top: -20px;
+    left: 0;
+    z-index: 200;
+    animation: river-reverse 2s linear infinite;
+  }
+
+  .river_bottle_01 li {
+    background: url("images/20160305/river_ele_01.png") no-repeat center;
+    width: 68px;
+    height: 80px;
+    float: left;
+  }
+
+  .river_bottle_02 li {
+    background: url("images/20160305/river_ele_02.png") no-repeat center;
+    width: 68px;
+    height: 40px;
+    float: left;
+  }
+
+  .main_content {
+    background: url("images/20160305/cloud.png") no-repeat bottom;
+    width: 1280px;
+    height: 600px;
+    margin: 0px auto;
+    position: relative;
+  }
+
+  .fullscreen_mask {
+    background: black;
+    width: 100%;
+    height: 100%;
+    opacity: 0.7;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    z-index: 500;
+  }
+
+  .pop_shut {
+    background: url("images/20160305/pop_window.png") no-repeat;
+    width: 456px;
+    height: 400px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 600;
+  }
+
+  .pop_description {
+    background: url("images/20160305/pop_window_02.png") no-repeat;
+    width: 456px;
+    height: 488px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 600;
+
+    &.blue {
+      background: url("images/20160305/pop_windo_blue.png") no-repeat;
+      .pop_btn_throw {
+        background: url("images/20160305/btn_03.png") no-repeat;
+      }
+      .pop_status_pic_01 {
+        background: url("images/20160305/pop_status_text_blue_01.png") no-repeat;
+      }
+      .pop_status_pic_02 {
+        background: url("images/20160305/pop_status_text_blue_02.png") no-repeat;
+      }
+      .pop_status_pic_03 {
+        background: url("images/20160305/pop_status_text_blue_03.png") no-repeat;
+      }
+      .pop_status_pic_04 {
+        background: url("images/20160305/pop_status_text_blue_04.png") no-repeat;
+      }
+      .pop_status_pic_05 {
+        background: url("images/20160305/pop_status_text_blue_05.png") no-repeat;
+      }
+    }
+  }
+
+  .pop_throw {
+    background: url("images/20160305/pop_window_03.png") no-repeat;
+    width: 456px;
+    height: 654px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 600;
+  }
+
+  .pop_throw_false {
+    background: url("images/20160305/pop_window_02.png") no-repeat;
+    width: 456px;
+    height: 488px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 600;
+  }
+
+  .pop_throwing {
+    background: url("images/20160305/pop_window_02.png") no-repeat;
+    width: 456px;
+    height: 488px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 600;
+  }
+
+  .pop_close {
+    background: url("images/20160305/pop_close.png") no-repeat;
+    width: 38px;
+    height: 38px;
+    position: absolute;
+    top: -19px;
+    right: -19px;
+    cursor: pointer;
+  }
+
+  .pop_text {
+    font-family: "Î¢ÈíÑÅºÚ", "ºÚÌå";
+    font-size: 26px;
+    text-align: center;
+    width: 340px;
+    line-height: 30px;
+    height: 120px;
+    margin: 0px auto;
+    margin-top: 180px;
+  }
+
+  .pop_description_text {
+    font-family: "Î¢ÈíÑÅºÚ", "ºÚÌå";
+    font-size: 15px;
+    text-align: center;
+    width: 450px;
+    height: 120px;
+    line-height: 24px;
+    margin: 0px auto;
+    margin-top: 10px;
+  }
+
+  .pop_description_text2 {
+    font-family: "Î¢ÈíÑÅºÚ", "ºÚÌå";
+    font-size: 15px;
+    text-align: center;
+    width: 450px;
+    height: 120px;
+    line-height: 24px;
+    margin: 0px auto;
+    margin-top: 10px;
+  }
+
+  .pop_btn_throw {
+    background: url("images/20160305/btn_02.png") no-repeat;
+    font-family: "Î¢ÈíÑÅºÚ", "ºÚÌå";
+    font-size: 26px;
+    color: white;
+    text-align: center;
+    width: 187px;
+    height: 48px;
+    line-height: 44px;
+    margin: 0px auto;
+    cursor: pointer;
+  }
+  .pop_btn_throw_return {
+    background: url("images/20160305/btn_02.png") no-repeat;
+    font-family: "Î¢ÈíÑÅºÚ", "ºÚÌå";
+    font-size: 26px;
+    color: white;
+    text-align: center;
+    width: 187px;
+    height: 48px;
+    line-height: 44px;
+    margin: 0px auto;
+    cursor: pointer;
+  }
+
+  .pop_btn_throwing {
+    background: url("images/20160305/btn_02.png") no-repeat;
+    font-family: "Î¢ÈíÑÅºÚ", "ºÚÌå";
+    font-size: 26px;
+    color: white;
+    text-align: center;
+    width: 187px;
+    height: 48px;
+    margin: 0px auto;
+    cursor: pointer;
+    border: 0;
+    display: block;
+  }
+
+  .pop_btn_end {
+    background: url("images/20160305/btn_02.png") no-repeat;
+    font-family: "Î¢ÈíÑÅºÚ", "ºÚÌå";
+    font-size: 26px;
+    color: white;
+    text-align: center;
+    width: 187px;
+    height: 48px;
+    line-height: 44px;
+    margin: 0px auto;
+    cursor: pointer;
+  }
+
+  .pop_btn_sure {
+    background: url("images/20160305/btn_02.png") no-repeat;
+    font-family: "Î¢ÈíÑÅºÚ", "ºÚÌå";
+    font-size: 26px;
+    color: white;
+    text-align: center;
+    width: 187px;
+    height: 48px;
+    line-height: 44px;
+    margin-left: 30px;
+    cursor: pointer;
+    float: left;
+  }
+
+  .pop_btn_return {
+    background: url("images/20160305/btn_02.png") no-repeat;
+    font-family: "Î¢ÈíÑÅºÚ", "ºÚÌå";
+    font-size: 26px;
+    color: white;
+    text-align: center;
+    width: 187px;
+    height: 48px;
+    line-height: 44px;
+    margin-right: 30px;
+    cursor: pointer;
+    float: right;
+  }
+
+  .pop_status {
+    width: 504px;
+    height: 166px;
+    margin-top: 110px;
+    position: relative;
+    left: -23px;
+  }
+
+  .pop_status2 {
+    width: 504px;
+    height: 166px;
+    margin-top: 110px;
+    position: relative;
+    left: -23px;
+  }
+
+  .pop_input_lump {
+    width: 380px;
+    height: 400px;
+    margin: 0px auto;
+    margin-top: 150px;
+
+    > div {
+      width: 380px;
+      height: auto;
+      margin-top: 10px;
+      font-size: 20px;
+    }
+  }
+
+  .pop_input_lump {
+    select, input {
+      width: 390px;
+      height: 50px;
+      line-height: 41px;
+      border: 2px solid #ccc;
+      border-radius: 6px;
+      padding-left: 5px;
+      padding-right: 5px;
+      margin-top: 10px;
+      font-size: 20px;
+      color: #666;
+      box-sizing: border-box;
+    }
+  }
+
+  .pop_status_pic_01 {
+    background: url("images/20160305/pop_status_text_01.png") no-repeat;
+    width: 164px;
+    height: 164px;
+    margin: 0px auto;
+  }
+
+  .pop_status_pic_02 {
+    background: url("images/20160305/pop_status_text_02.png") no-repeat;
+    width: 164px;
+    height: 164px;
+    margin: 0px auto;
+  }
+
+  .pop_status_pic_03 {
+    background: url("images/20160305/pop_status_text_03.png") no-repeat;
+    width: 164px;
+    height: 164px;
+    margin: 0px auto;
+  }
+
+  .pop_status_pic_04 {
+    background: url("images/20160305/pop_status_text_04.png") no-repeat;
+    width: 164px;
+    height: 164px;
+    margin: 0px auto;
+  }
+
+  .pop_status_pic_05 {
+    background: url("images/20160305/pop_status_text_05.png") no-repeat;
+    width: 164px;
+    height: 164px;
+    margin: 0px auto;
+  }
+
+  .pop_status_pic_06 {
+    background: url("images/20160305/pop_status_text_06.png") no-repeat;
+    width: 504px;
+    height: 164px;
+    margin: 0px auto;
+  }
+
+  .pop_status_pic_07 {
+    background: url("images/20160305/pop_status_text_07.png") no-repeat;
+    width: 164px;
+    height: 164px;
+    margin: 0px auto;
+  }
+
+  .bottle_btn {
+    width: 93px;
+    height: 154px;
+    position: fixed;
+    right: 2%;
+    top: 40%;
+  }
+
+  .bottle_btn_pic {
+    width: 93px;
+    height: 154px;
+    cursor: pointer;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 999;
+  }
+
+  .bottle_btn_water {
+    width: 69px;
+    height: 70px;
+    border-radius: 0 0 20px 20px;
+    overflow: hidden;
+    position: absolute;
+    top: 40px;
+    left: 22px;
+  }
+
+  .water {
+    background: #00c1f1;
+    width: 69px;
+    height: 70px;
+    position: absolute;
+    top: 18px;
+    left: 0;
+    animation: water-up 3s linear;
+  }
+
+  @keyframes water-up {
+    from {
+      top: 60px;
+    }
+    to {
+      top: 18px;
+    }
+  }
+
+  .bottle_close {
+    background: url("images/20160305/bottle_close.png") no-repeat;
+    width: 23px;
+    height: 23px;
+    position: absolute;
+    top: 0px;
+    right: -5px;
+    cursor: pointer;
+    z-index: 1000;
+  }
+}
+
+@keyframes river {
+  from {
+    left: -126px;
+  }
+  to {
+    left: -58px;
+  }
+}
+@keyframes river-reverse {
+  from {
+    left: 0;
+  }
+  to {
+    left: -68px;
+  }
+}
+
+@keyframes float-bottle {
+  0% {
+    top: -90px;
+  }
+  50% {
+    top: -100px;
+  }
+  100% {
+    top: -90px;
+  }
+}
+@keyframes float-bottle-2 {
+  0% {
+    top: -115px;
+  }
+  50% {
+    top: -125px;
+  }
+  100% {
+    top: -115px;
+  }
+}
+@keyframes float-bottle-3 {
+  0% {
+    top: -125px;
+  }
+  50% {
+    top: -135px;
+  }
+  100% {
+    top: -125px;
+  }
+}
