@@ -3,7 +3,11 @@
 @import "~base/styles/imports";
 
 .js-wrapper {
-  height: 100%;
+
+  background-image: url('~base/images/fh/bg.png');
+  background-repeat: no-repeat;
+  height: 630px;
+  width: 100%;
   .global-main.wrapper {
     height: 100%;
     .wrapper-main {

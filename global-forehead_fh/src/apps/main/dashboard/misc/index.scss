@@ -20,17 +20,45 @@ $main-top: 110px !default;
 }
 
 .carousel-inner {
-  height: 215px;
+  height: 580px;
   img {
-    height: 215px;
+    height: 580px;
   }
 }
 
 .db-slogan {
-  background: url(../misc/slogan.png) no-repeat no-repeat center center;
+  //background: url(../misc/slogan.png) no-repeat no-repeat center center;
   width: 347px;
   height: 40px;
   margin: 30px auto 15px;
+}
+
+.dynamic-body {
+  height: 125px;
+  position: relative;
+  margin: -3px 20px 0 20px;
+  ul {
+    list-style: none;
+  }
+  li {
+    position: relative;
+    a {
+      padding: 2px;
+      border-bottom: 1px dashed #cccccc;
+      display: block;
+
+      &:hover {
+        color: #fdbe4a;
+      }
+    }
+    &:first-of-type {
+      a {
+        padding-top: 0;
+      }
+    }
+  }
+
+
 }
 
 .dynamic {
@@ -54,59 +82,6 @@ $main-top: 110px !default;
     position: relative;
   }
 
-  .dynamic-body {
-    height: 125px;
-    position: relative;
-    margin: -3px 20px 0 20px;
-    ul {
-      list-style: none;
-    }
-    li {
-      position: relative;
-      a {
-        padding: 2px;
-        border-bottom: 1px dashed #cccccc;
-        display: block;
-
-        &:hover {
-          color: #fdbe4a;
-        }
-      }
-      //&:last-of-type {
-      //  a {
-      //    border-bottom: 0;
-      //  }
-      //}
-      &:first-of-type {
-        a {
-          padding-top: 0;
-        }
-      }
-    }
-
-    .text-circle {
-      line-height: 22px;
-      font-size: 15px;
-    }
-    .dynamic-day {
-      font-size: 18px;
-      margin-top: 5px;
-    }
-
-    .dynamic-main {
-      vertical-align: middle;
-      //color: $new-black-color;
-
-      .dynamic-title {
-        font-size: 12px;
-        height: 20px;
-        line-height: 20px;
-      }
-    }
-    .dynamic-text {
-      width: 60px;
-    }
-  }
 
   .dynamic-footer {
     height: 30px;
@@ -154,11 +129,10 @@ $main-top: 110px !default;
     display: inline-block;
     position: relative;
     overflow: hidden;
-    width: 165.5px;
-    height: 182px;
+    width:240px;
+    height: 250px;
     padding-top: 27px;
-    float: left;
-    border: 1px solid #d4d4d4;
+    float: right;
     margin-right: -1px;
     margin-top: -1px;
     background: url(./ticket-bg.png) repeat-x;
@@ -166,6 +140,26 @@ $main-top: 110px !default;
     .sfa {
       @include slide-nav-item($sfa-d-tickets, 90px);
     }
+
+
+  }
+
+  .title-01 {
+    background: url(~base/images/fh/lottery_entrance.png);
+    background-repeat: no-repeat;
+
+  }
+  .title-02 {
+    background: url(~base/images/fh/casino_entrance.png);
+    background-repeat: no-repeat;
+  }
+  .title-03 {
+    background: url(~base/images/fh/slot_entrance.png);
+    background-repeat: no-repeat;
+  }
+  .title-04 {
+    background: url(~base/images/fh/sport_entrance.png);
+    background-repeat: no-repeat;
   }
 
   .ticket-badge {
@@ -188,19 +182,23 @@ $main-top: 110px !default;
     margin-top: 5px;
     color: $light-dark-color-2;
   }
+
+
 }
 
 $float-bottom: 191px;
 $float-height: 38px;
 .customer-service {
-  bottom: $float-bottom;
-  width: 64px;
-  height: 64px;
-  background-image: url(~base/images/contact_service.png);
+  //bottom: $float-bottom;
+  width: 164px;
+  height: 44px;
 
-  &:hover {
-    background-image: url(~base/images/contact_service1.png);
-  }
+  //background-image: url(~base/images/contact_service.png);
+  background: url(~base/images/fh/online_kf.png);
+  top:-22px;
+  //&:hover {
+  //  background-image: url(~base/images/contact_service1.png);
+  //}
 }
 
 .upgrade-intro {
@@ -226,9 +224,9 @@ $float-height: 38px;
 }
 
 .customer-service, .upgrade-intro, .history-record {
-  position: fixed;
+  position: absolute;
   left: 50%;
-  margin-left: 512px;
+  margin-left: 342px;
   transition: background-image 0.4s ease-in-out;
 }
 
@@ -244,4 +242,141 @@ $float-height: 38px;
   .history-record {
     bottom: $float-bottom + $float-height * 2;
   }
+}
+
+.web-logo {
+  background: url(~base/images/fh/logo.png);
+  width: 200px;
+  height: 100px;
+  background-repeat: no-repeat;
+  float: left;
+}
+
+.nav-index {
+  font-size: 21px;
+  width: 110px;
+  float: left;
+  text-align: center;
+  margin-top: 20px;
+  color: black;
+
+}
+
+.clear-both {
+  clear: both;
+}
+
+
+.ad-rank {
+  background: url(~base/images/fh/rank.png);
+  width: 35%;
+  height: 200px;
+  background-repeat: no-repeat;
+  float: left;
+}
+
+.rank-list {
+  width: 100%;
+  height: 200px;
+  margin: 55px -50px;
+  //float: left;
+}
+
+
+
+.ad-tools {
+  background: url(~base/images/fh/title_tools.png);
+  width: 30%;
+  height: 200px;
+  background-repeat: no-repeat;
+  float: left;
+}
+
+.bet-manager {
+  background: url(~base/images/fh/bet_manager.png);
+  width: 100%;
+  height: 100px;
+  margin: 39px 0px;
+  background-repeat: no-repeat;
+  float: left;
+}
+
+.number-handler {
+  background: url(~base/images/fh/num_handle.png);
+  width: 100%;
+  height: 100px;
+  margin: -139px  100px;
+  background-repeat: no-repeat;
+  float: left;
+}
+
+
+.ad-download {
+  background: url(~base/images/fh/title_download_client.png);
+  width: 35%;
+  height: 200px;
+  background-repeat: no-repeat;
+  float: left;
+}
+
+.download-pc {
+  background: url(~base/images/fh/download_pc.png);
+  width: 30%;
+  height: 100px;
+  margin: 38px 0px;
+  background-repeat: no-repeat;
+  float: left;
+}
+.download-iphone {
+  background: url(~base/images/fh/download_iphone.png);
+  width: 30%;
+  height: 100px;
+  margin: 38px -20px;
+  background-repeat: no-repeat;
+  float: left;
+}
+.download-android {
+  background: url(~base/images/fh/download_android.png);
+  width: 30%;
+  height: 100px;
+  margin: 38px 0px;
+  background-repeat: no-repeat;
+  float: left;
+}
+
+
+.bank-list {
+  background: url(~base/images/fh/bank_list.png);
+  width: 35%;
+  height: 60px;
+  background-repeat: no-repeat;
+  float: left;
+}
+.intro-client {
+  background: url(~base/images/fh/download_client.png);
+  width: 10%;
+  height: 60px;
+  background-repeat: no-repeat;
+  float: left;
+}
+.intro-help {
+  background: url(~base/images/fh/help_center.png);
+  width: 10%;
+  height: 60px;
+  background-repeat: no-repeat;
+  float: left;
+}
+.intro-brand {
+  background: url(~base/images/fh/brand_info.png);
+  width: 10%;
+  height: 60px;
+  background-repeat: no-repeat;
+  float: left;
+}
+.partner-list {
+  background: url(~base/images/fh/brand_quality.png);
+  width: 35%;
+  height: 60px;
+  background-repeat: no-repeat;
+  float: left;
 }

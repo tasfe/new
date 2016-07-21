@@ -18,9 +18,9 @@ $dropMenu: (
     z-index: 100;
     &:hover, &:focus {
       > a {
-        background: map_get($dropMenu, hover-bg-color);
+        //background: map_get($dropMenu, hover-bg-color);
         color: $color-sunshine;
-        outline: none;
+        //outline: none;
       }
     }
     //&:hover .drop-submenu {

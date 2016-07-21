@@ -1,25 +1,66 @@
 <div class="ticket-list">
-  <% _(ticketList).each(function(tickets, ticketsIndex) { %>
-  <% _(tickets.list).each(function(ticket, index) { %>
-  <% if (ticket.board) { %>
-  <a href="#bc/<%=ticket.id %>" class="js-db-ticketList-item-<%=ticket.id%> router">
-    <div class="ticket-item">
-      <% if (ticket.badge === 'hot') { %>
-      <div class="ticket-badge bg-hot">火 爆</div>
-      <% } else if (ticket.badge === 'recommend') { %>
-      <div class="ticket-badge bg-sunshine">推 荐</div>
-      <% } else if (ticket.badge === 'new') { %>
-      <div class="ticket-badge bg-blue-new">新 品</div>
-      <% } else if (ticket.badge === 'purple') { %>
-      <div class="ticket-badge bg-purple">新 品</div>
-      <% } %>
-      <div class="ticket-icon sfa sfa-d-<%=tickets.id %>-<%=ticket.mark %>"></div>
-      <div class="ticket-title"><%=ticket.zhName %></div>
-      <div class="ticket-brief"><%=ticket.desc %></div>
+  <a href="#" >
+    <div class="ticket-item title-04">
     </div>
   </a>
-  <% } %>
+  <a href="#" >
+    <div class="ticket-item title-03">
+    </div>
+  </a>
+  <a href="#" >
+    <div class="ticket-item title-02">
+    </div>
+  </a>
+  <a href="#bc/1" >
+    <div class="ticket-item title-01">
+    </div>
+  </a>
 
-  <% }); %>
-  <% }); %>
+</div>
+
+
+<div>
+    <div class="ad-rank">
+        <div class="rank-list">
+            恭喜*******在分分彩，喜中10000000元<br>
+            恭喜*******在分分彩，喜中10000000元<br>
+            恭喜*******在分分彩，喜中10000000元<br>
+            恭喜*******在分分彩，喜中10000000元<br>
+            恭喜*******在分分彩，喜中10000000元<br>
+            恭喜*******在分分彩，喜中10000000元<br>
+
+        </div>
+    </div>
+
+
+    <div class="ad-tools">
+        <div class="bet-manager">
+        </div>
+        <div class="number-handler">
+        </div>
+    </div>
+
+    <div class="ad-download">
+        <div class="download-pc">
+        </div>
+        <div class="download-iphone">
+        </div>
+        <div class="download-android">
+        </div>
+    </div>
+</div>
+
+<div>
+    <div class="bank-list">
+    </div>
+
+    <div class="intro-client">
+    </div>
+    <div class="intro-help">
+    </div>
+    <div class="intro-brand">
+    </div>
+
+    <div class="partner-list">
+    </div>
 </div>

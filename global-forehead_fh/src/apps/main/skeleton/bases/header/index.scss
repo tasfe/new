@@ -15,26 +15,13 @@ $header-margin-top: 6px;
 
 .header {
   //position: absolute;
-  background-color: $header-color;
-  height: $header-height;
+  background-color: black;
+  height: 30px;
   left: 0;
   right: 0;
   top: 0;
   z-index: 100;
 
-  .header-logo {
-    display: inline-block;
-    float: left;
-    margin-top: $header-margin-top;
-    img {
-      height: 40px;
-      width: 40px;
-    }
-    span {
-      font-size: 15px;
-      vertical-align: middle;
-    }
-  }
 
   .top-in-block {
     display: inline-block;
@@ -83,7 +70,7 @@ $header-margin-top: 6px;
   .h-hd-nickName {
     .fa {
       vertical-align: top;
-      margin-top: 3px;
+      //margin-top: 3px;
     }
   }
 
@@ -106,4 +93,6 @@ $header-margin-top: 6px;
     height: 20px;
     text-align: center;
   }
+
+
 }
