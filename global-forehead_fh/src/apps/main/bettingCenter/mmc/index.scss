@@ -2,17 +2,26 @@
 
 @import
 "~base/styles/imports";
+.mmc-main-head-div{
+  height:85px;
+  .mmc-main-head-bg{
+    background:url(./mmc_main_head.png) top center no-repeat;
+    height: 90px;
+    margin-top: 100px;
+  }
 
+}
 .bc-mmc-div{
   background-color: #efefef;
   height:215px;
   .mmc-main-bg{
-    background:url(./mmc_head.png) top center no-repeat;
+    background:url(./mmc_box_head.png) top center no-repeat;
     height:215px;
     width: 1022px;
     margin-top: 5px;
     margin-left: -11px;
   }
+
   .mmc-main{
     width:100%;
     height:218px;
