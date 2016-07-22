@@ -71,22 +71,22 @@ var BettingRecordsView = Base.ItemView.extend({
   },
 
   renderDrawRecords: function() {
-    if (!this.drawRecords) {
-      var gridTable = {};
-      var sscTicketIdArr = _(ticketConfig.getSccList()).pluck('id');
-      var c115TicketIdArr = _(ticketConfig.getChoose5List()).pluck('id');
-      var dpcTicketIdArr = _(ticketConfig.getLowList()).pluck('id');
-      if(_(sscTicketIdArr).indexOf(this.options.ticketId)!==-1){
-        gridTable = this._renderSSCLotteryRecord();
-      }else if(_(c115TicketIdArr).indexOf(this.options.ticketId)!==-1){
-        gridTable = this._render115LotteryRecord();
-      }else if(_(dpcTicketIdArr).indexOf(this.options.ticketId)!==-1){
-        gridTable = this._renderDPCLotteryRecord();
-      }
-      this.drawRecords = this.$drawRecords.staticGrid(gridTable).staticGrid('instance');
-    } else {
-      this.drawRecords.update();
-    }
+    //if (!this.drawRecords) {
+    //  var gridTable = {};
+    //  var sscTicketIdArr = _(ticketConfig.getSccList()).pluck('id');
+    //  var c115TicketIdArr = _(ticketConfig.getChoose5List()).pluck('id');
+    //  var dpcTicketIdArr = _(ticketConfig.getLowList()).pluck('id');
+    //  if(_(sscTicketIdArr).indexOf(this.options.ticketId)!==-1){
+    //    gridTable = this._renderSSCLotteryRecord();
+    //  }else if(_(c115TicketIdArr).indexOf(this.options.ticketId)!==-1){
+    //    gridTable = this._render115LotteryRecord();
+    //  }else if(_(dpcTicketIdArr).indexOf(this.options.ticketId)!==-1){
+    //    gridTable = this._renderDPCLotteryRecord();
+    //  }
+    //  this.drawRecords = this.$drawRecords.staticGrid(gridTable).staticGrid('instance');
+    //} else {
+    //  this.drawRecords.update();
+    //}
   },
 
   _renderSSCLotteryRecord: function () {
@@ -164,16 +164,23 @@ var BettingRecordsView = Base.ItemView.extend({
       this.renderDrawRecords();
       this.$bettingRecords.addClass('hidden');
       this.$drawRecords.removeClass('hidden');
+
+
     } else {
       this.renderBettingRecords();
       this.$bettingRecords.removeClass('hidden');
       this.$drawRecords.addClass('hidden');
+
+      //alert(this.$bettingRecords.html())
+      this.$('.js-bc-lottery-preview').addClass('hidden');
+      this.$('.js-bc-lottery-preview').hide;
     }
   },
 
   //event handlers
 
   toggleTabHandler: function(e) {
+
     var $target = $(e.currentTarget);
     $target.addClass('active').siblings().removeClass('active');
 

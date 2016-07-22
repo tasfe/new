@@ -156,6 +156,7 @@ var BettingCenterView = Base.ItemView.extend({
 
     this.$recordsContainer = this.$('.js-bc-records');
 
+
     //======
     this.$btnAdd = this.$('.js-bc-btn-lottery-add');
     this.$btnConfirm = this.$('.js-bc-btn-lottery-confirm');
