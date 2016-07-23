@@ -21,8 +21,8 @@
 }
 
 .bc-side-area {
-  width: 216px;
-  min-height: 615px;
+  width: 350px;
+  min-height: 460px;
   border: 1px solid $gray-color;
 
   .sfa {
@@ -74,7 +74,7 @@
 }
 
 //============main
-$main-area-width: 781px;
+$main-area-width: 830px;
 
 .bc-main-area {
   width: $main-area-width;
@@ -112,8 +112,8 @@ $main-area-width: 781px;
 .bc-play-toggle {
   position:absolute;
   width: 135px;
-  right:0;
-  top:0;
+  //right:0;
+  top:260px;
   display:none;
   .bc-play-toggle-item {
     line-height: 33px;
@@ -323,9 +323,9 @@ $main-area-width: 781px;
 }
 
 .bc-lottery-preview {
-  width: 635px;
-  margin-left: 11px;
-  border-right: 1px solid $gray-color;
+  width: 345px;
+  margin-left: 5px;
+  //border-right: 1px solid $gray-color;
 }
 
 .db-ticket-bread-item {
@@ -461,4 +461,78 @@ $main-area-width: 781px;
 
 .bc-monitor {
   width: 35px;
+}
+
+.nav-title {
+  background: url(~base/images/fh/bet/nav-title.png);
+  width: 1200px;
+  height: 160px;
+  background-repeat: no-repeat;
+  float: left;
+  //display: inline-block;
+  //position: relative;
+}
+
+.ssc-logo {
+  background: url(~base/images/fh/bet/mmc.png);
+  width: 170px;
+  height: 110px;
+  background-repeat: no-repeat;
+  margin-top: -156px;
+  margin-left: 20px;
+  float: left;
+}
+
+.ssc-logo {
+  background: url(~base/images/fh/bet/mmc.png);
+  width: 170px;
+  height: 110px;
+  background-repeat: no-repeat;
+  margin-top: -156px;
+  margin-left: 20px;
+  float: left;
+}
+
+.bet-lefttime {
+   margin-top: -136px;
+   margin-left: 220px;
+   float: left;
+ }
+
+.bet-opencode {
+  margin-top: -136px;
+  margin-left: 520px;
+  float: left;
+}
+
+
+.bet-openprize {
+  background: url(~base/images/fh/bet/open-prize.png);
+  margin-top: -149px;
+  margin-left: 840px;
+  float: left;
+  width: 230px;
+  height: 110px;
+  background-repeat: no-repeat;
+}
+
+
+.bet-playrules {
+  background: url(~base/images/fh/bet/play-rules.png);
+  margin-top: -155px;
+  margin-left: 1090px;
+  float: left;
+  width: 170px;
+  height: 110px;
+  background-repeat: no-repeat;
+}
+
+.bet-trend {
+  background: url(~base/images/fh/bet/trend.png);
+  margin-top: -150px;
+  margin-left: 980px;
+  float: left;
+  width: 170px;
+  height: 110px;
+  background-repeat: no-repeat;
 }

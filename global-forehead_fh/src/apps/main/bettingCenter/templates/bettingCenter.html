@@ -3,7 +3,7 @@
 
 </div>
 
-<div class="router">
+<div class="nav-router">
 
   <div class="nav-index">
     <a href="#">首页</a>
@@ -23,13 +23,65 @@
 </div>
 
 
-<div class="bc-side-area text-center pull-left clear-both">
-  <div class="bc-plan-main border-bottom relative">
+
+<div class="nav-title">
+
+</div>
+<div class="ssc-logo"> </div>
+
+<div class="bet-lefttime">
+
+  <div class="js-bc-planId bc-plan-title">
+    <span style="border: medium">截止投注</span> 第20160722-047期
+  </div>
+  <div class="js-bc-countdown m-bottom-sm"></div>
+</div>
+
+<div class="bet-opencode">
+  <div class="js-bc-last-planId bc-plan-title">
+    开奖号码 :  第20160722-047期
+  </div>
+  <div class="js-bc-last-plan-results bc-last-results">
+    <span class="text-circle">-</span>
+    <span class="text-circle">-</span>
+    <span class="text-circle">-</span>
+    <span class="text-circle">-</span>
+    <span class="text-circle">-</span>
+  </div>
+  <div class="js-bc-sale-stop bc-last-results hidden">
+    <span class="text-circle">暂</span>
+    <span class="text-circle">停</span>
+    <span class="text-circle">销</span>
+    <span class="text-circle">售</span>
+  </div>
+</div>
+
+
+<div class="bet-openprize">
+</div>
+<div class="bet-trend">
+</div>
+<div class="bet-playrules">
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="bc-side-area text-center pull-right clear-both">
+  <!--<div class="bc-plan-main border-bottom relative">
     <div class="bc-banner sfa sfa-d-<%=ticketInfo.id %>-<%=ticketInfo.info.mark %> "></div>
     <div class="bc-ticket-title font-bold"><%=ticketInfo.info.zhName %></div>
     <a class="bc-trend" href="trend.html?ticketId=<%=ticketInfo.info.id %>" target="_blank">走势图</a>
-  </div>
-  <div class="bc-curt-plan-main border-bottom bg-deep-gray">
+  </div>-->
+ <!-- <div class="bc-curt-plan-main border-bottom bg-deep-gray">
 
     <div class="js-bc-planId bc-plan-title">
       本期开奖剩余时间
@@ -55,12 +107,33 @@
       <span class="text-circle">销</span>
       <span class="text-circle">售</span>
     </div>
-  </div>
+  </div>-->
+
 
   <div class="js-bc-records bc-records"></div>
+  <div class="js-bc-lottery-preview bc-lottery-preview pull-left"></div>
+
+
+  <div class="bc-total-brief p-left-xs">
+    <div class="">
+        <span>
+          <span>总计</span>
+          <span class="js-bc-total-lottery">0</span>
+          <span>注</span>
+        </span>
+    </div>
+    <div class="text-hot">
+        <span>
+          <span>总共</span>
+          <span class="js-bc-total-money text-hot">0</span>
+          <span>元</span>
+        </span>
+    </div>
+  </div>
+
 </div>
 
-<div class="bc-main-area pull-right">
+<div class="bc-main-area pull-left">
   <div class="js-bc-rules rule-hide-optional rule-hide-super clearfix">
     <div class="js-bc-basic-rules bc-basic-rules"></div>
     <div class="js-bc-super-rules bc-basic-rules hidden"></div>
@@ -137,25 +210,10 @@
   </div>
 
   <div class="clearfix">
-    <div class="js-bc-lottery-preview bc-lottery-preview pull-left"></div>
+   <!-- <div class="js-bc-lottery-preview bc-lottery-preview pull-left"></div>-->
 
     <div class="overflow-hidden">
-      <div class="bc-total-brief p-left-xs">
-        <div class="">
-        <span>
-          <span>总计</span>
-          <span class="js-bc-total-lottery">0</span>
-          <span>注</span>
-        </span>
-        </div>
-        <div class="text-hot">
-        <span>
-          <span>总共</span>
-          <span class="js-bc-total-money text-hot">0</span>
-          <span>元</span>
-        </span>
-        </div>
-      </div>
+
       <button class="js-bc-btn-lottery-confirm btn btn-hot btn-linear m-left-xs m-top-xs" data-loading-text="提交中">
         <span class="sfa sfa-btn-hook vertical-top"></span>
         确认投注
