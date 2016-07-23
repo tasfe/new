@@ -118,14 +118,13 @@ $main-area-width: 830px;
   .bc-play-toggle-item {
     line-height: 33px;
     height: 33px;
-    background: #f2f2f2;
+    background: #4e4e4e;
     padding-left: 10px;
-    /*color: $color-sunshine;*/
-    color:#a8a8a8;
+    color: $color-sunshine;
     font-size: 14px;
     cursor: pointer;
     &.active {
-      background: #ffffff;
+      background: #ffb300;
       color: $dark-color;
 
       .sfa-bc-play-normal {
@@ -272,14 +271,6 @@ $main-area-width: 830px;
     display: inline-block;
   }
 }
-.bc-example-button {
-  height: 13px;
-  border: 1px solid #cb9968;
-  background-color: #cb9968;
-  margin-left: 0px;
-  color: #ffffff;
-  font-size: 12px;
-}
 
 .bc-play-brief {
   padding-left: 12px;
@@ -287,13 +278,13 @@ $main-area-width: 830px;
 }
 
 .bc-play-tip {
-  /*margin-right: 40px;*/
+  margin-right: 40px;
 }
 
 .bc-play-example {
   margin-right: 40px;
   display: inline-block;
-  width: 905px;
+  width: 400px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -503,10 +494,10 @@ $main-area-width: 830px;
 }
 
 .bet-lefttime {
-   margin-top: -136px;
-   margin-left: 220px;
-   float: left;
- }
+  margin-top: -136px;
+  margin-left: 220px;
+  float: left;
+}
 
 .bet-opencode {
   margin-top: -136px;
