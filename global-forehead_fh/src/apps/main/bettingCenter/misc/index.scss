@@ -118,13 +118,14 @@ $main-area-width: 830px;
   .bc-play-toggle-item {
     line-height: 33px;
     height: 33px;
-    background: #4e4e4e;
+    background: #f2f2f2;
     padding-left: 10px;
-    color: $color-sunshine;
+    /*color: $color-sunshine;*/
+    color:#a8a8a8;
     font-size: 14px;
     cursor: pointer;
     &.active {
-      background: #ffb300;
+      background: #ffffff;
       color: $dark-color;
 
       .sfa-bc-play-normal {
@@ -271,6 +272,14 @@ $main-area-width: 830px;
     display: inline-block;
   }
 }
+.bc-example-button {
+  height: 13px;
+  border: 1px solid #cb9968;
+  background-color: #cb9968;
+  margin-left: 0px;
+  color: #ffffff;
+  font-size: 12px;
+}
 
 .bc-play-brief {
   padding-left: 12px;
@@ -278,13 +287,13 @@ $main-area-width: 830px;
 }
 
 .bc-play-tip {
-  margin-right: 40px;
+  /*margin-right: 40px;*/
 }
 
 .bc-play-example {
   margin-right: 40px;
   display: inline-block;
-  width: 400px;
+  width: 905px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
