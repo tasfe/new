@@ -7,7 +7,7 @@ var BettingRecordsView = Base.ItemView.extend({
   template: require('bettingCenter/templates/bettingCenter-records.html'),
 
   events: {
-    'click .js-bc-records-tab': 'toggleTabHandler'
+    //'click .js-bc-records-tab': 'toggleTabHandler'
   },
 
   height: 340,
@@ -19,55 +19,55 @@ var BettingRecordsView = Base.ItemView.extend({
   },
 
   onRender: function() {
-    this.$bettingRecords = this.$('.js-bc-betting-records');
-    this.$drawRecords = this.$('.js-bc-draw-records');
-
-    this.renderDrawRecords();
+    //this.$bettingRecords = this.$('.js-bc-betting-records');
+    //this.$drawRecords = this.$('.js-bc-draw-records');
+    //
+    //this.renderDrawRecords();
   },
 
   renderBettingRecords: function() {
-    var self = this;
-    if (!this.bettingRecords) {
-      this.bettingRecords = this.$bettingRecords.staticGrid({
-        tableClass: this.tableClass,
-        colModel: [
-          {label: '期号', name: 'ticketPlanId', width: '40%',formatter: function(val, index, bet) {
-              return '<a class="router btn-link" href="#uc/br/detail/' + bet.ticketTradeNo + '">' + val.substring(4) + '</a>';
-          }},
-          {label: '投注金额', name: 'betTotalMoney', width: '32%', formatter: function(val) {
-            return _(val).fixedConvert2yuan();
-          }},
-          {label: '状态', name: 'prizeTotalMoney', width: '28%', formatter: function(val, index, bet) {
-            //0:未中奖，1：已中奖，2：用户撤单，3：系统撤单,ticketResult,prizeTotalMoney
-            return _.checkBettingStatus({
-              betStatus: bet.ticketBetStatus,
-              hasException: bet.hasException,
-              openNumbers: bet.ticketResult,
-              openStatus: bet.ticketOpenStatus,
-              prizing: bet.prizing,
-              prizeTotalMoney: bet.prizeTotalMoney,
-              betTime: bet.betTime,
-              prizeClass: 'text-pink'
-            });
-          }}
-          //{label: '是否追号', name: 'chaseId', width: '10%', formatter: function(val) {
-          //  return val ? '是' : '否';
-          //}}
-        ],
-        emptyTip: '无投注记录',
-        url: '/ticket/bethistory/userbethistory.json',
-        abort: false,
-        showHeader: false,
-        height: this.height,
-        data: {
-          pageSize: 30,
-          ticketId: this.options.ticketId
-        },
-        dataProp: 'root.betList'
-      }).staticGrid('instance');
-    } else {
-      this.bettingRecords.update();
-    }
+    //var self = this;
+    //if (!this.bettingRecords) {
+    //  this.bettingRecords = this.$bettingRecords.staticGrid({
+    //    tableClass: this.tableClass,
+    //    colModel: [
+    //      {label: '期号', name: 'ticketPlanId', width: '40%',formatter: function(val, index, bet) {
+    //          return '<a class="router btn-link" href="#uc/br/detail/' + bet.ticketTradeNo + '">' + val.substring(4) + '</a>';
+    //      }},
+    //      {label: '投注金额', name: 'betTotalMoney', width: '32%', formatter: function(val) {
+    //        return _(val).fixedConvert2yuan();
+    //      }},
+    //      {label: '状态', name: 'prizeTotalMoney', width: '28%', formatter: function(val, index, bet) {
+    //        //0:未中奖，1：已中奖，2：用户撤单，3：系统撤单,ticketResult,prizeTotalMoney
+    //        return _.checkBettingStatus({
+    //          betStatus: bet.ticketBetStatus,
+    //          hasException: bet.hasException,
+    //          openNumbers: bet.ticketResult,
+    //          openStatus: bet.ticketOpenStatus,
+    //          prizing: bet.prizing,
+    //          prizeTotalMoney: bet.prizeTotalMoney,
+    //          betTime: bet.betTime,
+    //          prizeClass: 'text-pink'
+    //        });
+    //      }}
+    //      //{label: '是否追号', name: 'chaseId', width: '10%', formatter: function(val) {
+    //      //  return val ? '是' : '否';
+    //      //}}
+    //    ],
+    //    emptyTip: '无投注记录',
+    //    url: '/ticket/bethistory/userbethistory.json',
+    //    abort: false,
+    //    showHeader: false,
+    //    height: this.height,
+    //    data: {
+    //      pageSize: 30,
+    //      ticketId: this.options.ticketId
+    //    },
+    //    dataProp: 'root.betList'
+    //  }).staticGrid('instance');
+    //} else {
+    //  this.bettingRecords.update();
+    //}
   },
 
   renderDrawRecords: function() {
@@ -160,33 +160,33 @@ var BettingRecordsView = Base.ItemView.extend({
 
   //common APIs
   update: function() {
-    if (this.options.type === 'draw') {
-      this.renderDrawRecords();
-      this.$bettingRecords.addClass('hidden');
-      this.$drawRecords.removeClass('hidden');
-
-
-    } else {
-      this.renderBettingRecords();
-      this.$bettingRecords.removeClass('hidden');
-      this.$drawRecords.addClass('hidden');
-
-      //alert(this.$bettingRecords.html())
-      this.$('.js-bc-lottery-preview').addClass('hidden');
-      this.$('.js-bc-lottery-preview').hide;
-    }
+    //if (this.options.type === 'draw') {
+    //  this.renderDrawRecords();
+    //  this.$bettingRecords.addClass('hidden');
+    //  this.$drawRecords.removeClass('hidden');
+    //
+    //
+    //} else {
+    //  this.renderBettingRecords();
+    //  this.$bettingRecords.removeClass('hidden');
+    //  this.$drawRecords.addClass('hidden');
+    //
+    //  //alert(this.$bettingRecords.html())
+    //  this.$('.js-bc-lottery-preview').addClass('hidden');
+    //  this.$('.js-bc-lottery-preview').hide;
+    //}
   },
 
   //event handlers
 
   toggleTabHandler: function(e) {
 
-    var $target = $(e.currentTarget);
-    $target.addClass('active').siblings().removeClass('active');
-
-    this.options.type = $target.data('type');
-
-    this.update();
+    //var $target = $(e.currentTarget);
+    //$target.addClass('active').siblings().removeClass('active');
+    //
+    //this.options.type = $target.data('type');
+    //
+    //this.update();
   }
 });
 
