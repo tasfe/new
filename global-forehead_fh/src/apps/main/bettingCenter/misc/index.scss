@@ -24,7 +24,7 @@
   width: 350px;
   min-height: 460px;
   border: 1px solid $gray-color;
-
+  height:500px;
   .sfa {
     @include slide-nav-item($sfa-d-tickets, 48px);
   }
@@ -78,9 +78,9 @@ $main-area-width: 830px;
 
 .bc-main-area {
   width: $main-area-width;
-  min-height: 615px;
+  //min-height: 615px;
   border: 1px solid $gray-color;
-  border-left-width: 0;
+  //border-left-width: 0;
 }
 
 .bc-play-super,.bc-play-optional{
@@ -111,7 +111,7 @@ $main-area-width: 830px;
 
 .bc-play-toggle {
   position:absolute;
-  width: 135px;
+  width: 126px;
   //right:0;
   top:260px;
   display:none;
@@ -214,7 +214,7 @@ $main-area-width: 830px;
 
 .bc-rule-container {
   padding: 0 135px 0 0;
-  margin: -1px 0 0 -1px;
+  margin: -1px 0 0 128px;
 
   &.nav-tabs-border {
     a {
@@ -426,7 +426,7 @@ $main-area-width: 830px;
 .bc-total-brief {
   height: 72px;
   line-height: 36px;
-  border-bottom: 1px solid $gray-color;
+  //border-bottom: 1px solid $gray-color;
 }
 
 .bc-input-area {
@@ -535,4 +535,38 @@ $main-area-width: 830px;
   width: 170px;
   height: 110px;
   background-repeat: no-repeat;
+}
+
+.btn-confirm {
+  position: absolute;
+  float: left;
+  bottom:-184px;
+}
+
+.bet-manager {
+   background: url(~base/images/fh/bet/btn-bet-manager.png);
+   width: 170px;
+   height: 50px;
+   background-repeat: no-repeat;
+   float: left;
+ }
+
+.bet-manager {
+  background: url(~base/images/fh/bet/btn-bet-manager.png);
+  width: 150px;
+  height: 50px;
+  background-repeat: no-repeat;
+  float: left;
+  margin-top:20px;
+}
+
+.add-number {
+  position: absolute;
+  background: url(~base/images/fh/bet/bet-add-num.png);
+  width: 150px;
+  height: 50px;
+  background-repeat: no-repeat;
+  float: left;
+  right: 360px;
+  bottom: -200px;
 }
