@@ -25,6 +25,7 @@ var BettingCenterView = Base.ItemView.extend({
   rulesTpl: _.template(require('bettingCenter/templates/bettingCenter-rules.html')),
   confirmTpl: _.template(require('bettingCenter/templates/bettingCenter-confirm.html')),
   itemTpl:_.template(require('dynamicCenter/templates/noticeBoard-item.html')),
+  AfficheTpl:_.template(require('dynamicCenter/templates/noticeDetail.html')),
   //itemTpl: _(require('dynamicCenter/templates/noticeBoard-item.html')).template(),
   //itemDetailTPL:_(requirerequire('dynamicCenter/templates/noticeDetail.html')).template(),
 
@@ -47,7 +48,8 @@ var BettingCenterView = Base.ItemView.extend({
     'click .js-bc-btn-lottery-confirm': 'lotteryConfirmHandler',
     'click .js-bc-records-tab': 'toggleTabHandler',
     'click .js-bc-nav-index':'severalHaddler',
-    'click .js-board-Affiche':'showAfficheHandler'
+    'click .js-board-Affiche':'showAfficheHandler',
+
 
   },
 
@@ -221,10 +223,11 @@ var BettingCenterView = Base.ItemView.extend({
   severalHaddler:function () {
 
     var self = this;
-
     var html = '<div class="affiche-body-back">' +
-        '<div class="js-affiche-list affiche-body-list">' +
-        '</div>'+
+        '<div class="affiche-body-leftBody">' +
+        '<div class="affiche-body-lefthead">公告列表</div>'+
+        '<div class="js-affiche-list affiche-body-list"></div>'+
+        '</div>' +
         '<div class="affiche-body-detail">' +
         '<div  class="affiche-body-righthead">平台公告<button type="button" class="affiche-body-close pull-right" data-dismiss="modal">x</button></div>' +
             '<div class="js-affiche-detail affiche-detail-content">ede</div>'+
@@ -264,7 +267,7 @@ var BettingCenterView = Base.ItemView.extend({
 
   },
   renderGrid: function(rowList) {
-
+    
     if (_.isEmpty(rowList)) {
       this.$grid.html(this.getEmptyHtml('暂时没有动态'));
     } else {
@@ -276,7 +279,7 @@ var BettingCenterView = Base.ItemView.extend({
           date: date.getFullYear() +
           '-' + (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) +
           '-' + (date.getDate() < 10 ? '0'+ date.getDate() : date.getDate()) ,
-          url: _.getUrl('/detail/' + rowInfo.bulletionId),
+          afficheId: rowInfo.bulletionId,
           desc: rowInfo.desc
         });
       }, this));
@@ -297,8 +300,33 @@ var BettingCenterView = Base.ItemView.extend({
   },
 
   showAfficheHandler:function (e) {
-    
-    this.$gridDetail.html('swdsfds');
+    var $target = $(e.currentTarget);
+    var afficheId = $target.data('afficheId');
+
+    alert(afficheId);
+
+    var self = this;
+    this.$gridDetail.html(this.AfficheTpl());
+
+    Global.sync.ajax({
+          url: '/info/activitylist/userGetbulletindetail.json',
+          data: {
+            bulletinId: this.options.noticeId
+          }
+        })
+        .always(function() {
+          self.loadingFinish();
+        })
+        .done(function(res) {
+          if (res && res.result === 0) {
+            self.$('.js-nc-noticeDetailTitle').html(res.root.title);
+            self.$('.js-nc-noticeDetailDate').html(_(res.root.time).toTime());
+            self.$('.js-nc-noticeDetailContext').html(res.root.content);
+          } else {
+            Global.ui.notification.show('通知详情获取失败');
+          }
+        });
+
   },
 
   renderSale: function(model, sale) {
