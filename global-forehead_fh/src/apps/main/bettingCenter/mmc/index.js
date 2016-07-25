@@ -789,7 +789,7 @@ var BettingCenterView = Base.ItemView.extend({
     var easing1 = 'linear';
     this.delay = 9;//测试环境，动画持续最长10S（未被外部强制终止的情况），6s内返回，则固定为6s停止，6s后返回，则固定增加1s
     this.left = 9;
-    var height = 100;//转动图片中每个数字的高度
+    var height = 111;//转动图片中每个数字的高度
     this.$(".mmc-num").css('backgroundPosition','50% 0');//数字复位
     var result = '0,0,0,0,0';//初始化动画结束的位置
     var resultArr = (result+'').split(',');
@@ -889,7 +889,7 @@ var BettingCenterView = Base.ItemView.extend({
 
     var self = this;
     var easing2 = 'linear';//动画类型
-    var height = 100;//滚动动画中的每个数字的高度
+    var height = 111;//滚动动画中的每个数字的高度
 
     //TODEL  待删除，开发时测试用于获取接口延时开奖情况
     //clearInterval(self.leftSecondCount);

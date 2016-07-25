@@ -107,26 +107,27 @@ $tab-toolbar-circle-colors: (
     margin-bottom: 0;
 
     .tab-title {
-      font-size: 14px;
-      height: 29px;
-      line-height: 29px;
+      font-size: 17px;
+      height: 43px;
+      line-height: 41px;
       text-align: center;
       width: 75px;
-      color: #434342;
+      color: lightgrey;
     }
     .tab {
       padding: 0;
-      font-size: 17px;
-      line-height: 29px;
-      height: 29px;
-      width: 29px;
+      font-size: 20px;
+      line-height: 41px;
+      height: 41px;
+      width: 41px;
       border-radius: 100px;
-      border: 1px solid $color-sunshine;
+      border: 1px solid lightgrey;
 
       &.active {
-        color: $dark-color;
-        background: linear-gradient(to bottom, #fdbe29, #e3a511);
-        border: 1px solid $color-sunshine;
+        color: darkred;
+        //background: linear-gradient(to bottom, #fdbe29, #e3a511);
+        border: 1px solid white;
+        background-image: url('~base/images/fh/bet/num-red.png');
       }
     }
   }

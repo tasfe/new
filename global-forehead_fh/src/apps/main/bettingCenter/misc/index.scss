@@ -21,7 +21,7 @@
 }
 
 .bc-side-area {
-  width: 350px;
+  width: 305px;
   min-height: 460px;
   border: 1px solid $gray-color;
   height:500px;
@@ -62,6 +62,7 @@
 }
 
 .bc-records {
+  //margin-top:90px;
   .btn-group-justified {
     margin-left: -1px;
     margin-top: -1px;
@@ -74,7 +75,7 @@
 }
 
 //============main
-$main-area-width: 830px;
+$main-area-width: 870px;
 
 .bc-main-area {
   width: $main-area-width;
@@ -111,21 +112,21 @@ $main-area-width: 830px;
 
 .bc-play-toggle {
   position:absolute;
-  width: 126px;
+  width: 90px;
   //right:0;
-  top:260px;
+  top:263px;
   display:none;
   .bc-play-toggle-item {
     line-height: 33px;
     height: 33px;
-    background: #4e4e4e;
+    background: white;
     padding-left: 10px;
-    color: $color-sunshine;
+    color: grey;
     font-size: 14px;
     cursor: pointer;
     &.active {
-      background: #ffb300;
-      color: $dark-color;
+      background: white;
+      color: black;
 
       .sfa-bc-play-normal {
         @include sprite($sfa-bc-play-normal-active);
@@ -167,8 +168,8 @@ $main-area-width: 830px;
 }
 .bc-play-toggle-hasSuper{
   .bc-play-toggle-item {
-    line-height: 22px;
-    height: 22px;
+    line-height: 32px;
+    height: 32px;
   }
 }
 .sfa-superbg{
@@ -205,7 +206,7 @@ $main-area-width: 830px;
 }
 .bc-playArea-items {
   .tab-border {
-    margin-top: 2px;
+    margin-top: 8px;
   }
   .js-bc-select-op {
     background-color: $deep-gray-color;
@@ -214,7 +215,7 @@ $main-area-width: 830px;
 
 .bc-rule-container {
   padding: 0 135px 0 0;
-  margin: -1px 0 0 128px;
+  margin: -1px 0 0 92px;
 
   &.nav-tabs-border {
     a {
@@ -362,7 +363,7 @@ $main-area-width: 830px;
 }
 
 .bc-statics-area {
-  border-bottom: 1px solid $gray-color;
+  //border-bottom: 1px solid $gray-color;
 }
 
 .bc-result-container {
@@ -372,7 +373,7 @@ $main-area-width: 830px;
   font-size: 14px;
   color: $light-dark-color;
   float: left;
-  width: 626px;
+  width: 850px;
   border-right: 1px solid $gray-color;
 }
 
@@ -424,8 +425,8 @@ $main-area-width: 830px;
 }
 
 .bc-total-brief {
-  height: 72px;
-  line-height: 36px;
+  //height: 72px;
+  //line-height: 36px;
   //border-bottom: 1px solid $gray-color;
 }
 
@@ -494,10 +495,10 @@ $main-area-width: 830px;
 }
 
 .bet-lefttime {
-   margin-top: -136px;
-   margin-left: 220px;
-   float: left;
- }
+  margin-top: -136px;
+  margin-left: 220px;
+  float: left;
+}
 
 .bet-opencode {
   margin-top: -136px;
@@ -509,9 +510,9 @@ $main-area-width: 830px;
 .bet-openprize {
   background: url(~base/images/fh/bet/open-prize.png);
   margin-top: -149px;
-  margin-left: 840px;
+  margin-left: 890px;
   float: left;
-  width: 230px;
+  width: 110px;
   height: 110px;
   background-repeat: no-repeat;
 }
@@ -530,9 +531,9 @@ $main-area-width: 830px;
 .bet-trend {
   background: url(~base/images/fh/bet/trend.png);
   margin-top: -150px;
-  margin-left: 980px;
+  margin-left: 1005px;
   float: left;
-  width: 170px;
+  width: 70px;
   height: 110px;
   background-repeat: no-repeat;
 }
@@ -567,6 +568,110 @@ $main-area-width: 830px;
   height: 50px;
   background-repeat: no-repeat;
   float: left;
-  right: 360px;
+  right: 330px;
   bottom: -200px;
+}
+
+.commit-number {
+  position: absolute;
+  background: url(~base/images/fh/bet/bet-commit.png);
+  width: 210px;
+  height: 50px;
+  background-repeat: no-repeat;
+  float: left;
+  right: 97px;
+  bottom: -200px;
+}
+
+.chase-number {
+  position: absolute;
+  background: url(~base/images/fh/bet/bet-chase.png);
+  width: 150px;
+  height: 50px;
+  background-repeat: no-repeat;
+  float: left;
+  right: -53px;
+  bottom: -200px;
+}
+
+.bet-quick {
+  position: absolute;
+  background: url(~base/images/fh/bet/bet-quick.png);
+  width: 150px;
+  height: 50px;
+  background-repeat: no-repeat;
+  float: left;
+  right: 330px;
+  bottom: -140px;
+}
+
+.time-01 {
+  position: absolute;
+  background: url(~base/images/fh/bet/time-01.png);
+  width: 63px;
+  height: 50px;
+  background-repeat: no-repeat;
+  float: left;
+  left: 217px;
+  top: 150px;
+}
+
+.time-02 {
+  position: absolute;
+  background: url(~base/images/fh/bet/time-2.png);
+  width: 63px;
+  height: 50px;
+  background-repeat: no-repeat;
+  float: left;
+  left: 302px;
+  top: 150px;
+}
+
+.time-03 {
+  position: absolute;
+  background: url(~base/images/fh/bet/time-2.png);
+  width: 61px;
+  height: 50px;
+  background-repeat: no-repeat;
+  float: left;
+  left: 385px;
+  top: 150px;
+}
+
+
+.float-time-div {
+  position:absolute;
+  z-index:2;
+}
+
+.bet-information1 {
+  position: absolute;
+  float: left;
+
+  margin-left: 260px;
+  margin-top: 785px;
+  font-size: 15px;
+}
+
+.bet-info-today {
+  font-size: 15px;
+  background-color: grey;
+  color: white;
+  height: 35px;
+  line-height: 35px;
+}
+
+
+.bet-act-available {
+  font-size: 15px;
+  background-color: dimgrey;
+  color: white;
+  height: 35px;
+  line-height: 35px;
+}
+
+.bet-summary {
+  height: 40px;
+  line-height: 40px;
+  font-size: 14px;
 }

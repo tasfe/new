@@ -39,7 +39,8 @@ var BettingCenterView = Base.ItemView.extend({
     'click .js-bc-lottery-preview-del': 'lotteryPreviewDelHandler',
     'click .js-bc-chase': 'lotteryChaseHandler',
     'click .js-bc-btn-lottery-confirm': 'lotteryConfirmHandler',
-    'click .js-bc-records-tab': 'toggleTabHandler'
+    'click .js-bc-records-tab': 'toggleTabHandler',
+    'click .js-bc-quick-bet': 'quickBetHandler'
   },
 
   serializeData: function() {
@@ -105,6 +106,12 @@ var BettingCenterView = Base.ItemView.extend({
     this.on('entry:show router:back', function() {
       this.bettingRecordsView.update();
     });
+  },
+
+
+  quickBetHandler: function(e) {
+    this.lotteryAddHandler(e);
+    this.lotteryConfirmHandler(e);
   },
 
   getNewPlan: function() {
@@ -187,7 +194,7 @@ var BettingCenterView = Base.ItemView.extend({
         //{label: '投注金额', name: 'bettingMoney', width: '17%'}
       ],
       showHeader: false,
-      height: 330,
+      height: 310,
       startOnLoading: false,
       emptyTip: ''
     }).staticGrid('instance');
