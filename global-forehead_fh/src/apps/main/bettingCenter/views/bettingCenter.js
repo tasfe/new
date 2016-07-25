@@ -14,6 +14,9 @@ var IDsSuper3 = require('bettingCenter/misc/super3k/IDsOfSuper3k');
 
 var Countdown = require('com/countdown');
 
+var grid;
+var gridDetail;
+
 var BettingCenterView = Base.ItemView.extend({
 
   template: require('bettingCenter/templates/bettingCenter.html'),
@@ -21,6 +24,9 @@ var BettingCenterView = Base.ItemView.extend({
   playLevelTpl: _.template(require('bettingCenter/templates/bettingCenter-level.html')),
   rulesTpl: _.template(require('bettingCenter/templates/bettingCenter-rules.html')),
   confirmTpl: _.template(require('bettingCenter/templates/bettingCenter-confirm.html')),
+  itemTpl:_.template(require('dynamicCenter/templates/noticeBoard-item.html')),
+  //itemTpl: _(require('dynamicCenter/templates/noticeBoard-item.html')).template(),
+  //itemDetailTPL:_(requirerequire('dynamicCenter/templates/noticeDetail.html')).template(),
 
   height: 340,
 
@@ -39,7 +45,10 @@ var BettingCenterView = Base.ItemView.extend({
     'click .js-bc-lottery-preview-del': 'lotteryPreviewDelHandler',
     'click .js-bc-chase': 'lotteryChaseHandler',
     'click .js-bc-btn-lottery-confirm': 'lotteryConfirmHandler',
-    'click .js-bc-records-tab': 'toggleTabHandler'
+    'click .js-bc-records-tab': 'toggleTabHandler',
+    'click .js-bc-nav-index':'severalHaddler',
+    'click .js-board-Affiche':'showAfficheHandler'
+
   },
 
   serializeData: function() {
@@ -207,6 +216,89 @@ var BettingCenterView = Base.ItemView.extend({
       this.rulesCollection.reset(this.rulesCollection.parse(Global.localCache.get(sign)));
       this.rulesCollection.trigger('sync:fromCache');
     }
+  },
+
+  severalHaddler:function () {
+
+    var self = this;
+
+    var html = '<div class="affiche-body-back">' +
+        '<div class="js-affiche-list affiche-body-list">' +
+        '</div>'+
+        '<div class="affiche-body-detail">' +
+        '<div  class="affiche-body-righthead">平台公告<button type="button" class="affiche-body-close pull-right" data-dismiss="modal">x</button></div>' +
+            '<div class="js-affiche-detail affiche-detail-content">ede</div>'+
+        '</div>'+
+        '</div>';
+
+    var $dialog = Global.ui.dialog.show({
+      size: 'modal-md',
+      body: html,
+      bodyClass: 'home-affiche-dialog'
+    });
+    this.$grid = $dialog.find('.js-affiche-list');
+    this.$gridDetail = $dialog.find('.js-affiche-detail');
+    $dialog.on('hidden.modal', function () {
+      $(this).remove();
+    });
+
+    //开始加载
+    Global.sync.ajax({
+      url: '/info/activitylist/getbulletinlist.json',
+      data: {
+        'pageSize': 20,
+        'pageIndex': 0
+      }
+    }).always(function(){
+          //开始加载
+
+        })
+        .done(function(res) {
+          var data = res.root || {};
+          if (res && res.result === 0) {
+            self.renderGrid(data.buList);
+          } else {
+            Global.ui.notification.show('加载失败，请稍后再试');
+          }
+        });
+
+  },
+  renderGrid: function(rowList) {
+
+    if (_.isEmpty(rowList)) {
+      this.$grid.html(this.getEmptyHtml('暂时没有动态'));
+    } else {
+      this.$grid.html(_(rowList).map(function(rowInfo) {
+        var date = new Date(rowInfo.time);
+
+        return this.itemTpl({
+          title: rowInfo.title,
+          date: date.getFullYear() +
+          '-' + (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) +
+          '-' + (date.getDate() < 10 ? '0'+ date.getDate() : date.getDate()) ,
+          url: _.getUrl('/detail/' + rowInfo.bulletionId),
+          desc: rowInfo.desc
+        });
+      }, this));
+    }
+  },
+
+  getEmptyHtml: function(emptyTip) {
+    var html = [];
+    if (emptyTip) {
+      html.push('<div class="js-wt-empty-container empty-container text-center">');
+      html.push('<div class="empty-container-main">');
+      html.push('<div class="sfa-grid-empty"></div>');
+      html.push(emptyTip);
+      html.push('</div>');
+      html.push('</div>');
+    }
+    return html.join('');
+  },
+
+  showAfficheHandler:function (e) {
+    
+    this.$gridDetail.html('swdsfds');
   },
 
   renderSale: function(model, sale) {
