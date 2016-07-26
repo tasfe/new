@@ -3,108 +3,197 @@
 @import
 "~base/styles/imports";
 
-$main-light-color: #1ba1b5 !default;
-$main-border-color: #007e90 !default;
-
-body {
-  background: $background-dark;
+body{
+  background: url('~base/images/julien/login-bg.jpg') no-repeat;
 }
-.login-brand {
-  top: 245px;
+
+.menuTips{
+  font-size: 16px;
+  font-family: '微软雅黑';
   position: absolute;
-  width: 100%;
-}
+  top: 39px;
+  left: 1200px;
 
-.login-form {
-  padding-bottom: 20px;
-  color: $background-color;
-  margin: 0 auto;
-  text-align: center;
-  width: $package-main-width;
-
-  a {
-    color: $background-color
-  }
-
-  .input-varCode {
-    width: 197px !important;
-  }
-}
-
-.forget-pw-link {
-  margin-left: 50px;
-}
-
-.var-code {
-  background-color: #eceff4;
-  height: 28px;
-  width: 65px;
-  margin-top: 2px;
-  margin-right: 2px;
-  margin-bottom: 2px;
-  margin-left: 18px;
-}
-
-.parsley-errors-list {
-  margin-right: 46px;
-}
-
-.connect-test {
-  margin: 0 auto;
-  width: 768px;
-  color: #ffffff;
-  padding-left: 100px;
-
-  .connect-server {
-    width: 100px;
-    height: 22px;
-    background: #40454b;
-  }
-  .connect-item-icon {
-    width: 14px;
-    height: 14px;
-    padding: 4px 7px 0 4px;
+  a{
+    display: block;
+    width: 99px;
+    height: 33px;
+    line-height: 30px;
     float: left;
+    margin-right: 20px;
+    text-align: right;
+    color: #666666;
   }
 
-  .connect-speeds {
-    float: left;
-    padding-top: 3px;
+  a.m1{
+    background: url(~base/images/julien/04.png) no-repeat 5px 3px;
+  }
+  a.m2{
+    background: url(~base/images/julien/05.png) no-repeat 5px 3px;
+  }
+  a.m3{
+    background: url(~base/images/julien/03.png) no-repeat 5px 3px;
+    width: 114px;
+  }
+}
 
-    span {
-      width: 4px;
+.loginWindow{
+  font-family: '微软雅黑';
+  width: 326px;
+  left: 547px;
+  top: 300px;
+  font-size: 14px;
+  position: absolute;
+
+  input{
+    width: 280px;
+    height: 33px;
+    padding-left: 40px;
+    border: 0px;
+    border-bottom: 1px solid #999999;
+    margin-bottom: 10px;
+    color: #b5b3b3;
+    font-size: 16px;
+    
+  }
+
+  input.parsley-success{
+    background-color:transparent !important;
+    border-color: #DFF0D8;
+  }
+
+  input:focus:invalid:focus{
+    box-shadow:none;
+  }
+
+  input.userNmae{
+    background: url(images/02.png) no-repeat 11px;
+  }
+
+  input.loginPwd{
+    background: url(images/01.png) no-repeat 11px;
+  }
+
+  .widget{
+    height: 24px;
+    line-height: 24px;
+    padding-right: 10px;
+
+    a{
+      float: right;
+      color: #d3423f;
+      text-decoration: underline;
+    }
+    span{
+      float: left;
+      display: block;
+      color: #999999;
+      width: 97px;
+      text-align: right;
+      background: url(images/06.png) no-repeat 12px 6px;
+      cursor: pointer;
+    }
+
+    &:after{
+      content: '';
+      display: block;
+      clear: both;
+    }
+  }
+
+  .code{ 
+    input{
+      width: 80px;
+    }
+  }
+
+  .var-code{
+    height: 35px;
+    margin-top: -1px;
+  }
+
+  .login-btn{
+    height: 40px;
+    background: url(images/loginBtn.png) no-repeat center;
+    text-align: center;
+    margin-top: 38px;
+
+    button{
+      width: 260px;
+      height: 40px;
+      border: 0px;
+      background-color: #c6212f;
+      color: #fff;
+      font-size: 20px;
+    }
+  }
+
+  .tips{
+    color: #666666;
+    text-align: center;
+    margin-top: 27px;
+
+    span{
+      color: #d3423f;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+
+  .connect-test {
+    margin-top: 30px;
+
+    .connect-server {
+      width: 100px;
+      height: 22px;
+      background: #40454b;
+    }
+    .connect-item-icon {
+      width: 14px;
       height: 14px;
-      display: inline-block;
-      background: url(speed-testing.png);
-      margin-right: 3px;
+      padding: 4px 7px 0 4px;
+      float: left;
     }
 
-    &.connect-speeds-tested {
+    .connect-speeds {
+      float: left;
+      padding-top: 3px;
+
       span {
-        background: url(speed-good.png);
+        width: 4px;
+        height: 14px;
+        display: inline-block;
+        background: url(speed-testing.png);
+        margin-right: 3px;
       }
-    }
-    @for $i from 0 through 10 {
-      &.connect-speeds-#{$i} {
-        span:nth-child(n + #{11 - $i}) {
-          background: url(speed-bad.png);
+
+      &.connect-speeds-tested {
+        span {
+          background: url(speed-good.png);
+        }
+      }
+      @for $i from 0 through 10 {
+        &.connect-speeds-#{$i} {
+          span:nth-child(n + #{11 - $i}) {
+            background: url(speed-bad.png);
+          }
         }
       }
     }
-  }
-  ul {
-    list-style: none;
-  }
-  li {
-    float: left;
-    padding-right: 11px;
-    box-sizing: border-box;
-    a {
-      color: #ffffff;
-      text-decoration: none;
+    ul {
+      list-style: none;
     }
-  }
-  p {
-    text-align: center;
+    li {
+      float: left;
+      padding-right: 8px;
+      box-sizing: border-box;
+      a {
+        text-decoration: none;
+        color: #666666;
+      }
+    }
+    p {
+      text-align: center;
+    }
   }
 }

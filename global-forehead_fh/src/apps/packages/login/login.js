@@ -124,7 +124,8 @@ $.widget('gl.login', {
     //  'blur input[name="username"]': 'valUsernameNeedValCode',//校验是否需要输入验证码
     //  'blur input[name="loginPwd"]': 'valUsernameNeedValCode',//校验是否需要输入验证码
       'click .js-login-valImg': 'refreshValCodeHandler',//刷新验证码
-      'click input[type!=hidden]': 'resetInputHandler'
+      'click input[type!=hidden]': 'resetInputHandler',
+      'click .js-showConnectTest': 'showConnectTest'
     });
     //this.$valCode.on('keyup', function() {
     //  self.valCodeHandler();
@@ -136,6 +137,10 @@ $.widget('gl.login', {
       $('body').removeClass('overflow-hidden');
       $('.wrapper').removeClass('preload');
     });
+  },
+
+  showConnectTest: function(){
+    $('.js-connectTest').removeClass('hidden')
   },
 
   loginHandler: function() {
