@@ -98,8 +98,10 @@
 }
 
 .modal-header {
-  color: $background-color;
-  background-color: $light-dark-color;
+  color: white;
+  //background-color: $light-dark-color;
+  background-image:-webkit-linear-gradient(90deg, #327fc3, #bb2929);
+  background-image:linear-gradient(90deg,#327fc3,#bb2929);
   padding: 10px;
   border-bottom: 1px solid $new-main-dark-color;
   .close {
