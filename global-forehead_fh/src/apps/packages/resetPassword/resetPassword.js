@@ -13,6 +13,7 @@ $.widget('gl.resetPassword', {
 
     this.element.html(_(this.template).template()());
 
+    this.$username = this.element.find('.js-rp-userName');
     this.$valCode = this.element.find('.js-rp-valCode');
     this.$valImg = this.element.find('.js-rp-valImg');
     this.$valMoneyPasswd = this.element.find('.js-moneyPasswdInput');
@@ -126,7 +127,10 @@ $.widget('gl.resetPassword', {
     this.$valCode.val('');
   },
 
-  verifyUNHandler: function(){
+  verifyUNHandler: function(e){
+    var self = this;
+    var $target = $(e.currentTarget);
+
     var iIs = 0;
 
     if ($('#jsRPUserName').val().length < 1) {
@@ -144,6 +148,25 @@ $.widget('gl.resetPassword', {
     }
 
     if(iIs == 0){
+      $target.button('loading');
+
+      //校验验证码
+      this.verifyUserNameXhr().always(function () {
+        $target.button('reset');
+      }).fail(function () {
+        $('.js-errortips').html('*网络异常');
+      }).done(function (res) {
+        if (res && res.result === 0) {
+          $('.leftMenu-julien div b').removeClass('red');
+          $('.leftMenu-julien div b').eq(1).addClass('red');
+          $('.panel01').addClass('hidden');
+          $('.panel02').removeClass('hidden');
+        } else {
+          $('.js-errortips').html('*用户名验证失败');
+        }
+      });
+
+
       $('.leftMenu-julien div b').removeClass('red');
       $('.leftMenu-julien div b').eq(1).addClass('red');
       $('.panel01').addClass('hidden');
