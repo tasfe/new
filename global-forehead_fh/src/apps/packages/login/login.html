@@ -1,53 +1,35 @@
-<div class="yb-brand login-brand text-center">
-  <img src="../misc/logo-yb.png" />
-  <span>亿贝在线娱乐</span>
+<div class="menuTips">
+  <a href="#" class="m1">品牌介绍</a>
+  <a href="#" class="m2">最新优惠</a>
+  <a href="#" class="m3">客户端下载</a>
 </div>
-<div class="bg-gray bg-login half-bg clearfix">
-
+<div class="loginWindow">
   <form id="loginForm" class="js-login-form login-form" action="javascript:void(0);">
-    <div class="form-inline">
-      <div class="form-group">
-        <label class="control-label">账号</label>
-        <input type="text" class="form-control" name="username" value="<%=remember %>" placeholder="用户名"  autocomplete="off"
-               required data-parsley-errors-messages-disabled>
-               <!--required data-parsley-username data-parsley-errors-messages-disabled>-->
-      </div>
-      <div class="form-group">
-        <label class="control-label">密码</label>
-        <input type="password" class="form-control" name="loginPwd" placeholder="密码" autocomplete="off"
-               required data-parsley-errors-messages-disabled>
-        <!--required data-parsley-length="[6, 20]" data-parsley-noSpecialChar data-parsley-errors-messages-disabled>-->
-      </div>
+    <div class="form-group">
+      <input type="text" name="username" class="userNmae glyphicon glyphicon-subscript" value="<%=remember %>" placeholder="请输入用户名"  autocomplete="off" required data-parsley-errors-messages-disabled>
     </div>
-    <div class="text-left form-inline">
-      <div class="js-login-valRegion form-group hidden">
-        <label class="control-label">验证码</label>
-        <input type="hidden" class="js-login-valCode form-control input-varCode hidden" name="" placeholder="输入验证码" maxlength="4"
-          required data-parsley-length="[4, 4]" data-parsley-errors-messages-disabled>
-        <i class="icon-ok"></i>
-        <input type="hidden"  class="js-login-valResult" value="0">
-        <img  class="js-login-valImg var-code">
-      </div>
-      <div class="form-group pull-right">
-        <button type="submit" class="js-login-login-btn short-btn-toggle text-center button-reset" data-loading-text="登录中...">登录</button>
-      </div>
-      <ul class="parsley-errors-list filled-inline font-sm pull-right">
-        <li class="login-error-message parsley-required"></li>
-      </ul>
+    <div class="form-group">
+      <input type="password" name="loginPwd" class="loginPwd" placeholder="请输入登录密码" autocomplete="off" required data-parsley-errors-messages-disabled>
     </div>
-    <div class="clearfix">
-      <a href="resetPassword.html" class="pull-left forget-pw-link">忘记密码 ?</a>
+    <div class="js-login-valRegion code hidden">
+      <input type="hidden" class="js-login-valCode" placeholder="输入验证码" maxlength="4" required data-parsley-length="[4, 4]" data-parsley-errors-messages-disabled >
+      <input type="hidden"  class="js-login-valResult" value="0">
+      <img  class="js-login-valImg var-code">
+    </div>
+    <ul class="parsley-errors-list">
+      <li class="login-error-message parsley-required"></li>
+    </ul>
+    <div class="widget">
+      <a href="resetPassword.html">忘记密码</a>
+    </div>
+    <div class="login-btn">
+      <button type="submit" class="js-login-login-btn" data-loading-text="登录中...">登&nbsp;&nbsp;录</button>
     </div>
   </form>
-
-  <div class="connect-test">
-    <span class="pull-left">线路检测：</span>
-    <ul class="js-connect-test overflow-hidden"></ul>
+  <div class="tips">
+    已为您检测到更优的访问路线，是否 <span class="js-showConnectTest">点击切换</span>
   </div>
-
+  <div class="js-connectTest connect-test hidden">
+    <ul class="js-connect-test"></ul>
+  </div>
 </div>
-<!--<a href="gengxin.html" class="js-gl-upgrade upgrade-intro" target="_blank" title="升级说明"></a>-->
-<a href="javascript:void(0);" class="js-gl-service customer-service" title="联系客服" onclick="newwin = window.open('http://szzero.livechatvalue.com/chat/chatClient/chatbox.jsp?companyID=445558&configID=47545&jid=9132657534','service','width=800,height=680'); newwin.moveTo(100,50);">
-  <!--<span class="sfa sfa-service"></span>-->
-</a>
-<div class="login-footer footer" id="footer"></div>
