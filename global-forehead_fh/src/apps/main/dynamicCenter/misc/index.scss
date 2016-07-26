@@ -13,7 +13,7 @@
 .nc-board-item {
   overflow: hidden;
   text-overflow: clip;
-  width: 195px;
+  width: 240px;
   display: block;
   border-bottom: 1px solid $color-deep-gray;
   margin: 0;
@@ -21,6 +21,9 @@
   padding: 5px 5px;
   &:hover {
     background-color: $brand-primary;
+  }
+  &:focus {
+    background-color: #953b39;
   }
 
   .nc-board-time{
@@ -33,78 +36,9 @@
     text-overflow: clip;
     height: 25px;
     line-height: 25px;
-    width: 115px;
+    width: 160px;
   }
 
-  //.nc-notice-main {
-  //  margin: 10px 30px;
-  //}
-
-  //&:last-of-type {
-  //  border-bottom: 0;
-  //}
-
-  //.nc-board-time {
-  //  float: left;
-  //  text-align:center;
-  //  padding-right: 15px;
-  //  margin-left: 50px;
-  //}
-
-  //.nc-board-month {
-  //  width: 21px;
-  //  height: 40px;
-  //  background: $new-main-deep-color;
-  //  color: $dark-color;
-  //  float: left;
-  //  margin-right: 1px;
-  //}
-  //.nc-board-day {
-  //  width: 40px;
-  //  height: 40px;
-  //  background: $color-pleasant;
-  //  color: $dark-color;
-  //  line-height: 40px;
-  //  float: left;
-  //  font-size: 24px;
-  //}
-
-  //.nc-board-main {
-  //  overflow: hidden;
-  //  margin-right: 50px;
-  //  padding-left: 12px;
-  //  color: $new-black-color;
-  //}
-
-  //.nc-board-title {
-  //  position: relative;
-  //  font-size: 17px;
-  //  line-height: 25px;
-  //  font-weight: bold;
-  //
-  //  &:after {
-  //    content: '●';
-  //    position: absolute;
-  //    top: 0;
-  //    left: -13px;
-  //    font-size: 14px;
-  //    color: $color-pleasant;
-  //  }
-  //}
-
-  //.nc-board-brief {
-  //  line-height: 25px;
-  //  margin-bottom: 5px;
-  //}
-  //.nc-board-entry {
-  //  height: 22px;
-  //  width: 65px;
-  //  color: $new-main-deep-color;
-  //  border: 1px solid $new-main-deep-color;
-  //  display: block;
-  //  text-align: center;
-  //  line-height: 22px;
-  //}
 }
 
 .nc-noticeDetail {
@@ -139,7 +73,6 @@
 .nc-noticeDetail-inner {
   height: 521px;
   width: 100%;
-  //margin-right: 20px;
   overflow: auto;
   display: inline-block;
   float: left;
@@ -147,13 +80,17 @@
   color: $new-black-color;
 
   .nc-notice-top {
-    padding: 20px 30px 0;
+    padding: 10px 5px 0;
     border-bottom: 1px dashed $light-color;
   }
 
   .nc-notice-item {
     font-size: 14px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+  }
+
+  .nc-notice-main {
+    margin: 10px 30px;
   }
 
 }
