@@ -701,3 +701,21 @@ $main-area-width: 870px;
 .seq-div {
   background-color: lightgrey;
 }
+
+.control-inlin-quick {
+  display: inline-block;
+  margin-right: 15px;
+  height: 30px;
+  width: 100px;
+  border: 1px solid #a1a1a1;
+  margin-top: 20px;
+  font-size: 15px;
+  text-align: center;
+  line-height: 30px;
+}
+
+.control-quick-div {
+ text-align: left;
+  margin-left: 50px;
+
+}
