@@ -12,6 +12,8 @@ var ticketConfig = require('skeleton/misc/ticketConfig');
 var betRulesConfig = require('bettingCenter/misc/betRulesConfig');
 var IDsSuper3 = require('bettingCenter/misc/super3k/IDsOfSuper3k');
 
+var QuickBetView = require('bettingCenter/views/bettingCenter-quickBet');
+
 var Countdown = require('com/countdown');
 
 var BettingCenterView = Base.ItemView.extend({
@@ -22,7 +24,7 @@ var BettingCenterView = Base.ItemView.extend({
   rulesTpl: _.template(require('bettingCenter/templates/bettingCenter-rules.html')),
   confirmTpl: _.template(require('bettingCenter/templates/bettingCenter-confirm.html')),
 
-  height: 340,
+  height: 310,
 
   tableClass: 'table table-center',
 
@@ -109,10 +111,37 @@ var BettingCenterView = Base.ItemView.extend({
   },
 
 
+
   quickBetHandler: function(e) {
-    this.lotteryAddHandler(e);
-    this.lotteryConfirmHandler(e);
+
+    var self = this;
+
+    var quickBetView = new QuickBetView({parentView: self});
+
+    var $dialogRe = Global.ui.dialog.show({
+      id: _.now(),
+      title: '快速投注',
+      size: 'modal-lg',
+      body: '<div class="js-fc-quick-container"></div>'
+    });
+
+    $dialogRe.find('.js-fc-quick-container').html(quickBetView.onRender());
+
+    $dialogRe.on('click', '.js-bc-quick-btn', function(e) {
+
+      var $target = $(e.currentTarget);
+      var afficheId = $target.data('affiche');
+
+      alert(afficheId  ) ;
+          //alert($('#btSelectItem').val())
+      });
+
+
+
+
   },
+
+
 
   getNewPlan: function() {
     this.infoModel.fetch({
@@ -573,7 +602,7 @@ var BettingCenterView = Base.ItemView.extend({
         title: title,
         bonusMode: this.getBonusMode(previewInfo.maxBonus, previewInfo.unit, previewInfo.userRebate, previewInfo.betMethod),
         mode: previewInfo.statistics + '注 / ' + previewInfo.multiple + '倍 / <span class="text-hot">' + _(previewInfo.prefabMoney).convert2yuan() + '</span>元' +
-        '<div class="js-bc-lottery-preview-del lottery-preview-del icon-block m-right-lg pull-right ' + (sf ? 'sfClass' : '') +'"></div>'
+        '<div class="js-bc-lottery-preview-del   icon-block   ' + (sf ? 'sfClass' : '') +'"></div>'
       };
 
     }, this);
@@ -864,10 +893,8 @@ var BettingCenterView = Base.ItemView.extend({
       Global.ui.notification.show('非常抱歉，目前平台单式投注只支持最多10万注单。');
       return false;
     }
-    if (_.isEmpty(info.previewList)) {
-      Global.ui.notification.show('请至少选择一注投注号码！');
-      return false;
-    }
+
+
 
     if (info.totalInfo.totalMoney > Global.memoryCache.get('acctInfo').balance) {
       Global.ui.notification.show('账号余额不足，请先<a href="javascript:void(0);" class="btn-link btn-link-pleasant js-fc-re"  data-dismiss="modal">充值</a>。');

@@ -675,3 +675,29 @@ $main-area-width: 870px;
   line-height: 40px;
   font-size: 14px;
 }
+
+.bet-case {
+  background: url(~base/images/fh/bet/case.png);
+  width: 70px;
+  height: 20px;
+  background-repeat: no-repeat;
+}
+
+.number-div-style {
+  height: 23px;
+  width: 42px;
+  border:1px solid #a1a1a1;
+  font-size: 13px;
+  text-align:center;
+  display: inline-block;
+  margin-right: -4px;
+}
+
+.control-inlin-num {
+  display: inline-block;
+  margin-right: 9px;
+}
+
+.seq-div {
+  background-color: lightgrey;
+}
