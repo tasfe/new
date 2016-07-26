@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="11ab41ca-6aa8-4b06-9df8-e55af0bc260a" name="Default" comment="" />
+    <list default="true" id="11ab41ca-6aa8-4b06-9df8-e55af0bc260a" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/global-forehead_fh/src/apps/main/bettingCenter/misc/index.scss" afterPath="$PROJECT_DIR$/global-forehead_fh/src/apps/main/bettingCenter/misc/index.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/global-forehead_fh/src/apps/main/bettingCenter/views/bettingCenter.js" afterPath="$PROJECT_DIR$/global-forehead_fh/src/apps/main/bettingCenter/views/bettingCenter.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/global-forehead_fh/src/apps/main/dynamicCenter/misc/index.scss" afterPath="$PROJECT_DIR$/global-forehead_fh/src/apps/main/dynamicCenter/misc/index.scss" />
+    </list>
     <ignored path="global-ui-fh.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -24,13 +28,13 @@
       <file leaf-file-name="bettingCenter.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/global-forehead_fh/src/apps/main/bettingCenter/views/bettingCenter.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2750">
-              <caret line="368" column="21" selection-start-line="368" selection-start-column="21" selection-end-line="368" selection-end-column="21" />
+            <state relative-caret-position="669">
+              <caret line="303" column="20" selection-start-line="303" selection-start-column="20" selection-end-line="303" selection-end-column="20" />
               <folding>
-                <marker date="1469512106000" expanded="true" signature="7884:8357" placeholder="..." />
-                <marker date="1469512106000" expanded="true" signature="7919:8060" placeholder="..." />
-                <marker date="1469512106000" expanded="true" signature="7919:8064" placeholder="..." />
-                <marker date="1469512106000" expanded="true" signature="8106:8355" placeholder="..." />
+                <marker date="1469516491000" expanded="true" signature="7727:8197" placeholder="..." />
+                <marker date="1469516491000" expanded="true" signature="7762:7903" placeholder="..." />
+                <marker date="1469516491000" expanded="true" signature="7762:7907" placeholder="..." />
+                <marker date="1469516491000" expanded="true" signature="7949:8195" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -39,8 +43,8 @@
       <file leaf-file-name="index.scss" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/global-forehead_fh/src/apps/main/bettingCenter/misc/index.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="974">
-              <caret line="680" column="14" selection-start-line="680" selection-start-column="14" selection-end-line="680" selection-end-column="14" />
+            <state relative-caret-position="689">
+              <caret line="621" column="36" selection-start-line="621" selection-start-column="36" selection-end-line="621" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -49,8 +53,8 @@
       <file leaf-file-name="index.scss" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/global-forehead_fh/src/apps/main/dynamicCenter/misc/index.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3102">
-              <caret line="141" column="23" selection-start-line="141" selection-start-column="23" selection-end-line="141" selection-end-column="23" />
+            <state relative-caret-position="594">
+              <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -113,7 +117,6 @@
         <option value="$PROJECT_DIR$/global-forehead_fh/src/apps/main/dashboard/templates/dashboard.html" />
         <option value="$PROJECT_DIR$/global-forehead_fh/src/apps/components/sidebar/index.html" />
         <option value="$PROJECT_DIR$/global-forehead_fh/src/apps/main/dynamicCenter/views/noticeDetail.js" />
-        <option value="$PROJECT_DIR$/global-forehead_fh/src/apps/main/dynamicCenter/misc/index.scss" />
         <option value="$PROJECT_DIR$/global-forehead_fh/src/apps/main/bettingCenter/mmc/index.scss" />
         <option value="$PROJECT_DIR$/global-forehead_fh/src/apps/main/bettingCenter/templates/bettingCenter.html" />
         <option value="$PROJECT_DIR$/global-forehead_fh/src/apps/main/activeCenter/router.js" />
@@ -123,6 +126,7 @@
         <option value="$PROJECT_DIR$/global-forehead_fh/src/apps/main/dynamicCenter/views/afficheView.js" />
         <option value="$PROJECT_DIR$/global-forehead_fh/src/apps/main/dynamicCenter/templates/noticeBoard-item.html" />
         <option value="$PROJECT_DIR$/global-forehead_fh/src/apps/main/bettingCenter/views/bettingCenter.js" />
+        <option value="$PROJECT_DIR$/global-forehead_fh/src/apps/main/dynamicCenter/misc/index.scss" />
         <option value="$PROJECT_DIR$/global-forehead_fh/src/apps/main/bettingCenter/misc/index.scss" />
       </list>
     </option>
@@ -540,12 +544,12 @@
       <workItem from="1469236746698" duration="23816000" />
       <workItem from="1469341906164" duration="6165000" />
       <workItem from="1469408905808" duration="28366000" />
-      <workItem from="1469495928486" duration="8147000" />
+      <workItem from="1469495928486" duration="11166000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="71678000" />
+    <option name="totallyTimeSpent" value="74697000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
@@ -894,14 +898,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/global-forehead_fh/src/apps/main/dynamicCenter/templates/noticeBoard-item.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/global-forehead_fh/src/apps/main/dynamicCenter/views/afficheView.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="682">
@@ -918,22 +914,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/global-forehead_fh/src/apps/main/dynamicCenter/templates/noticeDetail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/global-forehead_fh/src/apps/main/dynamicCenter/misc/index.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3102">
-          <caret line="141" column="23" selection-start-line="141" selection-start-column="23" selection-end-line="141" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/global-forehead_fh/src/apps/main/bettingCenter/views/bettingCenter-chase.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="682">
@@ -942,23 +922,47 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/global-forehead_fh/src/apps/main/dynamicCenter/templates/noticeDetail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/global-forehead_fh/src/apps/main/dynamicCenter/templates/noticeBoard-item.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/global-forehead_fh/src/apps/main/bettingCenter/views/bettingCenter.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2750">
-          <caret line="368" column="21" selection-start-line="368" selection-start-column="21" selection-end-line="368" selection-end-column="21" />
+        <state relative-caret-position="669">
+          <caret line="303" column="20" selection-start-line="303" selection-start-column="20" selection-end-line="303" selection-end-column="20" />
           <folding>
-            <marker date="1469512106000" expanded="true" signature="7884:8357" placeholder="..." />
-            <marker date="1469512106000" expanded="true" signature="7919:8060" placeholder="..." />
-            <marker date="1469512106000" expanded="true" signature="7919:8064" placeholder="..." />
-            <marker date="1469512106000" expanded="true" signature="8106:8355" placeholder="..." />
+            <marker date="1469516491000" expanded="true" signature="7727:8197" placeholder="..." />
+            <marker date="1469516491000" expanded="true" signature="7762:7903" placeholder="..." />
+            <marker date="1469516491000" expanded="true" signature="7762:7907" placeholder="..." />
+            <marker date="1469516491000" expanded="true" signature="7949:8195" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/global-forehead_fh/src/apps/main/dynamicCenter/misc/index.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="594">
+          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/global-forehead_fh/src/apps/main/bettingCenter/misc/index.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="974">
-          <caret line="680" column="14" selection-start-line="680" selection-start-column="14" selection-end-line="680" selection-end-column="14" />
+        <state relative-caret-position="689">
+          <caret line="621" column="36" selection-start-line="621" selection-start-column="36" selection-end-line="621" selection-end-column="36" />
           <folding />
         </state>
       </provider>
