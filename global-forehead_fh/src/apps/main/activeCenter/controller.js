@@ -18,7 +18,7 @@ var ActiveCenterController = RouterController.extend({
   //     sidebar: Global.ui.menu.get(['ac', 'uc', 'aa'])
   //   });
   // },
-  activeCenter1: function() {
+  activeCenter: function() {
     this.changeMainReginView(new ActiveCenterView1(), {
       // main: {
       //   title: '活动中心'

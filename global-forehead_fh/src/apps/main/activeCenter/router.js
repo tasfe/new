@@ -9,7 +9,7 @@ exports.install = function() {
 
   window.Global.appRouter.processAppRoutes(new ActiveCenterController(), {
     
-    'aa/1': 'activeCenter1'
+    'aa/1': 'activeCenter'
   });
 
  
