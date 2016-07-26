@@ -98,9 +98,14 @@
 }
 
 .modal-header {
-  color: $background-color;
+  //color: $background-color;
+  background-image: url(~base/images/fh/bet/title-pic.png);
+  background-repeat: no-repeat;
+
   background-color: $light-dark-color;
-  padding: 10px;
+  padding: 6px;
+  color: white;
+  width: 83%;
   border-bottom: 1px solid $new-main-dark-color;
   .close {
     margin-top: 2px;
@@ -122,7 +127,7 @@
   position: relative;
   padding: 15px;
   overflow-y: auto;
-
+  width: 666px;
 }
 
 .modal-form {
