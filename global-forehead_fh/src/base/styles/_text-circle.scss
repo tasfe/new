@@ -1,23 +1,42 @@
+
 .text-circle {
   display: inline-block;
   font-weight: bold;
   text-align: center;
   line-height: 35px;
   font-size: 20px;
-  margin-right: 5px;
-
-  &:last-of-type {
-    margin-right: 0;
-  }
-
-  @include text-circle-size('md', $text-circle-sizes);
-
-  &.text-circle-sm {
-    @include text-circle-size('sm', $text-circle-sizes);
-  }
-
-  @include text-circle-colors($text-circle-colors);
+  margin-right: 20px;
+  border-radius: 33px;
+  width: 45px;
+  height: 45px;
+  line-height: 45px;
+  font-size: 20px;
+  color: black;
+  /* background: -webkit-linear-gradient(top, #ffbd11, #ffa701); */
+  /* background: linear-gradient(to bottom, #ffbd11, #ffa701); */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffbd11', endColorstr='#ffffa701', GradientType=0);
+  border: 1px solid lightgray;
 }
+//.text-circle {
+  //display: inline-block;
+  //font-weight: bold;
+  //text-align: center;
+  //line-height: 35px;
+  //font-size: 20px;
+  //margin-right: 5px;
+  //
+  //&:last-of-type {
+  //  margin-right: 0;
+  //}
+  //
+  //@include text-circle-size('md', $text-circle-sizes);
+  //
+  //&.text-circle-sm {
+  //  @include text-circle-size('sm', $text-circle-sizes);
+  //}
+  //
+  //@include text-circle-colors($text-circle-colors);
+//}
 .text-circle-red{
   color: #fff;
   background: linear-gradient(to bottom, #ef392e, #e2021a);

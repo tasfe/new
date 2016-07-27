@@ -1,11 +1,19 @@
 <div class="portlet-filter">
   <form class="js-bc-chase-normal-table form-inline m-bottom-lg" action="javascript:void(0)">
     <div class="control-group">
-      <div class="control-inline">
+      <div class="control-inlin-num">
         <label class="control-label">起始期号</label>
         <select class="js-bc-chase-normal-planId bc-chase-normal-planId" name="startPlanId"></select>
       </div>
-      <div class="control-inline">
+
+      <div class="control-inlin-num">
+        <label class="control-label">连续追号</label>
+        <div class="js-number-seq number-div-style" data-numSeq="5" data-value="5">5期</div>
+        <div class="js-number-seq number-div-style" data-numSeq="10" data-value="10">10期</div>
+        <div class="js-number-seq number-div-style" data-numSeq="15" data-value="15">15期</div>
+        <div class="js-number-seq number-div-style" data-numSeq="20" data-value="20">20期</div>
+      </div>
+      <div class="control-inlin-num">
         <label class="control-label">追</label>
         <input name="chasePlans" type="text" class="js-bc-chase-chasePlans js-gl-monitor bc-monitor"
           data-monitor-type="number" value="5" />

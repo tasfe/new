@@ -129,7 +129,7 @@ $main-top: 110px !default;
     display: inline-block;
     position: relative;
     overflow: hidden;
-    width:240px;
+    width:280px;
     height: 250px;
     padding-top: 27px;
     float: right;
@@ -226,7 +226,7 @@ $float-height: 38px;
 .customer-service, .upgrade-intro, .history-record {
   position: absolute;
   left: 50%;
-  margin-left: 342px;
+  margin-left: 442px;
   transition: background-image 0.4s ease-in-out;
 }
 
@@ -252,9 +252,14 @@ $float-height: 38px;
   float: left;
 }
 
+.nav-router {
+ // width: 900px;
+  margin-left: 300px;
+}
+
 .nav-index {
   font-size: 21px;
-  width: 110px;
+  width: 120px;
   float: left;
   text-align: center;
   margin-top: 20px;

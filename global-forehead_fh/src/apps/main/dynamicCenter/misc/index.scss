@@ -6,18 +6,39 @@
 .nc-noticeBoard {
   .nc-board {
     height: 534px;
-    overflow: auto;
+    overflow: hidden;
   }
 }
 
 .nc-board-item {
+  overflow: hidden;
+  text-overflow: clip;
+  width: 195px;
   display: block;
   border-bottom: 1px solid $color-deep-gray;
   margin: 0;
-  padding: 10px 20px;
+  height: 25px;
+  padding: 5px 5px;
   &:hover {
     background-color: $brand-primary;
   }
+
+  .nc-board-time{
+    height: 25px;
+    line-height: 25px;
+  }
+
+  .nc-board-main{
+    overflow: hidden;
+    text-overflow: clip;
+    height: 25px;
+    line-height: 25px;
+    width: 115px;
+  }
+
+  //.nc-notice-main {
+  //  margin: 10px 30px;
+  //}
 
   //&:last-of-type {
   //  border-bottom: 0;
@@ -135,20 +156,4 @@
     margin-bottom: 20px;
   }
 
-  .nc-notice-title {
-    font-size: 28px;
-    //font-weight: bold;
-    //.nc-notice-title-inner {
-    //  width: 66px;
-    //}
-  }
-  //.nc-notice-title-inner {
-  //  width: 60px;
-  //  text-align: right;
-  //  display: inline-block;
-  //}
-
-  .nc-notice-main {
-    margin: 20px 30px;
-  }
 }

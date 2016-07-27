@@ -12,7 +12,10 @@ var ticketConfig = require('skeleton/misc/ticketConfig');
 var betRulesConfig = require('bettingCenter/misc/betRulesConfig');
 var IDsSuper3 = require('bettingCenter/misc/super3k/IDsOfSuper3k');
 
+var QuickBetView = require('bettingCenter/views/bettingCenter-quickBet');
+
 var Countdown = require('com/countdown');
+
 
 var BettingCenterView = Base.ItemView.extend({
 
@@ -21,6 +24,13 @@ var BettingCenterView = Base.ItemView.extend({
   playLevelTpl: _.template(require('bettingCenter/templates/bettingCenter-level.html')),
   rulesTpl: _.template(require('bettingCenter/templates/bettingCenter-rules.html')),
   confirmTpl: _.template(require('bettingCenter/templates/bettingCenter-confirm.html')),
+  itemTpl:_.template(require('dynamicCenter/templates/noticeBoard-item.html')),
+  AfficheTpl:_.template(require('dynamicCenter/templates/noticeDetail.html')),
+
+
+  height: 310,
+
+  tableClass: 'table table-center',
 
   events: {
     'click .js-bc-video': 'openVideoHandler',
@@ -34,7 +44,11 @@ var BettingCenterView = Base.ItemView.extend({
     'click .js-bc-lottery-clear': 'lotteryClearHandler',
     'click .js-bc-lottery-preview-del': 'lotteryPreviewDelHandler',
     'click .js-bc-chase': 'lotteryChaseHandler',
-    'click .js-bc-btn-lottery-confirm': 'lotteryConfirmHandler'
+    'click .js-bc-btn-lottery-confirm': 'lotteryConfirmHandler',
+    'click .js-bc-records-tab': 'toggleTabHandler',
+    'click .js-bc-nav-index':'severalHaddler',
+    'click .js-bc-quick-bet': 'quickBetHandler'
+
   },
 
   serializeData: function() {
@@ -44,6 +58,7 @@ var BettingCenterView = Base.ItemView.extend({
   },
 
   initialize: function() {
+    this.options.type1 = 'draw';
     this.options.ticketInfo = ticketConfig.getComplete(this.options.ticketId);
 
     this.model = new BettingChoiceModel();
@@ -101,6 +116,39 @@ var BettingCenterView = Base.ItemView.extend({
     });
   },
 
+
+
+  quickBetHandler: function(e) {
+
+    var self = this;
+
+    var quickBetView = new QuickBetView({parentView: self});
+
+    var $dialogRe = Global.ui.dialog.show({
+      id: _.now(),
+      title: '快速投注',
+      size: 'modal-lg',
+      body: '<div class="js-fc-quick-container"></div>'
+    });
+
+    $dialogRe.find('.js-fc-quick-container').html(quickBetView.onRender());
+
+    $dialogRe.on('click', '.js-bc-quick-btn', function(e) {
+
+      var $target = $(e.currentTarget);
+      var afficheId = $target.data('affiche');
+
+      alert(afficheId  ) ;
+          //alert($('#btSelectItem').val())
+      });
+
+
+
+
+  },
+
+
+
   getNewPlan: function() {
     this.infoModel.fetch({
       abort: false,
@@ -112,6 +160,10 @@ var BettingCenterView = Base.ItemView.extend({
   },
 
   onRender: function() {
+
+    this.$bettingRecords = this.$('.js-bc-betting-records');
+    this.$drawRecords = this.$('.js-bc-draw-records');
+
     this.$countdown = this.$('.js-bc-countdown');
     this.$planId = this.$('.js-bc-planId');
     this.$planIdStop = this.$('.js-bc-planId-stop');
@@ -156,6 +208,7 @@ var BettingCenterView = Base.ItemView.extend({
 
     this.$recordsContainer = this.$('.js-bc-records');
 
+
     //======
     this.$btnAdd = this.$('.js-bc-btn-lottery-add');
     this.$btnConfirm = this.$('.js-bc-btn-lottery-confirm');
@@ -176,15 +229,19 @@ var BettingCenterView = Base.ItemView.extend({
         //{label: '投注金额', name: 'bettingMoney', width: '17%'}
       ],
       showHeader: false,
-      height: 115,
+      height: 310,
       startOnLoading: false,
       emptyTip: ''
     }).staticGrid('instance');
 
-    this.bettingRecordsView = new BettingRecordsView({
-      el: this.$recordsContainer,
-      ticketId: this.options.ticketId
-    }).render();
+    //this.bettingRecordsView = new BettingRecordsView({
+    //  el: this.$recordsContainer,
+    //  ticketId: this.options.ticketId
+    //}).render();
+
+
+
+    this.renderDrawRecords();
 
     var sign = Global.localCache.get('ticketList.' + this.options.ticketId);
 
@@ -193,6 +250,157 @@ var BettingCenterView = Base.ItemView.extend({
       this.rulesCollection.trigger('sync:fromCache');
     }
   },
+
+  severalHaddler:function () {
+
+    var self = this;
+
+    var html = '<div class="affiche-body-back">'+
+        '<div class="affiche-body-leftBody">' +
+        '<div class="affiche-body-lefthead">公告列表</div>'+
+        '<div class="js-affiche-list affiche-body-list"></div>'+
+        '</div>' +
+        '<div class="affiche-body-detail">' +
+        '<div  class="affiche-body-righthead">平台公告<button type="button" class="affiche-body-close pull-right" data-dismiss="modal">x</button></div>' +
+            '<div class="js-affiche-detail affiche-detail-content">ede</div>'+
+        '</div>'+
+        '</div>';
+
+    var $dialog = Global.ui.dialog.show({
+      size: 'modal-md',
+      body: html,
+      bodyClass: 'home-affiche-dialog'
+    });
+
+    this.$grid = $dialog.find('.js-affiche-list');
+    this.$gridDetail = $dialog.find('.js-affiche-detail');
+
+
+    $dialog.on('hidden.modal', function () {
+      $(this).remove();
+    });
+
+    self.startLoadAfficheList();
+
+    $dialog.find('.js-affiche-list').on('click','.js-board-Affiche',function (e) {
+      var $target = $(e.currentTarget);
+      var afficheId = $target.data('affiche');
+      self.startLoadAfficheDetail(afficheId);
+    });
+
+  },
+
+  startLoadAfficheDetail:function (afficheId) {
+    var self = this;
+    Global.sync.ajax({
+          url: '/info/activitylist/userGetbulletindetail.json',
+          data: {
+            bulletinId: afficheId
+          }
+        })
+        .always(function() {
+          self.loadingFinish();
+        })
+        .done(function(res) {
+          if (res && res.result === 0) {
+            self.renderAfficheDetail(res.root);
+          } else {
+            Global.ui.notification.show('通知详情获取失败');
+          }
+        });
+
+  },
+  renderAfficheDetail:function (rootInfo) {
+    this.$gridDetail.html(this.AfficheTpl());
+    this.$gridDetail.find('.js-nc-noticeDetailTitle').html(rootInfo.title);
+    this.$gridDetail.find('.js-nc-noticeDetailDate').html(_(rootInfo.time).toTime());
+    this.$gridDetail.find('.js-nc-noticeDetailContext').html(rootInfo.content);
+  },
+
+  startLoadAfficheList:function () {
+    var self = this;
+    Global.sync.ajax({
+      url: '/info/activitylist/getbulletinlist.json',
+      data: {
+        'pageSize': 20,
+        'pageIndex': 0
+      }
+    }).always(function(){
+          //开始加载
+
+        })
+        .done(function(res) {
+          var data = res.root || {};
+          if (res && res.result === 0) {
+            self.renderGrid(data.buList);
+          } else {
+            Global.ui.notification.show('加载失败，请稍后再试');
+          }
+        });
+  },
+
+  renderGrid: function(rowList) {
+    
+    if (_.isEmpty(rowList)) {
+      this.$grid.html(this.getEmptyHtml('暂时没有动态'));
+    } else {
+      this.$grid.html(_(rowList).map(function(rowInfo) {
+        var date = new Date(rowInfo.time);
+
+        return this.itemTpl({
+          title: rowInfo.title,
+          date: date.getFullYear() +
+          '-' + (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) +
+          '-' + (date.getDate() < 10 ? '0'+ date.getDate() : date.getDate()) ,
+          afficheId: rowInfo.bulletionId,
+          desc: rowInfo.desc
+        });
+      }, this));
+    }
+  },
+
+  getEmptyHtml: function(emptyTip) {
+    var html = [];
+    if (emptyTip) {
+      html.push('<div class="js-wt-empty-container empty-container text-center">');
+      html.push('<div class="empty-container-main">');
+      html.push('<div class="sfa-grid-empty"></div>');
+      html.push(emptyTip);
+      html.push('</div>');
+      html.push('</div>');
+    }
+    return html.join('');
+  },
+
+  // showAfficheHandler:function (e) {
+  //   var $target = $(e.currentTarget);
+  //   var afficheId = $target.data('afficheId');
+  //
+  //   alert(afficheId);
+  //
+  //   var self = this;
+  //   this.$gridDetail.html(this.AfficheTpl());
+  //
+  //   Global.sync.ajax({
+  //         url: '/info/activitylist/userGetbulletindetail.json',
+  //         data: {
+  //           bulletinId: this.options.noticeId
+  //         }
+  //       })
+  //       .always(function() {
+  //         self.loadingFinish();
+  //       })
+  //       .done(function(res) {
+  //         if (res && res.result === 0) {
+  //           self.$('.js-nc-noticeDetailTitle').html(res.root.title);
+  //           self.$('.js-nc-noticeDetailDate').html(_(res.root.time).toTime());
+  //           self.$('.js-nc-noticeDetailContext').html(res.root.content);
+  //         } else {
+  //           Global.ui.notification.show('通知详情获取失败');
+  //         }
+  //       });
+  //
+  // },
 
   renderSale: function(model, sale) {
     this.$btnAdd.prop('disabled', !sale);
@@ -275,7 +483,7 @@ var BettingCenterView = Base.ItemView.extend({
       return '<span class="text-circle">' + num + '</span>';
     }));
 
-    this.bettingRecordsView.update();
+    this.update();
   },
 
   renderBasicInfo: function(model) {
@@ -398,10 +606,6 @@ var BettingCenterView = Base.ItemView.extend({
       content: playInfo.playDes.replace(/\|/g, '<br />').replace(/\[max\]/g,_(playInfo.betMethodMax).chain().formatDiv(10000).floor(4).value()).replace(/\[min\]/g,_(playInfo.betMethodMin).chain().formatDiv(10000).floor(4).value()),
       placement: 'bottom'
     });
-    //if(){
-    //  this.$playTip.
-    //}
-
 
     this.renderPlayBetMode();
     //初始化奖金
@@ -551,7 +755,7 @@ var BettingCenterView = Base.ItemView.extend({
         title: title,
         bonusMode: this.getBonusMode(previewInfo.maxBonus, previewInfo.unit, previewInfo.userRebate, previewInfo.betMethod),
         mode: previewInfo.statistics + '注 / ' + previewInfo.multiple + '倍 / <span class="text-hot">' + _(previewInfo.prefabMoney).convert2yuan() + '</span>元' +
-        '<div class="js-bc-lottery-preview-del lottery-preview-del icon-block m-right-lg pull-right ' + (sf ? 'sfClass' : '') +'"></div>'
+        '<div class="js-bc-lottery-preview-del   icon-block   ' + (sf ? 'sfClass' : '') +'"></div>'
       };
 
     }, this);
@@ -820,7 +1024,7 @@ var BettingCenterView = Base.ItemView.extend({
 
     chaseView.on('submit:complete', function() {
       self.model.emptyPrevBetting();
-      self.bettingRecordsView.update();
+      self.update();
       $dialog.modal('hide');
     });
   },
@@ -842,10 +1046,8 @@ var BettingCenterView = Base.ItemView.extend({
       Global.ui.notification.show('非常抱歉，目前平台单式投注只支持最多10万注单。');
       return false;
     }
-    if (_.isEmpty(info.previewList)) {
-      Global.ui.notification.show('请至少选择一注投注号码！');
-      return false;
-    }
+
+
 
     if (info.totalInfo.totalMoney > Global.memoryCache.get('acctInfo').balance) {
       Global.ui.notification.show('账号余额不足，请先<a href="javascript:void(0);" class="btn-link btn-link-pleasant js-fc-re"  data-dismiss="modal">充值</a>。');
@@ -878,7 +1080,7 @@ var BettingCenterView = Base.ItemView.extend({
           })
           .done(function(res) {
             if (res && res.result === 0) {
-              self.bettingRecordsView.update();
+              self.update();
               self.model.emptyPrevBetting();
 
               Global.m.oauth.check();
@@ -903,6 +1105,83 @@ var BettingCenterView = Base.ItemView.extend({
       planId = newPlanId;
       confirm.element.find('.js-bc-confirm-planId').text(planId);
     }
+
+
+  },
+
+  toggleTabHandler: function(e) {
+
+    var $target = $(e.currentTarget);
+    $target.addClass('active').siblings().removeClass('active');
+
+    this.options.type1 = $target.data('type');
+
+    this.update();
+  },
+
+  //common APIs
+  update: function() {
+    if (this.options.type1 === 'draw') {
+      this.renderDrawRecords();
+      this.$bettingRecords.addClass('hidden');
+      this.$drawRecords.addClass('hidden');
+      this.$('.js-bc-lottery-preview').removeClass('hidden');
+
+    } else {
+      this.renderBettingRecords();
+      this.$bettingRecords.removeClass('hidden');
+      this.$drawRecords.addClass('hidden');
+      this.$('.js-bc-lottery-preview').addClass('hidden');
+
+    }
+  },
+
+  renderBettingRecords: function() {
+    var self = this;
+    if (!this.bettingRecords) {
+      this.bettingRecords = this.$bettingRecords.staticGrid({
+        tableClass: this.tableClass,
+        colModel: [
+          {label: '期号', name: 'ticketPlanId', width: '40%',formatter: function(val, index, bet) {
+            return '<a class="router btn-link" href="#uc/br/detail/' + bet.ticketTradeNo + '">' + val.substring(4) + '</a>';
+          }},
+          {label: '投注金额', name: 'betTotalMoney', width: '32%', formatter: function(val) {
+            return _(val).fixedConvert2yuan();
+          }},
+          {label: '状态', name: 'prizeTotalMoney', width: '28%', formatter: function(val, index, bet) {
+            //0:未中奖，1：已中奖，2：用户撤单，3：系统撤单,ticketResult,prizeTotalMoney
+            return _.checkBettingStatus({
+              betStatus: bet.ticketBetStatus,
+              hasException: bet.hasException,
+              openNumbers: bet.ticketResult,
+              openStatus: bet.ticketOpenStatus,
+              prizing: bet.prizing,
+              prizeTotalMoney: bet.prizeTotalMoney,
+              betTime: bet.betTime,
+              prizeClass: 'text-pink'
+            });
+          }}
+          //{label: '是否追号', name: 'chaseId', width: '10%', formatter: function(val) {
+          //  return val ? '是' : '否';
+          //}}
+        ],
+        emptyTip: '无投注记录',
+        url: '/ticket/bethistory/userbethistory.json',
+        abort: false,
+        showHeader: false,
+        height: this.height,
+        data: {
+          pageSize: 30,
+          ticketId: this.options.ticketId
+        },
+        dataProp: 'root.betList'
+      }).staticGrid('instance');
+    } else {
+      this.bettingRecords.update();
+    }
+  },
+
+  renderDrawRecords: function() {
   }
 });
 

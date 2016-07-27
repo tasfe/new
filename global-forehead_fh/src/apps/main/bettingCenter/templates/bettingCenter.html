@@ -3,8 +3,13 @@
 
 </div>
 
-<div class="router">
 
+ 
+
+
+<div class="nav-router">
+
+ 
   <div class="nav-index">
     <a href="#">首页</a>
   </div>
@@ -17,19 +22,62 @@
   <div class="nav-index">
     优惠活动
   </div>
-  <div class="nav-index">
+  <div class="nav-index js-bc-nav-index">
     平台公告
   </div>
 </div>
 
 
-<div class="bc-side-area text-center pull-left clear-both">
-  <div class="bc-plan-main border-bottom relative">
+
+<div class="nav-title">
+
+</div>
+<div class="ssc-logo"> </div>
+
+<div class="bet-lefttime">
+
+  <div class="js-bc-planId bc-plan-title">
+    <span>截止投注</span> 第20160722-047期
+  </div>
+  <div class="js-bc-countdown m-bottom-sm float-time-div"></div>
+</div>
+
+<div class="bet-opencode">
+  <div class="js-bc-last-planId bc-plan-title">
+    开奖号码 :  第20160722-047期
+  </div>
+  <div class="js-bc-last-plan-results bc-last-results">
+    <span class="text-circle">-</span>
+    <span class="text-circle">-</span>
+    <span class="text-circle">-</span>
+    <span class="text-circle">-</span>
+    <span class="text-circle">-</span>
+  </div>
+  <div class="js-bc-sale-stop bc-last-results hidden">
+    <span class="text-circle">暂</span>
+    <span class="text-circle">停</span>
+    <span class="text-circle">销</span>
+    <span class="text-circle">售</span>
+  </div>
+</div>
+
+
+<div class="bet-openprize">
+</div>
+<div class="bet-trend">
+</div>
+<div class="bet-playrules">
+</div>
+
+
+
+<div class="bc-side-area text-center pull-right clear-both">
+  <!--<div class="bc-plan-main border-bottom relative">
     <div class="bc-banner sfa sfa-d-<%=ticketInfo.id %>-<%=ticketInfo.info.mark %> "></div>
     <div class="bc-ticket-title font-bold"><%=ticketInfo.info.zhName %></div>
     <a class="bc-trend" href="trend.html?ticketId=<%=ticketInfo.info.id %>" target="_blank">走势图</a>
-  </div>
-  <div class="bc-curt-plan-main border-bottom bg-deep-gray">
+  </div>-->
+ <!-- <div class="bc-curt-plan-main border-bottom bg-deep-gray">
 
     <div class="js-bc-planId bc-plan-title">
       本期开奖剩余时间
@@ -55,28 +103,78 @@
       <span class="text-circle">销</span>
       <span class="text-circle">售</span>
     </div>
+  </div>-->
+
+
+  <div class="btn-confirm">
+
+
+
   </div>
 
-  <div class="js-bc-records bc-records"></div>
-</div>
+  <div class="js-bc-records bc-records clear-both">
 
-<div class="bc-main-area pull-right">
+    <div class="bet-info-today">
+        今日充值：1000元     今日提现：10000元
+    </div>
+    <div class="bet-info-today">
+      今日投注：1000元     今日盈亏：10000元
+    </div>
+
+    <div class="bet-act-available">
+      可参加的活动：1个       <a href="#" style="color: yellow">查看详情</a>
+    </div>
+
+
+    <div class="btn-group btn-group-justified">
+      <a href="javascript:void(0)" class="js-bc-records-tab btn btn-opacity active" data-type="draw">采购篮</a>
+      <a href="javascript:void(0);" class="js-bc-records-tab btn btn-opacity" data-type="betting">近期投注</a>
+    </div>
+    <div class="js-bc-betting-records hidden"></div>
+    <div class="js-bc-draw-records hidden"></div>
+  </div>
+
+  <div class="js-bc-lottery-preview  pull-left"></div>
+
+
+    <div class="bet-summary">
+        <span>
+          <span>总计</span>
+          <span class="js-bc-total-lottery text-hot">0</span>
+          <span>注</span>
+        </span>
+
+        <span>
+          <span>总共</span>
+          <span class="js-bc-total-money text-hot">0</span>
+          <span>元</span>
+        </span>
+    </div>
+  </div>
+
+
+
+<div class="bc-main-area pull-left">
   <div class="js-bc-rules rule-hide-optional rule-hide-super clearfix">
     <div class="js-bc-basic-rules bc-basic-rules"></div>
     <div class="js-bc-super-rules bc-basic-rules hidden"></div>
     <div class="js-bc-optional-rules bc-basic-rules hidden"></div>
+
     <div class="bc-play-toggle">
       <div class="js-bc-play-toggle bc-play-toggle-item bc-play-normal active" data-type="normal">
-        <span class="sfa sfa-bc-play-normal m-right-md vertical-middle"></span> 常规玩法
+        <!--<span class="sfa sfa-bc-play-normal m-right-md vertical-middle"></span>-->
+        常规玩法
       </div>
-        <div class="js-bc-play-toggle bc-play-toggle-item bc-play-super" data-type="super">
+        <!--<div class="js-bc-play-toggle bc-play-toggle-item bc-play-super" data-type="super">
           <span class="sfa sfa-bc-play-super m-right-md vertical-middle"></span> 超级3000
-        </div>
+        </div>-->
         <div class="js-bc-play-toggle bc-play-toggle-item bc-play-optional" data-type="special">
-          <span class="sfa sfa-bc-play-optional m-right-md vertical-middle"></span> 任选玩法
+         <!-- <span class="sfa sfa-bc-play-optional m-right-md vertical-middle"></span> -->
+          任选玩法
         </div>
       </div>
     </div>
+
     <div class="bc-play-section">
       <div class="js-bc-advance-rules bc-advance-rules"></div>
 
@@ -86,12 +184,11 @@
           <span class="js-bc-play-example bc-play-example"></span>
           <!--<div>-->
           <a class="js-bc-play-tip bc-play-tip btn-link" href="javascript:void(0)">
-            <span class="sfa sfa-bc-play-brief vertical-middle"></span>
-            玩法说明
+            <span class="sfa sfa-bc-play-brief vertical-middle bet-case"> </span>
           </a>
-        <span class="text-hot">
-          奖金模式：<span class="js-bc-bet-mode"></span>
-        </span>
+
+
+
           <!--</div>-->
         </div>
       </div>
@@ -107,7 +204,7 @@
 
     <div class="bc-statics-area clearfix">
       <div class="bc-result-container">
-        <span>选择了：</span>
+        <span>您选择了：</span>
         <span class="js-bc-statistics-lottery">0</span>
         <span>注</span>
 
@@ -123,47 +220,53 @@
       <span class="js-bc-multi-range vertical-middle bc-multi-range inline-block"></span>
       <span>倍</span>
 
-      <div class="inline-block m-left-md text-hot">
-        共计：<span class="js-bc-statistics-money">0</span>
-        <span>元</span>
-      </div>
+
     </div>
-    <div class="bc-lottery-add">
+
+    <!--<div class="bc-lottery-add">
       <button class="js-bc-btn-lottery-add btn btn-sun btn-linear m-left-xs">
         <span class="sfa sfa-btn-add vertical-top"></span>
         添加号码
       </button>
-    </div>
-  </div>
+    </div>-->
 
-  <div class="clearfix">
-    <div class="js-bc-lottery-preview bc-lottery-preview pull-left"></div>
-
-    <div class="overflow-hidden">
-      <div class="bc-total-brief p-left-xs">
-        <div class="">
-        <span>
-          <span>总计</span>
-          <span class="js-bc-total-lottery">0</span>
-          <span>注</span>
-        </span>
-        </div>
-        <div class="text-hot">
-        <span>
-          <span>总共</span>
-          <span class="js-bc-total-money text-hot">0</span>
-          <span>元</span>
-        </span>
-        </div>
-      </div>
-      <button class="js-bc-btn-lottery-confirm btn btn-hot btn-linear m-left-xs m-top-xs" data-loading-text="提交中">
-        <span class="sfa sfa-btn-hook vertical-top"></span>
-        确认投注
-      </button>
-      <button class="js-bc-chase btn-link btn-link-hot no-padding vertical-bottom">
-        追号
-      </button>
-    </div>
 
   </div>
+
+</div>
+<div class="bet-manager">
+</div>
+
+<div class="bet-information1">
+
+  <span >
+    共计：<span class="js-bc-statistics-money">0</span>
+    <span>元 ,</span>
+  </span>
+
+      <span >
+          奖金模式：<span class="js-bc-bet-mode"></span>
+        </span>
+
+  <span >
+          返点：0.00元</span>
+        </span>
+</div>
+
+<div class="js-bc-btn-lottery-add add-number">
+</div>
+
+<div class="js-bc-btn-lottery-confirm commit-number">
+</div>
+<div class="js-bc-chase chase-number">
+</div>
+
+<div class="js-bc-quick-bet bet-quick">
+</div>
+
+<div class="time-01">
+</div>
+<div class="time-02">
+</div>
+<div class="time-03">
 </div>
