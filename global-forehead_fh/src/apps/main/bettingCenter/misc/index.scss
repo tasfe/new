@@ -544,15 +544,9 @@ $main-area-width: 870px;
   bottom:-184px;
 }
 
-.bet-manager {
-   background: url(~base/images/fh/bet/btn-bet-manager.png);
-   width: 170px;
-   height: 50px;
-   background-repeat: no-repeat;
-   float: left;
- }
 
-.bet-manager {
+
+.bet-manager1 {
   background: url(~base/images/fh/bet/btn-bet-manager.png);
   width: 150px;
   height: 50px;
@@ -785,7 +779,7 @@ $main-area-width: 870px;
   display: inline-block;
   margin-right: 15px;
   height: 30px;
-  width: 100px;
+  width: 80px;
   border: 1px solid #a1a1a1;
   margin-top: 20px;
   font-size: 15px;
@@ -794,8 +788,68 @@ $main-area-width: 870px;
 }
 
 .control-quick-div {
- text-align: left;
-  margin-left: 50px;
+  text-align: left;
+  margin-left: 110px;
 
 }
 
+.bet-quick-select {
+  background: url(~base/images/fh/bet/quick-select.png);
+  width: 80px;
+  height: 30px;
+  background-repeat: no-repeat;
+}
+
+.quick-btn-bet {
+  background-color: #c62327;
+  width: 140px;
+  height: 40px;
+  color: white;
+  font-size: 16px;
+  text-align: center;
+  line-height: 40px;
+  float: left;
+  margin-left: 120px;
+}
+
+.quick-btn-cancel {
+  background-color: #c6977f;
+  width: 140px;
+  height: 40px;
+  color: white;
+  font-size: 16px;
+  text-align: center;
+  line-height: 40px;
+  margin-left: 300px;
+  position: absolute;
+}
+
+.control-text-quick {
+  height: 40px;
+  float: left;
+  width: 66px;
+}
+
+.quick-text-bet {
+  background-color: #c62327;
+  width: 50px;
+  height: 30px;
+  color: white;
+  font-size: 16px;
+  text-align: center;
+  line-height: 30px;
+  float: left;
+  margin-left: 10px;
+}
+
+.quick-text-cancel {
+  background-color: #c6977f;
+  width: 50px;
+  height: 30px;
+  color: white;
+  font-size: 16px;
+  text-align: center;
+  line-height: 30px;
+  margin-left: 250px;
+  position: absolute;
+}

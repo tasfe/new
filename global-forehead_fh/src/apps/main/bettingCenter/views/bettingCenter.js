@@ -120,6 +120,7 @@ var BettingCenterView = Base.ItemView.extend({
 
   quickBetHandler: function(e) {
 
+
     var self = this;
 
     var quickBetView = new QuickBetView({parentView: self});
@@ -133,18 +134,73 @@ var BettingCenterView = Base.ItemView.extend({
 
     $dialogRe.find('.js-fc-quick-container').html(quickBetView.onRender());
 
+
+    $dialogRe.on('click', '.js-bc-quick-btn-bet', function(e) {
+
+
+        var quickAmount = $('.js-bc-quick-value').val();
+
+        var zhushu = $('.js-bc-statistics-lottery').html();
+        var beishu  = parseFloat(quickAmount)/(zhushu * 2  ) ;
+
+        var rate  = $('.js-bc-monetary-unit').eq(0).data('rate');
+
+        if(beishu>=1) {
+          beishu = parseInt(beishu);
+          $('.js-wt-number').val(beishu);
+          rate  = $('.js-bc-monetary-unit').eq(0).data('rate');
+          $('.js-bc-monetary-unit').eq(0).addClass('active').siblings().removeClass('active');
+        }
+
+        if(1>beishu && beishu>0.09) {
+          beishu = parseInt(beishu*10);
+          $('.js-wt-number').val(beishu);
+          rate  = $('.js-bc-monetary-unit').eq(1).data('rate');
+          $('.js-bc-monetary-unit').eq(1).addClass('active').siblings().removeClass('active');
+        }
+
+        if(0.1>beishu && beishu>0.009) {
+
+          beishu = parseInt(beishu*100);
+          $('.js-wt-number').val(beishu);
+          rate  = $('.js-bc-monetary-unit').eq(2).data('rate');
+          $('.js-bc-monetary-unit').eq(2).addClass('active').siblings().removeClass('active');
+        }
+        self.model.set('multiple',beishu);
+        self.model.set('unit', rate);
+
+        self.lotteryAddHandler(e);
+
+        $dialogRe.hide();
+         $('.modal-backdrop').removeClass('modal-backdrop');
+    });
+
+
     $dialogRe.on('click', '.js-bc-quick-btn', function(e) {
 
       var $target = $(e.currentTarget);
-      var afficheId = $target.data('affiche');
+      var quickAmount = $target.data('affiche');
 
-      alert(afficheId  ) ;
-          //alert($('#btSelectItem').val())
-      });
+      $('.js-bc-quick-btn').removeClass('bet-quick-select');
+      $target.addClass('bet-quick-select');
+
+      $('.js-bc-quick-value').val(quickAmount);
+
+      $('.js-bet-div0-02').show();
+      $('.js-bet-div0-01').hide();
+
+     });
+
+    $dialogRe.on('click', '.js-bet-div0-02', function(e) {
+
+      $('.js-bet-div0-02').hide();
+      $('.js-bet-div0-01').show();
+      $('.js-bc-quick-value').val('');
+      $('.js-bc-quick-btn').removeClass('bet-quick-select');
+      $('.js-bet-div0-01').addClass('bet-quick-select');
 
 
-
-
+    });
   },
 
 
