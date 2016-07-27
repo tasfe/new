@@ -8,6 +8,8 @@ var BettingCenterView = require('bettingCenter/views/bettingCenter');
 var MMCBettingCenterView = require('bettingCenter/mmc');
 var SMMCBettingCenterView = require('bettingCenter/smmc');
 
+var FirstLoginUpdatePasswd = require('com/firstLoginUpdatePasswd');
+
 var Countdown = require('com/countdown');
 
 var ticketConfig = require('skeleton/misc/ticketConfig');
@@ -56,8 +58,8 @@ var EntryView = Base.ItemView.extend({
 
     this.$('.js-gl-ticket-menu').dropMenu();
 
-
-    
+    this.firstLoginUpdatePasswd = new FirstLoginUpdatePasswd();
+    this.firstLoginUpdatePasswd.checkState();
   },
 
   renderSetting: function() {

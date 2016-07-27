@@ -5,22 +5,19 @@
 
 $header-margin-top: 6px;
 
-.header-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 100;
+.main-display{
+  width: 1200px;
 }
-
 .header {
-  //position: absolute;
-  background-color: black;
-  height: 30px;
-  left: 0;
-  right: 0;
-  top: 0;
-  z-index: 100;
+  .float-menu{
+    position: fixed;
+    background-color: black;
+    height: 30px;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 100;
+  }
 
 
   .top-in-block {
@@ -95,4 +92,38 @@ $header-margin-top: 6px;
   }
 
 
+}
+
+
+.head{
+  width: 1200px;
+  height: 104px;
+  margin: 30px auto 0 auto;
+  padding-top: 12px;
+ 
+  img{
+    float: left;
+  }
+
+  a{
+    font-size: 20px;
+    font-family: '幼圆';
+    color: #333333;
+    float: right;
+    display: block;
+    margin-left: 48px;
+    margin-top: 26px;
+    font-weight: bold;
+  }
+
+  span{
+    background: url(~base/images/julien/onlineService.png) no-repeat;
+    width: 161px;
+    height: 37px;
+    display: block;
+    float: right;
+    margin-left: 155px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
 }
