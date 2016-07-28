@@ -6,8 +6,8 @@ var menuConfig = require('skeleton/misc/menuConfig');
 
 var SideMenuMainView = Base.LayoutView.extend({
   className: 'clearfix',
-  template: '<div>asdsfa</div><div class="js-gl-sidebar sidebar pull-left "></div>' +
-  '<div class="js-gl-main pull-right"></div>'
+  template: '<div class="js-gl-sidebar menu-bock"></div>' +
+  '<div class="js-gl-main content-bock"></div>'
 });
 
 var RouterController = Base.Controller.extend({

@@ -56,6 +56,8 @@ var PersonalManageView = Base.ItemView.extend({
     window.ParsleyExtend.addAsyncValidator('checkusername', function(xhr) {
       return xhr.responseJSON.result === 0;
     }, '/acct/userinfo/checkuname.json');
+
+    
   },
 
   updatePersonalInfoHandler: function(e) {

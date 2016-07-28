@@ -45,8 +45,10 @@ var AgencyCenterController = RouterController.extend({
       main: {
         title: '下级管理'
       },
-      sidebar: Global.ui.menu.get(['ac', 'uc', 'aa'])
+      sidebar: Global.ui.menu.get(['ac'])
     });
+
+    $('#main > .clearfix').addClass('ac-block');
   },
 
   rebateManage: function(userId){
@@ -133,8 +135,10 @@ var AgencyCenterController = RouterController.extend({
       main: {
         title: '开户管理'
       },
-      sidebar: Global.ui.menu.get(['ac', 'uc', 'aa'])
+      sidebar: Global.ui.menu.get(['ac'])
     });
+
+    $('#main > .clearfix').addClass('ac-block');
   },
 
   reportManage: function() {
@@ -142,8 +146,10 @@ var AgencyCenterController = RouterController.extend({
       main: {
         title: '报表查询'
       },
-      sidebar: Global.ui.menu.get(['ac', 'uc', 'aa'])
+      sidebar: Global.ui.menu.get(['ac'])
     });
+
+    $('#main > .clearfix').addClass('ac-block');
   },
 
   //profitAndLoss: function() {
@@ -160,8 +166,10 @@ var AgencyCenterController = RouterController.extend({
       main: {
         title: '团队动态'
       },
-      sidebar: Global.ui.menu.get(['ac', 'uc', 'aa'])
+      sidebar: Global.ui.menu.get(['ac'])
     });
+
+    $('#main > .clearfix').addClass('ac-block');
   },
 
   accountDetail : function(userId, tabName){
@@ -254,8 +262,9 @@ var AgencyCenterController = RouterController.extend({
       main: {
         title: '佣金管理'
       },
-      sidebar: Global.ui.menu.get(['ac', 'uc', 'aa'])
-    })
+      sidebar: Global.ui.menu.get(['ac'])
+    });
+    $('#main > .clearfix').addClass('ac-block');
   },
   rechargeRecords4Report: function(tabName) {
     var startTime = _.getUrlParam('startTime');

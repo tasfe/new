@@ -15,7 +15,9 @@
       display: inline-block;
       background-size: contain;
       vertical-align: top;
-      margin: 8px 12px 9px 0;
+      //margin: 8px 12px 9px 0;
+      margin: 14px -1150px;
+      position: absolute;
     }
   }
 }
@@ -26,11 +28,11 @@
   border: 1px solid $gray-color;
   height:500px;
   .sfa {
-    @include slide-nav-item($sfa-d-tickets, 48px);
+    @include slide-nav-item($sfa-d-tickets, 120px);
   }
 }
 
-@include slide-nav-item($sfa-d-tickets, 60px);
+@include slide-nav-item($sfa-d-tickets, 120px);
 
 .bc-ticket-title {
   display: inline-block;
@@ -214,8 +216,8 @@ $main-area-width: 870px;
 }
 
 .bc-rule-container {
-  padding: 0 135px 0 0;
-  margin: -1px 0 0 92px;
+  //padding: 0 135px 0 0;
+  //margin: -1px 0 0 92px;
 
   &.nav-tabs-border {
     a {
@@ -236,7 +238,10 @@ $main-area-width: 870px;
       a {
         border-bottom-color: #fff;
         > div {
-          background-color: $white-color;
+          //background-color: red;
+          background-image:  url(~base/images/fh/bet/selected.png);
+          width: 80px;
+          height: 43px;
         }
       }
     }
@@ -338,7 +343,7 @@ $main-area-width: 870px;
 }
 
 .bc-play-container {
-  height: 310px;
+  height: 290px;
   border-bottom: 1px solid $gray-color;
 }
 .bc-play-area {
@@ -368,8 +373,8 @@ $main-area-width: 870px;
 
 .bc-result-container {
   margin-left: 20px;
-  height: 40px;
-  line-height: 40px;
+  height: 50px;
+  line-height: 50px;
   font-size: 14px;
   color: $light-dark-color;
   float: left;
@@ -484,15 +489,6 @@ $main-area-width: 870px;
   float: left;
 }
 
-.ssc-logo {
-  background: url(~base/images/fh/bet/mmc.png);
-  width: 170px;
-  height: 110px;
-  background-repeat: no-repeat;
-  margin-top: -156px;
-  margin-left: 20px;
-  float: left;
-}
 
 .bet-lefttime {
   margin-top: -136px;
@@ -552,7 +548,9 @@ $main-area-width: 870px;
   height: 50px;
   background-repeat: no-repeat;
   float: left;
-  margin-top:20px;
+  margin-top: 680px;
+  margin-left: 10px;
+  position: absolute;
 }
 
 .add-number {
@@ -672,7 +670,7 @@ $main-area-width: 870px;
   background-repeat: no-repeat;
   float: left;
   right: 330px;
-  bottom: -40px;
+  bottom: -35px;
 }
 
 .time-01 {
