@@ -992,7 +992,7 @@ var BettingCenterView = Base.ItemView.extend({
       }else{
         item.levelName = item.levelName;
       }
-    })
+    });
 
     var confirm = $(document).confirm({
       title: '确认投注',
