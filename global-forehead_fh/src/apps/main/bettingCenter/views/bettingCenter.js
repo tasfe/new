@@ -12,6 +12,8 @@ var ticketConfig = require('skeleton/misc/ticketConfig');
 var betRulesConfig = require('bettingCenter/misc/betRulesConfig');
 var IDsSuper3 = require('bettingCenter/misc/super3k/IDsOfSuper3k');
 
+var QuickBetView = require('bettingCenter/views/bettingCenter-quickBet');
+
 var Countdown = require('com/countdown');
 
 
@@ -26,7 +28,7 @@ var BettingCenterView = Base.ItemView.extend({
   AfficheTpl:_.template(require('dynamicCenter/templates/noticeDetail.html')),
 
 
-  height: 340,
+  height: 310,
 
   tableClass: 'table table-center',
 
@@ -115,10 +117,93 @@ var BettingCenterView = Base.ItemView.extend({
   },
 
 
+
   quickBetHandler: function(e) {
-    this.lotteryAddHandler(e);
-    this.lotteryConfirmHandler(e);
+
+
+    var self = this;
+
+    var quickBetView = new QuickBetView({parentView: self});
+
+    var $dialogRe = Global.ui.dialog.show({
+      id: _.now(),
+      title: '快速投注',
+      size: 'modal-lg',
+      body: '<div class="js-fc-quick-container"></div>'
+    });
+
+    $dialogRe.find('.js-fc-quick-container').html(quickBetView.onRender());
+
+
+    $dialogRe.on('click', '.js-bc-quick-btn-bet', function(e) {
+
+
+        var quickAmount = $('.js-bc-quick-value').val();
+
+        var zhushu = $('.js-bc-statistics-lottery').html();
+        var beishu  = parseFloat(quickAmount)/(zhushu * 2  ) ;
+
+        var rate  = $('.js-bc-monetary-unit').eq(0).data('rate');
+
+        if(beishu>=1) {
+          beishu = parseInt(beishu);
+          $('.js-wt-number').val(beishu);
+          rate  = $('.js-bc-monetary-unit').eq(0).data('rate');
+          $('.js-bc-monetary-unit').eq(0).addClass('active').siblings().removeClass('active');
+        }
+
+        if(1>beishu && beishu>0.09) {
+          beishu = parseInt(beishu*10);
+          $('.js-wt-number').val(beishu);
+          rate  = $('.js-bc-monetary-unit').eq(1).data('rate');
+          $('.js-bc-monetary-unit').eq(1).addClass('active').siblings().removeClass('active');
+        }
+
+        if(0.1>beishu && beishu>0.009) {
+
+          beishu = parseInt(beishu*100);
+          $('.js-wt-number').val(beishu);
+          rate  = $('.js-bc-monetary-unit').eq(2).data('rate');
+          $('.js-bc-monetary-unit').eq(2).addClass('active').siblings().removeClass('active');
+        }
+        self.model.set('multiple',beishu);
+        self.model.set('unit', rate);
+
+        self.lotteryAddHandler(e);
+
+        $dialogRe.hide();
+         $('.modal-backdrop').removeClass('modal-backdrop');
+    });
+
+
+    $dialogRe.on('click', '.js-bc-quick-btn', function(e) {
+
+      var $target = $(e.currentTarget);
+      var quickAmount = $target.data('affiche');
+
+      $('.js-bc-quick-btn').removeClass('bet-quick-select');
+      $target.addClass('bet-quick-select');
+
+      $('.js-bc-quick-value').val(quickAmount);
+
+      $('.js-bet-div0-02').show();
+      $('.js-bet-div0-01').hide();
+
+     });
+
+    $dialogRe.on('click', '.js-bet-div0-02', function(e) {
+
+      $('.js-bet-div0-02').hide();
+      $('.js-bet-div0-01').show();
+      $('.js-bc-quick-value').val('');
+      $('.js-bc-quick-btn').removeClass('bet-quick-select');
+      $('.js-bet-div0-01').addClass('bet-quick-select');
+
+
+    });
   },
+
+
 
   getNewPlan: function() {
     this.infoModel.fetch({
@@ -686,7 +771,7 @@ var BettingCenterView = Base.ItemView.extend({
         title: title,
         bonusMode: this.getBonusMode(previewInfo.maxBonus, previewInfo.unit, previewInfo.userRebate, previewInfo.betMethod),
         mode: previewInfo.statistics + '注 / ' + previewInfo.multiple + '倍 / <span class="text-hot">' + _(previewInfo.prefabMoney).convert2yuan() + '</span>元' +
-        '<div class="js-bc-lottery-preview-del lottery-preview-del icon-block m-right-lg pull-right ' + (sf ? 'sfClass' : '') +'"></div>'
+        '<div class="js-bc-lottery-preview-del   icon-block   ' + (sf ? 'sfClass' : '') +'"></div>'
       };
 
     }, this);
@@ -977,10 +1062,8 @@ var BettingCenterView = Base.ItemView.extend({
       Global.ui.notification.show('非常抱歉，目前平台单式投注只支持最多10万注单。');
       return false;
     }
-    if (_.isEmpty(info.previewList)) {
-      Global.ui.notification.show('请至少选择一注投注号码！');
-      return false;
-    }
+
+
 
     if (info.totalInfo.totalMoney > Global.memoryCache.get('acctInfo').balance) {
       Global.ui.notification.show('账号余额不足，请先<a href="javascript:void(0);" class="btn-link btn-link-pleasant js-fc-re"  data-dismiss="modal">充值</a>。');

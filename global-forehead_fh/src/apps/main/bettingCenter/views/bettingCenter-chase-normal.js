@@ -15,7 +15,8 @@ var BettingCenterChaseNormalView = Base.ItemView.extend({
   events: {
     'click .js-bc-chase-create': 'chaseCreateHandler',
     'change .js-bc-single-plan-multiple': 'singleMultipleHandler',
-    'click .js-bc-chase-submit': 'chaseSubmitHandler'
+    'click .js-bc-chase-submit': 'chaseSubmitHandler',
+    'click .js-number-seq': 'numSeqHandler'
   },
 
   initialize: function() {
@@ -268,7 +269,16 @@ var BettingCenterChaseNormalView = Base.ItemView.extend({
     function changePlanId() {
       confirm.hide();
     }
+  },
+
+  numSeqHandler: function(e) {
+    $('.js-number-seq').removeClass('seq-div');
+    var $target = $(e.currentTarget);
+    var num_Seq = $target.data('value');
+    $target.addClass('seq-div');
+    $('.js-bc-chase-chasePlans').val(num_Seq);
   }
+
 });
 
 module.exports = BettingCenterChaseNormalView;
