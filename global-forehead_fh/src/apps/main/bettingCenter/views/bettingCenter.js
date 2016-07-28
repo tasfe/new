@@ -290,13 +290,6 @@ var BettingCenterView = Base.ItemView.extend({
       emptyTip: ''
     }).staticGrid('instance');
 
-    //this.bettingRecordsView = new BettingRecordsView({
-    //  el: this.$recordsContainer,
-    //  ticketId: this.options.ticketId
-    //}).render();
-
-
-
     this.renderDrawRecords();
 
     var sign = Global.localCache.get('ticketList.' + this.options.ticketId);
@@ -308,9 +301,7 @@ var BettingCenterView = Base.ItemView.extend({
   },
 
   severalHaddler:function () {
-
     var self = this;
-
     var html = '<div class="affiche-body-back">'+
         '<div class="affiche-body-leftBody">' +
         '<div class="affiche-body-lefthead">公告列表</div>'+
@@ -318,19 +309,18 @@ var BettingCenterView = Base.ItemView.extend({
         '</div>' +
         '<div class="affiche-body-detail">' +
         '<div  class="affiche-body-righthead">平台公告<button type="button" class="affiche-body-close pull-right" data-dismiss="modal">x</button></div>' +
-            '<div class="js-affiche-detail affiche-detail-content">ede</div>'+
+            '<div class="js-affiche-detail affiche-detail-content"></div>'+
         '</div>'+
         '</div>';
 
     var $dialog = Global.ui.dialog.show({
-      size: 'modal-md',
+      size: 'modal-lg',
       body: html,
       bodyClass: 'home-affiche-dialog'
     });
 
     this.$grid = $dialog.find('.js-affiche-list');
     this.$gridDetail = $dialog.find('.js-affiche-detail');
-
 
     $dialog.on('hidden.modal', function () {
       $(this).remove();
@@ -396,13 +386,13 @@ var BettingCenterView = Base.ItemView.extend({
   },
 
   renderGrid: function(rowList) {
-    
+    var self = this;
+    self.startLoadAfficheDetail(_.first(rowList).bulletionId);
     if (_.isEmpty(rowList)) {
       this.$grid.html(this.getEmptyHtml('暂时没有动态'));
     } else {
       this.$grid.html(_(rowList).map(function(rowInfo) {
         var date = new Date(rowInfo.time);
-
         return this.itemTpl({
           title: rowInfo.title,
           date: date.getFullYear() +
@@ -427,36 +417,6 @@ var BettingCenterView = Base.ItemView.extend({
     }
     return html.join('');
   },
-
-  // showAfficheHandler:function (e) {
-  //   var $target = $(e.currentTarget);
-  //   var afficheId = $target.data('afficheId');
-  //
-  //   alert(afficheId);
-  //
-  //   var self = this;
-  //   this.$gridDetail.html(this.AfficheTpl());
-  //
-  //   Global.sync.ajax({
-  //         url: '/info/activitylist/userGetbulletindetail.json',
-  //         data: {
-  //           bulletinId: this.options.noticeId
-  //         }
-  //       })
-  //       .always(function() {
-  //         self.loadingFinish();
-  //       })
-  //       .done(function(res) {
-  //         if (res && res.result === 0) {
-  //           self.$('.js-nc-noticeDetailTitle').html(res.root.title);
-  //           self.$('.js-nc-noticeDetailDate').html(_(res.root.time).toTime());
-  //           self.$('.js-nc-noticeDetailContext').html(res.root.content);
-  //         } else {
-  //           Global.ui.notification.show('通知详情获取失败');
-  //         }
-  //       });
-  //
-  // },
 
   renderSale: function(model, sale) {
     this.$btnAdd.prop('disabled', !sale);
@@ -1115,7 +1075,7 @@ var BettingCenterView = Base.ItemView.extend({
       }else{
         item.levelName = item.levelName;
       }
-    })
+    });
 
     var confirm = $(document).confirm({
       title: '确认投注',

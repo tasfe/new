@@ -18,7 +18,18 @@ var HeaderView = Base.ItemView.extend({
     'click .js-gl-hd-refresh': 'refreshHandler',
     //'click .js-fc-re': 'rechargeHandler',
     'click .js-fc-wd': 'withdrawHandler',
-    'click .js-gl-hd-logout': 'logoutHandler'
+    'click .js-gl-hd-logout': 'logoutHandler',
+    'mouseover .js-bc-lottery-list': 'lotteryListHandler',
+    'mouseout .js-bet-lottery-menu': 'outlotteryListHandler'
+  },
+
+  lotteryListHandler: function() {
+    this.$('.js-bet-lottery-menu').show();
+
+  },
+
+  outlotteryListHandler: function() {
+    this.$('.js-bet-lottery-menu').hide();
   },
 
   checkPayPwdXhr: function() {

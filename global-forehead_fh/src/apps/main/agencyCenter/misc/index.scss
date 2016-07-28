@@ -3,7 +3,7 @@
 @import "~base/styles/imports";
 
 .text-coffee {
-  color: $font-color-coffee
+  color: #666666
 }
 
 .lowLevelManage-view {
@@ -193,7 +193,7 @@
   .control-label{
     padding: 0;
     display: block;
-    color: #562e0f;
+    color: #666666;
   }
 
 
@@ -289,7 +289,7 @@
 .ac-teamDynamic-view {
   .ac-ta-statistics {
     background-color: #d5d5d5;
-    color: $font-color-coffee;
+    color: #666666;
     font-size: 14px;
     align: center;
     width: 144.4px;
@@ -302,15 +302,10 @@
     margin: 0 ;
     padding: 0 0 0 15px;
     font-size: 15px;
-    li {
-      span {
-        padding: 4px;
-      }
-    }
   }
   .ac-tm-data-label{
     font-size: 14px;
-    color:$font-color-coffee;
+    color:#666666;
     padding: 15px 10px 0 35px;
   }
   .ac-btnGroup {
@@ -400,4 +395,103 @@
       padding: 2px 3px;
     }
   }
+}
+
+.ac-block{
+  background: url(~base/images/julien/banner01.png) no-repeat center top;
+  padding-top: 100px;
+
+  .menu-bock{
+    background: none;
+    height: 41px;
+    border:0px;
+    border-bottom: 2px solid #a60000;
+
+    ul{
+      margin: 0;
+
+      li{
+        background: none;
+        margin-right: 10px;
+        width: 140px;
+
+        &.active a{
+          background: url(~base/images/julien/btn-bg01.jpg) no-repeat;
+          color: #fff;
+        }
+
+        a{
+          font-family: '微软雅黑';
+          display: block;
+          width: 138px;
+          height: 40px;
+          border: 1px solid #cccccc;
+          border-bottom: 0px;
+          display: inline-block;
+          line-height: 40px;
+          text-align: center;
+          color: #333333;
+          background: #fff;
+          font-size: 16px;
+        }
+      }
+    }
+  }
+
+  .nav-tabs{
+    border:0px;
+  }
+
+  .view-container{
+    margin:0 20px;
+  }
+
+  .view-tabs{
+    margin: 25px 0;
+  }
+
+  .nav-tabs > li{
+    border:0px;
+  }
+  .nav-tabs > li > a{
+    list-style: none;
+    width: 120px;
+    height: 30px;
+    line-height: 30px;
+    background: url(~base/images/julien/menu-bg01.png) no-repeat;
+    text-align: center;
+    float: left;
+    margin-right: 9px;
+    padding: 0px;
+    border:0px;
+    color: #fff;
+
+    &:visited{
+      color:#fff;
+    }
+  }
+  .nav-tabs > li.active a{
+    background-position: 0 -30px;
+    color:#fff;
+    &:visited{
+      color:#fff;
+    }
+  }
+  .nav-tabs > li.active a:after{
+    display: none;
+  }
+
+  .ac-ta-statistics{
+    margin-left: 15px;
+  }
+
+  .text-center{
+    width: 100%;
+    height: 80px;
+    margin-top: 15px;
+  }
+}
+
+.sfa-grid-empty{
+  margin-top:50px;
 }

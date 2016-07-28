@@ -2,7 +2,53 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="11ab41ca-6aa8-4b06-9df8-e55af0bc260a" name="Default" comment="">
+<<<<<<< HEAD
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+=======
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/global-forehead_fh/src/apps/components/firstLoginUpdatePasswd/bg.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/global-forehead_fh/src/apps/packages/login/images/01.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/global-forehead_fh/src/apps/packages/login/images/02.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/global-forehead_fh/src/apps/packages/login/images/06.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/global-forehead_fh/src/apps/packages/login/images/loginBtn.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/global-forehead_fh/src/base/images/fh/bet/quick-select.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/global-forehead_fh/src/base/images/fh/bet/title-pic.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/global-forehead_fh/src/base/images/julien/03.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/global-forehead_fh/src/base/images/julien/04.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/global-forehead_fh/src/base/images/julien/05.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/global-forehead_fh/src/base/images/julien/07.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/global-forehead_fh/src/base/images/julien/08.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/global-forehead_fh/src/base/images/julien/09.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/global-forehead_fh/src/base/images/julien/10.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/global-forehead_fh/src/base/images/julien/login-bg.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/global-forehead_fh/src/base/images/julien/login-bg2.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/global-forehead_fh/src/base/images/julien/onlineService.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/global-forehead_fh/src/base/images/julien/title-bg01.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/global-forehead_fh/src/apps/components/firstLoginUpdatePasswd/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/global-forehead_fh/src/apps/components/firstLoginUpdatePasswd/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/global-forehead_fh/src/apps/components/firstLoginUpdatePasswd/index.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/global-forehead_fh/src/apps/main/bettingCenter/views/bettingCenter-quickBet.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/global-forehead_fh/entry/index.html" afterPath="$PROJECT_DIR$/global-forehead_fh/entry/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/global-forehead_fh/src/apps/main/bettingCenter/misc/index.scss" afterPath="$PROJECT_DIR$/global-forehead_fh/src/apps/main/bettingCenter/misc/index.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/global-forehead_fh/src/apps/main/bettingCenter/mmc/index.scss" afterPath="$PROJECT_DIR$/global-forehead_fh/src/apps/main/bettingCenter/mmc/index.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/global-forehead_fh/src/apps/main/bettingCenter/templates/bettingCenter-chase-normal.html" afterPath="$PROJECT_DIR$/global-forehead_fh/src/apps/main/bettingCenter/templates/bettingCenter-chase-normal.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/global-forehead_fh/src/apps/main/bettingCenter/templates/bettingCenter.html" afterPath="$PROJECT_DIR$/global-forehead_fh/src/apps/main/bettingCenter/templates/bettingCenter.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/global-forehead_fh/src/apps/main/bettingCenter/views/bettingCenter-chase-normal.js" afterPath="$PROJECT_DIR$/global-forehead_fh/src/apps/main/bettingCenter/views/bettingCenter-chase-normal.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/global-forehead_fh/src/apps/main/bettingCenter/views/bettingCenter.js" afterPath="$PROJECT_DIR$/global-forehead_fh/src/apps/main/bettingCenter/views/bettingCenter.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/global-forehead_fh/src/apps/main/dashboard/templates/dashboard.html" afterPath="$PROJECT_DIR$/global-forehead_fh/src/apps/main/dashboard/templates/dashboard.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/global-forehead_fh/src/apps/main/skeleton/bases/entry/index.js" afterPath="$PROJECT_DIR$/global-forehead_fh/src/apps/main/skeleton/bases/entry/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/global-forehead_fh/src/apps/main/skeleton/bases/header/index.html" afterPath="$PROJECT_DIR$/global-forehead_fh/src/apps/main/skeleton/bases/header/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/global-forehead_fh/src/apps/main/skeleton/bases/header/index.scss" afterPath="$PROJECT_DIR$/global-forehead_fh/src/apps/main/skeleton/bases/header/index.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/global-forehead_fh/src/apps/main/skeleton/controllers/router.js" afterPath="$PROJECT_DIR$/global-forehead_fh/src/apps/main/skeleton/controllers/router.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/global-forehead_fh/src/apps/main/skeleton/modules/ui/dialog/index.scss" afterPath="$PROJECT_DIR$/global-forehead_fh/src/apps/main/skeleton/modules/ui/dialog/index.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/global-forehead_fh/src/apps/packages/login/login.html" afterPath="$PROJECT_DIR$/global-forehead_fh/src/apps/packages/login/login.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/global-forehead_fh/src/apps/packages/login/login.js" afterPath="$PROJECT_DIR$/global-forehead_fh/src/apps/packages/login/login.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/global-forehead_fh/src/apps/packages/login/login.scss" afterPath="$PROJECT_DIR$/global-forehead_fh/src/apps/packages/login/login.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/global-forehead_fh/src/apps/packages/resetPassword/resetPassword.html" afterPath="$PROJECT_DIR$/global-forehead_fh/src/apps/packages/resetPassword/resetPassword.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/global-forehead_fh/src/apps/packages/resetPassword/resetPassword.js" afterPath="$PROJECT_DIR$/global-forehead_fh/src/apps/packages/resetPassword/resetPassword.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/global-forehead_fh/src/apps/packages/resetPassword/resetPassword.scss" afterPath="$PROJECT_DIR$/global-forehead_fh/src/apps/packages/resetPassword/resetPassword.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/global-forehead_fh/src/base/styles/_content.scss" afterPath="$PROJECT_DIR$/global-forehead_fh/src/base/styles/_content.scss" />
+>>>>>>> 0925a192f481c0e71d45495bddb80ed8b7931ceb
     </list>
     <ignored path="global-ui-fh.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -142,10 +188,14 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+<<<<<<< HEAD
       <pane id="Scope">
         <subPane subId="Problems" />
         <subPane subId="Project Files" />
       </pane>
+=======
+      <pane id="Scope" />
+>>>>>>> 0925a192f481c0e71d45495bddb80ed8b7931ceb
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -250,18 +300,26 @@
       <workItem from="1469495928486" duration="19210000" />
       <workItem from="1469582623247" duration="2366000" />
       <workItem from="1469669045663" duration="16705000" />
+<<<<<<< HEAD
       <workItem from="1469700511161" duration="264000" />
+=======
+      <workItem from="1469699392735" duration="4000" />
+>>>>>>> 0925a192f481c0e71d45495bddb80ed8b7931ceb
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="102076000" />
+=======
+    <option name="totallyTimeSpent" value="101816000" />
+>>>>>>> 0925a192f481c0e71d45495bddb80ed8b7931ceb
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1920" height="1053" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22135417" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22135417" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -608,6 +666,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-4622">
           <caret line="134" column="4" selection-start-line="134" selection-start-column="4" selection-end-line="134" selection-end-column="60" />
+<<<<<<< HEAD
+=======
+          <folding />
+>>>>>>> 0925a192f481c0e71d45495bddb80ed8b7931ceb
         </state>
       </provider>
     </entry>
