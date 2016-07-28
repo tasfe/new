@@ -592,32 +592,32 @@ $main-area-width: 870px;
 }
 
 .affiche-body-back{
-  border: 1px solid #000000;
-  overflow-y:hidden;
-  height: 400px
+  border: 1px solid #cccccc;
+  overflow:hidden;
+  height: 500px
 }
 
 .affiche-body-leftBody{
-  width: 205px;
+  width: 245px;
   height: 100%;
   float: left;
   display: inline;
-  border-right: 1px solid #000000;
+  border-right: 1px solid #cccccc;
 
   .affiche-body-lefthead{
     padding-left: 5px;
     height: 30px;
-    width: 200px;
+    width: 240px;
     line-height: 30px;
     color: black;
     font-weight: bold;
-    border-bottom: 1px solid #000000;
+    border-bottom: 1px solid #cccccc;
   }
 
   .affiche-body-list{
     overflow-y:auto;
     overflow-x: hidden;
-    width: 205px;
+    width: 245px;
 
   }
 
@@ -626,14 +626,14 @@ $main-area-width: 870px;
 .affiche-body-detail{
   float: right;
   display: inline;
-  width: 312px;
+  width: 577px;
   height: 100%;
 
   .affiche-body-righthead{
     padding-left: 5px;
     font-weight: bold;
     height: 30px;
-    width: 307px;
+    width: 572px;
     line-height: 30px;
     color: white;
     border-bottom: 1px solid #000000;
@@ -657,9 +657,7 @@ $main-area-width: 870px;
     }
   }
   .affiche-detail-content{
-    overflow-y:auto;
-    width: 312px;
-
+    width: 100%;
   }
 }
 
