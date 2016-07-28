@@ -2,18 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="11ab41ca-6aa8-4b06-9df8-e55af0bc260a" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/global-forehead_fh/src/apps/main/activeCenter/templates/activeCenter-unit.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/global-forehead_fh/src/apps/main/activeCenter/templates/activeCenter1.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/global-forehead_fh/src/apps/main/activeCenter/views/activeCenter1.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/global-forehead_fh/src/apps/main/activeCenter/controller.js" afterPath="$PROJECT_DIR$/global-forehead_fh/src/apps/main/activeCenter/controller.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/global-forehead_fh/src/apps/main/activeCenter/misc/index.scss" afterPath="$PROJECT_DIR$/global-forehead_fh/src/apps/main/activeCenter/misc/index.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/global-forehead_fh/src/apps/main/activeCenter/router.js" afterPath="$PROJECT_DIR$/global-forehead_fh/src/apps/main/activeCenter/router.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/global-forehead_fh/src/apps/main/activeCenter/templates/activeCenter.html" afterPath="$PROJECT_DIR$/global-forehead_fh/src/apps/main/activeCenter/templates/activeCenter.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/global-forehead_fh/src/apps/main/activeCenter/views/activeCenter.js" afterPath="$PROJECT_DIR$/global-forehead_fh/src/apps/main/activeCenter/views/activeCenter.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/global-forehead_fh/src/apps/main/bettingCenter/templates/bettingCenter.html" afterPath="$PROJECT_DIR$/global-forehead_fh/src/apps/main/bettingCenter/templates/bettingCenter.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/global-forehead_fh/src/apps/main/bettingCenter/views/bettingCenter.js" afterPath="$PROJECT_DIR$/global-forehead_fh/src/apps/main/bettingCenter/views/bettingCenter.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/global-forehead_fh/src/apps/main/dashboard/templates/dashboard.html" afterPath="$PROJECT_DIR$/global-forehead_fh/src/apps/main/dashboard/templates/dashboard.html" />
     </list>
     <ignored path="global-ui-fh.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -34,17 +23,17 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.scss" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.scss" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/global-forehead_fh/src/apps/main/activeCenter/misc/index.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2178">
-              <caret line="99" column="29" selection-start-line="99" selection-start-column="29" selection-end-line="99" selection-end-column="29" />
+            <state relative-caret-position="682">
+              <caret line="105" column="30" selection-start-line="105" selection-start-column="30" selection-end-line="105" selection-end-column="30" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="activeCenter.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="activeCenter.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/global-forehead_fh/src/apps/main/activeCenter/views/activeCenter.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="2222">
@@ -121,8 +110,8 @@
         <option value="$PROJECT_DIR$/global-forehead_fh/src/apps/main/agencyCenter/views/openAccountManage.js" />
         <option value="$PROJECT_DIR$/global-forehead_fh/src/apps/main/bettingCenter/views/bettingCenter.js" />
         <option value="$PROJECT_DIR$/global-forehead_fh/src/apps/main/activeCenter/templates/activeCenter.html" />
-        <option value="$PROJECT_DIR$/global-forehead_fh/src/apps/main/activeCenter/misc/index.scss" />
         <option value="$PROJECT_DIR$/global-forehead_fh/src/apps/main/activeCenter/views/activeCenter.js" />
+        <option value="$PROJECT_DIR$/global-forehead_fh/src/apps/main/activeCenter/misc/index.scss" />
       </list>
     </option>
   </component>
@@ -575,12 +564,12 @@
       <workItem from="1469408905808" duration="28366000" />
       <workItem from="1469495928486" duration="19210000" />
       <workItem from="1469582623247" duration="2366000" />
-      <workItem from="1469669045663" duration="16379000" />
+      <workItem from="1469669045663" duration="16488000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="101486000" />
+    <option name="totallyTimeSpent" value="101595000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1920" height="1053" extended-state="6" />
@@ -962,14 +951,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/global-forehead_fh/src/apps/main/activeCenter/misc/index.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2178">
-          <caret line="99" column="29" selection-start-line="99" selection-start-column="29" selection-end-line="99" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/global-forehead_fh/src/apps/main/activeCenter/views/activeCenter.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2222">
@@ -983,6 +964,14 @@
             <marker date="1469696310000" expanded="true" signature="2279:2360" placeholder="..." />
             <marker date="1469696310000" expanded="true" signature="2279:2505" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/global-forehead_fh/src/apps/main/activeCenter/misc/index.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="682">
+          <caret line="105" column="30" selection-start-line="105" selection-start-column="30" selection-end-line="105" selection-end-column="30" />
+          <folding />
         </state>
       </provider>
     </entry>
