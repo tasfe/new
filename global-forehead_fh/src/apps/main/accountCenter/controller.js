@@ -12,8 +12,12 @@ var AccountCenterController = RouterController.extend({
 
   loginPwd: function() {
     this.changeMainReginView(new PasswordManageView(), {
-      sidebar: Global.ui.menu.get(['pc','vip'])
+      sidebar: Global.ui.menu.get(['pc'])
     });
+
+    var PublicView = require('userCenter/views/publicView');
+    var publicView = new PublicView();
+    publicView.checkState();
   },
 
   fundPwd: function() {
