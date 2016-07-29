@@ -238,10 +238,11 @@ $main-area-width: 870px;
       a {
         border-bottom-color: #fff;
         > div {
-          //background-color: red;
-          background-image:  url(~base/images/fh/bet/selected.png);
+          background-color: grey;
+          color: white;
+          //background-image:  url(~base/images/fh/bet/selected.png);
           width: 80px;
-          height: 43px;
+          height: 47px;
         }
       }
     }
@@ -849,3 +850,15 @@ $main-area-width: 870px;
   margin-left: 250px;
   position: absolute;
 }
+
+
+//.nav-bet-setting {
+//  position: absolute;
+//  background: url(~base/images/fh/bet/nav-pic.png);
+//  width: 61px;
+//  height: 50px;
+//  background-repeat: no-repeat;
+//  float: left;
+//  left: 385px;
+//  top: 50px;
+//}

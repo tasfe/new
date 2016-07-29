@@ -53,32 +53,41 @@ $quickEntryPaddingX: 5px !default;
   }
 
   .quick-setting {
-    position: relative;
+    position: absolute;
+    background: url(~base/images/fh/nav-pic.png) no-repeat;
     display: inline-block;
     float: left;
-    width: 58px;
-    height: $quick-entry-height - $quick-vertical-margin * 2;
-    border-right: 1px solid $gray-color;
-    border-left: none;
-    font-size: 40px;
-    text-align: center;
-    cursor: pointer;
-    margin: $quick-vertical-margin 0;
+    width: 110px;
+    height: 32px;
+    line-height: 32px;
+    font-size: 15px;
+    color: white;
+    margin: 200px 1560px;
 
     .sfa {
       vertical-align: top;
-      margin-top: 5px;
+      margin-top: 8px;
     }
   }
   .entry-group {
+
     float: left;
+    margin: 250px 1560px;
 
     a {
-      display: inline-block;
-      float: left;
+      display: block;
+      //float: left;
     }
     .quick-item {
-      background-color: $deep-gray-color;
+      //background-color: $deep-gray-color;
+      background: url(~base/images/fh/nav-pic.png) no-repeat;
+      margin-bottom: 11px;
+      width: 110px;
+      height: 32px;
+      line-height: 32px;
+      //background: url(~base/images/fh/nav-pic.png) no-repeat;
+
+
     }
 
     .active {
