@@ -3,21 +3,42 @@
 @import
 "~base/styles/imports";
 
-//.main-navigation-header{
-//    width: 100%;
-//    height: 10px;
-//}
 
 .main-active-container{
-    //margin: 80px 0px;
-    background-color: #ffffff;
     width: 100%;
     .active-container-header{
         width: 100%;
         height: 50px;
-        background-color: #4c0000;
+        ul{
+            height: 40px;
+            border-bottom: 2px solid #a60000;
+            padding-bottom: 1px;
+            font-size: 16px;
+        }
+        li{
+            border-left: 1px solid #cccccc;
+            border-right: 1px solid #cccccc;
+            border-top: 1px solid #cccccc;
+            width: 140px;
+            list-style: none;
+            margin-bottom: 2px;
+            height: 40px;
+            line-height: 40px;
+            background-color: #fff;
+            text-align: center;
+            float: left;
+            margin-right: 9px;
+            color: #000;
+        }
+        .list-active{
+            color: #fff;
+            background: url(~base/images/julien/btn-bg01.jpg) no-repeat;
+        }
+
     }
     .active-context{
+        margin-top: -10px;
+        padding-top: 20px;
         background-color: white;
         width: 100%;
         overflow-y: auto;

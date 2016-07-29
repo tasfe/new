@@ -7,14 +7,42 @@ var ActiveCenterView = Base.ItemView.extend({
   startOnLoading: true,
 
   events: {
-    
-    
+    'click .js-list-active': 'activeChangeHandler'
+
   },
-  
+  activeChangeHandler:function (e) {
+
+    this.$('.list-active').removeClass('list-active');
+    var $target = $(e.currentTarget);
+    $target.addClass('list-active');
+
+    var currentIndex = $target.data('index');
+    //alert(currentIndex);
+
+  },
   
   onRender: function() {
     this.$activeContext = this.$('.js-active-context');
+
+    this.$activeHeader = this.$('.js-activeHeader-list');
+
+    this.initSliderTab();
     this.renderActiveGrid(0);
+
+  },
+
+  initSliderTab:function () {
+    var tabs = ['全部活动','代理活动','彩票活动','真人娱乐'];
+    var html = [];
+    _(tabs).each(function (element,index) {
+      if (index===0){
+        html.push('<li class="js-list-active list-active" data-index="'+index+'">'+element+'</li>');
+        //this.$activeHeader.data('status','+index+');
+      }else{
+        html.push('<li class="js-list-active" data-index="'+index+'">'+element+'</li>');
+      }
+    });
+    this.$activeHeader.html(html.join(''));
   },
 
   getActiveXhr: function(data) {
@@ -40,8 +68,6 @@ var ActiveCenterView = Base.ItemView.extend({
 
           self.renderActiveContex(data.activityList);
 
-          //self.renderActive(data.activityList);
-
         } else {
           Global.ui.notification.show('加载失败，请稍后再试');
         }
@@ -61,7 +87,6 @@ var ActiveCenterView = Base.ItemView.extend({
         var target = activity.bannerUrl||'javascript:void(0)';
         var badgeClass = '';
         var badgeInner = '';
-
         switch (activity.bannerStatus) {
           case 1:
             break;
@@ -98,7 +123,6 @@ var ActiveCenterView = Base.ItemView.extend({
 
     }
   },
-
   
   getEmptyHtml: function(emptyTip) {
     var html = [];
