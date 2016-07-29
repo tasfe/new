@@ -74,3 +74,20 @@
     display: block;
   }
 }
+
+.footer-banner{
+  height: 70px;
+  background-color: #ffffff;
+
+  .vessel{
+    width: 1200px;
+    margin: 0px auto;
+    height: 68px;
+    background: url(~base/images/julien/flootbanner.jpg) no-repeat;
+    text-align: center;
+
+    img{
+      margin: 10px 32px;
+    }
+  }
+}
