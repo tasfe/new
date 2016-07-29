@@ -24,9 +24,6 @@ var BettingCenterView = Base.ItemView.extend({
   playLevelTpl: _.template(require('bettingCenter/templates/bettingCenter-level.html')),
   rulesTpl: _.template(require('bettingCenter/templates/bettingCenter-rules.html')),
   confirmTpl: _.template(require('bettingCenter/templates/bettingCenter-confirm.html')),
-  itemTpl:_.template(require('dynamicCenter/templates/noticeBoard-item.html')),
-  AfficheTpl:_.template(require('dynamicCenter/templates/noticeDetail.html')),
-
 
   height: 310,
 
@@ -300,123 +297,6 @@ var BettingCenterView = Base.ItemView.extend({
     }
   },
 
-  severalHaddler:function () {
-    var self = this;
-    var html = '<div class="affiche-body-back">'+
-        '<div class="affiche-body-leftBody">' +
-        '<div class="affiche-body-lefthead">公告列表</div>'+
-        '<div class="js-affiche-list affiche-body-list"></div>'+
-        '</div>' +
-        '<div class="affiche-body-detail">' +
-        '<div  class="affiche-body-righthead">平台公告<button type="button" class="affiche-body-close pull-right" data-dismiss="modal">x</button></div>' +
-            '<div class="js-affiche-detail affiche-detail-content"></div>'+
-        '</div>'+
-        '</div>';
-
-    var $dialog = Global.ui.dialog.show({
-      size: 'modal-lg',
-      body: html,
-      bodyClass: 'home-affiche-dialog'
-    });
-
-    this.$grid = $dialog.find('.js-affiche-list');
-    this.$gridDetail = $dialog.find('.js-affiche-detail');
-
-    $dialog.on('hidden.modal', function () {
-      $(this).remove();
-    });
-
-    self.startLoadAfficheList();
-
-    $dialog.find('.js-affiche-list').on('click','.js-board-Affiche',function (e) {
-      var $target = $(e.currentTarget);
-      var afficheId = $target.data('affiche');
-      self.startLoadAfficheDetail(afficheId);
-    });
-
-  },
-
-  startLoadAfficheDetail:function (afficheId) {
-    var self = this;
-    Global.sync.ajax({
-          url: '/info/activitylist/userGetbulletindetail.json',
-          data: {
-            bulletinId: afficheId
-          }
-        })
-        .always(function() {
-          self.loadingFinish();
-        })
-        .done(function(res) {
-          if (res && res.result === 0) {
-            self.renderAfficheDetail(res.root);
-          } else {
-            Global.ui.notification.show('通知详情获取失败');
-          }
-        });
-
-  },
-  renderAfficheDetail:function (rootInfo) {
-    this.$gridDetail.html(this.AfficheTpl());
-    this.$gridDetail.find('.js-nc-noticeDetailTitle').html(rootInfo.title);
-    this.$gridDetail.find('.js-nc-noticeDetailDate').html(_(rootInfo.time).toTime());
-    this.$gridDetail.find('.js-nc-noticeDetailContext').html(rootInfo.content);
-  },
-
-  startLoadAfficheList:function () {
-    var self = this;
-    Global.sync.ajax({
-      url: '/info/activitylist/getbulletinlist.json',
-      data: {
-        'pageSize': 20,
-        'pageIndex': 0
-      }
-    }).always(function(){
-          //开始加载
-
-        })
-        .done(function(res) {
-          var data = res.root || {};
-          if (res && res.result === 0) {
-            self.renderGrid(data.buList);
-          } else {
-            Global.ui.notification.show('加载失败，请稍后再试');
-          }
-        });
-  },
-
-  renderGrid: function(rowList) {
-    var self = this;
-    self.startLoadAfficheDetail(_.first(rowList).bulletionId);
-    if (_.isEmpty(rowList)) {
-      this.$grid.html(this.getEmptyHtml('暂时没有动态'));
-    } else {
-      this.$grid.html(_(rowList).map(function(rowInfo) {
-        var date = new Date(rowInfo.time);
-        return this.itemTpl({
-          title: rowInfo.title,
-          date: date.getFullYear() +
-          '-' + (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) +
-          '-' + (date.getDate() < 10 ? '0'+ date.getDate() : date.getDate()) ,
-          afficheId: rowInfo.bulletionId,
-          desc: rowInfo.desc
-        });
-      }, this));
-    }
-  },
-
-  getEmptyHtml: function(emptyTip) {
-    var html = [];
-    if (emptyTip) {
-      html.push('<div class="js-wt-empty-container empty-container text-center">');
-      html.push('<div class="empty-container-main">');
-      html.push('<div class="sfa-grid-empty"></div>');
-      html.push(emptyTip);
-      html.push('</div>');
-      html.push('</div>');
-    }
-    return html.join('');
-  },
 
   renderSale: function(model, sale) {
     this.$btnAdd.prop('disabled', !sale);

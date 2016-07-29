@@ -156,14 +156,80 @@ $header-margin-top: 6px;
 
 }
 
-//.bet-lottery-menu {
-//  background: url(~base/images/fh/nav/logo-nav-list.png) no-repeat;
-//  width: 100%;
-//  height: 180px;
-//  //float: left;
-//  position: absolute;
-//  z-index: 999;
-//  margin-top: -30px;
-//}
 
+.ac-affiche-dialog{
+  background-color: #fff;
+  color: #562e0f;
+  margin: 0px;
+  padding: 0px;
+}
 
+.affiche-body-back{
+  border: 1px solid #cccccc;
+  overflow:hidden;
+  height: 500px
+}
+
+.affiche-body-leftBody{
+  width: 245px;
+  height: 100%;
+  float: left;
+  display: inline;
+  border-right: 1px solid #cccccc;
+
+  .affiche-body-lefthead{
+    padding-left: 5px;
+    height: 30px;
+    width: 240px;
+    line-height: 30px;
+    color: black;
+    font-weight: bold;
+    border-bottom: 1px solid #cccccc;
+  }
+
+  .affiche-body-list{
+    overflow-y:auto;
+    overflow-x: hidden;
+    width: 245px;
+
+  }
+
+}
+
+.affiche-body-detail{
+  float: right;
+  display: inline;
+  width: 577px;
+  height: 100%;
+
+  .affiche-body-righthead{
+    padding-left: 5px;
+    font-weight: bold;
+    height: 30px;
+    width: 572px;
+    line-height: 30px;
+    color: white;
+    border-bottom: 1px solid #000000;
+    background-image:-webkit-linear-gradient(90deg, #327fc3, #bb2929);
+    background-image:linear-gradient(90deg,#327fc3,#bb2929);
+
+    .affiche-body-close{
+      position: relative;
+      font-family:Helvetica;
+      top: 2.5px;
+      right:2.5px;
+      width: 25px;
+      height: 25px;
+      background-color: rgba(0,0,0,0);
+      border: 1px solid white;
+      color: white;
+      font-size: 25px;
+      line-height: 12.5px;
+      font-weight: 100;
+
+    }
+  }
+  .affiche-detail-content{
+    width: 100%;
+  }
+}
