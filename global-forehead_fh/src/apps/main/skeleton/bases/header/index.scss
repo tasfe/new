@@ -100,7 +100,7 @@ $header-margin-top: 6px;
   height: 104px;
   margin: 30px auto 0 auto;
   padding-top: 12px;
- 
+
   img{
     float: left;
   }
@@ -111,9 +111,35 @@ $header-margin-top: 6px;
     color: #333333;
     float: right;
     display: block;
-    margin-left: 40px;
-    margin-top: 26px;
+    margin-left: 10px;
+    margin-top: 16px;
     font-weight: bold;
+    width: 99px;
+    height: 47px;
+    line-height: 47px;
+    text-align: center;
+
+    &.sd{
+      background: url(~base/images/julien/selected.png) no-repeat;
+      color: #fff;
+    }
+
+    &:hover{
+      div{
+        display: block;
+      }
+    }
+
+    div{
+      position: fixed;
+      height: 179px;
+      background: url(~base/images/julien/logo-nav-list.png) no-repeat center;
+      z-index: 99;
+      width: 100%;
+      left: 0px;
+      min-width: 1200px;
+      display: none;
+    }
   }
 
   span{
@@ -122,7 +148,7 @@ $header-margin-top: 6px;
     height: 37px;
     display: block;
     float: right;
-    margin-left: 75px;
+    margin-left: 45px;
     cursor: pointer;
     margin-top: 20px;
   }
