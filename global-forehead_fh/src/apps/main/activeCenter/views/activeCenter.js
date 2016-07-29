@@ -37,7 +37,6 @@ var ActiveCenterView = Base.ItemView.extend({
     _(tabs).each(function (element,index) {
       if (index===0){
         html.push('<li class="js-list-active list-active" data-index="'+index+'">'+element+'</li>');
-        //this.$activeHeader.data('status','+index+');
       }else{
         html.push('<li class="js-list-active" data-index="'+index+'">'+element+'</li>');
       }
