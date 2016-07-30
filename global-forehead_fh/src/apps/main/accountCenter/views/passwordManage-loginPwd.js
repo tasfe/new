@@ -132,9 +132,9 @@ var LoginPwdView = Base.ItemView.extend({
           });
           self.render();
            
-          var LoginOutTips = require('com/loginOutTips');
-          this.loginOutTips = new LoginOutTips();
-          this.loginOutTips.checkState();
+          //var LoginOutTips = require('com/loginOutTips');
+          //this.loginOutTips = new LoginOutTips();
+          //this.loginOutTips.checkState();
           Global.sync.setLogout();
       
         } else {
