@@ -264,11 +264,17 @@ $main-area-width: 870px;
 
 .bc-play-section {
   border-bottom: 1px solid $gray-color;
-  min-height: 81px;
+  min-height: 35px;
 }
 
 .bc-advance-rules {
+  background-color: grey;
+  color: white;
   padding-top: 6px;
+  float: left;
+  z-index: 999;
+  margin-top: -10px;
+  position: absolute;
 
   .bc-advance-rules-container {
     padding-left: 12px;
@@ -276,6 +282,7 @@ $main-area-width: 870px;
   .bc-advance-rule {
     min-width: 90px;
     display: inline-block;
+    font-size: 15px;
   }
 }
 
@@ -344,7 +351,7 @@ $main-area-width: 870px;
 }
 
 .bc-play-container {
-  height: 290px;
+  height: 335px;
   border-bottom: 1px solid $gray-color;
 }
 .bc-play-area {
@@ -354,7 +361,7 @@ $main-area-width: 870px;
   height: 100px;
 
   &.loaded {
-    height: 310px;
+    height: 330px;
   }
   &.middle {
     vertical-align: middle;
