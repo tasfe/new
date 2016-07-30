@@ -106,9 +106,13 @@ $header-margin-top: 6px;
     float: left;
   }
 
-  a{
-    font-size: 20px;
-    font-family: '幼圆';
+  ul,li{
+    padding: 0px;
+    margin:0px;
+    list-style: none;
+  }
+
+  >ul >li{
     color: #333333;
     float: right;
     display: block;
@@ -119,10 +123,16 @@ $header-margin-top: 6px;
     height: 47px;
     line-height: 47px;
     text-align: center;
+    > a{
+      font-size: 20px;
+      font-family: '幼圆';
+    }
 
     &.sd{
       background: url(~base/images/julien/selected.png) no-repeat;
-      color: #fff;
+      > a{
+        color: #fff;
+      }
     }
 
     &:hover{
@@ -133,15 +143,27 @@ $header-margin-top: 6px;
 
     div{
       position: fixed;
-      height: 179px;
-      background: url(~base/images/julien/logo-nav-list.png) no-repeat center;
+      height: 189px;
+      background: url(~base/images/julien/logo-nav-list.png) no-repeat center 10px;
       z-index: 99;
       width: 100%;
       left: 0px;
       min-width: 1200px;
+      top: 105px;
       display: none;
     }
+
+    ul{
+      width: 200px;
+      float: left;
+
+      li{
+        line-height: 18px;
+      }
+    }
   }
+
+ 
 
   span{
     background: url(~base/images/julien/onlineService.png) no-repeat;
@@ -231,5 +253,11 @@ $header-margin-top: 6px;
   }
   .affiche-detail-content{
     width: 100%;
+  }
+}
+
+.float-menu{
+  .text-light{
+    position: relative;
   }
 }

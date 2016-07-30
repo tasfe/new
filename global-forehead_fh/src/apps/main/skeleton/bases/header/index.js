@@ -191,8 +191,8 @@ var HeaderView = Base.ItemView.extend({
     var acctInfo = Global.memoryCache.get('acctInfo');
     this.$('.js-vipFlag').html('V'+acctInfo.memberLevel);
 
-    this.$('.head a').on('click',function () {
-      $('.head a').removeClass('sd');
+    this.$('.head li').on('click',function () {
+      $('.head li').removeClass('sd');
       $(this).addClass('sd');
     });
   },

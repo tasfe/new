@@ -69,19 +69,26 @@
 <div class="head">
   <img src="~base/images/fh/logo.png">
   <span onclick="newwin = window.open('http://szzero.livechatvalue.com/chat/chatClient/chatbox.jsp?companyID=445558&configID=47545&jid=9132657534','service','width=800,height=680');newwin.moveTo(100,50);"></span>
-  <a href="#" class="js-affiche-show">平台公告</a>
-  <a href="#ab/1">优惠活动</a>
-  <a href="#">老虎机</a>
-  <a href="#">体育</a>
-  <a href="#">真人娱乐</a>
+  <ul>
+    <li><a href="#" class="js-affiche-show">平台公告</a></li>
+    <li><a href="#ab/1">优惠活动</a></li>
+    <li><a href="#">老虎机</a></li>
+    <li><a href="#">体育</a></li>
+    <li><a href="#">真人娱乐</a></li>
+    <li>
+      <a href="#bc/1">彩票</a>
+      <div>
+        <% _(ticketList).each(function(ticket, index) { %>
 
-<!--
-<div class="js-bet-lottery-menu   bet-lottery-menu">
-</div>-->  <a href="#bc/1" class="sd">彩票
-  <div>
-    
-  </div>
-  </a>
-  <a href="#">首页</a>
+          <%=ticket.title %>：
+          <ul>
+          <% _(ticket.list).each(function(info) { %>
+            <li><a href="#bc/<%=info.id %>" class="js-gl-ticket-entry router <%=info.specialClass||''%>"><%=info.zhName %></a></li>
+          <% }); %>
+          </ul>
+        <% }); %>
+      </div>
+    </li>
+    <li><a href="#">首页</a></li>
+  </ul>
 </div>
-
