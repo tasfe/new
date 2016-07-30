@@ -15,6 +15,94 @@ var FundPwdView = Base.ItemView.extend({
 
     this.$setFundPasswordForm = this.$('.js-ac-setFundPassword-form');
     this.$setFundPasswordForm.addClass('hidden');
+    //Julien检查代码
+    var newUpdateFundPassword = _(function() {
+      var str= $('#newUpdateFundPassword').val();
+
+      if ( !isNaN(str) && str.length < 9 ) {
+        $('.js-tip2').html('*不能是9位以下的纯数字（≤8个阿拉伯数字）');
+        $('.js-tip2').removeClass('hide');
+        $('.js-help-inline2').addClass('red');
+
+        $('.js-tip2').removeClass('hide');
+        $('.js-forbidden-button2').removeClass('hide');
+        $('.js-ac-setFundPassword-submit').addClass('hide');
+      }
+      else if(str.indexOf(" ")>0){
+        $('.js-tip2').html('*不能包含空格');
+        $('.js-tip2').removeClass('hide');
+        $('.js-help-inline2').addClass('red');
+
+        $('.js-tip2').removeClass('hide');
+        $('.js-forbidden-button2').removeClass('hide');
+        $('.js-ac-setFundPassword-submit').addClass('hide');
+      }
+      else if (str.length < 6 || str.length > 20) {
+        $('.js-tip2').html('*6-20位字符组成');
+        $('.js-tip2').removeClass('hide');
+        $('.js-help-inline2').addClass('red');
+
+        $('.js-tip2').removeClass('hide');
+        $('.js-forbidden-button2').removeClass('hide');
+        $('.js-ac-setFundPassword-submit').addClass('hide');
+      }
+      else{
+        $('.js-help-inline2').removeClass('red');
+        $('.js-tip2').addClass('hide');
+        $('.js-forbidden-button2').addClass('hide');
+        $('.js-ac-setFundPassword-submit').removeClass('hide');
+      }
+
+      var num = 0;
+      var num2 = 0;
+      if ( str.length > 0 ) {
+        if(/\d/gi.test(str)){
+          num++;
+        }
+
+        if (/[A-Za-z]/.test(str)) {
+          num++;
+        }
+
+        if(/[@#\$%\^&\*\!]+/g.test(str)){
+          num++;
+        }
+
+        $('.js-passwdSafetyTips2 span').removeClass('s3').removeClass('s2').removeClass('s1');
+        $('.js-passwdSafetyTips2 b').removeClass('s3').removeClass('s2').removeClass('s1');
+        if (num == 3) {
+          $('.js-passwdSafetyTips2 span').addClass('s3');
+          $('.js-passwdSafetyTips2 b').addClass('s3');
+          $('.js-passwdSafetyTips2 b').html('强');
+        }
+        if (num == 2) {
+          $('.js-passwdSafetyTips2 span').eq(0).addClass('s2');
+          $('.js-passwdSafetyTips2 span').eq(1).addClass('s2');
+          $('.js-passwdSafetyTips2 b').addClass('s2');
+          $('.js-passwdSafetyTips2 b').html('中');
+        }
+        if (num == 1) {
+          $('.js-passwdSafetyTips2 span').eq(0).addClass('s1');
+          $('.js-passwdSafetyTips2 b').addClass('s1');
+          $('.js-passwdSafetyTips2 b').html('弱');
+        }
+
+        num = 0;
+      }
+
+      if (str.length != 0) {
+        $('.js-passwdSafetyTips2').removeClass('hide');
+      }
+      else{
+        $('.js-passwdSafetyTips2').addClass('hide');
+      }
+
+    }).debounce(400);
+
+    this.$('#newUpdateFundPassword').on('keypress', newUpdateFundPassword);
+    //////////////////////////////////
+
+
 
     //然后查询是否设置了资金密码
     Global.sync.ajax({
@@ -27,7 +115,7 @@ var FundPwdView = Base.ItemView.extend({
         if (res && res.result === 0) {
           //0表示设置了资金密码，则需要展示修改资金密码页面
           //隐藏提示信息
-          self.$('.js-ac-noFundPasswordNoticeBar').addClass('hidden');
+          self.$('.js-ac-noFundPasswordNoticeBar').addClass('hide');
           //显示输入框，并将其中的input置为有效状态
           self.$('.js-ac-oldFundPwdContainer').removeClass('hidden').find('input').prop('disabled', false);
           self.$('.js-ac-oldFundPwdContainer').removeClass('hidden').find('input').attr('type', 'password');
@@ -60,6 +148,7 @@ var FundPwdView = Base.ItemView.extend({
     var self = this;
     var type = $target.data('type');
     var clpValidate = this.$setFundPasswordForm.parsley().validate();
+
     if (clpValidate) {
       $target.button('loading');
       if (type === 'add') {

@@ -36,8 +36,9 @@ var UserCenterController = RouterController.extend({
 
   bettingRecords: function() {
     this.changeMainReginView(new BettingRecordView(), {
-      sidebar: Global.ui.menu.get(['ac', 'uc', 'aa'])
+      sidebar: Global.ui.menu.get(['uc'])
     });
+    $('#main > .clearfix').addClass('ac-block ac-block2');
   },
 
   bettingDetail: function(tradeNo) {
@@ -56,8 +57,9 @@ var UserCenterController = RouterController.extend({
 
   trackRecords: function() {
     this.changeMainReginView(new TrackRecordView(), {
-      sidebar: Global.ui.menu.get(['ac', 'uc', 'aa'])
+      sidebar: Global.ui.menu.get(['uc'])
     });
+    $('#main > .clearfix').addClass('ac-block ac-block2');
   },
 
   trackDetail: function(tradeNo) {
@@ -71,14 +73,16 @@ var UserCenterController = RouterController.extend({
 
   rechargeRecords: function() {
     this.changeMainReginView(new RechargeRecordsView(), {
-      sidebar: Global.ui.menu.get(['ac', 'uc', 'aa'])
+      sidebar: Global.ui.menu.get(['uc'])
     });
+    $('#main > .clearfix').addClass('ac-block ac-block2');
   },
 
   withdrawRecords: function() {
     this.changeMainReginView(new WithdrawRecordsView(), {
-      sidebar: Global.ui.menu.get(['ac', 'uc', 'aa'])
+      sidebar: Global.ui.menu.get(['uc'])
     });
+    $('#main > .clearfix').addClass('ac-block ac-block2');
   },
 
   vipPoint:function() {
