@@ -253,6 +253,7 @@
   padding: 40px 0 0 11px;
   .control-group {
     padding: 0 0 5px 0;
+    display: inline-block;
   }
   .select1 {
     width: 352px;
@@ -554,6 +555,9 @@
   .search-condition-table{
     margin-top: 35px;
     margin-bottom: 25px;
+  }
+  .search-condition-layout{
+    display: inline-block;
   }
 }
 

@@ -71,6 +71,23 @@ var RechargeRecordsView = SearchGrid.extend({
       startDefaultDate: this.options.reqData.startTime?this.options.reqData.startTime:_(moment().startOf('day')).toTime(),
       endDefaultDate: this.options.reqData.endTime?this.options.reqData.endTime:_(moment().endOf('day')).toTime()
     }).render();
+
+    var qrArray=[{id:0,zhName:'个人'},{id:0,zhName:'团队'}];
+    this.$('select[name=queryRange]').html(_(qrArray).map(function (qr) {
+      return '<option value="'+qr.id+'">'+qr.zhName+'</option>';
+    }).join(''));
+    
+    var plArray=[{id:-1,zhName:'全部'},{id:0,zhName:'等待支付'},{id:1,zhName:'支付成功'},{id:2,zhName:'支付失败'}];
+    this.$('select[name=payStatus]').html(_(plArray).map(function (qr) {
+      return '<option value="'+qr.id+'">'+qr.zhName+'</option>';
+    }).join(''));
+
+    var plArray=[{id:0,zhName:'单式直选'},{id:1,zhName:'直选和值'}];
+    this.$('select[name=widthdrawStatus]').html(_(plArray).map(function (qr) {
+      return '<option value="'+qr.id+'">'+qr.zhName+'</option>';
+    }).join(''));
+
+
     if(this.options.reqData.username){
       this.$('input[name="username"]').val(this.options.reqData.username);
     }
