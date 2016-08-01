@@ -171,8 +171,12 @@ var UserCenterController = RouterController.extend({
 
   priceDetails: function() {
     this.changeMainReginView(new PriceDetailsView(), {
-      sidebar: menuConfig
+      sidebar: Global.ui.menu.get(['pc'])
     });
+
+    var PublicView = require('userCenter/views/publicView');
+    var publicView = new PublicView();
+    publicView.checkState();
   },
   trackBetDetail: function(chaseFormId,tradeNo){
     this.changeSubReginView(new BettingDetailView({
