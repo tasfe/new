@@ -211,9 +211,9 @@ var DashboardView = Base.ItemView.extend({
       data = bannerConfig;
     }
 
-    _(data).each(function(item, index) {
-      liList.push('<li data-target="#jsDbCarousel" data-slide-to="' + index + (index === 0 ? '" class="active"' : '"') + '></li>');
-    });
+    //_(data).each(function(item, index) {
+    //  liList.push('<li data-target="#jsDbCarousel" data-slide-to="' + index + (index === 0 ? '" class="active"' : '"') + '></li>');
+    //});
 
     if(_(liList).size()>0){
       this.$navigationLiList.html(liList.join(''));

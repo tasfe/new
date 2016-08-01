@@ -39,6 +39,7 @@ var publicView = Base.ItemView.extend({
     $('.uc-info dt').html('HI,' + acctInfo.username + ' 下午好!!!!! ');
     $('.uc-info dd').eq(0).html('上次登录时间：' + formatTime(acctInfo.lastLoginTime) );
     $('.uc-info dd').eq(1).html('上次登录地点：' + acctInfo.loginIp + ' ' + acctInfo.loginAdd);
+    $('.uc-info dd').eq(2).html('注  册  时  间：' + formatTime(acctInfo.registerTime) );
     $('.uc-info div span').html('您当前VIP等级：VIP' + acctInfo.memberLevel + '级');
     $('.uc-info div b').html('VIP' + acctInfo.memberLevel);
   }

@@ -10,6 +10,7 @@ var ActiveCenterView = Base.ItemView.extend({
     'click .js-list-active': 'activeChangeHandler'
 
   },
+  
   activeChangeHandler:function (e) {
 
     this.$('.list-active').removeClass('list-active');
@@ -80,7 +81,6 @@ var ActiveCenterView = Base.ItemView.extend({
 
       var index = 0;
       var html = [];
-      html.push('<div class="active-container-line"></div>');
       _(activityList).map(function(activity) {
         index++;
         var target = activity.bannerUrl||'javascript:void(0)';
@@ -103,12 +103,18 @@ var ActiveCenterView = Base.ItemView.extend({
             break;
         }
 
+        if (index < 10) {
+          index = '0' + index;
+        }
+
         var html1 ='<div class="active-list">' +
             '<div>' +
+            '<div class="num">'+index+'</div>'+
             '<div class="active-left-title">'+activity.activityTitle+'</div>'+
             '<div class='+badgeClass+'>'+badgeInner+'</div>'+
             '</div>'+
-            '<div class="active-round-dot">'+index+'</div>'+
+            '<div class="active-round-dot"></div>'+
+            '<div class="active-round-line"></div>'+
             '<div class="active-right-content">' +
             '<a href='+target+' target="_blank">' +
             '<img class="active-right-image" src='+activity.bannerPicUrl+'/>'+
