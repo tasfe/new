@@ -242,7 +242,7 @@ $main-area-width: 870px;
           color: white;
           //background-image:  url(~base/images/fh/bet/selected.png);
           width: 80px;
-          height: 47px;
+          height: 49px;
         }
       }
     }
@@ -278,12 +278,15 @@ $main-area-width: 870px;
 
   .bc-advance-rules-container {
     padding-left: 12px;
+    display: inline-block;
+    vertical-align: text-top;
   }
   .bc-advance-rule {
-    min-width: 90px;
-    display: inline-block;
+    min-width: 130px;
+    //display: inline-block;
     font-size: 15px;
   }
+
 }
 
 .bc-play-brief {

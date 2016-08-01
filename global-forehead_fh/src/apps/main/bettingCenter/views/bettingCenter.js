@@ -31,8 +31,10 @@ var BettingCenterView = Base.ItemView.extend({
 
   events: {
     'click .js-bc-video': 'openVideoHandler',
-    'mouseover .js-bc-basic-rule': 'baseRuleChangeHandler',
-    //'mouseout .js-bc-basic-rule': 'baseRuleChangeMOHandler',
+    'click .js-bc-basic-rule': 'baseRuleChangeHandler',
+    //'mouseout .js-bc-basic-rule': 'baseRuleChange1Handler',
+    'mouseover .js-bc-advance-rules': 'baseRuleChangeMOHandler',
+    'mouseout .js-bc-advance-rules': 'baseRuleChangeMO1Handler',
     'click .js-bc-play-toggle': 'togglePlayModeHandler',
     'click .js-bc-advance-rule': 'advanceRuleChangeHandler',
     'change .js-bc-bet-mode': 'betModeChangeHandler',
@@ -756,6 +758,7 @@ var BettingCenterView = Base.ItemView.extend({
 
   baseRuleChangeHandler: function(e) {
     this.$('.js-bc-advance-rules').show();
+
     var $target = $(e.currentTarget);
     $target.addClass('active').siblings().removeClass('active');
 
@@ -764,10 +767,24 @@ var BettingCenterView = Base.ItemView.extend({
       levelName: $target.data('title')
     });
 
+    var idStr =  ''+$target.data('id');
+    idStr = idStr.substr(idStr.length - 1);
+
+
+    var value = idStr*70 +28;
+    this.$('.js-bc-advance-rules').css('left',value+'px');
+
   },
 
 
+  baseRuleChange1Handler: function(e) {
+    this.$('.js-bc-advance-rules').hide();
+  },
+
   baseRuleChangeMOHandler: function(e) {
+    this.$('.js-bc-advance-rules').show();
+  },
+  baseRuleChangeMO1Handler: function(e) {
     this.$('.js-bc-advance-rules').hide();
   },
 
