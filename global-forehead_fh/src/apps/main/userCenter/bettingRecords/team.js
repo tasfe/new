@@ -68,6 +68,10 @@ var BettingRecordsView = SearchGrid.extend({
   },
 
   onRender: function() {
+
+    //
+    this.$('.js-excess-tbutton').htm('dfs');
+
     //初始化时间选择
     new Timeset({
       el: this.$('.js-pf-timeset'),
