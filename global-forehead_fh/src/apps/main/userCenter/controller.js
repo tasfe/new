@@ -2,14 +2,23 @@
 
 var RouterController = require('skeleton/controllers/router');
 
-var BettingRecordView = require('userCenter/bettingRecords');
+// var BettingRecordView = require('userCenter/bettingRecords');
+
+var BettingRecordView = require('userCenter/bettingRecords/team');
 var BettingDetailView = require('userCenter/views/bettingDetail');
 
-var TrackRecordView = require('userCenter/trackRecords');
+// var TrackRecordView = require('userCenter/trackRecords');
+
+var TrackRecordView = require('userCenter/trackRecords/team');
 var TrackDetailView = require('userCenter/views/trackDetail');
 
-var RechargeRecordsView = require('userCenter/rechargeRecords');
-var WithdrawRecordsView = require('userCenter/withdrawRecords');
+// var RechargeRecordsView = require('userCenter/rechargeRecords');
+
+var RechargeRecordsView = require('userCenter/rechargeRecords/team');
+
+// var WithdrawRecordsView = require('userCenter/withdrawRecords');
+var WithdrawRecordsView = require('userCenter/withdrawRecords/team');
+
 
 var PersonalManageView = require('userCenter/views/personalManage');
 var CardManageView = require('userCenter/views/cardManage');

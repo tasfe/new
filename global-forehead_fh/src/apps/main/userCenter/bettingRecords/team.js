@@ -77,6 +77,39 @@ var BettingRecordsView = SearchGrid.extend({
     if(this.options.reqData.username){
       this.$('input[name="username"]').val(this.options.reqData.username);
     }
+
+    //
+    var qrArray=[{id:0,zhName:'个人'},{id:0,zhName:'团队'}];
+    this.$('select[name=queryRange]').html(_(qrArray).map(function (qr) {
+        return '<option value="'+qr.id+'">'+qr.zhName+'</option>';
+      }).join(''));
+
+    //
+    var nokArray=[{
+                    id: 20,
+                    zhName: "老虎机秒秒彩"
+                  },
+                  {
+                    id:19,
+                    zhName:'亿贝秒秒彩'
+                  }];
+    this.$('select[name=nameofkind]').html(_(nokArray).map(function (qr) {
+      return '<option value="'+qr.id+'">'+qr.zhName+'</option>';
+    }).join(''));
+
+    //
+    var gopArray=[{id:0,zhName:'五星'},{id:1,zhName:'四星'}];
+    this.$('select[name=groupofpw]').html(_(gopArray).map(function (qr) {
+      return '<option value="'+qr.id+'">'+qr.zhName+'</option>';
+    }).join(''));
+
+    //
+    var plArray=[{id:0,zhName:'单式直选'},{id:1,zhName:'直选和值'}];
+    this.$('select[name=playway]').html(_(plArray).map(function (qr) {
+      return '<option value="'+qr.id+'">'+qr.zhName+'</option>';
+    }).join(''));
+
+    //
     this.$('select[name=betStatus]').html(_(betStatusConfig.get()).map(function(betStatus) {
       return '<option value="' + betStatus.id + '">' + betStatus.zhName + '</option>';
     }).join(''));

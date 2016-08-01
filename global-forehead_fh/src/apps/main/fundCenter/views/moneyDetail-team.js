@@ -37,10 +37,6 @@ var MoneyDetailView = SearchGrid.extend({
           name: '账变',
           width: '15%'
         },
-        //{
-        //  name: '支出',
-        //  width: '14%'
-        //},
         {
           name: '账户余额',
           width: '20%'
@@ -74,6 +70,18 @@ var MoneyDetailView = SearchGrid.extend({
     if(this.options.reqData.username){
       this.$('input[name="username"]').val(this.options.reqData.username);
     }
+
+    var qrArray=[{id:0,zhName:'个人'},{id:0,zhName:'团队'}];
+    this.$('select[name=queryRange]').html(_(qrArray).map(function (qr) {
+      return '<option value="'+qr.id+'">'+qr.zhName+'</option>';
+    }).join(''));
+
+    var plArray=[{id:-1,zhName:'全部'},{id:0,zhName:'等待支付'},{id:1,zhName:'支付成功'},{id:2,zhName:'支付失败'}];
+    this.$('select[name=commentType]').html(_(plArray).map(function (qr) {
+      return '<option value="'+qr.id+'">'+qr.zhName+'</option>';
+    }).join(''));
+    
+
     this.$('select[name=tradeType]').html(_(tradingStatusConfig.get()).map(function(status) {
       return '<option value="' + status.id + '">' + status.searchName + '</option>';
     }).join(''));
@@ -89,13 +97,13 @@ var MoneyDetailView = SearchGrid.extend({
       };
     }, this);
 
+
     this.grid.refreshRowData(rowsData, gridData.rowCount, {
       pageIndex: this.filterHelper.get('pageIndex'),
       initPagination: true
     });
 
     //加上统计行
-
     this.grid.addFooterRows({
         trClass: 'tr-cool',
         columnEls: [

@@ -71,6 +71,17 @@ var RechargeRecordsView = SearchGrid.extend({
       startDefaultDate: this.options.reqData.startTime?this.options.reqData.startTime:_(moment().startOf('day')).toTime(),
       endDefaultDate: this.options.reqData.endTime?this.options.reqData.endTime:_(moment().endOf('day')).toTime()
     }).render();
+    
+    var plArray=[{id:0,zhName:'单式直选'},{id:1,zhName:'直选和值'}];
+    this.$('select[name=payStatus]').html(_(plArray).map(function (qr) {
+      return '<option value="'+qr.id+'">'+qr.zhName+'</option>';
+    }).join(''));
+
+    var plArray=[{id:0,zhName:'单式直选'},{id:1,zhName:'直选和值'}];
+    this.$('select[name=widthdrawStatus]').html(_(plArray).map(function (qr) {
+      return '<option value="'+qr.id+'">'+qr.zhName+'</option>';
+    }).join(''));
+
     if(this.options.reqData.username){
       this.$('input[name="username"]').val(this.options.reqData.username);
     }
