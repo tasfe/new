@@ -60,6 +60,21 @@ var EntryView = Base.ItemView.extend({
 
     this.firstLoginUpdatePasswd = new FirstLoginUpdatePasswd();
     this.firstLoginUpdatePasswd.checkState();
+
+    var strHash = document.location.hash;
+    if (strHash=='') {
+      $('.head > ul > li').eq(6).addClass('sd');
+    }
+
+    window.onhashchange = function () {
+      var strHash = document.location.hash;
+      if (strHash=='') {
+        $('.js-main-display2').addClass('hidden');
+      }
+      else{
+        $('.js-main-display2').removeClass('hidden');
+      }
+    };
   },
 
   renderSetting: function() {

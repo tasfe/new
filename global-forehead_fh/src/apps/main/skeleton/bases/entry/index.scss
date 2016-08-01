@@ -53,7 +53,6 @@ $quickEntryPaddingX: 5px !default;
   }
 
   .quick-setting {
-    position: absolute;
     background: url(~base/images/fh/nav-pic.png) no-repeat;
     display: inline-block;
     float: left;
@@ -62,7 +61,7 @@ $quickEntryPaddingX: 5px !default;
     line-height: 32px;
     font-size: 15px;
     color: white;
-    margin: 200px 1560px;
+    margin-bottom: 10px;
 
     .sfa {
       vertical-align: top;
@@ -71,8 +70,6 @@ $quickEntryPaddingX: 5px !default;
   }
   .entry-group {
 
-    float: left;
-    margin: 250px 1560px;
 
     a {
       display: block;
@@ -285,4 +282,18 @@ $quickEntryPaddingX: 5px !default;
 
 .gl-ticket-smmc-title{
   color: #ffff00 !important;
+}
+
+.main-display2{
+  height: 0px;
+  position: relative;
+  width: 1200px;
+  margin: 0px auto;
+
+  .shortcutRight{
+    position: absolute;
+    right: -155px;
+    width: 150px;
+    top: 220px;
+  }
 }
