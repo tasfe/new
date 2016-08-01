@@ -231,7 +231,7 @@ var menuConfig = [
       {
         id: 202,
         router: 'uc/pd',
-        //name: '奖金详情',
+        name: '奖金详情',
       },
       {
         id: 204,

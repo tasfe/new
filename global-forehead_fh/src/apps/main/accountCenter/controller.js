@@ -47,8 +47,11 @@ var AccountCenterController = RouterController.extend({
 
   loginLog: function() {
     this.changeMainReginView(new LoginLogView(), {
-      sidebar: Global.ui.menu.get(['pc','vip'])
+      sidebar: Global.ui.menu.get(['pc'])
     });
+    var PublicView = require('userCenter/views/publicView');
+    var publicView = new PublicView();
+    publicView.checkState();
   }
 });
 
