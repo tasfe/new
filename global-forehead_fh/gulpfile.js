@@ -32,7 +32,7 @@ var productionFactory = require('./webpack.production.factory');
 var mainConfig = require('./webpack.main.config');
 var externalConfig = require('./webpack.external.config');
 
-var serverIP = 'http://forehead.yb8.com';
+var serverIP = 'http://forehead.highborn.cn';
 var packageConfig;
 var projectPath;
 
