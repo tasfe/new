@@ -75,10 +75,11 @@ var ActiveCenterView = Base.ItemView.extend({
   },
 
   renderActiveContex:function (activityList) {
+    $('#main').html(this.el);
+
     if (_(activityList).isEmpty()) {
       this.$activeContext.html(this.getEmptyHtml('暂时没有活动'));
     } else {
-
       var index = 0;
       var html = [];
       _(activityList).map(function(activity) {

@@ -2,7 +2,7 @@
   position: relative;
   right: 0;
   left: 0;
-  top:-100px;
+  margin-top:-100px;
   transition: left .5s ease;
   background: $main-bg;
   &.sidebar-mini {

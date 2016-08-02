@@ -1,6 +1,5 @@
 "use strict";
 
-
 var ActiveCenterController = require('activeCenter/controller');
 
 exports.install = function() {
