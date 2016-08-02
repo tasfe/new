@@ -8,7 +8,9 @@ var findPwdView = require('accountCenter/views/passwordManage-findPwd');
 
 var passwordManageView = TabView.extend({
 
-  events: {},
+  events: {
+    
+  },
 
   className: 'as-passwordManage',
 

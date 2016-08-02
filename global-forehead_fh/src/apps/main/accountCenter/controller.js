@@ -10,6 +10,13 @@ var LoginLogView = require('accountCenter/views/loginLog');
 
 var AccountCenterController = RouterController.extend({
 
+  // loginPwd:function () {
+  //   this.changeMainReginView(new PasswordManageView(),{
+  //
+  //   });
+  // }
+
+
   loginPwd: function() {
     this.changeMainReginView(new PasswordManageView(), {
       sidebar: Global.ui.menu.get(['pc'])
@@ -53,6 +60,8 @@ var AccountCenterController = RouterController.extend({
     var publicView = new PublicView();
     publicView.checkState();
   }
+  
+
 });
 
 module.exports = AccountCenterController;
