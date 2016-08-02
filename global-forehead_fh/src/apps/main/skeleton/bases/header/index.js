@@ -332,7 +332,6 @@ var HeaderView = Base.ItemView.extend({
   },
 
   verifySuccCallBack: function(payPwd){
-    alert(22);
     var withdrawView = new WithdrawView({parentView: this,payPwd:payPwd});
     var self = this;
     this.$dialogWd = Global.ui.dialog.show({

@@ -225,6 +225,7 @@ var DashboardView = Base.ItemView.extend({
     }));
 
     var currentNum = 0;
+    
     var adTime = setInterval(function () {
       var num = $('.js-db-dynamic-list li').length;
       if (num == currentNum + 1) {
