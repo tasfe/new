@@ -71,6 +71,7 @@ var DashboardView = Base.ItemView.extend({
 
     this.renderDynamicList(data);
     this.renderMainBannerAD();
+
   },
 
   renderMainBannerAD: function() {
@@ -222,6 +223,44 @@ var DashboardView = Base.ItemView.extend({
     this.$imgList.html(this.bannerTpl({
       data: data
     }));
+
+    var currentNum = 0;
+    var adTime = setInterval(function () {
+      var num = $('.js-db-dynamic-list li').length;
+      if (num == currentNum + 1) {
+        currentNum = 0;
+        $(".js-db-dynamic-list").animate({marginTop:0});
+      }
+      else{
+        currentNum++;
+        $(".js-db-dynamic-list").animate({marginTop:currentNum * 40 * -1});
+      }
+    },5000);
+
+    $('.js-preInfo').on('click',function () {
+      var num = $('.js-db-dynamic-list li').length;
+      if (currentNum == 0) {
+        currentNum = num -1;
+        $(".js-db-dynamic-list").animate({marginTop:currentNum * 40 * -1});
+      }
+      else{
+        currentNum--;
+        $(".js-db-dynamic-list").animate({marginTop:currentNum * 40 * -1});
+      }
+    })
+
+    $('.js-nextInfo').on('click',function () {
+      var num = $('.js-db-dynamic-list li').length;
+      if (num == currentNum + 1) {
+        currentNum = 0;
+        $(".js-db-dynamic-list").animate({marginTop:0});
+      }
+      else{
+        currentNum++;
+        $(".js-db-dynamic-list").animate({marginTop:currentNum * 40 * -1});
+      }
+    })
+
   }
 });
 

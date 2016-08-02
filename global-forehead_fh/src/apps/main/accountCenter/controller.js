@@ -31,16 +31,22 @@ var AccountCenterController = RouterController.extend({
     this.changeMainReginView(new PasswordManageView({
       triggerTab: 'modifyFundPwd'
     }), {
-      sidebar: Global.ui.menu.get(['pc','vip'])
+      sidebar: Global.ui.menu.get(['pc'])
     });
+    var PublicView = require('userCenter/views/publicView');
+    var publicView = new PublicView();
+    publicView.checkState();
   },
 
   findPwd: function() {
     this.changeMainReginView(new PasswordManageView({
       triggerTab: 'modifyFindPwd'
     }), {
-      sidebar: Global.ui.menu.get(['pc','vip'])
+      sidebar: Global.ui.menu.get(['pc'])
     });
+    var PublicView = require('userCenter/views/publicView');
+    var publicView = new PublicView();
+    publicView.checkState();
   },
 
   securityQuestion: function() {
