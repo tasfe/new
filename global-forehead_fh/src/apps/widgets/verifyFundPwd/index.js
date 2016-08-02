@@ -71,10 +71,12 @@ $.widget('gl.verifyFundPwd', {
           self.verifyPayPwdXhr(data)
               .done(function(res) {
                 if (res.result === 0) {
+                 
                   self.$dialog.modal('hide');
                   //self.$('.js-uc-pwdToken').val(res.root);
                   //self.$('.js-uc-cm-fundPwdInput').addClass('hidden');
                   if(self.options.parentView && self.options.parentView.verifySuccCallBack){
+
                     self.options.parentView.verifySuccCallBack(payPwd);
                   }
                 } else {

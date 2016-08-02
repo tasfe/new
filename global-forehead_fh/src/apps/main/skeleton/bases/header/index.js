@@ -100,20 +100,20 @@ var HeaderView = Base.ItemView.extend({
         'pageIndex': 0
       }
     }).always(function(){
-          //开始加载
+      //开始加载
 
-        })
-        .done(function(res) {
-          var data = res.root || {};
-          if (res && res.result === 0) {
-            self.renderGrid(data.buList);
-          } else {
-            Global.ui.notification.show('加载失败，请稍后再试');
-          }
-        })
-        .fail(function () {
-        Global.ui.notification.show('网络报错！');
-      });
+    })
+    .done(function(res) {
+      var data = res.root || {};
+      if (res && res.result === 0) {
+        self.renderGrid(data.buList);
+      } else {
+        Global.ui.notification.show('加载失败，请稍后再试');
+      }
+    })
+    .fail(function () {
+      Global.ui.notification.show('网络报错！');
+    });
   },
 
   renderGrid: function(rowList) {
@@ -332,6 +332,7 @@ var HeaderView = Base.ItemView.extend({
   },
 
   verifySuccCallBack: function(payPwd){
+    alert(22);
     var withdrawView = new WithdrawView({parentView: this,payPwd:payPwd});
     var self = this;
     this.$dialogWd = Global.ui.dialog.show({
