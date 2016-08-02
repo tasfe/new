@@ -15,7 +15,8 @@ var BettingRecordsView = SearchGrid.extend({
   },
 
   dateSelectHandler:function (e) {
-
+      alert($(e.currentTarget).data('index'));
+    
   },
 
   initialize: function() {
@@ -78,8 +79,10 @@ var BettingRecordsView = SearchGrid.extend({
     //
     var cheAr = ['今天','三天','七天'];
     this.$content = this.$('.br-excess-tbutton');
+    var cheInd=0;
     this.$content.html(_(cheAr).map(function (val) {
-      return '<button class="js-excess-cell br-excess-cell">'+val+'</button>';
+      cheInd++;
+      return '<button class="js-excess-cell br-excess-cell" data-index='+cheInd+'>'+val+'</button>';
     }));
 
 

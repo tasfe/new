@@ -7,24 +7,25 @@ var ActiveCenterView = Base.ItemView.extend({
   startOnLoading: true,
 
   events: {
-    'click .js-list-active': 'activeChangeHandler'
-
+    'click .js-active-header': 'activeChangeHandler'
   },
   
   activeChangeHandler:function (e) {
+
+    alert(ewrw);
 
     this.$('.list-active').removeClass('list-active');
     var $target = $(e.currentTarget);
     $target.addClass('list-active');
 
     var currentIndex = $target.data('index');
-    //alert(currentIndex);
+    alert(currentIndex);
 
   },
   
   onRender: function() {
-    this.$activeContext = this.$('.js-active-context');
 
+    this.$activeContext = this.$('.js-active-context');
     this.$activeHeader = this.$('.js-activeHeader-list');
 
     this.initSliderTab();
