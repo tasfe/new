@@ -110,12 +110,16 @@ var HeaderView = Base.ItemView.extend({
           } else {
             Global.ui.notification.show('加载失败，请稍后再试');
           }
-        });
+        })
+        .fail(function () {
+        Global.ui.notification.show('网络报错！');
+      });
   },
 
   renderGrid: function(rowList) {
     var self = this;
     self.startLoadAfficheDetail(_.first(rowList).bulletionId);
+
     if (_.isEmpty(rowList)) {
       this.$grid.html(this.getEmptyHtml('暂时没有动态'));
     } else {
@@ -192,8 +196,10 @@ var HeaderView = Base.ItemView.extend({
     this.$('.js-vipFlag').html('V'+acctInfo.memberLevel);
 
     this.$('.head li').on('click',function () {
-      $('.head li').removeClass('sd');
-      $(this).addClass('sd');
+      if ($(this).text() != '平台公告') {
+        $('.head li').removeClass('sd');
+        $(this).addClass('sd');
+      }
     });
   },
 
@@ -344,9 +350,8 @@ var HeaderView = Base.ItemView.extend({
   },
   closeWithdrawDialog: function() {
     this.$dialogWd.modal('hide');
-  },
+  }
 
 });
 
 module.exports = HeaderView;
-
