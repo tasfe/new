@@ -169,8 +169,11 @@ var UserCenterController = RouterController.extend({
 
   verifySuccCallBack: function(){
     this.changeMainReginView(new CardManageView(), {
-//      sidebar: Global.ui.menu.get(['pc','vip'])
+      sidebar: Global.ui.menu.get(['pc'])
     });
+    var PublicView = require('userCenter/views/publicView');
+    var publicView = new PublicView();
+    publicView.checkState();
   },
   cardBinding: function() {
     this.changeSubReginView(new CardBindingView(), {
