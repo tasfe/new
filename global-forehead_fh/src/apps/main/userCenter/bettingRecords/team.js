@@ -10,7 +10,13 @@ var BettingRecordsView = SearchGrid.extend({
 
   template: require('./index.html'),
 
-  events: {},
+  events: {
+    'click .js-excess-cell': 'dateSelectHandler'
+  },
+
+  dateSelectHandler:function (e) {
+
+  },
 
   initialize: function() {
     _(this.options).extend({
@@ -70,7 +76,12 @@ var BettingRecordsView = SearchGrid.extend({
   onRender: function() {
 
     //
-    this.$('.js-excess-tbutton').htm('dfs');
+    var cheAr = ['今天','三天','七天'];
+    this.$content = this.$('.br-excess-tbutton');
+    this.$content.html(_(cheAr).map(function (val) {
+      return '<button class="js-excess-cell br-excess-cell">'+val+'</button>';
+    }));
+
 
     //初始化时间选择
     new Timeset({
