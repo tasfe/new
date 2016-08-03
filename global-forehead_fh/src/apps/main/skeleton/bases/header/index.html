@@ -85,19 +85,34 @@
     <li><a href="#">老虎机</a></li>
     <li><a href="#">体育</a></li>
     <li><a href="#">真人娱乐</a></li>
-    <li>
-      <a href="#bc/1">彩票</a>
-      <div>
-        <% _(ticketList).each(function(ticket, index) { %>
+    <li><a href="#bc/1">彩票</a>
 
-          <%=ticket.title %>：
-          <ul>
-          <% _(ticket.list).each(function(info) { %>
-            <li><a href="#bc/<%=info.id %>" class="js-gl-ticket-entry router <%=info.specialClass||''%>"><%=info.zhName %></a></li>
-          <% }); %>
-          </ul>
+      <div>
+        <!--<% _(ticketList).map(function(ticket){%>-->
+
+        <!--<ul class="base-bcType-head"><li><%=ticket.title %></li></ul>-->
+          <!--<ul>-->
+            <!--<% _(ticket.list).each(function(info) { %>-->
+              <!--<li><a href="#bc/<%=info.id %>" class="js-gl-ticket-entry router <%=info.specialClass||''%>"><%=info.zhName %></a></li>-->
+            <!--<% }); %>-->
+          <!--</ul>-->
+        <!---->
+        <!--<%}); %>-->
+
+
+        <% _(ticketList).each(function(ticket, index) { %>
+          <ul class="base-bcType-head"><li><%=ticket.title %></li></ul>
+           <ul>
+            <% _(ticket.list).each(function(info) { %>
+              <li><a href="#bc/<%=info.id %>" class="js-gl-ticket-entry router <%=info.specialClass||''%>"><%=info.zhName %></a></li>
+            <% }); %>
+           </ul>
         <% }); %>
+
+
       </div>
+
+
     </li>
     <li><a href="#">首页</a></li>
   </ul>
