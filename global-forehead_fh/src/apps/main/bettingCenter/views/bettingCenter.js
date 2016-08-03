@@ -47,8 +47,25 @@ var BettingCenterView = Base.ItemView.extend({
     'click .js-bc-btn-lottery-confirm': 'lotteryConfirmHandler',
     'click .js-bc-records-tab': 'toggleTabHandler',
     'click .js-bc-nav-index':'severalHaddler',
-    'click .js-bc-quick-bet': 'quickBetHandler'
+    'click .js-bc-quick-bet': 'quickBetHandler',
+    'click .js-play1': 'play1',
+    'click .js-play2': 'play2'
+  },
 
+  play1:function () {
+    $('.js-play1').addClass('sd');
+    $('.js-play2').removeClass('sd');
+    $('.js-bc-basic-rules').addClass('hidden');
+    $('.js-bc-optional-rules').removeClass('hidden');
+    $('.js-bc-optional-rules ul').removeClass('hidden');
+  },
+
+  play2:function () {
+    $('.js-play2').addClass('sd');
+    $('.js-play1').removeClass('sd');
+    $('.js-bc-basic-rules').removeClass('hidden');
+    $('.js-bc-optional-rules').addClass('hidden');
+    $('.js-bc-optional-rules ul').addClass('hidden');
   },
 
   serializeData: function() {
@@ -370,13 +387,7 @@ var BettingCenterView = Base.ItemView.extend({
       this.$lastPlanId.popover('destroy');
     }
 
-    this.$lastPlanId.popover({
-      trigger: 'hover',
-      container: this.$el,
-      html: true,
-      content: '上期期号：' + planInfo.lastOpenId,
-      placement: 'bottom'
-    });
+    $('.js-bc-last-planId').html('第' + planInfo.lastOpenId  + '期');
 
     this.$lastResults.html(_(model.get('lastOpenNum')).map(function(num) {
       return '<span class="text-circle">' + num + '</span>';
@@ -393,14 +404,9 @@ var BettingCenterView = Base.ItemView.extend({
     if (this.$planId.data('popover')) {
       this.$planId.popover('destroy');
     }
+    
+    this.$planId.html('第' + planInfo.planId + '期');
 
-    this.$planId.popover({
-      trigger: 'hover',
-      container: this.$el,
-      html: true,
-      content: '本期期号：' + planInfo.planId,
-      placement: 'bottom'
-    });
 
     if (this.infoModel.get('init')) {
       this.infoModel.changeToUpdate();
@@ -492,7 +498,7 @@ var BettingCenterView = Base.ItemView.extend({
   },
 
   renderPlayInfo: function(playInfo) {
-    this.$playExample.text(playInfo.playExample).attr('title', playInfo.playExample);
+    this.$playExample.text('玩法说明：' + playInfo.playExample).attr('title', playInfo.playExample);
 
     if (this.$playTip.data('popover')) {
       this.$playTip.popover('destroy');
