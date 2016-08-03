@@ -15,7 +15,8 @@ var BettingRecordsView = SearchGrid.extend({
   },
 
   dateSelectHandler:function (e) {
-
+      alert($(e.currentTarget).data('index'));
+    
   },
 
   initialize: function() {
@@ -69,19 +70,20 @@ var BettingRecordsView = SearchGrid.extend({
       tip: '<div class="m-left-md"><span>注意:</span> 投注记录只保留最近30天。</div>',
       height: 310
     });
-
     Global.memoryCache.set('ticketCachedList', []);
   },
 
   onRender: function() {
 
+
     //
     var cheAr = ['今天','三天','七天'];
     this.$content = this.$('.br-excess-tbutton');
+    var cheInd=0;
     this.$content.html(_(cheAr).map(function (val) {
-      return '<button class="js-excess-cell br-excess-cell">'+val+'</button>';
+      cheInd++;
+      return '<button class="js-excess-cell br-excess-cell" data-index='+cheInd+'>'+val+'</button>';
     }));
-
 
     //初始化时间选择
     new Timeset({
@@ -147,7 +149,6 @@ var BettingRecordsView = SearchGrid.extend({
     });
 
     //加上统计行
-
     this.grid.addFooterRows({
       //trClass: 'tr-footer',
       columnEls: [
