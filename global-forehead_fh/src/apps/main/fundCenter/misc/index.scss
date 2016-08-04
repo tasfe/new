@@ -401,9 +401,106 @@
   color: #000000  !important;
 }
 
-.fc-wd-div1 {
-   margin-left: 74px;
+.fc-wd-progress{
+  display: inline-flex;
+  margin-bottom: 10px;
+  width: 100%;
+  height: 30px;
+
+  .fc-wd-pg-line{
+    margin-top: 14px;
+    background-color: #cc0001;
+    width: 170px;
+    height: 2px;
+  }
+
+  .fc-wd-pg-round{
+    font-weight: bolder;
+    margin: 0px 5px 0px 5px;
+    background-color: #cc0001;
+    height: 30px;
+    width: 30px;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 15px;
+    color: #fff;
+  }
+
+  .fc-wd-pg-line1{
+    margin-top: 14px;
+    background-color: #959595;
+    width: 170px;
+    height: 2px;
+  }
+
+  .fc-wd-pg-round1{
+    font-weight: bolder;
+    margin: 0px 5px 0px 5px;
+    background-color: #959595;
+    height: 30px;
+    width: 30px;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 15px;
+    color: #fff;
+  }
+  .fc-wd-title0{
+    font-weight: bolder;
+    text-align: right;
+    line-height: 20px;
+    color: #cc0001;
+    width: 210px;
+  }
+  .fc-wd-title{
+    color: #959595;
+    font-weight: bolder;
+    text-align: right;
+    line-height: 20px;
+    width: 210px;
+  }
 }
+
+
+.fc-wd-div0{
+  background-color: #cc0001;
+  border-radius: 15px;
+  margin-bottom: 30px;
+  padding-left: 10px;
+  line-height: 30px;
+  color: #ffffff;
+  height: 30px;
+}
+
+.fc-wd-div1 {
+  margin-right: auto;
+  margin-left: auto;
+  height: 100px;
+
+}
+
+.fc-wd-div2{
+  display: inline-flex;
+  height: 100px;
+  margin: 30px 0px 30px 250px;
+
+  .fc-wd-finishImg{
+    width: 66px;
+    height: 66px;
+    background: url("fc-wd-success.png") no-repeat;
+
+  }
+
+  .fc-wd-div3{
+    height: 80px;
+    margin: 10px 10px 10px 20px;
+    .fc-wd-successWord{
+      font-size: 15px;
+    }
+  }
+
+}
+
+
 .fc-wd-quickAmount {
   margin-left: 66px;
   list-style-type: none;
@@ -430,7 +527,18 @@
 }
 
 .fc-wd-commit {
-  width: 250px;
+  width: 200px;
+  background-color: #cc0001;
+  border-radius: 0px;
+}
+
+.rc-seperate-line{
+  background-color: #cccccc;
+  height: 1px;
+}
+
+.fc-next-button{
+  margin-top: 50px;
 }
 
 .fc-wd-bankList {
@@ -446,6 +554,7 @@
 //.modal-re {
 //  width: 755px;
 //}
+
 .fc-re-amount {
   width: 236px;
 }
