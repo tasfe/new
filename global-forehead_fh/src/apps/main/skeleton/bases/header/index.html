@@ -88,26 +88,47 @@
     <li><a href="#bc/1">彩票</a>
 
       <div>
-        <!--<% _(ticketList).map(function(ticket){%>-->
-
-        <!--<ul class="base-bcType-head"><li><%=ticket.title %></li></ul>-->
-          <!--<ul>-->
-            <!--<% _(ticket.list).each(function(info) { %>-->
-              <!--<li><a href="#bc/<%=info.id %>" class="js-gl-ticket-entry router <%=info.specialClass||''%>"><%=info.zhName %></a></li>-->
-            <!--<% }); %>-->
-          <!--</ul>-->
-        <!---->
-        <!--<%}); %>-->
 
 
-        <% _(ticketList).each(function(ticket, index) { %>
-          <ul class="base-bcType-head"><li><%=ticket.title %></li></ul>
+      <!--  <% _(ticketList).each(function(ticket, index) { %>
+        <% index++ %>
            <ul>
             <% _(ticket.list).each(function(info) { %>
-              <li><a href="#bc/<%=info.id %>" class="js-gl-ticket-entry router <%=info.specialClass||''%>"><%=info.zhName %></a></li>
+              <li><a href="#bc/<%=info.id %>" class="js-gl-ticket-entry router "><%=info.zhName %></a></li>
             <% }); %>
            </ul>
-        <% }); %>
+        <% }); %>-->
+
+
+        <div>
+
+          <ul style="margin-top: 25px; vertical-align:top; margin-left: 50px" >
+            <li><a href="#bc/1" class="js-gl-ticket-entry router " >重庆时时彩</a></li>
+            <li><a href="#bc/3" class="js-gl-ticket-entry router " >新疆时时彩</a></li>
+            <li><a href="#bc/8" class="js-gl-ticket-entry router " >天津时时彩</a></li>
+            <li><a href="#bc/9" class="js-gl-ticket-entry router " >黑龙江时时彩</a></li>
+          </ul>
+
+          <ul style="margin-top: 15px; vertical-align:top; margin-left: 200px" >
+            <li><a href="#bc/19" class="js-gl-ticket-entry router " >亿贝秒秒彩</a></li>
+            <li><a href="#bc/10" class="js-gl-ticket-entry router " >亿贝分分彩</a></li>
+            <li><a href="#bc/13" class="js-gl-ticket-entry router " >亿贝三分彩</a></li>
+            <li><a href="#bc/12" class="js-gl-ticket-entry router " >亿贝五分彩</a></li>
+            <li><a href="#bc/16" class="js-gl-ticket-entry router " >亿贝3D分分彩</a></li>
+          </ul>
+
+          <ul style="margin-top: 35px; vertical-align:top; margin-left: 140px" >
+            <li><a href="#bc/5" class="js-gl-ticket-entry router " >山东11选5</a></li>
+            <li><a href="#bc/4" class="js-gl-ticket-entry router " >广东11选5</a></li>
+            <li><a href="#bc/11" class="js-gl-ticket-entry router ">江西11选5</a></li>
+          </ul>
+
+          <ul style="margin-top: 35px; vertical-align:top; margin-left: 90px" >
+            <li><a href="#bc/6" class="js-gl-ticket-entry router " >3D</a></li>
+            <li><a href="#bc/7" class="js-gl-ticket-entry router " >P5/P3</a></li>
+          </ul>
+        </div>
+
 
 
       </div>
