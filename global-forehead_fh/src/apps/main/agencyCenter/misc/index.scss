@@ -495,3 +495,47 @@
 .sfa-grid-empty{
   margin-top:50px;
 }
+
+.lowLevelManage-view{
+  font-size: 14px;
+  font-family: '微软雅黑';
+
+  .table{
+    border-left: 1px solid #cccccc;
+    border-right: 1px solid #cccccc;
+    font-size: 14px;
+    color: #666666;
+
+    th{
+      height: 38px;
+      line-height: 38px;
+      padding: 0px;
+    }
+
+    a{
+      color: #666666;
+      font-size: 14px;
+
+      &:hover{
+        color: #666666;
+      }
+    }
+  }
+  .table thead th{
+    background-color: #f2f2f2;
+    color: #999999;
+
+    a{
+      color: #999999;
+      font-size: 14px;
+
+      &:hover{
+        color: #999999;
+      }
+    }
+
+    .table-sort{
+      color: #666666;
+    }
+  }
+}

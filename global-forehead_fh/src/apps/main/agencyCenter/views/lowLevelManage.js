@@ -23,41 +23,43 @@ var LowLevelManageView = SearchGrid.extend({
       columns: [
         {
           name: '用户名',
-          width: '15%'
+          width: '12%'
+        },
+        {
+          name: '状态',
+          width: '6%'
         },
         {
           name: '返点',
-          width: '7%',
-          sortable: true,
-          id: 1
-        },
-        {
-          name: 'vip等级',
-          width: '10%',
-          sortable: true,
-          id: 5
+          width: '6%'
         },
         {
           name: '个人余额',
-          width: '11%',
+          width: '10%',
           sortable: true,
           id: 2
         },
         {
-          name: '注册时间',
-          width: '18%',
+          name: '团队余额',
+          width: '10%',
           sortable: true,
-          id: 3
+          id: 6
         },
         {
-          name: '不活跃天数<i class="js-ac-uDays sfa sfa-help-tip cursor-pointer vertical-middle text-sunshine"></i>',
-          width: '12%',
-          sortable: true,
-          id: 4
+          name: '注册时间',
+          width: '15%',
+        },
+        {
+          name: '不活跃天数',
+          width: '8%'
+        },
+        {
+          name: '最后登录时间',
+          width: '15%',
         },
         {
           name: '操作',
-          width: '27%'
+          width: '18%'
         }
       ],
       //gridOps: {
@@ -146,13 +148,17 @@ var LowLevelManageView = SearchGrid.extend({
     } else {
       row.push('<span class="text-coffee">'+rowInfo.userName+'</span>'+(rowInfo.online?onlineStatus:''));
     }
-
+    var online = '离线';
+    if(rowInfo.online){
+      online = '在线';
+    }
+    row.push(online);
     row.push(_(rowInfo.rebate).formatDiv(10,{fixed:1}) + '%');
-    row.push(rowInfo.memberLevel );
     row.push('<span class="">'+_(rowInfo.balance).convert2yuan()+'</span>');//text-bold-pleasant
-
+    row.push('<span class="">'+_(rowInfo.balanceTotal).convert2yuan()+'</span>');
     row.push(_(rowInfo.regTime).toTime());
     row.push(rowInfo.uDays);
+    row.push(_(rowInfo.loginTime).toTime());
     row.push(this._formatOperation(rowInfo));
 
     return row;
@@ -162,17 +168,16 @@ var LowLevelManageView = SearchGrid.extend({
     var html = [];
     var cell = [];
 
-    if (rowInfo.direct && !this.isSub()) {
-
-      cell.push('<a href="javascript:void(0);" class="js-gl-letter btn btn-link text-sunshine"' +
-          ' data-user-id="' + rowInfo.userId + '" data-name="' + rowInfo.userName + '">站内信</a>');
-      //cell.push('<a href="'+_.getUrl('/message/' + rowInfo.userId, 'name',rowInfo.userName) + '" class="router btn btn-link text-sunshine">站内信</a>');
-    }
+    
     if (rowInfo.direct && !this.isSub()) {
       cell.push('<a href="javascript:void(0);"  class="js-ac-llm-cp btn btn-link ">转账</a>');
     }
     if (rowInfo.direct && !this.isSub()) {
       cell.push('<a href="' + _.getUrl('/rebate/' + rowInfo.userId, 'name', rowInfo.userName) + '" class="router btn btn-link">升点</a>');
+    }
+    if (rowInfo.direct && !this.isSub()) {
+      cell.push('<a href="javascript:void(0);" class="js-gl-letter btn btn-link text-sunshine"' +
+          ' data-user-id="' + rowInfo.userId + '" data-name="' + rowInfo.userName + '">消息</a>');
     }
 
     // cell.push('<a href="' + _.getUrl('/detail/' + rowInfo.userId, 'name', rowInfo.userName) + '" class="router btn btn-link ">详情</a>');

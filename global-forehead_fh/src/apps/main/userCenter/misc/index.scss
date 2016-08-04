@@ -137,7 +137,7 @@
 //begin 3 个人资料
 .uc-personalManage-form {
 
-  padding: 30px 14px 14px 150px;
+  padding: 30px 14px 14px 290px;
 
   //特定长度输入框
   .input4 {
@@ -156,6 +156,10 @@
   .btn {
     width: 214px;
     height: 32px;
+  }
+
+  .help-inline{
+    font-size: 12px;
   }
 }
 
@@ -407,15 +411,38 @@
       }
     }
   }
+
   .uc-info{
     border: 1px solid #cccccc;
     border-top: 2px solid #a60000;
     background-color: #fff;
     padding-top: 42px;
     border-bottom: 0px;
+    padding-left: 58px;
+
+    i{
+      width: 100px;
+      height: 100px;
+      display: block;
+      float: left;
+      margin-right: 33px;
+      padding: 3px;
+      border-radius:100px;
+      -moz-border-radius:100px;
+      box-shadow: 0px 2px 0px #e1e0e0;
+      overflow: hidden;
+      border: 3px solid #fff;
+      margin-top: -5px;
+      cursor: pointer;
+
+      span{
+        width: 100px;
+        height: 100px;
+        display: block;
+      }
+    }
 
     dl{
-      margin-left: 100px;
       width: 220px;
       margin-bottom: 40px;
       float: left;
@@ -433,6 +460,12 @@
         text-decoration: underline;
         float: right;
         cursor: pointer;
+      }
+
+      b{
+        font-weight: initial;
+        display: inline-block;
+        padding: 0px 5px;
       }
     }
 
@@ -519,6 +552,42 @@
   color: #666666;
   font-family: '微软雅黑';
   padding-bottom: 10px;
+  margin-bottom: 20px;
+
+  .controls > span{
+    margin-top:0px;
+    margin-left: 10px;
+  }
+
+  .uc-personalManage-btn-div{
+    .btn{
+      width: 100px;
+      height: 31px;
+      line-height: 31px;
+      font-size: 18px;
+      color: #fff;
+      padding: 0px;
+      border: 0px;
+    }
+  }
+
+  .birthday{
+    span{
+      display: inline-block;
+      margin: 0px 5px;
+      padding: 0px;
+    }
+  }
+
+  input,select{
+    background-color: #f7f7f7;
+    color: #666666;
+  }
+
+  select option{
+    color: #666666;
+  }
+
 
   .color-dark{
     color: #666666;
@@ -569,4 +638,33 @@
 
 .m-right-xs{
   margin-top:10px;
+}
+
+.content-bock{
+  input{
+    color: #333333;
+  }
+  .gender{
+    line-height: 25px;
+    input[type="radio"]{
+      padding: 0px;
+      margin: 0px;
+      margin-top: -3px;
+    }
+    span{
+      margin-right: 20px;
+      margin-left: 5px;
+      display: inline-block;
+    }
+  }
+
+  .rt-main{
+    color: #333333;
+    font-size: 14px;
+    font-family: '微软雅黑';
+
+    .control-label{
+      font-size: 14px;
+    }
+  }
 }
