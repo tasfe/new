@@ -2,6 +2,8 @@
 
 var bankConfig = require('userCenter/misc/bankConfig');
 
+var WithdrawConfirmView = require('fundCenter/views/withdraw-confirm');
+
 var MoneyWithdrawalView = Base.ItemView.extend({
 
   template: require('fundCenter/templates/withdraw.html'),
@@ -29,6 +31,7 @@ var MoneyWithdrawalView = Base.ItemView.extend({
       })
     });
   },
+  
   verifyPayPwdXhr: function(data) {
     return Global.sync.ajax({
       url: '/fund/moneypd/verify.json',
@@ -40,7 +43,7 @@ var MoneyWithdrawalView = Base.ItemView.extend({
     var self = this;
     this.$('.js-fc-wd-payPwd').val(this.options.payPwd);
     this.$form = this.$('.js-fc-wd-form');
-    this.$QuickAmountContainer = this.$('.js-fc-wd-quickAmounts')
+    this.$QuickAmountContainer = this.$('.js-fc-wd-quickAmounts');
     this.$cardList = this.$('.js-fc-wd-bankList');
     this.parsley = this.$form.parsley({
       errorsWrapper: '<div class="tooltip bottom parsley-errors-list tooltip-error"><div class="tooltip-arrow"></div></div>',
@@ -64,7 +67,6 @@ var MoneyWithdrawalView = Base.ItemView.extend({
   renderBasicInfo: function(data) {
     var self = this;
     this.$('.js-fc-valid-balance').text(_(data.validBalance).convert2yuan());
-    // this.$validBalance.text(_(data.validBalance).convert2yuan());
     this.$('.js-fc-wd-amount').attr('data-parsley-max', _(data.validBalance).convert2yuan());
 
     this.renderCardList(data.cardList);
@@ -115,7 +117,7 @@ var MoneyWithdrawalView = Base.ItemView.extend({
     this.$('.js-fc-wd-bankList').trigger('change');
   },
 
-  bankSelectedHandler: function(e) {
+  bankSelectedHandler: function() {
     var self = this;
     var $option = this.$('.js-fc-wd-bankList').find('option:selected')
     var valMin = $option.data('min');
@@ -132,8 +134,10 @@ var MoneyWithdrawalView = Base.ItemView.extend({
   },
 
   confirmHandler: function() {
+
     var self = this;
     var $btnConfirm = this.$('.js-fc-confirm');
+    
     $btnConfirm.button('loading');
     if (!this.parsley.validate()) {
       return false;
@@ -145,6 +149,11 @@ var MoneyWithdrawalView = Base.ItemView.extend({
       type: 'withdraw'
     };
 
+    var wcView = new WithdrawConfirmView({parentView: this.parentView});
+    $('.js-fc-wd-container').html(wcView.render().el);
+    
+    
+    /*
     this.getWithdrawXhr(data)
       .always(function() {
         $btnConfirm.button('reset');
@@ -161,7 +170,11 @@ var MoneyWithdrawalView = Base.ItemView.extend({
           Global.ui.notification.show(res.msg);
         }
       });
+     */
+
+
   }
+
 
 });
 

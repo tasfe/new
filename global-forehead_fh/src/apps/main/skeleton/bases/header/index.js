@@ -337,9 +337,12 @@ var HeaderView = Base.ItemView.extend({
     this.$dialogWd = Global.ui.dialog.show({
       id: _.now(),
       title: '提现',
-      size: 'modal-md',
+      size: 'modal-lg',
       body:  '<div class="js-fc-wd-container"></div>'
     });
+
+    this.$dialogWd.find('.modal-body').addClass('fc-wd-bg');
+    this.$dialogWd.find('.fc-wd-bg').removeClass('modal-body');
 
     this.$dialogWd.find('.js-fc-wd-container').html(withdrawView.render().el);
 
@@ -347,7 +350,9 @@ var HeaderView = Base.ItemView.extend({
       $(this).remove();
       //self.destroy();
     });
+
   },
+
   closeWithdrawDialog: function() {
     this.$dialogWd.modal('hide');
   }
