@@ -8,6 +8,6 @@ module.exports = {
     target: 'http://localhost:9000'
   }, {
     pattern: '*',
-    target: 'http://backend.yb8.com/'
+    target: 'http://backend.highborn.cn/'
   }]
 };
