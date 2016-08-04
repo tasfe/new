@@ -1,0 +1,63 @@
+.tree-view > ul {
+  position: relative;
+  list-style: none;
+  li {
+    position: relative;
+    a {
+      color: #4c5f70;
+      display: block;
+      padding: 8px 10px;
+      font-size: 14px;
+    }
+    a:focus {
+      color: #23b7e5;
+    }
+    &.active {
+      > a {
+        color: #23b7e5;
+      }
+    }
+    &.open > a .folder-icon:before {
+      content: "\f07c";
+    }
+    .subtree {
+      display: none;
+      position: relative;
+      list-style: none;
+      padding-left: 20px;
+      li {
+        a {
+          position: relative;
+          &.last-link:before {
+            bottom: 20px;
+          }
+        }
+        &:before {
+          position: absolute;
+          content: '';
+          display: block;
+          height: 1px;
+          width: 10px;
+          top: 18px;
+          left: -5px;
+          background-color: #ddd;
+        }
+        &:after {
+          position: absolute;
+          content: '';
+          display: block;
+          width: 1px;
+          top: 0;
+          bottom: 0;
+          left: -5px;
+          background-color: #ddd;
+        }
+        &.last-link:after {
+          top: 0;
+          height: 19px;
+          bottom: auto;
+        }
+      }
+    }
+  }
+}

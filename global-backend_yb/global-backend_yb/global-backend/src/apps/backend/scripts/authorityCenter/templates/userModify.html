@@ -1,0 +1,45 @@
+<div class="panel padding-md">
+  <form class="js-um-user-modify-form form-horizontal" action="javascript:void(0)">
+    <div class="form-group form-inline">
+      <label class="col-sm-3 control-label">用户名：</label>
+      <div class="col-sm-9 js-um-modify-username">
+      </div>
+    </div>
+    <div class="form-group form-inline">
+      <label class="col-sm-3 control-label">新密码：</label>
+      <div class="col-sm-9">
+        <input type="password" id='jsACPassword' class="js-um-modify-password form-control" data-parsley-length="[6, 20]" style="width: 200px;"  required>
+        <br>
+        <span class="help-inline">密码强度要求见下方提示</span>
+      </div>
+    </div>
+    <div class="form-group form-inline">
+      <label class="col-sm-3 control-label">确认新密码：</label>
+
+      <div class="col-sm-9">
+        <input type="password" class="js-um-modify-repeatPassword form-control" data-parsley-length="[6, 20]" style="width: 200px;" data-parsley-equalto="#jsACPassword" required>
+        <br>
+        <span class="help-inline"></span>
+      </div>
+    </div>
+    <div class="form-group form-inline">
+      <label class="col-sm-3 control-label">所属组：</label>
+      <div class="col-sm-9">
+        <select name="userGroup" class="js-um-modify-userGroup form-control" style="width: 200px;" required></select>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-3 col-sm-9">
+        提示：<br>
+        1、密码长度要求6-20位字符，推荐使用8位以上密码<br>
+        2、密码复杂性要求包含下列四类字符中的三类：<br>
+        &nbsp;&nbsp;&nbsp;• 英语大写字符 (A-Z)<br>
+        &nbsp;&nbsp;&nbsp;• 英语小写字符 (a-z)<br>
+        &nbsp;&nbsp;&nbsp;• 10 个基本数字 (0-9)<br>
+        &nbsp;&nbsp;&nbsp;• 非字母数字的特殊字符（例如：!、$、# 或 %） <br>
+        3、密码不得包含3个或3个以上来自用户帐户名中的字符。<br>
+        4、不能包含三个或以上的连续字母和数字。
+      </div>
+    </div>
+  </form>
+</div>

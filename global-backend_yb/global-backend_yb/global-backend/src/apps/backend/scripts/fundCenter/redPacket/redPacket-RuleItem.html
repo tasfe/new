@@ -1,0 +1,46 @@
+<div class="form-group js-fc-item">
+  <div class="row form-group border-all padding-sm m-left-sm">
+    <label class="col-sm-2 control-label m-bottom-sm ">团队投注额(日)≥：</label>
+
+    <div class="col-sm-2 m-bottom-sm ">
+      <div class="form-group form-inline">
+        <div class="input-group">
+          <input type="text" class="form-control js-fc-gs-betAmount" name="itemList[<%=index %>].salesVolume"
+            data-parsley-range="[0, 100000000]"
+            data-parsley-type="integer" value="<%=obj.salesVolume %>" required>
+
+          <div class="input-group-addon">元</div>
+        </div>
+      </div>
+    </div>
+
+    <label class="col-sm-2 control-label m-bottom-sm ">奖金比例：</label>
+
+    <div class="col-sm-2">
+      <select class="js-fc-select-type form-control" name="itemList[<%=index %>].redEnvelopeType">
+        <option value="percent" <% if (obj && obj.redEnvelopeType === 'percent') { %>selected<% } %>>百分比</option>
+        <option value="fix" <% if (obj && obj.redEnvelopeType === 'fix') { %>selected<% } %>>固定金额</option>
+      </select>
+    </div>
+
+    <div class="col-sm-3">
+      <div class="form-group form-inline">
+        <div class="js-fc-select-type input-group">
+          <input type="text" class="form-control js-fc-value" name="itemList[<%=index %>].redEnvelopeVal"
+            <% if (obj && obj.redEnvelopeType === 'fix') { %>
+            data-parsley-range="[0, 100000000]"
+            data-parsley-type="integer"
+          <% } else { %>
+            data-parsley-range="[0.01, 100]"
+            data-parsley-twoDecimal
+          <% } %>
+            value="<%=obj.redEnvelopeVal %>" required>
+          <div class="js-fc-select-percent input-group-addon <% if (obj && obj.redEnvelopeType === 'fix') { %>hidden<% } %>">%</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-1 m-bottom-sm">
+      <button class="js-fc-del btn btn-danger" type="button">删&nbsp;除</button>
+    </div>
+  </div>
+</div>

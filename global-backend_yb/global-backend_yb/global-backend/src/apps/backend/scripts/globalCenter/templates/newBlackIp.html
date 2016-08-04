@@ -1,0 +1,25 @@
+<div class="panel padding-md">
+  <form class="js-bl-ip-form form-horizontal" action="javascript:void(0)">
+    <div class="form-group form-inline">
+      <label class="col-sm-3 control-label">输入IP：</label>
+      <div class="col-sm-9">
+        <input type="text" class="js-bl-title input-medium form-control" name="Ip" style="width: 200px;" data-parsley-ip required>
+        <span class="js-bl-tip text-danger hidden">IP已存在</span>
+      </div>
+    </div>
+    <div class="form-group form-inline">
+      <label class="col-sm-3 control-label">选择分类：</label>
+      <div class="col-sm-9">
+        <label class="checkbox-inline">
+          <input class="js-bl-type" type="radio" value="1" name="type" checked required> &nbsp;&nbsp;恶意攻击</label>
+      </div>
+    </div>
+    <div class="form-group form-inline">
+      <label class="col-sm-3 control-label"></label>
+      <div class="col-sm-9">
+        <label class="checkbox-inline">
+          <input class="js-bl-type" type="radio" value="2" name="type"  required> &nbsp;&nbsp;恶意举报</label>
+      </div>
+    </div>
+  </form>
+</div>

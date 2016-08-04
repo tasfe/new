@@ -1,0 +1,12 @@
+<li><a href="javascript:void(0)">您有<%=list.length %>条新消息</a></li>
+<% _(list).each(function(info) { %>
+<li>
+  <a class="js-gl-notice-item" data-id="<%=info.id %>" href="#<%=info.router %>">
+    <span class="notification-icon bg-<%=info.bg %>">
+      <i class="fa fa-<%=info.icon %>"></i>
+    </span>
+    <span class="m-left-xs"><%=info.content %></span>
+    <!--<span class="time text-muted">1hr ago</span>-->
+  </a>
+</li>
+<% }); %>

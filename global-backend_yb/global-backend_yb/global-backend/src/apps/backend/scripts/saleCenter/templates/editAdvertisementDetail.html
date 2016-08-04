@@ -1,0 +1,65 @@
+<div class="panel padding-md">
+  <form class="js-am-editAdvertise-form form-horizontal" action="javascript:void(0)">
+    <div class="form-group form-inline">
+      <label class="col-sm-3 control-label">广告位置：</label>
+
+      <div class="col-sm-9" style="margin-top: 5px;">
+        <span name="placeName" class="js-am-place control-label"></span>
+      </div>
+    </div>
+    <div class="form-group form-inline">
+      <label class="col-sm-3 control-label">广告名称：</label>
+
+      <div class="col-sm-9">
+        <div class="js-fc-singleUser-container">
+          <input name="name" type="text" class="js-am-name form-control"   data-parsley-zhMaxLength="20" data-parsley-someSpecialChar  required>
+          <span class="help-inline">限20个字</span>
+        </div>
+      </div>
+    </div>
+    <div class="form-group form-inline">
+      <label class="col-sm-3 control-label">广告图：</label>
+
+      <div class="col-sm-9">
+        <div class="js-am-arManageUpload-btn"></div>
+        <span class="tip">支持gif、jpg、png格式，大小不超过2M。</span>
+
+        <div class="">
+          <div class="js-am-attach gallery-list js-masonry m-top-md">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group form-inline">
+      <label class="col-sm-3 control-label">链接地址：</label>
+
+      <div class="col-sm-9">
+        <div class="js-fc-singleUser-container">
+          <input type="url" class="js-am-url form-control" data-parsley-type="url">
+          <span class="help-inline">提示：内链直接填路径名，外链加http://，空链可不填。</span>
+        </div>
+      </div>
+    </div>
+    <div class="form-group form-inline">
+      <label class="col-sm-3 control-label">有效期：</label>
+
+      <div class="col-sm-9">
+        <div class="js-fc-singleUser-container">
+          <span class="js-am-timeset"></span>
+        </div>
+      </div>
+    </div>
+    <div class="form-group form-inline">
+      <label class="col-sm-3 control-label">前台显示排序：</label>
+
+      <div class="col-sm-9">
+        <select name="sort" class="js-am-sort form-control" id="sort" required>
+        </select>
+        <span class="help-inline"></span>
+      </div>
+    </div>
+    <div class="form-group form-inline">
+      <div class="col-sm-offset-3 col-sm-9 js-sc-am-ea-notice"></div>
+    </div>
+  </form>
+</div>

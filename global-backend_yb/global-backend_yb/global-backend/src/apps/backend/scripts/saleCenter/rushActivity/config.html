@@ -1,0 +1,189 @@
+<div class="panel padding-md">
+  <form class="js-form form-horizontal form-inline" action="javascript:void(0)">
+    <div class="row m-bottom-sm">
+      <div class="col-sm-6 col-sm-offset-1">
+        <div class="form-group form-inline">
+          <label class="control-label">活动时间：</label>
+          <span class="js-hc-timeset"></span>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="form-group form-inline">
+          <label class="control-label m-right-sm">返点级别：</label>
+          <input name="rebate" type="text" class="form-control" style="width: 50px;" data-parsley-range="[0, 100]" data-parsley-twoDecimal required="">
+        </div>
+      </div>
+    </div>
+    <div class="row m-bottom-sm ">
+      <div class="col-sm-10 col-sm-offset-1">
+        <table class="js-bonus-setting table table-bordered">
+          <thead>
+          <tr>
+            <th>线长级别</th>
+            <th>日量区间</th>
+            <th>奖励金额</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td>
+              E
+              <input type="hidden" name="itemList[0].type" value="1" required="">
+            </td>
+            <td>
+              <input type="text" name="itemList[0].minSales" class="form-control" required="" data-parsley-range="[0, 100000000]" data-parsley-threedecimal="">
+              -
+              <input type="text" name="itemList[0].maxSales" class="form-control" required="" data-parsley-range="[0, 100000000]" data-parsley-threedecimal="">
+            </td>
+            <td>
+              <p>
+                升级奖 <input type="text" name="itemList[0].upBonus" class="form-control" required="" data-parsley-range="[0, 100000000]" data-parsley-threedecimal=""> 元
+              </p>
+              <p>
+                保级奖 <input type="text" name="itemList[0].curBonus" class="form-control" required="" data-parsley-range="[0, 100000000]" data-parsley-threedecimal=""> 元
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              D
+              <input type="hidden" name="itemList[1].type" value="2" required="">
+            </td>
+            <td>
+              <input type="text" name="itemList[1].minSales" class="form-control" required="" data-parsley-range="[0, 100000000]" data-parsley-threedecimal="">
+              -
+              <input type="text" name="itemList[1].maxSales" class="form-control" required="" data-parsley-range="[0, 100000000]" data-parsley-threedecimal="">
+            </td>
+            <td>
+              <p>
+                升级奖 <input type="text" name="itemList[1].upBonus" class="form-control" required="" data-parsley-range="[0, 100000000]" data-parsley-threedecimal=""> 元
+              </p>
+              <p>
+                保级奖 <input type="text" name="itemList[1].curBonus" class="form-control" required="" data-parsley-range="[0, 100000000]" data-parsley-threedecimal=""> 元
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              C
+              <input type="hidden" name="itemList[2].type" value="3" required="">
+            </td>
+            <td>
+              <input type="text" name="itemList[2].minSales" class="form-control" required="" data-parsley-range="[0, 100000000]" data-parsley-threedecimal="">
+              -
+              <input type="text" name="itemList[2].maxSales" class="form-control" required="" data-parsley-range="[0, 100000000]" data-parsley-threedecimal="">
+            </td>
+            <td>
+              <p>
+                升级奖 <input type="text" name="itemList[2].upBonus" class="form-control" required="" data-parsley-range="[0, 100000000]" data-parsley-threedecimal=""> 元
+              </p>
+              <p>
+                保级奖 <input type="text" name="itemList[2].curBonus" class="form-control" required="" data-parsley-range="[0, 100000000]" data-parsley-threedecimal=""> 元
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              B
+              <input type="hidden" name="itemList[3].type" value="4" required="">
+            </td>
+            <td>
+              <input type="text" name="itemList[3].minSales" class="form-control" required="" data-parsley-range="[0, 100000000]" data-parsley-threedecimal="">
+              -
+              <input type="text" name="itemList[3].maxSales" class="form-control" required="" data-parsley-range="[0, 100000000]" data-parsley-threedecimal="">
+            </td>
+            <td>
+              <p>
+                升级奖 <input type="text" name="itemList[3].upBonus" class="form-control" required="" data-parsley-range="[0, 100000000]" data-parsley-threedecimal=""> 元
+              </p>
+              <p>
+                保级奖 增加<input type="text" name="itemList[3].curBonus" class="form-control" required="" data-parsley-range="[0, 100]" data-parsley-threedecimal="">% 分红
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              A
+              <input type="hidden" name="itemList[4].type" value="5" required="">
+            </td>
+            <td>
+              <input type="text" name="itemList[4].minSales" class="form-control" required="" data-parsley-range="[0, 100000000]" data-parsley-threedecimal="">
+              -
+              <input type="text" name="itemList[4].maxSales" class="form-control" required="" data-parsley-range="[0, 100000000]" data-parsley-threedecimal="">
+            </td>
+            <td>
+              <p>
+                升级奖 <input type="text" name="itemList[4].upBonus" class="form-control" required="" data-parsley-range="[0, 100000000]" data-parsley-threedecimal=""> 元
+              </p>
+              <p>
+                保级奖 增加<input type="text" name="itemList[4].curBonus" class="form-control" required="" data-parsley-range="[0, 100]" data-parsley-threedecimal="">% 分红
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              A + 1
+              <input type="hidden" name="itemList[5].type" value="6" required="">
+            </td>
+            <td>
+              <input type="text" name="itemList[5].minSales" class="form-control" required="" data-parsley-range="[0, 100000000]" data-parsley-threedecimal="">
+              -
+              <input type="text" name="itemList[5].maxSales" class="form-control" required="" data-parsley-range="[0, 100000000]" data-parsley-threedecimal="">
+            </td>
+            <td>
+              <p>
+                升级奖 <input type="text" name="itemList[5].upBonus" class="form-control" required="" data-parsley-range="[0, 100000000]" data-parsley-threedecimal=""> 元
+              </p>
+              <p>
+                保级奖 增加<input type="text" name="itemList[5].curBonus" class="form-control" required="" data-parsley-range="[0, 100]" data-parsley-threedecimal="">% 分红
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              A + 2
+              <input type="hidden" name="itemList[6].type" value="7" required="">
+            </td>
+            <td>
+              <input type="text" name="itemList[6].minSales" class="form-control" required="" data-parsley-range="[0, 100000000]" data-parsley-threedecimal="">
+              -
+              <input type="text" name="itemList[6].maxSales" class="form-control" required="" data-parsley-range="[0, 100000000]" data-parsley-threedecimal="">
+            </td>
+            <td>
+              <p>
+                升级奖 <input type="text" name="itemList[6].upBonus" class="form-control" required="" data-parsley-range="[0, 100000000]" data-parsley-threedecimal=""> 元
+              </p>
+              <p>
+                保级奖 增加<input type="text" name="itemList[6].curBonus" class="form-control" required="" data-parsley-range="[0, 100]" data-parsley-threedecimal="">% 分红
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              A + 3
+              <input type="hidden" name="itemList[7].type" value="8" required="">
+            </td>
+            <td>
+              <input type="text" name="itemList[7].minSales" class="form-control" required="" data-parsley-range="[0, 100000000]" data-parsley-threedecimal="">
+              -
+              <input type="text" name="itemList[7].maxSales" class="form-control" required="" data-parsley-range="[0, 100000000]" data-parsley-threedecimal="">
+            </td>
+            <td>
+              <p>
+                升级奖 <input type="text" name="itemList[7].upBonus" class="form-control" required="" data-parsley-range="[0, 100000000]" data-parsley-threedecimal=""> 元
+              </p>
+              <p>
+                保级奖 增加<input type="text" name="itemList[7].curBonus" class="form-control" required="" data-parsley-range="[0, 100]" data-parsley-threedecimal="">% 分红
+              </p>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="text-center">
+      <button class="js-hc-btn-submit btn btn-primary" type="submit"  style="width: 100px; margin-right: 20px;" data-loading-text="发送中">确定</button>
+      <button style="width: 100px;" class="js-hc-btn-reset btn" data-dismiss="modal" type="reset">取消</button>
+    </div>
+  </form>
+</div>

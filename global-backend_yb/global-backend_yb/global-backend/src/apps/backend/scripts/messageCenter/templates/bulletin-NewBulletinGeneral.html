@@ -1,0 +1,42 @@
+<div class="panel padding-md">
+<form class="js-cn-notice-general-form form-horizontal" action="javascript:void(0)">
+  <div class="form-group form-inline">
+    <label class="col-sm-3 control-label">主题：</label>
+    <div class="col-sm-9">
+      <div class="js-fc-singleUser-container">
+        <input name="title" type="text" class="js-cn-general-title form-control" data-parsley-zhMaxLength="20" data-parsley-someSpecialChar style="width: 300px;" required>
+        <span class="help-inline">限20个字</span>
+      </div>
+    </div>
+  </div>
+  <div class="form-group form-inline">
+    <label class="col-sm-3 control-label">摘要：</label>
+    <div class="col-sm-9">
+      <div class="js-fc-singleUser-container">
+        <input name="desc" type="text" class="js-cn-general-desc form-control" data-parsley-zhMaxLength="120" data-parsley-someSpecialChar style="width: 300px;" required>
+      </div>
+    </div>
+  </div>
+  <div class="form-group form-inline">
+    <label class="col-sm-3 control-label">内容：</label>
+
+    <div class="col-sm-9">
+      <div id="uploadBGContainer">
+      </div>
+      <textarea id="textarea1" style='height:300px; width:100%;' class="js-cn-general-content" data-parsley-zhMaxLength="50000" required></textarea>
+    </div>
+  </div>
+  <div class="form-group form-inline">
+    <label class="col-sm-3 control-label">发布时间：</label>
+    <div class="col-sm-9">
+      <input type="text" class="js-cn-general-starttime input-medium form-control" name="startTime" required >
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-9">
+      <button type="submit" class="js-cn-general-btn-submit btn btn-primary" data-loading-text="发送中">发送</button>
+      <button type="reset" class="js-cn-general-btn-cancel btn btn-default">取消</button>
+    </div>
+  </div>
+</form>
+</div>

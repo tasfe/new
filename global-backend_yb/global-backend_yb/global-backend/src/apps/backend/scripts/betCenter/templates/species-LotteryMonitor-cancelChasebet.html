@@ -1,0 +1,32 @@
+<form class="js-bc-form form-horizontal" action="javascript:void(0)">
+  <div class="form-group form-inline">
+    <label class="col-sm-3 control-label">选择期号：</label>
+    <div class="col-sm-9">
+      <div class="js-bc-remark-container">
+        <label class="control-label js-bc-confirmLabel"></label>
+        <input type="text" class="form-control js-bc-endPlanId " data-parsley-numAndMidLine required>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group form-inline">
+    <label class="col-sm-3 control-label">操作备注：</label>
+
+    <div class="col-sm-9">
+      <div class="js-bc-remark-container">
+        <input type="text" class="form-control js-bc-remark width-md" data-parsley-zhMaxLength="100">
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group form-inline">
+    <div class="col-sm-offset-2 col-sm-9 js-bc-rightOpenTime-notice"></div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-offset-5 col-sm-7">
+      <button type="submit" class="js-bc-btn-submit btn btn-primary" data-loading-text="发送中">确定</button>
+      <button type="button" class="js-bc-btn-cancel btn btn-default" data-dismiss="modal">取消</button>
+    </div>
+  </div>
+</form>

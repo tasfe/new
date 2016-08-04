@@ -1,0 +1,49 @@
+<div class="panel padding-md">
+  <form class="js-fc-form form-horizontal" action="javascript:void(0);">
+    <div class="row m-bottom-sm">
+      <div class="col-sm-6">
+        <div class="form-group form-inline">
+          <label class="control-label m-right-sm" style="margin-left: 105px;">活动时间：</label>
+          <span class="js-fc-timeset"></span>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="form-group form-inline">
+          <label class="control-label m-right-sm">代理级别</label>
+          <select class="form-control" name="agentLevel" required>
+            <option value="0">13.0(总代)</option>
+            <option value="1">13.0(平级总代)</option>
+            <option value="2">12.8</option>
+            <option value="3">12.7</option>
+            <option value="4">12.6</option>
+            <option value="5">12.5</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="form-group form-inline">
+          <label class="control-label m-right-sm">每：</label>
+          <input name="cycle" type="text" class="js-hc-rainSec form-control" style="width: 50px;"
+            data-parsley-range="[0, 1000]" data-parsley-type="integer" required="">
+          <label class="control-label m-right-sm">日，一个周期</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group ">
+      <div class="col-sm-12">
+        <button class="btn btn-sm btn-primary  js-fc-gs-addBonusSet-btn " type="button">增加奖金比例</button>
+        <span class="tip m-left-lg">提示：此处的日代表平均日量，新增的奖励比例和日投注额要比之前的数值大。</span>
+      </div>
+    </div>
+    <div class="js-fc-gs-container"></div>
+
+    <div class="form-group">
+      <div class=" col-sm-12 text-center">
+        <button type="submit" class="js-fc-submit btn btn-primary margin-md" data-loading-text="保存中">保存</button>
+        <button type="button" class="js-fc-gs-cancel btn btn-default margin-md">取消</button>
+      </div>
+    </div>
+  </form>
+</div>
+

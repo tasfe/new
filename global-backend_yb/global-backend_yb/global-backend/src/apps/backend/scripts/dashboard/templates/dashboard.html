@@ -1,0 +1,243 @@
+<div class="padding-md">
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="page-title">
+        Dashboard
+      </div>
+      <div class="page-sub-header js-dashboard-name">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="js-dashboard-page">
+<div class="row m-top-md">
+  <div class="col-lg-3 col-sm-6">
+    <div class="statistic-box bg-danger m-bottom-md">
+      <div class="statistic-title">
+        今日访问人数
+      </div>
+
+      <div class="statistic-value js-dashboard-access" style="margin-top: 20px;">
+      </div>
+
+      <div class="statistic-icon-background">
+        <i class="ion-eye"></i>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-3 col-sm-6">
+    <div class="statistic-box bg-info m-bottom-md">
+      <div class="statistic-title">
+        今日充值
+      </div>
+
+      <div class="statistic-value js-dashboard-recharge" style="margin-top: 20px;">
+      </div>
+
+      <div class="statistic-icon-background">
+        <i class="ion-arrow-graph-up-right"></i>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-3 col-sm-6">
+    <div class="statistic-box bg-purple m-bottom-md">
+      <div class="statistic-title">
+        今日投注
+      </div>
+
+      <div class="statistic-value js-dashboard-bet" style="margin-top: 20px;">
+      </div>
+
+      <div class="statistic-icon-background">
+        <i class="ion-person-add"></i>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-3 col-sm-6">
+    <div class="statistic-box bg-success m-bottom-md">
+      <div class="statistic-title">
+        今日盈亏
+      </div>
+
+      <div class="statistic-value js-dashboard-profit" style="margin-top: 20px;">
+      </div>
+
+      <div class="statistic-icon-background">
+        <i class="ion-stats-bars"></i>
+      </div>
+    </div>
+  </div>
+</div>
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="portlet widget-dark-blue">
+        <div class="portlet-header">
+          访问人数
+        </div>
+        <div class="portlet-inner">
+          <div class="portlet-body no-padding">
+            <div class="padding-md ">
+              <div  style="height: 280px; position: relative;">
+                <div class="js-db-loginUser-total-chart height-md"></div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- ./portlet-inner -->
+      </div>
+      <!-- ./portlet -->
+    </div>
+    <!-- ./col -->
+    <div class="col-lg-6">
+      <div class="portlet widget-dark-blue">
+        <div class="portlet-header">
+          在线人数
+        </div>
+        <div class="portlet-inner">
+          <div class="portlet-body no-padding">
+            <div class="padding-md">
+              <div  style="height: 280px; position: relative;">
+                <div class="js-db-onlineUser-total-chart height-md"></div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- ./portlet-inner -->
+      </div>
+      <!-- ./portlet -->
+    </div>
+    <!-- ./col -->
+  </div>
+<div class="row">
+  <div class="col-lg-6">
+    <div class="portlet widget-dark-blue">
+      <div class="portlet-header">
+        充值历史
+      </div>
+      <div class="portlet-inner">
+
+        <div class="portlet-body no-padding">
+          <div class="padding-md ">
+            <div id="rechargeRealTimeChat" class="morris-chartmorris-chart" style="height: 280px; position: relative;">
+              <div class="js-db-recharge-total-chart height-md"></div>
+              <div class="morris-hover morris-default-style" style="left: 229.357px; top: 87px;">
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- ./portlet-inner -->
+    </div>
+    <!-- ./portlet -->
+  </div>
+  <!-- ./col -->
+  <div class="col-lg-6">
+    <div class="portlet widget-dark-blue">
+      <div class="portlet-header">
+        投注历史
+      </div>
+      <div class="portlet-inner">
+
+        <div class="portlet-body no-padding">
+          <div class="padding-md">
+            <div id="betRealTimeChart" class="morris-chartmorris-chart" style="height: 280px; position: relative;">
+              <div class="js-db-bet-chart height-md"></div>
+              <div class="morris-hover morris-default-style" style="left: 229.357px; top: 87px;">
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- ./portlet-inner -->
+    </div>
+    <!-- ./portlet -->
+  </div>
+  <!-- ./col -->
+</div>
+<div class="row">
+  <div class="col-lg-6">
+    <div class="portlet widget-dark-blue">
+      <div class="portlet-header">
+        注册用户
+      </div>
+      <div class="portlet-inner">
+
+        <div class="portlet-body no-padding">
+          <div class="padding-md ">
+            <div id="regUserChat" class="morris-chartmorris-chart" style="height: 280px; position: relative;">
+              <div class="js-db-regUser-total-chart height-md"></div>
+              <div class="morris-hover morris-default-style" style="left: 229.357px; top: 87px;">
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- ./portlet-inner -->
+    </div>
+    <!-- ./portlet -->
+  </div>
+  <!-- ./col -->
+  <div class="col-lg-6">
+    <div class="portlet widget-dark-blue">
+      <div class="portlet-header">
+        活跃用户
+      </div>
+      <div class="portlet-inner">
+
+        <div class="portlet-body no-padding">
+          <div class="padding-md">
+            <div id="activityChart" class="morris-chartmorris-chart" style="height: 280px; position: relative;">
+              <div class="js-db-activityUser-chart height-md"></div>
+              <div class="morris-hover morris-default-style" style="left: 229.357px; top: 87px;">
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- ./portlet-inner -->
+    </div>
+    <!-- ./portlet -->
+  </div>
+  <!-- ./col -->
+</div>
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="portlet widget-dark-blue">
+        <div class="portlet-header">
+          玩彩情况
+        </div>
+        <div class="portlet-inner">
+
+          <div class="portlet-body no-padding">
+            <div class="padding-md ">
+              <div id="" class="morris-chartmorris-chart" style="height: 280px; position: relative;">
+                <div class="js-db-ticket-play-chart height-md"></div>
+                <div class="morris-hover morris-default-style" style="left: 229.357px; top: 87px;">
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- ./portlet-inner -->
+      </div>
+      <!-- ./portlet -->
+    </div>
+    <!-- ./col -->
+    <div class="col-lg-6">
+
+    </div>
+    <!-- ./col -->
+  </div>
+
+</div>

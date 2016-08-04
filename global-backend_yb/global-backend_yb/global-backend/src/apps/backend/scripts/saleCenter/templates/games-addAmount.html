@@ -1,0 +1,30 @@
+<div class="panel padding-md">
+  <form class="js-gm-addUsers-form form-horizontal" action="javascript:void(0)">
+    <div class="form-group js-qm-addUserList-container">
+      <div class=" form-group form-inline">
+        <label class="col-sm-2 control-label">操作类型：</label>
+        <select class="form-control js-gm-optType" name="optType" style="width: 150px;">
+        <option value="">请选择</option>
+        <option value="0">增加礼金</option>
+        <option value="-1">减少礼金</option>
+        </select>
+      </div>
+      <div class="form-group form-inline">
+        <label class="col-sm-2 control-label">金额：</label>
+        <input type="text" class="js-gm-amount form-control" style="width: 150px;" data-parsley-type="integer" data-parsley-range="[0, 1000000]" required >
+        <span style="margin-left: 5px;">元</span>
+      </div>
+      <div class=" form-group form-inline">
+        <label class="col-sm-2 control-label">用户名：</label>
+      <textarea class="js-gm-usernameList form-control width-md height-sm col-sm-6 "
+                data-parsley-maxlength="3399"
+                data-parsley-excluded="input[type=button], input[type=submit], input[type=reset], input[type=hidden], [disabled], :hidden"
+                style="width: 350px !important;height: 200px !important; margin-top: 10px;" required></textarea>
+      </div>
+        <label class="col-sm-2 control-label"></label>
+        <div class="js-gm-fileUpload-btn"></div>
+        <label class="col-sm-2 control-label"></label>
+        <span class="tip">支持txt，单次最多可导入200个用逗号分隔的用户名。</span>
+    </div>
+  </form>
+</div>

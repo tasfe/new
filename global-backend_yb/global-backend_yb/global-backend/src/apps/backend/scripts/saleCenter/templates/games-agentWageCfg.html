@@ -1,0 +1,41 @@
+<div class="panel padding-md">
+  <form class="js-wc-wageCfg-form form-horizontal form-inline" action="javascript:void(0)">
+    <div class="row m-bottom-sm">
+      <div class="col-sm-6">
+        <div class="form-group form-inline">
+          <label class="control-label m-right-sm" style="margin-left: 105px;">活动时间：</label>
+          <span class="js-wc-timeset"></span>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="form-group form-inline">
+          <label class="control-label m-right-sm">代理级别：</label>
+          <input name="agentLevel" type="text" class="js-wc-agentLevel form-control" style="width: 50px;" data-parsley-oneDecimal required>
+          <label class="control-label m-right-sm">%</label>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="form-group form-inline">
+          <label class="control-label m-right-sm">亏损≥：</label>
+          <input name="lossAmount" type="text" class="js-wc-lossAmount form-control" style="width: 100px;" required>
+          <label class="control-label m-right-sm">元</label>
+        </div>
+      </div>
+    </div>
+    <div class="row m-bottom-sm">
+      <div class="">
+        <div class="col-sm-10 col-sm-offset-1">
+          <button class="js-wc-add btn btn-primary" style="margin-right: 50px;"><i class="fa fa-plus"></i> 增加工资比例</button>提示：此处的日代表平均日量，新增的工资比例和日投注额要比之前的数值大。
+          <div class="js-wc-cfgDetail" style="margin-top: 10px;"></div>
+        </div>
+      </div>
+    </div>
+    <div class="text-center">
+      <button class="js-wc-btn-submit btn btn-primary" type="button"  style="width: 100px; margin-right: 20px;" data-loading-text="发送中">确定</button>
+      <button style="width: 100px;" class="js-wc-btn-reset btn" data-dismiss="modal" type="reset">取消</button>
+    </div>
+    <div>
+      <input name="activityId" type="hidden" class="js-wc-activityId form-control">
+    </div>
+  </form>
+</div>

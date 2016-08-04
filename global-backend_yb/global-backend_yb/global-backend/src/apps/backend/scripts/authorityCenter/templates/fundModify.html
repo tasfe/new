@@ -1,0 +1,19 @@
+<div class="panel padding-md">
+  <form class="js-um-fund-modify-form form-horizontal" action="javascript:void(0)">
+    <div class="form-group form-inline">
+      <label class="col-sm-3 control-label">最大值：</label>
+      <div class="col-sm-9">
+        <input id="jsMaxMoney" type="text" name="maxMoney" class="form-control"
+               data-parsley-type="integer" data-parsley-max="1000000" style="width: 200px;" required>
+      </div>
+    </div>
+    <div class="form-group form-inline">
+      <label class="col-sm-3 control-label">最小值：</label>
+
+      <div class="col-sm-9">
+        <input type="text" class="form-control" name="minMoney"
+               data-parsley-type="integer"  data-parsley-lte="#jsMaxMoney" data-parsley-min="0" style="width: 200px;" required>
+      </div>
+    </div>
+  </form>
+</div>
