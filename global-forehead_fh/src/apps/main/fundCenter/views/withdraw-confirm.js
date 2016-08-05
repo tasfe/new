@@ -17,14 +17,52 @@ var WithdrawConfirmView = Base.ItemView.extend({
     className: '',
     
     onRender: function() {
-        
+
+        this.$('.js-fc-question').html(this.options.question);
         
     },
 
+    getWithdrawXhr: function(data) {
+        return Global.sync.ajax({
+            url: '/fund/withdraw/withdraw.json',
+            data: _(data).extend({
+                device: 0
+            })
+        });
+    },
+
     nextStepHandler:function () {
-        var wfView = new WithdrawFinishView({parentView: this.parentView});
-        $('.js-fc-wd-container').html(wfView.render().el);
+
+        var $btnConfirm = this.$('.js-fc-wd-commit');
+        $btnConfirm.button('loading');
+
+        var data = {
+            cardId: this.options.cardId,
+            amount: this.options.amount,
+            payPwd: this.$('.js-fc-wd-payPwd').val(),
+            answer: this.$('.js-fc-wd-amount').val(),
+            securityId: this.options.securityId,
+            type: 'withdraw'
+        };
+
+         this.getWithdrawXhr(data)
+         .always(function() {
+            $btnConfirm.button('reset');
+         })
+         .done(function(res) {
+            if (res && res.result === 0) {
+
+                var wfView = new WithdrawFinishView({parentView: this.parentView});
+                $('.js-fc-wd-container').html(wfView.render().el);
+
+            } else {
+                Global.ui.notification.show(res.msg);
+            }
+
+         });
+
     }
+    
 
 });
 

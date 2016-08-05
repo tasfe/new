@@ -7,6 +7,7 @@ var UserCenterController = require('userCenter/controller');
 exports.install = function() {
 
   window.Global.appRouter.processAppRoutes(new UserCenterController(), {
+    'uc/pal':'lottoryPal',
     'uc/br': 'bettingRecords', // 投注信息
     'uc/br/detail/:betId': 'bettingDetail', // 投注详情
 
@@ -27,7 +28,8 @@ exports.install = function() {
     'vip/prize': 'vipPrize',
     'vip/cash': 'vipCash',
     //'vip/info': 'vipInfo',
-    'vip/credit': 'vipCredit'
+    'vip/credit': 'vipCredit',
+
   });
 
 };

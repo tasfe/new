@@ -32,10 +32,19 @@ var VipCashView = require('userCenter/vipCash');
 //var VipInfoView = require('userCenter/vipInfo');
 var VipCreditView = require('userCenter/vipCredit');
 
+var LotteryPALView = require('userCenter/lottoryPAL/ProfitAndLoss');
+
 
 var menuConfig = Global.ui.menu.get(['ac', 'uc', 'aa']);
 
 var UserCenterController = RouterController.extend({
+  
+  lottoryPal:function () {
+    this.changeMainReginView(new LotteryPALView(), {
+      sidebar: Global.ui.menu.get(['uc'])
+    });
+    $('#main > .clearfix').addClass('ac-block ac-block2');
+  },
 
   checkPayPwdXhr: function() {
     return Global.sync.ajax({

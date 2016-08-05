@@ -7,19 +7,17 @@ var ActiveCenterView = Base.ItemView.extend({
   startOnLoading: true,
 
   events: {
-    'click .js-active-header': 'activeChangeHandler'
+    'click .js-list-active': 'activeChangeHandler'
   },
   
   activeChangeHandler:function (e) {
-
-    alert(ewrw);
 
     this.$('.list-active').removeClass('list-active');
     var $target = $(e.currentTarget);
     $target.addClass('list-active');
 
     var currentIndex = $target.data('index');
-    alert(currentIndex);
+    //alert(currentIndex);
 
   },
   
@@ -76,7 +74,7 @@ var ActiveCenterView = Base.ItemView.extend({
   },
 
   renderActiveContex:function (activityList) {
-    $('#main').html(this.el);
+    //$('#main').html(this.el);
 
     if (_(activityList).isEmpty()) {
       this.$activeContext.html(this.getEmptyHtml('暂时没有活动'));
