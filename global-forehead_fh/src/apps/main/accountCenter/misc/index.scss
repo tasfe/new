@@ -269,14 +269,28 @@
 }
 
 .ac-setemail-content{
-  //background-color: #00c1f1;
   height: 500px;
-  .ac-setemail-icon{
-    width: 200px;
-    height: 200px;
-    background: url("ac-emailsetting.png") no-repeat;
-  }
+  .ac-setemail-body{
+    display: -webkit-box;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+    width: 430px;
+    .ac-setemail-icon{
 
+      width: 111px;
+      height: 127px;
+      background: url("ac-emailsetting.png") no-repeat;
+    }
+
+    .ac-setemail-title{
+      margin: 40px;
+      width: 245px;
+      height: 40px;
+      font-size: 14px;
+    }
+
+  }
 
 
 }

@@ -7,6 +7,7 @@ var SettingEmail = Base.ItemView.extend({
     className: 'as-loginPwd-view',
     
     events: {
+        'click .js-modefy-email': 'modefyEmailHandler'
 
     },
 
@@ -16,7 +17,12 @@ var SettingEmail = Base.ItemView.extend({
 
     onRender: function() {
         
+    },
+
+    modefyEmailHandler:function () {
+            alert(323)
     }
+
 
 });
 
