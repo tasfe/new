@@ -6,7 +6,7 @@
     <% _(rules).each(function(rule) { %>
     <% var id = _.uniqueId() %>
     <label class="<%=ruleClass %> bc-advance-rule" data-id="<%=rule.id %>" data-title="<%=rule.title %>" data-type="<%=rule.type %>">
-      <span class="custom-radio radio-full">
+      <span class="custom-radio radio-full hidden">
         <input type="radio" id="js<%=id %>" class="js-gl-function" name="ticketId[]" value="9">
         <label for="js<%=id %>"></label>
       </span>

@@ -249,8 +249,9 @@ $main-area-width: 870px;
   padding-top: 6px;
   float: left;
   z-index: 999;
-  margin-top: -10px;
+  margin-top: -13px;
   position: absolute;
+  font-size: 15px;
 
   .bc-advance-rules-container {
     padding-left: 12px;
@@ -260,7 +261,8 @@ $main-area-width: 870px;
   .bc-advance-rule {
     min-width: 130px;
     //display: inline-block;
-    font-size: 15px;
+    font-size: 16px;
+    padding: 5px;
   }
 
 }
@@ -345,7 +347,7 @@ $main-area-width: 870px;
   }
 
   .tab-toolbar{
-    padding-left: 8px;
+    //padding-left: 8px;
   }
 }
 
