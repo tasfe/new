@@ -14,7 +14,7 @@ var WithdrawFinishView = Base.ItemView.extend({
 
     onRender: function() {
         
-        
+
     },
 
     finishedHandler:function () {
