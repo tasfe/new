@@ -7,15 +7,20 @@ var RouterController = require('skeleton/controllers/router');
 var PasswordManageView = require('accountCenter/views/passwordManage');
 var SecurityQuestionView = require('accountCenter/views/securityQuestion');
 var LoginLogView = require('accountCenter/views/loginLog');
+var settingEmailView = require('accountCenter/views/settingEmail');
 
 var AccountCenterController = RouterController.extend({
 
-  // loginPwd:function () {
-  //   this.changeMainReginView(new PasswordManageView(),{
-  //
-  //   });
-  // }
+  settingEmail: function() {
+    this.changeMainReginView(new settingEmailView(), {
+      sidebar: Global.ui.menu.get(['pc'])
+    });
 
+    var PublicView = require('userCenter/views/publicView');
+    var publicView = new PublicView();
+    publicView.checkState();
+  },
+  
 
   loginPwd: function() {
     this.changeMainReginView(new PasswordManageView(), {

@@ -1,14 +1,24 @@
+"use strict";
+
 var SearchGrid = require('com/searchGrid');
 
 var Timeset = require('com/timeset');
 
-var ProfitAndLoss = SearchGrid.extend({
+var betStatusConfig = require('userCenter/misc/betStatusConfig');
+
+var RechargeRecordsView = SearchGrid.extend({
 
     template: require('./index.html'),
+
+    events: {},
 
     initialize: function () {
         _(this.options).extend({
             columns: [
+                {
+                    name: '账号',
+                    width: '13%'
+                },
                 {
                     name: '交易流水号',
                     width: '22%'
@@ -19,23 +29,23 @@ var ProfitAndLoss = SearchGrid.extend({
                 },
                 {
                     name: '充值方式',
-                    width: '14%'
+                    width: '10%'
                 },
                 {
                     name: '充值金额',
-                    width: '15%',
+                    width: '12%',
                     sortable: true,
                     id: 0
                 },
                 {
                     name: '账户余额',
-                    width: '15%',
+                    width: '13%',
                     sortable: true,
                     id: 1
                 },
                 {
                     name: '状态',
-                    width: '14%'
+                    width: '10%'
                 }
             ],
             gridOps: {
@@ -45,16 +55,13 @@ var ProfitAndLoss = SearchGrid.extend({
                 url: '/fund/recharge/rechargelist.json',
                 abort: false
             },
+            viewType: 'team',
             reqData: {
-                subUser: 0
+                subUser: 1
             },
             listProp: 'root.rechargeList',
             height: 315
         });
-    },
-
-    events: {
-        'click .js-excess-cell': 'dateSelectHandler'
     },
 
     onRender: function() {
@@ -118,7 +125,6 @@ var ProfitAndLoss = SearchGrid.extend({
         row.push(rowInfo.status);
         return row;
     }
-    
 });
 
-module.exports = ProfitAndLoss;
+module.exports = RechargeRecordsView;

@@ -97,14 +97,12 @@ var ProfitAndLoss = SearchGrid.extend({
 
         //加上统计行
         this.grid.addFooterRows({
-                //trClass: 'tr-footer',
-                columnEls: [
-                    '<div class="text-hot">所有页总计</div>', '', '','',
-                    '<div class="text-hot">' + _(gridData.amountTotal).fixedConvert2yuan() + '</div>',
-                    '',''
-                ]
-            })
-            .hideLoading();
+            columnEls: [
+                '<div class="text-hot">所有页总计</div>', '', '','',
+                '<div class="text-hot">' + _(gridData.amountTotal).fixedConvert2yuan() + '</div>',
+                '',''
+            ]
+        }).hideLoading();
     },
 
     formatRowData: function(rowInfo) {
@@ -118,7 +116,7 @@ var ProfitAndLoss = SearchGrid.extend({
         row.push(rowInfo.status);
         return row;
     }
-    
+
 });
 
 module.exports = ProfitAndLoss;
