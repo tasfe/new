@@ -1,0 +1,28 @@
+{
+  "msg": "",
+  "result": 0,
+  "root":
+  {
+    "rowNum": 39,
+    "withdrawList": [
+      {
+        "createTime": 12131111,
+        "withdrawTotal": 1213,
+        "status": 1,
+        "moneyUnit": "CNY"
+      },
+      {
+        "createTime": 12131111,
+        "withdrawTotal": 1213,
+        "status": 1,
+        "moneyUnit": "CNY"
+      },
+      {
+        "createTime": 12131111,
+        "withdrawTotal": 1213,
+        "status": 1,
+        "moneyUnit": "CNY"
+      }
+    ]
+  }
+}

@@ -1,0 +1,90 @@
+.search-input {
+  position: relative;
+  display: inline-block;
+  input {
+    width: 150px;
+    border-radius: 50em !important;
+    -moz-border-radius: 50em !important;
+    -webkit-border-radius: 50em !important;
+    transition: all .5s ease;
+    -webkit-transition: all .5s ease;
+    -moz-transition: all .5s ease;
+    -ms-transition: all .5s ease;
+    -o-transition: all 0.5s ease;
+/*    &:focus, &:hover {
+      width: 150px;
+      transition: all .5s ease;
+      -webkit-transition: all .5s ease;
+      -moz-transition: all .5s ease;
+      -ms-transition: all .5s ease;
+      -o-transition: all 0.5s ease;
+    }*/
+/*    &:focus + .input-icon, &:hover + .input-icon {
+      right: 15px;
+    }*/
+  }
+/*  &:focus input, &:hover input {
+    width: 150px;
+    transition: all .5s ease;
+    -webkit-transition: all .5s ease;
+    -moz-transition: all .5s ease;
+    -ms-transition: all .5s ease;
+    -o-transition: all 0.5s ease;
+  }*/
+ /* &:focus input + .input-icon, &:hover input + .input-icon {
+    right: 15px;
+  }*/
+  .input-icon {
+    display: inline-block;
+    position: absolute;
+    top: 5px;
+    right: 8px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 330px) {
+  .search-input input {
+    width: 30px;
+    &::-webkit-input-placeholder {
+      color: #fff;
+    }
+    &::-moz-placeholder {
+      color: #fff;
+    }
+    &:hover, &:focus {
+      visibility: visible;
+      width: 100px;
+      &::-webkit-input-placeholder {
+        color: #999;
+      }
+      &::-moz-placeholder {
+        color: #999;
+      }
+      transition: all .5s ease;
+      -webkit-transition: all .5s ease;
+      -moz-transition: all .5s ease;
+      -ms-transition: all .5s ease;
+      -o-transition: all 0.5s ease;
+    }
+  }
+  .search-input {
+    &:focus, &:hover {
+      input {
+        visibility: visible;
+        width: 100px;
+        &::-webkit-input-placeholder {
+          color: #999;
+        }
+        &::-moz-placeholder {
+          color: #999;
+        }
+        transition: all .5s ease;
+        -webkit-transition: all .5s ease;
+        -moz-transition: all .5s ease;
+        -ms-transition: all .5s ease;
+        -o-transition: all 0.5s ease;
+      }
+    }
+  }
+}

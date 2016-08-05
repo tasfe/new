@@ -1,0 +1,67 @@
+<div class="panel padding-md">
+  <form class="js-sp-notice-groups-form form-horizontal" action="javascript:void(0)">
+    <div class="form-group form-inline">
+      <label class="col-sm-2 control-label">选择用户组：</label>
+      <div class="col-sm-10">
+        <label class="checkbox-inline">
+          <input class="js-sp-group" type="checkbox" value="1" name="groupId"> &nbsp;&nbsp;总代</label>
+        </div>
+    </div>
+    <div class="form-group form-inline">
+      <label class="col-sm-2 control-label"></label>
+      <div class="col-sm-10">
+        <label class="checkbox-inline">
+          <input class="js-sp-group" type="checkbox" value="2" name="groupId"> &nbsp;&nbsp;一代</label>
+      </div>
+    </div>
+    <div class="form-group form-inline">
+      <label class="col-sm-2 control-label"></label>
+      <div class="col-sm-10">
+        <label class="checkbox-inline">
+          <input class="js-sp-group" type="checkbox" value="3" name="groupId"> &nbsp;&nbsp;二代</label>
+      </div>
+    </div>
+    <div class="form-group form-inline">
+      <label class="col-sm-2 control-label"></label>
+      <div class="col-sm-10">
+        <label class="checkbox-inline">
+          <input class="js-sp-group" type="checkbox" value="4" name="groupId"> &nbsp;&nbsp;三代</label>
+      </div>
+    </div>
+    <div class="form-group form-inline">
+      <label class="col-sm-2 control-label"></label>
+      <div class="col-sm-10">
+        <label class="checkbox-inline">
+          <input class="js-sp-group" type="checkbox" value="5" name="groupId"> &nbsp;&nbsp;四代包含以下</label>
+      </div>
+    </div>
+    <div class="form-group form-inline">
+      <label class="col-sm-2 control-label">主题：</label>
+      <div class="col-sm-10">
+        <input type="text" class="js-sp-title input-medium form-control" name="title" data-parsley-zhMaxLength="20" data-parsley-someSpecialChar  required>
+      </div>
+    </div>
+    <div class="form-group form-inline">
+      <label class="col-sm-2 control-label">发布时间：</label>
+      <div class="col-sm-10">
+        <input type="text" class="js-sp-time input-medium form-control" name="startTime" required>
+      </div>
+    </div>
+    <div class="form-group form-inline">
+      <label class="col-sm-2 control-label">内容：</label>
+
+      <div class="col-sm-10">
+        <div id="uploadNGContainer">
+        </div>
+        <textarea id="textarea1" style='height:300px; width:100%;' class="js-sp-group-content" data-parsley-zhMaxLength="50000" required></textarea>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="js-sp-group-btn-submit btn btn-primary" data-loading-text="发送中">发送</button>
+        <button type="button" class="js-sp-group-btn-cancel btn btn-default">取消</button>
+      </div>
+    </div>
+  </form>
+</div>

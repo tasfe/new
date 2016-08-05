@@ -1,0 +1,117 @@
+<div class="row m-bottom-sm">
+  <div class="col-sm-3">
+    <div class="form-group">
+      <label class="control-label m-right-sm">追号编号：</label>
+      <input type="text" name="tradeNo" class="form-control" data-parsley-zhAndLetNumMaxLen='100' data-parsley-somespecialchar>
+    </div>
+  </div>
+  <div class="col-sm-2">
+    <div class="form-group">
+      <label class="control-label m-right-sm">用户名：</label>
+      <input type="text" name="username" class="form-control"  >
+    </div>
+  </div>
+  <div class="col-sm-2">
+    <div class="form-group">
+      <label class="control-label m-right-sm">包含下级：</label>
+      <select name="subUser" class="form-control">
+        <option value="0">包含</option>
+        <option value="1">不包含</option>
+      </select>
+    </div>
+  </div>
+  <div class="col-sm-5">
+    <div class="form-group">
+      <label class="control-label m-right-sm">追号时间：</label>
+      <span class="js-bc-timeset"></span>
+    </div>
+  </div>
+</div>
+
+<div class="js-uc-ticket-select-group row m-bottom-sm">
+  <div class="col-sm-4">
+    <div class="form-group">
+      <label class="control-label m-right-sm">奖金：</label>
+      <span class="">
+        <span class="relative">
+          <div class="input-group">
+            <input type="text" class="form-control" name="minMoney" data-parsley-type="integer" data-parsley-range="[0, 1000000]">
+            <span class="input-group-addon">至</span>
+            <input type="text" class="form-control" name="maxMoney" data-parsley-type="integer" data-parsley-range="[0, 1000000]">
+          </div>
+        </span>
+      </span>
+    </div>
+  </div>
+  <div class="col-sm-2">
+    <div class="form-group">
+      <label class="control-label">彩种名称</label>
+      <select class="js-pf-select-ticket-list  form-control" name="ticketId"></select>
+    </div>
+  </div>
+  <div class="col-sm-2">
+    <div class="form-group">
+      <label class="control-label">玩法群</label>
+      <select class="js-pf-select-ticket-level  form-control" name="ticketLevelId"></select>
+    </div>
+  </div>
+  <div class="col-sm-2">
+    <div class="form-group">
+      <label class="control-label">玩法组</label>
+      <select class="js-pf-select-ticket-group  form-control" name="ticketGroupId"></select>
+    </div>
+  </div>
+  <div class="col-sm-2">
+    <div class="form-group">
+      <label class="control-label">玩法</label>
+      <select class="js-pf-select-ticket-play  form-control" name="playId"></select>
+    </div>
+  </div>
+</div>
+
+<div class="row m-bottom-sm">
+  <div class="col-sm-2">
+    <div class="form-group">
+      <label class="control-label">追号状态</label>
+      <select name="betStatus" class="form-control"></select>
+    </div>
+  </div>
+  <div class="col-sm-2">
+    <div class="form-group">
+      <label class="control-label">终端</label>
+      <select class="form-control">
+        <option>pc网页</option>
+        <option>ios</option>
+        <option>android</option>
+      </select>
+    </div>
+  </div>
+  <div class="col-sm-2">
+    <div class="form-group">
+      <label class="control-label m-right-sm">每页展示：</label>
+      <select class="form-control" name="pageSize">
+        <option value="20">20条</option>
+        <option value="50">50条</option>
+        <option value="100">100条</option>
+        <option value="500">500条</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="pull-right form-group">
+    <button class="wm-search-confirm btn btn-purple pull-right btn-sm" type="submit"><i
+      class="fa fa-search m-right-xs"></i>搜&nbsp;&nbsp;索
+    </button>
+    <button class="wm-search-reset btn btn-wt-default-purple pull-right m-right-sm btn-sm" type="reset"><i
+      class="fa fa-repeat m-right-xs"></i>重&nbsp;&nbsp;置
+    </button>
+  </div>
+  <div class="pull-left">
+    <a class="js-pf-export btn btn-success" href="javascript:void(0)">报表下载</a>
+  </div>
+</div>
+
+
+

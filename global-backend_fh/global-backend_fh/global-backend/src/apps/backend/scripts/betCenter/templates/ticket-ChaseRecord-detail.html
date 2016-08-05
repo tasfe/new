@@ -1,0 +1,107 @@
+<div class="panel">
+  <form class="js-bc-form form-horizontal" action="javascript:void(0)">
+    <div class="form-group form-inline" >
+      <div class="col-sm-offset-1 col-sm-10 col-sm-offset-1 border-all padding-sm ">
+        <div class="col-sm-4 m-bottom-sm js-bc-ticketName-container">
+          <div>
+            <label class="control-label">彩种名称：</label>
+            <label class="control-label js-bc-ticketName"></label>
+          </div>
+        </div>
+        <div class="col-sm-4 m-bottom-sm js-bc-userName-container">
+          <div>
+            <label class="control-label">用户名：</label>
+            <label class="control-label js-bc-userName"></label>
+          </div>
+        </div>
+        <div class="col-sm-4 m-bottom-sm js-bc-beginPlanId-container">
+          <div>
+            <label class="control-label">开始奖期：</label>
+            <label class="control-label js-bc-beginPlanId"></label>
+          </div>
+        </div>
+        <div class="col-sm-4 m-bottom-sm js-bc-chaseTime-container">
+          <div>
+            <label class="control-label">追号时间：</label>
+            <label class="control-label js-bc-chaseTime"></label>
+          </div>
+        </div>
+        <div class="col-sm-4 m-bottom-sm js-bc-tradeNo-container">
+          <div>
+            <label class="control-label">追号编号：</label>
+            <label class="control-label js-bc-tradeNo"></label>
+            <input type="text" class="js-bc-ticketChaseId hidden">
+          </div>
+        </div>
+        <div class="col-sm-4 m-bottom-sm js-bc-prizeStop-container">
+          <div>
+            <label class="control-label">中奖即停止：</label>
+            <label class="control-label js-bc-prizeStop"></label>
+          </div>
+        </div>
+        <div class="col-sm-4 m-bottom-sm js-bc-planIdDetail-container">
+          <div>
+            <label class="control-label">已追/总期数：</label>
+            <label class="control-label js-bc-planIdDetail"></label>
+          </div>
+        </div>
+        <div class="col-sm-4 m-bottom-sm js-bc-terminal-container">
+          <div>
+            <label class="control-label">终端：</label>
+            <label class="control-label js-bc-terminal">pc网页</label>
+          </div>
+        </div>
+        <div class="col-sm-4 m-bottom-sm js-bc-chaseAllMoney-container">
+          <div>
+            <label class="control-label">追号总金额：</label>
+            <label class="control-label js-bc-chaseAllMoney"></label>
+          </div>
+        </div>
+        <div class="col-sm-4 m-bottom-sm js-bc-chaseedAllMoney-container">
+          <div>
+            <label class="control-label">已追号金额：</label>
+            <label class="control-label js-bc-chaseedAllMoney"></label>
+          </div>
+        </div>
+        <div class="col-sm-4 m-bottom-sm js-bc-allPrize-container">
+          <div>
+            <label class="control-label">中奖金额：</label>
+            <label class="control-label js-bc-allPrize"></label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="panel">
+  <form class="js-bc-form form-horizontal" action="javascript:void(0)">
+    <div class="form-group form-inline" >
+      <div class="col-sm-offset-1 col-sm-10 col-sm-offset-1 border-all padding-md ">
+        <div class="js-bc-chasePlayDetailGrid col-sm-12 "></div>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="panel">
+  <form class="js-bc-form form-horizontal" action="javascript:void(0)">
+    <div class="form-group form-inline" >
+      <div class="col-sm-offset-1 col-sm-10 col-sm-offset-1 border-all padding-md ">
+        <div class="js-bc-chasePlanDetailGrid col-sm-12 "></div>
+        <%if(Global.authority.bc && Global.authority.bc.br && Global.authority.bc.br.cancelChase){%>
+        <button type="submit" class="js-bc-btn-cancelChase hidden btn btn-default col-sm-offset-5 col-sm-2 col-sm-offset-5" data-loading-text="发送中">撤销全部追号</button>
+        <%}%>
+      </div>
+    </div>
+  </form>
+</div>
+
+<div class="panel">
+  <form class="js-bc-form form-horizontal" action="javascript:void(0)">
+    <div class="form-group form-inline" >
+      <div class="col-sm-offset-1 col-sm-10 col-sm-offset-1 border-all padding-md ">
+        <label class="control-label col-sm-12 js-BC-viewAccountDetail"></label>
+        <div class="js-bc-chaseAccountDetailGrid col-sm-12 marginTB-xs"></div>
+      </div>
+    </div>
+  </form>
+</div>

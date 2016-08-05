@@ -1,0 +1,92 @@
+<div class="panel padding-md">
+  <form class="js-ap-check-form form-horizontal" action="javascript:void(0)">
+    <div class="form-group form-inline">
+      <label class="col-sm-3 control-label">用户名：</label>
+      <div class="col-sm-9">
+          <label class="js-ap-username control-label"></label>
+      </div>
+      </div>
+    <div class="form-group form-inline">
+      <label class="col-sm-3 control-label">会员等级：</label>
+      <div class="col-sm-9">
+          <label class="js-ap-level control-label"></label>
+      </div>
+      </div>
+    <div class="form-group form-inline">
+      <label class="col-sm-3 control-label">申请金额：</label>
+      <div class="col-sm-9">
+          <label class="js-ap-amount control-label"></label>
+      </div>
+      </div>
+    <div class="form-group form-inline">
+      <label class="col-sm-3 control-label">申请时间：</label>
+      <div class="col-sm-9">
+          <label class="js-ap-req-time control-label"></label>
+      </div>
+      </div>
+    <div class="form-group form-inline">
+      <label class="col-sm-3 control-label">初审时间：</label>
+      <div class="col-sm-9">
+          <label class="js-ap-check-time control-label"></label>
+      </div>
+      </div>
+    <div class="form-group form-inline">
+      <label class="col-sm-3 control-label">审核人：</label>
+      <div class="col-sm-9">
+          <label class="js-ap-check-name control-label"></label>
+      </div>
+      </div>
+    <div class="form-group form-inline">
+      <label class="col-sm-3 control-label">初审结果：</label>
+      <div class="col-sm-9">
+          <label class="js-ap-check-result control-label"></label>
+      </div>
+      </div>
+    <div class="form-group form-inline">
+      <label class="col-sm-3 control-label">批准金额：</label>
+      <div class="col-sm-9">
+          <label class="js-ap-check-amount control-label"></label>
+      </div>
+      </div>
+    <div class="form-group form-inline">
+      <label class="col-sm-3 control-label">备注：</label>
+      <div class="col-sm-9">
+          <label class="js-ap-check-remark control-label"></label>
+      </div>
+      </div>
+    <div class="form-group form-inline">
+      <label class="col-sm-3 control-label" style="margin-top: 7px;">处理结果：</label>
+      <div class="col-sm-2" style="margin-top: 7px;">
+        <label class="radio-inline control-label">
+          <input class="js-ap-result" type="radio" name="status"  value="2" checked><label style="margin-top:1px;">拒绝</label>
+        </label>
+      </div>
+      <div class="col-sm-7">
+        <label class="radio-inline control-label">
+          <input class="js-ap-result" type="radio" name="status"  value="1" style="margin-top: 8px;"><label style="margin-top: 5px;">批准</label>
+        </label>
+        <label class="control-label">
+          <input class="js-ap-req-amount form-control" type="text" name="amount" style="margin-left: 8px;width: 135px;" disabled>
+        </label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-3 control-label">备注：</label>
+      <div class="col-sm-6" style="margin-top: 10px;" >
+        <textarea class="js-ap-remark form-control width-md height-sm" data-parsley-zhMaxLength="20" data-parsley-someSpecialChar required></textarea>
+      </div>
+      <div class="col-sm-3" style="margin-top: 10px;" >
+        <label class="control-label">（会员不可见）</label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-3 control-label">审核结果说明：</label>
+      <div class="col-sm-6" style="margin-top: 10px;" >
+        <textarea class="js-ap-des form-control width-md height-sm" name="des" data-parsley-zhMaxLength="20" data-parsley-someSpecialChar></textarea>
+      </div>
+      <div class="col-sm-3" style="margin-top: 10px;" >
+        <label class="control-label">（会员可见）</label>
+      </div>
+    </div>
+  </form>
+</div>

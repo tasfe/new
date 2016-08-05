@@ -1,0 +1,18 @@
+.text-circle {
+  display: inline-block;
+  font-weight: bold;
+  text-align: center;
+  @include text-circle-size('md', $text-circle-sizes);
+
+  @include text-circle-color(default, $text-circle-colors);
+
+  &.text-circle-sm {
+    @include text-circle-size('sm', $text-circle-sizes);
+  }
+
+
+  &.text-circle-main {
+    @include text-circle-color(main, $text-circle-colors);
+  }
+
+}

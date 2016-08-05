@@ -1,0 +1,52 @@
+.wt-scroll-to-top {
+  position: fixed;
+  display: block;
+  right: -100px;
+  bottom: 10px;
+  width: 45px;
+  height: 45px;
+  line-height: 45px;
+  background-color: #2baab1;
+  opacity: 0.8;
+  color: #fff;
+  text-align: center;
+  z-index: 10;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: 0 0 1px rgba(0, 0, 0, 0.05);
+  -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.05);
+  transition: all .5s ease;
+  -webkit-transition: all .5s ease;
+  -moz-transition: all .5s ease;
+  -ms-transition: all .5s ease;
+  -o-transition: all 0.5s ease;
+  &:focus, &:hover {
+    background-color: #1bbb9e;
+    color: #fff;
+    transition: all .5s ease;
+    -webkit-transition: all .5s ease;
+    -moz-transition: all .5s ease;
+    -ms-transition: all .5s ease;
+    -o-transition: all 0.5s ease;
+  }
+  &.green-transparent {
+    background-color: #2baab1;
+    opacity: 0.8;
+  }
+}
+
+.scroll-to-top:hover {
+  background-color: #1bbb9e;
+  color: #fff;
+  transition: all .5s ease;
+  -webkit-transition: all .5s ease;
+  -moz-transition: all .5s ease;
+  -ms-transition: all .5s ease;
+  -o-transition: all 0.5s ease;
+}
+
+.wt-scroll-to-top.active {
+  right: 10px;
+}

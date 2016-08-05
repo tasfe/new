@@ -1,0 +1,98 @@
+<div class="panel padding-md">
+    <form class="js-form form-horizontal form-inline" action="javascript:void(0)">
+        <div class="row m-bottom-sm">
+            <div class="col-sm-6 col-sm-offset-1">
+                <div class="form-group form-inline">
+                    <label class="control-label">活动时间：</label>
+                    <span class="js-hc-timeset"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row m-bottom-sm">
+            <div class="col-sm-10 col-sm-offset-1">
+                <button class="js-hc-add btn btn-primary"><i class="fa fa-plus"></i> 增加活动配置</button>
+                <div class="js-hc-cfgDetail m-top-sm"></div>
+            </div>
+        </div>
+        <div class="row m-bottom-sm ">
+            <div class="col-sm-10 col-sm-offset-1">
+                <table class="js-bonus-setting table table-bordered">
+                    <thead>
+                    <tr>
+                        <th>宝箱名称</th>
+                        <th>金额范围（元）</th>
+                        <th>钻石数量</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>
+                            七夕宝箱
+                            <input type="hidden" name="bonusList[0].type" value="1" required="">
+                        </td>
+                        <td>
+                            <input type="text" name="bonusList[0].minAmount" class="form-control" required="" data-parsley-range="[0, 1000000]" data-parsley-threedecimal="">
+                            <label class="control-label">至</label>
+                            <input type="text" name="bonusList[0].maxAmount" class="form-control" required="" data-parsley-range="[0, 1000000]" data-parsley-threedecimal="">
+                        </td>
+                        <td>
+                            <input type="text" name="bonusList[0].outNum" class="form-control" required="" data-parsley-range="[0, 100]" data-parsley-type="integer">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            甜蜜宝箱
+                            <input type="hidden" name="bonusList[1].type" value="2" required="">
+                        </td>
+                        <td>
+                            <input type="text" name="bonusList[1].minAmount" class="form-control" required="" data-parsley-range="[0, 1000000]" data-parsley-threedecimal="">
+                            <label class="control-label">至</label>
+                            <input type="text" name="bonusList[1].maxAmount" class="form-control" required="" data-parsley-range="[0, 1000000]" data-parsley-threedecimal="">
+                        </td>
+                        <td>
+                            <input type="text" name="bonusList[1].outNum" class="form-control" required="" data-parsley-range="[0, 100]" data-parsley-type="integer">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            柔情宝箱
+                            <input type="hidden" name="bonusList[2].type" value="3" required="">
+                        </td>
+                        <td>
+                            <input type="text" name="bonusList[2].minAmount" class="form-control" required="" data-parsley-range="[0, 1000000]" data-parsley-threedecimal="">
+                            <label class="control-label">至</label>
+                            <input type="text" name="bonusList[2].maxAmount" class="form-control" required="" data-parsley-range="[0, 1000000]" data-parsley-threedecimal="">
+                        </td>
+                        <td>
+                            <input type="text" name="bonusList[2].outNum" class="form-control" required="" data-parsley-range="[0, 100]" data-parsley-type="integer">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            幸福宝箱
+                            <input type="hidden" name="bonusList[3].type" value="4" required="">
+                        </td>
+                        <td>
+                            <input type="text" name="bonusList[3].minAmount" class="form-control" required="" data-parsley-range="[0, 1000000]" data-parsley-threedecimal="">
+                            <label class="control-label">至</label>
+                            <input type="text" name="bonusList[3].maxAmount" class="form-control" required="" data-parsley-range="[0, 1000000]" data-parsley-threedecimal="">
+                        </td>
+                        <td>
+                            <input type="text" name="bonusList[3].outNum" class="form-control" required="" data-parsley-range="[0, 100]" data-parsley-type="integer">
+                        </td>
+                    </tr>
+
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="text-center">
+            <button class="js-hc-btn-submit btn btn-primary" type="submit"  style="width: 100px; margin-right: 20px;" data-loading-text="发送中">确定</button>
+            <button style="width: 100px;" class="js-hc-btn-reset btn" data-dismiss="modal" type="reset">取消</button>
+        </div>
+    </form>
+</div>

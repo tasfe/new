@@ -1,0 +1,101 @@
+<div class="panel padding-md">
+  <form class="js-fc-fundApply-form form-horizontal" action="javascript:void(0)">
+    <div class="form-group form-inline">
+      <label class="col-sm-2 control-label">选择用户</label>
+
+      <div class="col-sm-10">
+        <label class="radio-inline">
+          <input class="js-fc-userType" type="radio" name="userType" value="0" checked> 单用户
+        </label>
+        <label class="radio-inline">
+          <input class="js-fc-userType" type="radio" name="userType" value="1"> 多用户
+        </label>
+      </div>
+    </div>
+    <div class="form-group form-inline">
+      <label class="col-sm-2 control-label">用户名</label>
+
+      <div class="col-sm-10">
+        <div class="js-fc-singleUser-container">
+          <input type="text" class="js-fc-fundApply-username form-control"  required>
+          <span class="js-fc-fu-ma-tip text-danger hidden">用户不存在</span>
+        </div>
+        <div class="form-group js-fc-multiUser-container hidden">
+          <div class="col-sm-6 ">
+          <textarea class="js-fc-fundApply-usernameList form-control width-md height-sm "  data-parsley-maxlength="3399" data-parsley-excluded="input[type=button], input[type=submit], input[type=reset], input[type=hidden], [disabled], :hidden" required ></textarea>
+          </div>
+          <div class=" col-sm-6">
+            <div class="js-fc-fundApply-fileUpload-btn"></div>
+            <span class="tip">支持txt，单次最多可导入200个用逗号分隔的用户名。</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group form-inline">
+      <label class="col-sm-2 control-label">操作类型</label>
+
+      <div class="col-sm-10">
+        <select class="js-fc-fundApply-type form-control" required>
+          <option value="">请选择</option>
+          <option  value="101">加币-活动派奖</option>
+          <option value="102">加币-平台奖励</option>
+          <option value="103">加币-平台理赔</option>
+          <option value="104">加币-平台分红</option>
+          <option value="105">加币-人工充值</option>
+          <option value="201">减币-人工提现</option>
+          <option value="202">减币-人工扣回</option>
+          <option value="203">减币-重复打款</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="form-group form-inline">
+              <label class="col-sm-2 control-label">金额</label>
+
+              <div class="col-sm-10">
+                <div class="input-group">
+                  <input type="text" class="js-fc-funcApply-amount form-control"
+                         data-parsley-range="[0, 1000000]" data-parsley-type="integer" required>
+                  <span class="input-group-addon" id="basic-addon2">元</span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group form-inline">
+              <label class="col-sm-2 control-label">附件</label>
+
+              <div class="col-sm-10">
+                <div class="js-fc-fundApply-imgUpload-btn"></div>
+
+                <!--<div class="">-->
+                  <!--<div class="js-fc-fundApply-attach-container gallery-list js-masonry m-top-md">-->
+                  <!--</div>-->
+                <!--</div>-->
+              </div>
+            </div>
+            <div class="form-group form-inline">
+              <label class="col-sm-2 control-label">原因</label>
+
+              <div class="col-sm-10">
+                <textarea class="js-fc-funcApply-reason form-control width-md height-sm" data-parsley-zhMaxLength="100" required></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="js-fc-fundApply-notice"></div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10 text-center">
+        <button type="submit" class="js-fc-fundApply-submit btn btn-primary" data-loading-text="发送中" style="width: 100px;margin-right:20px;">确&nbsp;&nbsp;定</button>
+        <button type="reset" class="btn btn-default" style="width: 100px;">取&nbsp;&nbsp;消</button>
+      </div>
+    </div>
+  </form>
+</div>

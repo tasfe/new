@@ -1,0 +1,36 @@
+<div class="col-sm-12 m-bottom-sm js-sc-commissionSet">
+    <div>
+        <label class="control-label">玩家消费：</label>
+            <span class="inline-block">
+                <input type="text" class="form-control width-sm js-sc-betAmount" name="betAmount" data-parsley-range="[0, 10000000]"
+                       data-parsley-type="integer" required value="<%=betAmount%>">
+            </span>
+        <label class="control-label m-right-lg">元</label>
+
+        <label class="control-label">上级获得：</label>
+            <span class="inline-block">
+                <select class="form-control js-sc-commissionType js-sc-currentCommissionType" name="currentCommissionType">
+                    <option value="percent"  <%=currentCommissionType_percent%>>百分比</option>
+                    <option value="fix" <%=currentCommissionType_fix%>>固定</option>
+                </select>
+            </span>
+            <span class="inline-block">
+                <input type="text" class="form-control width-sm js-sc-currentCommissionVal" data-parsley-range="[0.01, 2000]" data-parsley-twoDecimal required name="currentCommissionVal" value="<%=currentCommissionVal%>">
+            </span>
+        <label class="control-label m-right-lg js-sc-currentCommissionUnit"><%=currentCommissionUnit%></label>
+
+        <label class="control-label">上上级获得：</label>
+            <span class="inline-block">
+                <select class="form-control js-sc-commissionType js-sc-indirectCommissionType" name="indirectCommissionType">
+                    <option value="percent" <%=indirectCommissionType_percent%>>百分比</option>
+                    <option value="fix" <%=indirectCommissionType_fix%>>固定</option>
+                </select>
+            </span>
+            <span class="inline-block">
+                <input type="text" class="form-control width-sm js-sc-indirectCommissionVal" data-parsley-range="[0.01, 2000]" data-parsley-twoDecimal required name="indirectCommissionVal" value="<%=indirectCommissionVal%>">
+            </span>
+        <label class="control-label m-right-lg js-sc-indirectCommissionUnit"><%=indirectCommissionUnit%></label>
+
+        <button class="btn btn-default js-sc-delete-btn">删除</button>
+    </div>
+</div>

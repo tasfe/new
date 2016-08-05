@@ -1,0 +1,41 @@
+<form class="js-fc-cbl-add-form form-horizontal">
+  <div class="form-group form-inline">
+    <label class="col-sm-2 control-label">输入卡号：</label>
+
+    <div class="col-sm-10">
+      <input type="text" class="js-fc-cbl-add-cardNo form-control" data-parsley-num data-parsley-length="[13,19]"  style="width:300px;" required>
+      <span class="js-fc-cbl-tip text-danger hidden">银行卡在系统中不存在</span>
+    </div>
+  </div>
+
+
+  <div class="form-group form-inline">
+    <label class="col-sm-2 control-label">加入原因：</label>
+
+    <div class="col-sm-10">
+      <textarea class="js-fc-cbl-add-reason form-control width-md height-sm" data-parsley-zhMaxLength="100" data-parsley-someSpecialChar required></textarea>
+    </div>
+  </div>
+
+  <div class="form-group form-inline ">
+    <div class="col-sm-offset-2 col-sm-10 ">
+      <button class="js-fc-cbl-add-confirm btn btn-primary" type="button" style="width:100px;margin-right: 85px;">确&nbsp;&nbsp;定</button>
+      <button class="btn" data-dismiss="modal" style="width: 100px;">取&nbsp;&nbsp;消</button>
+    </div>
+
+  </div>
+
+  <div class="form-group form-inline">
+    <div class="js-fc-cbl-add-notice col-sm-offset-2 col-sm-10 "></div>
+  </div>
+
+</form>
+<div class="js-fc-recharge-history-div form-group hidden">
+  <span class="control-label"><strong>系统检测到该卡操作日志：</strong></span>
+  <div class="panel panel-default" style="margin-top: 10px;">
+    <div class="js-fc-cbl-add-history-container panel-body" style="height: 200px;overflow: auto">
+
+
+    </div>
+  </div>
+</div>

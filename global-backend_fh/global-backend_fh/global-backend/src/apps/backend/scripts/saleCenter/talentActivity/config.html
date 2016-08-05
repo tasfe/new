@@ -1,0 +1,140 @@
+<div class="panel padding-md">
+  <form class="js-form form-horizontal form-inline" action="javascript:void(0)">
+    <div class="row m-bottom-sm">
+      <div class="col-sm-6 col-sm-offset-1">
+        <div class="form-group form-inline">
+          <label class="control-label">活动时间：</label>
+          <span class="js-hc-timeset"></span>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="form-group form-inline">
+          <label class="control-label m-right-sm">自营彩种销量倍数：</label>
+          <input name="salesTimes" type="text" class="form-control" style="width: 50px;" data-parsley-range="[0, 1000]" data-parsley-oneDecimal required="">
+        </div>
+      </div>
+    </div>
+    <div class="row m-bottom-sm">
+      <div class="col-sm-10 col-sm-offset-1">
+        <button class="js-hc-add btn btn-primary"><i class="fa fa-plus"></i> 增加活动配置</button>
+        <div class="js-hc-cfgDetail m-top-sm"></div>
+      </div>
+    </div>
+    <div class="row m-bottom-sm ">
+      <div class="col-sm-10 col-sm-offset-1">
+        <table class="js-bonus-setting table table-bordered">
+          <thead>
+          <tr>
+            <th>奖品名称</th>
+            <th>奖金额度（元）</th>
+            <th>中奖率</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td>
+              1888元现金大奖
+              <input type="hidden" name="lotteryList[0].bonusType" value="1" required="">
+            </td>
+            <td>
+              <input type="text" name="lotteryList[0].bonus" class="form-control" required="" data-parsley-range="[0, 1000000]" data-parsley-threedecimal="">
+            </td>
+            <td>
+              <input type="text" name="lotteryList[0].lotteryRate" class="form-control" required="" data-parsley-range="[0, 100]" data-parsley-type="integer">
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              588元现金大奖
+              <input type="hidden" name="lotteryList[1].bonusType" value="2" required="">
+            </td>
+            <td>
+              <input type="text" name="lotteryList[1].bonus" class="form-control" required="" data-parsley-range="[0, 1000000]" data-parsley-threedecimal="">
+            </td>
+            <td>
+              <input type="text" name="lotteryList[1].lotteryRate" class="form-control" required="" data-parsley-range="[0, 100]" data-parsley-type="integer">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              2888元现金大奖
+              <input type="hidden" name="lotteryList[2].bonusType" value="3" required="">
+            </td>
+            <td>
+              <input type="text" name="lotteryList[2].bonus" class="form-control" required="" data-parsley-range="[0, 1000000]" data-parsley-threedecimal="">
+            </td>
+            <td>
+              <input type="text" name="lotteryList[2].lotteryRate" class="form-control" required="" data-parsley-range="[0, 100]" data-parsley-type="integer">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              单个红包
+              <input type="hidden" name="lotteryList[3].bonusType" value="4" required="">
+            </td>
+            <td>
+              <input type="text" name="lotteryList[3].bonus" class="form-control" required="" data-parsley-range="[0, 1000000]" data-parsley-threedecimal="">
+            </td>
+            <td>
+              <input type="text" name="lotteryList[3].lotteryRate" class="form-control" required="" data-parsley-range="[0, 100]" data-parsley-type="integer">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              双红包
+              <input type="hidden" name="lotteryList[4].bonusType" value="5" required="">
+            </td>
+            <td>
+              <input type="text" name="lotteryList[4].bonus" class="form-control" required="" data-parsley-range="[0, 1000000]" data-parsley-threedecimal="">
+            </td>
+            <td>
+              <input type="text" name="lotteryList[4].lotteryRate" class="form-control" required="" data-parsley-range="[0, 100]" data-parsley-type="integer">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              三红包
+              <input type="hidden" name="lotteryList[5].bonusType" value="6" required="">
+            </td>
+            <td>
+              <input type="text" name="lotteryList[5].bonus" class="form-control" required="" data-parsley-range="[0, 1000000]" data-parsley-threedecimal="">
+            </td>
+            <td>
+              <input type="text" name="lotteryList[5].lotteryRate" class="form-control" required="" data-parsley-range="[0, 100]" data-parsley-type="integer">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              再接再厉
+              <input type="hidden" name="lotteryList[6].bonusType" value="7" required="">
+            </td>
+            <td>
+              <input type="text" name="lotteryList[6].bonus" class="form-control" required="" data-parsley-range="[0, 1000000]" data-parsley-threedecimal="">
+            </td>
+            <td>
+              <input type="text" name="lotteryList[6].lotteryRate" class="form-control" required="" data-parsley-range="[0, 100]" data-parsley-type="integer">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              努力加油
+              <input type="hidden" name="lotteryList[7].bonusType" value="8" required="">
+            </td>
+            <td>
+              <input type="text" name="lotteryList[7].bonus" class="form-control" required="" data-parsley-range="[0, 1000000]" data-parsley-threedecimal="">
+            </td>
+            <td>
+              <input type="text" name="lotteryList[7].lotteryRate" class="form-control" required="" data-parsley-range="[0, 100]" data-parsley-type="integer">
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="text-center">
+      <button class="js-hc-btn-submit btn btn-primary" type="submit"  style="width: 100px; margin-right: 20px;" data-loading-text="发送中">确定</button>
+      <button style="width: 100px;" class="js-hc-btn-reset btn" data-dismiss="modal" type="reset">取消</button>
+    </div>
+  </form>
+</div>

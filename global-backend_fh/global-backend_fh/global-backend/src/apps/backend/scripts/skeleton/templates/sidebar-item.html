@@ -1,0 +1,25 @@
+<% if (children) { %>
+  <li class="<%=menus.bg %> <%=menus.action %> openable">
+<% } else { %>
+  <li class="<%=menus.bg %> <%=menus.action %>" data-link="<%=menus.funcUrllink %>">
+<% } %>
+  <a href="<%=menus.funcUrllink %>" class="js-mu-link router" data-id="<%=menus.id %>">
+    <span class="<% if (level === 1) { %>menu-content<% } else { %>submenu-label<% } %> block">
+      <% if (menus.comments) { %>
+        <span class="menu-icon"><i class="block <%=menus.comments %>"></i></span>
+        <span class="text m-left-sm"><%=menus.funcName %></span>
+      <% } else { %>
+        <span class="submenu-label"><%=menus.funcName %></span>
+      <% } %>
+      <% if (children) { %>
+      <span class="submenu-icon"></span>
+      <% } %>
+    </span>
+    <span class="menu-content-hover block"><%=menus.funcName %></span>
+  </a>
+  <% if (children) { %>
+  <ul class="<%=ulClass %>">
+    <%=children %>
+  </ul>
+  <% } %>
+</li>

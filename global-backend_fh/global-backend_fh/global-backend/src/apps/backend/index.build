@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+  <title>亿贝</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <meta name="keywords" content="亿贝">
+  <meta name="description" content="亿贝">
+  <meta name="author" content="YiBei.cn Co.,Ltd.">
+  <meta name="copyright" content="Copyright &copy; 2016 YiBei.cn Co.,Ltd.">
+
+  <link rel="shortcut icon" href="images/favicon.ico">
+  $STYLES$
+</head>
+
+<body style="overflow-y: scroll;">
+
+  <!-- loader -->
+  <div class="wm-loader-wrapper">
+    <!--<div class="progress progress-striped active" style="-->
+    <!--width: 500px;-->
+    <!--margin: 0 auto;-->
+    <!--position: absolute;-->
+    <!--left: 0;-->
+    <!--right: 0;-->
+    <!--top: 50%;-->
+    <!--bottom: 0;-->
+<!--">-->
+      <!--<div class="bar" style="width: 1000%;"></div>-->
+    <!--</div>-->
+    <div class="wm-loader"></div>
+    <div class="wm-loader-logo">
+    </div>
+    <div class="wm-loader-section section-left"></div>
+    <div class="wm-loader-section section-right"></div>
+  </div>
+
+  <div class="wrapper wt-wrapper m-center hide">
+    <header id="header" class="top-nav"></header>
+    <aside id="sidebar"></aside>
+    <div class="main-container padding-md">
+      <div id="quickNav"></div>
+      <div class="main-inner panel panel-default">
+        <div id="main" class="panel-body">
+        </div>
+      </div>
+    </div>
+    <footer id="footer" class="footer"></footer>
+  </div>
+  $SCRIPTS$
+</body>
+
+</html>

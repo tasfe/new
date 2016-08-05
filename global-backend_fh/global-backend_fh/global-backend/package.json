@@ -1,0 +1,49 @@
+{
+  "name": "global-pc",
+  "version": "0.1.0",
+  "dependencies": {
+    "gulp": "^3.9.0",
+    "gulp-load-plugins": "^0.9.0",
+    "run-sequence": "^0.3.7"
+  },
+  "devDependencies": {
+    "del": "~1",
+    "run-sequence": "^0.3.6",
+    "ternary-stream": "^1.2.3",
+    "minimatch": "^2.0.1",
+    "glob": "^4.0.6",
+    "through2": "^0.6.1",
+    "vinyl": "^0.4.6",
+    "gulp-clean": "latest",
+    "gulp-compass": "1.1.9",
+    "gulp-concat": "^2.1.7",
+    "gulp-if": "0.0.5",
+    "gulp-jshint": "~1.8.4",
+    "gulp-uglify": "^0.2.1",
+    "gulp-karma": "~0.0.4",
+    "gulp-minify-css": "^0.3.0",
+    "gulp-rename": "^1.1.0",
+    "gulp-template": "^1.1.1",
+    "gulp-util": "~2.2.9",
+    "gulp-header": "^1.0.2",
+    "gulp-footer": "^1.0.4",
+    "gulp-strip-debug": "^0.3.0",
+    "http-rewrite-middleware": "latest",
+    "jshint-stylish": "^0.1.5",
+    "jshint-summary": "^0.3.0",
+    "minimist": "~1.1.0",
+    "connect": "~2.18.0",
+    "connect-route": "latest",
+    "cookie": "latest",
+    "open": "latest",
+    "regexp-quote": "latest",
+    "request": "latest",
+    "requirejs": "~2.1.13",
+    "underscore": "latest",
+    "url-pattern": "^0.6.0",
+    "gulp-load-plugins": "^0.9.0"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  }
+}

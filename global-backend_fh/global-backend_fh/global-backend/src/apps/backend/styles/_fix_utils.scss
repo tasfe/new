@@ -1,0 +1,64 @@
+.container-static {
+  width: 1024px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.list-unstyled {
+  padding-left: 0;
+  list-style: none;
+}
+.js-pf-popover {
+  min-height: 20px;max-height: 100px; overflow-y: auto;word-break: break-all;
+  width: 248px;
+}
+
+//quickNav
+.quick-nav {
+  position: relative;
+  .quick-main {
+    position: relative;
+    overflow: hidden;
+    height: 38px;
+    top: 0;
+  }
+  .quick-main-inner {
+    position: relative;
+  }
+
+  .quick-left {
+    position: absolute;
+    left: -14px;
+    top: 10px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  .quick-right {
+    position: absolute;
+    right: -14px;
+    top: 10px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  .fa-times {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    font-size: 16px;
+    z-index: 1;
+    cursor: pointer;
+  }
+  li {
+    a {
+      background-color: #dddddd;
+      &:hover {
+        background-color: #cccccc;
+      }
+    }
+  }
+  .active {
+    .fa-times {
+      color: #ffffff;
+    }
+  }
+}

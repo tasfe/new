@@ -1,0 +1,204 @@
+$brand-primary: #eae8e6 !default;
+$brand-info: #eae8e6 !default;
+
+//global-props
+
+//font-size
+$font-xs: 12px !default;
+$font-sm: 14px !default;
+$font-md: 16px !default;
+$font-lg: 18px !default;
+$font-jb: 20px !default;
+$font-30: 30px !default;
+$font-40: 40px !default;
+$font-80: 80px !default;
+
+$font-sizes: (xs: $font-xs, sm: $font-sm, md: $font-md, lg: $font-lg, jb: $font-jb, 30: $font-30, 40: $font-40, 80: $font-80);
+
+//font-color
+$font-default: #ffffff !default;
+$font-muted: #aaaaa !default;
+$font-muted-light: #e1e0e0 !default;
+$font-dark: #2a2a2a !default;
+$font-primary: #3278b3 !default;
+$font-info: #23b7e5 !default;
+$font-success: #2baab1 !default;
+$font-warning: #edbc6c !default;
+$font-light-danger: #ffa7a5 !default;
+$font-danger: #ff6765 !default;
+$font-main: #ff6765 !default;
+$font-dark-blue: #4c5f70 !default;
+
+$font-colors: (
+  default: $font-default,
+  muted: $font-muted,
+  muted-light: $font-muted-light,
+  dark: $font-dark,
+  primary: $font-primary,
+  info: $font-info,
+  success: $font-success,
+  warning: $font-warning,
+  danger: $font-danger,
+  main: $font-main,
+  dark-blue: $font-dark-blue
+);
+
+$bg-default: $font-default;
+$bg-default-font-color: $font-dark;
+
+$bg-muted: $font-muted;
+$bg-muted-font-color: $font-dark;
+
+$bg-muted-light: $font-muted-light;
+$bg-muted-light-font-color: $font-dark;
+
+$bg-dark: $font-dark;
+$bg-dark-font-color: $font-default;
+
+$bg-primary: $font-primary;
+$bg-primary-font-color: $font-default;
+
+$bg-info: $font-info;
+$bg-info-font-color: $font-default;
+
+$bg-success: $font-success;
+$bg-success-font-color: $font-default;
+
+$bg-warning: $font-warning;
+$bg-warning-font-color: $font-default;
+
+$bg-light-danger: $font-light-danger;
+$bg-light-danger-font-color: $font-default;
+
+$bg-danger: $font-danger;
+$bg-danger-font-color: $font-default;
+
+$bg-main: $font-main;
+$bg-main-font-color: $font-default;
+
+$bg-dark-blue: $font-dark-blue;
+$bg-dark-blue-font-color: $font-default;
+
+$bg-colors: (
+  default: (bg: $bg-default, color: $bg-default-font-color),
+  muted: (bg: $bg-muted, color: $bg-muted-font-color),
+  muted-light: (bg: $bg-muted-light, color: $bg-muted-light-font-color),
+  dark: (bg: $bg-dark, color: $bg-dark-font-color),
+  primary: (bg: $bg-primary, color: $bg-primary-font-color),
+  info: (bg: $bg-info, color: $bg-info-font-color),
+  success: (bg: $bg-success, color: $bg-success-font-color),
+  warning: (bg: $bg-warning, color: $bg-warning-font-color),
+  danger: (bg: $bg-danger, color: $bg-danger-font-color),
+  dark-blue: (bg: $bg-dark-blue, color: $bg-dark-blue-font-color),
+);
+
+
+$width-xs: 50px !default;
+$width-sm: 100px !default;
+$width-smd: 176px !default;
+$width-md: 250px !default;
+$width-lg: 500px !default;
+$width-jb: 760px !default;
+
+$widths: (xs: $width-xs, sm: $width-sm, smd: $width-smd, md: $width-md, lg: $width-lg, jb: $width-jb);
+
+$height-xs: 50px !default;
+$height-sm: 100px !default;
+$height-smd: 200px !default;
+$height-md: 300px !default;
+$height-mlg: 500px !default;
+$height-lg: 500px !default;
+$height-jb: 760px !default;
+
+$heights: (xs: $height-xs, sm: $height-sm, smd: $height-smd, md: $height-md, mlg: $height-mlg, lg: $height-lg, jb: $height-jb);
+
+$filter-xs: 5px !default;
+$filter-sm: 10px !default;
+$filter-smd: 15px !default;
+$filter-md: 20px !default;
+$filter-lg: 40px !default;
+
+$filters: (xs: $filter-xs, sm: $filter-sm, smd: $filter-smd, md: $filter-md, lg: $filter-lg);
+
+$squares: (
+  xs: 50px,
+  60: 60px,
+  75: 75px,
+  120: 120px,
+  125: 125px,
+  150: 150px,
+  sm: 100px,
+  md: 300px,
+  lg: 500px
+);
+
+//cursors
+$cursors: (
+  default: default,
+  pointer: pointer,
+  text: text,
+  move: move
+);
+
+$top-nav-height: 40px;
+
+//text-circle
+
+$text-circle-colors: (
+  default: (
+    color: $font-main,
+    background: $bg-default
+  ),
+  main: (
+    color: $font-default,
+    background: $bg-main
+  )
+);
+
+$text-circle-sizes: (
+  sm: (
+    width: 30px,
+    font-size: $font-md
+  ),
+  md: (
+    width: 40px,
+    font-size: $font-jb
+  )
+);
+
+//tab-toolbar
+
+$tab-toolbar-padding: 0 10px !default;
+$tab-toolbar-height: 28px !default;
+$tab-toolbar-title-width: 60px !default;
+$tab-toolbar-circle-colors: (
+  default: (
+    default: (
+      //color: $font-default,
+      background: $bg-default
+    ),
+    hover: (
+      color: $font-default,
+      background: $bg-light-danger
+    ),
+    active: (
+      color: $bg-danger-font-color,
+      background: $bg-danger
+    )
+  )
+);
+
+$tab-circle-sizes: (
+  sm: (
+    width: 30px,
+    font-size: $font-md
+  ),
+  md: (
+    width: 40px,
+    font-size: $font-jb
+  )
+);
+
+//icon block
+$icon-block-size: 18px !default;
+
