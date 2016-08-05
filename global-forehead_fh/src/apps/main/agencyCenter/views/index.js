@@ -31,7 +31,8 @@ var VipCreditView = TabView.extend({
           id: 'jsPointsList',
           view: PointsListView
         }
-      ]
+      ],
+      menushow: false
     });
   }
 });

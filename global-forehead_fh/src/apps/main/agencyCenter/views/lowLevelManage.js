@@ -144,9 +144,9 @@ var LowLevelManageView = SearchGrid.extend({
     if (rowInfo.userSubAcctNum ) {
       row.push('<a class="js-pf-sub btn-link text-coffee" data-label="' + rowInfo.userName +
           '" data-user-parent-id="' + rowInfo.userId + '" href="javascript:void(0)">' +
-          rowInfo.userName+'(' +rowInfo.userSubAcctNum + ')</a> '+(rowInfo.online?onlineStatus:''));
+          rowInfo.userName+'(' +rowInfo.userSubAcctNum + ')</a> ');
     } else {
-      row.push('<span class="text-coffee">'+rowInfo.userName+'</span>'+(rowInfo.online?onlineStatus:''));
+      row.push('<span class="text-coffee">'+rowInfo.userName+'</span>');
     }
     var online = '离线';
     if(rowInfo.online){
@@ -170,33 +170,20 @@ var LowLevelManageView = SearchGrid.extend({
 
     
     if (rowInfo.direct && !this.isSub()) {
-      cell.push('<a href="javascript:void(0);"  class="js-ac-llm-cp btn btn-link ">转账</a>');
+      cell.push('<a href="javascript:void(0);"  class="js-ac-llm-quota btn btn-link ">配额</a>');
     }
     if (rowInfo.direct && !this.isSub()) {
       cell.push('<a href="' + _.getUrl('/rebate/' + rowInfo.userId, 'name', rowInfo.userName) + '" class="router btn btn-link">升点</a>');
+    }
+    if (rowInfo.direct && !this.isSub()) {
+      cell.push('<a href="javascript:void(0);"  class="js-ac-llm-cp btn btn-link ">转账</a>');
     }
     if (rowInfo.direct && !this.isSub()) {
       cell.push('<a href="javascript:void(0);" class="js-gl-letter btn btn-link text-sunshine"' +
           ' data-user-id="' + rowInfo.userId + '" data-name="' + rowInfo.userName + '">消息</a>');
     }
 
-    // cell.push('<a href="' + _.getUrl('/detail/' + rowInfo.userId, 'name', rowInfo.userName) + '" class="router btn btn-link ">详情</a>');
-    cell.push('<a href="' + _.addHrefArgs('#ac/betting/' + rowInfo.userId +'/team', 'name', rowInfo.userName) + '" class="router btn btn-link">投注</a>');
-    cell.push('<a href="' + _.addHrefArgs('#ac/track/' + rowInfo.userId +'/team', 'name', rowInfo.userName) + '" class="router btn btn-link">追号</a>');
-    cell.push('<a href="' + _.addHrefArgs('#ac/account/' + rowInfo.userId +'/team', 'name', rowInfo.userName) + '" class="router btn btn-link">账变</a>');
-
-    if(_(cell).size()>3){
-      html.push('<div class="relative">');
-      html = html.concat(cell.splice(0, 3));
-      html.push('<i class="js-ac-expend-btn ac-expend-btn fa fa-angle-double-up fa-rotate-180 fa-2x text-sunshine"></i>');
-      html.push('</div>');
-
-      html.push('<div class="js-ac-expend ac-expend no-height">');
-      html = html.concat(cell);
-      html.push('</div>');
-    }else{
-      html = html.concat(cell);
-    }
+    html = html.concat(cell);
 
     return html.join('');
   },

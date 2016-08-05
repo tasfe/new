@@ -500,6 +500,10 @@
   font-size: 14px;
   font-family: '微软雅黑';
 
+  .btn{
+    padding: 6px 8px;
+  }
+
   .table{
     border-left: 1px solid #cccccc;
     border-right: 1px solid #cccccc;
@@ -537,5 +541,15 @@
     .table-sort{
       color: #666666;
     }
+  }
+
+  h3.tips{
+    color: #cc0000;
+    font-size: 14px;
+    font-family: '微软雅黑';
+    position: absolute;
+    bottom: 20px;
+    left: 30px;
+    font-weight: initial;
   }
 }
