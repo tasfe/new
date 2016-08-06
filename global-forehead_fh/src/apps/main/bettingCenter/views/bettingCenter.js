@@ -138,6 +138,22 @@ var BettingCenterView = Base.ItemView.extend({
 
   quickBetHandler: function(e) {
 
+    //----
+    var bettingInfo = this.currentPlayAreaView.getBetting();
+    var result = this.model.addPrevBetNew({
+      lotteryList: bettingInfo.rowsResult,
+      selectOptionals: bettingInfo.selectOptionals,
+      format: bettingInfo.format,
+      type: 'select'
+    });
+
+    if (result) {
+
+    } else {
+      Global.ui.notification.show('号码选择不完整，请重新选择！');
+      return;
+    }
+    //--
 
     var self = this;
 
@@ -991,6 +1007,10 @@ var BettingCenterView = Base.ItemView.extend({
       return false;
     }
 
+    if (_.isEmpty(info.previewList)) {
+      Global.ui.notification.show('请至少选择一注投注号码！');
+      return false;
+    }
 
 
     if (info.totalInfo.totalMoney > Global.memoryCache.get('acctInfo').balance) {
