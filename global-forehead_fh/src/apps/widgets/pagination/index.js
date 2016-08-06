@@ -122,7 +122,7 @@ $.widget('gl.pagination', {
     html.push('<input type="text" value="' + (pageIndex + 1) + '" data-cur-page="' + pageIndex + '" class="js-wt-grid-curt-page pagination-curt-page" />');
 
     html.push('</span><span> / <span class="total-page">' + totalPage + ' 页</span> ');
-    html.push('<button class="js-wt-grid-btn-go-to pagination-go-to btn no-radius">确定</button>');
+    html.push('<button class="js-wt-grid-btn-go-to pagination-go-to">确定</button>');
 
     html.push('</div>');
     html.push('</div>');

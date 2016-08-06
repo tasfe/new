@@ -48,7 +48,7 @@ var OnlineRechargeView = TabView.extend({
         html.push( _(limit.quotaLevel).formatDiv(10,{fixed:1})+'配额&nbsp;'+limit.quotaLimit + '&nbsp;个');
       });
       if(flag) {
-        $limit.find('.js-ac-open-limit').html(html.join('，') + '，此后奖金组配额无限制');
+        $limit.find('.js-ac-open-limit').html(html.join('，') + '。');
         $limit.removeClass('hidden');
       }
     }

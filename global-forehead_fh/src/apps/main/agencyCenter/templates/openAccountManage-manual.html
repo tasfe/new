@@ -1,47 +1,30 @@
 <div class="ac-openAccount-rebate-notice">
-<div class="js-ac-quota-container alert hidden as-fund-pwd-head">
-  <!--<i class="fa fa-exclamation-circle font-md"></i>-->
-  <div class="text-bold-sunshine">温馨提示：</div>
-  您目前拥有<span class="js-ac-open-limit"></span>，有配额限制请使用手动开户。
+  <div class="js-ac-quota-container tips hidden">
+    馨提示：您目前拥有<span class="js-ac-open-limit"></span>
+  </div>
+  <div class="julien-left">
+    <dl class="manualRebate">
+      <dt>选择等级：</dt>
+      <dd><input class="js-ac-manual-rebate" placeholder="请选择或手动输入返点" data-parsley-range="[0.0,13.0]" type="text"></dd>
+    </dl>
+    <dl>
+      <dt>用户名：</dt>
+      <dd><input type="text" class="js-ac-userName" name="userName" /></dd>
+    </dl>
+    <dl>
+      <dt>密码：</dt>
+      <dd><input type="password" id='jsACPassword' class="js-ac-password"></dd>
+    </dl>
+    <dl>
+      <dt>确认密码：</dt>
+      <dd><input type="password" class="js-ac-repeatPassword"></dd>
+    </dl>
+    <hr>
+    <div>
+      <button type="button" class="js-ac-submitOpenAccountInfo" data-loading-text="保存中">立即开户</button>
+    </div>
+  </div>
+  <div class="julien-right">
+    <div class="js-ac-rebate-set-container ac-op-manual-rebate-set-container"></div>
+  </div>
 </div>
-<form class="js-ac-openAccountManual-form form-horizontal">
-  <div class=" control-group">
-    <label class="control-label text-coffee">用户名：</label>
-
-    <div class="controls">
-      <input type="text" class="js-ac-userName" autocomplete="off"  name="userName" data-parsley-username required>
-      <span class="help-inline">4-16个字符，支持英文和数字，不能以数字开头</span>
-    </div>
-    <div class="controls">
-      <span class="js-ac-tip text-danger form-control hidden"></span>
-    </div>
-  </div>
-  <div class="control-group">
-    <label class="control-label text-coffee">密码：</label>
-
-    <div class="controls ">
-      <input type="password" id='jsACPassword' class="js-ac-password"  data-parsley-length="[6, 20]"
-             data-parsley-noSpecialChar required>
-      <span class="help-inline">6-20位字符组成，区分大小写，不能使用特殊字符</span>
-    </div>
-  </div>
-  <div class="control-group">
-    <label class="control-label text-coffee">确认密码：</label>
-
-    <div class="controls ">
-      <input type="password" class="js-ac-repeatPassword" data-parsley-length="[6, 20]" data-parsley-noSpecialChar
-             data-parsley-equalto="#jsACPassword" required>
-      <span class="help-inline">再次输入密码</span>
-    </div>
-  </div>
-  <div class="control-group">
-      <div class="js-ac-rebate-set-container ac-op-manual-rebate-set-container"></div>
-  </div>
-  <div class="ac-submit-btn-div text-right">
-    <div class="controls">
-      <button type="button" class="js-ac-submitOpenAccountInfo btn btn-sun ac-open-account-manual-button" data-loading-text="保存中">立即开户</button>
-    </div>
-  </div>
-</form>
-  </div>
-
