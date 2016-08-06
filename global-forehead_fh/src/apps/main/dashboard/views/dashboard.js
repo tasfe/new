@@ -35,6 +35,14 @@ var DashboardView = Base.ItemView.extend({
       data: data
     });
   },
+
+  //获取排行榜
+  getRankListXhr: function() {
+    return Global.sync.ajax({
+      url: '/ticket/bethistory/prizehistory.json'
+    });
+  },
+
   getBannerADXhr: function() {
     return Global.sync.ajax({
       url: '/acct/usernotice/getdashboardadvertise.json'
@@ -72,6 +80,7 @@ var DashboardView = Base.ItemView.extend({
     this.renderDynamicList(data);
     this.renderMainBannerAD();
 
+    this.renderRankList();
   },
 
   renderMainBannerAD: function() {
@@ -102,6 +111,21 @@ var DashboardView = Base.ItemView.extend({
               //self.$nextPage.removeClass('disabled');
             }
           }
+        }
+      });
+  },
+
+  renderRankList: function() {
+    var self = this;
+    this.getRankListXhr()
+      .done(function(res) {
+        if (res.result === 0) {
+          var htmStr= "";
+          _(res.root).each(function(info) {
+            //alert()
+            htmStr += "恭喜"+info.userName+"在"+info.ticketName+"，喜中"+info.bonus/10000+"元<br>";
+          });
+          self.$('.js-rank-list').html(htmStr);
         }
       });
   },
