@@ -34,7 +34,7 @@ var DashboardView = Base.ItemView.extend({
     });
 
     var lotteryList = "";
-    lotteryList += '<a href="#bc/1"><div class=" sfa-d-ssc-cq " style="width: 100px; height: 100px; float: left"></div></a>';
+    lotteryList += '<a href="#bc/1" target="_parent" " ><div class=" sfa-d-ssc-cq " style="width: 100px; height: 100px; float: left"></div></a>';
     lotteryList += '<a href="#bc/3"><div class=" sfa-d-ssc-xj " style="width: 100px; height: 100px; float: left"></div></a>';
     lotteryList += '<a href="#bc/8"><div class="  sfa-d-ssc-tj" style="width: 100px; height: 100px; float: left"></div></a>';
     lotteryList += '<a href="#bc/9"><div class=" sfa-d-ssc-hlj " style="width: 100px; height: 100px; float: left"></div></a>';
