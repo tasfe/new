@@ -20,6 +20,8 @@ var BettingCenterView = Base.ItemView.extend({
 
   playLevelTpl: _.template(require('bettingCenter/templates/bettingCenter-level-mmc.html')),
   rulesTpl: _.template(require('bettingCenter/templates/bettingCenter-rules.html')),
+  betResultLoseTpl: _.template(require('bettingCenter/mmc/betResultLose.html')),
+  betResultWinTpl: _.template(require('bettingCenter/mmc/betResultWin.html')),
 
   events: {
     'click .js-bc-basic-rule': 'baseRuleChangeHandler',
@@ -168,6 +170,8 @@ var BettingCenterView = Base.ItemView.extend({
     this.$LotteryTime = this.$('.js-bc-mmc-continue-lottery-times');
     this.$WinStop = this.$('.js-bc-mmc-win-stop');
     this.$LotteryTimeShow = this.$('.js-bc-mmc-lottery-time-show');
+
+
 
     this.initNumRange();
     this.getTicketInfoAndDeal();
@@ -764,7 +768,7 @@ var BettingCenterView = Base.ItemView.extend({
     this.LeftTimes--;
     this.BetinfoList.push({status:'0'});
     this.BetRes = undefined;
-    this.showWinResult(false);
+    /*this.showWinResult(false);*/
     this.showLastResult(false);
     this.showLotteryTime(true,this.BetTimes-this.LeftTimes);
     if(!this.BeenDistoryed){
@@ -941,6 +945,7 @@ var BettingCenterView = Base.ItemView.extend({
       });
     }
   },
+
 
   //异常终止
   abend: function(res){
@@ -1284,13 +1289,25 @@ var BettingCenterView = Base.ItemView.extend({
 
   },
   showWinResult: function(flag,prize){
+    var $dialog;
     if(flag){
       this.$CurrentResultMask.addClass('hidden');
       this.$CurrentResult.removeClass('hidden');
       this.$CurrentResult.html('<span>恭喜您，中奖金额为'+_(prize).convert2yuan()+'元！</span>');
+      $dialog = Global.ui.dialog.show({
+        body: this.betResultWinTpl({
+          prize:_(prize).convert2yuan()
+        }),
+        modalClass: 'bc-mmc-win-model'
+      });
     }else {
       this.$CurrentResult.addClass('hidden');
       this.$CurrentResult.html('<span></span>');
+      $dialog = Global.ui.dialog.show({
+        body: this.betResultLoseTpl({
+        }),
+        modalClass: 'bc-mmc-lose-model'
+      });
     }
   },
   showLastResult: function(flag,prize){
@@ -1359,8 +1376,7 @@ var BettingCenterView = Base.ItemView.extend({
       }
     });
 
-  }
-
+  },
 });
 
 module.exports = BettingCenterView;
