@@ -11,6 +11,91 @@
   }
 
 }
+
+//秒秒彩样式
+.bc-mmc-lose-model {
+  width: 1000px !important;
+  margin-left: -500px !important;
+  padding-top: 38px;
+  text-align: center;
+  .modal-body {
+    background-color: transparent;
+  }
+  .bc-mmc-result{
+    background: url('mmc_loser.png') top center repeat-y;
+    height: 430px;
+  }
+  .bc-mmc-result-choose{
+    height: 40px;
+    font-size: 14px;
+    .bc-mmc-result-bet-again{
+      width: 130px;
+      height: 43px;
+      border: 1px solid #ff6600;
+      background-color: #ff6600;
+      margin-left: 0px;
+      color: #ffffff;
+      font-size: 23px;
+    }
+    .bc-mmc-result-choose-again{
+      width: 130px;
+      height: 43px;
+      border: 1px solid #cb7d54;
+      background-color: #cb7d54;
+      margin-left: 0px;
+      color: #ffffff;
+      font-size: 23px;
+    }
+  }
+}
+.bc-mmc-win-model {
+  width: 1000px !important;
+  margin-left: -500px !important;
+  padding-top: 38px;
+  text-align: center;
+  .modal-body {
+    background-color: transparent;
+  }
+  .bc-mmc-result{
+    background: url('mmc_bet_win.png') top center repeat-y;
+    height: 430px;
+    .bc-mmc-win-result{
+      position: absolute;
+      right: 300px;
+      top: 392px;
+      color: #fff;
+      height: 32px;
+      width: 400px;
+      font-size: 23px;
+      .bc-mmc-total-text-italic {
+        font-size: 30px;
+        color: #ffff00;
+      }
+    }
+  }
+  .bc-mmc-result-choose{
+    height: 40px;
+    font-size: 14px;
+    .bc-mmc-result-bet-again{
+      width: 130px;
+      height: 43px;
+      border: 1px solid #ff6600;
+      background-color: #ff6600;
+      margin-left: 0px;
+      color: #ffffff;
+      font-size: 23px;
+    }
+    .bc-mmc-result-choose-again{
+      width: 130px;
+      height: 43px;
+      border: 1px solid #cb7d54;
+      background-color: #cb7d54;
+      margin-left: 0px;
+      color: #ffffff;
+      font-size: 23px;
+    }
+  }
+}
 .bc-mmc-div{
   background-color: #efefef;
   height:215px;
@@ -201,10 +286,10 @@
   }
 
   .bc-play-container {
-    height: 264px;
+    height: 324px;
     border: 0px;
     .bc-play-area.loaded  {
-      height: 250px;
+      height: 310px;
       width: 1140px
     ;
       padding-top: 13px;
@@ -218,7 +303,7 @@
             border: 1px solid #4e4e4e;
           }
           .active{
-            border: 1px solid #ffba00 ;
+            border: 1px solid #f0efee ;
           }
         }
         .tab-toolbar {
@@ -352,20 +437,14 @@
     border-bottom-right-radius : 12px;
     color: #fff;
     position: relative;
-
-
-
     .bc-lottery-preview {
       position: relative;
-<<<<<<< HEAD
-      background-color: #666666;
+     background-color: #666666;
       width: 1150px;
       height: 115px;
-=======
-      background-color: #c21d15;
+      /*background-color: #c21d15;
       width: 965px;
-      height: 415px;
->>>>>>> ddec580c047b789ddb7819d58d34cc6f50afd439
+      height: 415px;*/
       margin: 27px auto 13px auto;
       border-right: 0;
       .bc-mmc-result-win{
@@ -384,7 +463,6 @@
       }
       .bc-mmc-result-total{
         position: absolute;
-        background: url('mmc_mask.png')  no-repeat;
         width: 1022px;
         height: 212px;
         margin: -241px 0 0 -28px;
@@ -411,7 +489,7 @@
           }
         }
         .bc-mmc-result-lost-total {
-          background: url('mmc_lost.png') no-repeat;
+          background: url('mmc_loser.png') no-repeat;
           position: absolute;
           width: 469px;
           height: 197px;
