@@ -1,45 +1,57 @@
 <div class="search-condition-table">
   <div class="row1">
-    <div class="ac-user-name-div">
-      <label class="control-label text-coffee">账号：</label>
-      <input type="text" name="userName" class="input3" data-parsley-username>
-    </div>
-    <div class="ac-range-label">
-      <label class="control-label">查询范围:</label>
-      <select name="subAcctRange" class="input-md" disabled>
-        <option value="0">直属下级</option>
-        <option value="1">全部下级</option>
-      </select>
-    </div>
-    <div class="ac-balance-label">
-      <label class="control-label text-coffee">个人余额：</label>
-      <span>
-      <input type="text" name="balanceStart" class="input3" data-parsley-type="integer"
-             data-parsley-range="[0,1000000000]"> -
-      <input type="text" name="balanceEnd" class="input3" data-parsley-type="integer"
-             data-parsley-range="[0,1000000000]">
-      </span>
-    </div>
-  </div>
-
-  <div class="control-group row2">
-    <div class="ac-unActive-day-label">
-      <label class="control-label ac-llm-unActive-day-label text-coffee">不活跃天数≥</label>
-      <input type="text" name="unActiveDays" class="input3" data-parsley-type="integer"
-             data-parsley-range="[0,10000]">
-    </div>
-    <div class="ac-register-ime-label">
-      <label class="control-label text-coffee">注册日期：</label>
-      <span class="js-pf-timeset input-date"></span>
-    </div>
-
-
-    <div class="inline-block ">
-      <button type="submit" class="btn btn-link text-pleasant">搜索</button>
-    </div>
-    <div class="inline-block">
-    <button type="reset" class="btn btn-link text-pleasant">清空条件</button>
+    <dl class="width150">
+      <dt>账号</dt>
+      <dd><input type="text" name="userName" data-parsley-username></dd>
+    </dl>
+    <dl class="width165">
+      <dt>是否在线</dt>
+      <dd>
+        <select name="online">
+          <option value="0">显示全部</option>
+          <option value="1">在线</option>
+        </select>
+      </dd>
+    </dl>
+    <dl class="width285">
+      <dt>注册时间</dt>
+      <dd>
+        <span class="js-pf-timeset"></span>
+      </dd>
+    </dl>
+    <dl>
+      <dt>个人余额</dt>
+      <dd>
+         <input type="text" name="balanceStart" data-parsley-type="integer" data-parsley-range="[0,1000000000]">
+         -
+         <input type="text" name="balanceEnd" data-parsley-type="integer" data-parsley-range="[0,1000000000]">
+      </dd>
+    </dl>
+    <div>
+      <button type="submit">搜索</button>
     </div>
   </div>
+  <div class="row2" style="display: none;">
+    <dl class="width150">
+      <dt>返点</dt>
+      <dd><input type="text" name="rebate"></dd>
+    </dl>
+    <dl class="ac-unActive-day-label">
+      <dt>不活跃天数≤</dt>
+      <dd>
+        <input type="text" name="unActiveDays" data-parsley-type="integer" data-parsley-range="[0,10000]">
+      </dd>
+    </dl>
+    <dl class="width315">
+      <dt>最后在线时间</dt>
+      <dd>
+        <span class="js-last-timeset"></span>
+      </dd>
+    </dl>
+  </div>
+</div>
+<div class="hidden-seach">
+  <hr>
+  <span class="js-toggle-seach"></span>
 </div>
 <h3 class="tips">注意: 投注记录只保留最近30天。</h3>

@@ -43,7 +43,7 @@ Base.Prefab.Timeset = Base.PrefabView.extend({
 
     _.defaults(this.options.endOps, {
       format: 'YYYY-MM-DD H:mm:ss',
-      useCurrent: false,
+      useCurrent: true,
       maxDate: this.options.endDate.toDate()
     });
   },

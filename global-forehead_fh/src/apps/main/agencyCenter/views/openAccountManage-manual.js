@@ -64,7 +64,7 @@ var OpenAccountManageView = Base.ItemView.extend({
     this.$('.js-ac-rebate-set-container').staticGrid({
       tableClass: 'table table-bordered table-no-lr table-center',
       colModel: [
-        {label: '彩种系列', name: 'sericeName', width: '30%',formatter: function(val,index,info){
+        {label: '游戏', name: 'sericeName', width: '30%',formatter: function(val,index,info){
           var ticket = '';
           if(val==='时时彩'){
             ticket = 'constant';
@@ -78,21 +78,30 @@ var OpenAccountManageView = Base.ItemView.extend({
           }else if(val==='老虎机秒秒彩'){
             ticket = 'smmc';
           }
-          return '<a class="js-ac-ticket-link btn-link text-pleasant" data-ticket="'+ticket+'">'+val+'</a>';
+          return '<a class="js-ac-ticket-link btn-link" data-ticket="'+ticket+'">'+val+'</a>';
         }},
-        {label: '最高奖金', name: 'maxBonus', width: '30%',formatter: function(val,index,info){
+        {label: '玩法', name: 'maxBonus', width: '30%',formatter: function(val,index,info){
           var superPlay = '';
           var normalPlay = '';
           if(info.sericeName==='时时彩' ){
-            superPlay = '<br /><div style="height:1px; width:100%; background:#c2c2c2;margin-top:5px; padding:0 3px; margin-left:-3px;"></div><span style="padding-top:5px; display:block;">超级3000：3000</span>';
-            normalPlay ='普通玩法：';
-          }
-          return '<span class="js-ac-openAccount-maxBonus" data-maxBonus="'+val+'" data-name="'+info.sericeName+'">'+ normalPlay +
+            superPlay = '<br /><div style="height:1px; width:100%; background:#c2c2c2;margin-top:5px; padding:0 3px; margin-left:-3px;"></div><span style="padding-top:5px; display:block;">超级3000</span>';
+            normalPlay ='普通玩法';
+            return '<span class="js-ac-openAccount-maxBonus" data-maxBonus="'+val+'" data-name="'+info.sericeName+'">'+ normalPlay +
             self.calculateMaxBonus(info.sericeName,_(info.subAcctRebate).formatDiv(10),val)+'</span>' + superPlay;
+          }
+          else{
+            return '所有玩法';
+          }
         }},
-        {label: '下级返点', name: 'subAcctRebate',width:'40%', merge: true, formatter: function(val, index, info) {
-          return '<input type="text" class="js-ac-manual-rebate " required value="' + _(val).formatDiv(10,{fixed:1}) + '" data-parsley-oneDecimal data-parsley-range="['+_(info.minRebate).formatDiv(10,{fixed:1})+','+_(info.maxRebate).formatDiv(10,{fixed:1})+']" > %<div class="text-center">(' +
-            info.minRebate +  '～' + _(info.maxRebate>128?128:info.maxRebate).formatDiv(10,{fixed:1}) + ')</div>';
+        {label: '奖金', name: 'maxBonus', width: '30%',formatter: function(val,index,info){
+          var superPlay = '';
+          var normalPlay = '';
+          if(info.sericeName==='时时彩' ){
+            superPlay = '<br /><div style="height:1px; width:100%; background:#c2c2c2;margin-top:5px; padding:0 3px; margin-left:-3px;"></div><span style="padding-top:5px; display:block;">3000</span>';
+            normalPlay ='';
+          }
+          return '<span class="js-ac-openAccount-maxBonus" data-maxBonus="'+val+'" data-name="'+info.sericeName+'">' +
+            self.calculateMaxBonus(info.sericeName,_(info.subAcctRebate).formatDiv(10),val)+'</span>' + superPlay;
         }}
       ],
       row: tableInfo

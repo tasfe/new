@@ -12,7 +12,8 @@ var LowLevelManageView = SearchGrid.extend({
 
   events: {
     'click .js-ac-expend-btn': 'expendHandler',
-    'click .js-ac-llm-cp': 'checkPayPwdSet'
+    'click .js-ac-llm-cp': 'checkPayPwdSet',
+    'click .js-toggle-seach': 'toggleSeach'
   },
 
   initialize: function() {
@@ -62,9 +63,6 @@ var LowLevelManageView = SearchGrid.extend({
           width: '18%'
         }
       ],
-      //gridOps: {
-      //  emptyTip: '无记录'
-      //},
       ajaxOps: {
         url: '/acct/subacctinfo/getsubacctlist.json'
       },
@@ -92,6 +90,24 @@ var LowLevelManageView = SearchGrid.extend({
       endTime: 'regTimeEnd',
       startTimeHolder: '起始日期',
       endTimeHolder: '结束日期',
+      size: 'julien-time',
+      prevClass: 'js-pf',
+      startOps: {
+        format: 'YYYY-MM-DD'
+      },
+      endOps: {
+        format: 'YYYY-MM-DD'
+      }
+    }).render();
+
+    new Timeset({
+      el: this.$('.js-last-timeset'),
+      startTime: 'loginTimeStart',
+      endTime: 'loginTimeEnd',
+      startTimeHolder: '起始日期',
+      endTimeHolder: '结束日期',
+      size: 'julien-time',
+      prevClass: 'js-last',
       startOps: {
         format: 'YYYY-MM-DD'
       },
@@ -108,6 +124,17 @@ var LowLevelManageView = SearchGrid.extend({
       content: '<strong>不活跃天数定义</strong> <br />连续多少天内无任何账变，即为不活跃的天数',
       placement: 'bottom'
     });
+  },
+
+  toggleSeach: function(){
+    $('.search-condition-table .row2').slideToggle('slow');
+    if($('.js-toggle-seach').hasClass('on'))
+    {
+      $('.js-toggle-seach').removeClass('on')
+    }
+    else{
+      $('.js-toggle-seach').addClass('on')
+    }
   },
 
   renderGrid: function(gridData) {

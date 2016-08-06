@@ -199,7 +199,6 @@
 
 
   .ac-openAccount-rebate-notice {
-    padding: 5px 0;
     margin: 0 0 20px 0;
   }
   .js-ac-openAccountManual-form {
@@ -217,7 +216,38 @@
 
   }
   .ac-op-manual-rebate-set-container {
-    margin-top: 10px;
+
+    div{
+
+      > table{
+        tr{
+          height: 38px;
+          background-color: #f2f2f2;
+          line-height: 38px;
+          color: #999999;
+          font-family: '微软雅黑';
+          font-size: 14px;
+
+          th{
+            padding: 0px;
+            vertical-align: inherit;
+          }
+        }
+      }
+
+      div > table{
+        tr{
+          background-color: #fff;
+          color: #666666;
+          font-family: '微软雅黑';
+          font-size: 14px;
+
+          a{
+            color: #666666;
+          }
+        }
+      }
+    }
   }
   .ac-op-auto-rebate-set-container {
     width: 780px;
@@ -246,13 +276,18 @@
   }
 
   .ac-openAccount-link-main-div {
-    margin: 16px 0 0 0;
+    margin: -8px 0 0 0;
   }
 
   .ac-add-link {
     margin-right: 15px;
-    width: 166px;
-    height: 32px;
+    width: 115px;
+    height: 30px;
+    border:0px;
+    background-color: #d8855a;
+    font-size: 16px;
+    font-family: '微软雅黑';
+    color: #fff;
   }
 
   .ac-open-account-link {
@@ -447,7 +482,8 @@
   }
 
   .view-tabs{
-    margin: 25px 0;
+    margin: 22px 20px 16px 20px;
+    padding: 0px;
   }
 
   .nav-tabs > li{
@@ -551,5 +587,208 @@
     bottom: 20px;
     left: 30px;
     font-weight: initial;
+  }
+
+  dl,dt,dd{
+    padding: 0px;
+    margin: 0px;
+  }
+
+  dl{
+    float: left;
+    margin-right: 10px; 
+  }
+
+  .search-condition-table{
+    > div{
+      height: 35px;
+      margin-bottom: 15px;
+
+      >div{
+        float: right;
+        width: 75px;
+        border-left: 1px solid #cccccc;
+
+        button{
+          width: 62px;
+          height: 30px;
+          background-color: #ff6600;
+          color: #fff;
+          font-family: '微软雅黑';
+          font-size: 16px;
+          border: 0px;
+        }
+      }
+    }
+
+    dt,dd{
+      display: inline-block;
+    }
+    dt{
+      margin-right: 5px;
+      font-weight: normal;
+      font-size: 14px;
+      color: #999999;
+      font-family: '微软雅黑';
+    }
+
+    select{
+      width: 86px;
+      padding: 0px 5px;
+    }
+
+    input{
+      width: 86px;
+      height: 28px;
+      padding: 0px 5px;
+    }
+  }
+
+  dl.width150{
+    width: 150px;
+  }
+
+  dl.width165{
+    width: 165px;
+  }
+
+  dl.width285{
+    width: 285px;
+  }
+
+  dl.width315{
+    width: 315px;
+  }
+
+  .hidden-seach{
+    height: 14px;
+    position: relative;
+    text-align: center;
+    margin-bottom: 20px;
+
+    hr{
+      position: absolute;
+      margin: 0px;
+      width: 100%;
+      top: 7px;
+      border-top: 1px solid #cccccc;
+    }
+    span{
+      background-color: #d8855a;
+      display: block;
+      position: relative;
+      width: 63px;
+      height: 14px;
+      margin: 0px auto 20px auto;
+      cursor: pointer;
+
+      &:hover{
+        background-color: #cd1f21;
+      }
+
+      &:before{
+        content:'';
+        display: block;
+        width: 0;
+        height: 0;
+        border-width: 5px;
+        border-style: solid dashed dashed dashed;
+        border-color: #fff transparent transparent transparent;
+        position: absolute;
+        left: 27px;
+        top: 5px;
+      }
+
+      &.on{
+        &:before{
+          border-style: dashed dashed solid dashed;
+          border-color: transparent transparent #fff transparent;
+          top: -1px;
+        }
+
+        &:hover{
+          background-color: #cd1f21;
+        }
+      }
+    }
+  }
+}
+
+.ac-openAccount-view{
+  .ac-openAccount-rebate-notice{
+    font-size: 14px;
+    font-family: '微软雅黑';
+    color: #666666;
+
+    dl,dt,dd{
+      padding: 0px;
+      margin: 0px;
+      font-weight: initial;
+      display: inline-block;
+    }
+
+    .tips{
+      color: #fff;
+      height: 33px;
+      line-height: 33px;
+      background-color: #cc0000;
+      border-radius: 33px;
+      padding-left: 20px;
+      margin-bottom: 20px;
+    }
+
+    .julien-left{
+      width: 380px;
+      float: left;
+
+      .manualRebate{
+        input{
+          background: url(~base/images/julien/22.png) no-repeat 180px 12px #f7f7f7;
+          font-size: 14px;
+        }
+      }
+
+      dl{
+        margin-bottom: 20px;
+      }
+      dt{
+        width: 93px;
+        text-align: right;
+      }
+      dd{
+        width: 220px;
+
+        input{
+          width: 188px;
+          height: 26px;
+          padding: 0px 5px;
+        }
+      }
+
+      hr{
+        margin: 10px 82px 20px 23px;
+        border-top: 1px solid #e2e2e2;
+      }
+
+      button{
+        width: 275px;
+        border: 0px;
+        height: 30px;
+        line-height: 30px;
+        background-color: #cc0000;
+        color: #fff;
+        margin-left: 23px;
+      }
+    }
+    .julien-right{
+      width: 740px;
+      float: right;
+    }
+
+    &:after{
+      content: '';
+      display: block;
+      clear: both;
+    }
   }
 }

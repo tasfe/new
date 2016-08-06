@@ -67,7 +67,7 @@ var OpenAccountManageView = Base.ItemView.extend({
           });
           self.renderLinkTable(rows);
           self.catchLinkData=rows;
-          self._parentView.renderLimit(self.$limit, res.root.quotaList);
+          //self._parentView.renderLimit(self.$limit, res.root.quotaList);
         }
       });
   },
@@ -76,14 +76,15 @@ var OpenAccountManageView = Base.ItemView.extend({
     this.grid = this.$grid.staticGrid({
       tableClass: 'table table-bordered table-no-lr table-hover table-center',
       colModel: [
-        {label: '连接', name: 'userLinkId', formatter: function(userLinkId, index) {
+        {label: '链接地址', name: 'userLinkId', formatter: function(userLinkId, index) {
           var link = _('/register.html?linkId=' + userLinkId).toLink();
-          return  '<div style="width:180px;overflow: hidden;white-space: nowrap; text-overflow: ellipsis;"><a class=" btn btn-link ac-oam-au-link"  href="'+link+'" target="_blank">'+link+'</a></div>';
+          return  '<div style="width:180px;overflow: hidden;white-space: nowrap; text-overflow: ellipsis;">'+link+'</div>';
         },width: 200},
-        {label: '备注', name: 'userLinkDes',width: 200},
-        {label: '已注册', name: 'regUserNum',width: 100},
-        {label: '操作', name: 'count',formatter:function(userLinkId, index) {
-          return  '<button class="js-ac-btn-link-copy btn btn-link ">复制</button><button class="js-ac-auto-btn-edit btn btn-link ">编辑</button><button class="js-ac-btn-delLink btn btn-link " >删除</button>';
+        {label: '备注用途', name: 'userLinkDes',width: 200},
+        {label: '已注册人数', name: 'regUserNum',width: 100},
+        {label: '操作', name: 'userLinkId',formatter:function(userLinkId, index) {
+          var link = _('/register.html?linkId=' + userLinkId).toLink();
+          return  '<a href="'+link+'" target="_blank" >预览</a><button class="js-ac-btn-link-copy btn btn-link ">复制</button><button class="js-ac-auto-btn-edit btn btn-link ">编辑</button><button class="js-ac-btn-delLink btn btn-link " >删除</button>';
         },width: 200}
       ],
       height: 354,
@@ -191,7 +192,7 @@ var OpenAccountManageView = Base.ItemView.extend({
     $dialog.find('.js-ac-link-edit-div').staticGrid({
       tableClass: 'table table-bordered table-center',
       colModel: [
-        {label: '彩种系列', name: 'sericeName', width: '33%',formatter: function(val,index,info){
+        {label: '游戏', name: 'sericeName', width: '33%',formatter: function(val,index,info){
           var ticket = '';
           if(val==='时时彩'){
             ticket = 'constant';
