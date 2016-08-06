@@ -1,7 +1,5 @@
 "use strict";
 
-var ContentEmailView = require('accountCenter/views/contentEmail');
-
 var confirmEmailView = Base.ItemView.extend({
 
     template: require('accountCenter/templates/setEmailConfirm.html'),
@@ -13,10 +11,9 @@ var confirmEmailView = Base.ItemView.extend({
     startOnLoading: true,
 
 
-
     events: {
 
-        'click .js-fd-finishedt': 'nextHandler', //输入密保问题(与修改页面共用)
+        'click .js-fd-finished': 'nextHandler', //输入密保问题(与修改页面共用)
         'click .js-acse-back': 'acseBackHandler'
 
     },
@@ -40,9 +37,10 @@ var confirmEmailView = Base.ItemView.extend({
     },
 
     acseBackHandler:function () {
-        alert(111);
-        var conetent = new ContentEmailView({parentView: this.parentView});
+        var ContentEmailView12 = require('accountCenter/views/contentEmail');
+        var conetent = new ContentEmailView12();
         $('.js-acse-container').html(conetent.render().el);
+        this.destroy();
     }
 
 

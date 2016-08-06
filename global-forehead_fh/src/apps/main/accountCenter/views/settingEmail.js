@@ -21,8 +21,8 @@ var SettingEmail = Base.ItemView.extend({
     },
 
     modifyEmailHandler:function () {
-        
-        var conetent = new ContentEmailView({parentView: this});
+        //{parentView: this}
+        var conetent = new ContentEmailView();
 
         this.$dialog = Global.ui.dialog.show({
             title: '邮箱设置',

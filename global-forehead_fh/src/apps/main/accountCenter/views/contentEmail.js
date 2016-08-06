@@ -32,8 +32,8 @@ var contentEmailView = Base.ItemView.extend({
     nextHandler: function () {
 
         var confirm = new ConfirmView();
-
         $('.js-acse-container').html(confirm.render().el);
+        this.destroy();
         
     }
 
