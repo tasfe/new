@@ -73,6 +73,10 @@ var MoneyWithdrawalView = Base.ItemView.extend({
     this.generateQuickAmount(data.keyAmount);
 
     this.$('.js-fc-wd-tab-body').removeClass('hidden');
+
+    this.$quest = data.question;
+    this.$securityId = data.securityId;
+
   },
   generateQuickAmount: function(keyAmount) {
     var self = this;
@@ -135,44 +139,25 @@ var MoneyWithdrawalView = Base.ItemView.extend({
 
   confirmHandler: function() {
 
-    var self = this;
-    var $btnConfirm = this.$('.js-fc-confirm');
+    // var self = this;
+    // var $btnConfirm = this.$('.js-fc-confirm');
+    //
+    // $btnConfirm.button('loading');
     
-    $btnConfirm.button('loading');
+    
     if (!this.parsley.validate()) {
       return false;
     }
-    var data = {
-      cardId: this.$('.js-fc-wd-bankList').find('option:selected').val(),
-      amount: this.$('.js-fc-wd-amount').val(),
-      payPwd: this.$('.js-fc-wd-payPwd').val(),
-      type: 'withdraw'
-    };
 
-    var wcView = new WithdrawConfirmView({parentView: this.parentView});
+    var wcView = new WithdrawConfirmView({parentView: this.parentView,
+                                          cardId: this.$('.js-fc-wd-bankList').find('option:selected').val(),
+                                          amount: this.$('.js-fc-wd-amount').val(),
+                                          question:this.$quest,
+                                          securityId:this.$securityId});
+
     $('.js-fc-wd-container').html(wcView.render().el);
     
     
-    /*
-    this.getWithdrawXhr(data)
-      .always(function() {
-        $btnConfirm.button('reset');
-      })
-      .done(function(res) {
-        if (res && res.result === 0) {
-          Global.ui.notification.show('提现成功', {
-            type: 'success'
-          });
-          self.options.parentView.closeWithdrawDialog();
-          Global.router.goTo('#uc/wr');
-          Global.m.oauth.check();
-        } else {
-          Global.ui.notification.show(res.msg);
-        }
-      });
-     */
-
-
   }
 
 

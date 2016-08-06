@@ -32,10 +32,35 @@ var VipCashView = require('userCenter/vipCash');
 //var VipInfoView = require('userCenter/vipInfo');
 var VipCreditView = require('userCenter/vipCredit');
 
+var LotteryPALView = require('userCenter/lottoryPAL/ProfitAndLoss');
+var BaccaratPalView = require('userCenter/baccaratPal/baccaratPal');
+var transforRecordView = require('userCenter/transforRecord/transforRecord');
 
-var menuConfig = Global.ui.menu.get(['ac', 'uc', 'aa']);
+//var menuConfig = Global.ui.menu.get(['ac', 'uc', 'aa']);
 
 var UserCenterController = RouterController.extend({
+
+  transforRecord:function () {
+    this.changeMainReginView(new transforRecordView(), {
+      sidebar: Global.ui.menu.get(['uc'])
+    });
+    $('#main > .clearfix').addClass('ac-block ac-block2');
+  },
+
+
+  baccaratPal:function () {
+    this.changeMainReginView(new BaccaratPalView(), {
+      sidebar: Global.ui.menu.get(['uc'])
+    });
+    $('#main > .clearfix').addClass('ac-block ac-block2');
+  },
+  
+  lottoryPal:function () {
+    this.changeMainReginView(new LotteryPALView(), {
+      sidebar: Global.ui.menu.get(['uc'])
+    });
+    $('#main > .clearfix').addClass('ac-block ac-block2');
+  },
 
   checkPayPwdXhr: function() {
     return Global.sync.ajax({

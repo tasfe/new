@@ -101,7 +101,7 @@ var BettingRecordsView = SearchGrid.extend({
         return '<option value="'+qr.id+'">'+qr.zhName+'</option>';
       }).join(''));
 
-    //
+    //i 
     var nokArray=[{
                     id: 20,
                     zhName: "老虎机秒秒彩"

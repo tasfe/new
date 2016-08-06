@@ -6,19 +6,19 @@ var WithdrawFinishView = Base.ItemView.extend({
 
     events: {
 
-        'click .js-fc-wd-commit': 'finishedHandler'
+        'click .js-fc-wd-finished': 'finishedHandler'
     },
 
 
     className: '',
 
     onRender: function() {
-
+        
 
     },
 
     finishedHandler:function () {
-        
+        window.open('#uc/wr');
     }
 
 });

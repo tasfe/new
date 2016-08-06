@@ -311,6 +311,7 @@ $.widget('gl.register', {
     });
 
   },
+  
   //checkUNameExistHandler: function(e){
   //  var self = this;
   //  var cookie = new Base.Storage({
@@ -347,6 +348,7 @@ $.widget('gl.register', {
   //    }
   //  });
   //},
+  
   refreshValCodeHandler: function(){
     this.$valImg.attr('src','');
     this.$valImg.attr('src',this.codeUrl+'?_t='+_.now());
@@ -413,6 +415,7 @@ $.widget('gl.register', {
       $container.html('');
     }
   },
+  
   renderError: function(text) {
     this.$form.find('.login-error-message').html(text);
   },
@@ -425,6 +428,7 @@ $.widget('gl.register', {
       $target.val('');
     }
   }
+  
 });
 
 $(document).ready(function() {
