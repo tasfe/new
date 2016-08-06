@@ -1,0 +1,38 @@
+<div class="panel padding-md">
+  <form class="js-sw-word-form form-horizontal" action="javascript:void(0)">
+    <div class="form-group form-inline">
+      <label class="col-sm-3 control-label">选择分类：</label>
+      <div class="col-sm-9">
+        <label class="checkbox-inline">
+          <input class="js-sw-type" type="checkbox" value="1" name="type" checked> &nbsp;&nbsp;昵称</label>
+      </div>
+    </div>
+    <div class="form-group form-inline">
+      <label class="col-sm-3 control-label"></label>
+      <div class="col-sm-9">
+        <label class="checkbox-inline">
+          <input class="js-sw-type" type="checkbox" value="2" name="type" checked> &nbsp;&nbsp;用户名</label>
+      </div>
+    </div>
+    <div class="form-group form-inline">
+      <label class="col-sm-3 control-label"></label>
+      <div class="col-sm-9">
+        <label class="checkbox-inline">
+          <input class="js-sw-type" type="checkbox" value="3" name="type" checked> &nbsp;&nbsp;站内信</label>
+      </div>
+    </div>
+    <div class="form-group form-inline">
+      <label class="col-sm-3 control-label">敏感词：</label>
+
+      <div class="col-sm-9" style="margin-top: 10px;">
+        <textarea id="textarea1" style='height:100px; width:70%;' class="js-sw-word-content" placeholder="格式例子:你大爷,操,admin" data-parsley-zhMaxLength="300" data-parsley-someSpecialChar  required></textarea>
+      </div>
+    </div>
+    <div class="form-group form-inline">
+      <label class="col-sm-3 control-label"></label>
+      <div class="col-sm-9">
+        <span class="help-inline"><small>提示：最多300个字。</small></span>
+      </div>
+    </div>
+  </form>
+</div>

@@ -10,11 +10,13 @@ var TabView = Base.LayoutView.extend({
     _(this.options).defaults({
       tabClass: 'nav-tabs nav-tabs-border',
       loadingHeight: 490,
-      tabs: []
+      tabs: [],
+      menushow: true
     });
 
     var template = this._tabTemplate;
 
+    this.menushow = this.options.menushow;
     this._tabViews = [];
     this.tabs = this.tabs || this.options.tabs;
     this.triggerTab = this.triggerTab || this.options.triggerTab;
@@ -39,7 +41,8 @@ var TabView = Base.LayoutView.extend({
       tabClass: this.options.tabClass,
       tabs: this.tabs,
       triggerTab: this.triggerTab,
-      append: this.append
+      append: this.append,
+      menushow: this.menushow
     });
 
     if (this.startOnLoading) {

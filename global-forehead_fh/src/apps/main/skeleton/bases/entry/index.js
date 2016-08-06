@@ -8,6 +8,8 @@ var BettingCenterView = require('bettingCenter/views/bettingCenter');
 var MMCBettingCenterView = require('bettingCenter/mmc');
 var SMMCBettingCenterView = require('bettingCenter/smmc');
 
+var FirstLoginUpdatePasswd = require('com/firstLoginUpdatePasswd');
+
 var Countdown = require('com/countdown');
 
 var ticketConfig = require('skeleton/misc/ticketConfig');
@@ -56,8 +58,23 @@ var EntryView = Base.ItemView.extend({
 
     this.$('.js-gl-ticket-menu').dropMenu();
 
+    this.firstLoginUpdatePasswd = new FirstLoginUpdatePasswd();
+    this.firstLoginUpdatePasswd.checkState();
 
-    
+    var strHash = document.location.hash;
+    if (strHash=='') {
+      $('.head > ul > li').eq(6).addClass('sd');
+    }
+
+    window.onhashchange = function () {
+      var strHash = document.location.hash;
+      if (strHash=='') {
+        $('.js-main-display2').addClass('hidden');
+      }
+      else{
+        $('.js-main-display2').removeClass('hidden');
+      }
+    };
   },
 
   renderSetting: function() {
@@ -132,9 +149,9 @@ var EntryView = Base.ItemView.extend({
 
     html.push(entry.name);
 
-    if (entry.type === 'ticket') {
-      html.push(' <span class="js-gl-countdown"></span>');
-    }
+    //if (entry.type === 'ticket') {
+    //  html.push(' <span class="js-gl-countdown"></span>');
+    //}
 
     html.push('</div>');
 

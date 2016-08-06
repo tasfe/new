@@ -1,0 +1,37 @@
+<div class="panel padding-md">
+  <form class="js-xsjj-cfg-form form-horizontal form-inline" action="javascript:void(0)">
+    <div class="row m-bottom-sm">
+      <div class="col-sm-9">
+        <div class="form-group form-inline">
+          <label class="control-label m-right-sm" style="margin-left: 130px;">活动时间：</label>
+          <span class="js-xsjj-total-timeset"></span>
+        </div>
+      </div>
+    </div>
+    <div class="row m-bottom-sm">
+      <div class="col-sm-9">
+        <div class="form-group form-inline">
+          <label class="control-label m-right-sm">当前所有中奖金额的基础上加奖：</label>
+          <input type="text" class="js-xsjj-rate form-control" name="rate" required="" data-parsley-range="[0, 100]"
+                 data-parsley-twoDecimal>
+          <label class="control-label m-right-sm" style="margin-left: 10px;">%</label>
+        </div>
+      </div>
+    </div>
+    <div class="row m-bottom-sm">
+      <div class="col-sm-9">
+        <label class="control-label m-right-sm"  style="margin-left:63px;">每日活动时间配置：</label>
+          <span class="js-xsjj-timeset"></span>
+      </div>
+    </div>
+    <div class="text-center" style="margin-top:40px;">
+      <button class="js-xsjj-btn-submit btn btn-primary" type="button" style="width: 100px; margin-right: 20px;"
+              data-loading-text="发送中">确定
+      </button>
+      <button style="width: 100px;" class="js-xsjj-btn-reset btn" data-dismiss="modal" type="reset">取消</button>
+    </div>
+    <div>
+      <input name="activityId" type="hidden" class="js-xsjj-activityId form-control">
+    </div>
+  </form>
+</div>

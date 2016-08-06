@@ -71,6 +71,7 @@ var DashboardView = Base.ItemView.extend({
 
     this.renderDynamicList(data);
     this.renderMainBannerAD();
+
   },
 
   renderMainBannerAD: function() {
@@ -211,9 +212,9 @@ var DashboardView = Base.ItemView.extend({
       data = bannerConfig;
     }
 
-    _(data).each(function(item, index) {
-      liList.push('<li data-target="#jsDbCarousel" data-slide-to="' + index + (index === 0 ? '" class="active"' : '"') + '></li>');
-    });
+    //_(data).each(function(item, index) {
+    //  liList.push('<li data-target="#jsDbCarousel" data-slide-to="' + index + (index === 0 ? '" class="active"' : '"') + '></li>');
+    //});
 
     if(_(liList).size()>0){
       this.$navigationLiList.html(liList.join(''));
@@ -222,6 +223,50 @@ var DashboardView = Base.ItemView.extend({
     this.$imgList.html(this.bannerTpl({
       data: data
     }));
+
+    var currentNum = 0;
+    
+    if (sessionStorage.getItem('adOk') == 1) {
+    }
+    else{
+      sessionStorage.setItem('adOk', 1);
+      var adTime = setInterval(function () {
+        var num = $('.js-db-dynamic-list li').length;
+        if (num == currentNum + 1) {
+          currentNum = 0;
+          $(".js-db-dynamic-list").animate({marginTop:0});
+        }
+        else{
+          currentNum++;
+          $(".js-db-dynamic-list").animate({marginTop:currentNum * 40 * -1});
+        }
+      },5000);
+    }
+
+    $('.js-preInfo').on('click',function () {
+      var num = $('.js-db-dynamic-list li').length;
+      if (currentNum == 0) {
+        currentNum = num -1;
+        $(".js-db-dynamic-list").animate({marginTop:currentNum * 40 * -1});
+      }
+      else{
+        currentNum--;
+        $(".js-db-dynamic-list").animate({marginTop:currentNum * 40 * -1});
+      }
+    })
+
+    $('.js-nextInfo').on('click',function () {
+      var num = $('.js-db-dynamic-list li').length;
+      if (num == currentNum + 1) {
+        currentNum = 0;
+        $(".js-db-dynamic-list").animate({marginTop:0});
+      }
+      else{
+        currentNum++;
+        $(".js-db-dynamic-list").animate({marginTop:currentNum * 40 * -1});
+      }
+    })
+
   }
 });
 

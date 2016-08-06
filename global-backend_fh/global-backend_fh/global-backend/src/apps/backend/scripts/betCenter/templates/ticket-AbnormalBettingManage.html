@@ -1,0 +1,100 @@
+<div class="panel padding-md">
+  <form class="js-bc-form form-horizontal" action="javascript:void(0)">
+    <div class="form-group form-inline">
+      <label class="col-sm-3 control-label">单人单期中奖金额：</label>
+
+      <div class="col-sm-3">
+        <div class="js-bc-opMoneyTotalLimit-container">
+          <input type="text" class="form-control js-bc-opMoneyTotalLimit" data-parsley-range="[0, 10000000]" data-parsley-type="integer" required>
+          <label class="control-label">元</label>
+        </div>
+      </div>
+      <label class="col-sm-3 control-label">单人单期中/投比：</label>
+
+      <div class="col-sm-3">
+        <div class="js-bc-opMoneyBetRateTotalLimit-container">
+          <input type="text" class="form-control js-bc-opMoneyBetRateTotalLimit" data-parsley-range="[0, 100000]" data-parsley-type="integer" required>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group form-inline">
+      <label class="col-sm-3 control-label">单人订单中奖金额：</label>
+
+      <div class="col-sm-3">
+        <div class="js-bc-opopMoneyLimit-container">
+          <input type="text" class="form-control js-bc-opopMoneyLimit" data-parsley-range="[0, 10000000]" data-parsley-type="integer" required>
+          <label class="control-label">元</label>
+        </div>
+      </div>
+      <label class="col-sm-3 control-label">单人订单中/投比：</label>
+
+      <div class="col-sm-3">
+        <div class="js-bc-opopMoneyBetRateLimit-container">
+          <input type="text" class="form-control js-bc-opopMoneyBetRateLimit" data-parsley-range="[0, 100000]" data-parsley-type="integer" required>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group form-inline">
+      <label class="col-sm-3 control-label">单人单注中奖金额：</label>
+
+      <div class="col-sm-3">
+        <div class="js-bc-opSingleMoneyLimit-container">
+          <input type="text" class="form-control js-bc-opSingleMoneyLimit" data-parsley-range="[0, 400000]" data-parsley-type="integer" required>
+          <label class="control-label">元</label>
+        </div>
+      </div>
+      <label class="col-sm-3 control-label">单人单注中/投比：</label>
+
+      <div class="col-sm-3">
+        <div class="js-bc-opSingleMoneyBetRateLimit-container">
+          <input type="text" class="form-control js-bc-opSingleMoneyBetRateLimit" data-parsley-range="[0, 100000]" data-parsley-type="integer" required>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group form-inline">
+      <label class="col-sm-3 control-label">单人累计连续中奖期数：</label>
+
+      <div class="col-sm-3">
+        <div class="js-bc-opSerialWinPlanLimit-container">
+          <input type="text" class="form-control js-bc-opSerialWinPlanLimit" data-parsley-range="[0, 50]" data-parsley-type="integer" required>
+          <label class="control-label">次</label>
+        </div>
+      </div>
+      <label class="col-sm-3 control-label">单人累计连续中奖订单数：</label>
+
+      <div class="col-sm-3">
+        <div class="js-bc-opSerialWinBetLimit-container">
+          <input type="text" class="form-control js-bc-opSerialWinBetLimit" data-parsley-range="[0, 50]" data-parsley-type="integer" required>
+          <label class="control-label">次</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group form-inline">
+      <label class="col-sm-3 control-label">单人累计连续中奖注数：</label>
+
+      <div class="col-sm-9">
+        <div class="js-bc-opSerialWinBetNumLimit-container">
+          <input type="text" class="form-control js-bc-opSerialWinBetNumLimit" data-parsley-range="[0, 100]" data-parsley-type="integer" required>
+          <label class="control-label">次</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group form-inline">
+      <div class="col-sm-offset-1 col-sm-11">
+        <span class="tip">提示：填写0代表无异常，不可为负数，以上任意满足一条将进入异常投注审核。</span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-offset-5 col-sm-7">
+        <button type="submit" class="js-bc-btn-submit btn btn-primary" data-loading-text="发送中">确定</button>
+        <button type="button" class="js-bc-btn-cancel btn btn-default">取消</button>
+      </div>
+    </div>
+  </form>
+</div>

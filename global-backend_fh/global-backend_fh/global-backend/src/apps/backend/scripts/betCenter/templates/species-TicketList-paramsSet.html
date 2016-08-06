@@ -1,0 +1,142 @@
+<div class="panel">
+  <form class="js-bc-form form-horizontal" action="javascript:void(0)">
+
+    <div class="form-group form-inline">
+      <label class="col-sm-2 control-label">彩种名称：</label>
+
+      <div class="col-sm-9">
+        <div class="js-bc-ticketName-container">
+          <label class="control-label js-bc-ticketName"></label>
+          <label class="control-label js-bc-ticketId" hidden></label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group form-inline">
+      <label class="col-sm-2 control-label" >撤单相关参数：</label>
+      <div class="form-group form-inline border-all padding-sm col-sm-9 col-sm-offset-1" >
+        <label class="col-sm-2 control-label m-bottom-sm ">是否开启撤单：</label>
+        <div class="col-sm-10 m-bottom-sm">
+          <div class="js-bc-cancelOpen-container">
+            <label class="switch switch-white">
+              <input type="checkbox" class="js-bc-cancelOpen switch-input" value="0">
+              <span class="switch-round"></span>
+            </label>
+          </div>
+        </div>
+        <label class="col-sm-2 control-label m-bottom-sm ">撤单最低金额：</label>
+        <div class="col-sm-4 m-bottom-sm">
+          <div class="js-bc-cancelMinMoney-container">
+            <input type="text" class="form-control js-bc-cancelMinMoney" data-parsley-range="[0, 20000]" data-parsley-type="integer" readonly required>
+            <label class="control-label">元</label>
+          </div>
+        </div>
+        <label class="col-sm-2 control-label m-bottom-sm">销售截止前：</label>
+        <div class="col-sm-4 m-bottom-sm">
+          <div class="js-bc-opMoneyTotalLimit-container">
+            <input type="text" class="form-control js-bc-cancelTimeLimit" data-parsley-range="[0, 20000]" data-parsley-type="integer" readonly required>
+            <label class="control-label">秒</label>
+          </div>
+        </div>
+        <div class="col-sm-12">
+          <span class="tip m-left-sm">提示：填写0代表不限制，不可为负数。</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group form-inline">
+      <label class="col-sm-2 control-label" >投注相关参数：</label>
+      <div class="form-group form-inline border-all padding-sm col-sm-9 col-sm-offset-1" >
+        <label class="col-sm-2 control-label ">单注奖金限额：</label>
+        <div class="col-sm-4">
+          <div class="js-bc-singleBonusLimit-container">
+            <input type="text" class="form-control js-bc-singleBonusLimit" data-parsley-range="[0, 400000]" data-parsley-type="integer" required>
+            <label class="control-label">元</label>
+          </div>
+        </div>
+        <label class="col-sm-2 control-label hidden">单注最大倍数：</label>
+        <div class="col-sm-4 hidden">
+          <div class="js-bc-singleMultipleLimit-container">
+            <input type="text" class="form-control js-bc-singleMultipleLimit" value="1" data-parsley-type="integer" data-parsley-range="[0, 1000000]" required>
+            <label class="control-label">倍</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group form-inline">
+      <label class="col-sm-2 control-label" >视频开奖参数：</label>
+      <div class="form-group form-inline border-all padding-sm col-sm-9 col-sm-offset-1" >
+        <label class="col-sm-2 control-label m-bottom-sm ">是否开启视频：</label>
+        <div class="col-sm-10 m-bottom-sm">
+          <div class="js-bc-opMoneyTotalLimit-container">
+            <label class="switch switch-white">
+              <input type="checkbox" class="switch-input js-bc-vedioOpen" value="0">
+              <span class="switch-round"></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="col-sm-12 m-bottom-sm m-left-md">
+          <div class="js-bc-addVedioLine-container">
+            <button class="btn btn-sm btn-default  js-bc-addVedioLine-btn hidden"  >增加线路</button>
+          </div>
+        </div>
+
+        <!--
+        <label class="col-sm-2 control-label m-bottom-sm ">线路链接一：</label>
+        <div class="col-sm-10 m-bottom-sm">
+          <div class="js-bc-vedioLines-container">
+            <input type="text" class="form-control width-md js-bc-vedioLines">
+          </div>
+        </div>
+        <label class="col-sm-2 control-label m-bottom-sm ">线路链接二：</label>
+        <div class="col-sm-10 m-bottom-sm">
+          <div class="js-bc-vedioLines-container">
+            <input type="text" class="form-control width-md js-bc-vedioLines">
+          </div>
+        </div>
+        -->
+        <div class="col-sm-12 js-bc-addVedioLineTips">
+          <span class="tip m-left-sm">提示：链接地址前缀需要填写。</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group form-inline">
+      <label class="col-sm-2 control-label" >奖期异常参数：</label>
+      <div class="form-group form-inline border-all padding-sm col-sm-9 col-sm-offset-1" >
+        <label class="col-sm-2 control-label m-bottom-sm ">超过理论开奖：</label>
+        <div class="col-sm-10 m-bottom-sm">
+          <div class="js-bc-delayOpenLimit-container">
+            <input type="text" class="form-control js-bc-delayOpenLimit" data-parsley-range="[0, 2000]" data-parsley-type="integer"  required>
+            <label class="control-label">秒，定义为官方延迟开奖</label>
+          </div>
+        </div>
+        <div class="col-sm-offset-2 col-sm-10 m-bottom-sm">
+          <div class="js-bc-brokenOpenLimit-container">
+            <input type="text" class="form-control js-bc-brokenOpenLimit" data-parsley-range="[0, 20000]" data-parsley-type="integer"  required>
+            <label class="control-label">秒，定义为官方未开奖</label>
+          </div>
+        </div>
+        <label class="col-sm-2 control-label m-bottom-sm ">早于理论开奖：</label>
+        <div class="col-sm-10 m-bottom-sm">
+          <div class="js-bc-earlierOpenLimit-container">
+            <input type="text" class="form-control js-bc-earlierOpenLimit" data-parsley-range="[0, 2000]" data-parsley-type="integer"  required>
+            <label class="control-label">秒，定义为官方提前开奖</label>
+          </div>
+        </div>
+        <div class="col-sm-12">
+          <span class="tip m-left-sm">提示：填写0代表不限制，不可为负数。</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-offset-5 col-sm-7">
+        <button type="submit" class="js-bc-btn-submit btn btn-primary" data-loading-text="发送中">确定</button>
+        <button type="button" class="js-bc-btn-cancel btn btn-default">取消</button>
+      </div>
+    </div>
+  </form>
+</div>

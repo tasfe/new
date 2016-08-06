@@ -77,19 +77,71 @@ $pg-item: (
     }
   }
   .pagination-curt-page {
-    width: 23px;
-    padding: 3px;
-    vertical-align: initial;
+    height: 26px;
+    line-height: 26px;
+    background-color: #fff;
+    width: 29px;
     text-align: center;
-    color: $color-hot;
+    color: #d41f18;
+    padding: 0px;
   }
 
   .pagination-go-to {
-    border: 1px solid #a13636;
-    color: $light-color;
-    font-weight: bold;
-    background: linear-gradient(to bottom, #ed584d, #bb261b);
-    padding: 3px 10px;
-    vertical-align: initial;
+    border: 1px solid #cac9c7;
+    width: 46px;
+    height: 27px;
+    background-color: #d21e1d;
+    color: #fff;
+    font-size: 14px;
+    font-family: '微软雅黑';
+    padding: 0px;
   }
+}
+
+.pagination ul > li > span{
+  height: 27px;
+  width: 27px;
+  line-height: 26px;
+  background: #fff;
+  border: 1px solid #c9c9c9;
+  font-size: 12px;
+  font-family: 'Arial';
+  padding: 0px;
+  display: inline-block;
+  cursor: pointer;
+  text-align: center;
+  color: #42424e;
+}
+
+.pagination ul > .active > span{
+  height: 27px;
+  width: 27px;
+  line-height: 26px;
+  background: #d91d1c;
+  border: 1px solid #c9c9c9;
+  font-size: 12px;
+  font-family: 'Arial';
+  padding: 0px;
+  display: inline-block;
+  cursor: pointer;
+  text-align: center;
+  color: #fff;
+}
+.pagination ul > .active > span:hover{
+  color: #fff;
+}
+
+.pagination ul > .disabled > span{
+  height: 26px;
+  width: 38px;
+  line-height: 26px;
+  background: #eeefea;
+  border: 1px solid #c9c9c9;
+  font-size: 10px;
+  font-family: 'Arial';
+  padding: 0px;
+  display: inline-block;
+  cursor: pointer;
+  text-align: center;
+  color: #656269;
 }

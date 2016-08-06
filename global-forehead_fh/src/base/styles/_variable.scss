@@ -7,7 +7,7 @@ $package-main-width: 768px;
 $new-main-dark-color: #057c86 !default;
 $new-main-deep-color: #16a4aa !default;
 //$dark-color: #2c2c2c !default;
-$dark-color: #562e0f !default;
+$dark-color: #333333 !default;
 $light-dark-color: #4e4e4e !default;
 $light-dark-color-2: #7e7e7e !default;
 $inverse-color: #666666 !default;
@@ -32,7 +32,7 @@ $main-deep-color: $new-main-deep-color;
 $color-pleasant: #e8675d !default;
 $color-peaceful: #48bfd1 !default;
 $color-hot: #e22919 !default;
-$color-sunshine: #ffba00 !default;
+$color-sunshine: grey !default;
 
 $color-deep-gray: #d5d5d5!default;
 
@@ -157,7 +157,6 @@ $bg-colors: (
   blue-new: (bg: $blue-new-color, color: $white-color),
   primary: (bg: $main-light-color, color: $dark-color),
   black: (bg: $dark-color, color: $new-black-color),
-  footer: (bg: #f3d5d3, color: $new-black-color),
   mute: (bg: $bg-mute, color: $bg-mute-font-color),
   info: (bg: $bg-info, color: $bg-info-font-color),
   success: (bg: $bg-success, color: $bg-success-font-color),

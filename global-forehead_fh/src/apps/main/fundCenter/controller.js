@@ -5,7 +5,8 @@ require('./misc/index.scss');
 var RouterController = require('skeleton/controllers/router');
 
 var MoneyTransferView = require('fundCenter/views/moneyTransfer');
-var MoneyDetailsView = require('fundCenter/views/moneyDetails');
+
+var MoneyDetailsView = require('fundCenter/views/moneyDetail-team');
 
 var FundCenterController = RouterController.extend({
 
@@ -23,8 +24,9 @@ var FundCenterController = RouterController.extend({
       main: {
         title: '账户明细'
       },
-      sidebar: Global.ui.menu.get(['ac', 'uc', 'aa'])
+      sidebar: Global.ui.menu.get(['uc'])
     });
+    $('#main > .clearfix').addClass('ac-block ac-block2');
   }
 });
 

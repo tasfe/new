@@ -1,0 +1,57 @@
+<form class="js-fc-tp-aoe-form form-horizontal">
+  <div>
+    <div class="js-fc-tp-AOE-pm-View">
+    </div>
+
+    <div class="form-group form-inline">
+      <label class="col-sm-3 control-label">商户号：</label>
+
+      <div class="col-sm-9">
+        <input type="text" class="js-fc-tp-AOE-merchantCode form-control" data-parsley-somespecialchar data-parsley-maxlength="1000"  style="width: 200px;" required>
+      </div>
+    </div>
+    <div class="js-fc-tp-AOE-merchantName-View">
+      </div>
+    <div class="form-group form-inline">
+      <label class="col-sm-3 control-label">备注：</label>
+
+      <div class="col-sm-9">
+        <input type="text" class="js-fc-tp-AOE-remark form-control" data-parsley-somespecialchar data-parsley-maxlength="1000" style="width: 400px;">
+      </div>
+    </div>
+    <div class="form-group form-inline">
+      <label class="col-sm-3 control-label">请求URL：</label>
+      <div class="col-sm-9">
+        <input type="text" class="js-fc-tp-AOE-payUrl form-control" data-parsley-type="url" data-parsley-maxlength="1000" style="width: 400px;" required>
+      </div>
+    </div>
+    <div class="form-group form-inline">
+      <label class="col-sm-3 control-label">接收URL：</label>
+      <div class="col-sm-9">
+        <input type="text" class="js-fc-tp-AOE-notifyUrl form-control" data-parsley-type="url" data-parsley-maxlength="1000" style="width: 400px;" required>
+      </div>
+    </div>
+    <div class="form-group form-inline">
+      <label class="col-sm-3 control-label">私钥：</label>
+
+      <div class="col-sm-9">
+        <input type="text" class="js-fc-tp-AOE-privateKey form-control" data-parsley-somespecialchar data-parsley-maxlength="5000" style="width: 400px;" required>
+      </div>
+    </div>
+
+    <div class="js-fc-tp-AOE-publicKey-View">
+    </div>
+
+    <div class="js-fc-tp-AOE-pic-View">
+    </div>
+    <div class="js-fc-tp-AOE-tip-View">
+    </div>
+    <div class="form-group form-inline">
+      <div class="col-sm-offset-3 col-sm-9 js-fc-tp-AOE-notice"></div>
+    </div>
+  </div>
+
+  <input type="hidden" name="paymentId" class="js-fc-tp-AOE-paymentId">
+  <input type="hidden" name="platformId" class="js-fc-tp-AOE-platformId">
+
+</form>

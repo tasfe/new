@@ -1,0 +1,13 @@
+{
+  "result": 0,
+  "msg": "ok",
+  "root":{
+    "open": true,
+    "fromTime": "00:00",
+    "endTime": "22:00",
+    "openIndex": 5,
+    "openNums": 10,
+    "ticketId": 1,
+    "ticketName": "乱来彩"
+  }
+}

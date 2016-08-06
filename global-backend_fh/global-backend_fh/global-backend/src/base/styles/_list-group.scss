@@ -1,0 +1,28 @@
+.list-group {
+  
+  &.style-1 {
+
+    .list-group-item {
+      border-radius: 0;
+      border-left: 0;
+      border-right: 0;
+
+      &:first-child {
+        border-top: 0;
+      }
+
+      &:last-child {
+        border-bottom: 0;
+      }
+    }
+
+  }
+
+  &.style-2 {
+    .list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover {
+      background-color: #1bbb9e;
+      border-color: #05b499;
+    }
+  }
+
+}

@@ -1,0 +1,50 @@
+.widget-stat {
+    background-color: #fff;
+    padding: 15px 10px;
+    border-radius: 6px;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+    -moz-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+    -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05)
+}
+
+.widget-stat .stat-icon {
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    font-size: 30px;
+    border-radius: 50em;
+    -moz-border-radius: 50em;
+    -webkit-border-radius: 50em;
+    float: left;
+    margin-right: 20px;
+    color: #fff
+}
+
+.widget-stat .stat-icon.text-muted {
+    color: #aaa;
+    margin-right: 0;
+}
+
+.widget-stat .stat-info {
+    padding-top: 7px
+}
+
+.widget-stat .stat-info span {
+    display: block;
+    font-size: 20px;
+    font-weight: 600
+}
+
+.widget-stat.alt {
+    color: #fff
+}
+
+.widget-stat.alt .stat-icon {
+    background-color: #fff;
+    color: #777
+}

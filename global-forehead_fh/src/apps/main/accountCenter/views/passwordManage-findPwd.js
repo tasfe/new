@@ -99,6 +99,93 @@ var findPwdView = Base.ItemView.extend({
         } else {
         }
       });
+
+
+    //Julien检查代码
+    var newFundPassword = _(function() {
+      var str= $('#newFundPassword').val();
+
+      if ( !isNaN(str) && str.length < 9 ) {
+        $('.js-tip3').html('*不能是9位以下的纯数字（≤8个阿拉伯数字）');
+        $('.js-tip3').removeClass('hide');
+        $('.js-help-inline3').addClass('red');
+
+        $('.js-tip3').removeClass('hide');
+        $('.js-forbidden-button3').removeClass('hide');
+        $('.js-as-resetFundPassword-submit').addClass('hide');
+      }
+      else if(str.indexOf(" ")>0){
+        $('.js-tip3').html('*不能包含空格');
+        $('.js-tip3').removeClass('hide');
+        $('.js-help-inline3').addClass('red');
+
+        $('.js-tip3').removeClass('hide');
+        $('.js-forbidden-button3').removeClass('hide');
+        $('.js-as-resetFundPassword-submit').addClass('hide');
+      }
+      else if (str.length < 6 || str.length > 20) {
+        $('.js-tip3').html('*6-20位字符组成');
+        $('.js-tip3').removeClass('hide');
+        $('.js-help-inline3').addClass('red');
+
+        $('.js-tip3').removeClass('hide');
+        $('.js-forbidden-button3').removeClass('hide');
+        $('.js-as-resetFundPassword-submit').addClass('hide');
+      }
+      else{
+        $('.js-help-inline3').removeClass('red');
+        $('.js-tip3').addClass('hide');
+        $('.js-forbidden-button3').addClass('hide');
+        $('.js-as-resetFundPassword-submit').removeClass('hide');
+      }
+
+      var num = 0;
+      var num2 = 0;
+      if ( str.length > 0 ) {
+        if(/\d/gi.test(str)){
+          num++;
+        }
+
+        if (/[A-Za-z]/.test(str)) {
+          num++;
+        }
+
+        if(/[@#\$%\^&\*\!]+/g.test(str)){
+          num++;
+        }
+
+        $('.js-passwdSafetyTips3 span').removeClass('s3').removeClass('s2').removeClass('s1');
+        $('.js-passwdSafetyTips3 b').removeClass('s3').removeClass('s2').removeClass('s1');
+        if (num == 3) {
+          $('.js-passwdSafetyTips3 span').addClass('s3');
+          $('.js-passwdSafetyTips3 b').addClass('s3');
+          $('.js-passwdSafetyTips3 b').html('强');
+        }
+        if (num == 2) {
+          $('.js-passwdSafetyTips3 span').eq(0).addClass('s2');
+          $('.js-passwdSafetyTips3 span').eq(1).addClass('s2');
+          $('.js-passwdSafetyTips3 b').addClass('s2');
+          $('.js-passwdSafetyTips3 b').html('中');
+        }
+        if (num == 1) {
+          $('.js-passwdSafetyTips3 span').eq(0).addClass('s1');
+          $('.js-passwdSafetyTips3 b').addClass('s1');
+          $('.js-passwdSafetyTips3 b').html('弱');
+        }
+
+        num = 0;
+      }
+
+      if (str.length != 0) {
+        $('.js-passwdSafetyTips3').removeClass('hide');
+      }
+      else{
+        $('.js-passwdSafetyTips3').addClass('hide');
+      }
+
+    }).debounce(400);
+
+    this.$('#newFundPassword').on('keypress', newFundPassword);
   },
 
   _initSteps: function() {

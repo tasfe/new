@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+  <title>亿贝</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <meta name="keywords" content="亿贝">
+  <meta name="description" content="亿贝">
+  <meta name="author" content="YiBei.cn Co.,Ltd.">
+  <meta name="copyright" content="Copyright &copy; 2016 YiBei.cn Co.,Ltd.">
+
+  <link rel="shortcut icon" href="images/favicon.ico">
+  $STYLES$
+</head>
+
+<body class="overflow-hidden" style="overflow: hidden">
+<img id="background" src="./images/login-background.jpg" style="
+    position: absolute;
+    width: 100%;
+    height: 100%;
+ /">
+  <form id="loginForm" class="js-login-form boxes-wrapper" action="javascript:void(0);" style="z-index:1">
+    <div class="loading-box">
+      <div class="inner-table">
+        <div class="inner-cell">登录中 ...</div>
+      </div>
+    </div>
+    <div class="login-box">
+      <div class="header">
+        <span><i class="fa fa-database m-right-xs"></i> 亿贝 <strong class="text-skin">后台管理</strong></span>
+      </div>
+      <div class="content">
+        <div class="form-group">
+          <label>用户名</label>
+          <input type="text" name="username" placeholder="请输入用户名" required data-parsley-length="[4, 16]" />
+        </div>
+        <div class="form-group">
+          <label>登录密码</label>
+          <input type="password" name="loginPwd" placeholder="请输入登录密码" required data-parsley-length="[6, 20]" />
+        </div>
+        <div class="login-error-message"></div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-success btn-block" data-loading-text="登录中...">登录</button>
+        </div>
+      </div>
+    </div>
+  </form>
+  $SCRIPTS$
+</body>
+
+</html>

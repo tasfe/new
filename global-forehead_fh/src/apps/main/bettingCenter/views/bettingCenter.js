@@ -12,7 +12,10 @@ var ticketConfig = require('skeleton/misc/ticketConfig');
 var betRulesConfig = require('bettingCenter/misc/betRulesConfig');
 var IDsSuper3 = require('bettingCenter/misc/super3k/IDsOfSuper3k');
 
+var QuickBetView = require('bettingCenter/views/bettingCenter-quickBet');
+
 var Countdown = require('com/countdown');
+
 
 var BettingCenterView = Base.ItemView.extend({
 
@@ -22,13 +25,17 @@ var BettingCenterView = Base.ItemView.extend({
   rulesTpl: _.template(require('bettingCenter/templates/bettingCenter-rules.html')),
   confirmTpl: _.template(require('bettingCenter/templates/bettingCenter-confirm.html')),
 
-  height: 340,
+  height: 310,
 
   tableClass: 'table table-center',
 
   events: {
     'click .js-bc-video': 'openVideoHandler',
     'click .js-bc-basic-rule': 'baseRuleChangeHandler',
+    'mouseover .js-bc-basic-rule': 'baseRuleChangeHandler',
+    'mouseout .js-bc-basic-rule': 'baseRuleChange1Handler',
+    'mouseover .js-bc-advance-rules': 'baseRuleChangeMOHandler',
+    'mouseout .js-bc-advance-rules': 'baseRuleChangeMO1Handler',
     'click .js-bc-play-toggle': 'togglePlayModeHandler',
     'click .js-bc-advance-rule': 'advanceRuleChangeHandler',
     'change .js-bc-bet-mode': 'betModeChangeHandler',
@@ -40,7 +47,26 @@ var BettingCenterView = Base.ItemView.extend({
     'click .js-bc-chase': 'lotteryChaseHandler',
     'click .js-bc-btn-lottery-confirm': 'lotteryConfirmHandler',
     'click .js-bc-records-tab': 'toggleTabHandler',
-    'click .js-bc-quick-bet': 'quickBetHandler'
+    'click .js-bc-nav-index':'severalHaddler',
+    'click .js-bc-quick-bet': 'quickBetHandler',
+    'click .js-play1': 'play1',
+    'click .js-play2': 'play2'
+  },
+
+  play1:function () {
+    $('.js-play1').addClass('sd');
+    $('.js-play2').removeClass('sd');
+    $('.js-bc-basic-rules').addClass('hidden');
+    $('.js-bc-optional-rules').removeClass('hidden');
+    $('.js-bc-optional-rules ul').removeClass('hidden');
+  },
+
+  play2:function () {
+    $('.js-play2').addClass('sd');
+    $('.js-play1').removeClass('sd');
+    $('.js-bc-basic-rules').removeClass('hidden');
+    $('.js-bc-optional-rules').addClass('hidden');
+    $('.js-bc-optional-rules ul').addClass('hidden');
   },
 
   serializeData: function() {
@@ -109,10 +135,93 @@ var BettingCenterView = Base.ItemView.extend({
   },
 
 
+
   quickBetHandler: function(e) {
-    this.lotteryAddHandler(e);
-    this.lotteryConfirmHandler(e);
+
+
+    var self = this;
+
+    var quickBetView = new QuickBetView({parentView: self});
+
+    var $dialogRe = Global.ui.dialog.show({
+      id: _.now(),
+      title: '快速投注',
+      size: 'modal-lg',
+      body: '<div class="js-fc-quick-container"></div>'
+    });
+
+    $dialogRe.find('.js-fc-quick-container').html(quickBetView.onRender());
+
+
+    $dialogRe.on('click', '.js-bc-quick-btn-bet', function(e) {
+
+
+        var quickAmount = $('.js-bc-quick-value').val();
+
+        var zhushu = $('.js-bc-statistics-lottery').html();
+        var beishu  = parseFloat(quickAmount)/(zhushu * 2  ) ;
+
+        var rate  = $('.js-bc-monetary-unit').eq(0).data('rate');
+
+        if(beishu>=1) {
+          beishu = parseInt(beishu);
+          $('.js-wt-number').val(beishu);
+          rate  = $('.js-bc-monetary-unit').eq(0).data('rate');
+          $('.js-bc-monetary-unit').eq(0).addClass('active').siblings().removeClass('active');
+        }
+
+        if(1>beishu && beishu>0.09) {
+          beishu = parseInt(beishu*10);
+          $('.js-wt-number').val(beishu);
+          rate  = $('.js-bc-monetary-unit').eq(1).data('rate');
+          $('.js-bc-monetary-unit').eq(1).addClass('active').siblings().removeClass('active');
+        }
+
+        if(0.1>beishu && beishu>0.009) {
+
+          beishu = parseInt(beishu*100);
+          $('.js-wt-number').val(beishu);
+          rate  = $('.js-bc-monetary-unit').eq(2).data('rate');
+          $('.js-bc-monetary-unit').eq(2).addClass('active').siblings().removeClass('active');
+        }
+        self.model.set('multiple',beishu);
+        self.model.set('unit', rate);
+
+        self.lotteryAddHandler(e);
+
+        $dialogRe.hide();
+         $('.modal-backdrop').removeClass('modal-backdrop');
+    });
+
+
+    $dialogRe.on('click', '.js-bc-quick-btn', function(e) {
+
+      var $target = $(e.currentTarget);
+      var quickAmount = $target.data('affiche');
+
+      $('.js-bc-quick-btn').removeClass('bet-quick-select');
+      $target.addClass('bet-quick-select');
+
+      $('.js-bc-quick-value').val(quickAmount);
+
+      $('.js-bet-div0-02').show();
+      $('.js-bet-div0-01').hide();
+
+     });
+
+    $dialogRe.on('click', '.js-bet-div0-02', function(e) {
+
+      $('.js-bet-div0-02').hide();
+      $('.js-bet-div0-01').show();
+      $('.js-bc-quick-value').val('');
+      $('.js-bc-quick-btn').removeClass('bet-quick-select');
+      $('.js-bet-div0-01').addClass('bet-quick-select');
+
+
+    });
   },
+
+
 
   getNewPlan: function() {
     this.infoModel.fetch({
@@ -199,13 +308,6 @@ var BettingCenterView = Base.ItemView.extend({
       emptyTip: ''
     }).staticGrid('instance');
 
-    //this.bettingRecordsView = new BettingRecordsView({
-    //  el: this.$recordsContainer,
-    //  ticketId: this.options.ticketId
-    //}).render();
-
-
-
     this.renderDrawRecords();
 
     var sign = Global.localCache.get('ticketList.' + this.options.ticketId);
@@ -215,6 +317,7 @@ var BettingCenterView = Base.ItemView.extend({
       this.rulesCollection.trigger('sync:fromCache');
     }
   },
+
 
   renderSale: function(model, sale) {
     this.$btnAdd.prop('disabled', !sale);
@@ -285,13 +388,7 @@ var BettingCenterView = Base.ItemView.extend({
       this.$lastPlanId.popover('destroy');
     }
 
-    this.$lastPlanId.popover({
-      trigger: 'hover',
-      container: this.$el,
-      html: true,
-      content: '上期期号：' + planInfo.lastOpenId,
-      placement: 'bottom'
-    });
+    $('.js-bc-last-planId').html('第' + planInfo.lastOpenId  + '期');
 
     this.$lastResults.html(_(model.get('lastOpenNum')).map(function(num) {
       return '<span class="text-circle">' + num + '</span>';
@@ -308,14 +405,9 @@ var BettingCenterView = Base.ItemView.extend({
     if (this.$planId.data('popover')) {
       this.$planId.popover('destroy');
     }
+    
+    this.$planId.html('第' + planInfo.planId + '期');
 
-    this.$planId.popover({
-      trigger: 'hover',
-      container: this.$el,
-      html: true,
-      content: '本期期号：' + planInfo.planId,
-      placement: 'bottom'
-    });
 
     if (this.infoModel.get('init')) {
       this.infoModel.changeToUpdate();
@@ -407,7 +499,7 @@ var BettingCenterView = Base.ItemView.extend({
   },
 
   renderPlayInfo: function(playInfo) {
-    this.$playExample.text(playInfo.playExample).attr('title', playInfo.playExample);
+    this.$playExample.text('玩法说明：' + playInfo.playExample).attr('title', playInfo.playExample);
 
     if (this.$playTip.data('popover')) {
       this.$playTip.popover('destroy');
@@ -420,10 +512,6 @@ var BettingCenterView = Base.ItemView.extend({
       content: playInfo.playDes.replace(/\|/g, '<br />').replace(/\[max\]/g,_(playInfo.betMethodMax).chain().formatDiv(10000).floor(4).value()).replace(/\[min\]/g,_(playInfo.betMethodMin).chain().formatDiv(10000).floor(4).value()),
       placement: 'bottom'
     });
-    //if(){
-    //  this.$playTip.
-    //}
-
 
     this.renderPlayBetMode();
     //初始化奖金
@@ -573,7 +661,7 @@ var BettingCenterView = Base.ItemView.extend({
         title: title,
         bonusMode: this.getBonusMode(previewInfo.maxBonus, previewInfo.unit, previewInfo.userRebate, previewInfo.betMethod),
         mode: previewInfo.statistics + '注 / ' + previewInfo.multiple + '倍 / <span class="text-hot">' + _(previewInfo.prefabMoney).convert2yuan() + '</span>元' +
-        '<div class="js-bc-lottery-preview-del lottery-preview-del icon-block m-right-lg pull-right ' + (sf ? 'sfClass' : '') +'"></div>'
+        '<div class="js-bc-lottery-preview-del   icon-block   ' + (sf ? 'sfClass' : '') +'"></div>'
       };
 
     }, this);
@@ -675,7 +763,10 @@ var BettingCenterView = Base.ItemView.extend({
     $target.attr('href', this.infoModel.getVideoUrl() || 'javascript:void(0)');
   },
 
+
   baseRuleChangeHandler: function(e) {
+    this.$('.js-bc-advance-rules').show();
+
     var $target = $(e.currentTarget);
     $target.addClass('active').siblings().removeClass('active');
 
@@ -683,6 +774,41 @@ var BettingCenterView = Base.ItemView.extend({
       levelId: $target.data('id'),
       levelName: $target.data('title')
     });
+
+    var idStr =  ''+$target.data('id');
+    idStr = idStr.substr(idStr.length - 2);
+    idStr = parseInt(idStr);
+    if(idStr == 9) {
+      idStr = 1;
+    }
+    if(idStr == 10) {
+      idStr = 2;
+    }
+    if(idStr == 11) {
+      idStr = 3;
+    }
+    if(idStr == 12) {
+      idStr = 4;
+    }
+    if(idStr == 13) {
+      idStr = 5;
+    }
+    var playValue = idStr*79 +17;
+
+    this.$('.js-bc-advance-rules').css('left',playValue+'px');
+
+  },
+
+
+  baseRuleChange1Handler: function(e) {
+    this.$('.js-bc-advance-rules').hide();
+  },
+
+  baseRuleChangeMOHandler: function(e) {
+    this.$('.js-bc-advance-rules').show();
+  },
+  baseRuleChangeMO1Handler: function(e) {
+    this.$('.js-bc-advance-rules').hide();
   },
 
   togglePlayModeHandler: function(e) {
@@ -864,10 +990,8 @@ var BettingCenterView = Base.ItemView.extend({
       Global.ui.notification.show('非常抱歉，目前平台单式投注只支持最多10万注单。');
       return false;
     }
-    if (_.isEmpty(info.previewList)) {
-      Global.ui.notification.show('请至少选择一注投注号码！');
-      return false;
-    }
+
+
 
     if (info.totalInfo.totalMoney > Global.memoryCache.get('acctInfo').balance) {
       Global.ui.notification.show('账号余额不足，请先<a href="javascript:void(0);" class="btn-link btn-link-pleasant js-fc-re"  data-dismiss="modal">充值</a>。');
@@ -879,7 +1003,7 @@ var BettingCenterView = Base.ItemView.extend({
       }else{
         item.levelName = item.levelName;
       }
-    })
+    });
 
     var confirm = $(document).confirm({
       title: '确认投注',

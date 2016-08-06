@@ -1,0 +1,56 @@
+<div class="panel padding-md">
+  <form class="js-bc-form form-horizontal" action="javascript:void(0)">
+
+    <div class="form-group form-inline">
+      <label class="col-sm-2 control-label">彩种名称：</label>
+      <div class="col-sm-10">
+        <div class="js-bc-ticketName-container">
+          <label class="control-label js-bc-ticketName"></label>
+          <label class="control-label js-bc-ticketId" hidden></label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group form-inline">
+      <label class="col-sm-2 control-label">奖期周期：</label>
+      <div class="col-sm-10">
+        <div class="checkbox js-bc-saleCycleType-container">
+          <div>
+            <label><input type="checkbox" value="2" name="saleCycleTypeCheckbox" class="js-bc-saleCycleType-checkBox2"/><span class="vertical-top m-right-md">周一</span></label>
+            <label><input type="checkbox" value="3" name="saleCycleTypeCheckbox" class="js-bc-saleCycleType-checkBox3"/><span class="vertical-top m-right-md">周二</span></label>
+            <label><input type="checkbox" value="4" name="saleCycleTypeCheckbox" class="js-bc-saleCycleType-checkBox4"/><span class="vertical-top m-right-md">周三</span></label>
+            <label><input type="checkbox" value="5" name="saleCycleTypeCheckbox" class="js-bc-saleCycleType-checkBox5"/><span class="vertical-top m-right-md">周四</span></label>
+            <label><input type="checkbox" value="6" name="saleCycleTypeCheckbox" class="js-bc-saleCycleType-checkBox6"/><span class="vertical-top m-right-md">周五</span></label>
+            <label><input type="checkbox" value="7" name="saleCycleTypeCheckbox" class="js-bc-saleCycleType-checkBox7"/><span class="vertical-top m-right-md">周六</span></label>
+            <label><input type="checkbox" value="1" name="saleCycleTypeCheckbox" class="js-bc-saleCycleType-checkBox1"/><span class="vertical-top m-right-md">周日</span></label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group form-inline">
+      <div class="col-sm-1"></div>
+      <div class="col-sm-2">
+        <div class="js-bc-addSaleTimes-container">
+          <button class="btn btn-sm btn-primary  js-bc-addSaleTimes-btn " >增加时间段</button>
+        </div>
+      </div>
+      <div class="col-sm-9"></div>
+    </div>
+    <div class="js-bc-saleTime-range-container"></div>
+
+    <div class="form-group form-inline">
+      <div class="col-sm-offset-1 col-sm-11">
+        <span class="tip">提示：修改规则前请先执行“休市维护”。</span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-offset-5 col-sm-7">
+        <button type="submit" class="js-bc-btn-submit btn btn-primary" data-loading-text="发送中">确定</button>
+        <button type="button" class="js-bc-btn-cancel btn btn-default">取消</button>
+      </div>
+    </div>
+  </form>
+</div>
+

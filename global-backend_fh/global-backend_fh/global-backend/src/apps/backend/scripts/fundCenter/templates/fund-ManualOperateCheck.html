@@ -1,0 +1,129 @@
+<div class="row m-bottom-sm">
+  <div class="col-sm-3">
+    <div class="form-group">
+      <label class="control-label m-right-sm">流水号：</label>
+      <input class="form-control input-sm" type="text" name="tradeNo" placeholder="" data-parsley-maxlength="30">
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="form-group">
+      <label class="control-label m-right-sm">类型：</label>
+      <select class="form-control input-sm" name="rechargeType">
+        <option value="">全部</option>
+        <option value="101">加币-活动派奖</option>
+        <option value="102">加币-平台奖励</option>
+        <option value="103">加币-平台理赔</option>
+        <option value="104">加币-平台分红</option>
+        <option value="201">减币-人工提现</option>
+        <option value="202">减币-人工扣回</option>
+        <option value="203">减币-重复打款</option>
+      </select>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="form-group">
+      <label class="control-label m-right-sm">金额</label>
+      <div class="input-group">
+        <input class="form-control input-sm" type="text" name="minMoney" placeholder="" data-parsley-range="[0, 1000000]" data-parsley-type="integer">
+        <span class="input-group-addon input-sm">至</span>
+        <input class="form-control input-sm" type="text" name="maxMoney" placeholder="" data-parsley-range="[0, 1000000]" data-parsley-type="integer">
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<div class="row m-bottom-sm">
+
+  <div class="col-sm-3">
+    <div class="form-group">
+      <label class="control-label m-right-sm">用户名
+        <span class="no-margin inline-block checkbox">
+          <label>
+            <input type="checkbox" name="subUser" value="1"> 包含下级
+          </label>
+        </span>
+      </label>
+      <input class="form-control" type="text" name="username" placeholder="" >
+    </div>
+  </div>
+
+  <div class="col-sm-3">
+    <div class="form-group">
+      <label class="control-label m-right-sm">申请人</label>
+      <select class="js-fc-fu-mc-operatorId form-control input-sm" name="operatorId">
+        <option value="">全部</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="col-sm-3">
+    <div class="form-group">
+      <label class="control-label m-right-sm">审核人</label>
+      <select class="js-fc-fu-mc-approverId form-control input-sm" name="approverId">
+        <option value="">全部</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="col-sm-3">
+    <div class="form-group">
+      <label class="control-label m-right-sm">审核状态 </label>
+      <select class="form-control input-sm" name="status">
+        <option value="-1">全部</option>
+        <option value="0">待审核</option>
+        <option value="1">已通过</option>
+        <option value="2">未通过</option>
+      </select>
+    </div>
+  </div>
+</div>
+<div class="row m-bottom-sm">
+
+  <div class="col-sm-6">
+    <div class="form-group">
+      <label class="control-label m-right-sm">申请时间：</label>
+      <span class="js-fc-fundCheck-timeSet"></span>
+    </div>
+  </div>
+
+  <div class="col-sm-3">
+    <div class="form-group">
+      <label class="control-label m-right-sm">每页展示：</label>
+      <select class="form-control input-sm" name="pageSize">
+        <option value="20">20条记录</option>
+        <option value="50">50条记录</option>
+        <option value="100">100条记录</option>
+        <option value="500">500条记录</option>
+      </select>
+    </div>
+  </div>
+
+
+
+</div>
+
+<div class="row">
+  <div class="col-lg-12 pull-left form-group">
+    <%if(Global.authority.fc && Global.authority.fc.mc && Global.authority.fc.mc.pass){%>
+    <button class="js-fc-fund-pass btn btn-success pull-left btn-sm" type="button"><i
+      class="fa fa-check-circle m-right-xs"></i>通&nbsp;&nbsp;过
+    </button>
+    <%}%>
+    <%if(Global.authority.fc && Global.authority.fc.mc && Global.authority.fc.mc.notPass){%>
+    <button class="js-fc-fund-noPass btn btn-danger pull-left m-left-sm btn-sm" type="button"><i
+      class="fa fa-ban m-right-xs"></i>不通过
+    </button>
+    <%}%>
+  </div>
+  <div class="col-lg-12 pull-right form-group">
+    <button class="wm-search-confirm btn btn-purple pull-right btn-sm" type="submit"><i
+      class="fa fa-search m-right-xs"></i>搜&nbsp;&nbsp;索
+    </button>
+    <button class="wm-search-reset btn btn-wt-default-purple pull-right m-right-sm btn-sm" type="reset"><i
+      class="fa fa-repeat m-right-xs"></i>重&nbsp;&nbsp;置
+    </button>
+
+  </div>
+</div>

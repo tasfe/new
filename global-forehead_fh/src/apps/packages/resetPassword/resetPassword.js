@@ -1,8 +1,6 @@
 require('./resetPassword.scss');
 require('./../misc/common-init.js');
 
-//var header = require('../misc/header.html');
-//var footer = require('../misc/footer.html');
 var footer = require('../../components/footer');
 
 var Encryption =  require('com/encryption');
@@ -14,217 +12,594 @@ $.widget('gl.resetPassword', {
   _create: function () {
 
     this.element.html(_(this.template).template()());
-    this.$resetPasswordMain =  this.element.find('.js-rp-resetPassword-main');
-    this._initSteps();
-    //需在initSteps()后获取对象
-    this.$step1Form = this.element.find('.js-rp-verifyUNContainer');
+
     this.$username = this.element.find('.js-rp-userName');
-    ////=============================================================TODO
     this.$valCode = this.element.find('.js-rp-valCode');
     this.$valImg = this.element.find('.js-rp-valImg');
-    this.$valResult = this.element.find('.js-rp-valResult');
-    this.$valResultDiv = this.element.find('.js-rp-val-result-div');
-    this.$valCodeResult = this.element.find('.js-re-val-res');
+    this.$valMoneyPasswd = this.element.find('.js-moneyPasswdInput');
+
     var url =  window.self.location.toString();
     this.codeUrl = url.substring(0, url.indexOf('/', url.indexOf('://',0)+3))+'/acct/imgcode/code';
     this.$valImg.attr('src',this.codeUrl+'?_t='+_.now());
-    //==============================================================
-
-    this.$step2Div = this.element.find('.js-rp-step2-div');
-    //this.$step2Form =  this.element.find('.js-rp-findWayContainer');
-    //this.$validateForm1 = this.element.find('.js-rp-validateContainer1');
-    this.$validateForm2 = this.element.find('.js-rp-validateContainer2');
-    //this.$findBySQBtn = this.element.find('.js-rp-findBySQBtn');
-    //this.$noticeSQ = this.element.find('.js-rp-noticeSQ');
-    //this.$findByFPBtn = this.element.find('.js-rp-findByFPBtn');
-    //this.$noticeFP = this.element.find('.js-rp-noticeFP');
-
-    //this.$questionSelect = this.element.find('.js-rp-questionSelect');
-
-    this.$step3Form =  this.element.find('.js-rp-resetLPContainer');
-
-    this.$footer = this.element.find('.rp-footer');
-    new footer({
-      el: this.$footer
-    }).render();
 
     this._bindEvent();
-    // this._setupForm();
-  },
-  //listenFieldStatus : function($target){
-  //  $target.parsley().on('field:success', function() {
-  //    this._ui.$errorsWrapper.removeClass('val-img-times');
-  //    this._ui.$errorsWrapper.addClass('val-img-check');
-  //  });
-  //  $target.parsley().on('field:error', function() {
-  //    this._ui.$errorsWrapper.removeClass('val-img-check');
-  //    this._ui.$errorsWrapper.addClass('val-img-times');
-  //  });
-  //},
-  //_onPageLoaded: function() {
-  //  $(window).load(function() {
-  //    $('body').removeClass('overflow-hidden');
-  //    $('.wrapper').removeClass('preload');
-  //  });
-  //},
-  //初始化找回登录密码的分步操作页面
-  _initSteps: function () {
-    var self = this;
-    this.$resetPasswordMain.steps({
-      stepLength: 658,
-      headerTag: "h3",
-      bodyTag: "div",
-      forceMoveForward: false,//阻止返回
-      enablePagination: false,
-      transitionEffect: "slideLeft",
-      onStepChanging: function (event, currentIndex, newIndex) {
-        return newIndex !== 5;
-      },
-      onStepChanged: function (event, currentIndex, newIndex) {
-        self.element.find('.steps ul li[role=tab]:gt(' + newIndex + ')').removeClass('done').addClass('disabled');
-      }
-    });
+
+    this.panel01Verify();
+    this.safetyTipsBind();
+    this.verifyQesBind();
   },
 
   _bindEvent: function () {
     var self = this;
     //绑定事件
     this._on({
-      //=============================================================TODO
-      'click .js-rp-valImg': 'refreshValCodeHandler',//刷新验证码
-      //'click .js-rp-step1-returnBtn': 'returnToLoginHandler',
-      // =================================================================
-      'click .js-rp-verifyUNBtn': 'verifyUNHandler',//校验用户名
-
-     // 'click .js-rp-findBySQBtn': 'findBySQHandler',//通过密保找回
-      //'click .js-rp-findByFPBtn': 'findByFPHandler',//通过资金密码找回
-      //'click .js-rp-step2-returnBtn': 'returnToStep1Handler',
-      //'change .js-rp-questionSelect': 'questionSelectChangeHandler',//控制三个下拉框的值不能重复选择
-      //'click .js-rp-verifySQABtn': 'verifySQAHandler',//验证密保问题
+      'click .js-reSendEmail': 'reSendEmail',//重新发送邮件
+      'click .js-rp-verifySQABtn': 'verifySQABtn',//安全问题验证
+      'click .js-rp-findBySQBtn': 'findBySQBtn',//进入安全问题
+      'click .js-safety-problem-black': 'safetyProblemBlack',//安全问题返回
+      'click .js-rp-setLPBtn': 'setLPHandler',//设置登录密码
+      'click .js-reset': 'reset',//清空登录密码
       'click .js-rp-verifyFPBtn': 'verifyFPHandler',//验证资金密码
-      //'click .js-rp-Step3-returnBtn': 'goStep2Handler',
-      //'click .js-rp-Step2-val-returnBtn': 'valPageReturnHandler',//验证页面的返回按钮
-      'click input[type=password]': 'resetInputHandler',
-      'click .js-rp-setLPBtn': 'setLPHandler'//设置登录密码
+      'click .js-emailFind-black': 'emailFindBlack',//从安全邮箱找回页返回
+      'click .js-open-safetyEmail': 'openSafetyEmail',//打开安全邮箱页
+      'click .js-panel02-black': 'blackToPanel01',//返回到板块1
+      'click .js-open-moneyPasswdTips': 'openMoneyPasswdTips',//.打开资金密码窗口
+      'click .js-close-moneyPasswdTips': 'closeMoneyPasswordTips',//关闭资金密码弹窗
+      'click .js-rp-verifyUNBtn': 'verifyUNHandler', //校验用户名
+      'click .js-rp-valImg': 'refreshValCodeHandler' //刷新验证码
     });
-    //=============================================================TODO
-    this.element.find('.js-rp-valCode').on('keyup', function() {
-      self.valCodeHandler();
-    });
-    // ==============================================================
   },
-//=============================================================TODO
+
+  reSendEmail: function(){
+    if($('.js-emailTime').html() == 0){
+      this.sendEmail().fail(function () {
+        Global.ui.notification.show('邮件发送失败，网络异常');
+      }).done(function (res) {
+        if (res && res.result === 0) {
+          Global.ui.notification.show('邮件已发送');
+          $('.js-emailTime').html(50);
+          var emailTime = setInterval(function(){
+            var num = $('.js-emailTime').html() - 1;
+            if ($('.js-emailTime').html() == 0) {
+              clearInterval(emailTime)
+            }
+            else{
+              $('.js-emailTime').html(num);
+            }
+          }, 1000)
+        } else {
+          Global.ui.notification.show(res.msg);
+        }
+      });
+    }
+    else{
+      Global.ui.notification.show('邮件已发送' + $('.js-emailTime').html() + '秒后才能再次发送邮件');
+    }
+  },
+
+  verifyQesBind: function(){
+    var verifyQesBind1 = _(function() {
+      var str1= $('.js-answer1').val();
+      if (str1.length == 0) {
+        $('.js-safety-problem dl').eq(1).addClass('wrong');
+        $('.js-safety-problem dl').eq(1).removeClass('correct');
+      }
+      else{
+        $('.js-safety-problem dl').eq(1).addClass('correct');
+        $('.js-safety-problem dl').eq(1).removeClass('wrong');
+      }
+    }).debounce(400);
+
+    var verifyQesBind2 = _(function() {
+      var str1= $('.js-answer1').val();
+      if (str1.length == 0) {
+        $('.js-safety-problem dl').eq(3).addClass('wrong');
+        $('.js-safety-problem dl').eq(3).removeClass('correct');
+      }
+      else{
+        $('.js-safety-problem dl').eq(3).addClass('correct');
+        $('.js-safety-problem dl').eq(3).removeClass('wrong');
+      }
+    }).debounce(400);
+
+    var verifyQesBind3 = _(function() {
+      var str1= $('.js-answer1').val();
+      if (str1.length == 0) {
+        $('.js-safety-problem dl').eq(5).addClass('wrong');
+        $('.js-safety-problem dl').eq(5).removeClass('correct');
+      }
+      else{
+        $('.js-safety-problem dl').eq(5).addClass('correct');
+        $('.js-safety-problem dl').eq(5).removeClass('wrong');
+      }
+    }).debounce(400);
+
+    $('.js-answer1').on('keypress', verifyQesBind1);
+    $('.js-answer2').on('keypress', verifyQesBind2);
+    $('.js-answer3').on('keypress', verifyQesBind3);
+  },
+
+  verifySQABtn: function(e){
+    var self = this;
+    var $target = $(e.currentTarget);
+    var type = $target.data('type');
+
+    var str1= $('.js-answer1').val();
+    var str2= $('.js-answer2').val();
+    var str3= $('.js-answer3').val();
+    var iIs = 0;
+
+    if (str1.length == 0) {
+      $('.js-safety-problem dl').eq(1).addClass('wrong');
+      $('.js-safety-problem dl').eq(1).removeClass('correct');
+
+      iIs = 1;
+    }
+    else{
+      $('.js-safety-problem dl').eq(1).addClass('correct');
+      $('.js-safety-problem dl').eq(1).removeClass('wrong');
+    }
+
+    if (str2.length == 0) {
+      $('.js-safety-problem dl').eq(3).addClass('wrong');
+      $('.js-safety-problem dl').eq(3).removeClass('correct');
+
+      iIs = 1;
+    }
+    else{
+      $('.js-safety-problem dl').eq(3).addClass('correct');
+      $('.js-safety-problem dl').eq(3).removeClass('wrong');
+    }
+    if (str3.length == 0) {
+      $('.js-safety-problem dl').eq(5).addClass('wrong');
+      $('.js-safety-problem dl').eq(5).removeClass('correct');
+      iIs = 1;
+    }
+    else{
+      $('.js-safety-problem dl').eq(5).addClass('correct');
+      $('.js-safety-problem dl').eq(5).removeClass('wrong');
+    }
+
+    if (iIs == 0) {
+      $target.button('loading');
+      this.verifySecurityQuestion().always(function () {
+        $target.button('reset');
+      }).fail(function () {
+        Global.ui.notification.show('密保问题验证请求失败');
+      }).done(function (res) {
+        if (res && res.result === 0) {
+          sessionStorage.setItem('update', 'ok');
+
+          $('.js-safety-problem').addClass('hidden');
+          $('.panel02').addClass('hidden');
+          $('.panel03').removeClass('hidden');
+
+          $('.leftMenu-julien div b').removeClass('red');
+          $('.leftMenu-julien div b').eq(2).addClass('red');
+        } else {
+          if(res.root!=null&&_(res.root).isNumber()) {
+            if(res.root>0){
+              Global.ui.notification.show('验证失败,剩余' + res.root + '次机会。');
+            }else{
+              Global.ui.notification.show('验证失败,请一个小时后再验证！');
+            }
+          }else{
+            Global.ui.notification.show('验证失败,' + res.msg);
+          }
+        }
+      });
+    }
+  },
+
+  findBySQBtn: function(){
+    $('.js-safety-problem').removeClass('hidden');
+    $('.panel02').addClass('hidden');
+
+    this.getUserEcurityQes().fail(function () {
+      $('.js-safety-problem').addClass('hidden');
+      $('.panel02').removeClass('hidden');
+      Global.ui.notification.show('获取密码问题失败');
+    }).done(function (res) {
+      if (res && res.result === 0) {
+        $('.js-safety-problem dd').eq(0).html(res.root[0].userSecurityQuestion);
+        $('.js-safety-problem dd').eq(2).html(res.root[1].userSecurityQuestion);
+        $('.js-safety-problem dd').eq(4).html(res.root[2].userSecurityQuestion);
+
+        $('.js-safety-problem dd').eq(0).attr('data-id',res.root[0].userSecurityId);
+        $('.js-safety-problem dd').eq(2).attr('data-id',res.root[1].userSecurityId);
+        $('.js-safety-problem dd').eq(4).attr('data-id',res.root[2].userSecurityId);
+      } else {
+        $('.js-safety-problem').addClass('hidden');
+        $('.panel02').removeClass('hidden');
+        Global.ui.notification.show(res.msg);
+      }
+    });
+  },
+
+  safetyProblemBlack: function(){
+    $('.js-safety-problem').addClass('hidden');
+    $('.panel02').removeClass('hidden');
+  },
+
+  reset: function () {
+    $('.js-rp-loginPwd1').val('');
+    $('.js-rp-loginPwd2').val('');
+    $('.js-passwdSafetyTips').addClass('hidden');
+    $('.panel03 dl').removeClass('correct');
+    $('.panel03 dl').removeClass('wrong');
+  },
+
+  safetyTipsBind: function () {
+    var newLoginPassword = _(function() {
+      var str= $('.js-rp-loginPwd1').val();
+      var str2= $('.js-rp-loginPwd2').val();
+
+      if (str.length == 0) {
+        $('.panel03 dl').eq(0).addClass('wrong');
+        $('.panel03 dl').eq(0).removeClass('correct');
+        $('.panel03 dl .messageBox span').eq(0).html('不能为空');
+      }
+      else if ( !isNaN(str) && str.length < 9 ) {
+        $('.panel03 dl').eq(0).addClass('wrong');
+        $('.panel03 dl').eq(0).removeClass('correct');
+        $('.panel03 dl .messageBox span').eq(0).html('不能是9位以下的纯数字（≤8个阿拉伯数字）');
+      }
+      else if(str.indexOf(" ")>0){
+        $('.panel03 dl').eq(0).addClass('wrong');
+        $('.panel03 dl').eq(0).removeClass('correct');
+        $('.panel03 dl .messageBox span').eq(0).html('不能包含空格');
+      }
+      else if (str.length < 6 || str.length > 20) {
+        $('.panel03 dl').eq(0).addClass('wrong');
+        $('.panel03 dl').eq(0).removeClass('correct');
+        $('.panel03 dl .messageBox span').eq(0).html('6-20位字符组成');
+      }
+      else{
+        $('.panel03 dl').eq(0).removeClass('wrong');
+        $('.panel03 dl').eq(0).addClass('correct');
+        $('.panel03 dl .messageBox span').eq(0).html('');
+      }
+
+      if (str2 != '') {
+        if (str == str2) {
+          $('.panel03 dl').eq(1).removeClass('wrong');
+          $('.panel03 dl').eq(1).addClass('correct');
+        }
+        else{
+          $('.panel03 dl').eq(1).addClass('wrong');
+          $('.panel03 dl').eq(1).removeClass('correct');
+        }
+      }
+
+      var num = 0;
+      if ( str.length > 0 ) {
+        if(/\d/gi.test(str)){
+          num++;
+        }
+
+        if (/[A-Za-z]/.test(str)) {
+          num++;
+        }
+
+        if(/[@#\$%\^&\*\!]+/g.test(str)){
+          num++;
+        }
+
+        $('.js-passwdSafetyTips span').removeClass('s3').removeClass('s2').removeClass('s1');
+        $('.js-passwdSafetyTips b').removeClass('s3').removeClass('s2').removeClass('s1');
+        $('.js-passwdSafetyTips p').removeClass('s3').removeClass('s2').removeClass('s1');
+        if (num == 3) {
+          $('.js-passwdSafetyTips span').addClass('s3');
+          $('.js-passwdSafetyTips p').addClass('s3');
+          $('.js-passwdSafetyTips b').addClass('s3');
+          $('.js-passwdSafetyTips b').html('强');
+        }
+        if (num == 2) {
+          $('.js-passwdSafetyTips span').eq(0).addClass('s2');
+          $('.js-passwdSafetyTips p').addClass('s2');
+          $('.js-passwdSafetyTips span').eq(1).addClass('s2');
+          $('.js-passwdSafetyTips b').addClass('s2');
+          $('.js-passwdSafetyTips b').html('中');
+        }
+        if (num == 1) {
+          $('.js-passwdSafetyTips span').eq(0).addClass('s1');
+          $('.js-passwdSafetyTips p').addClass('s1');
+          $('.js-passwdSafetyTips b').addClass('s1');
+          $('.js-passwdSafetyTips b').html('弱');
+        }
+
+        num = 0;
+        num = 0;
+      }
+
+      if (str.length != 0) {
+        $('.passwdSafetyTips').removeClass('hide');
+      }
+      else{
+        $('.passwdSafetyTips').addClass('hide');
+      }
+
+    }).debounce(400);
+
+    var newLoginPassword2 = _(function() {
+      var str= $('.js-rp-loginPwd1').val();
+      var str2= $('.js-rp-loginPwd2').val();
+
+      if (str != str2){
+        $('.panel03 dl').eq(1).addClass('wrong');
+        $('.panel03 dl').eq(1).removeClass('correct');
+      }
+      else{
+        $('.panel03 dl').eq(1).removeClass('wrong');
+        $('.panel03 dl').eq(1).addClass('correct');
+      }
+    }).debounce(400);
+
+    $('.js-rp-loginPwd1').on('keypress', newLoginPassword);
+    $('.js-rp-loginPwd2').on('keypress', newLoginPassword2);
+  },
+
+  setLPHandler: function(e){
+    var self = this;
+    var $target = $(e.currentTarget);
+    var type = $target.data('type');
+
+    var str= $('.js-rp-loginPwd1').val();
+    var str2= $('.js-rp-loginPwd2').val();
+
+    if (str.length == 0) {
+      $('.panel03 dl').eq(0).addClass('wrong');
+      $('.panel03 dl').eq(0).removeClass('correct');
+      $('.panel03 dl .messageBox span').eq(0).html('不能为空');
+    }
+    else if ( !isNaN(str) && str.length < 9 ) {
+      $('.panel03 dl').eq(0).addClass('wrong');
+      $('.panel03 dl').eq(0).removeClass('correct');
+      $('.panel03 dl .messageBox span').eq(0).html('不能是9位以下的纯数字（≤8个阿拉伯数字）');
+    }
+    else if(str.indexOf(" ")>0){
+      $('.panel03 dl').eq(0).addClass('wrong');
+      $('.panel03 dl').eq(0).removeClass('correct');
+      $('.panel03 dl .messageBox span').eq(0).html('不能包含空格');
+    }
+    else if (str.length < 6 || str.length > 20) {
+      $('.panel03 dl').eq(0).addClass('wrong');
+      $('.panel03 dl').eq(0).removeClass('correct');
+      $('.panel03 dl .messageBox span').eq(0).html('6-20位字符组成');
+    }
+    else if (str != str2){
+      $('.panel03 dl').eq(0).removeClass('wrong');
+      $('.panel03 dl').eq(0).addClass('correct');
+      $('.panel03 dl .messageBox span').eq(0).html('');
+
+      $('.panel03 dl').eq(1).addClass('wrong');
+      $('.panel03 dl').eq(1).removeClass('correct');
+    }
+    else if (sessionStorage.getItem('update') != 'ok') {
+      Global.ui.notification.show('安全报错');
+    }
+    else{
+      $('.panel03 dl').eq(0).removeClass('wrong');
+      $('.panel03 dl').eq(0).addClass('correct');
+      $('.panel03 dl .messageBox span').eq(0).html('');
+
+      $('.panel03 dl').eq(1).removeClass('wrong');
+      $('.panel03 dl').eq(1).addClass('correct');
+
+      $target.button('loading');
+      this.resetLoginPwd().always(function () {
+        $target.button('reset');
+      }).fail(function () {
+        Global.ui.notification.show('设置登录密码请求失败');
+      }).done(function (res) {
+        if (res && res.result === 0) {
+          $('.panel03').addClass('hidden');
+          $('.panel04').removeClass('hidden');
+
+          $('.leftMenu-julien div b').removeClass('red');
+          $('.leftMenu-julien div b').eq(3).addClass('red');
+        } else {
+          Global.ui.notification.show(res.msg);
+        }
+      });
+    }
+  },
+
+  verifyFPHandler: function (e) {
+    var self = this;
+    var $target = $(e.currentTarget);
+    var type = $target.data('type');
+
+    if(this.$valMoneyPasswd.val().length < 6){
+      $('.js-moneyPassord').addClass('wrong');
+      $('.js-moneyPassord').removeClass('correct');
+    }
+    else{
+      $target.button('loading');
+
+      this.verifyFundPassword().always(function () {
+        $target.button('reset');
+      }).fail(function () {
+        Global.ui.notification.show('资金密码验证请求失败');
+      }).done(function (res) {
+        if (res && res.result === 0) {
+          sessionStorage.setItem('update', 'ok');
+
+          $('.js-moneyPasswdTips').addClass('hidden');
+          $('.panel02').addClass('hidden');
+          $('.panel03').removeClass('hidden');
+
+          $('.leftMenu-julien div b').removeClass('red');
+          $('.leftMenu-julien div b').eq(2).addClass('red');
+        } else {
+          var errorInfo = '';
+          if(res.root!=null&&_(res.root).isNumber()) {
+            if(res.root>0){
+              errorInfo = '验证失败,剩余' + res.root + '次机会。';
+            }else{
+              errorInfo = '验证失败,请一个小时后再验证！';
+            }
+          }else{
+            errorInfo = '验证失败,' + res.msg;
+          }
+
+          Global.ui.notification.show(errorInfo);
+        }
+      });
+    }
+  },
+
+  emailFindBlack:function(){
+    $('.panel02').removeClass('hidden');
+    $('.emailFind').addClass('hidden');
+  },
+
+  openSafetyEmail:function(){
+    $('.panel02').addClass('hidden');
+    $('.emailFind').removeClass('hidden');
+
+    this.sendEmail().fail(function () {
+      Global.ui.notification.show('邮件发送失败，网络异常');
+    }).done(function (res) {
+        if (res && res.result === 0) {
+          $('.js-emailTime').html(50);
+          var emailTime = setInterval(function(){
+            var num = $('.js-emailTime').html() - 1;
+            if ($('.js-emailTime').html() == 0) {
+              clearInterval(emailTime)
+            }
+            else{
+              $('.js-emailTime').html(num);
+            }
+          }, 1000)
+        } else {
+          Global.ui.notification.show(res.msg);
+        }
+    });
+  },
+
+  blackToPanel01:function(){
+    $('.panel02').addClass('hidden');
+    $('.panel01').removeClass('hidden');
+
+    $('.leftMenu-julien div b').removeClass('red');
+    $('.leftMenu-julien div b').eq(0).addClass('red');
+  },
+
+  openMoneyPasswdTips:function(){
+    $('.js-moneyPasswdTips').removeClass('hidden');
+  },
+
+  closeMoneyPasswordTips: function(){
+    this.$valMoneyPasswd.val('');
+    $('.js-moneyPasswdTips').addClass('hidden');
+  },
+
+  //julien的验证代码
+  panel01Verify: function() {
+    $('#jsRPUserName').on('input', function() { 
+      if ($('#jsRPUserName').val().length < 1) {
+        $('.js-userName').addClass('wrong');
+        $('.js-userName').removeClass('correct');
+      }
+      else{
+        $('.js-userName').removeClass('wrong');
+        $('.js-userName').addClass('correct');
+      }
+    });
+
+    $('.js-rp-valCode').on('input', function() {
+      if ($('.js-rp-valCode').val().length == 4) {
+        Global.sync.ajax({
+          type: 'POST',
+          url: '/acct/imgcode/val.json',
+          data: {
+            code: $('.js-rp-valCode').val()
+          }
+        }).done(function (data, status, xhr) {
+          if (data.result === 0) {
+            $('.js-code').removeClass('wrong');
+            $('.js-code').addClass('correct');
+          }else{
+            $('.js-code').addClass('wrong');
+            $('.js-code').removeClass('correct');
+          }
+        }).fail(function () {
+           Global.ui.notification.show('验证码报错');
+        });
+      }
+    });
+  },
+
   refreshValCodeHandler: function(){
     this.$valImg.attr('src','');
     this.$valImg.attr('src',this.codeUrl+'?_t='+_.now());
-    this.$valResult.val('1');
     this.$valCode.val('');
-    this.$valCode.focus();
-    this.$valCodeResult.html('');  
   },
 
-  valCodeHandler: function () {
-
-    var self = this;
-    if(self.$valCode && self.$valCode.val()!='' && self.$valCode.val().length===4){
-      Global.sync.ajax({
-        type: 'POST',
-        url: '/acct/imgcode/val.json',
-        data: {
-          code: self.$valCode.val()
-        }
-      }).done(function (data, status, xhr) {
-        if (data.result === 0) {
-          self._showValResult(0,self.$valCodeResult,'', self.$valResult);
-        }else{
-          self._showValResult(1,self.$valCodeResult,'验证码错误', self.$valResult);
-          self.refreshValCodeHandler();
-        }
-      }).fail(function () {
-        self._showValResult(1,self.$valCodeResult,'验证码错误' ,self.$valResult);
-        self.refreshValCodeHandler();
-      });
-    }else{
-      //self._showValResult(1,self.$valResultDiv);
-      //self._showValResult(1,self.$valCodeResult,'验证码错误' ,self.$valResult);
-      self.$valResult.val('1');
-      self.$valCodeResult.html('');
-    }
-
-  },
-  //==========================================================================
-
-  renderError: function(text) {
-    this.element.find('.js-rp-notice-page1').html(self._getErrorMsg(text));
-  },
-
-
-  //TODO 待添加用户验证
-  verifyUNHandler: function (e) {
+  verifyUNHandler: function(e){
     var self = this;
     var $target = $(e.currentTarget);
-    var clpValidate = this.$step1Form.parsley().validate();
 
-    //=============================================================TODO
-    if(self.$valCode.val()===''||self.$valResult.val()==='1'){
-      self._showValResult(1,self.$valCodeResult,'',self.$valResult);
-      //self.$valCode.val('')
-      self.refreshValCodeHandler();
-      return false;
+    var iIs = 0;
+
+    if ($('#jsRPUserName').val().length < 1) {
+      $('.js-userName').addClass('wrong');
+      $('.js-userName').removeClass('correct');
+
+      iIs = 1;
     }
-    //================================================================
 
-    if (clpValidate) {
+    if (this.$valCode.val().length != 4) {
+      $('.code').addClass('wrong');
+      $('.code').removeClass('correct');
+
+      iIs = 1;
+    }
+
+    if(iIs == 0){
       $target.button('loading');
-      self.element.find('.js-rp-userNameContainer').val('');
-      self.element.find('.js-rp-tokenContainer').val('');
+
       //校验验证码
       this.verifyUserNameXhr().always(function () {
         $target.button('reset');
       }).fail(function () {
-        self.element.find('.js-rp-notice-page1').html(self._getErrorMsg(''));
-
-        //=============================================================TODO
-        //self.refreshValCodeHandler();
-        // =============================================================
+        Global.ui.notification.show('网络异常');
       }).done(function (res) {
         if (res && res.result === 0) {
-          //todo 获取密保及资金密码设置状态 控制第二步页面的显示
-          if(res.root.qesStatus===1){//1代表设置了该方式
-            //self.$findBySQBtn.addClass('hidden');
-            //self.$noticeSQ.removeClass('hidden');
-          }else{
-            //self.$findBySQBtn.removeClass('hidden');
-            //self.$noticeSQ.addClass('hidden');
+          $('.leftMenu-julien div b').removeClass('red');
+          $('.leftMenu-julien div b').eq(1).addClass('red');
+          $('.panel01').addClass('hidden');
+          $('.panel02').removeClass('hidden');
+          $('.panel02 div span').html($('#jsRPUserName').val());
+          self.refreshValCodeHandler();
+          sessionStorage.setItem('pwdToken', res.root.pwdToken);
 
+          if (res.root.qesStatus == 1) {
+            $('.safety-questionid span').removeClass('hidden');
           }
-          if(res.root.payPwdStatus===1){
-            //self.$findByFPBtn.removeClass('hidden');
-            //self.$noticeFP.addClass('hidden');
-          }else{
-            //self.$findByFPBtn.addClass('hidden');
-            //self.$noticeFP.removeClass('hidden');
+          else{
+            $('.safety-questionid button').removeClass('hidden');
           }
-            self.element.find('.js-rp-userNameContainer').val(self.$username.val());
-            self.element.find('.js-rp-tokenContainer').val(res.root.pwdToken);
-           // self.$step2Div.addClass('hidden');
-           // self.$step2Form.removeClass('hidden');
-           // self.$validateForm1.addClass('hidden');
-           // self.$validateForm1[0].reset();
-           // self.$validateForm2.addClass('hidden');
-            self.$validateForm2[0].reset();
-            self.$resetPasswordMain.steps('goTo', 1);
+          if (res.root.payPwdStatus == 0) {
+            $('.safety-passwd span').removeClass('hidden');
+          }
+          else{
+            $('.safety-passwd button').removeClass('hidden');
+          }
+          if (res.root.email == '') {
+            $('.safety-email dd span').removeClass('hidden');
+          }
+          else{
+            $('.safety-email dt span').html('您绑定的邮箱为 ' + res.root.email);
+            $('.safety-email button').removeClass('hidden');
+            $('.emailFind h1').html('登录密码找回邮件已发送至您的邮箱：' + res.root.email);
+          }
         } else {
-          self.element.find('.js-rp-notice-page1').html(self._getErrorMsg('用户名验证失败'));
-
-          //=============================================================TODO
-          //self.refreshValCodeHandler();
-          // ===========================================================
+          Global.ui.notification.show('用户名验证失败');
         }
       });
-
     }
-
   },
 
   //TODO Deferred 验证用户，用户名和验证码,待修改参数名
@@ -241,156 +616,17 @@ $.widget('gl.resetPassword', {
     });
   },
 
-
-  //findBySQHandler: function (e) {
-  //  var self = this;
-  //  //this.$validateForm1.removeClass('hidden');
-  //  //this.$validateForm2.addClass('hidden');
-  //  //TODO获取密保问题，添加到页面中
-  //  self.getSecurityQuestion().fail(function () {
-  //    self.element.find('.js-rp-notice-page2').html(self._getErrorMsg('密保问题获取请求服务失败'));
-  //  }).done(function (res) {
-  //    if (res && res.result === 0) {
-  //      //成功后,将问题列表加载在下拉框中
-  //      self.$questionSelect.html('<option value="">请选择密保问题</option>');
-  //      self.$questionSelect.append(_(res.root).map(function (option) {
-  //        return '<option value="' + option.qesId + '">' + option.question + '</option>';
-  //      }).join(''));
-  //      //隐藏当前step2的form1，展示form2
-  //      //self.$step2Form.addClass('hidden');
-  //      self.$validateForm1.removeClass('hidden');
-  //      self.$validateForm2.addClass('hidden');
-  //    } else {
-  //      self.element.find('.js-rp-notice-page2').html(self._getErrorMsg('密保问题获取失败'));
-  //    }
-  //  });
-  //
-  //},
-  //下拉框选择的事件,用于控制不会重复选择
-  //questionSelectChangeHandler: function (e) {
-  //  var $target = $(e.currentTarget);
-  //  var $option = $target.find('option:selected');
-  //
-  //  var selectedValue = $option.siblings('.selected').removeClass('selected').val();
-  //  var selectingValue = $target.val();
-  //
-  //  this.$questionSelect.not($target).find('option[value=' + selectedValue + ']').removeClass('hidden');
-  //  this.$questionSelect.not($target).find('option[value=' + selectingValue + ']').addClass('hidden');
-  //
-  //  $option.addClass('selected');
-  //},
-
-  //TODO 待修改参数名
-  //getSecurityQuestion: function () {
-  //  return $.ajax({
-  //    type: 'POST',
-  //      url: '/acct/usersecurity/getqesforloginpwd.json',
-  //    data: {
-  //      username: this.element.find('.js-rp-userNameContainer').val(),
-  //      loginToken: this.element.find('.js-rp-tokenContainer').val()
-  //
-  //    }
-  //  });
-  //},
-
-  //findByFPHandler: function (e) {
-  //  //this.$step2Form.addClass('hidden');
-  //  this.$validateForm1.addClass('hidden');
-  //  this.$validateForm2.removeClass('hidden');
-  //},
-  //
-  //returnToStep1Handler: function(e){
-  //  this.$resetPasswordMain.steps('goTo', 0);
-  //  //this.$step2Form.removeClass('hidden');
-  //  this.$validateForm1.addClass('hidden');
-  //  this.$validateForm2.addClass('hidden');
-  //},
-
-  //TODO 验证密保问题
-  //verifySQAHandler: function (e) {
-  //  var self = this;
-  //  var $target = $(e.currentTarget);
-  //  var type = $target.data('type');
-  //  //var type = $target.data('type');
-  //  //var clpValidate = this.$validateForm1.parsley().validate();
-  //  if (clpValidate) {
-  //    $target.button('loading');
-  //    this.verifySecurityQuestion().always(function () {
-  //      $target.button('reset');
-  //    }).fail(function () {
-  //      self.element.find('.js-rp-notice-page31').html(self._getErrorMsg('密保问题验证请求失败'));
-  //    }).done(function (res) {
-  //      if (res && res.result === 0) {
-  //        self.$resetPasswordMain.steps('goTo', 2);
-  //      } else {
-  //        if(res.root!=null&&_(res.root).isNumber()) {
-  //          if(res.root>0){
-  //          self.element.find('.js-rp-notice-page31').html(self._getErrorMsg('验证失败,剩余' + res.root + '次机会。'));
-  //          }else{
-  //            self.element.find('.js-rp-notice-page31').html(self._getErrorMsg('验证失败,请一个小时后再验证！'));
-  //          }
-  //        }else{
-  //          self.element.find('.js-rp-notice-page31').html(self._getErrorMsg('验证失败,' + res.msg));
-  //        }
-  //      }
-  //    });
-  //  }
-  //
-  //},
-
-  //TODO 验证密保 ，待修改参数名
-  //verifySecurityQuestion: function () {
-  //  return $.ajax({
-  //    type: 'POST',
-  //    url: '/acct/usersecurity/verqesforloginpwd.json',
-  //    data: {
-  //      'secrityList[0].securityId': this.element.find('#jsRPQuestion1').find("option:selected").val(),
-  //      'secrityList[0].securityQes': this.element.find('#jsRPQuestion1').find("option:selected").text(),
-  //      'secrityList[0].securityAsw': this.element.find('#jsRPAsw1').val(),
-  //      'secrityList[1].securityId': this.element.find('#jsRPQuestion2').find("option:selected").val(),
-  //      'secrityList[1].securityQes': this.element.find('#jsRPQuestion2').find("option:selected").text(),
-  //      'secrityList[1].securityAsw': this.element.find('#jsRPAsw2').val(),
-  //       username: this.element.find('.js-rp-userNameContainer').val(),
-  //       loginToken: this.element.find('.js-rp-tokenContainer').val()
-  //
-  //    }
-  //  });
-  //},
-
-  verifyFPHandler: function (e) {
-    var self = this;
-    var $target = $(e.currentTarget);
-    var type = $target.data('type');
-    self.element.find('.js-rp-notice-page32').html('');
-
-    var clpValidate = this.$validateForm2.parsley().validate();
-    if (clpValidate) {
-      $target.button('loading');
-      this.verifyFundPassword().always(function () {
-        $target.button('reset');
-      }).fail(function () {
-        self.element.find('.js-rp-notice-page32').html(self._getErrorMsg('资金密码验证请求失败'));
-
-      }).done(function (res) {
-        if (res && res.result === 0) {
-
-          self.$resetPasswordMain.steps('goTo', 2);
-        } else {
-          if(res.root!=null&&_(res.root).isNumber()) {
-            if(res.root>0){
-              self.element.find('.js-rp-notice-page32').html(self._getErrorMsg('验证失败,剩余' + res.root + '次机会。'));
-            }else{
-              self.element.find('.js-rp-notice-page32').html(self._getErrorMsg('验证失败,请一个小时后再验证！'));
-            }
-          }else{
-            self.element.find('.js-rp-notice-page32').html(self._getErrorMsg('验证失败,' + res.msg));
-          }
-
-          self.element.find('.js-rp-fundPassword').val('');
-        }
-      });
-    }
-
+  //TODO 重置登录密码 ，待修改参数名
+  resetLoginPwd: function(){
+    return $.ajax({
+      type: 'POST',
+      url: '/acct/userinfo/resetloginpwd.json',
+      data: {
+        loginPwd: $('.js-rp-loginPwd1').val(),
+        username: $('.panel02 div span').html(),
+        loginToken: sessionStorage.getItem('pwdToken')
+      }
+    });
   },
 
   //TODO 验证资金密码 ，待修改参数名
@@ -399,218 +635,56 @@ $.widget('gl.resetPassword', {
       type: 'POST',
       url: '/fund/moneypd/verpwdforloginpwd.json',
       data: {
-        payPwd: this.element.find('.js-rp-fundPassword').val(),
-        username: this.element.find('.js-rp-userNameContainer').val(),
-        loginToken: this.element.find('.js-rp-tokenContainer').val()
+        payPwd: $('.js-moneyPasswdInput').val(),
+        username: $('.panel02 div span').html(),
+        loginToken: sessionStorage.getItem('pwdToken')
       }
     });
   },
 
-  //返回按钮事件
-  //goStep2Handler: function (e) {
-  //  this.$resetPasswordMain.steps('goTo', 1);
-  //},
-  //设置登录密码
-  setLPHandler: function (e) {
-    var self = this;
-
-    var $target = $(e.currentTarget);
-    var type = $target.data('type');
-    var $resetLPContainer = this.$step3Form;
-    //var type = $target.data('type');
-    var clpValidate = $resetLPContainer.parsley().validate();
-    if (clpValidate) {
-      $target.button('loading');
-      this.resetLoginPwd().always(function () {
-        $target.button('reset');
-      }).fail(function () {
-        self.element.find('.js-rp-notice-page4').html(self._getErrorMsg('设置登录密码请求失败'));
-        //self.$resetPasswordMain.steps('goTo', 4);
-      }).done(function (res) {
-        if (res && res.result === 0) {
-          var jumpToLoginPage = function() {
-            self.loginHandler();
-            //setInterval(function() {
-            //  window.location.href = 'login.html';
-            //}, 500);
-          };
-          Global.ui.notification.show('重置密码保存成功', {
-            type: 'success',
-            event: jumpToLoginPage,
-            btnContent: '跳转到主界面'
-          });
-        } else {
-          self.element.find('.js-rp-notice-page4').html(self._getErrorMsg(res.msg));
-        }
-      });
-    }
-
+  //TODO 验证密保 ，待修改参数名
+  verifySecurityQuestion: function () {
+    return Global.sync.ajax({
+      type: 'POST',
+      url: '/acct/usersecurity/verqesforloginpwdByName.json',
+      data: {
+        'secrityList[0].securityId': $('.js-safety-problem dd').eq(0).data('id'),
+        'secrityList[0].securityQes': $('.js-safety-problem dd').eq(0).html(),
+        'secrityList[0].securityAsw': $('.js-answer1').val(),
+        'secrityList[1].securityId': $('.js-safety-problem dd').eq(2).data('id'),
+        'secrityList[1].securityQes': $('.js-safety-problem dd').eq(2).html(),
+        'secrityList[1].securityAsw': $('.js-answer2').val(),
+        'secrityList[2].securityId': $('.js-safety-problem dd').eq(4).data('id'),
+        'secrityList[2].securityQes': $('.js-safety-problem dd').eq(4).html(),
+        'secrityList[2].securityAsw': $('.js-answer3').val(),
+         username: $('.panel02 div span').html()
+      }
+    });
   },
-  //TODO 重置登录密码 ，待修改参数名
-  resetLoginPwd: function(){
+
+  //TODO 获取安全问题
+  getUserEcurityQes: function () {
     return $.ajax({
       type: 'POST',
-      url: '/acct/userinfo/resetloginpwd.json',
+      url: '/acct/usersecurity/getuserecurityqesByName.json',
       data: {
-        loginPwd: this.element.find('#jsRPLoginPwd1').val(),
-        username: this.element.find('.js-rp-userNameContainer').val(),
-        loginToken: this.element.find('.js-rp-tokenContainer').val()
+        username: $('.panel02 div span').html()
       }
     });
   },
 
-  //组装错误提示框
-  _getErrorMsg: function (text) {
-    //return '<div class="alert alert-danger alert-dismissible" role="alert">' +
-    //  '<button type="button" class="close" data-dismiss="alert">' +
-    //  '<span aria-hidden="true">×</span>' +
-    //  '</button>' +
-    //  '<i class="fa fa-times-circle m-right-xs"></i>' +
-    //  '<strong>提示！</strong> ' + text +
-    //  '</div>';
-    return text;
-  },
-
-  _showValResult: function(result,$container,msg, $result){
-    var wrong = '<div class="val-img-times"><span class="text-danger">'+msg+'</span></div>';
-    var right = '<div class="val-img-check">&nbsp;</div>';
-    if(result===0){
-      $container.html(right);
-      if($result){
-        $result.val('0');
+  //TODO 获取安全问题
+  sendEmail: function () {
+    return $.ajax({
+      type: 'POST',
+      url: '/acct/usermsg/sendEmail.json',
+      data: {
+        userName: $('.panel02 div span').html()
       }
-    }else if(result===1){
-      $container.html(wrong);
-      if($result){
-        $result.val('1');
-      }
-    }else{
-      $container.html('');
-    }
-  },
-  //valPageReturnHandler: function(e){
-  //  //this.$step2Form.removeClass('hidden');
-  //  //this.$validateForm1.addClass('hidden');
-  //  this.$validateForm2.addClass('hidden');
-  //}
-
-  loginHandler: function() {
-    var self = this;
-
-    var encryption = new Encryption();
-    var param = encryption.encryptSha(new Date().valueOf() + '');
-    var entPassword = encryption.encrypt(self.element.find('#jsRPLoginPwd1').val(),param);
-    var userName = self.element.find('.js-rp-userNameContainer').val();
-
-    //if (!this.parsley.validate()) {
-    //  return false;
-    //}
-    //if (self.$valResult.val()!=='0') {
-    //  if(!this.$valCode.hasClass('hidden')){
-    //    self.$valRegion.removeClass('hidden');
-    //    self.$valCode.removeClass('hidden');
-    //    self.$valCode.attr('type','text');
-    //    self.renderError('请输入验证码！');
-    //    self.refreshValCodeHandler();
-    //  } else {
-    //    self.renderError('验证码输入有误！');
-    //  }
-    //  return false;
-    //}
-
-    $.ajax({
-        type: 'POST',
-        url: '/acct/login/dologin.json',
-        data: {
-          username: userName,
-          loginPwd: entPassword,
-          param: param,
-          code: ''
-        },
-        beforeSend: function(xhr, settings) {
-          self.element.find('.js-rp-setLPBtn').text('登录中...');
-        }
-      })
-      .always(function() {
-        self.element.find('.js-rp-setLPBtn').button('reset');
-      })
-      .done(function(data, status, xhr) {
-        if (data.result === 0) {
-
-          //if (self.$remember.prop('checked')) {
-          //  Global.localCache.set('account.remember', self.$username.val());
-          //} else {
-            Global.localCache.clear('account.remember');
-          //}
-
-          Global.cookieCache.set('token', data.root.token);
-
-          status = Number(data.root.userStatus);
-          //状态的值
-          //int WOKRING = 0;// 正常
-          //int DISABLED = 100;// 冻结,只登录
-          //int DEEP_DISABLED = 101;// 冻结，完全冻结
-          //int ENABLED = 102;// 解冻
-          //int RECOVER = 103;// 回收
-          //int RESET = 104;// 重置
-          //int BYPARENT = 105;// 手工开户
-          //int BYSUPER = 106;// 总代开户
-          status = Number(status);
-          if(status===0 || status===100 || status===102){
-            window.location.href = 'index.html';
-          }else if(status===103 || status===104 || status===105 || status===106){
-            var ur ='userName='+data.root.username+(data.root.uName?'&uName='+data.root.uName:'')+'&status='+status;
-            window.location.href = 'updateUserInfo.html?'+encodeURI(ur);
-          }else if(status===101){
-            self.renderError('完全冻结的用户无法登录');
-          }
-          else{
-            window.location.href = 'index.html';
-          }
-
-        } else {
-          self.renderError(data.msg);
-          //if(data.msg.indexOf('验证码')!==-1){
-          //  if(self.$valCode.hasClass('hidden')){
-          //    self.$valRegion.removeClass('hidden');
-          //    self.$valCode.removeClass('hidden');
-          //    self.$valCode.attr('type','text');
-          //    self.$valResult.val('1');
-          //    self.$valImg.attr('src',self.codeUrl+'?_t='+_.now());
-          //    self.renderError('请输入验证码！');
-          //    self.$valCode.focus();
-          //  }else{
-          //    self.renderError('验证码输入有误！');
-          //    self.refreshValCodeHandler();
-          //  }
-          //}else{
-          //  self.renderError(data.msg);
-          //  // self.refreshValCodeHandler();
-          //}
-        }
-      })
-      .fail(function(){
-        self.renderError('当前网络异常，请切换线路');
-        //if(!self.$valRegion.hasClass('hidden')){
-        //  self.$valImg.trigger('click');
-        //}
-      });
-
-    return false;
-  },
-
-  resetInputHandler: function(e) {
-    var $target = $(e.currentTarget);
-    var $pInput1 = this.element.find('.js-rp-loginPwd1');
-    var $pInput2 = this.element.find('.js-rp-loginPwd2');
-    if ($pInput1.val() != $pInput2.val()) {
-      $target.val('');
-    }
+    });
   }
-
 });
 
 $(document).ready(function() {
-  //$('.js-package').before(_(header).template()({})).after(footer);
   $('.js-package').resetPassword();
 });

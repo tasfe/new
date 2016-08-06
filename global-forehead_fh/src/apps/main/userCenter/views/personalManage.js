@@ -25,18 +25,25 @@ var PersonalManageView = Base.ItemView.extend({
         if (res && res.result === 0) {
 
           self.$('.js-uc-userName').html(res.root.userName);
-          self.$('.js-uc-uName').val(res.root.uName);
-          self.$('.js-uc-balance').html(_(res.root.balance).convert2yuan());
-          self.$('.js-uc-regTime').html(_(res.root.userRegTime).toTime());
           self.$('.js-uc-qqNum').val(res.root.userQq);
           self.$('.js-uc-eMail').val(res.root.userEmail);
-          self.$('.js-uc-userLevel').html('V'+res.root.memberLevel);
-          self.$('.js-uc-userPoints').html(res.root.integral/10000);
+          self.$('.js-uc-tel').val(res.root.userCellphone);
+
+          var userSex = res.root.userSex;
+          if (userSex == 1) {
+            self.$('.gender input').eq(0).attr("checked", "true");
+          }
+          else if (userSex == 2) {
+            self.$('.gender input').eq(1).attr("checked", "true");
+          }
+
           var bday = res.root.userBithday;
+
           if(bday != null && bday != '') {
             var bday =bday.split("-");
-            self.$('.js-bday1').val(parseInt(bday[0]));
-            self.$('.js-bday2').val(parseInt(bday[1]));
+     
+            self.$('.js-bday1').val(bday[0]);
+            self.$('.js-bday2').val(bday[1]);
             self.$('.js-bday1').attr("disabled",true);
             self.$('.js-bday2').attr("disabled",true);
           }
@@ -56,19 +63,28 @@ var PersonalManageView = Base.ItemView.extend({
     window.ParsleyExtend.addAsyncValidator('checkusername', function(xhr) {
       return xhr.responseJSON.result === 0;
     }, '/acct/userinfo/checkuname.json');
+
+    
   },
 
   updatePersonalInfoHandler: function(e) {
     var self = this;
     this.$btnConfirm.button('loading');
 
+    var userSex = $("input[name='gender']:checked").val();
+    if (userSex == undefined) {
+      userSex = 0;
+    }
+
     Global.sync.ajax({
       url: '/acct/userinfo/saveuser.json',
       data: {
         userQqNum: this.$('.js-uc-qqNum').val(),
         userEmail: this.$('.js-uc-eMail').val(),
-        userUname: this.$('.js-uc-uName').val(),
-        userBirthday: (this.$('.js-bday1').val() +'-'+ this.$('.js-bday2').val())
+        uName: this.$('.js-uc-uName').val(),
+        userBirthday: (this.$('.js-bday1').val() +'-'+ this.$('.js-bday2').val()),
+        userSex: userSex,
+        userCellphone: this.$('.js-uc-tel').val()
       }
     })
       .always(function() {

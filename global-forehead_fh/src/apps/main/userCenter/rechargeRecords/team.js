@@ -65,12 +65,24 @@ var RechargeRecordsView = SearchGrid.extend({
   },
 
   onRender: function() {
+    
     //初始化时间选择
     new Timeset({
       el: this.$('.js-pf-timeset'),
       startDefaultDate: this.options.reqData.startTime?this.options.reqData.startTime:_(moment().startOf('day')).toTime(),
       endDefaultDate: this.options.reqData.endTime?this.options.reqData.endTime:_(moment().endOf('day')).toTime()
     }).render();
+    
+    var plArray=[{id:0,zhName:'单式直选'},{id:1,zhName:'直选和值'}];
+    this.$('select[name=payStatus]').html(_(plArray).map(function (qr) {
+      return '<option value="'+qr.id+'">'+qr.zhName+'</option>';
+    }).join(''));
+
+    var plArray=[{id:0,zhName:'单式直选'},{id:1,zhName:'直选和值'}];
+    this.$('select[name=widthdrawStatus]').html(_(plArray).map(function (qr) {
+      return '<option value="'+qr.id+'">'+qr.zhName+'</option>';
+    }).join(''));
+
     if(this.options.reqData.username){
       this.$('input[name="username"]').val(this.options.reqData.username);
     }
@@ -91,7 +103,6 @@ var RechargeRecordsView = SearchGrid.extend({
     });
 
     //加上统计行
-
     this.grid.addFooterRows({
       //trClass: 'tr-footer',
       columnEls: [
@@ -105,7 +116,6 @@ var RechargeRecordsView = SearchGrid.extend({
 
   formatRowData: function(rowInfo) {
     var row = [];
-
     row.push(rowInfo.userName);
     row.push(rowInfo.tradeNo);
     row.push(_(rowInfo.payTime).toTime());
@@ -113,7 +123,6 @@ var RechargeRecordsView = SearchGrid.extend({
     row.push(_(rowInfo.amount).fixedConvert2yuan());
     row.push(_(rowInfo.balance).fixedConvert2yuan());
     row.push(rowInfo.status);
-
     return row;
   }
 });

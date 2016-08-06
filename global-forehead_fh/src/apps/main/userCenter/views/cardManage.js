@@ -277,7 +277,6 @@ var CardManageView = Base.ItemView.extend({
 
   },
 
-
   popValidateCardInfoModal: function(type, cardId) {
     var self = this;
     var title = '删除银行卡';

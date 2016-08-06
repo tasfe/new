@@ -20,6 +20,10 @@ $main-top: 110px !default;
 }
 
 .carousel-inner {
+  .item{
+    width: 1200px !important;
+  }
+  
   height: 580px;
   img {
     height: 580px;
@@ -27,10 +31,48 @@ $main-top: 110px !default;
 }
 
 .db-slogan {
-  //background: url(../misc/slogan.png) no-repeat no-repeat center center;
-  width: 347px;
+  background: url(~base/images/julien/11.png) no-repeat left center;
   height: 40px;
-  margin: 30px auto 15px;
+  line-height: 40px;
+  margin: 10px 0 20px 0;
+  padding-left: 30px;
+  overflow: hidden;
+  border-bottom: 1px solid #e4e4e4;
+
+  ul,li{
+    list-style: none;
+  }
+
+  ul{
+    width: 1100px;
+    float: left;
+  }
+
+  a{
+    font-size: 14px;
+    font-family: '微软雅黑';
+    color: #666666;
+  }
+
+  > div{
+    width: 10px;
+    float: right;
+    margin-top: 8px;
+
+    span{
+      display: block;
+      width: 9px;
+      height: 9px;
+      background: url(~base/images/julien/12.png) no-repeat;
+      margin-bottom: 5px;
+      cursor: pointer;
+
+      &:last-child{
+        background-position:bottom;
+      }
+
+    }
+  }
 }
 
 .dynamic-body {
@@ -129,24 +171,25 @@ $main-top: 110px !default;
     display: inline-block;
     position: relative;
     overflow: hidden;
-    width:280px;
+    width:200px;
     height: 250px;
     padding-top: 27px;
     float: right;
     margin-right: -1px;
     margin-top: -1px;
     background: url(./ticket-bg.png) repeat-x;
+    margin-left: 130px;
 
     .sfa {
       @include slide-nav-item($sfa-d-tickets, 90px);
     }
-
 
   }
 
   .title-01 {
     background: url(~base/images/fh/lottery_entrance.png);
     background-repeat: no-repeat;
+    margin-left:0px;
 
   }
   .title-02 {
@@ -384,4 +427,88 @@ $float-height: 38px;
   height: 60px;
   background-repeat: no-repeat;
   float: left;
+}
+
+.db-carousel{
+  .left{
+    width: 40px;
+    height: 80px;
+    background: url(~base/images/julien/bannerBtn.png) no-repeat 0px -80px;
+  }
+
+  .right{
+    width: 40px;
+    height: 80px;
+    background: url(~base/images/julien/bannerBtn.png) no-repeat;
+  }
+}
+
+.db-carousel{
+  position: relative;
+}
+
+.last-block{
+  dl{
+    width: 320px;
+    height: 156px;
+    float: left;
+    text-align: left;
+    margin-right: 80px;
+
+    dt{
+      height: 40px;
+      border-bottom: 1px solid #c9c9c9;
+    }
+    dd{
+      font-size: 14px;
+      color: #666666;
+      font-family: '微软雅黑';
+      line-height: 30px;
+      padding-top: 10px;
+      display: table;
+
+      a{
+        width: 60px;
+        height: 75px;
+        display: block;
+        text-align: center;
+        font-size: 14px;
+        color:#999999;
+        float: left;
+        margin-right: 40px;
+        margin-top: 20px;
+
+        img{
+          max-width:auto;
+        }
+
+        span{
+          display: table-cell;
+          vertical-align: middle;
+          height: 50px;
+          width: 60px;
+          text-align: center;
+        }
+      }
+    }
+
+    &.first{
+      width: 400px;
+    }
+
+    &.last{
+      width: 300px;
+      float: right;
+      margin-right: 0px;
+      text-transform:uppercase;
+
+      dd{
+        a.c3{
+          margin-right:0px;
+        }
+
+        
+      }
+    }
+  }
 }

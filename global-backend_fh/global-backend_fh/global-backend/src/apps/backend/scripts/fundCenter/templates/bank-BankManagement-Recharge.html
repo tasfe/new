@@ -1,0 +1,37 @@
+<div  style="margin-top: 10px;margin-bottom: 10px;width: 100px;">
+  <%if(Global.authority.fc && Global.authority.fc.bm && Global.authority.fc.bm.addReBank){%>
+
+  <button type="button" class="js-fc-bmr-add btn btn-primary" data-type="edit">
+    <i class="fa fa-plus m-right-xs"></i>添&nbsp;&nbsp;加
+  </button>
+  <%}%>
+</div>
+<div class="smart-grid table-responsive">
+  <table class="table table-striped">
+    <colgroup>
+      <col>
+      <col width="8%">
+      <col width="15%">
+      <col width="15%">
+      <col width="10%">
+      <col width="20%">
+      <col width="8%">
+      <col width="10%">
+      <col width="14%">
+    </colgroup>
+    <thead>
+    <tr>
+      <td>ID</td>
+      <td>银行LOGO</td>
+      <td>银行名字</td>
+      <td>银行编码</td>
+      <td>网银地址</td>
+      <td>前台排序</td>
+      <td>状态</td>
+      <td>操作</td>
+    </tr>
+    </thead>
+    <tbody class="js-fc-bmr-table">
+    </tbody>
+  </table>
+</div>

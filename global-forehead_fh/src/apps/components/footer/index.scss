@@ -4,21 +4,14 @@
 "~base/styles/imports";
 
 .footer {
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  display: none;
-  color: $font-light;
-  line-height: 30px;
-  z-index: 100;
+  clear: both;
 
   .footer-inner {
-    padding: 10px 0 10px;
-    background: black;
+    background: #1b2121;
     height: 30px;
     text-align: center;
-
+    line-height: 30px;
+    color: #7c7d7d;
   }
   .footer-lists {
     text-align: center;
@@ -72,5 +65,22 @@
 @media (min-height: 930px) {
   .footer {
     display: block;
+  }
+}
+
+.footer-banner{
+  height: 70px;
+  background-color: #ffffff;
+
+  .vessel{
+    width: 1200px;
+    margin: 0px auto;
+    height: 68px;
+    background: url(~base/images/julien/flootbanner.jpg) no-repeat;
+    text-align: center;
+
+    img{
+      margin: 10px 32px;
+    }
   }
 }

@@ -11,7 +11,7 @@ module.exports = {
   },
   entries: {
     activity: {
-      title: '亿贝在线娱乐',
+      title: '繁华世界在线娱乐',
       template: './entry/package.html',
       chunks: ['common.1', '1.activity']
     }

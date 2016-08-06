@@ -124,7 +124,8 @@ $.widget('gl.login', {
     //  'blur input[name="username"]': 'valUsernameNeedValCode',//校验是否需要输入验证码
     //  'blur input[name="loginPwd"]': 'valUsernameNeedValCode',//校验是否需要输入验证码
       'click .js-login-valImg': 'refreshValCodeHandler',//刷新验证码
-      'click input[type!=hidden]': 'resetInputHandler'
+      'click input[type!=hidden]': 'resetInputHandler',
+      'click .js-showConnectTest': 'showConnectTest'
     });
     //this.$valCode.on('keyup', function() {
     //  self.valCodeHandler();
@@ -136,6 +137,10 @@ $.widget('gl.login', {
       $('body').removeClass('overflow-hidden');
       $('.wrapper').removeClass('preload');
     });
+  },
+
+  showConnectTest: function(){
+    $('.js-connectTest').removeClass('hidden')
   },
 
   loginHandler: function() {
@@ -178,6 +183,7 @@ $.widget('gl.login', {
         self.$submit.button('reset');
       })
       .done(function(data, status, xhr) {
+        sessionStorage.status = 0;
         if (data.result === 0) {
           self.resetInput = false;
 
@@ -203,10 +209,13 @@ $.widget('gl.login', {
           if(status===0 || status===100 || status===102){
             window.location.href = 'index.html';
           }else if(status===103 || status===104 || status===105 || status===106){
-            var ur ='userName='+data.root.username+(data.root.uName?'&uName='+data.root.uName:'')+'&status='+status;
-            window.location.href = 'updateUserInfo.html?'+encodeURI(ur);
+            sessionStorage.username = data.root.username;
+            sessionStorage.status = 1;
+            window.location.href = 'index.html';
+            //var ur ='userName='+data.root.username+(data.root.uName?'&uName='+data.root.uName:'')+'&status='+status;
+            //window.location.href = 'updateUserInfo.html?'+encodeURI(ur);
           }else if(status===101){
-            self.renderError('完全冻结的用户无法登录');
+            Global.ui.notification.show('完全冻结的用户无法登录');
           }
           else{
             window.location.href = 'index.html';
@@ -228,8 +237,7 @@ $.widget('gl.login', {
             }
             self.resetInput = false;
           }else{
-
-            self.renderError('用户名或密码错误');
+            Global.ui.notification.show('用户名或密码错误');
 
             //self.renderError(data.msg);
             self.resetInput = true;
@@ -238,7 +246,8 @@ $.widget('gl.login', {
         }
       })
       .fail(function(){
-        self.renderError('当前网络异常，请切换线路');
+        Global.ui.notification.show('当前网络异常，请切换线路');
+
         if(!self.$valRegion.hasClass('hidden')){
           self.$valImg.trigger('click');
         }

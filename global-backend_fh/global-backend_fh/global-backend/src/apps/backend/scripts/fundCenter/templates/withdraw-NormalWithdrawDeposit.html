@@ -1,0 +1,108 @@
+<div class="row m-bottom-sm">
+  <div class="col-sm-3">
+    <div class="form-group">
+      <label class="control-label m-right-sm">流水号</label>
+      <input class="form-control input-sm" type="text" name="tradeNo" placeholder="" data-parsley-maxlength="30">
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="form-group">
+      <label class="control-label m-right-sm">提现银行</label>
+      <select class="js-fc-wd-nw-bankId form-control input-sm" name="bankId">
+        <option value="">全部</option>
+
+      </select>
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="form-group">
+      <label class="control-label m-right-sm">卡号</label>
+      <input class="form-control input-sm" type="text" name="cardNo" placeholder="" data-parsley-num data-parsley-length="[13,19]" >
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="form-group">
+      <label class="control-label m-right-sm">处理人</label>
+      <select class="js-fc-wd-nw-operatorId form-control input-sm" name="operatorId" >
+        <option value="">全部</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+<div class="row m-bottom-sm">
+  <div class="col-sm-3">
+    <div class="form-group">
+      <label class="control-label m-right-sm">用户名
+        <span class="no-margin inline-block checkbox">
+          <label>
+            <input type="checkbox" name="subUser" value="1"> 包含下级
+          </label>
+        </span>
+      </label>
+      <input class="form-control" type="text" name="username" placeholder=""  >
+    </div>
+  </div>
+
+  <div class="col-sm-6">
+    <div class="form-group">
+      <label class="control-label m-right-sm">充值提现时间</label>
+      <span class="js-fc-nwd-timeSet"></span>
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="form-group">
+      <label class="control-label m-right-sm">每页展示：</label>
+      <select class="form-control input-sm" name="pageSize">
+        <option value="20">20条记录</option>
+        <option value="50">50条记录</option>
+        <option value="100">100条记录</option>
+        <option value="500">500条记录</option>
+      </select>
+    </div>
+  </div>
+</div>
+<div class="row m-bottom-sm">
+  <div class="col-sm-3">
+    <div class="form-group">
+      <label class="control-label m-right-sm">提款状态 </label>
+      <select class="form-control input-sm" name="status">
+        <option value="0">待处理</option>
+        <option value="6">已处理-自动出款失败-已退回</option>
+        <option value="3">已处理-人工退回</option>
+        <option value="1">已处理-人工打款</option>
+        <option value="4">已处理-自动出款成功</option>
+        <option value="5">已处理-自动出款失败</option>
+        <option value="2">不处理</option>
+        <option value="-1">全部</option>
+      </select>
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="form-group">
+      <label class="control-label m-right-sm">终端类型 </label>
+      <select class="form-control input-sm" name="device">
+        <option value="-1">全部</option>
+        <option value="0">PC网页</option>
+        <option value="1">Android</option>
+        <option value="2">IOS</option>
+        <option value="3">H5</option>
+      </select>
+    </div>
+  </div>
+
+</div>
+
+<div class="clearfix">
+  <div class="pull-right form-group">
+    <button class="wm-search-confirm btn btn-purple pull-right btn-sm" type="submit"><i
+      class="fa fa-search m-right-xs"></i>搜&nbsp;&nbsp;索
+    </button>
+    <button class="wm-search-reset btn btn-wt-default-purple pull-right m-right-sm btn-sm" type="reset"><i
+      class="fa fa-repeat m-right-xs"></i>重&nbsp;&nbsp;置
+    </button>
+  </div>
+  <div class="pull-left">
+    <a class="js-pf-export btn btn-success" href="javascript:void(0)">报表下载</a>
+  </div>
+</div>

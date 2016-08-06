@@ -1,0 +1,134 @@
+  <div class="row m-bottom-sm">
+  <div class="col-sm-2">
+    <div class="form-group js-uc-ticket-select-group">
+      <label class="control-label">彩种名称</label>
+      <select class="js-pf-select-ticket-list  form-control" name="ticketId"></select>
+    </div>
+  </div>
+  <div class="col-sm-2">
+    <div class="form-group">
+      <label class="control-label">奖期：</label>
+      <input type="text" name="ticketPlanId" class="form-control js-bc-ticketPlan" data-parsley-numAndMidLine>
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="form-group">
+      <label class="control-label m-right-sm">订单编号：</label>
+      <input type="text" name="tradeNo" class="form-control js-bc-tradeNo" data-parsley-zhAndLetNumMaxLen='100' data-parsley-somespecialchar>
+    </div>
+  </div>
+  <div class="col-sm-5">
+    <div class="form-group">
+      <label class="control-label m-right-sm">投注时间：</label>
+      <span class="js-bc-timeset"></span>
+    </div>
+  </div>
+</div>
+
+<div class="row m-bottom-sm">
+  <div class="col-sm-2">
+    <div class="form-group">
+      <label class="control-label m-right-sm">用户名：</label>
+      <input type="text" name="username" class="form-control js-bc-username"  >
+    </div>
+  </div>
+  <div class="col-sm-2">
+    <div class="form-group">
+      <label class="control-label m-right-sm">包含下级：</label>
+      <select name="subUser" class="form-control js-bc-subUser">
+        <option value="0">包含</option>
+        <option value="1">不包含</option>
+      </select>
+    </div>
+  </div>
+  <div class="col-sm-2">
+    <div class="form-group">
+      <label class="control-label">单期奖金≥：</label>
+      <input type="text" name="planMoneyTotal" class="form-control js-bc-planMoneyTotal" data-parsley-type="integer" data-parsley-range="[0, 1000000]">
+    </div>
+  </div>
+  <div class="col-sm-2">
+    <div class="form-group">
+      <label class="control-label">单期/中投比≥：</label>
+      <input type="text" name="planMoneyBetRate" class="form-control js-bc-planMoneyBetRate" data-parsley-type="integer" data-parsley-range="[0, 1000000]">
+    </div>
+  </div>
+  <div class="col-sm-2">
+    <div class="form-group">
+      <label class="control-label">订单奖金≥：</label>
+      <input type="text" name="prizeMoney" class="form-control js-bc-betMoney" data-parsley-type="integer" data-parsley-range="[0, 1000000]">
+    </div>
+  </div>
+  <div class="col-sm-2">
+    <div class="form-group">
+      <label class="control-label">订单/中投比≥：</label>
+      <input type="text" name="moneyBetRate" class="form-control js-bc-moneyBetRate" data-parsley-type="integer" data-parsley-range="[0, 1000000]">
+    </div>
+  </div>
+</div>
+
+<div class="js-uc-ticket-select-group row m-bottom-sm">
+  <div class="col-sm-2">
+    <div class="form-group">
+      <label class="control-label">单注奖金≥：</label>
+      <input type="text" name="playBetMoney" class="form-control js-bc-playBetMoney" data-parsley-type="integer" data-parsley-range="[0, 1000000]">
+    </div>
+  </div>
+  <div class="col-sm-2">
+    <div class="form-group">
+      <label class="control-label">单注/中投比≥：</label>
+      <input type="text" name="playMoneyBetRate" class="form-control js-bc-playMoneyBetRate" data-parsley-type="integer" data-parsley-range="[0, 1000000]">
+    </div>
+  </div>
+  <div class="col-sm-2">
+    <div class="form-group">
+      <label class="control-label">订单状态</label>
+      <select name="status" class="form-control js-bc-status">
+        <!--<option value="-1">全部</option>-->
+        <option value="0">待审核</option>
+        <option value="1">通过审核</option>
+        <option value="2">未通过审核</option>
+      </select>
+    </div>
+  </div>
+  <div class="col-sm-2">
+    <div class="form-group">
+      <label class="control-label m-right-sm">每页展示：</label>
+      <select class="form-control" name="pageSize">
+        <option value="20">20条</option>
+        <option value="50">50条</option>
+        <option value="100">100条</option>
+        <option value="500">500条</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-12 pull-left form-group">
+    <%if(Global.authority.bc && Global.authority.bc.ac && Global.authority.bc.ac.pass){%>
+    <button class="js-bc-nwd-deal btn btn-success pull-left btn-sm" type="button"><i
+      class="fa fa-check-circle m-right-xs"></i>通&nbsp;&nbsp;过
+    </button>
+    <%}%>
+    <%if(Global.authority.bc && Global.authority.bc.ac && Global.authority.bc.ac.notPass){%>
+    <button class="js-bc-nwd-notDeal btn btn-danger pull-left m-left-sm btn-sm" type="button"><i
+      class="fa fa-ban m-right-xs"></i>不通过
+    </button>
+    <%}%>
+  </div>
+  <div class="col-lg-4 form-group">
+    <div class="js-bc-abnormalBetting-notice"></div>
+  </div>
+  <div class="col-lg-12 pull-right form-group">
+    <button class="wm-search-confirm btn btn-purple pull-right btn-sm" type="submit"><i
+      class="fa fa-search m-right-xs"></i>搜&nbsp;&nbsp;索
+    </button>
+    <button class="wm-search-reset btn btn-wt-default-purple pull-right m-right-sm btn-sm" type="reset"><i
+            class="fa fa-repeat m-right-xs"></i>重&nbsp;&nbsp;置
+    </button>
+  </div>
+</div>
+
+
+

@@ -2,14 +2,23 @@
 
 var RouterController = require('skeleton/controllers/router');
 
-var BettingRecordView = require('userCenter/bettingRecords');
+// var BettingRecordView = require('userCenter/bettingRecords');
+
+var BettingRecordView = require('userCenter/bettingRecords/team');
 var BettingDetailView = require('userCenter/views/bettingDetail');
 
-var TrackRecordView = require('userCenter/trackRecords');
+// var TrackRecordView = require('userCenter/trackRecords');
+
+var TrackRecordView = require('userCenter/trackRecords/team');
 var TrackDetailView = require('userCenter/views/trackDetail');
 
-var RechargeRecordsView = require('userCenter/rechargeRecords');
-var WithdrawRecordsView = require('userCenter/withdrawRecords');
+// var RechargeRecordsView = require('userCenter/rechargeRecords');
+
+var RechargeRecordsView = require('userCenter/rechargeRecords/team');
+
+// var WithdrawRecordsView = require('userCenter/withdrawRecords');
+var WithdrawRecordsView = require('userCenter/withdrawRecords/team');
+
 
 var PersonalManageView = require('userCenter/views/personalManage');
 var CardManageView = require('userCenter/views/cardManage');
@@ -23,10 +32,35 @@ var VipCashView = require('userCenter/vipCash');
 //var VipInfoView = require('userCenter/vipInfo');
 var VipCreditView = require('userCenter/vipCredit');
 
+var LotteryPALView = require('userCenter/lottoryPAL/ProfitAndLoss');
+var BaccaratPalView = require('userCenter/baccaratPal/baccaratPal');
+var transforRecordView = require('userCenter/transforRecord/transforRecord');
 
-var menuConfig = Global.ui.menu.get(['ac', 'uc', 'aa']);
+//var menuConfig = Global.ui.menu.get(['ac', 'uc', 'aa']);
 
 var UserCenterController = RouterController.extend({
+
+  transforRecord:function () {
+    this.changeMainReginView(new transforRecordView(), {
+      sidebar: Global.ui.menu.get(['uc'])
+    });
+    $('#main > .clearfix').addClass('ac-block ac-block2');
+  },
+
+
+  baccaratPal:function () {
+    this.changeMainReginView(new BaccaratPalView(), {
+      sidebar: Global.ui.menu.get(['uc'])
+    });
+    $('#main > .clearfix').addClass('ac-block ac-block2');
+  },
+  
+  lottoryPal:function () {
+    this.changeMainReginView(new LotteryPALView(), {
+      sidebar: Global.ui.menu.get(['uc'])
+    });
+    $('#main > .clearfix').addClass('ac-block ac-block2');
+  },
 
   checkPayPwdXhr: function() {
     return Global.sync.ajax({
@@ -36,8 +70,9 @@ var UserCenterController = RouterController.extend({
 
   bettingRecords: function() {
     this.changeMainReginView(new BettingRecordView(), {
-      sidebar: Global.ui.menu.get(['ac', 'uc', 'aa'])
+      sidebar: Global.ui.menu.get(['uc'])
     });
+    $('#main > .clearfix').addClass('ac-block ac-block2');
   },
 
   bettingDetail: function(tradeNo) {
@@ -56,8 +91,9 @@ var UserCenterController = RouterController.extend({
 
   trackRecords: function() {
     this.changeMainReginView(new TrackRecordView(), {
-      sidebar: Global.ui.menu.get(['ac', 'uc', 'aa'])
+      sidebar: Global.ui.menu.get(['uc'])
     });
+    $('#main > .clearfix').addClass('ac-block ac-block2');
   },
 
   trackDetail: function(tradeNo) {
@@ -71,14 +107,16 @@ var UserCenterController = RouterController.extend({
 
   rechargeRecords: function() {
     this.changeMainReginView(new RechargeRecordsView(), {
-      sidebar: Global.ui.menu.get(['ac', 'uc', 'aa'])
+      sidebar: Global.ui.menu.get(['uc'])
     });
+    $('#main > .clearfix').addClass('ac-block ac-block2');
   },
 
   withdrawRecords: function() {
     this.changeMainReginView(new WithdrawRecordsView(), {
-      sidebar: Global.ui.menu.get(['ac', 'uc', 'aa'])
+      sidebar: Global.ui.menu.get(['uc'])
     });
+    $('#main > .clearfix').addClass('ac-block ac-block2');
   },
 
   vipPoint:function() {
@@ -121,8 +159,12 @@ var UserCenterController = RouterController.extend({
 
   personalManage: function() {
     this.changeMainReginView(new PersonalManageView(), {
-      sidebar: Global.ui.menu.get(['pc','vip'])
+      sidebar: Global.ui.menu.get(['pc'])
     });
+
+    var PublicView = require('userCenter/views/publicView');
+    var publicView = new PublicView();
+    publicView.checkState();
   },
 
   cardManage: function() {
@@ -152,8 +194,11 @@ var UserCenterController = RouterController.extend({
 
   verifySuccCallBack: function(){
     this.changeMainReginView(new CardManageView(), {
-      sidebar: Global.ui.menu.get(['pc','vip'])
+      sidebar: Global.ui.menu.get(['pc'])
     });
+    var PublicView = require('userCenter/views/publicView');
+    var publicView = new PublicView();
+    publicView.checkState();
   },
   cardBinding: function() {
     this.changeSubReginView(new CardBindingView(), {
@@ -163,8 +208,12 @@ var UserCenterController = RouterController.extend({
 
   priceDetails: function() {
     this.changeMainReginView(new PriceDetailsView(), {
-      sidebar: menuConfig
+      sidebar: Global.ui.menu.get(['pc'])
     });
+
+    var PublicView = require('userCenter/views/publicView');
+    var publicView = new PublicView();
+    publicView.checkState();
   },
   trackBetDetail: function(chaseFormId,tradeNo){
     this.changeSubReginView(new BettingDetailView({
