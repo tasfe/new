@@ -53,6 +53,10 @@ var BettingRecordsView = SearchGrid.extend({
         {
           name: '操作',
           width: '15%'
+        },
+        {
+          name: '订单编号',
+          width: '15%'
         }
       ],
       gridOps: {
@@ -74,7 +78,6 @@ var BettingRecordsView = SearchGrid.extend({
   },
 
   onRender: function() {
-
 
     //
     // var cheAr = ['今天','三天','七天'];
@@ -189,6 +192,7 @@ var BettingRecordsView = SearchGrid.extend({
       ticketPlanId: rowInfo.ticketPlanId
     });
 
+    //ticketTradeNo: rowInfo.ticketTradeNo
     row.push(status);
     row.push(rowInfo.chaseId ? '是' : '否');
     row.push(_(rowInfo.betTime).toTime());
