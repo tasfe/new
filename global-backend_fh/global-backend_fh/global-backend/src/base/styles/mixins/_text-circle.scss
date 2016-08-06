@@ -1,0 +1,22 @@
+@mixin text-circle-size($class, $sizeProps) {
+
+  $sizeProp: map_get($sizeProps, $class);
+  $size: map_get($sizeProp, width);
+  $font-size: map_get($sizeProp, font-size);
+
+  @include border-radius($size);
+  width: $size;
+  height: $size;
+  line-height: $size;
+  font-size: $font-size;
+}
+
+@mixin text-circle-color($class, $colorProps) {
+
+  $colorProp: map_get($colorProps, $class);
+  $color: map_get($colorProp, color);
+  $background: map_get($colorProp, background);
+
+  color: $color;
+  background: $background;
+}

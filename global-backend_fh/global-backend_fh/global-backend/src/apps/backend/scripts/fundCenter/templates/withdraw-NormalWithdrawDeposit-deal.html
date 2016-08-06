@@ -1,0 +1,46 @@
+<form class="js-fc-nwd-deal-form form-horizontal">
+  <div class="form-group form-inline">
+    <dl class="dl-horizontal">
+      <dt>流水号：</dt>
+      <dd><%=tradeno %></dd>
+      <dt>用户名：</dt>
+      <dd><%=username %></dd>
+      <dt>提现银行：</dt>
+      <dd><%=bankname %></dd>
+      <dt>开户支行：</dt>
+      <dd><%=bankbranchname %></dd>
+      <dt>开户人：</dt>
+      <dd><%=name %></dd>
+      <dt>卡号：</dt>
+      <dd><%=cardno %></dd>
+      <dt>提现金额：</dt>
+      <dd><%=_(amount).convert2yuan() %></dd>
+    </dl>
+    <% if (type === 'allow') { %>
+    <p class="col-sm-offset-2"><strong>选择处理后前台用户将看到提现成功。</strong></p>
+    <% } else { %>
+    <p class="col-sm-offset-2"><strong>选择不处理后前台将看到提现失败。</strong></p>
+    <% } %>
+  </div>
+  <div class="form-group form-inline ">
+    <label class="col-sm-2 control-label">操作备注：</label>
+
+    <div class="col-sm-10">
+      <textarea class="js-fc-nwd-deal-remark form-control width-md height-sm" data-parsley-zhMaxLength="100"  data-parsley-someSpecialChar></textarea>
+    </div>
+  </div>
+
+  <div class="form-group form-inline">
+    <div class="col-sm-offset-2 col-sm-10 ">
+      <button class="js-fc-nwd-deal-submit btn btn-primary" type="button">确&nbsp;&nbsp;定</button>
+      &nbsp;&nbsp;
+      <button class="btn" data-dismiss="modal">取&nbsp;&nbsp;消</button>
+    </div>
+
+  </div>
+
+  <div class="form-group form-inline">
+    <div class="col-sm-offset-2 col-sm-10 js-fc-nwd-deal-notice"></div>
+  </div>
+
+</form>

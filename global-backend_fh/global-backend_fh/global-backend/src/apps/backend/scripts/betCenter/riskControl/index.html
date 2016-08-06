@@ -1,0 +1,53 @@
+<div class="panel padding-md">
+  <form class="js-bc-form form-horizontal" action="javascript:void(0)">
+
+    <div class="form-group form-inline">
+      <label class="col-sm-2 control-label">彩种名称：</label>
+      <div class="col-sm-8">
+        <div class="js-bc-ticketName-container">
+          <label class="control-label js-bc-ticketName"></label>
+          <input type="hidden" name="ticketId" value="<%=ticketId %>" required />
+        </div>
+      </div>
+      <div class="col-sm-2">
+        <a class="router js-bc-riskRecord" href="#bc/tl/riskList/<%=ticketId %>">风险控制记录</a>
+      </div>
+    </div>
+
+    <div class="form-group form-inline">
+      <label class="col-sm-2 control-label">风险控制开关：</label>
+      <div class="col-sm-2">
+        <label class="switch switch-white m-top-xs">
+          <input type="checkbox" name="open" class="switch-input" value="1">
+          <span class="switch-round"></span>
+        </label>
+      </div>
+      <label class="col-sm-2 control-label">时间：</label>
+      <div class="col-sm-6">
+        <span class="js-bc-timeset"></span>
+      </div>
+    </div>
+    <div class="form-group form-inline">
+      <label class="col-sm-2 control-label">利润率：</label>
+      <div class="col-sm-2">
+        <input type="text" class="form-control" name="openIndex" required="" data-parsley-range="[0, 1]" data-parsley-twoDecimal>
+      </div>
+      <label class="col-sm-2 control-label js-bc-periods">期数：</label>
+      <div class="col-sm-2 js-bc-periods">
+        <input type="text" class="form-control" name="planNums" required="" data-parsley-range="[0, 200000]" data-parsley-twoDecimal>
+      </div>
+      <label class="col-sm-2 control-label">设置开奖号码组数：</label>
+      <div class="col-sm-2">
+        <input type="text" class="form-control" name="openNums" required="" data-parsley-range="[0, 100]" data-parsley-type="integer">组
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-offset-5 col-sm-7">
+        <button type="submit" class="js-bc-btn-submit btn btn-primary" data-loading-text="发送中">确定</button>
+        <button type="button" class="js-bc-btn-cancel btn btn-default">取消</button>
+      </div>
+    </div>
+  </form>
+</div>
+

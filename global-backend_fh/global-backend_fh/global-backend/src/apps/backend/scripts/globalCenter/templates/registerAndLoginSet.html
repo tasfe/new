@@ -1,0 +1,92 @@
+<div class="panel padding-md">
+  <form class="js-rl-login-conf-form form-horizontal" action="javascript:void(0)">
+
+    <div class="form-group form-inline">
+      <label class="col-sm-3 control-label">同一IP重复注册（分钟）：</label>
+      <div class="col-sm-9">
+        <input name="title" type="text" class="js-rl-regnum form-control" data-parsley-range="[0, 100]" data-parsley-type="integer" required>
+      </div>
+    </div>
+    <div class="form-group form-inline">
+      <label class="col-sm-3 control-label"></label>
+      <div class="col-sm-9">
+        <span class="help-inline"><small>提示：设定时间内，同一IP将无法进行多次注册。0或留空表示不限制。</small></span>
+      </div>
+    </div>
+    <div class="form-group form-inline">
+      <label class="col-sm-3 control-label">登录超时时间（分钟）：</label>
+      <div class="col-sm-9">
+          <input name="title" type="text" class="js-rl-outtime form-control" data-parsley-range="[0, 2000]" data-parsley-type="integer" required>
+      </div>
+    </div>
+    <div class="form-group form-inline">
+      <label class="col-sm-3 control-label"></label>
+      <div class="col-sm-9">
+        <span class="help-inline"><small>提示：超出设定时间，将自动退出登录。0或留空表示不限制。</small></span>
+      </div>
+    </div>
+    <!--<div class="form-group form-inline">-->
+      <!--<label class="col-sm-3 control-label">是否开启多终端登录：</label>-->
+
+      <!--<div class="col-sm-9">-->
+        <!--<div class="has-success">-->
+          <!--<label class="radio-inline">-->
+            <!--<input class="js-rl-device-type" type="radio" name="isMulDevice"  value="0" checked>开启（默认）-->
+          <!--</label>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+    <!--<div class="form-group form-inline">-->
+      <!--<label class="col-sm-3 control-label"></label>-->
+
+      <!--<div class="col-sm-9">-->
+        <!--<div class="has-success">-->
+          <!--<label class="radio-inline">-->
+            <!--<input class="js-rl-device-type" type="radio" name="isMulDevice"  value="1">关闭-->
+          <!--</label>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+    <!--<div class="form-group form-inline">-->
+      <!--<label class="col-sm-3 control-label"></label>-->
+      <!--<div class="col-sm-9">-->
+          <!--<span class="help-inline"><small>提示：开启后，同一账号可以在多端（Web/PC客户端/手机端）同时登录和操作，关闭该功能后，登录互踢功能生效。</small></span>-->
+      <!--</div>-->
+    <!--</div>-->
+    <!--<div class="form-group form-inline">-->
+      <!--<label class="col-sm-3 control-label">是否开启多浏览器登录：</label>-->
+
+      <!--<div class="col-sm-9">-->
+        <!--<div class="has-success">-->
+          <!--<label class="radio-inline">-->
+            <!--<input class="js-rl-ie-type" type="radio" name="isMultipleIe"  value="0" checked>开启（默认）-->
+          <!--</label>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+    <!--<div class="form-group form-inline">-->
+      <!--<label class="col-sm-3 control-label"></label>-->
+
+      <!--<div class="col-sm-9">-->
+        <!--<div class="has-success">-->
+          <!--<label class="radio-inline">-->
+            <!--<input class="js-rl-ie-type" type="radio" name="isMultipleIe"  value="1">关闭-->
+          <!--</label>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+    <!--<div class="form-group form-inline">-->
+      <!--<label class="col-sm-3 control-label"></label>-->
+      <!--<div class="col-sm-9" style="margin-bottom: 40px;">-->
+        <!--<span class="help-inline"><small>提示：开启后，同一账号可以在多浏览器同时登录和操作，关闭该功能后，登录互踢功能生效。</small></span>-->
+      <!--</div>-->
+    <!--</div>-->
+    <div class="form-group">
+      <div class="col-sm-offset-3 col-sm-9">
+        <button class="js-rl-btn-submit btn btn-primary" type="button"  style="width: 100px; margin-right: 20px;" data-loading-text="保存中">确定</button>
+        <button style="width: 100px;" class="btn" data-dismiss="modal" type="reset">取消</button>
+        <!--<button type="button" class="sub-return btn btn-default">取消</button>-->
+      </div>
+    </div>
+  </form>
+</div>

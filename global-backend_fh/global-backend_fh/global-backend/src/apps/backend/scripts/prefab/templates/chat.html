@@ -1,0 +1,12 @@
+<% _(chatData).each(function(chat) { %>
+<li class="<% if (chat.isSender) { %>right<% } else { %>left<% } %> clearfix">
+  <!--<span class="chat-img pull-right"></span>-->
+  <div class="chat-body clearfix">
+    <div class="header">
+      <strong class="primary-font"><%=chat.sender %></strong>
+      <small class="pull-right text-muted"><i class="fa fa-clock-o"></i> <%=_(chat.sendTime).toTime() %></small>
+    </div>
+    <p><%=chat.content %></p>
+  </div>
+</li>
+<% }); %>

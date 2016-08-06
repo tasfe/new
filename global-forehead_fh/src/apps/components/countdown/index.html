@@ -1,7 +1,4 @@
-<div class="countdown <%= label %>">
-  <span class="countdown-item sfa sfa-cd-<%=curr[0] %>"></span>
-  <span class="countdown-item sfa sfa-cd-<%=curr[1] %>"></span>
+<div class="<%= label %>">
+  <span><%=curr[0] %></span>
+  <span><%=curr[1] %></span>
 </div>
-<% if (!isLast) { %>
-<span class="countdown-<%=color%>colon">:</span>
-<% } %>

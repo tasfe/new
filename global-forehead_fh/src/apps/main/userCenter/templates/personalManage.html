@@ -1,123 +1,94 @@
 <form action="javascript:void(0);" class="js-uc-personalManage-form form-horizontal uc-personalManage-form">
   <div class="control-group uc-personalManage-div">
-    <label class="control-label color-dark ">账号：</label>
+    <label class="control-label color-dark ">用户名：</label>
     <div class="controls">
       <span class="js-uc-userName" ></span>
     </div>
   </div>
-
   <div class="control-group uc-personalManage-div">
-    <label class="control-label color-dark">昵称：</label>
-    <div class="controls">
-      <input type="text" class="js-uc-uName input4" name="uname"
-             data-parsley-zhLength="[4,16]" data-parsley-userUName
-             data-parsley-remote data-parsley-remote-validator="checkusername"
-             data-parsley-remote-options='{"type": "POST"}'
-             data-parsley-remote-message="昵称已被使用" required />
-      <span class="help-inline">4-16个字符，支持中英文和数字，不能以数字开头</span>
-      <input type="hidden" class="js-uc-userUName-val-res" value="1">
+    <label class="control-label color-dark ">性别：</label>
+    <div class="controls gender">
+      <input type="radio" name="gender" value="1" > <span>男</span>
+      <input type="radio" name="gender" value="2"> <span>女</span>
     </div>
   </div>
-
-  <div class="control-group uc-personalManage-div">
-    <label class="control-label color-dark ">VIP等级：</label>
-    <div class="controls">
-      <span class="js-uc-userLevel" ></span>
-    </div>
-  </div>
-  <div class="control-group uc-personalManage-div">
-    <label class="control-label color-dark ">会员积分：</label>
-    <div class="controls">
-      <span class="js-uc-userPoints" ></span>
-    </div>
-  </div>
-
-
-  <div class="control-group uc-personalManage-div">
-    <label class="control-label color-dark">可用余额：</label>
-    <div class="controls">
-      <span class="js-uc-balance uc-amount-color" ></span>元
-    </div>
-  </div>
-
-  <div class="control-group uc-personalManage-div">
-    <label class="control-label color-dark">注册日期：</label>
-    <div class="controls">
-      <span class="js-uc-regTime" ></span>
-    </div>
-  </div>
-
   <div class="control-group uc-personalManage-div">
     <label class="control-label color-dark">QQ：</label>
     <div class="controls">
       <input type="text" class="js-uc-qqNum input4" data-parsley-QQ>
-      <span class="help-inline">请填写真实信息</span>
+      <span class="help-inline">请输入4-15阿拉伯位数字！</span>
     </div>
   </div>
-
   <div class="control-group uc-personalManage-div">
     <label class="control-label color-dark">邮箱：</label>
     <div class="controls">
       <input type="text" class="js-uc-eMail input4"  data-parsley-email>
-      <span class="help-inline ">请填写真实信息</span>
+      <span class="help-inline ">请输入正确的邮箱地址(4-30位)，如abc123@163.com！</span>
     </div>
   </div>
-
   <div class="control-group uc-personalManage-div">
+    <label class="control-label color-dark">手机号：</label>
+    <div class="controls">
+      <input type="text" class="js-uc-tel input4" data-parsley-tel>
+      <span class="help-inline">请输入正确的11位手机号码！</span>
+    </div>
+  </div>
+  <div class="control-group uc-personalManage-div birthday">
     <label class="control-label color-dark">生日：</label>
     <div class="controls">
       <input type="hidden" class="js-uc-bday input4" data-parsley-bday>
       <select name="bday1" class="js-bday1 input1" style="width: 90px">
-        <option value="" selected>月
-        <option value="01">1月
-        <option value="02">2月
-        <option value="03">3月
-        <option value="04">4月
-        <option value="05">5月
-        <option value="06">6月
-        <option value="07">7月
-        <option value="08">8月
-        <option value="09">9月
-        <option value="10">10月
-        <option value="11">11月
-        <option value="12">12月
+        <option value="" selected>请选择</option>
+        <option value="01">01</option>
+        <option value="02">02</option>
+        <option value="03">03</option>
+        <option value="04">04</option>
+        <option value="05">05</option>
+        <option value="06">06</option>
+        <option value="07">07</option>
+        <option value="08">08</option>
+        <option value="09">09</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
       </select>
-
+      <span>月</span>
       <select name="bday2" class="js-bday2 input1" style="width: 90px">
-        <option value="" selected>日
-        <option value="01">1日
-        <option value="02">2日
-        <option value="03">3日
-        <option value="04">4日
-        <option value="05">5日
-        <option value="06">6日
-        <option value="07">7日
-        <option value="08">8日
-        <option value="09">9日
-        <option value="10">10日
-        <option value="11">11日
-        <option value="12">12日
-        <option value="13">13日
-        <option value="14">14日
-        <option value="15">15日
-        <option value="16">16日
-        <option value="17">17日
-        <option value="18">18日
-        <option value="19">19日
-        <option value="20">20日
-        <option value="21">21日
-        <option value="22">22日
-        <option value="23">23日
-        <option value="24">24日
-        <option value="25">25日
-        <option value="26">26日
-        <option value="27">27日
-        <option value="28">28日
-        <option value="29">29日
-        <option value="30">30日
-        <option value="31">31日
+        <option value="请选择" selected>请选择</option>
+        <option value="01">01</option>
+        <option value="02">02</option>
+        <option value="03">03</option>
+        <option value="04">04</option>
+        <option value="05">05</option>
+        <option value="06">06</option>
+        <option value="07">07</option>
+        <option value="08">08</option>
+        <option value="09">09</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+        <option value="13">13</option>
+        <option value="14">14</option>
+        <option value="15">15</option>
+        <option value="16">16</option>
+        <option value="17">17</option>
+        <option value="18">18</option>
+        <option value="19">19</option>
+        <option value="20">20</option>
+        <option value="21">21</option>
+        <option value="22">22</option>
+        <option value="23">23</option>
+        <option value="24">24</option>
+        <option value="25">25</option>
+        <option value="26">26</option>
+        <option value="27">27</option>
+        <option value="28">28</option>
+        <option value="29">29</option>
+        <option value="30">30</option>
+        <option value="31">31</option>
       </select>
-      <span class="help-inline">生日信息提交之后，将不可再修改</span>
+      <span>日</span>
+      <span class="help-inline">一旦填写不能修改</span>
     </div>
   </div>
 

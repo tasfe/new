@@ -96,24 +96,24 @@ $.widget('gl.pagination', {
     html.push('<ul>');
 
     if (pageIndex > 0) {
-      html.push('<li class="pagination-pre" data-pageIndex="prev"><span>上一页</span></li>');
+      html.push('<li class="pagination-pre disabled" data-pageIndex="prev"><span><<</span></li>');
     } else {
-      html.push('<li class="pagination-pre disabled" data-pageIndex="prev"><span>上一页</span></li>');
+      html.push('<li class="pagination-pre disabled" data-pageIndex="prev"><span><<</span></li>');
     }
 
     //页号
-    //for (i = minSphere; i <= maxSphere; ++i) {
-    //  html.push('<li data-pageIndex="' + i + '"');
-    //  if (i === pageIndex) {
-    //    html.push(' class="active" ');
-    //  }
-    //  html.push('><span>' + (i + 1) + '</span></li>');
-    //}
+    for (i = minSphere; i <= maxSphere; ++i) {
+      html.push('<li data-pageIndex="' + i + '"');
+      if (i === pageIndex) {
+        html.push(' class="active" ');
+      }
+      html.push('><span>' + (i + 1) + '</span></li>');
+    }
 
     if (pageIndex < totalPage - 1) {
-      html.push('<li class="pagination-next m-left-md" data-pageIndex="next" data-maxPageIndex="' + pageIndexs + '"><span>下一页</span></li>');
+      html.push('<li class="pagination-next disabled" data-pageIndex="next" data-maxPageIndex="' + pageIndexs + '"><span>>></span></li>');
     } else {
-      html.push('<li class="pagination-next m-left-md disabled" data-pageIndex="next" data-maxPageIndex="' + pageIndexs + '"><span>下一页</span></li>');
+      html.push('<li class="pagination-next disabled" data-pageIndex="next" data-maxPageIndex="' + pageIndexs + '"><span>>></span></li>');
     }
 
     html.push('</ul>');

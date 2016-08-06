@@ -9,26 +9,8 @@
 @mixin slide-nav-item($sfas, $size) {
   @each $class, $val in $sfas {
     &.#{$class} {
-      background: url(map_get($val, default)) no-repeat no-repeat;
-      width: $size;
-      height: $size;
-      display: inline-block;
-      background-size: contain;
-      vertical-align: top;
-      //margin: 8px 12px 9px 0;
-      margin: 14px -1150px;
-      position: absolute;
+      background: url(map_get($val, default)) no-repeat;
     }
-  }
-}
-
-.bc-side-area {
-  width: 305px;
-  min-height: 460px;
-  border: 1px solid $gray-color;
-  height:500px;
-  .sfa {
-    @include slide-nav-item($sfa-d-tickets, 120px);
   }
 }
 
@@ -64,12 +46,6 @@
 }
 
 .bc-records {
-  //margin-top:90px;
-  .btn-group-justified {
-    margin-left: -1px;
-    margin-top: -1px;
-    width: 101%;
-  }
   .table td {
     font-size: 13px;
     padding: 5px 3px;
@@ -81,9 +57,7 @@ $main-area-width: 870px;
 
 .bc-main-area {
   width: $main-area-width;
-  //min-height: 615px;
-  border: 1px solid $gray-color;
-  //border-left-width: 0;
+  border: 1px solid #ccc;
 }
 
 .bc-play-super,.bc-play-optional{
@@ -263,8 +237,10 @@ $main-area-width: 870px;
 }
 
 .bc-play-section {
-  border-bottom: 1px solid $gray-color;
-  min-height: 35px;
+  border-bottom: 1px solid #cccccc;
+  height: 38px;
+  line-height: 38px;
+  background-color: #f8f8f8;
 }
 
 .bc-advance-rules {
@@ -273,8 +249,9 @@ $main-area-width: 870px;
   padding-top: 6px;
   float: left;
   z-index: 999;
-  margin-top: -10px;
+  margin-top: -13px;
   position: absolute;
+  font-size: 15px;
 
   .bc-advance-rules-container {
     padding-left: 12px;
@@ -284,7 +261,8 @@ $main-area-width: 870px;
   .bc-advance-rule {
     min-width: 130px;
     //display: inline-block;
-    font-size: 15px;
+    font-size: 16px;
+    padding: 5px;
   }
 
 }
@@ -292,16 +270,20 @@ $main-area-width: 870px;
 .bc-play-brief {
   padding-left: 12px;
   color: $light-dark-color-2;
+
+  .text-hot{
+
+  }
 }
 
 .bc-play-tip {
-  margin-right: 40px;
+  margin-right: 20px;
 }
 
 .bc-play-example {
   margin-right: 40px;
   display: inline-block;
-  width: 400px;
+  width: 600px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -330,15 +312,6 @@ $main-area-width: 870px;
   color: $font-passion;
 }
 
-.bc-multi-range {
-  height: 22px;
-  line-height: 22px;
-  .num-range {
-    line-height: 20px;
-    height: 20px;
-  }
-}
-
 .bc-lottery-preview {
   width: 345px;
   margin-left: 5px;
@@ -353,15 +326,11 @@ $main-area-width: 870px;
   }
 }
 
-.bc-play-container {
-  height: 335px;
-  border-bottom: 1px solid $gray-color;
-}
 .bc-play-area {
   width: $main-area-width;
-  //min-height: 250px;
   position: relative;
   height: 100px;
+  padding-top: 5px;
 
   &.loaded {
     height: 330px;
@@ -376,21 +345,10 @@ $main-area-width: 870px;
       right: 0;
     }
   }
-}
 
-.bc-statics-area {
-  //border-bottom: 1px solid $gray-color;
-}
-
-.bc-result-container {
-  margin-left: 20px;
-  height: 50px;
-  line-height: 50px;
-  font-size: 14px;
-  color: $light-dark-color;
-  float: left;
-  width: 850px;
-  border-right: 1px solid $gray-color;
+  .tab-toolbar{
+    //padding-left: 8px;
+  }
 }
 
 .bc-lottery-add {
@@ -480,16 +438,6 @@ $main-area-width: 870px;
   width: 35px;
 }
 
-.nav-title {
-  background: url(~base/images/fh/bet/nav-title.png);
-  width: 1200px;
-  height: 160px;
-  background-repeat: no-repeat;
-  float: left;
-  //display: inline-block;
-  //position: relative;
-}
-
 .ssc-logo {
   background: url(~base/images/fh/bet/mmc.png);
   width: 170px;
@@ -564,51 +512,6 @@ $main-area-width: 870px;
   position: absolute;
 }
 
-.add-number {
-  position: absolute;
-  background: url(~base/images/fh/bet/bet-add-num.png);
-  width: 150px;
-  height: 50px;
-  background-repeat: no-repeat;
-  float: left;
-  right: 330px;
-  bottom: -100px;
-}
-
-.commit-number {
-  position: absolute;
-  background: url(~base/images/fh/bet/bet-commit.png);
-  width: 210px;
-  height: 50px;
-  background-repeat: no-repeat;
-  float: left;
-  right: 97px;
-  bottom: -100px;
-}
-
-.chase-number {
-  position: absolute;
-  background: url(~base/images/fh/bet/bet-chase.png);
-  width: 150px;
-  height: 50px;
-  background-repeat: no-repeat;
-  float: left;
-  right: -53px;
-  bottom: -100px;
-}
-
-
-.bet-quick {
-  position: absolute;
-  background: url(~base/images/fh/bet/bet-quick.png);
-  width: 150px;
-  height: 50px;
-  background-repeat: no-repeat;
-  float: left;
-  right: 330px;
-  bottom: -35px;
-}
-
 .time-01 {
   position: absolute;
   background: url(~base/images/fh/bet/time-01.png);
@@ -666,26 +569,10 @@ $main-area-width: 870px;
 }
 
 
-.bet-act-available {
-  font-size: 15px;
-  background-color: dimgrey;
-  color: white;
-  height: 35px;
-  line-height: 35px;
-}
-
-.bet-summary {
-  height: 40px;
-  line-height: 40px;
-  font-size: 14px;
-}
-
-
 .bet-case {
-  background: url(~base/images/fh/bet/case.png);
+  background: url(~base/images/fh/bet/case.png) no-repeat 0 8px;
   width: 70px;
-  height: 20px;
-  background-repeat: no-repeat;
+  height: 40px;
 }
 
 .number-div-style {
@@ -786,14 +673,434 @@ $main-area-width: 870px;
   position: absolute;
 }
 
+.nav-title{
+  background: url(~base/images/fh/bet/nav-title.png) no-repeat;
+  width: 1150px;
+  height: 145px;
+  padding-left: 50px;
+  font-family: '微软雅黑';
 
-//.nav-bet-setting {
-//  position: absolute;
-//  background: url(~base/images/fh/bet/nav-pic.png);
-//  width: 61px;
-//  height: 50px;
-//  background-repeat: no-repeat;
-//  float: left;
-//  left: 385px;
-//  top: 50px;
-//}
+  .bc-banner{
+    width: 120px;
+    height: 100px;
+    display: block;
+    float: left;
+    margin-top: 20px;
+    margin-right: 40px;
+  }
+
+  .leftBlock{
+    float: left;
+    width: 285px;
+    height: 80px;
+    background: url(~base/images/julien/timebg.png) no-repeat bottom left;
+    margin-top: 24px;
+
+    .title{
+      color: #333333;
+      font-size: 18px;
+      span{
+        color: #999999;
+        font-size: 14px;
+      }
+    }
+
+    .countdown-block{
+      font-size: 24px;
+      color: #fff;
+      margin-top: 17px;
+      div{
+        display: inline-block;
+        width: 76px;
+
+        span{
+          width: 30px;
+          margin-right: 2px;
+          text-align: center;
+          display: block;
+          float: left;
+        }
+      }
+    }
+  }
+
+  .centerBlock{
+    width: 400px;
+    float: left;
+    margin-top: 24px;
+
+    .title{
+      color: #333333;
+      font-size: 18px;
+      span{
+        color: #999999;
+        font-size: 14px;
+      }
+    }
+
+    .text-circle{
+      width: 52px;
+      height: 52px;
+      line-height: 52px;
+      background-color: #fff;
+      margin-right: 18px;
+    }
+
+    .bc-last-results{
+      margin: 8px 0px 0px 0px;
+    }
+  }
+
+  .rightBlock{
+    padding-right: 30px;
+    float: right;
+    padding-top: 45px;
+
+    a{
+      color: #333333;
+      font-size: 14px;
+      display: inline-block;
+      width: 82px;
+      height: 70px;
+      text-align: center;
+
+      span{
+        display: block;
+        height: 40px;
+      }
+    }
+  }
+}
+
+.bc-main-area{
+  &:after{
+    display:block;
+    content: '';
+    clear: both;
+  }
+
+  .bc-result-container{
+    width: 600px;
+    float: left;
+  }
+
+  .bet-quick{
+    width: 134px;
+    height: 40px;
+    line-height: 40px;
+    background-color: #bcbcbc;
+    color: #fff;
+    text-align: center;
+    display: block;
+    float: right;
+    font-size: 18px;
+    font-family: '微软雅黑';
+    margin-top: 10px;
+    cursor: pointer;
+  }
+
+  .bc-menu{
+    background-color: #fff;
+    height: 62px;
+    overflow: hidden;
+    border-bottom: 1px solid #cccccc;
+
+    .bc-toggle{
+      width: 85px;
+      height: 62px;
+      background-color: #f2f2f2;
+      float: left;
+
+      span{
+        display: block;
+        height: 30px;
+        text-align: center;
+        border-right: 1px solid #cccccc;
+        border-bottom: 1px solid #cccccc;
+        color: #999999;
+        font-size: 14px;
+        line-height: 30px;
+        cursor: pointer;
+
+        &.sd{
+          border-left: 4px solid #2a7bc1;
+          border-right: 4px solid #fff;
+          background-color: #fff;
+          color: #333333;
+          line-height: 31px;
+          height: 31px;
+        }
+
+        &:last-child{
+          border-bottom: 0px;
+        }
+      }
+    }
+
+    .bc-basic-rules{
+      a{
+        color: #333333;
+        font-size: 16px;
+        border:0px;
+
+        .bc-first-prize{
+          font-size: 14px;
+          color: #999999;
+        }
+
+        div{
+          width: 80px;
+        }
+      }
+
+      li.active{
+        background-color: #666666;
+
+        .bc-first-prize{
+          color: #bdbdbd;
+        }
+      }
+    }
+  }
+}
+
+.bc-play-container{
+  height: 335px;
+  border-bottom: 1px solid #ccc;
+  background-color: #fff;
+
+  .bc-select-item{
+    .tab{
+      color: #666666;
+      font-size: 22px;
+      font-family: 'Arial';
+    }
+  }
+
+  .tab{
+    width: 28px;
+    height: 28px;
+    line-height: 28px;
+    background-color: #fff;
+    border: 1px solid #d5d5d5;
+    color: #999999;
+    font-size: 16px;
+    font-family: '宋体';
+    border-radius:3px;
+    -moz-border-radius:3px; /* Old Firefox */
+  }
+
+  .bc-playArea-items{
+    margin: 10px 0;
+  }
+}
+
+.bc-statics-area {
+  background-color: #f2f2f2;
+  height: 58px;
+  line-height: 58px;
+  color: #333333;
+  font-size: 14px;
+  font-family: '微软雅黑';
+  padding: 0 15px;
+
+  .tab-group{
+    .tab{
+      width: 26px;
+      height: 26px;
+      color: #666666;
+      border: 1px solid #cccccc;
+      background-color: #fff;
+    }
+  }
+  
+  .price{
+    color: #cc3333;
+    display: inline-block;
+    margin-left: 15px;
+  }
+
+  .bc-multi-range{
+    height: 26px;
+    margin-right: 5px;
+
+    span{
+      width: 26px;
+      height: 26px;
+      padding: 0px;
+      background-color: #fff;
+      text-align: center;
+      position: relative;
+
+      &.disabled{
+        background-color: #fff;
+      }
+
+      .fa{
+        position: absolute;
+        left: 8px;
+        top: 8px;
+      }
+    }
+    .num-range-center{
+      width: 65px;
+      height: 26px;
+      background-color: #fff;
+      color: #666;
+    }
+  }
+}
+
+.pull-bottom{
+  clear: both;
+  margin-bottom: 75px;
+  font-family: '微软雅黑';
+
+  a{
+    width: 133px;
+    height: 40px;
+    line-height: 40px;
+    color: #fff; 
+    font-size: 18px;
+    text-align: center;
+    display: inline-block;
+    background-color: #d8855a;
+  }
+
+  .add-number{
+    width: 134px;
+    height: 40px;
+    line-height: 40px;
+    background-color: #bcbcbc;
+    color: #fff;
+    text-align: center;
+    display: inline-block;
+    font-size: 18px;
+    margin-top: 10px;
+    cursor: pointer;
+    margin-left: 585px;
+  }
+
+  .commit-number {
+    height: 40px;
+    line-height: 40px;
+    background-color: #cc0000;
+    color: #fff;
+    text-align: center;
+    display: inline-block;
+    font-size: 18px;
+    margin-top: 10px;
+    cursor: pointer;
+    width: 212px;
+    margin-left: 30px;
+  }
+
+  .chase-number{
+    height: 40px;
+    line-height: 40px;
+    background-color: #cc9966;
+    color: #fff;
+    text-align: center;
+    display: inline-block;
+    font-size: 18px;
+    margin-top: 10px;
+    cursor: pointer;
+    width: 98px;
+    margin-left: -4px;
+  }
+}
+
+.bc-side-area {
+  width: 310px;
+  height:500px;
+  font-family: '微软雅黑';
+  color: #666666;
+
+  a{
+    color: #666666;
+  }
+
+  .sfa {
+    @include slide-nav-item($sfa-d-tickets, 120px);
+  }
+
+  .bc-records{
+    background-color: #fff;
+    height: 326px;
+    border: 1px solid #ccc;
+  }
+
+  .topTips{
+    background-color: #666666;
+    color: #fff;
+    font-size: 14px;
+    height: 55px;
+    padding-top: 14px;
+    padding-left: 12px;
+
+    span{
+      display: block;
+      width: 148px;
+      height: 22px;
+      float: left;
+      text-align: left;
+    }
+  }
+
+  .bet-act-available {
+    font-size: 14px;
+    background-color: #5c5c5c;
+    color: #fff;
+    height: 42px;
+    line-height: 42px;
+    padding: 0px 15px;
+
+    span{
+      float: left;
+    }
+    a{
+      color: #ffff00;
+      text-decoration: underline;
+      float: right;
+    }
+
+    &:after{
+      content: '';
+      clear: both;
+      display: block;
+    }
+  }
+
+  .bet-summary {
+    background-color: #f2f2f2;
+    height: 57px;
+    line-height: 57px;
+    font-size: 16px;
+    color: #666666;
+    border: 1px solid #ccc;
+    border-top: 0px;
+  }
+
+  .btn.active::after{
+    height: 0px;
+  }
+
+  .btn.active{
+    border: 0px;
+    color: #333333;
+    background-color: #fff;
+  }
+  .btn{
+    border-bottom: 1px solid #ccc;
+    background-color: #f2f2f2;
+    color: #999999;
+    &:first-child{
+      border-right: 1px solid #ccc;
+    }
+  }
+
+  .btn-group-justified{
+    border:0px;
+    margin-bottom: 5px;
+  }
+}

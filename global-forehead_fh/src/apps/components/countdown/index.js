@@ -74,7 +74,7 @@ var Countdown = Base.PrefabView.extend({
       _(self.options.labels).each(function(label, i) {
         self.$el.append(self.tpl({
           curr: _(initData[label].split('')).map(function(item) {
-            return self.options.color + item;
+            return item;
           }),
           label: label,
           isLast: self.options.labels.length - 1 === i,
@@ -106,8 +106,8 @@ var Countdown = Base.PrefabView.extend({
             var nums = data.next[label].split('');
 
             $node.html([
-              '<span class="sfa sfa-cd-' + self.options.color + nums[0] + ' countdown-item"></span>',
-              '<span class="sfa sfa-cd-' + self.options.color + nums[1] + ' countdown-item"></span>'
+              '<span>'+ nums[0] +'</span>',
+              '<span>'+ nums[1] +'</span>'
             ].join(''));
           });
 

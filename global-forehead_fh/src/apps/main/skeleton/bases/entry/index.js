@@ -149,9 +149,9 @@ var EntryView = Base.ItemView.extend({
 
     html.push(entry.name);
 
-    if (entry.type === 'ticket') {
-      html.push(' <span class="js-gl-countdown"></span>');
-    }
+    //if (entry.type === 'ticket') {
+    //  html.push(' <span class="js-gl-countdown"></span>');
+    //}
 
     html.push('</div>');
 

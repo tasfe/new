@@ -101,6 +101,12 @@ var ValidatorModule = Base.Module.extend({
       }
     }, 42)
       .addMessage('zh_cn', 'zhandldbmaxlen', '只能输入中文、字母、点和空格,不能以空格和点开头或结尾，不能出现连续的点或空格,不能超过%s个字');
+
+    ParsleyValidator.addValidator('tel', function (value, id) {
+      var myReg = /^[1-9][0-9]{10,10}$/;
+      return myReg.test(value);
+    }, 35)
+      .addMessage('zh_cn', '手机号码', '手机号码格式不正确');
   }
 });
 

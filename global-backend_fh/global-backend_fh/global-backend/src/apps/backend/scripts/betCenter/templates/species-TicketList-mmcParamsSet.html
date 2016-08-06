@@ -1,0 +1,238 @@
+<div class="panel">
+    <form class="js-bc-form form-horizontal" action="javascript:void(0)">
+
+        <div class="form-group form-inline">
+            <label class="col-sm-2 control-label">彩种名称：</label>
+
+            <div class="col-sm-9">
+                <div class="js-bc-ticketName-container">
+                    <label class="control-label js-bc-ticketName"></label>
+                    <label class="control-label js-bc-ticketId" hidden></label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group form-inline">
+            <label class="col-sm-2 control-label" >投注相关参数：</label>
+            <div class="form-group form-inline border-all padding-sm col-sm-9 col-sm-offset-1" >
+                <label class="col-sm-2 control-label ">单注奖金限额：</label>
+                <div class="col-sm-4">
+                    <div class="js-bc-singleBonusLimit-container">
+                        <input type="text" class="form-control js-bc-singleBonusLimit" data-parsley-range="[0, 400000]" data-parsley-type="integer" required>
+                        <label class="control-label">元</label>
+                    </div>
+                </div>
+                <label class="col-sm-2 control-label hidden">单注最大倍数：</label>
+                <div class="col-sm-4 hidden">
+                    <div class="js-bc-singleMultipleLimit-container">
+                        <input type="text" class="form-control js-bc-singleMultipleLimit" value="1" data-parsley-type="integer" data-parsley-range="[0, 1000000]" required>
+                        <label class="control-label">倍</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group form-inline">
+            <label class="col-sm-2 control-label" >福袋：</label>
+            <div class="form-group form-inline border-all padding-sm col-sm-9 col-sm-offset-1" >
+                <label class="col-sm-2 control-label m-bottom-sm ">开关：</label>
+                <div class="col-sm-10 m-bottom-sm">
+                    <div class="js-bc-bagOpen-container">
+                        <label class="switch switch-white">
+                            <input type="checkbox" class="js-bc-bagOpen switch-input" value="0">
+                            <span class="switch-round"></span>
+                        </label>
+                    </div>
+                </div>
+                <label class="col-sm-2 control-label m-bottom-sm ">起点值：</label>
+                <div class="col-sm-4 m-bottom-sm">
+                    <div class="js-bc-bagBegin-container">
+                        <div class="input-group">
+                            <input class="form-control input-sm js-bc-minBegin" type="text" name="minBegin" placeholder="" data-parsley-range="[0, 10000]" data-parsley-type="integer">
+                            <span class="input-group-addon input-sm">至</span>
+                            <input class="form-control input-sm js-bc-maxBegin" type="text" name="maxBegin" placeholder="" data-parsley-range="[0, 10000]" data-parsley-type="integer">
+                        </div>
+                    </div>
+                </div>
+                <label class="col-sm-2 control-label m-bottom-sm">终点值：</label>
+                <div class="col-sm-4 m-bottom-sm">
+                    <div class="js-bc-bagEnd-container">
+                        <input type="text" class="form-control js-bc-bagEnd" data-parsley-range="[0, 5000000]" data-parsley-type="integer"  required>
+                    </div>
+                </div>
+                <label class="col-sm-2 control-label m-bottom-sm ">单次投注累计值：</label>
+                <div class="col-sm-4 m-bottom-sm">
+                    <div class="js-bc-bagAdd-container">
+                        <div class="input-group">
+                            <input class="form-control input-sm js-bc-minAdd" type="text" name="minAdd" placeholder="" data-parsley-range="[0, 10000]" data-parsley-type="integer">
+                            <span class="input-group-addon input-sm">至</span>
+                            <input class="form-control input-sm js-bc-maxAdd" type="text" name="maxAdd" placeholder="" data-parsley-range="[0, 10000]" data-parsley-type="integer">
+                        </div>
+                    </div>
+                </div>
+                <label class="col-sm-2 control-label m-bottom-sm">累计值有效时间：</label>
+                <div class="col-sm-4 m-bottom-sm">
+                    <div class="js-bc-validTime-container">
+                        <input type="text" class="form-control js-bc-validTime" data-parsley-range="[0, 20000]" data-parsley-type="integer"  required>
+                        <label class="control-label">分钟</label>
+                    </div>
+                </div>
+                <label class="col-sm-2 control-label m-bottom-sm">最低投注金额：</label>
+                <div class="col-sm-4 m-bottom-sm">
+                    <div class="js-bc-minBet-container">
+                        <input type="text" class="form-control js-bc-minBet" data-parsley-range="[0, 20000]" data-parsley-type="integer"  required>
+                        <label class="control-label">元</label>
+                    </div>
+                </div>
+                <label class="col-sm-2 control-label m-bottom-sm ">通告最低金额：</label>
+                <div class="col-sm-4 m-bottom-sm">
+                    <div class="js-bc-noticeAmount-container">
+                        <input class="form-control js-bc-noticeAmount" type="text" name="noticeAmount" required>
+                        <label class="control-label">元</label>
+                    </div>
+                </div>
+                <label class="col-sm-2 control-label m-bottom-sm ">奖金比例：</label>
+                <div class="col-sm-4 m-bottom-sm">
+                    <div class="js-bc-bagRate-container">
+                        <div class="input-group">
+                            <input class="form-control input-sm js-bc-minRate" type="text" name="minRate" required>
+                            <span class="input-group-addon input-sm">至</span>
+                            <input class="form-control input-sm js-bc-maxRate" type="text" name="maxRate" required>
+                        </div>
+                    </div>
+                </div>
+
+                <label class="col-sm-2 control-label m-bottom-sm ">ICON出现比率：</label>
+                <div class="col-sm-4 m-bottom-sm">
+                    <div class="js-bc-iconRate-container">
+                            <input type="text" class="form-control js-bc-iconRate" data-parsley-range="[0, 100]"  required>
+                            <label class="control-label">%</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group form-inline">
+            <label class="col-sm-2 control-label" >free game：</label>
+            <div class="form-group form-inline border-all padding-sm col-sm-9 col-sm-offset-1" >
+                <label class="col-sm-2 control-label m-bottom-sm ">开关：</label>
+                <div class="col-sm-10 m-bottom-sm">
+                    <div class="js-bc-freeGameOpen-container">
+                        <label class="switch switch-white">
+                            <input type="checkbox" class="js-bc-freeGameOpen switch-input" value="0">
+                            <span class="switch-round"></span>
+                        </label>
+                    </div>
+                </div>
+                <label class="col-sm-2 control-label m-bottom-sm">注数全包<=：</label>
+                <div class="col-sm-4 m-bottom-sm">
+                    <div class="js-bc-betNumlLimit-container">
+                        <input type="text" class="form-control js-bc-betNumlLimit" data-parsley-range="[0, 100]" data-parsley-type="integer" required>
+                        <label class="control-label">%</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group form-inline">
+            <label class="col-sm-2 control-label" >jakepot：</label>
+            <div class="form-group form-inline border-all padding-sm col-sm-9 col-sm-offset-1" >
+                <label class="col-sm-2 control-label m-bottom-sm ">开关：</label>
+                <div class="col-sm-10 m-bottom-sm">
+                    <div class="js-bc-jakepotOpen-container">
+                        <label class="switch switch-white">
+                            <input type="checkbox" class="js-bc-jakepotOpen switch-input" value="0">
+                            <span class="switch-round"></span>
+                        </label>
+                    </div>
+                </div>
+                <label class="col-sm-2 control-label m-bottom-sm">jakepot概率：</label>
+                <div class="col-sm-4 m-bottom-sm">
+                    <div class="js-bc-triggerRate-container">
+                        <input type="text" class="form-control js-bc-triggerRate"  required>
+                        <label class="control-label">%</label>
+                    </div>
+                </div>
+                <label class="col-sm-2 control-label m-bottom-sm">触发条件：投注金额>=</label>
+                <div class="col-sm-4 m-bottom-sm">
+                    <div class="js-bc-minBet-container">
+                        <input type="text" class="form-control js-bc-jakepot-minBet" data-parsley-range="[0, 20000]" data-parsley-type="integer"  required>
+                        <label class="control-label">元</label>
+                    </div>
+                </div>
+                <label class="col-sm-2 control-label m-bottom-sm">客户投注金额注入</label>
+                <div class="col-sm-4 m-bottom-sm">
+                    <div class="js-bc-injectRate-container">
+                        <input type="text" class="form-control js-bc-injectRate"   required>
+                        <label class="control-label">%</label>
+                    </div>
+                </div>
+
+                <div class="col-sm-offset-1 col-sm-9 table-responsive">
+                    <table class="table table-bordered  text-center">
+                        <thead>
+                        <tr>
+                            <td>奖级</td>
+                            <td>奖项</td>
+                            <td>获取条件</td>
+                            <td>奖池占比</td>
+                            <td>中奖概率</td>
+                            <td>奖金</td>
+                        </tr>
+                        <tr class="js-bc-td0">
+                        </tr>
+                        <tr class="js-bc-td1">
+                        </tr>
+                        <tr class="js-bc-td2">
+                        </tr>
+                        <tr class="js-bc-td3">
+                        </tr>
+                        </thead>
+                    </table>
+                </div>
+
+                <div class="col-sm-offset-1 col-sm-9 m-bottom-sm border-all padding-sm">
+                    <label class="col-sm-2 control-label m-bottom-sm">注入奖金：</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control js-bc-injectBonus">
+                        <label class="control-label">%</label>
+                    </div>
+                    <div class="col-sm-3">
+                        <button type="submit" class="js-bc-injectBonus-submit btn btn-primary m-left-lg" data-loading-text="发送中">提交</button>
+                    </div>
+                    <div class="col-sm-3 js-bc-injectBonusList">
+                    </div>
+                </div>
+
+                <div class="col-sm-offset-1 col-sm-9 m-bottom-sm border-all padding-sm">
+                    <label class="col-sm-2 control-label m-bottom-sm">指定获奖用户：</label>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control js-bc-specifyUser">
+                    </div>
+                    <label class="col-sm-1 control-label m-bottom-sm">奖项：</label>
+                    <div class="col-sm-2">
+                        <select class="js-bc-bonusType form-control">
+                          <option value="1">一等奖 皇冠奖</option>
+                          <option value="2">二等奖 钻石奖</option>
+                          <option value="3">三等奖 黄金奖</option>
+                          <option value="4">四等奖 金蛋奖</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-2">
+                        <button type="submit" class="js-bc-specifyUser-submit btn btn-primary m-left-lg" data-loading-text="发送中">提交</button>
+                    </div>
+                    <div class="col-sm-2 js-bc-specifyUserList">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-5 col-sm-7">
+                <button type="submit" class="js-bc-btn-submit btn btn-primary" data-loading-text="发送中">确定</button>
+                <button type="button" class="js-bc-btn-cancel btn btn-default">取消</button>
+            </div>
+        </div>
+    </form>
+</div>

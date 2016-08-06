@@ -1,0 +1,38 @@
+<form class="js-fc-awd-deal-form form-horizontal">
+  <div class="form-group">
+    <div class="js-fc-nwd-deal-notice col-sm-offset-2 col-sm-10  hidden">
+      <p>您已选择了 <span class="js-fc-nwd-dealNum text-danger"></span> 条记录，确定要审核通过吗？</p>
+      <br>
+
+      <p class="js-fc-nwd-deal-notice"><strong>审核通过后财务将会进行提款处理。</strong></p>
+    </div>
+    <div class="js-fc-nwd-notDeal-notice col-sm-offset-2 col-sm-10  hidden">
+      <p>您已选择了 <span class="js-fc-nwd-notDealNum text-danger"></span> 条记录，确定要审核不通过吗？</p>
+      <br>
+
+      <p><strong>审核不通过后提现金额将退回用户平台账户。</strong></p>
+    </div>
+  </div>
+
+  <div class="form-group form-inline ">
+    <label class="col-sm-2 control-label">操作备注：</label>
+
+    <div class="col-sm-10">
+      <textarea class="js-fc-nwd-deal-remark form-control width-md height-sm" data-parsley-zhMaxLength="100" required  data-parsley-someSpecialChar></textarea>
+    </div>
+  </div>
+
+  <div class="form-group form-inline">
+    <div class="col-sm-offset-2 col-sm-10 ">
+      <button class="js-fc-awd-audit-submit btn btn-primary" type="button">确&nbsp;&nbsp;定</button>
+      &nbsp;&nbsp;
+      <button class="btn" data-dismiss="modal">取&nbsp;&nbsp;消</button>
+    </div>
+
+  </div>
+
+  <div class="form-group form-inline">
+    <div class="col-sm-offset-2 col-sm-10 js-fc-nwd-deal-notice"></div>
+  </div>
+
+</form>

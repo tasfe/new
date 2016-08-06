@@ -1,4 +1,5 @@
-<ul id="<%=_.unique() %>" class="js-view-tabs view-tabs nav <%=tabClass %>">
+
+<ul id="<%=_.unique() %>" class="js-view-tabs view-tabs nav <%=tabClass %> <% if(!menushow){%>hidden<% } %>">
   <% _(tabs).each(function(tab, index) { %>
   <li class="<% if ((!triggerTab && index) === 0 || (tab.name === triggerTab)) { %>active<% } %>">
     <a href="#<%=tab.id %>" class="]js-pf-tabView-item" data-toggle="tab" data-index="<%=index %>" data-name="<%=tab.name %>">
@@ -7,6 +8,7 @@
   </li>
   <% }); %>
 </ul>
+
 <%=append%>
 <div id="<%=_.unique() %>" class="view-container tab-content">
   <% _(tabs).each(function(tab, index) { %>

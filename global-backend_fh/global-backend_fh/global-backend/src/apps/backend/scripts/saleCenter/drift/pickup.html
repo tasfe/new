@@ -1,0 +1,44 @@
+<div class="row m-bottom-sm">
+  <div class="col-sm-3">
+    <div class="form-group">
+      <label class="control-label m-right-sm">用户名：</label>
+      <input type="text" name="username" class="form-control" placeholder="" data-parsley-zhMaxLength="20" data-parsley-someSpecialChar >
+    </div>
+  </div>
+  <div class="col-sm-6 ">
+    <div class="form-group">
+      <label class="control-label m-right-sm">注册时间：</label>
+      <span class="js-hk-timeset"></span>
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="form-group">
+      <label class="control-label m-right-sm">拾取类型</label>
+      <select name="bottletype" class="form-control">
+        <% _(bonusType).each(function(typeInfo) { %>
+        <option value="<%=typeInfo.id %>"><%=typeInfo.name %></option>
+        <% }); %>
+      </select>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-3">
+    <div class="form-group">
+      <label class="control-label m-right-sm">每页展示:</label>
+      <select class="form-control input-sm" name="pageSize">
+        <option value="20">20条记录</option>
+        <option value="50">50条记录</option>
+        <option value="100">100条记录</option>
+        <option value="500">500条记录</option>
+      </select>
+    </div>
+  </div>
+  <div class="col-lg-9 pull-right form-group">
+    <button class="gv-search-confirm btn btn-purple pull-right btn-sm" type="submit"><i class="fa fa-search m-right-xs"></i>搜&nbsp;&nbsp;索
+    </button>
+    <button class="gv-search-reset btn btn-wt-default-purple pull-right m-right-sm btn-sm" type="reset"><i
+      class="fa fa-repeat m-right-xs"></i>重&nbsp;&nbsp;置
+    </button>
+  </div>
+</div>

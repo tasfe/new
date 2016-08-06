@@ -90,7 +90,7 @@ $quickEntryPaddingX: 5px !default;
     .active {
       .quick-item {
         color: $light-color;
-        background-color: $dark-color;
+        //background-color: $dark-color;
         &:after {
           border-right: 0;
         }

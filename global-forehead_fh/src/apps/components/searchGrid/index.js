@@ -106,7 +106,7 @@ var SearchGrid = Base.PrefabView.extend({
     }).value());
 
     this.grid = $grid.grid('instance');
-
+    
     return this;
   },
 

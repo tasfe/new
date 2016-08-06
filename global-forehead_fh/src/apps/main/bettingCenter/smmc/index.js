@@ -1606,7 +1606,7 @@ var BettingCenterView = Base.ItemView.extend({
       self.freeModeList = modeList;
       self.freeFlag = flag;
       var formatUnit = '';
-      ;
+
       if (method === 10000) {
         formatUnit = '元';
       } else if (method === 1000) {
