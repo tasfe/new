@@ -20,7 +20,8 @@ var SettingEmail = Base.ItemView.extend({
     },
 
     modefyEmailHandler:function () {
-            alert(323)
+        
+
     }
 
 
