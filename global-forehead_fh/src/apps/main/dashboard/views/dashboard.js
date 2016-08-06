@@ -30,7 +30,7 @@ var DashboardView = Base.ItemView.extend({
       id: _.now(),
       title: '彩票游戏',
       size: 'modal-lg',
-      body: '<div class="js-fc-quick-lottery"></div>'
+      body: '<div class="js-fc-quick-lottery" style="padding: 30px"></div>'
     });
 
     var lotteryList = "";
