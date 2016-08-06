@@ -333,7 +333,6 @@ var HeaderView = Base.ItemView.extend({
 
   verifySuccCallBack: function(payPwd){
     var withdrawView = new WithdrawView({parentView: this,payPwd:payPwd});
-    var self = this;
     this.$dialogWd = Global.ui.dialog.show({
       id: _.now(),
       title: '提现',
@@ -346,9 +345,8 @@ var HeaderView = Base.ItemView.extend({
 
     this.$dialogWd.find('.js-fc-wd-container').html(withdrawView.render().el);
 
-    this.$dialogWd.on('hidden.modal', function (e) {
+    this.$dialogWd.on('hidden.modal', function () {
       $(this).remove();
-      //self.destroy();
     });
 
   },

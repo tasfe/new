@@ -270,7 +270,6 @@
 
 .ac-setemail-content{
   height: 500px;
-  
   .ac-setemail-body{
 
     display: -webkit-box;
@@ -280,13 +279,10 @@
     width: 430px;
 
     .ac-setemail-icon{
-
+      background: url("ac-emailsetting.png") no-repeat;
       width: 111px;
       height: 127px;
-      background: url("ac-emailsetting.png") no-repeat;
-
     }
-
     .ac-setemail-title{
       margin: 40px;
       width: 245px;
@@ -296,5 +292,24 @@
 
   }
 
+}
+
+.ase-confirm-text{
+
+  margin: 0px 0px 30px 250px;
+  display: inline-flex;
+  height: 40px;
+
+}
+.ac-se-back{
+
+  margin: 0px 0px 30px 250px;
+  background-color: #cc9966;
+  text-align: center;
+  line-height: 30px;
+  color: #fff;
+  width: 100px;
+  height: 30px;
+  cursor: pointer;
 
 }
