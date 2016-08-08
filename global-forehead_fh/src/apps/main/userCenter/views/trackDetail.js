@@ -236,6 +236,7 @@ var TrackDetailView = Base.ItemView.extend({
         {label: '操作', name: 'betStatus', width: '15%', formatter: function(val,index,thisRow) {
           if (thisRow.canCancel && self.isSelf) {
             self.$('.js-uc-td-cancelAllTrack').removeClass('hidden');
+            self.$('.js-dd-cantCancel').addClass('hidden');
             return '<a class="js-uc-td-cancel btn btn-link btn-link-cool" href="javascript:void(0)" data-chasePlanId="'+thisRow.chasePlanId+'">撤销</a>';
           } else {
             if(thisRow.tradeId){

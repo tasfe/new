@@ -1,5 +1,9 @@
 <button class="js-uc-td-cancelAllTrack bc-btn-cancel btn hidden" type="button">终止追号</button>
 
+<div class="bd-bet-header">
+  <span>追号详情</span><span class="bd-bet-headBack pull-right"><a href="#uc/tr">返回</a></span>
+</div>
+
 <div class="padding-smd">
   <dl class="dl-detail dl-horizontal no-margin">
     <dt>彩种名称：</dt>
@@ -23,10 +27,19 @@
       <span id="jsPaOpenNum"></span>
       <a class="js-pa-link-track btn-link router hidden" href="javascript:void(0)">相关追号记录</a>
     </dd>
+
     <dt>投注号码：</dt>
   </dl>
   <div class="js-pa-betting-numbers detail-betting-num" style="height: 90px"></div>
 </div>
+
+<div class="td-dd-revokeOrder">
+  <div class="js-dd-bgLine"></div>
+  <div class="js-dd-cantCancel bd-dd-revokeOrder0">追号</div>
+  <div class="js-uc-td-cancelAllTrack bd-dd-revokeOrder hidden">终止追号</div>
+</div>
+
+
 <!--<div class="js-pa-play-detail portlet-filter uc-trackDetail-playDetail-bottom"></div>-->
 <div class="js-pa-plan-detail padding-smd"></div>
 <input type="hidden" id="jsPaChaseFormId">

@@ -12,7 +12,7 @@ var BettingDetailView = Base.ItemView.extend({
   startOnLoading: true,
 
   events: {
-    'click .js-uc-bdCancelBetting': 'cancelBettingHandler',
+    'click .js-dd-canCancel': 'cancelBettingHandler',
     'click .js-uc-betDetail-optional-betNum': 'showBettingDetailOfOptionalHandler'
   },
 
@@ -130,13 +130,15 @@ var BettingDetailView = Base.ItemView.extend({
 
 
   renderBetInfo: function(betInfo) {
+
     var betDetail = betInfo.chaseTicketPlayDetail[0];
     if(!(IDsSuper3.getArr().indexOf(parseInt(betInfo.ticketBetId.toString().slice(0,3))) === -1)){
       betInfo.ticketName = betInfo.ticketName + '';
     }else{
       betInfo.ticketName = betInfo.ticketName;
     }
-    this.$('#jsPaTicketName').html(betInfo.ticketName  + ' ' + betDetail.ticketLevelName + ' ' + betDetail.ticketGroupName + ' ' + betDetail.ticketPlayName);
+
+    this.$('#jsPaTicketName').html(betInfo.ticketName);
     if(betInfo.ticketPlanId==='mmc'){
       this.$('#jsPaTicketPlanId').html('/');
     }else{
@@ -164,9 +166,14 @@ var BettingDetailView = Base.ItemView.extend({
     }).join(''));
 
     if(betInfo.canCancel && this.isSelf){
-      this.$('.js-uc-bdCancelBetting').removeClass('hidden');
+      this.$('.js-dd-canCancel').removeClass('hidden');
+      this.$('.js-dd-cantCancel').addClass('hidden');
     }
     this.$('#jsTicketBetId').val(betInfo.ticketBetId);
+    
+    if(betInfo.ticketBetStatus>1){
+      this.$('.js-dd-revoked').removeClass('hidden');
+    }
 
     var selfName = Global.memoryCache.get('acctInfo').username;
 
@@ -177,8 +184,6 @@ var BettingDetailView = Base.ItemView.extend({
     this.$('.js-pa-betting-numbers').text(this.is11xuan5 ? betDetail.betNums : betDetail.betNums.replace(/ /g,''));
 
   },
-
-
 
   renderBetGrid: function(row, data) {
     var self = this;
@@ -280,7 +285,6 @@ var BettingDetailView = Base.ItemView.extend({
       el: $chaseContainer,
       ticketBetPlayId: ticketBetPlayId
     }).render();
-
   }
 });
 
