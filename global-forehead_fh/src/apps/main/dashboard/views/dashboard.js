@@ -5,6 +5,8 @@ require('./../misc/index.scss');
 var bannerConfig = require('../misc/bannerConfig');
 var ticketConfig = require('skeleton/misc/ticketConfig');
 
+var LotteryTypeListView = require('dashboard/views/lotteryTypeList');
+
 var DashboardView = Base.ItemView.extend({
 
   template: require('dashboard/templates/dashboard.html'),
@@ -26,12 +28,18 @@ var DashboardView = Base.ItemView.extend({
 
   lottertyEnterHandler: function() {
 
+    var self = this;
+
     var $dialogRe = Global.ui.dialog.show({
       id: _.now(),
       title: '彩票游戏',
       size: 'modal-lg',
       body: '<div class="js-fc-quick-lottery" style="padding: 30px"></div>'
     });
+
+    //var lotteryTypeListView = new LotteryTypeListView({parentView: self});
+    //
+    //lotteryTypeListView.onRender();
 
     var lotteryList = "";
     lotteryList += '<a href="#bc/1" target="_parent" " ><div class=" sfa-d-ssc-cq " style="width: 100px; height: 100px; float: left"></div></a>';
@@ -54,6 +62,7 @@ var DashboardView = Base.ItemView.extend({
     lotteryList += '<a href="#bc/19"><div class=" sfa-d-ne-ssc-smmc " style="width: 100px; height: 100px; float: left"></div></a>';
     lotteryList += '<a href="#bc/20"><div class=" sfa-d-sp-num-ffc " style="width: 100px; height: 100px; float: left"></div></a>';
     lotteryList += '<a href="#bc/18"><div class=" sfa-d-bj-px10 " style="width: 100px; height: 100px; float: left"></div></a>';
+
 
     $dialogRe.find('.js-fc-quick-lottery').html(lotteryList);
 
