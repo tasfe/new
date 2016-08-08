@@ -33,6 +33,7 @@ $.widget('gl.resetPassword', {
     var self = this;
     //绑定事件
     this._on({
+      'click .js-set-success': 'setSuccess',//设置成功
       'click .js-reSendEmail': 'reSendEmail',//重新发送邮件
       'click .js-rp-verifySQABtn': 'verifySQABtn',//安全问题验证
       'click .js-rp-findBySQBtn': 'findBySQBtn',//进入安全问题
@@ -48,6 +49,10 @@ $.widget('gl.resetPassword', {
       'click .js-rp-verifyUNBtn': 'verifyUNHandler', //校验用户名
       'click .js-rp-valImg': 'refreshValCodeHandler' //刷新验证码
     });
+  },
+
+  setSuccess: function(){
+    window.location.href = "/login.html";
   },
 
   reSendEmail: function(){

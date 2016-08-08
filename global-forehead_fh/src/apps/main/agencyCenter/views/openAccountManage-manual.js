@@ -39,24 +39,31 @@ var OpenAccountManageView = Base.ItemView.extend({
     this.getSubAcctXhr().always(function(){
       self.loadingFinish();
     })
-      .done(function(res) {
-        var data = res.root.seriesList;
+    .done(function(res) {
+      var data = res.root.seriesList;
 
-        if (res && res.result === 0) {
-          self._getTable( _(data.ticketSeriesList).map(function(ticketSeries) {
-            return {
-              sericeName: ticketSeries.sericeName,
-              maxBonus: _(ticketSeries.maxBonus).convert2yuan(),
-              subAcctRebate: data.subRebateRange.subAcctRebate,
-              maxRebate: data.subRebateRange.rebateMax,
-              minRebate: data.subRebateRange.rebateMin
-            };
-          }));
-          self._parentView.renderLimit(self.$limit,res.root.quotaList);
+      if (res && res.result === 0) {
+        self._getTable( _(data.ticketSeriesList).map(function(ticketSeries) {
+          return {
+            sericeName: ticketSeries.sericeName,
+            maxBonus: _(ticketSeries.maxBonus).convert2yuan(),
+            subAcctRebate: data.subRebateRange.subAcctRebate,
+            maxRebate: data.subRebateRange.rebateMax,
+            minRebate: data.subRebateRange.rebateMin
+          };
+        }));
+
+        self._parentView.renderLimit(self.$limit,res.root.quotaList);
+        $('.manualRebate ul').html('');
+        _.each(res.root.quotaList, function(object){
+          $('.manualRebate ul').append('<li>' + object.quotaLevel + '</li>');
+        });
+
+        if(res.root.quotaList != null){
+           $('.manualRebate input').attr('data-parsley-range','[0.0,' + res.root.quotaList[0].quotaLevel/10 + ']');
         }
-      });
-
-
+      }
+    });
   },
 
   _getTable: function(tableInfo) {
