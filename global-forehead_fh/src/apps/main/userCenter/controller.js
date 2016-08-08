@@ -85,8 +85,9 @@ var UserCenterController = RouterController.extend({
         subReturn: true
       },
       needParent: false,
-      sidebar: Global.ui.menu.get(['ac', 'uc', 'aa'])
+      sidebar: Global.ui.menu.get(['uc'])
     });
+    $('#main > .clearfix').addClass('ac-block ac-block2');
   },
 
   trackRecords: function() {

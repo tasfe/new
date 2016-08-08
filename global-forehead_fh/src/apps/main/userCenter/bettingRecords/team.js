@@ -43,20 +43,16 @@ var BettingRecordsView = SearchGrid.extend({
           width: '12%'
         },
         {
-          name: '是否追号',
-          width: '8%'
+          name: '订单编号',
+          width: '15%'
         },
         {
           name: '投注时间',
           width: '15%'
         },
         {
-          name: '操作',
-          width: '15%'
-        },
-        {
-          name: '订单编号',
-          width: '15%'
+          name: '投注玩法',
+          width: '8%'
         }
       ],
       gridOps: {
@@ -165,8 +161,8 @@ var BettingRecordsView = SearchGrid.extend({
   },
 
   formatRowData: function(rowInfo) {
-    var row = [];
 
+    var row = [];
     row.push(rowInfo.userName);
     row.push(rowInfo.ticketName);
     if(rowInfo.ticketPlanId==='mmc'){
@@ -191,13 +187,11 @@ var BettingRecordsView = SearchGrid.extend({
       prizeClass: 'text-bold-hot',
       ticketPlanId: rowInfo.ticketPlanId
     });
-
-    //ticketTradeNo: rowInfo.ticketTradeNo
+    
     row.push(status);
-    row.push(rowInfo.chaseId ? '是' : '否');
+    row.push('<a class="router btn-link btn-link-sun" href="' + _.getUrl('/detail/' + rowInfo.ticketTradeNo) + '">'+rowInfo.ticketTradeNo+'</a>');
     row.push(_(rowInfo.betTime).toTime());
-
-    row.push('<a class="router btn-link btn-link-sun" href="' + _.getUrl('/detail/' + rowInfo.ticketTradeNo) + '">查看详情</a>');
+    row.push(rowInfo.ticketTradeNo);
 
     return row;
   }

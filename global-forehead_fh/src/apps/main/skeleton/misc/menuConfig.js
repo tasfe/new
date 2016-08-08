@@ -20,9 +20,9 @@ var menuConfig = [
         id: 102,
         router: 'uc/br',
         name: '投注记录',
-        //iconType: 'fa',
-        //backStyle: 'text-hot',
-        //icon: 'shopping-basket',
+        // iconType: 'fa',
+        // backStyle: 'text-hot',
+        // icon: 'shopping-basket',
       },
       {
         id: 103,
