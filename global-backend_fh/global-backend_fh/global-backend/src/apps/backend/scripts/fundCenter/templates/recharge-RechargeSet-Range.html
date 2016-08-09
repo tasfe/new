@@ -1,0 +1,205 @@
+<form class="js-fc-rechargeSet-range-range-form form-horizontal">
+  <div class="form-group m-top-md">
+    <label class="col-sm-2 control-label">银联支付：</label>
+
+    <div class="form-group col-sm-10 ">
+      <div class="panel panel-default no-m-bottom ">
+        <div class="panel-body  no-m-bottom ">
+          <div class="form-group  no-m-bottom ">
+            <div class="js-fc-rechargeSet-range-cfgCommon-bank-container "></div>
+            <!--<div class="js-fc-rechargeSet-range-cfgCommon-platform-container"></div>-->
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <label class="col-sm-2 control-label">支付宝：</label>
+
+    <div class="form-group col-sm-10  ">
+      <div class="panel panel-default  no-m-bottom ">
+        <div class="panel-body  no-m-bottom ">
+          <div class="js-fc-rechargeSet-range-cfgCommon-alipay-container form-group  no-m-bottom ">
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <label class="col-sm-2 control-label">微信支付：</label>
+
+    <div class="form-group col-sm-10  ">
+      <div class="panel panel-default  no-m-bottom ">
+        <div class="panel-body  no-m-bottom ">
+          <div class="js-fc-rechargeSet-range-cfgCommon-wxpay-container form-group  no-m-bottom ">
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <label class="col-sm-2 control-label">支付宝转账：</label>
+
+    <div class="form-group col-sm-10  ">
+      <div class="panel panel-default  no-m-bottom ">
+        <div class="panel-body  no-m-bottom ">
+          <div class="js-fc-rechargeSet-range-cfgCommon-aliTransfer-container form-group  no-m-bottom ">
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <label class="col-sm-2 control-label">微信转账：</label>
+
+    <div class="form-group col-sm-10  ">
+      <div class="panel panel-default  no-m-bottom ">
+        <div class="panel-body  no-m-bottom ">
+          <div class="js-fc-rechargeSet-range-cfgCommon-wxTransfer-container form-group  no-m-bottom ">
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <label class="col-sm-2 control-label">充值处理时间：</label>
+
+    <div class="form-group col-sm-10">
+      <div class="panel panel-default no-m-bottom ">
+        <div class="panel-body no-m-bottom ">
+          <div class="form-group no-m-bottom ">
+            <label class="col-sm-2 text-right  control-label">
+              <input type="radio" class="js-fc-rechargeSet-fullTimeService" name="fullTimeService" value="true" checked>24小时处理</label>
+
+            <div class="form-group col-sm-10 no-m-bottom ">
+              <label class="col-sm-3  control-label">
+                <input type="radio" name="fullTimeService" value="false" class="js-fc-rechargeSet-fullTimeService">
+                <span>指定时间内处理</span>
+              </label>
+
+              <div class="no-m-bottom col-sm-9 form-inline">
+                <div class="input-group">
+                  <select class="js-fc-rechargeSet-startTime form-control " name="startTime">
+                    <option value="0">00</option>
+                    <option value="1">01</option>
+                    <option value="2">02</option>
+                    <option value="3">03</option>
+                    <option value="4">04</option>
+                    <option value="5">05</option>
+                    <option value="6">06</option>
+                    <option value="7">07</option>
+                    <option value="8">08</option>
+                    <option value="9">09</option>
+                    <option>10</option>
+                    <option>11</option>
+                    <option>12</option>
+                    <option>13</option>
+                    <option>14</option>
+                    <option>15</option>
+                    <option>16</option>
+                    <option>17</option>
+                    <option>18</option>
+                    <option>19</option>
+                    <option>20</option>
+                    <option>21</option>
+                    <option>22</option>
+                    <option>23</option>
+                  </select>
+                  <span class="input-group-addon">至</span>
+                  <select class="js-fc-rechargeSet-endTime form-control " name="endTime">
+                    <option value="0">00</option>
+                    <option value="1">01</option>
+                    <option value="2">02</option>
+                    <option value="3">03</option>
+                    <option value="4">04</option>
+                    <option value="5">05</option>
+                    <option value="6">06</option>
+                    <option value="7">07</option>
+                    <option value="8">08</option>
+                    <option value="9">09</option>
+                    <option>10</option>
+                    <option>11</option>
+                    <option>12</option>
+                    <option>13</option>
+                    <option>14</option>
+                    <option>15</option>
+                    <option>16</option>
+                    <option>17</option>
+                    <option>18</option>
+                    <option>19</option>
+                    <option>20</option>
+                    <option>21</option>
+                    <option>22</option>
+                    <option>23</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+   <!-- <label class="col-sm-2 control-label">充值有效期：</label>
+
+    <div class="form-group form-inline col-sm-10 no-m-left no-padding-l ">
+      <div class=" input-group  col-sm-3  no-m-left ">
+        <input type="text" class="js-fc-rechargeSet-expireTime form-control input-sm" data-parsley-type="integer" data-parsley-range="[0, 100]" required>
+        <span class="input-group-addon">分</span>
+      </div>
+      <span class="help-inline">提示：也是附言有效期</span>
+    </div>-->
+
+  <!--  <label class="col-sm-2 control-label">大额充值条件：</label>
+
+    <div class="form-group col-sm-10  ">
+      <div class="panel panel-default no-m-bottom ">
+        <div class="panel-body no-m-bottom ">
+          <span class="col-sm-3 control-label ">是否开启系统判断：</span>
+
+          <div class="form-group form-inline col-sm-9 ">
+            <div class="js-bc-opMoneyTotalLimit-container col-sm-2">
+              <label class="switch switch-white">
+                <input type="checkbox" class="js-fc-rechargeSet-largeAutoCheck switch-input js-fc-sysJudgeOpen" value="false" checked>
+                <span class="switch-round"></span>
+              </label>
+            </div>
+            <span>提示：达到此条件的用户将自动进入大额充值用户名单，有效期一周</span>
+          </div>
+
+          <span class="col-sm-3 control-label ">最近一周的充值额度达到：</span>
+
+          <div class="form-group form-inline col-sm-9">
+            <div class=" input-group  col-sm-3 ">
+              <input type="text" class="js-fc-rechargeSet-weekRechargeTotal form-control input-sm" data-parsley-type="integer" data-parsley-range="[0, 1000000]" required>
+              <span class="input-group-addon" >元</span>
+            </div>
+          </div>
+          <span class="col-sm-3 control-label ">最近三次的充值额度达到：</span>
+
+          <div class="form-group form-inline col-sm-9">
+            <div class=" input-group  col-sm-3 ">
+              <input type="text" class="js-fc-rechargeSet-threeTimesRechargeTotal  form-control input-sm"  data-parsley-type="integer" data-parsley-range="[0, 1000000]" required>
+              <span class="input-group-addon" >元</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>-->
+
+    <div class="form-group form-inline">
+      <div class="col-sm-offset-2 col-sm-10 js-fc-rechargeRangeSet-notice"></div>
+    </div>
+    <div class="form-group form-inline text-center">
+      <input type="button" class="js-fc-rechargeSet-range-submit btn btn-primary  " value="确&nbsp;&nbsp;定">&nbsp;&nbsp;
+      <input type="button" class="js-fc-rechargeSet-range-cancel btn btn-default" value="取&nbsp;&nbsp;消">
+    </div>
+  </div>
+</form>

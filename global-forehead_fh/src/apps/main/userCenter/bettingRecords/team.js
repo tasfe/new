@@ -15,7 +15,8 @@ var BettingRecordsView = SearchGrid.extend({
   },
 
   dateSelectHandler:function (e) {
-
+      alert($(e.currentTarget).data('index'));
+    
   },
 
   initialize: function() {
@@ -42,16 +43,16 @@ var BettingRecordsView = SearchGrid.extend({
           width: '12%'
         },
         {
-          name: '是否追号',
-          width: '8%'
+          name: '订单编号',
+          width: '15%'
         },
         {
           name: '投注时间',
           width: '15%'
         },
         {
-          name: '操作',
-          width: '15%'
+          name: '投注玩法',
+          width: '8%'
         }
       ],
       gridOps: {
@@ -69,19 +70,19 @@ var BettingRecordsView = SearchGrid.extend({
       tip: '<div class="m-left-md"><span>注意:</span> 投注记录只保留最近30天。</div>',
       height: 310
     });
-
     Global.memoryCache.set('ticketCachedList', []);
   },
 
   onRender: function() {
 
     //
-    var cheAr = ['今天','三天','七天'];
-    this.$content = this.$('.br-excess-tbutton');
-    this.$content.html(_(cheAr).map(function (val) {
-      return '<button class="js-excess-cell br-excess-cell">'+val+'</button>';
-    }));
-
+    // var cheAr = ['今天','三天','七天'];
+    // this.$content = this.$('.br-excess-tbutton');
+    // var cheInd=0;
+    // this.$content.html(_(cheAr).map(function (val) {
+    //   cheInd++;
+    //   return '<button class="js-excess-cell br-excess-cell" data-index='+cheInd+'>'+val+'</button>';
+    // }));
 
     //初始化时间选择
     new Timeset({
@@ -94,35 +95,35 @@ var BettingRecordsView = SearchGrid.extend({
     }
 
     //
-    var qrArray=[{id:0,zhName:'个人'},{id:0,zhName:'团队'}];
-    this.$('select[name=queryRange]').html(_(qrArray).map(function (qr) {
-        return '<option value="'+qr.id+'">'+qr.zhName+'</option>';
-      }).join(''));
+    // var qrArray=[{id:0,zhName:'个人'},{id:0,zhName:'团队'}];
+    // this.$('select[name=queryRange]').html(_(qrArray).map(function (qr) {
+    //     return '<option value="'+qr.id+'">'+qr.zhName+'</option>';
+    //   }).join(''));
+
+    //i 
+    // var nokArray=[{
+    //                 id: 20,
+    //                 zhName: "老虎机秒秒彩"
+    //               },
+    //               {
+    //                 id:19,
+    //                 zhName:'亿贝秒秒彩'
+    //               }];
+    // this.$('select[name=nameofkind]').html(_(nokArray).map(function (qr) {
+    //   return '<option value="'+qr.id+'">'+qr.zhName+'</option>';
+    // }).join(''));
 
     //
-    var nokArray=[{
-                    id: 20,
-                    zhName: "老虎机秒秒彩"
-                  },
-                  {
-                    id:19,
-                    zhName:'亿贝秒秒彩'
-                  }];
-    this.$('select[name=nameofkind]').html(_(nokArray).map(function (qr) {
-      return '<option value="'+qr.id+'">'+qr.zhName+'</option>';
-    }).join(''));
+    // var gopArray=[{id:0,zhName:'五星'},{id:1,zhName:'四星'}];
+    // this.$('select[name=groupofpw]').html(_(gopArray).map(function (qr) {
+    //   return '<option value="'+qr.id+'">'+qr.zhName+'</option>';
+    // }).join(''));
 
     //
-    var gopArray=[{id:0,zhName:'五星'},{id:1,zhName:'四星'}];
-    this.$('select[name=groupofpw]').html(_(gopArray).map(function (qr) {
-      return '<option value="'+qr.id+'">'+qr.zhName+'</option>';
-    }).join(''));
-
-    //
-    var plArray=[{id:0,zhName:'单式直选'},{id:1,zhName:'直选和值'}];
-    this.$('select[name=playway]').html(_(plArray).map(function (qr) {
-      return '<option value="'+qr.id+'">'+qr.zhName+'</option>';
-    }).join(''));
+    // var plArray=[{id:0,zhName:'单式直选'},{id:1,zhName:'直选和值'}];
+    // this.$('select[name=playway]').html(_(plArray).map(function (qr) {
+    //   return '<option value="'+qr.id+'">'+qr.zhName+'</option>';
+    // }).join(''));
 
     //
     this.$('select[name=betStatus]').html(_(betStatusConfig.get()).map(function(betStatus) {
@@ -147,7 +148,6 @@ var BettingRecordsView = SearchGrid.extend({
     });
 
     //加上统计行
-
     this.grid.addFooterRows({
       //trClass: 'tr-footer',
       columnEls: [
@@ -161,8 +161,8 @@ var BettingRecordsView = SearchGrid.extend({
   },
 
   formatRowData: function(rowInfo) {
-    var row = [];
 
+    var row = [];
     row.push(rowInfo.userName);
     row.push(rowInfo.ticketName);
     if(rowInfo.ticketPlanId==='mmc'){
@@ -187,12 +187,11 @@ var BettingRecordsView = SearchGrid.extend({
       prizeClass: 'text-bold-hot',
       ticketPlanId: rowInfo.ticketPlanId
     });
-
+    
     row.push(status);
-    row.push(rowInfo.chaseId ? '是' : '否');
+    row.push('<a class="router btn-link btn-link-sun" href="' + _.getUrl('/detail/' + rowInfo.ticketTradeNo) + '">'+rowInfo.ticketTradeNo+'</a>');
     row.push(_(rowInfo.betTime).toTime());
-
-    row.push('<a class="router btn-link btn-link-sun" href="' + _.getUrl('/detail/' + rowInfo.ticketTradeNo) + '">查看详情</a>');
+    row.push(rowInfo.ticketTradeNo);
 
     return row;
   }

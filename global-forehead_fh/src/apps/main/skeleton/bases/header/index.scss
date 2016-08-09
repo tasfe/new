@@ -20,7 +20,6 @@ $header-margin-top: 6px;
     z-index: 100;
   }
 
-
   .top-in-block {
     display: inline-block;
     padding-top: $header-margin-top + 12px;
@@ -82,6 +81,7 @@ $header-margin-top: 6px;
     a {
       padding: 5px 0;
       text-align: center;
+
     }
   }
 
@@ -92,15 +92,14 @@ $header-margin-top: 6px;
     text-align: center;
   }
 
-
 }
-
 
 .head{
   width: 1200px;
   height: 104px;
   margin: 30px auto 0 auto;
   padding-top: 12px;
+
 
   img{
     float: left;
@@ -116,10 +115,10 @@ $header-margin-top: 6px;
     color: #333333;
     float: right;
     display: block;
-    margin-left: 10px;
+    margin-left: 20px;
     margin-top: 16px;
     font-weight: bold;
-    width: 99px;
+    width: 148px;
     height: 47px;
     line-height: 47px;
     text-align: center;
@@ -146,6 +145,7 @@ $header-margin-top: 6px;
     }
 
     div{
+      background-color: darkcyan;
       position: fixed;
       height: 189px;
       background: url(~base/images/julien/logo-nav-list.png) no-repeat center 10px;
@@ -154,20 +154,36 @@ $header-margin-top: 6px;
       left: 0px;
       min-width: 1200px;
       top: 105px;
-      display: none;
-    }
+      display: inline-block;
+      padding: 10px;
+      font-size: 14px;
+      display:none;
 
-    ul{
-      width: 200px;
-      float: left;
+      .base-bcType-head{
 
-      li{
-        line-height: 18px;
+        li{
+          width: 15px;
+          height: auto;
+        }
+      }
+
+      ul{
+        margin-left:auto;
+        margin-right: auto;
+        display: inline-block;
+        width: 120px;
+        li{
+          float: left;
+          width: 100px;
+          height: 30px;
+          line-height: 20px;
+        }
       }
     }
+
+
   }
 
- 
 
   span{
     background: url(~base/images/julien/onlineService.png) no-repeat;
@@ -256,7 +272,10 @@ $header-margin-top: 6px;
     }
   }
   .affiche-detail-content{
+    background: url("./affiche_bg.png") no-repeat;
+    height: 469px;
     width: 100%;
+
   }
 }
 
@@ -264,4 +283,32 @@ $header-margin-top: 6px;
   .text-light{
     position: relative;
   }
+}
+
+.home-head-badge{
+  display: inline-flex;
+  background-color: red;
+  border-radius: 9px;
+  color: #ffffff;
+  text-align: center;
+  line-height: 18px;
+  height: 18px;
+  width: 18px;
+
+}
+
+.text-orogin{
+  color: #df8602;
+}
+
+
+.base-bcType-body{
+  background-color: darkcyan;
+}
+
+.fc-wd-bg{
+  background: url("fc-wd-bg.png");
+  background-color: #fff;
+  color: #562e0f;
+  padding: 15px;
 }

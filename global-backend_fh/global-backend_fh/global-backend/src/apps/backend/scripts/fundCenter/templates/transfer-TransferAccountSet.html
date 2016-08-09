@@ -1,0 +1,119 @@
+<form class="js-fc-transferSet-form form-horizontal">
+  <div class="form-group m-top-md">
+    <label class="col-sm-2 control-label">向下级转账：</label>
+
+    <div class="form-group col-sm-10 ">
+      <div class="panel panel-default no-m-bottom ">
+        <div class="panel-body  no-m-bottom ">
+          <div class="form-group  ">
+            <span class="col-sm-3 control-label no-m-right">是否开启此功能：</span>
+
+            <div class="col-sm-9 no-m-left">
+              <label class="switch switch-white no-m-left">
+                <input type="checkbox" class="js-fc-transferSet-downTransferOpen switch-input"
+                       value="0" data-status="">
+                <span class="switch-round"></span>
+              </label>
+            </div>
+          </div>
+          <div class="form-group  no-m-bottom ">
+            <div class="col-sm-2  "><input type="checkbox" class="" name="downTransferList" value="1" disabled><span
+              class="switch-round">总代</span></div>
+            <div class="col-sm-2  "><input type="checkbox" class="" name="downTransferList" value="2" disabled><span
+              class="switch-round">一代</span></div>
+            <div class="col-sm-2  "><input type="checkbox" class="" name="downTransferList" value="3" disabled><span
+              class="switch-round">二代</span></div>
+            <div class="col-sm-2  "><input type="checkbox" class="" name="downTransferList" value="4" disabled required><span
+              class="switch-round">三代</span></div>
+            <div class="col-sm-4  "><input type="checkbox" class="" name="downTransferList" value="5" disabled><span
+              class="switch-round">四代包含以下</span></div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <label class="col-sm-2 control-label">向上级转账：</label>
+
+    <div class="form-group col-sm-10  ">
+      <div class="panel panel-default  no-m-bottom ">
+        <div class="panel-body  no-m-bottom ">
+          <div class="form-group  ">
+            <span class="col-sm-3 control-label no-m-right">是否开启此功能：</span>
+
+            <div class="col-sm-9 no-m-left">
+              <label class="switch switch-white no-m-left">
+                <input type="checkbox" class="js-fc-transferSet-upTransferOpen switch-input "
+                       value="1" data-status="">
+                <span class="switch-round"></span>
+              </label>
+            </div>
+          </div>
+          <div class="form-group  no-m-bottom  ">
+            <div class="col-sm-2  "><input type="checkbox" class="" name="upTransferList" value="0" disabled required><span
+              class="switch-round">直属</span></div>
+            <div class="col-sm-2  "><input type="checkbox" class="" name="upTransferList" value="1" disabled ><span
+              class="switch-round">总代</span></div>
+            <div class="col-sm-2  "><input type="checkbox" class="" name="upTransferList" value="2" disabled><span
+              class="switch-round">一代</span></div>
+            <div class="col-sm-2  "><input type="checkbox" class="" name="upTransferList" value="3" disabled><span
+              class="switch-round">二代</span></div>
+            <div class="col-sm-4  "><input type="checkbox" class="" name="upTransferList" value="4" disabled><span
+              class="switch-round">三代包含以下</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <label class="col-sm-2 control-label">转账限额：</label>
+
+    <div class="form-group col-sm-10 ">
+      <div class="panel panel-default  no-m-bottom ">
+        <div class="panel-body  no-m-bottom ">
+          <div class="form-group">
+            <label class="control-label col-sm-3">每日可转帐次数：</label>
+
+            <div class=" input-group  col-sm-3  no-m-left ">
+              <input type="text" class="js-fc-TAS-timesLimit form-control input-sm" data-parsley-range="[0, 10000]" data-parsley-type="integer" required>
+              <span class="input-group-addon">次</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label  col-sm-3">每次可转帐金额：</label>
+
+          </div>
+          <div class="form-group form-inline">
+            <label class="control-label col-sm-3">最低：</label>
+
+            <div class="form-group col-sm-3 ">
+              <div class=" input-group   no-m-left ">
+                <input type="text" class="js-fc-TAS-minMoneyLimit form-control input-sm"
+                       data-parsley-range="[0, 5000000]" data-parsley-type="integer" required>
+                <span class="input-group-addon">元</span>
+              </div>
+            </div>
+            <label class="control-label col-sm-3">最高：</label>
+
+            <div class="form-group col-sm-3 ">
+              <div class=" input-group  no-m-left ">
+                <input type="text" class="js-fc-TAS-maxMoneyLimit form-control input-sm"
+                       data-parsley-range="[0, 5000000]" data-parsley-type="integer" required>
+                <span class="input-group-addon">元</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group form-inline">
+      <div class="col-sm-offset-2 col-sm-10 js-fc-rechargeRangeSet-notice"></div>
+    </div>
+    <div class="form-group form-inline text-center">
+      <input type="button" class="js-fc-TransferSet-submit btn btn-primary m-right-md " value="确&nbsp;&nbsp;定">
+      <input type="button" class="js-fc-TransferSet-cancel btn btn-default" value="取&nbsp;&nbsp;消">
+    </div>
+  </div>
+</form>

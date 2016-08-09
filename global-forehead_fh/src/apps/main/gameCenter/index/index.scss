@@ -1,0 +1,36 @@
+@charset "UTF-8";
+
+@import
+"~base/styles/imports";
+
+.ag-game-background {
+  background: url(~base/images/fh/ag/ag.png) no-repeat;
+  width: 1200px;
+  height: 780px;
+}
+
+.ag-game-enter {
+  background: url(~base/images/fh/ag/enter-ag.png) no-repeat;
+  width: 200px;
+  height: 50px;
+  float: left;
+  position: absolute;
+  margin-left: 520px;
+  margin-top: -230px;
+}
+
+.ag-betting-records {
+  font-size: 22px;
+  position: absolute;
+  margin-left: 605px;
+  margin-top: -370px;
+  color: wheat;
+}
+
+.ag-transfer-account {
+  font-size: 22px;
+  position: absolute;
+  margin-left: 902px;
+  margin-top: -370px;
+  color: wheat;
+}

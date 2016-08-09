@@ -1,0 +1,30 @@
+{
+  "result":0,
+  "root":{
+    "ticketName":"123",
+    "ticketPlanId": "dsfadsf",
+    "betTotal":1000000,
+    "ticketSaleStartTime":13111111111121,
+    "ticketSaleEndTime":132222222222222,
+    "ticketOpenNum":"1,2,1,9,0",
+    "prizeRate":100,
+    "openIndex":5,
+    "openNums":10,
+    "dataList":[
+      {
+        "ticketOpenNum":"1,2,1,9,0",
+        "prizeTotal":100000,
+        "prizeRate":100,
+        "openTime":132222222222222,
+        "openNum":false
+      },
+      {
+        "ticketOpenNum":"1,2,1,9,0",
+        "prizeTotal":100000,
+        "prizeRate":100,
+        "openTime":132222222222222,
+        "openNum":true
+      }
+    ]
+  }
+}

@@ -1,0 +1,94 @@
+<div class="panel">
+  <form class="js-bc-form form-horizontal" action="javascript:void(0)">
+    <div class="form-group form-inline" >
+      <div class="col-sm-offset-1 col-sm-10 col-sm-offset-1 border-all padding-sm ">
+        <div class="col-sm-4 m-bottom-sm js-bc-ticketName-container">
+          <div>
+            <label class="control-label">彩种名称：</label>
+            <label class="control-label js-bc-ticketName"></label>
+          </div>
+        </div>
+        <div class="col-sm-3 m-bottom-sm js-bc-userName-container">
+          <div>
+            <label class="control-label">用户名：</label>
+            <label class="control-label js-bc-userName"></label>
+          </div>
+        </div>
+        <div class="col-sm-5 m-bottom-sm js-bc-terminal-container">
+          <div>
+            <label class="control-label">终端：</label>
+            <label class="control-label js-bc-terminal">pc网页</label>
+          </div>
+        </div>
+
+        <div class="col-sm-4 m-bottom-sm js-bc-tradeNo-container">
+          <div>
+            <label class="control-label">订单编号：</label>
+            <label class="control-label js-bc-tradeNo"></label>
+            <input type="text" class="js-bc-ticketBetId hidden">
+          </div>
+        </div>
+        <div class="col-sm-3 m-bottom-sm js-bc-planId-container">
+          <div>
+            <label class="control-label">投注奖期：</label>
+            <label class="control-label js-bc-planId"></label>
+          </div>
+        </div>
+        <div class="col-sm-5 m-bottom-sm js-bc-betTime-container">
+          <div>
+            <label class="control-label">投注时间：</label>
+            <label class="control-label js-bc-betTime"></label>
+          </div>
+        </div>
+
+        <div class="col-sm-4 m-bottom-sm js-bc-betAllMoney-container">
+          <div>
+            <label class="control-label">订单总金额：</label>
+            <label class="control-label js-bc-betAllMoney"></label>
+          </div>
+        </div>
+        <div class="col-sm-3 m-bottom-sm js-bc-allPrize-container">
+          <div>
+            <label class="control-label">总奖金：</label>
+            <label class="control-label js-bc-allPrize"></label>
+          </div>
+        </div>
+        <div class="col-sm-5 m-bottom-sm js-bc-openNum-container">
+          <div>
+            <label class="control-label js-bc-openNum-label">开奖号码：</label>
+          </div>
+        </div>
+        <div class="col-sm-5 m-bottom-sm js-bc-ticketChaseId-container hidden">
+          <div>
+            <label class="control-label js-bc-ticketChaseId"></label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="panel">
+  <form class="js-bc-form form-horizontal" action="javascript:void(0)">
+    <div class="form-group form-inline" >
+      <div class="col-sm-offset-1 col-sm-10 col-sm-offset-1 border-all padding-md ">
+        <div class="js-bc-betPlayDetailGrid col-sm-12 "></div>
+        <div class=" col-sm-12 text-center">
+        <%if(Global.authority.bc && Global.authority.bc.br && Global.authority.bc.br.cancelBet){%>
+        <button type="submit" class="js-bc-btn-cancelBet btn btn-default  width-sm" data-loading-text="发送中">撤销订单</button>&nbsp;&nbsp;
+        <%}%>
+        <button type="submit" class="js-bc-btn-award btn btn-default  width-sm hidden"  data-loading-text="发送中">派奖</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="panel">
+  <form class="js-bc-form form-horizontal" action="javascript:void(0)">
+    <div class="form-group form-inline" >
+      <div class="col-sm-offset-1 col-sm-10 col-sm-offset-1 border-all padding-md ">
+        <label class="control-label col-sm-12 js-BC-viewAccountDetail"></label>
+        <div class="js-bc-betAccountDetailGrid col-sm-12 marginTB-xs"></div>
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,187 @@
+<div class="panel padding-md">
+  <form class="js-form form-horizontal form-inline" action="javascript:void(0)">
+    <div class="row m-bottom-sm">
+      <div class="col-sm-6 col-sm-offset-1">
+        <div class="form-group form-inline">
+          <label class="control-label">活动时间：</label>
+          <span class="js-hc-timeset"></span>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="form-group form-inline">
+          <label class="control-label m-right-sm">代理级别：</label>
+          <input name="userRebate" type="text" class="form-control" style="width: 50px;" data-parsley-range="[0, 100]" data-parsley-twoDecimal required="">
+        </div>
+      </div>
+    </div>
+    <div class="row m-bottom-sm ">
+      <div class="col-sm-10 col-sm-offset-1">
+        <table class="js-bonus-setting table table-bordered">
+          <thead>
+          <tr>
+            <th>日均销量</th>
+            <th>第3天</th>
+            <th>第6天</th>
+            <th>第10天</th>
+            <th>第15天</th>
+            <th>第30天</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td>
+              30000
+              <input type="hidden" name="itemList[0].sales" value="30000" required="">
+            </td>
+            <td>
+              <input type="text" name="itemList[0].day3" class="form-control" required="" data-parsley-range="[0, 100000000]" data-parsley-threedecimal="">
+            </td>
+            <td>
+              <input type="text" name="itemList[0].day6" class="form-control" required="" data-parsley-range="[0, 100000000]" data-parsley-threedecimal="">
+            </td>
+            <td>
+              <input type="text" name="itemList[0].day10" class="form-control" required="" data-parsley-range="[0, 100000000]" data-parsley-threedecimal="">
+            </td>
+            <td>
+              <input type="text" name="itemList[0].day15" class="form-control" required="" data-parsley-range="[0, 100000000]" data-parsley-threedecimal="">
+            </td>
+            <td>
+              <input type="text" name="itemList[0].day30" class="form-control" required="" data-parsley-range="[0, 100000000]" data-parsley-threedecimal="">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              50000
+              <input type="hidden" name="itemList[1].sales" value="50000" required="">
+            </td>
+            <td>
+              <input type="text" name="itemList[1].day3" class="form-control" required="" data-parsley-range="[0, 100000000]" data-parsley-threedecimal="">
+            </td>
+            <td>
+              <input type="text" name="itemList[1].day6" class="form-control" required="" data-parsley-range="[0, 100000000]" data-parsley-threedecimal="">
+            </td>
+            <td>
+              <input type="text" name="itemList[1].day10" class="form-control" required="" data-parsley-range="[0, 100000000]" data-parsley-threedecimal="">
+            </td>
+            <td>
+              <input type="text" name="itemList[1].day15" class="form-control" required="" data-parsley-range="[0, 100000000]" data-parsley-threedecimal="">
+            </td>
+            <td>
+              <input type="text" name="itemList[1].day30" class="form-control" required="" data-parsley-range="[0, 100000000]" data-parsley-threedecimal="">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              100000
+              <input type="hidden" name="itemList[2].sales" value="100000" required="">
+            </td>
+            <td>
+              <input type="text" name="itemList[2].day3" class="form-control" required="" data-parsley-range="[0, 100000000]" data-parsley-threedecimal="">
+            </td>
+            <td>
+              <input type="text" name="itemList[2].day6" class="form-control" required="" data-parsley-range="[0, 100000000]" data-parsley-threedecimal="">
+            </td>
+            <td>
+              <input type="text" name="itemList[2].day10" class="form-control" required="" data-parsley-range="[0, 100000000]" data-parsley-threedecimal="">
+            </td>
+            <td>
+              <input type="text" name="itemList[2].day15" class="form-control" required="" data-parsley-range="[0, 100000000]" data-parsley-threedecimal="">
+            </td>
+            <td>
+              <input type="text" name="itemList[2].day30" class="form-control" required="" data-parsley-range="[0, 100000000]" data-parsley-threedecimal="">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              200000
+              <input type="hidden" name="itemList[3].sales" value="200000" required="">
+            </td>
+            <td>
+              <input type="text" name="itemList[3].day3" class="form-control" required="" data-parsley-range="[0, 100000000]" data-parsley-threedecimal="">
+            </td>
+            <td>
+              <input type="text" name="itemList[3].day6" class="form-control" required="" data-parsley-range="[0, 100000000]" data-parsley-threedecimal="">
+            </td>
+            <td>
+              <input type="text" name="itemList[3].day10" class="form-control" required="" data-parsley-range="[0, 100000000]" data-parsley-threedecimal="">
+            </td>
+            <td>
+              <input type="text" name="itemList[3].day15" class="form-control" required="" data-parsley-range="[0, 100000000]" data-parsley-threedecimal="">
+            </td>
+            <td>
+              <input type="text" name="itemList[3].day30" class="form-control" required="" data-parsley-range="[0, 100000000]" data-parsley-threedecimal="">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              300000
+              <input type="hidden" name="itemList[4].sales" value="300000" required="">
+            </td>
+            <td>
+              <input type="text" name="itemList[4].day3" class="form-control" required="" data-parsley-range="[0, 100000000]" data-parsley-threedecimal="">
+            </td>
+            <td>
+              <input type="text" name="itemList[4].day6" class="form-control" required="" data-parsley-range="[0, 100000000]" data-parsley-threedecimal="">
+            </td>
+            <td>
+              <input type="text" name="itemList[4].day10" class="form-control" required="" data-parsley-range="[0, 100000000]" data-parsley-threedecimal="">
+            </td>
+            <td>
+              <input type="text" name="itemList[4].day15" class="form-control" required="" data-parsley-range="[0, 100000000]" data-parsley-threedecimal="">
+            </td>
+            <td>
+              <input type="text" name="itemList[4].day30" class="form-control" required="" data-parsley-range="[0, 100000000]" data-parsley-threedecimal="">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              500000
+              <input type="hidden" name="itemList[5].sales" value="500000" required="">
+            </td>
+            <td>
+              <input type="text" name="itemList[5].day3" class="form-control" required="" data-parsley-range="[0, 100000000]" data-parsley-threedecimal="">
+            </td>
+            <td>
+              <input type="text" name="itemList[5].day6" class="form-control" required="" data-parsley-range="[0, 100000000]" data-parsley-threedecimal="">
+            </td>
+            <td>
+              <input type="text" name="itemList[5].day10" class="form-control" required="" data-parsley-range="[0, 100000000]" data-parsley-threedecimal="">
+            </td>
+            <td>
+              <input type="text" name="itemList[5].day15" class="form-control" required="" data-parsley-range="[0, 100000000]" data-parsley-threedecimal="">
+            </td>
+            <td>
+              <input type="text" name="itemList[5].day30" class="form-control" required="" data-parsley-range="[0, 100000000]" data-parsley-threedecimal="">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              1000000
+              <input type="hidden" name="itemList[6].sales" value="1000000" required="">
+            </td>
+            <td>
+              <input type="text" name="itemList[6].day3" class="form-control" required="" data-parsley-range="[0, 100000000]" data-parsley-threedecimal="">
+            </td>
+            <td>
+              <input type="text" name="itemList[6].day6" class="form-control" required="" data-parsley-range="[0, 100000000]" data-parsley-threedecimal="">
+            </td>
+            <td>
+              <input type="text" name="itemList[6].day10" class="form-control" required="" data-parsley-range="[0, 100000000]" data-parsley-threedecimal="">
+            </td>
+            <td>
+              <input type="text" name="itemList[6].day15" class="form-control" required="" data-parsley-range="[0, 100000000]" data-parsley-threedecimal="">
+            </td>
+            <td>
+              <input type="text" name="itemList[6].day30" class="form-control" required="" data-parsley-range="[0, 100000000]" data-parsley-threedecimal="">
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="text-center">
+      <button class="js-hc-btn-submit btn btn-primary" type="submit"  style="width: 100px; margin-right: 20px;" data-loading-text="发送中">确定</button>
+      <button style="width: 100px;" class="js-hc-btn-reset btn" data-dismiss="modal" type="reset">取消</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,54 @@
+<form class="js-fc-bmw-aoe-form form-horizontal">
+  <div class="form-group">
+
+    <div class="form-group form-inline">
+      <label class="col-sm-3 control-label">银行名字：</label>
+
+      <div class="col-sm-9">
+        <input type="text" class="js-fc-bmw-AOE-bankName form-control" data-parsley-zhMaxLength="20"  data-parsley-someSpecialChar required>
+      </div>
+    </div>
+    <div class="form-group form-inline">
+      <label class="col-sm-3 control-label">银行编码：</label>
+
+      <div class="col-sm-9">
+        <input type="text" class="js-fc-bmw-AOE-bankCode form-control" data-parsley-type="alphanum" data-parsley-maxlength="30" required>
+      </div>
+    </div>
+    <!--
+    <div class="form-group form-inline">
+      <label class="col-sm-3 control-label">快汇宝编码：</label>
+
+      <div class="col-sm-9">
+        <input type="text" class="js-fc-bmw-AOE-transferCode form-control" data-parsley-type="alphanum" data-parsley-somespecialchar data-parsley-maxlength="30" required>
+      </div>
+    </div>
+    -->
+    <div class="form-group form-inline">
+      <label class="col-sm-3 control-label">网银地址：</label>
+
+      <div class="col-sm-9">
+        <input type="text" class="js-fc-bmw-AOE-url form-control" data-parsley-type="url" data-parsley-someSpecialChar data-parsley-maxlength="1000" required>
+      </div>
+    </div>
+    <div class="form-group form-inline">
+      <label class="col-sm-3 control-label">银行LOGO：</label>
+
+      <div class="col-sm-9">
+        <div class="js-fc-bmw-AOE-Upload-btn"></div>
+      </div>
+    </div>
+    <div class="form-group form-inline">
+      <label class="col-sm-3 control-label">前台排序：</label>
+
+      <div class="col-sm-9">
+        <input type="text" class="js-fc-bmw-AOE-sort form-control" data-parsley-range="[0, 1000]" data-parsley-type="integer" required>
+      </div>
+    </div>
+    <div class="form-group form-inline">
+      <div class="col-sm-offset-3 col-sm-9 js-fc-bmw-AOE-notice"></div>
+    </div>
+  </div>
+
+  <input type="hidden" name="bankId" class="js-fc-bmw-AOE-bankId">
+</form>

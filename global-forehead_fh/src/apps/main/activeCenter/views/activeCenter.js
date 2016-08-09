@@ -8,7 +8,6 @@ var ActiveCenterView = Base.ItemView.extend({
 
   events: {
     'click .js-list-active': 'activeChangeHandler'
-
   },
   
   activeChangeHandler:function (e) {
@@ -23,8 +22,8 @@ var ActiveCenterView = Base.ItemView.extend({
   },
   
   onRender: function() {
-    this.$activeContext = this.$('.js-active-context');
 
+    this.$activeContext = this.$('.js-active-context');
     this.$activeHeader = this.$('.js-activeHeader-list');
 
     this.initSliderTab();
@@ -75,6 +74,8 @@ var ActiveCenterView = Base.ItemView.extend({
   },
 
   renderActiveContex:function (activityList) {
+
+    //$('#main').html(this.el);
 
 
     if (_(activityList).isEmpty()) {

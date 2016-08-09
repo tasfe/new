@@ -1,0 +1,53 @@
+<div class="panel padding-md">
+  <form class="js-sp-notice-users-form form-horizontal" action="javascript:void(0)">
+    <div class="form-group form-inline">
+      <label class="col-sm-2 control-label">选择用户：</label>
+
+      <div class="col-sm-10">
+        <div class="form-group ">
+          <div class="col-sm-6 ">
+          <textarea id="chooseuser" class="js-sp-username-content width-md height-sm form-control"
+                     data-parsley-maxlength="3399" required></textarea>
+          </div>
+          <div class=" col-sm-6">
+            <div class="js-mc-nnu-Upload-btn"></div>
+            <span class="tip">支持txt，单次最多可导入200个用逗号分隔的用户名。</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group form-inline">
+      <label class="col-sm-2 control-label">主题：</label>
+
+      <div class="col-sm-10">
+        <input type="text" class="js-sp-title input-medium form-control" name="title" data-parsley-zhMaxLength="20"
+               data-parsley-someSpecialChar required>
+      </div>
+    </div>
+    <div class="form-group form-inline">
+      <label class="col-sm-2 control-label">发布时间：</label>
+
+      <div class="col-sm-10">
+        <input type="text" class="js-sp-time input-medium form-control" name="startTime" required>
+      </div>
+    </div>
+    <div class="form-group form-inline">
+      <label class="col-sm-2 control-label">内容：</label>
+
+      <div class="col-sm-10">
+        <div id="uploadNUContainer">
+        </div>
+        <textarea id="textarea1" style='height:300px; width:100%;' class="js-sp-users-content"
+                  data-parsley-maxlength="50000" required></textarea>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="js-sp-user-btn-submit btn btn-primary" data-loading-text="发送中">发送</button>
+        <button type="button" class="js-sp-user-btn-cancel btn btn-default">取消</button>
+      </div>
+    </div>
+  </form>
+</div>

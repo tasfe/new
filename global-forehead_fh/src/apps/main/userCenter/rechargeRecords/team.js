@@ -65,6 +65,7 @@ var RechargeRecordsView = SearchGrid.extend({
   },
 
   onRender: function() {
+    
     //初始化时间选择
     new Timeset({
       el: this.$('.js-pf-timeset'),
@@ -102,7 +103,6 @@ var RechargeRecordsView = SearchGrid.extend({
     });
 
     //加上统计行
-
     this.grid.addFooterRows({
       //trClass: 'tr-footer',
       columnEls: [
@@ -116,7 +116,6 @@ var RechargeRecordsView = SearchGrid.extend({
 
   formatRowData: function(rowInfo) {
     var row = [];
-
     row.push(rowInfo.userName);
     row.push(rowInfo.tradeNo);
     row.push(_(rowInfo.payTime).toTime());
@@ -124,7 +123,6 @@ var RechargeRecordsView = SearchGrid.extend({
     row.push(_(rowInfo.amount).fixedConvert2yuan());
     row.push(_(rowInfo.balance).fixedConvert2yuan());
     row.push(rowInfo.status);
-
     return row;
   }
 });

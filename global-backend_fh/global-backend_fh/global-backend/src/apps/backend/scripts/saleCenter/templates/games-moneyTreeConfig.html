@@ -1,0 +1,90 @@
+<div class="panel padding-md">
+    <form class="js-sc-mt-rainCfg-form form-horizontal form-inline" action="javascript:void(0)">
+        <div class="row m-bottom-sm">
+            <div class="col-sm-6">
+                <div class="form-group form-inline">
+                    <label class="control-label m-right-sm" style="margin-left: 105px;">活动时间：</label>
+                    <span class="js-sc-mt-timeset"></span>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group form-inline">
+                    <label class="control-label m-right-sm">参与条件：</label>
+                    <input name="limit" type="text" class="js-sc-mt-monetary form-control" data-parsley-range="[0, 100000000]" data-parsley-type="integer" required>元
+                </div>
+            </div>
+        </div>
+        <div class="row m-bottom-sm">
+            <div class="">
+                <div class="col-sm-12 ">
+                    <button class="js-sc-mt-add btn btn-primary"><i class="fa fa-plus"></i> 增加一行</button>
+                    袋子奖金
+                    <div class="js-sc-mt-bagBonus" style="margin-top: 10px;"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row m-bottom-sm">
+            <div class="">
+                <div class="col-sm-12 ">
+                    <!--<button class="js-sc-mt-add btn btn-primary"><i class="fa fa-plus"></i> 金条大奖</button>-->
+                    金条大奖
+                    <div class="js-sc-mt-goldAward" style="margin-top: 10px;"></div>
+                    <table class="table table-bordered ">
+                        <colgroup> <col width="100"> <col width="120"> </colgroup>
+                        <thead> <tr> <th>中奖概率%</th> <th>奖项数量（个）</th> </tr> </thead>
+                        <tbody class="js-wt-tbody" style=" height: 148px;overflow:scroll">
+                        <tr class="js-gl-static-tr">
+                            <td rowspan="1">
+                                <div>
+                                    金砖：
+                                    <input type="hidden" name="goldList[0].amount" value="1">
+                                    <input type="text" name="goldList[0].odds" class="js-sc-mt-goldBrick-rate form-control" required="" style="width:150px;" value="" data-parsley-range="[0, 100]" data-parsley-twoDecimal>
+                                    <label class="control-label m-right-sm" style="margin-left: 20px;">%</label>
+                                </div>
+                            </td>
+                            <td rowspan="1">
+                                <input type="text"  name="goldList[0].count"  class="js-sc-mt-goldBrick-count form-control" style="width:150px;" required="" value="" data-parsley-range="[0, 100]" data-parsley-type="integer">
+                                <label class="control-label m-right-sm" style="margin-left: 20px;">个</label>
+                            </td>
+                        </tr>
+                        <tr class="js-gl-static-tr">
+                            <td rowspan="1">
+                                <div>
+                                    元宝：
+                                    <input type="hidden" name="goldList[1].amount" value="2">
+                                    <input type="text"  name="goldList[1].odds"  class="js-sc-mt-goldIngot-rate form-control" required="" style="width:150px;" value="" data-parsley-range="[0, 100]" data-parsley-twoDecimal>
+                                    <label class="control-label m-right-sm" style="margin-left: 20px;">%</label>
+                                </div>
+                            </td>
+                            <td rowspan="1"><input type="text"  name="goldList[1].count"  class="js-sc-mt-goldIngot-count form-control" style="width:150px;" required="" value="" data-parsley-range="[0, 100]" data-parsley-type="integer">
+                                <label class="control-label m-right-sm" style="margin-left: 20px;">个</label>
+                            </td>
+                        </tr>
+                        <tr class="js-gl-static-tr">
+                            <td rowspan="1">
+                                <div>
+                                    金条：
+                                    <input type="hidden" name="goldList[2].amount" value="3">
+                                    <input type="text"  name="goldList[2].odds"  class="js-sc-mt-goldBar-rate form-control" required="" style="width:150px;" value="" data-parsley-range="[0, 100]" data-parsley-twoDecimal>
+                                    <label class="control-label m-right-sm" style="margin-left: 20px;">%</label>
+                                </div>
+                            </td>
+                            <td rowspan="1">
+                                <input type="text"   name="goldList[2].count"  class="js-sc-mt-goldBar-count form-control" style="width:150px;" required="" value="" data-parsley-range="[0, 100]" data-parsley-type="integer">
+                                <label class="control-label m-right-sm" style="margin-left: 20px;">个</label>
+                            </td>
+                        </tr>
+                        </tbody>
+                        </table>
+                </div>
+            </div>
+        </div>
+        <div class="text-center">
+            <button class="js-sc-mt-btn-submit btn btn-primary" type="button"  style="width: 100px; margin-right: 20px;" data-loading-text="发送中">确定</button>
+            <button style="width: 100px;" class="js-sc-mt-btn-reset btn" data-dismiss="modal" type="reset">取消</button>
+        </div>
+        <div>
+            <input name="activityId" type="hidden" class="js-sc-mt-activityId form-control" value="9">
+        </div>
+    </form>
+</div>

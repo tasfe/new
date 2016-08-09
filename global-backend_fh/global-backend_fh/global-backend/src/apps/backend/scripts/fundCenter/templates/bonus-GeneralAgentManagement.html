@@ -1,0 +1,116 @@
+<div class="row m-bottom-sm">
+  <div class="col-sm-3">
+    <div class="form-group">
+      <label class="control-label m-right-sm">流水号：</label>
+      <input class="form-control input-sm" type="text" name="tradeNo" placeholder="" data-parsley-maxlength="30">
+    </div>
+  </div>
+
+  <div class="col-sm-3">
+    <div class="form-group">
+      <label class="control-label m-right-sm">用户名：
+        <span class="no-margin inline-block checkbox">
+          <label>
+            <input type="checkbox" name="subUser" value="1"> 包含下级
+          </label>
+        </span>
+      </label>
+      <input class="form-control" type="text" name="username" placeholder=""  >
+    </div>
+  </div>
+
+  <div class="col-sm-3">
+    <div class="form-group">
+      <label class="control-label m-right-sm">处理人：</label>
+      <select class="js-fc-gm-operatorId form-control input-sm" name="operator" >
+        <option value="">全部</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="col-sm-3">
+    <div class="form-group">
+      <label class="control-label m-right-sm">结算日期：</label>
+      <select class="js-fc-gm-dr form-control input-sm"></select>
+      <input type="hidden" name="startDay" class="js-fc-gm-sd">
+      <input type="hidden" name="endDay" class="js-fc-gm-ed">
+    </div>
+  </div>
+
+
+
+</div>
+
+<div class="row m-bottom-sm">
+
+  <!--<div class="col-sm-6">-->
+    <!--<div class="form-group">-->
+      <!--<label class="control-label m-right-sm">结算日期：</label>-->
+      <!--<span class="js-fc-gm-timeSet"></span>-->
+    <!--</div>-->
+  <!--</div>-->
+
+  <div class="col-sm-3">
+    <div class="form-group">
+      <label class="control-label m-right-sm">级别：</label>
+      <select class="form-control input-sm" name="rebate">
+        <option value="">全部</option>
+        <option value="130">1960（13.0）</option>
+        <option value="128">1956（12.8）</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="col-sm-3">
+    <div class="form-group">
+      <label class="control-label m-right-sm">状态：</label>
+      <select class="form-control input-sm" name="status">
+        <option value="3">待审核</option>
+        <option value="0">未申请</option>
+        <option value="1">已发放</option>
+        <option value="2">不发放</option>
+        <option value="9">统计中</option>
+        <option value="-1">全部</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="col-sm-3">
+    <div class="form-group">
+      <label class="control-label m-right-sm">每页展示：</label>
+      <select class="form-control input-sm" name="pageSize">
+        <option value="20">20条记录</option>
+        <option value="50">50条记录</option>
+        <option value="100">100条记录</option>
+        <option value="500">500条记录</option>
+      </select>
+    </div>
+  </div>
+  <div class="col-sm-9">
+    </div>
+</div>
+
+
+<div class="row">
+  <div class="col-lg-12 pull-left form-group">
+    <%if(Global.authority.fc && Global.authority.fc.gm && Global.authority.fc.gm.process){%>
+    <button class="js-fc-gm-deal btn btn-success pull-left btn-sm" type="button"><i
+      class="fa fa-check-circle m-right-xs"></i>发&nbsp;&nbsp;放
+    </button>
+    <%}%>
+    <%if(Global.authority.fc && Global.authority.fc.gm && Global.authority.fc.gm.notProcess){%>
+    <button class="js-fc-gm-notDeal btn btn-danger pull-left m-left-sm btn-sm" type="button"><i
+      class="fa fa-ban m-right-xs"></i>不发放
+    </button>
+    <%}%>
+  </div>
+  <div class="col-lg-12 pull-right form-group">
+    <button class="wm-search-confirm btn btn-purple pull-right btn-sm" type="submit"><i
+      class="fa fa-search m-right-xs"></i>搜&nbsp;&nbsp;索
+    </button>
+    <button class="wm-search-reset btn btn-wt-default-purple pull-right m-right-sm btn-sm" type="reset"><i
+      class="fa fa-repeat m-right-xs"></i>重&nbsp;&nbsp;置
+    </button>
+
+  </div>
+</div>

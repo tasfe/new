@@ -32,7 +32,8 @@ var BettingCenterView = Base.ItemView.extend({
   events: {
     'click .js-bc-video': 'openVideoHandler',
     'click .js-bc-basic-rule': 'baseRuleChangeHandler',
-    //'mouseout .js-bc-basic-rule': 'baseRuleChange1Handler',
+    'mouseover .js-bc-basic-rule': 'baseRuleChangeHandler',
+    'mouseout .js-bc-basic-rule': 'baseRuleChange1Handler',
     'mouseover .js-bc-advance-rules': 'baseRuleChangeMOHandler',
     'mouseout .js-bc-advance-rules': 'baseRuleChangeMO1Handler',
     'click .js-bc-play-toggle': 'togglePlayModeHandler',
@@ -137,6 +138,22 @@ var BettingCenterView = Base.ItemView.extend({
 
   quickBetHandler: function(e) {
 
+    //----
+    var bettingInfo = this.currentPlayAreaView.getBetting();
+    var result = this.model.addPrevBetNew({
+      lotteryList: bettingInfo.rowsResult,
+      selectOptionals: bettingInfo.selectOptionals,
+      format: bettingInfo.format,
+      type: 'select'
+    });
+
+    if (result) {
+
+    } else {
+      Global.ui.notification.show('号码选择不完整，请重新选择！');
+      return;
+    }
+    //--
 
     var self = this;
 
@@ -762,6 +779,7 @@ var BettingCenterView = Base.ItemView.extend({
     $target.attr('href', this.infoModel.getVideoUrl() || 'javascript:void(0)');
   },
 
+
   baseRuleChangeHandler: function(e) {
     this.$('.js-bc-advance-rules').show();
 
@@ -774,11 +792,26 @@ var BettingCenterView = Base.ItemView.extend({
     });
 
     var idStr =  ''+$target.data('id');
-    idStr = idStr.substr(idStr.length - 1);
+    idStr = idStr.substr(idStr.length - 2);
+    idStr = parseInt(idStr);
+    if(idStr == 9) {
+      idStr = 1;
+    }
+    if(idStr == 10) {
+      idStr = 2;
+    }
+    if(idStr == 11) {
+      idStr = 3;
+    }
+    if(idStr == 12) {
+      idStr = 4;
+    }
+    if(idStr == 13) {
+      idStr = 5;
+    }
+    var playValue = idStr*79 +17;
 
-
-    var value = idStr*70 +28;
-    this.$('.js-bc-advance-rules').css('left',value+'px');
+    this.$('.js-bc-advance-rules').css('left',playValue+'px');
 
   },
 
@@ -974,6 +1007,10 @@ var BettingCenterView = Base.ItemView.extend({
       return false;
     }
 
+    if (_.isEmpty(info.previewList)) {
+      Global.ui.notification.show('请至少选择一注投注号码！');
+      return false;
+    }
 
 
     if (info.totalInfo.totalMoney > Global.memoryCache.get('acctInfo').balance) {

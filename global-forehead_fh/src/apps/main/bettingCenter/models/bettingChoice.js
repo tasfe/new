@@ -288,6 +288,18 @@ var BettingChoiceModel = Model.extend({
     }
   },
 
+  addPrevBetNew: function(bettingInfo, options) {
+    var selectInfo = this.pick(
+      'statistics'
+    );
+
+    if (selectInfo.statistics) {
+      return true;
+    } else {
+      return false;
+    }
+  },
+
   emptyPrevBetting: function() {
     this.set('previewList', []);
 

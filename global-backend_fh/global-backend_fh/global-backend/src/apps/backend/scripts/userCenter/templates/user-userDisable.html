@@ -1,0 +1,68 @@
+<div class="panel padding-md">
+  <form class="js-ul-disabled-form form-horizontal" action="javascript:void(0)">
+    <div class="form-group form-inline">
+      <label class="col-sm-3 control-label">用户名：</label>
+
+      <div class="col-sm-4">
+        <div class="">
+          <label class="js_ul_username control-label"></label>
+        </div>
+      </div>
+      <div class="js_ul_disable col-sm-3" style="margin-top: 10px;">
+      </div>
+    </div>
+    <div class="js-ul-viewDisable form-group form-inline">
+    </div>
+    <div class="form-group form-inline">
+      <label class="col-sm-3 control-label">冻结范围：</label>
+
+      <div class="col-sm-9">
+        <div class="">
+          <label class="radio-inline">
+            <input class="js-ul-disable-range" type="radio" name="range"  value="200" checked> 仅冻结此用户，不冻结其下级
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="form-group form-inline">
+      <label class="col-sm-3 control-label"></label>
+
+      <div class="col-sm-9">
+        <div class="">
+          <label class="radio-inline">
+            <input class="js-ul-disable-range" type="radio" name="range"  value="201"> 冻结此用户和所有下级
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="form-group form-inline">
+      <label class="col-sm-3 control-label">冻结方式：</label>
+
+      <div class="col-sm-9">
+        <div class="">
+          <label class="radio-inline">
+            <input class="js-ul-disable-type" type="radio" name="type"  value="100" checked>可登录，不可投注，不可充提
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="form-group form-inline">
+      <label class="col-sm-3 control-label"></label>
+
+      <div class="col-sm-9">
+        <div class="">
+          <label class="radio-inline">
+            <input class="js-ul-disable-type" type="radio" name="type"  value="101">完全冻结（冻结后，用户将不能登录平台）
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-3 control-label">冻结原因：</label>
+      <div class="col-sm-9" style="margin-top: 10px;">
+        <textarea class="js-ul-disable-reson form-control width-md height-sm" data-parsley-zhMaxLength="20" data-parsley-someSpecialChar required></textarea>
+        <span>限20个字符</span>
+      </div>
+    </div>
+  </form>
+</div>

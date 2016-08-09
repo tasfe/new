@@ -1,0 +1,120 @@
+<div class="row m-bottom-sm">
+  <div class="col-sm-3">
+    <div class="form-group">
+      <label class="control-label m-right-sm">用户名</label>
+      <input class="js-ul-name form-control" type="text" name="username"  >
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="form-group">
+      <label class="control-label m-right-sm">用户组：</label>
+      <select class="form-control" name="userGroup">
+        <option value="">全部</option>
+        <option value="1">总代</option>
+        <option value="2">一代</option>
+        <option value="3">二代</option>
+        <option value="4">三代</option>
+        <option value="5">四代</option>
+        <option value="6">五代</option>
+      </select>
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="form-group">
+      <label class="control-label m-right-sm">不活跃天数≥：</label>
+      <input class="js-ul-uday form-control" type="text" name="uDay" data-parsley-type="integer" data-parsley-range="[1,10000]" >
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="form-group">
+      <label class="control-label m-right-sm">返点≥：</label>
+      <input class="js-ul-queryrebate form-control" type="text" name="rebate" data-parsley-range="[0, 100]"  data-parsley-oneDecimal>
+    </div>
+  </div>
+</div>
+<div class="row m-bottom-sm">
+  <div class="col-sm-6 ">
+    <div class="form-group">
+      <label class="control-label m-right-sm">注册时间：</label>
+      <span class="js-ul-timeset"></span>
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="form-group">
+      <label class="control-label m-right-sm">剩余配额≥：</label>
+      <input class="js-ul-quota form-control" type="text" name="quota" data-parsley-type="integer" data-parsley-range="[1,10000]" >
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="form-group">
+      <label class="control-label m-right-sm">每页展示：</label>
+      <select class="form-control" name="pageSize">
+        <option value="20">20条</option>
+        <option value="50">50条</option>
+        <option value="100">100条</option>
+        <option value="500">500条</option>
+      </select>
+    </div>
+  </div>
+</div>
+<div class="row m-bottom-sm">
+  <div class="col-sm-6">
+    <div class="form-group">
+      <label class="control-label m-right-sm">个人余额：</label>
+      <span class="relative">
+        <div class="input-group">
+          <input type="text" class="js-ul-bbal input-medium form-control" name="balanceStart" data-parsley-fourDecimal  data-parsley-range="[1,100000000]">
+          <span class="input-group-addon">至</span>
+          <input type="text" class="js-ul-ebal input-medium form-control" name="balanceEnd" data-parsley-fourDecimal  data-parsley-range="[1,100000000]">
+        </div>
+      </span>
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="form-group">
+      <label class="control-label m-right-sm">登录IP：</label>
+      <input class="js-ul-ip form-control" type="text" name="ip" data-parsley-pattern="/^(((25[0-5]|2[0-4]\d|1\d{2}|[1-9]\d|[0-9])\.){3}(25[0-5]|2[0-4]\d|1\d{2}|[1-9]\d|[0-9]))$/" >
+    </div>
+  </div>
+</div>
+<div class="row m-bottom-sm">
+  <div class="col-sm-12">
+    <div class="form-group">
+      <label class="control-label m-right-sm">会员等级：</label>
+      <label class="control-label m-right-sm">
+        <input type="checkbox" class="js-ul-allLevel" style="margin-right: 5px;">全选</label>
+      <label class="control-label m-right-sm"><input type="checkbox" class="js-ul-userLevel" id="level0"
+                                                     value="0" name="userLevel"
+                                                     style="margin-left: 10px;margin-right: 5px;">V0</label>
+      <label class="control-label m-right-sm"><input type="checkbox" class="js-ul-userLevel" id="level1"
+                                                     value="1" name="userLevel"
+                                                     style="margin-left: 10px;margin-right: 5px;">V1</label>
+      <label class="control-label m-right-sm"><input type="checkbox" class="js-ul-userLevel" id="level2"
+                                                     value="2" name="userLevel"
+                                                     style="margin-left: 10px;margin-right: 5px;">V2</label>
+      <label class="control-label m-right-sm"><input type="checkbox" class="js-ul-userLevel" id="level3"
+                                                     value="3" name="userLevel"
+                                                     style="margin-left: 10px;margin-right: 5px;">V3</label>
+      <label class="control-label m-right-sm"><input type="checkbox" class="js-ul-userLevel" id="level4"
+                                                     value="4" name="userLevel"
+                                                     style="margin-left: 10px;margin-right: 5px;">V4</label>
+      <label class="control-label m-right-sm"> <input type="checkbox" class="js-ul-userLevel" id="level5"
+                                                      value="5" name="userLevel"
+                                                      style="margin-left: 10px;margin-right: 5px;">V5</label>
+      <label class="control-label m-right-sm"><input type="checkbox" class="js-ul-userLevel" id="level6"
+                                                     value="6" name="userLevel"
+                                                     style="margin-left: 10px;margin-right: 5px;">V6
+      </label>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-12 pull-right form-group">
+    <button class="ul-search-confirm btn btn-purple pull-right btn-sm" type="submit"><i
+      class="fa fa-search m-right-xs"></i>搜&nbsp;&nbsp;索
+    </button>
+    <button class="fu-search-reset btn btn-wt-default-purple pull-right m-right-sm btn-sm" type="reset"><i
+      class="fa fa-repeat m-right-xs"></i>重&nbsp;&nbsp;置
+    </button>
+  </div>
+</div>

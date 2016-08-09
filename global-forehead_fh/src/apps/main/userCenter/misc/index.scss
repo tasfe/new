@@ -664,3 +664,100 @@
     }
   }
 }
+
+.bd-bet-header{
+
+  border-bottom: 1px solid #CCCCCC;
+  padding-left: 20px;
+  padding-right: 20px;
+  line-height: 40px;
+  height:40px;
+
+}
+
+.bd-bet-headBack{
+  text-decoration: underline;
+}
+
+.bd-dd-revokeOrder{
+  text-align: center;
+  line-height: 30px;
+  width: 1030px;
+  .js-dd-bgLine{
+    background-color: #cccccc;
+    position: relative;
+    height: 1px;
+    z-index: 1;
+    top: 16px;
+  }
+
+  .bd-dd-revokeOrder{
+    background-color: #d8855a;
+    position: relative;
+    margin-right: auto;
+    margin-left: auto;
+    width: 100px;
+    height: 30px;
+    color: #fff;
+    z-index: 2;
+  }
+
+  .bd-dd-revokeOrder0{
+    background-color: #d8855a;
+    position: relative;
+    margin-right: auto;
+    margin-left: auto;
+    width: 100px;
+    height: 30px;
+    color: #fff;
+    z-index: 3;
+  }
+
+}
+
+.bd-dd-revoked{
+  top: 200px;
+  left: 300px;
+  width: 192px;
+  height: 160px;
+  background:url('bg-revoke-status.png');
+  z-index: 4;
+  position: absolute;
+
+}
+
+.td-dd-revokeOrder{
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+  line-height: 30px;
+  width: 1030px;
+  .js-dd-bgLine{
+    background-color: #cccccc;
+    position: relative;
+    height: 1px;
+    z-index: 1;
+    top: 16px;
+  }
+  .bd-dd-revokeOrder{
+    background-color: #d8855a;
+    position: relative;
+    margin-right: auto;
+    margin-left: auto;
+    width: 100px;
+    height: 30px;
+    color: #fff;
+    z-index: 2;
+  }
+  .bd-dd-revokeOrder0{
+    background-color: #d8855a;
+    position: relative;
+    margin-right: auto;
+    margin-left: auto;
+    width: 100px;
+    height: 30px;
+    color: #fff;
+    z-index: 3;
+  }
+
+}

@@ -1,0 +1,98 @@
+<div class="panel">
+  <form class="js-bc-form form-horizontal" action="javascript:void(0)">
+
+    <div class="form-group form-inline">
+      <label class="col-sm-2 control-label">彩种名称：</label>
+
+      <div class="col-sm-4">
+        <div class="js-bc-ticketName-container">
+          <label class="control-label js-bc-ticketName"></label>
+          <label class="control-label js-bc-ticketResultId" hidden></label>
+          <label class="control-label js-bc-ticketId" hidden></label>
+        </div>
+      </div>
+
+      <label class="col-sm-2 control-label">期号：</label>
+
+      <div class="col-sm-3">
+        <div class="js-bc-ticketName-container">
+          <label class="control-label js-bc-planId"></label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group form-inline">
+      <label class="col-sm-2 control-label">销售时间段：</label>
+
+      <div class="col-sm-4">
+        <div class="js-bc-ticketName-container">
+          <label class="control-label js-bc-saleTime"></label>
+        </div>
+      </div>
+
+      <label class="col-sm-2 control-label">官方开奖时间：</label>
+
+      <div class="col-sm-4">
+        <div class="js-bc-ticketName-container">
+          <label class="control-label js-bc-openTime"></label>
+          <label class="control-label js-bc-allOpenTime hidden"></label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group form-inline">
+      <label class="col-sm-2 control-label">开奖号码：</label>
+
+      <div class="col-sm-4">
+        <div class="js-bc-ticketName-container">
+          <label class="control-label js-bc-openNum"></label>
+        </div>
+      </div>
+
+      <label class="col-sm-2 control-label">异常情况：</label>
+
+      <div class="col-sm-4">
+        <div class="js-bc-ticketName-container">
+          <label class="control-label js-bc-openStatus"></label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group form-inline">
+      <label class="col-sm-2 control-label" >操作处理：</label>
+      <div class="form-group form-inline border-all padding-sm col-sm-9 col-sm-offset-1" >
+
+        <div class="col-sm-12 m-bottom-sm m-left-sm">
+          <div class="js-bc-exceptionDetail-container">
+            <label class="control-label m-bottom-sm js-bc-exceptionDetail"></label>
+          </div>
+        </div>
+
+        <div class="col-sm-12 m-bottom-sm">
+          <div class="js-bc-option-container">
+            <%if(Global.authority.bc && Global.authority.bc.lm && Global.authority.bc.lm.rightOpenTime){%>
+            <button class="btn btn-sm btn-default m-left-sm js-bc-rightOpenTime" >输入正确开奖时间</button>
+            <%}%>
+            <%if(Global.authority.bc && Global.authority.bc.lm && Global.authority.bc.lm.cancelCurPlan){%>
+            <button class="btn btn-sm btn-default m-left-sm js-bc-cancelCurPlanBet" >撤销本期订单</button>
+            <%}%>
+            <%if(Global.authority.bc && Global.authority.bc.lm && Global.authority.bc.lm.cancelChaseBet){%>
+            <button class="btn btn-sm btn-default m-left-sm js-bc-cancelChaseBet" >撤销后续追号</button>
+            <%}%>
+            <%if(Global.authority.bc && Global.authority.bc.lm && Global.authority.bc.lm.rightOpenNum){%>
+            <span class="js-bc-rightOpenNum-choose"></span>
+            <%}%>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group form-inline">
+      <label class="col-sm-2 control-label" >操作日志：</label>
+      <div class="form-group form-inline border-all padding-sm col-sm-9 col-sm-offset-1 bg-deep-grey" >
+        <table class="table js-bc-optionLog">
+        </table>
+      </div>
+    </div>
+  </form>
+</div>

@@ -5,6 +5,8 @@ require('./../misc/index.scss');
 var bannerConfig = require('../misc/bannerConfig');
 var ticketConfig = require('skeleton/misc/ticketConfig');
 
+var LotteryTypeListView = require('dashboard/views/lotteryTypeList');
+
 var DashboardView = Base.ItemView.extend({
 
   template: require('dashboard/templates/dashboard.html'),
@@ -17,9 +19,54 @@ var DashboardView = Base.ItemView.extend({
 
   events: {
     'click .js-db-ticket-bread-item': 'ticketBreadHandler',
-    'click .js-db-ticket-scroll': 'ticketScrollHandler'
+    'click .js-db-ticket-scroll': 'ticketScrollHandler',
     //'click .js-db-prev': 'prevPageHandler',
     //'click .js-db-next': 'nextPageHandler'
+    'click .js-lottery': 'lottertyEnterHandler'
+
+  },
+
+  lottertyEnterHandler: function() {
+
+    var self = this;
+
+    var $dialogRe = Global.ui.dialog.show({
+      id: _.now(),
+      title: '彩票游戏',
+      size: 'modal-lg',
+      body: '<div class="js-fc-quick-lottery" style="padding: 30px"></div>'
+    });
+
+    //var lotteryTypeListView = new LotteryTypeListView({parentView: self});
+    //
+    //lotteryTypeListView.onRender();
+
+    var lotteryList = "";
+    lotteryList += '<a href="#bc/1" target="_parent" " ><div class=" sfa-d-ssc-cq " style="width: 100px; height: 100px; float: left"></div></a>';
+    lotteryList += '<a href="#bc/3"><div class=" sfa-d-ssc-xj " style="width: 100px; height: 100px; float: left"></div></a>';
+    lotteryList += '<a href="#bc/8"><div class="  sfa-d-ssc-tj" style="width: 100px; height: 100px; float: left"></div></a>';
+    lotteryList += '<a href="#bc/9"><div class=" sfa-d-ssc-hlj " style="width: 100px; height: 100px; float: left"></div></a>';
+    lotteryList += '<a href="#"><div class=" sfa-d-korea-15 " style="width: 100px; height: 100px; float: left"></div></a>';
+
+    lotteryList += '<a href="#bc/10"><div class=" sfa-d-sp-ssc-ffc " style="width: 100px; height: 100px; float: left"></div></a>';
+    lotteryList += '<a href="#bc/13"><div class=" sfa-d-sp-ssc-sfc " style="width: 100px; height: 100px; float: left"></div></a>';
+    lotteryList += '<a href="#bc/12"><div class=" sfa-d-sp-ssc-wfc " style="width: 100px; height: 100px; float: left"></div></a>';
+    lotteryList += '<a href="#bc/16"><div class=" sfa-d-sp-3d-ffc " style="width: 100px; height: 100px; float: left"></div></a>';
+    lotteryList += '<a href="#bc/14"><div class="sfa-d-sp-num-ffc" style="width: 100px; height: 100px; float: left"></div></a>';
+
+    lotteryList += '<a href="#bc/5"><div class=" sfa-d-num-sd " style="width: 100px; height: 100px; float: left"></div></a>';
+    lotteryList += '<a href="#bc/4"><div class=" sfa-d-num-gd " style="width: 100px; height: 100px; float: left"></div></a>';
+    lotteryList += '<a href="#bc/11"><div class=" sfa-d-num-jx " style="width: 100px; height: 100px; float: left"></div></a>';
+    lotteryList += '<a href="#bc/6"><div class=" sfa-d-low-3d  " style="width: 100px; height: 100px; float: left"></div></a>';
+    lotteryList += '<a href="#bc/7"><div class=" sfa-d-low-p5p3 " style="width: 100px; height: 100px; float: left"></div></a>';
+    lotteryList += '<a href="#bc/19"><div class=" sfa-d-ne-ssc-smmc " style="width: 100px; height: 100px; float: left"></div></a>';
+    lotteryList += '<a href="#bc/20"><div class=" sfa-d-sp-num-ffc " style="width: 100px; height: 100px; float: left"></div></a>';
+    lotteryList += '<a href="#bc/18"><div class=" sfa-d-bj-px10 " style="width: 100px; height: 100px; float: left"></div></a>';
+
+
+    $dialogRe.find('.js-fc-quick-lottery').html(lotteryList);
+
+
   },
 
   serializeData: function() {
@@ -35,6 +82,14 @@ var DashboardView = Base.ItemView.extend({
       data: data
     });
   },
+
+  //获取排行榜
+  getRankListXhr: function() {
+    return Global.sync.ajax({
+      url: '/ticket/bethistory/prizehistory.json'
+    });
+  },
+
   getBannerADXhr: function() {
     return Global.sync.ajax({
       url: '/acct/usernotice/getdashboardadvertise.json'
@@ -72,6 +127,7 @@ var DashboardView = Base.ItemView.extend({
     this.renderDynamicList(data);
     this.renderMainBannerAD();
 
+    this.renderRankList();
   },
 
   renderMainBannerAD: function() {
@@ -102,6 +158,21 @@ var DashboardView = Base.ItemView.extend({
               //self.$nextPage.removeClass('disabled');
             }
           }
+        }
+      });
+  },
+
+  renderRankList: function() {
+    var self = this;
+    this.getRankListXhr()
+      .done(function(res) {
+        if (res.result === 0) {
+          var htmStr= "";
+          _(res.root).each(function(info) {
+            //alert()
+            htmStr += "恭喜"+info.userName+"在"+info.ticketName+"，喜中"+info.bonus/10000+"元<br>";
+          });
+          self.$('.js-rank-list').html(htmStr);
         }
       });
   },

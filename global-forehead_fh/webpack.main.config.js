@@ -70,27 +70,27 @@ module.exports = {
   },
   entries: {
     index: {
-      title: '亿贝在线娱乐',
+      title: '繁华世界在线娱乐',
       template: './entry/index.html',
       chunks: ['common.1', '2.vendor', '4.base', '1.main']
     },
     login: {
-      title: '亿贝在线娱乐',
+      title: '繁华世界在线娱乐',
       template: './entry/package.html',
       chunks: ['common.1', '2.vendor', '4.base', '1.login']
     },
     register: {
-      title: '亿贝在线娱乐',
+      title: '繁华世界在线娱乐',
       template: './entry/package.html',
       chunks: ['common.1', '2.vendor', '4.base', '1.register']
     },
     trend: {
-      title: '亿贝在线娱乐',
+      title: '繁华世界在线娱乐',
       template: './entry/package.html',
       chunks: ['common.1', '2.vendor', '4.base', '1.trend']
     },
     gengxin: {
-      title: '亿贝在线娱乐',
+      title: '繁华世界在线娱乐',
       template: './entry/package.html',
       chunks: ['common.1', '2.vendor', '4.base',  '1.gengxin']
     },
@@ -100,42 +100,42 @@ module.exports = {
       chunks: ['common.1', '2.vendor', '4.base', '1.charge']
     },
     client: {
-      title: '亿贝在线娱乐',
+      title: '繁华世界在线娱乐',
       template: './entry/package.html',
       chunks: ['common.1', '2.vendor', '4.base', '1.client','1.download']
     },
     download: {
-      title: '亿贝在线娱乐',
+      title: '繁华世界在线娱乐',
       template: './entry/package.html',
       chunks: ['common.1', '2.vendor', '4.base','1.download']
     },
     //super3000: {
-    //    title: '亿贝在线娱乐',
+    //    title: '繁华世界在线娱乐',
     //    template: './entry/package.html',
     //    chunks: ['common.1', '2.vendor', '4.base','1.super3000']
     //  },
     //vip: {
-    //  title: '亿贝在线娱乐',
+    //  title: '繁华世界在线娱乐',
     //  template: './entry/package.html',
     //  chunks: ['common.1', '2.vendor', '4.base','1.vip']
     //},
     //mmc: {
-    //  title: '亿贝在线娱乐',
+    //  title: '繁华世界在线娱乐',
     //  template: './entry/package.html',
     //  chunks: ['common.1', '2.vendor', '4.base','1.mmc']
     //},
     resetPassword: {
-      title: '亿贝在线娱乐',
+      title: '繁华世界在线娱乐',
       template: './entry/package.html',
       chunks: ['common.1', '2.vendor', '4.base', '1.resetPassword']
     },
     updateUserInfo: {
-      title: '亿贝在线娱乐',
+      title: '繁华世界在线娱乐',
       template: './entry/package.html',
       chunks: ['common.1', '2.vendor', '4.base', '1.updateUserInfo']
     },
     404: {
-      title: '亿贝在线娱乐',
+      title: '繁华世界在线娱乐',
       template: './entry/package.html',
       chunks: ['common.1', '4.base', '1.404']
     }
@@ -162,6 +162,7 @@ module.exports = {
       'newsCenter': 'apps/main/newsCenter',
       'dynamicCenter': 'apps/main/dynamicCenter',
       'helpCenter': 'apps/main/helpCenter',
+      'gameCenter': 'apps/main/gameCenter',
 
       'snap': 'Snap.svg/dist/snap.svg',
       'bootstrap': 'vendor/scripts/bootstrap',

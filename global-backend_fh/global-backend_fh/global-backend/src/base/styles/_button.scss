@@ -1,0 +1,214 @@
+.input-group-btn > .btn {
+  box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+}
+
+.btn {
+  transition: background-color .3s ease;
+  -webkit-transition: background-color .3s ease;
+  -moz-transition: background-color .3s ease;
+  -ms-transition: background-color .3s ease;
+  -o-transition: background-color 0.3s ease;
+  &.btn-transparent {
+    background: 0 0;
+    border: none;
+  }
+  &.btn-rounded {
+    border-radius: 50em;
+    -moz-border-radius: 50em;
+    -webkit-border-radius: 50em;
+    padding-left: 15px;
+    padding-right: 15px;
+    &.btn-icon-rounded {
+      padding-left: 12px;
+      padding-right: 12px;
+      &.btn-sm {
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+    }
+  }
+  &.application-btn {
+    padding: 5px 20px;
+    font-size: 40px;
+    border-radius: 6px;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    span {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+    }
+  }
+  &:focus, &:hover {
+    outline: 0;
+    transition: background-color .3s ease;
+    -webkit-transition: background-color .3s ease;
+    -moz-transition: background-color .3s ease;
+    -ms-transition: background-color .3s ease;
+    -o-transition: background-color 0.3s ease;
+  }
+  &.btn-primary {
+    background: #3278b3;
+    border: 1px solid #2c6b9f;
+    &.active, &:active, &:focus, &:hover {
+      background: #3f8ac9;
+      transition: all .3s ease;
+      -webkit-transition: all .3s ease;
+      -moz-transition: all .3s ease;
+      -ms-transition: all .3s ease;
+      -o-transition: all 0.3s ease;
+    }
+  }
+  &.btn-info {
+    background: #5aa3e8;
+    border: 1px solid #19a9d5;
+    &.active, &:active, &:focus, &:hover {
+      background: #43c1e9;
+      transition: all .3s ease;
+      -webkit-transition: all .3s ease;
+      -moz-transition: all .3s ease;
+      -ms-transition: all .3s ease;
+      -o-transition: all 0.3s ease;
+    }
+  }
+  &.btn-success {
+    background: #2baab1;
+    border: 1px solid #26969c;
+    &.active, &:active, &:focus, &:hover {
+      background: #32c5cd;
+      transition: all .3s ease;
+      -webkit-transition: all .3s ease;
+      -moz-transition: all .3s ease;
+      -ms-transition: all .3s ease;
+      -o-transition: all 0.3s ease;
+    }
+  }
+  &.btn-warning {
+    background: #edbc6c;
+    border: 1px solid #eab255;
+    &.active, &:active, &:focus, &:hover {
+      background: #f1ca8c;
+      transition: all .3s ease;
+      -webkit-transition: all .3s ease;
+      -moz-transition: all .3s ease;
+      -ms-transition: all .3s ease;
+      -o-transition: all 0.3s ease;
+    }
+  }
+  &.btn-danger {
+    background: #e36159;
+    border: 1px solid #df4c43;
+    &.active, &:active, &:focus, &:hover {
+      background: #e87e78;
+      transition: all .3s ease;
+      -webkit-transition: all .3s ease;
+      -moz-transition: all .3s ease;
+      -ms-transition: all .3s ease;
+      -o-transition: all 0.3s ease;
+    }
+  }
+  &.btn-purple {
+    background: #7266ba;
+    color: #fff;
+    border: 1px solid #6254b2;
+    &.active, &:active, &:focus, &:hover {
+      background: #897fc5;
+      transition: all .3s ease;
+      -webkit-transition: all .3s ease;
+      -moz-transition: all .3s ease;
+      -ms-transition: all .3s ease;
+      -o-transition: all 0.3s ease;
+    }
+  }
+  &.btn-wt-default-purple {
+    background: #fafafa;
+    color: #7266ba;
+    border: 1px solid #ddd;
+    &.active, &:active, &:focus, &:hover {
+      background: #f2f2f2;
+      transition: all .3s ease;
+      -webkit-transition: all .3s ease;
+      -moz-transition: all .3s ease;
+      -ms-transition: all .3s ease;
+      -o-transition: all 0.3s ease;
+    }
+  }
+  &.btn-wt-green {
+    background: #1bbb9e;
+    color: #fff;
+    border: 1px solid #05b499;
+    &.active, &:active, &:focus, &:hover {
+      background: #1fd0b2;
+      transition: all .3s ease;
+      -webkit-transition: all .3s ease;
+      -moz-transition: all .3s ease;
+      -ms-transition: all .3s ease;
+      -o-transition: all 0.3s ease;
+    }
+  }
+  &.btn-wt-default {
+    background: #fafafa;
+    color: #1bbb9e;
+    border: 1px solid #ddd;
+    &.active, &:active, &:focus, &:hover {
+      background: #f2f2f2;
+      transition: all .3s ease;
+      -webkit-transition: all .3s ease;
+      -moz-transition: all .3s ease;
+      -ms-transition: all .3s ease;
+      -o-transition: all 0.3s ease;
+    }
+  }
+  &.btn-wt-default-info {
+    background: #fff;
+    color: #5aa3e8;
+    border: 1px solid #ddd;
+    &.active, &:active, &:focus, &:hover {
+      background: #f2f2f2;
+      transition: all .3s ease;
+      -webkit-transition: all .3s ease;
+      -moz-transition: all .3s ease;
+      -ms-transition: all .3s ease;
+      -o-transition: all 0.3s ease;
+    }
+  }
+  &.btn-link-green {
+    color: #1bbb9e;
+    &.active, &:active, &:focus, &:hover {
+      color:#1fd0b2;
+      transition: all .2s ease;
+      -webkit-transition: all .2s ease;
+      -moz-transition: all .2s ease;
+      -ms-transition: all .2s ease;
+      -o-transition: all 0.2s ease;
+    }
+  }
+  &.btn-link-blue {
+    color: #5aa3e8;
+    padding: 5px;
+    &.active, &:active, &:focus, &:hover {
+      color:#4e81d6;
+      transition: all .2s ease;
+      -webkit-transition: all .2s ease;
+      -moz-transition: all .2s ease;
+      -ms-transition: all .2s ease;
+      -o-transition: all 0.2s ease;
+    }
+  }
+}
+
+.btn-group {
+  .active {
+    color: #fff;
+    background-color: #2baab1!important;
+    border-color: #2baab1!important;
+    cursor: not-allowed;
+  }
+}
+
+/*.btn[disabled], fieldset[disabled] .btn {
+  background-color: #bbb!important;
+  border: 1px solid #bbb!important;
+}*/
