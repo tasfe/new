@@ -17,7 +17,7 @@ var TrackRecordsView = TabView.extend({
           name: 'constant',
           id: 'jsUCConstantTab',
           view: '',
-          template: '<div class="js-uc-constContainer"><div class="js-uc-constNotice"></div><div class="js-uc-constGrid portlet-filter uc-prize"></div></div>'
+          template: '<a href="#ac/oam" class="julien-black" >返回</a><div class="js-uc-constContainer"><div class="js-uc-constNotice"></div><div class="js-uc-constGrid portlet-filter uc-prize"></div></div>'
         },
         {
           label: '11选5',

@@ -751,8 +751,16 @@
     }
 
     .julien-left{
-      width: 380px;
+      width: 410px;
       float: left;
+
+      i{
+        left: 300px;
+      }
+
+      .messageBox{
+        left: 315px;
+      }
 
       .manualRebate{
         position: relative;
@@ -765,9 +773,9 @@
           margin: 0px;
           padding: 0px;
           position: absolute;
-          top: 0px;
-          right: -90px;
-          width: 100px;
+          top: 30px;
+          width: 300px;
+          z-index: 3;
         }
 
         li{
@@ -783,11 +791,31 @@
           display: inline-block;
           box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
           border-radius: 5px;
+          cursor: pointer;
+
+          &:hover{
+            background-color:#cc0000;
+            color: #fff;
+            border-color: #cc0000;
+          }
         }
       }
 
       dl{
         margin-bottom: 20px;
+        width: 100%;
+
+        h3{
+          margin: 0px;
+          padding: 0px;
+          position: absolute;
+          top: 30px;
+          font-size: 14px;
+          font-weight: initial;
+          line-height: 14px;
+          color: #cc9966;
+          left: 40px;
+        }
       }
       dt{
         width: 93px;
