@@ -2,26 +2,48 @@
   <div class="js-ac-quota-container tips hidden">
     馨提示：您目前拥有<span class="js-ac-open-limit"></span>
   </div>
-  <div class="julien-left">
+  <div class="js-julien-left julien-left julien-verify">
     <dl class="manualRebate">
       <dt>选择等级：</dt>
       <dd>
-        <input class="js-ac-manual-rebate" placeholder="请选择或手动输入返点" data-parsley-range="[0.0,13.0]" type="text">
-        <ul>
+        <input class="js-ac-manual-rebate" placeholder="请选择或手动输入返点" type="text">
+        <ul class="hidden">
         </ul>
       </dd>
     </dl>
     <dl>
       <dt>用户名：</dt>
-      <dd><input type="text" class="js-ac-userName" name="userName" /></dd>
+      <dd>
+        <input type="text" class="js-ac-userName" name="userName" />
+        <i></i>
+        <div class="messageBox">
+          <b></b>
+          <span></span>
+        </div>
+      </dd>
+      <h3 class="hidden">4-16个字符，支持中英文和数字，不能以数字开头</h3>
     </dl>
     <dl>
       <dt>密码：</dt>
-      <dd><input type="password" id='jsACPassword' class="js-ac-password"></dd>
+      <dd>
+        <input type="password" id='jsACPassword' class="js-ac-password">
+        <i></i>
+        <div class="messageBox">
+          <b></b>
+          <span></span>
+        </div>
+      </dd>
     </dl>
     <dl>
       <dt>确认密码：</dt>
-      <dd><input type="password" class="js-ac-repeatPassword"></dd>
+      <dd>
+        <input type="password" class="js-ac-repeatPassword">
+        <i></i>
+        <div class="messageBox">
+          <b></b>
+          <span></span>
+        </div>
+      </dd>
     </dl>
     <hr>
     <div>

@@ -8,7 +8,7 @@ var OpenAccountManageView = Base.ItemView.extend({
     'click .js-ac-add-link': 'addLinkHandler',
     'click .js-ac-auto-btn-edit': 'editAutoHandler',
     //'blur .js-ac-auto-link-save': 'saveAutoHandler',
-    'blur .js-ac-auto-rebate': 'inputRebateHandler',
+    //'blur .js-ac-auto-rebate': 'inputRebateHandler',
     'click .js-ac-ticket-link': 'ticketPriceViewHandler',
     'click .js-ac-oam-au-save': 'saveAutoHandler',
     'click .js-ac-btn-delLink': 'deleteLinkHandler'
@@ -42,54 +42,54 @@ var OpenAccountManageView = Base.ItemView.extend({
     this.getSubAcctLinkXhr().always(function(){
       self.loadingFinish();
     })
-      .done(function(res) {
-        var data = res.root;
-        
-        if (res && res.result === 0) {
-          var rows =_(data.linkList).map(function (linkInfo) {
-            var rank = '/';
-            if(linkInfo.subAcctRebate != 0){ rank = linkInfo.subAcctRebate; }
-            return{
-              userLinkId: linkInfo.userLinkUrl,
-              regUserNum: linkInfo.regUserNum,
-              userLinkDes: linkInfo.userLinkDes || '',
-              createTime: _(linkInfo.createTime).formatTime('YYYY-MM-DD HH:mm:ss'),
-              rank: rank,
-              accessNum: linkInfo.accessNum / 10,
-              row:  _(linkInfo.ticketSeriesList).map(function (ticketSeries) {
-                return {
-                  sericeName: ticketSeries.sericeName,
-                  maxBonus:_(ticketSeries.maxBonus).formatDiv(10000),
-                  subAcctRebate: linkInfo.subAcctRebate || 0,
-                  minRebate: linkInfo.minRebate,
-                  maxRebate: linkInfo.maxRebateBeUse,
-                  userLinkDes: linkInfo.userLinkDes || ''
-                }
-              }),
-              linkId: linkInfo.userLinkId
-            }
+    .done(function(res) {
+      var data = res.root;
+      
+      if (res && res.result === 0) {
+        var rows =_(data.linkList).map(function (linkInfo) {
+          var rank = '/';
+          if(linkInfo.subAcctRebate != 0){ rank = linkInfo.subAcctRebate; }
+          return{
+            userLinkId: linkInfo.userLinkUrl,
+            regUserNum: linkInfo.regUserNum,
+            userLinkDes: linkInfo.userLinkDes || '',
+            createTime: _(linkInfo.createTime).formatTime('YYYY-MM-DD HH:mm:ss'),
+            rank: rank,
+            accessNum: linkInfo.accessNum / 10,
+            row:  _(linkInfo.ticketSeriesList).map(function (ticketSeries) {
+              return {
+                sericeName: ticketSeries.sericeName,
+                maxBonus:_(ticketSeries.maxBonus).formatDiv(10000),
+                subAcctRebate: linkInfo.subAcctRebate || 0,
+                minRebate: linkInfo.minRebate,
+                maxRebate: linkInfo.maxRebateBeUse,
+                userLinkDes: linkInfo.userLinkDes || ''
+              }
+            }),
+            linkId: linkInfo.userLinkId
+          }
+        });
+        self.renderLinkTable(rows);
+        self.catchLinkData=rows;
+        //self._parentView.renderLimit(self.$limit, res.root.quotaList);
+
+
+        $('.js-ac-btn-link-copy').on('click',function () {
+          var $dialog = Global.ui.dialog.show({
+            title: '复制成功',
+            size: 'model-copy-julien',
+            body: '<div>恭喜复制成功！</div>',
+            bodyClass: ''
           });
-          self.renderLinkTable(rows);
-          self.catchLinkData=rows;
-          //self._parentView.renderLimit(self.$limit, res.root.quotaList);
 
-
-          $('.js-ac-btn-link-copy').on('click',function () {
-            var $dialog = Global.ui.dialog.show({
-              title: '复制成功',
-              size: 'model-copy-julien',
-              body: '<div>恭喜复制成功！</div>',
-              bodyClass: ''
-            });
-
-            var url = $(this).data('url');
-            $(this).textCopy({
-              text: url,
-              notShowToolTip: true
-            });
-          })
-        }
-      });
+          var url = $(this).data('url');
+          $(this).textCopy({
+            text: url,
+            notShowToolTip: true
+          });
+        })
+      }
+    });
   },
 
   renderLinkTable: function(rows) {
@@ -343,6 +343,32 @@ var OpenAccountManageView = Base.ItemView.extend({
       Global.ui.notification.show('请输入有效的返点值。');
     }
   },
+  bindTable: function() {
+
+    var self = this;
+    var $target = $('.js-ac-manual-rebate');
+    var range = eval($target.data('parsley-range'));
+    var rebate = Number($target.val());
+
+    
+    if(rebate!==''&& _(rebate).isFinite() && range.length==2){
+      if(rebate<range[0]){
+        $target.val(range[0]);
+      }else if(rebate>range[1]){
+        $target.val(range[1]);
+      }
+    }else{
+      $target.val(range[0]);
+    }
+    rebate = Number($target.val());
+    var $maxBonus = $('.js-ac-openAccount-maxBonus');
+    _($maxBonus).each(function(item,index){
+      var $item = $(item);
+      var maxBonus = $item.data('maxbonus');
+      var ticketName = $item.data('name');
+      $item.html(self.calculateMaxBonus(ticketName,rebate,maxBonus));
+    });
+  },
   inputRebateHandler: function(e){
     var self = this;
     var $target = $(e.currentTarget);
@@ -361,6 +387,7 @@ var OpenAccountManageView = Base.ItemView.extend({
 
     rebate = Number($target.val());
     var $maxBonus = $target.parent().parent().parent().find('.js-ac-openAccount-maxBonus');
+
     _($maxBonus).each(function(item,index){
       var $item = $(item);
       var maxBonus = $item.data('maxbonus');
