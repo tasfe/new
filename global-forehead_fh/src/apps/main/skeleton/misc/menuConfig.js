@@ -270,7 +270,7 @@ var menuConfig = [
       },
       {
         id: 207,
-        router: 'as/tfa',
+        router: 'fc/pf',
         name: '转账'
       }
     ]

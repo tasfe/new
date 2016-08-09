@@ -715,10 +715,23 @@
 }
 
 .ac-openAccount-view{
+  .linkAddress{
+    width:170px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin-left: 15px;
+  }
   .ac-openAccount-rebate-notice{
     font-size: 14px;
     font-family: '微软雅黑';
     color: #666666;
+    a{
+      font-size: 14px;
+      color: #666666;
+      text-decoration: underline;
+      padding: 0px 10px;
+    }
 
     dl,dt,dd{
       padding: 0px;
@@ -742,9 +755,34 @@
       float: left;
 
       .manualRebate{
+        position: relative;
+
         input{
           background: url(~base/images/julien/22.png) no-repeat 180px 12px #f7f7f7;
           font-size: 14px;
+        }
+        ul{
+          margin: 0px;
+          padding: 0px;
+          position: absolute;
+          top: 0px;
+          right: -90px;
+          width: 100px;
+        }
+
+        li{
+          background-color: #fff;
+          list-style: none;
+          border: 1px solid #cccccc;
+          line-height: 25px;
+          height: 25px;
+          color: #666666;
+          width: 40px;
+          text-align: center;
+          margin: 0px 5px 5px 0px;
+          display: inline-block;
+          box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+          border-radius: 5px;
         }
       }
 

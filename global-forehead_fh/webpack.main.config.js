@@ -162,6 +162,7 @@ module.exports = {
       'newsCenter': 'apps/main/newsCenter',
       'dynamicCenter': 'apps/main/dynamicCenter',
       'helpCenter': 'apps/main/helpCenter',
+      'gameCenter': 'apps/main/gameCenter',
 
       'snap': 'Snap.svg/dist/snap.svg',
       'bootstrap': 'vendor/scripts/bootstrap',

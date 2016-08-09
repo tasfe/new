@@ -194,7 +194,6 @@ var LowLevelManageView = SearchGrid.extend({
   _formatOperation: function(rowInfo) {
     var html = [];
     var cell = [];
-
     
     if (rowInfo.direct && !this.isSub()) {
       cell.push('<a href="javascript:void(0);"  class="js-ac-llm-quota btn btn-link ">配额</a>');

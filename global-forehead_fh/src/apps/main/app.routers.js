@@ -10,6 +10,7 @@ var bettingCenterRouter = require('bettingCenter/router');
 var newsCenterRouter = require('newsCenter/router');
 var dynamicCenterRouter = require('dynamicCenter/router');
 var helpCenterRouter = require('helpCenter/router');
+var gameCenterRouter = require('gameCenter/router');
 
 exports.install = function() {
   dashboardRouter.install();
@@ -22,4 +23,5 @@ exports.install = function() {
   newsCenterRouter.install();
   dynamicCenterRouter.install();
   helpCenterRouter.install();
+  gameCenterRouter.install();
 };
