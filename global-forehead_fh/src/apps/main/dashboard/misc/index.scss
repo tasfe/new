@@ -512,3 +512,150 @@ $float-height: 38px;
     }
   }
 }
+
+.main-active-container1{
+  width: 100%;
+  .active-container-header{
+    width: 100%;
+    height: 50px;
+    ul{
+      height: 40px;
+      border-bottom: 2px solid #a60000;
+      padding-bottom: 1px;
+      font-size: 16px;
+    }
+    li{
+      border-left: 1px solid #cccccc;
+      border-right: 1px solid #cccccc;
+      border-top: 1px solid #cccccc;
+      width: 130px;
+      list-style: none;
+      margin-bottom: 2px;
+      height: 40px;
+      line-height: 40px;
+      background-color: #fff;
+      text-align: center;
+      float: left;
+      margin-right: 9px;
+      color: #000;
+    }
+    .list-active{
+      color: #fff;
+      background: url(~base/images/julien/btn-bg01.jpg) no-repeat;
+    }
+
+  }
+  .active-context{
+    margin-top: -10px;
+    padding-top: 30px;
+    background-color: white;
+    width: 100%;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    padding-bottom: 30px;
+    height: 250px;
+
+    .active-container-line{
+      background-color: #cccccc;
+      position: absolute;
+      width: 1px;
+      height: 590px;
+      left: 265px;
+      margin: 5px 0px;
+      z-index: 0;
+    }
+    .active-list{
+      width: 100%;
+      padding-bottom: 20px;
+      display: inline-flex;
+      position: relative;
+      .active-left-title{
+        text-align: right;
+        line-height: 30px;
+        font-size: 14px;
+        color: #333333;
+        width: 120px;
+        padding-left: 10px;
+      }
+      .active-badge-comming{
+        background-color: #fd9900;
+        float: right;
+        width: 80px;
+        height: 30px;
+        line-height: 30px;
+        font-weight: bolder;
+        font-size: 15px;
+        color: white;
+        text-align: center;
+
+      }
+      .active-badge-running{
+        background-color: #ce0201;
+        float: right;
+        width: 80px;
+        height: 30px;
+        line-height: 30px;
+        font-weight: bolder;
+        font-size: 15px;
+        color: white;
+        text-align: center;
+
+      }
+      .active-badge-over{
+        background-color: #cccccc;
+        float: right;
+        width: 80px;
+        height: 30px;
+        line-height: 30px;
+        font-weight: bolder;
+        font-size: 15px;
+        color: white;
+        text-align: center;
+
+      }
+      .active-round-dot{
+        margin: 20px 30px 0px 30px;
+        width: 10px;
+        height: 10px;
+        border-radius: 35px;
+        background-color: #ce0000;
+        color: white;
+        text-align: center;
+        line-height: 30px;
+        z-index: 2;
+      }
+      .active-round-line{
+        position: absolute;
+        height: 100%;
+        width: 2px;
+        border-left: 2px solid rgb(204, 204, 204);
+        left: 164px;
+      }
+      .active-right-content{
+        border: 1px solid lightgrey;
+        width: 965px;
+        height: 200px;
+        overflow: hidden;
+        .active-right-image{
+          width: 100%;
+        }
+        .active-right-time{
+          border-top: 1px solid lightgrey;
+          line-height: 30px;
+          height: 30px;
+          width: 100%;
+        }
+      }
+    }
+
+  }
+
+}
+
+.ssc-style-select {
+  width: 100px; 
+  height: 100px; 
+  float: left;
+  margin-left: 35px;
+  
+}
