@@ -588,7 +588,6 @@
     color: #666666;
   }
 
-
   .color-dark{
     color: #666666;
   }
@@ -718,13 +717,14 @@
 }
 
 .bd-dd-revoked{
-  top: 200px;
-  left: 300px;
-  width: 192px;
-  height: 160px;
+
   background:url('bg-revoke-status.png');
-  z-index: 4;
   position: absolute;
+  height: 160px;
+  width: 192px;
+  left: 300px;
+  z-index: 4;
+  top: 200px;
 
 }
 

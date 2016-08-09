@@ -11,6 +11,7 @@ var TrackRecordsView = SearchGrid.extend({
   template: require('./index.html'),
 
   events: {
+
   },
 
   initialize: function () {
@@ -169,7 +170,6 @@ var TrackRecordsView = SearchGrid.extend({
       case 3:
         rowInfo.formatChaseStatus = '已中止';
         break;
-
     }
 
     row.push(rowInfo.formatChaseStatus);
