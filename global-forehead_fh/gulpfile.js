@@ -149,7 +149,6 @@ gulp.task("webpack", function(callback) {
     gutil.log("[webpack]", stats.toString({
       // output options
     }));
-
     gulp.pipe(stats.toJson())
       .dest('./stats.json');
 
