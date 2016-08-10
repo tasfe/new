@@ -180,6 +180,17 @@ var sscConfig = {
       desc: '08:50－22:40 共84期',
       //board: true,
       defaultSelectPlay: defaultSelectSSC
+    },
+    {
+      id: 21,
+      mark: 'hg',
+      zhName: "韩国1.5分彩",
+      quickShowName: "韩国<br/>1.5分彩",
+      optional: true,
+      isSuper: true,
+      desc: '',
+      //board: true,
+      defaultSelectPlay: defaultSelectSSC
     }
   ]
 };
@@ -257,9 +268,27 @@ var lowConfig = {
   list: threeDConfig.concat(p5p3Config)
 };
 
+var happyConfig = {
+  id: 'happy',
+  title: '快乐彩',
+  icon: 'happy',
+  titleIcon: 'entry-happy',
+  list: [
+    {
+      id: 18,
+      mark: 'pk10',
+      zhName: "北京PK拾",
+      quickShowName: "北京<br/>PK拾",
+      defaultSelectPlay: defaultSelectDPC,
+      hasMargin: true,
+      badge: 'new'
+    }
+  ]
+};
+
 var allConfig = specialConfig.list.concat(newestConfig.list, sscConfig.list, oneFiveConfig.list, threeDConfig.list,threeDConfig, p5p3Config);
 
-var completeAllConfig = [newestConfig, specialConfig, sscConfig, oneFiveConfig, lowConfig];
+var completeAllConfig = [newestConfig, specialConfig, sscConfig, oneFiveConfig, lowConfig,happyConfig];
 
 module.exports = {
   getSccList: function() {

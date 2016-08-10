@@ -158,7 +158,26 @@ var BettingChoiceModel = Model.extend({
       }).join(',');
     }
 
+    if (options.formatToNum) {
+      number = this._formatToNum(number);
+    }
+
     return number;
+  },
+
+  _formatToNum: function(betNum) {
+    var newNum = betNum;
+    while(newNum.indexOf('大') != -1 || newNum.indexOf('小')!=-1 || newNum.indexOf('单')!=-1 || newNum.indexOf('双')!=-1
+    || newNum.indexOf('龙')!=-1 || newNum.indexOf('虎')!=-1 || newNum.indexOf('和')!=-1) {
+      newNum = newNum.replace('大', 1);
+      newNum = newNum.replace('小', 2);
+      newNum = newNum.replace('单', 3);
+      newNum = newNum.replace('双', 4);
+      newNum = newNum.replace('龙', 0);
+      newNum = newNum.replace('虎', 1);
+      newNum = newNum.replace('和', 2);
+    };
+    return newNum;
   },
 
   _addBets: function(bettingList, options) {
@@ -202,7 +221,8 @@ var BettingChoiceModel = Model.extend({
         playId: selectInfo.playId,
         playName: selectInfo.playName,
         bettingNumber: this.formatBettingNumber(bettingInfo.lotteryList, {
-          selectOptionals: bettingInfo.selectOptionals
+          selectOptionals: bettingInfo.selectOptionals,
+          formatToNum: bettingInfo.formatToNum
         }),
         //显示用
         formatBettingNumber: this.formatBettingNumber(bettingInfo.lotteryList, {
