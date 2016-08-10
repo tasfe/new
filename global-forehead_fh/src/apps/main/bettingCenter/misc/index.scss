@@ -1104,3 +1104,23 @@ $main-area-width: 870px;
     margin-bottom: 5px;
   }
 }
+
+
+
+.betting-button-clear {
+    background-image:  url(~base/images/fh/nav/bet-clear-num.png);
+    width: 140px;
+    height: 40px;
+}
+
+.betting-button-remove {
+  background-image:  url(~base/images/fh/nav/bet-remove-num.png);
+  width: 140px;
+  height: 40px;
+}
+
+.betting-button-importer {
+  background-image:  url(~base/images/fh/nav/bet-importer.png);
+  width: 140px;
+  height: 40px;
+}
