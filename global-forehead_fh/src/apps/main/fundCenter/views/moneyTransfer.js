@@ -80,11 +80,13 @@ var MoneyTransferView = Base.ItemView.extend({
     }
   },
   renderBasicInfo: function(data) {
+    
     if(data.pStatus === 1 && data.sStatus === 1) {
       this.$('.js-fc-transfer-form').removeClass('hidden');
       this.$('.js-fc-transfer-form').html('<div class="text-center m-top-lg">非常抱歉，平台转账功能目前已经关闭，如有疑问请联系在线客服。</div>');
       return false;
     }
+
     if (!data.hasMoneyPwd) {
       this.$el.securityTip({
         content: '请补充完您的安全信息后再提现',
@@ -97,6 +99,7 @@ var MoneyTransferView = Base.ItemView.extend({
 
     this.$('.js-fc-transfer-form').removeClass('hidden');
     this.$('.js-fc-avail-money').html(_(data.balance).convert2yuan());
+    this.$('.js-fc-question').html(data.question);
     var valMin = _(data.minMoney).convert2yuan();
     var valMax = _(data.maxMoney).convert2yuan();
     var valTradeNum = data.tradeNum;
