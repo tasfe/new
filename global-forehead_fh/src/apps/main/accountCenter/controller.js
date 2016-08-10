@@ -8,8 +8,20 @@ var PasswordManageView = require('accountCenter/views/passwordManage');
 var SecurityQuestionView = require('accountCenter/views/securityQuestion');
 var LoginLogView = require('accountCenter/views/loginLog');
 var settingEmailView = require('accountCenter/views/settingEmail');
+var MoneyTransferView = require('fundCenter/views/moneyTransfer');
 
 var AccountCenterController = RouterController.extend({
+
+  moneyTransfer: function() {
+    this.changeMainReginView(new MoneyTransferView(), {
+      sidebar: Global.ui.menu.get(['pc'])
+    });
+
+    var PublicView = require('userCenter/views/publicView');
+    var publicView = new PublicView();
+    publicView.checkState();
+  },
+
 
   settingEmail: function() {
     this.changeMainReginView(new settingEmailView(), {

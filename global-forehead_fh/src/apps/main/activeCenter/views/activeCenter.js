@@ -9,7 +9,7 @@ var ActiveCenterView = Base.ItemView.extend({
   events: {
     'click .js-list-active': 'activeChangeHandler'
   },
-  
+
   activeChangeHandler:function (e) {
 
     this.$('.list-active').removeClass('list-active');
@@ -20,7 +20,7 @@ var ActiveCenterView = Base.ItemView.extend({
     //alert(currentIndex);
 
   },
-  
+
   onRender: function() {
 
     this.$activeContext = this.$('.js-active-context');
@@ -130,7 +130,7 @@ var ActiveCenterView = Base.ItemView.extend({
 
     }
   },
-  
+
   getEmptyHtml: function(emptyTip) {
     var html = [];
     if (emptyTip) {

@@ -8,7 +8,7 @@ var OpenAccountManageView = Base.ItemView.extend({
     'click .js-ac-add-link': 'addLinkHandler',
     'click .js-ac-auto-btn-edit': 'editAutoHandler',
     //'blur .js-ac-auto-link-save': 'saveAutoHandler',
-    'blur .js-ac-auto-rebate': 'inputRebateHandler',
+    //'blur .js-ac-auto-rebate': 'inputRebateHandler',
     'click .js-ac-ticket-link': 'ticketPriceViewHandler',
     'click .js-ac-oam-au-save': 'saveAutoHandler',
     'click .js-ac-btn-delLink': 'deleteLinkHandler'
@@ -39,51 +39,75 @@ var OpenAccountManageView = Base.ItemView.extend({
     this.$autoContainer = this.$('.js-ac-auto-container');
     this.$grid = this.$('.js-ac-auto-container');
 
-    this.subAcctLinkXhr = this.getSubAcctLinkXhr();
-
-    this.subAcctLinkXhr.always(function(){
+    this.getSubAcctLinkXhr().always(function(){
       self.loadingFinish();
     })
-      .done(function(res) {
-        var data = res.root;
-        if (res && res.result === 0) {
-          var rows =_(data.linkList).map(function (linkInfo) {
-            return{
-              userLinkId: linkInfo.userLinkUrl,
-              regUserNum: linkInfo.regUserNum,
-              userLinkDes: linkInfo.userLinkDes || '',
-              row:  _(linkInfo.ticketSeriesList).map(function (ticketSeries) {
-                return {
-                  sericeName: ticketSeries.sericeName,
-                  maxBonus:_(ticketSeries.maxBonus).formatDiv(10000),
-                  subAcctRebate: linkInfo.subAcctRebate || 0,
-                  minRebate: linkInfo.minRebate,
-                  maxRebate: linkInfo.maxRebateBeUse,
-                  userLinkDes: linkInfo.userLinkDes || ''
-                }
-              }),
-              linkId: linkInfo.userLinkId
-            }
+    .done(function(res) {
+      var data = res.root;
+      
+      if (res && res.result === 0) {
+        var rows =_(data.linkList).map(function (linkInfo) {
+          var rank = '/';
+          if(linkInfo.subAcctRebate != 0){ rank = linkInfo.subAcctRebate; }
+          return{
+            userLinkId: linkInfo.userLinkUrl,
+            regUserNum: linkInfo.regUserNum,
+            userLinkDes: linkInfo.userLinkDes || '',
+            createTime: _(linkInfo.createTime).formatTime('YYYY-MM-DD HH:mm:ss'),
+            rank: rank,
+            accessNum: linkInfo.accessNum / 10,
+            row:  _(linkInfo.ticketSeriesList).map(function (ticketSeries) {
+              return {
+                sericeName: ticketSeries.sericeName,
+                maxBonus:_(ticketSeries.maxBonus).formatDiv(10000),
+                subAcctRebate: linkInfo.subAcctRebate || 0,
+                minRebate: linkInfo.minRebate,
+                maxRebate: linkInfo.maxRebateBeUse,
+                userLinkDes: linkInfo.userLinkDes || ''
+              }
+            }),
+            linkId: linkInfo.userLinkId
+          }
+        });
+        self.renderLinkTable(rows);
+        self.catchLinkData=rows;
+        //self._parentView.renderLimit(self.$limit, res.root.quotaList);
+
+
+        $('.js-ac-btn-link-copy').on('click',function () {
+          var $dialog = Global.ui.dialog.show({
+            title: '复制成功',
+            size: 'model-copy-julien',
+            body: '<div>恭喜复制成功！</div>',
+            bodyClass: ''
           });
-          self.renderLinkTable(rows);
-          self.catchLinkData=rows;
-          self._parentView.renderLimit(self.$limit, res.root.quotaList);
-        }
-      });
+
+          var url = $(this).data('url');
+          $(this).textCopy({
+            text: url,
+            notShowToolTip: true
+          });
+        })
+      }
+    });
   },
 
   renderLinkTable: function(rows) {
     this.grid = this.$grid.staticGrid({
       tableClass: 'table table-bordered table-no-lr table-hover table-center',
       colModel: [
-        {label: '连接', name: 'userLinkId', formatter: function(userLinkId, index) {
+        {label: '链接地址', name: 'userLinkId', formatter: function(userLinkId, index) {
           var link = _('/register.html?linkId=' + userLinkId).toLink();
-          return  '<div style="width:180px;overflow: hidden;white-space: nowrap; text-overflow: ellipsis;"><a class=" btn btn-link ac-oam-au-link"  href="'+link+'" target="_blank">'+link+'</a></div>';
+          return  '<div class="linkAddress">'+link+'</div>';
         },width: 200},
-        {label: '备注', name: 'userLinkDes',width: 200},
-        {label: '已注册', name: 'regUserNum',width: 100},
-        {label: '操作', name: 'count',formatter:function(userLinkId, index) {
-          return  '<button class="js-ac-btn-link-copy btn btn-link ">复制</button><button class="js-ac-auto-btn-edit btn btn-link ">编辑</button><button class="js-ac-btn-delLink btn btn-link " >删除</button>';
+        {label: '链接生成时间', name: 'createTime',width: 100},
+        {label: '反点等级', name: 'rank',width: 100},
+        {label: '点击人数', name: 'accessNum',width: 100},
+        {label: '已注册人数', name: 'regUserNum',width: 100},
+        {label: '备注用途', name: 'userLinkDes',width: 100},
+        {label: '操作', name: 'userLinkId',formatter:function(userLinkId, index) {
+          var link = _('/register.html?linkId=' + userLinkId).toLink();
+          return  '<a href="'+link+'" target="_blank" >预览</a><a href="javascript:void(0);" class="js-ac-btn-link-copy" data-url="'+link+'">复制</a><a href="javascript:void(0);" class="js-ac-auto-btn-edit">编辑</a><a href="javascript:void(0);" class="js-ac-btn-delLink" >删除</a>';
         },width: 200}
       ],
       height: 354,
@@ -106,7 +130,8 @@ var OpenAccountManageView = Base.ItemView.extend({
     var $tr = $target.closest('tr');
     var linkId = $tr.data('linkId');
     $(document).confirm({
-      content: '<div class="text-center">确认删除此链接？</div>',
+      content: '<div class="text-center">请问您是否需要删除该开户链接？</div>',
+      size: 'model-delete-julien',
       agreeCallback: function () {
         self.deleteLink(linkId);
       }
@@ -130,33 +155,35 @@ var OpenAccountManageView = Base.ItemView.extend({
     $target.button('loading');
 
     $.when(this._parentView.subSubAcctXhr)//, this.createSubAcctXhr()
-        .always(function() {
-          $target.button('reset');
-        })
-        .done(function(infoResList) {
-          var infoRes = infoResList;
-          var data = infoRes.root && infoRes.root.seriesList || {
-                subRebateRange: {},
-                ticketSeriesList: []
-              };
+      .always(function() {
+        $target.button('reset');
+      })
+      .done(function(infoResList) {
+        var infoRes = infoResList;
+        var data = infoRes.root && infoRes.root.seriesList || {
+          subRebateRange: {},
+          ticketSeriesList: []
+        };
 
-          if (infoRes.result === 0)  {
-            self.showRebateEditDialog({
-              userLinkId: '',
-              regUserNum: 0,
-              row: _(data.ticketSeriesList).map(function(ticketSeries) {
-                return {
-                  sericeName: ticketSeries.sericeName,
-                  maxBonus: _(ticketSeries.maxBonus).convert2yuan(),
-                  subAcctRebate: 0,
-                  maxRebate: data.subRebateRange.rebateMax,
-                  minRebate: 0,
-                  userLinkDes: ''
-                };
-              })
-            });
-          }
-        });
+
+        if (infoRes.result === 0)  {
+          self.showRebateEditDialog({
+            userLinkId: '',
+            regUserNum: 0,
+            quotaList: infoResList.root.quotaList,
+            row: _(data.ticketSeriesList).map(function(ticketSeries) {
+              return {
+                sericeName: ticketSeries.sericeName,
+                maxBonus: _(ticketSeries.maxBonus).convert2yuan(),
+                subAcctRebate: 0,
+                maxRebate: data.subRebateRange.rebateMax,
+                minRebate: 0,
+                userLinkDes: ''
+              };
+            })
+          },'创建链接');
+        }
+      });
   },
 
   editAutoHandler: function(e) {
@@ -166,7 +193,7 @@ var OpenAccountManageView = Base.ItemView.extend({
     var row = _(this.catchLinkData).find(function(item){
       return item.userLinkId == linkId;
     });
-    this.showRebateEditDialog(row);
+    this.showRebateEditDialog(row,'修改链接');
     //var $editContainer = $target.closest('.js-ac-link-bar').find('.js-ac-link-edit-container');
     //$editContainer.toggleClass('hidden');
   },
@@ -175,23 +202,33 @@ var OpenAccountManageView = Base.ItemView.extend({
    * 编辑按钮
    * @param row
      */
-  showRebateEditDialog: function(row) {
+  showRebateEditDialog: function(row,btnName) {
+
+    var strTips = '';
+    if (row.quotaList != null) {
+      strTips = '<p>温馨提示：</p><div class="tips">您目前拥有';
+      _.each(row.quotaList, function (quota) {
+        strTips += quota.quotaLevel + '配额 ' + quota.quotaLimit + '个，'
+      });
+      strTips += '此后奖金组配额无限制，有配额限制请使用手动开户。</div>';
+    }
+
     var self = this;
     var rebateData =  row.row;
     var $dialog = Global.ui.dialog.show({
-      title: '编辑连接',
-      size: 'modal-md',
-      body: '<form class="js-ac-oam-au-form" ><div class="text-left  m-left-sm m-top-md m-bottom-md">' +
-      '<label class="inline-block">备注：</label><input type="text" class="js-ac-auto-remark input-md" data-parsley-zhmaxlength="10" data-parsley-noSpecialChar value="'+row.row[0].userLinkDes+'" ></div>' +
-      '<div class="js-ac-link-edit-div m-left-sm m-bottom-lg "></div>' +
-      '<div class="text-right"><button type="button" class="js-ac-oam-au-save btn btn-sun ac-oam-au-save ">生成链接</button></div></form>',
-      bodyClass: 'p-top-xs p-left-md p-right-md text-center'
+      title: '链接开户设置',
+      size: 'modal-lg-julien',
+      body: strTips +
+      '<form class="js-ac-oam-au-form" >' +
+      '<div class="js-ac-link-edit-div play-table"></div>' +
+      '<div class="btn-center"><button type="button" class="js-ac-oam-au-save">' + btnName + '</button></div></form>',
+      bodyClass: ''
     });
 
     $dialog.find('.js-ac-link-edit-div').staticGrid({
       tableClass: 'table table-bordered table-center',
       colModel: [
-        {label: '彩种系列', name: 'sericeName', width: '33%',formatter: function(val,index,info){
+        {label: '彩种系列', name: 'sericeName', width: '23%',formatter: function(val,index,info){
           var ticket = '';
           if(val==='时时彩'){
             ticket = 'constant';
@@ -203,20 +240,23 @@ var OpenAccountManageView = Base.ItemView.extend({
           return val;
           //return '<a class="js-ac-ticket-link btn-link text-pleasant" data-ticket="'+ticket+'">'+val+'</a>';
         }},
-        {label: '最高奖金', name: 'maxBonus', width: '33%',formatter: function(val,index,info){
+        {label: '最高奖金', name: 'maxBonus', width: '23%',formatter: function(val,index,info){
           var superPlay = '';
           var normalPlay = '';
 
           if(info.sericeName==='时时彩' ){
-            superPlay = '<br /><div style="height:1px; width:100%; background:#c2c2c2;margin-top:5px; padding:0 3px; margin-left:-3px;"></div><span style="padding-top:5px; display:block;">超级3000：3000</span>';
-            normalPlay ='普通玩法：';
+            superPlay = '<br /><div style="height:1px; width:100%; background:#c2c2c2;margin-top:5px; padding:0 3px; margin-left:-3px;"></div><span style="padding-top:5px; display:block;">3000</span>';
+            normalPlay ='';
           }
           return '<span class="js-ac-openAccount-maxBonus" data-maxBonus="'+val+'" data-name="'+info.sericeName+'">'+ normalPlay +
             self.calculateMaxBonus(info.sericeName,_(info.subAcctRebate).formatDiv(10),val)+'</span>' + superPlay;
         }},
-        {label: '下级返点', name: 'subAcctRebate', width: '35%', merge: true, formatter: function(val, index, info) {
+        {label: '下级返点设置', name: 'subAcctRebate', width: '23%', merge: true, formatter: function(val, index, info) {
           return '<input type="text" class="js-ac-auto-rebate input-sm " required value="' + _(val).formatDiv(10) + '" data-parsley-oneDecimal data-parsley-range="['+_(info.minRebate).formatDiv(10,{fixed:1})+','+_(info.maxRebate>124?124:info.maxRebate).formatDiv(10,{fixed:1})+']"> %<div class="text-center">(<span class="js-ac-openAccount-auto-minRebate">' +
               _(info.minRebate).formatDiv(10,{fixed:1}) + '</span>～' + _(info.maxRebate>124?124:info.maxRebate).formatDiv(10,{fixed:1}) + ')</div>';
+        }},
+        {label: '备注', name: 'subAcctRebate', width: '31%', merge: true, formatter: function(val, index, info) {
+          return '<textarea rows="7" cols="20" class="js-ac-auto-remark remark" data-parsley-zhmaxlength="10" data-parsley-noSpecialChar placeholder="请输入备注" >'+row.row[0].userLinkDes+'</textarea>';
         }}
       ],
       row: rebateData
@@ -249,6 +289,7 @@ var OpenAccountManageView = Base.ItemView.extend({
    * @returns {boolean}
      */
   saveAutoHandler: function(e,row,$dialog) {
+
     var self = this;
     var $target = $(e.currentTarget);
     var $remark = $dialog.find('.js-ac-auto-remark');
@@ -276,13 +317,13 @@ var OpenAccountManageView = Base.ItemView.extend({
     })
       .done(function(res) {
         if (res && res.result === 0) {
-          //Global.ui.notification.show('保存成功');
-          //if (range) {
-          //  $rebate.data('parsleyRange',[$rebate.val(), range[1]]);
-          //}
-          //链接开户允许降低该返点的降低
-          //$editContainer.find('.js-ac-openAccount-auto-minRebate').html($rebate.val());
-          Global.ui.notification.show('修改成功',{type: 'success'});
+          if (row.userLinkId == '') {
+            Global.ui.notification.show('创建成功',{type: 'success'});
+          }
+          else{
+            Global.ui.notification.show('修改成功',{type: 'success'});
+          }
+         
           $dialog.modal('hide');
           self.render();
         } else {
@@ -302,6 +343,32 @@ var OpenAccountManageView = Base.ItemView.extend({
       Global.ui.notification.show('请输入有效的返点值。');
     }
   },
+  bindTable: function() {
+
+    var self = this;
+    var $target = $('.js-ac-manual-rebate');
+    var range = eval($target.data('parsley-range'));
+    var rebate = Number($target.val());
+
+    
+    if(rebate!==''&& _(rebate).isFinite() && range.length==2){
+      if(rebate<range[0]){
+        $target.val(range[0]);
+      }else if(rebate>range[1]){
+        $target.val(range[1]);
+      }
+    }else{
+      $target.val(range[0]);
+    }
+    rebate = Number($target.val());
+    var $maxBonus = $('.js-ac-openAccount-maxBonus');
+    _($maxBonus).each(function(item,index){
+      var $item = $(item);
+      var maxBonus = $item.data('maxbonus');
+      var ticketName = $item.data('name');
+      $item.html(self.calculateMaxBonus(ticketName,rebate,maxBonus));
+    });
+  },
   inputRebateHandler: function(e){
     var self = this;
     var $target = $(e.currentTarget);
@@ -320,6 +387,7 @@ var OpenAccountManageView = Base.ItemView.extend({
 
     rebate = Number($target.val());
     var $maxBonus = $target.parent().parent().parent().find('.js-ac-openAccount-maxBonus');
+
     _($maxBonus).each(function(item,index){
       var $item = $(item);
       var maxBonus = $item.data('maxbonus');

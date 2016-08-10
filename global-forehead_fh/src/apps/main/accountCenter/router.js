@@ -5,6 +5,7 @@ var AccountCenterController = require('accountCenter/controller');
 exports.install = function() {
 
   window.Global.appRouter.processAppRoutes(new AccountCenterController(), {
+    'fc/pf':'moneyTransfer',
     'as/se':'settingEmail',
     'as/pl': 'loginPwd', // 密码管理
     'as/pf': 'fundPwd', // 密码管理

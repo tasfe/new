@@ -1,0 +1,265 @@
+.modal-lg-julien{
+	width: 1020px !important;
+	margin-left: -510px !important;
+	font-size: 14px;
+	font-family: '微软雅黑';
+	background: url(~base/images/julien/modal-lg-julien-bg.jpg) no-repeat;
+
+	.modal-body{
+		background: none;
+
+		p{
+			color: #cc0000;
+			font-size: 14px;
+			padding-left: 20px;
+		}
+
+		.tips{
+			color: #fff;
+			height: 33px;
+			line-height: 33px;
+			background-color: #cc0000;
+			border-radius: 33px;
+			padding-left: 20px;
+			margin-bottom: 20px;
+		}
+
+		.play-table{
+			width: 723px;
+			margin: 0px auto;
+
+			div div table{
+				font-size: 14px;
+				background-color: #fff;
+				color: #666666;
+			}
+		}
+
+		.btn-center{
+			text-align: center;
+			border-top: 1px solid #e2e2e2;
+			margin-top: 45px;
+			padding-top: 28px;
+
+			button{
+				background-color: #cc0000;
+				padding: 7px 19px;
+				border: 0px;
+				color: #fff;
+			}
+		}
+
+		textarea{
+			background-color: #f7f7f7;
+			border: 1px solid #ccc;
+		}
+	}
+}
+
+.model-delete-julien{
+	width: 700px !important;
+	color: #666666;
+	font-family: '微软雅黑';
+	font-size: 16px;
+
+	.modal-content{
+		background-color: #fff;
+	}
+
+	.modal-body{
+		padding: 60px 0px;
+	}
+
+	.modal-footer{
+		border-top: 1px solid #e2e2e2;
+		padding: 26px 0px 33px 0px;
+		margin: 0px 5px;
+		background-color: #fff;
+
+		.control-confirm-special{
+			margin: 0px;
+
+			button{
+				background-color: #cc0000;
+				padding: 7px 19px;
+				border: 0px;
+				color: #fff;
+				width: auto;
+				height: auto;
+
+				&.confirm-reject{
+					background-color: #cc9966;
+					margin-left: 13px !important;
+					border-radius: 0px;
+					text-decoration: none !important;
+				}
+			}
+		}
+	}
+}
+
+.model-copy-julien{
+	width: 700px !important;
+	font-family: '微软雅黑';
+	font-size: 16px;
+
+	.modal-content{
+		background-color: #fff;
+	}
+
+	.modal-body{
+		padding: 60px 0px;
+
+		div{
+			color: #cc3333;
+			height: 65px;
+			line-height: 65px;
+			width: 116px;
+			background: url(~base/images/julien/23.png) no-repeat left;
+			margin: 0px auto;
+			padding-left: 72px;
+		}
+	}
+}
+
+.model-sucessAndCopy-julien{
+	width: 700px !important;
+	font-family: '微软雅黑';
+	font-size: 14px;
+	color: #666666;
+
+	.modal-content{
+		background-color: #fff;
+	}
+
+	.modal-body{
+		padding: 30px 0px 50px 0px;
+		text-align: center;
+
+		h3{
+			font-size: 16px;
+			font-weight: initial;
+			color: #cc0000;
+			padding: 0px;
+			margin: 0px;
+		}
+
+		span{
+			display: block;
+			margin-bottom: 15px;
+		}
+
+		button{
+			font-size: 16px;
+			margin-top: 15px;
+      background-color: #cc0000;
+      padding: 5px 8px;
+      border-radius: 3px;
+      color: #fff;
+      border: 0px;
+      border-radius: 0px;
+		}
+	}
+}
+
+
+.julien-verify{
+	dl{
+		position: relative;
+	}
+
+	.correct{
+    i{
+      position: absolute;
+      top: 7px;
+      left: 335px;
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      background: url(~base/images/julien/07.png) no-repeat;
+    }
+  }
+
+  .messageBox{
+    position: absolute;
+    top: 2px;
+    left: 355px;
+    display: none;
+
+    b{
+      float: left;
+      display: block;
+      width: 0;
+      height: 0;
+      border-width: 5px;
+      border-style: dashed solid dashed dashed;
+      border-color: transparent #999999 transparent transparent;
+      margin-top: 8px;
+    }
+
+    span{
+      float: left;
+      display: block;
+      height: 26px;
+      background-color: #999999;
+      line-height: 26px;
+      padding: 0px 8px;
+      border-radius: 3px;
+      color: #fff;
+    }
+  }
+
+  .wrong{
+    i{
+      position: absolute;
+      top: 7px;
+      left: 335px;
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      background: url(~base/images/julien/07.png) no-repeat 0 -16px;
+    }
+
+    .messageBox{
+      display: block;
+    }
+  }
+}
+
+.slimScrollDiv{
+	height: auto !important;
+
+	.relative{
+		height: auto !important;
+	}
+}
+
+.julien-black{
+	margin: 15px;
+	margin-left: 0px;
+	text-align: center;
+	width: 120px;
+	padding: 5px 0px;
+	border: 0px;
+	background-color: #d8855a;
+	font-size: 16px;
+	font-family: '微软雅黑';
+	color: #fff;
+	display: block;
+
+	&:hover{
+		color: #fff;
+	}
+}
+
+.mask{
+	position: fixed;
+	background: #000;
+	background: rgba(0, 0, 0, 0.5);
+	position: fixed;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	left: 0px;
+	z-index: 101;
+}

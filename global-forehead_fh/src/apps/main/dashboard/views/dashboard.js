@@ -5,6 +5,8 @@ require('./../misc/index.scss');
 var bannerConfig = require('../misc/bannerConfig');
 var ticketConfig = require('skeleton/misc/ticketConfig');
 
+var LotteryTypeListView = require('dashboard/views/lotteryTypeList');
+
 var DashboardView = Base.ItemView.extend({
 
   template: require('dashboard/templates/dashboard.html'),
@@ -17,9 +19,47 @@ var DashboardView = Base.ItemView.extend({
 
   events: {
     'click .js-db-ticket-bread-item': 'ticketBreadHandler',
-    'click .js-db-ticket-scroll': 'ticketScrollHandler'
+    'click .js-db-ticket-scroll': 'ticketScrollHandler',
     //'click .js-db-prev': 'prevPageHandler',
     //'click .js-db-next': 'nextPageHandler'
+    'click .js-lottery': 'lottertyEnterHandler'
+
+  },
+
+  lottertyEnterHandler: function() {
+
+    var self = this;
+
+    var $dialogRe = Global.ui.dialog.show({
+      id: _.now(),
+      title: '彩票游戏',
+      size: 'modal-lg',
+      body: '<div class="js-fc-quick-lottery active-container-header"></div>'
+    });
+
+    var lotteryTypeListView = new LotteryTypeListView({parentView: self});
+    lotteryTypeListView.onRender();
+
+    $dialogRe.on('click', '.js-list-active1', function(e) {
+      $('.list-active').removeClass('list-active');
+      var $target = $(e.currentTarget);
+      $target.addClass('list-active');
+
+      var currentIndex = $target.data('index');
+      $('.js-lotteryList-0').addClass('hidden');
+      $('.js-lotteryList-1').addClass('hidden');
+      $('.js-lotteryList-2').addClass('hidden');
+      $('.js-lotteryList-3').addClass('hidden');
+      $('.js-lotteryList-4').addClass('hidden');
+      $('.js-lotteryList-'+currentIndex).removeClass('hidden');
+
+
+    });
+
+    $dialogRe.on('click', '.js-list-close1', function(e) {
+      $dialogRe.modal('hide');
+    });
+
   },
 
   serializeData: function() {
@@ -35,6 +75,14 @@ var DashboardView = Base.ItemView.extend({
       data: data
     });
   },
+
+  //获取排行榜
+  getRankListXhr: function() {
+    return Global.sync.ajax({
+      url: '/ticket/bethistory/prizehistory.json'
+    });
+  },
+
   getBannerADXhr: function() {
     return Global.sync.ajax({
       url: '/acct/usernotice/getdashboardadvertise.json'
@@ -72,6 +120,7 @@ var DashboardView = Base.ItemView.extend({
     this.renderDynamicList(data);
     this.renderMainBannerAD();
 
+    this.renderRankList();
   },
 
   renderMainBannerAD: function() {
@@ -102,6 +151,21 @@ var DashboardView = Base.ItemView.extend({
               //self.$nextPage.removeClass('disabled');
             }
           }
+        }
+      });
+  },
+
+  renderRankList: function() {
+    var self = this;
+    this.getRankListXhr()
+      .done(function(res) {
+        if (res.result === 0) {
+          var htmStr= "";
+          _(res.root).each(function(info) {
+            //alert()
+            htmStr += "恭喜"+info.userName+"在"+info.ticketName+"，喜中"+info.bonus/10000+"元<br>";
+          });
+          self.$('.js-rank-list').html(htmStr);
         }
       });
   },

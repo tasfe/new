@@ -111,6 +111,7 @@ $.widget('gl.staticGrid', {
         return this.formatRowData(row, index, data);
       }, this);
 
+      
       if (formatRows.length) {
         _(formatRows).each(function(info, index) {
           html.push('<tr class="js-gl-static-tr"');

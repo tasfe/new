@@ -92,7 +92,6 @@ var MoneyDetailView = SearchGrid.extend({
     });
 
     //加上统计行
-
     this.grid.addFooterRows({
         trClass: 'tr-cool',
         columnEls: [

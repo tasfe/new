@@ -13,8 +13,15 @@ var OpenAccountManageView = Base.ItemView.extend({
     'click .js-ac-submitOpenAccountInfo':'submitOpenAccountInfoHandler',
     'blur .js-ac-userName': 'checkUserExistHandler',
     'click .js-ac-ticket-link': 'ticketPriceViewHandler',
-    'blur .js-ac-manual-rebate': 'inputRebateHandler'
+    'blur .js-ac-manual-rebate': 'inputRebateHandler',
+    'click .js-ac-manual-rebate': 'inputRebateClick'
   },
+
+  inputRebateClick: function () {
+    $('.julien-left .manualRebate ul').removeClass('hidden');
+
+  },
+
   getSubAcctXhr: function() {
     return Global.sync.ajax({
       url: '/acct/subaccount/getsubacct.json',
@@ -39,24 +46,149 @@ var OpenAccountManageView = Base.ItemView.extend({
     this.getSubAcctXhr().always(function(){
       self.loadingFinish();
     })
-      .done(function(res) {
-        var data = res.root.seriesList;
+    .done(function(res) {
+      var data = res.root.seriesList;
 
-        if (res && res.result === 0) {
-          self._getTable( _(data.ticketSeriesList).map(function(ticketSeries) {
-            return {
-              sericeName: ticketSeries.sericeName,
-              maxBonus: _(ticketSeries.maxBonus).convert2yuan(),
-              subAcctRebate: data.subRebateRange.subAcctRebate,
-              maxRebate: data.subRebateRange.rebateMax,
-              minRebate: data.subRebateRange.rebateMin
-            };
-          }));
-          self._parentView.renderLimit(self.$limit,res.root.quotaList);
+      if (res && res.result === 0) {
+        self._getTable( _(data.ticketSeriesList).map(function(ticketSeries) {
+          return {
+            sericeName: ticketSeries.sericeName,
+            maxBonus: _(ticketSeries.maxBonus).convert2yuan(),
+            subAcctRebate: data.subRebateRange.subAcctRebate,
+            maxRebate: data.subRebateRange.rebateMax,
+            minRebate: data.subRebateRange.rebateMin
+          };
+        }));
+
+        self._parentView.renderLimit(self.$limit,res.root.quotaList);
+        $('.manualRebate ul').html('');
+        _.each(res.root.quotaList, function(object){
+          $('.manualRebate ul').append('<li>' + object.quotaLevel / 10 + '</li>');
+        });
+
+        if(res.root.quotaList != null){
+           $('.manualRebate input').attr('data-parsley-range','[0.0,' + res.root.quotaList[0].quotaLevel/10 + ']');
         }
+      }
+
+      var verifyInputRebate = _(function() {
+      var str= $('.js-ac-manual-rebate').val();
+        self.bindTable();
+      }).debounce(400);
+
+      var verifyInputUserName = _(function() {
+        var str= $('.js-ac-userName').val();
+        if (str.length == 0) {
+          $('.js-julien-left dl').eq(1).addClass('wrong');
+          $('.js-julien-left dl').eq(1).removeClass('correct');
+          $('.js-julien-left dl .messageBox span').eq(0).html('不能为空');
+        }
+        else{
+          var myReg = /^[a-zA-Z\u4e00-\u9fa5][a-zA-Z0-9\u4e00-\u9fa5]*$/;
+          if (myReg.test(str)) {
+            if(str.replace(/[\u4e00-\u9fa5]/g, '**').length >= 4 && str.replace(/[\u4e00-\u9fa5]/g, '**').length <= 16){
+              $('.js-julien-left dl').eq(1).addClass('correct');
+              $('.js-julien-left dl').eq(1).removeClass('wrong');
+              $('.js-julien-left dl .messageBox span').eq(0).html('');
+            }
+            else{
+              $('.js-julien-left dl').eq(1).addClass('wrong');
+              $('.js-julien-left dl').eq(1).removeClass('correct');
+              $('.js-julien-left dl .messageBox span').eq(0).html('字符4到6');
+            }
+            $('.js-julien-left dl h3').eq(0).addClass('hidden');
+          } 
+          else{
+            $('.js-julien-left dl').eq(1).addClass('wrong');
+            $('.js-julien-left dl').eq(1).removeClass('correct');
+            $('.js-julien-left dl .messageBox span').eq(0).html('格式不符');
+            $('.js-julien-left dl h3').eq(0).removeClass('hidden');
+          }
+        }
+      }).debounce(400);
+
+      var verifyInputPassword = _(function() {
+        var str= $('.js-ac-password').val();
+        var str2= $('.js-ac-repeatPassword').val();
+
+        if (str.length == 0) {
+          $('.js-julien-left dl').eq(2).addClass('wrong');
+          $('.js-julien-left dl').eq(2).removeClass('correct');
+          $('.js-julien-left dl .messageBox span').eq(1).html('不能为空');
+        }
+        else if (str.length < 6) {
+          $('.js-julien-left dl').eq(2).addClass('wrong');
+          $('.js-julien-left dl').eq(2).removeClass('correct');
+          $('.js-julien-left dl .messageBox span').eq(1).html('字符小于6');
+
+          if (str2 != '') {
+            if (str != str2) {
+              $('.js-julien-left dl').eq(3).addClass('wrong');
+              $('.js-julien-left dl').eq(3).removeClass('correct');
+              $('.js-julien-left dl .messageBox span').eq(2).html('不相同');
+            }
+            else{
+              $('.js-julien-left dl').eq(3).addClass('correct');
+              $('.js-julien-left dl').eq(3).removeClass('wrong');
+              $('.js-julien-left dl .messageBox span').eq(2).html('');
+            }
+          }
+        }
+        else{
+          $('.js-julien-left dl').eq(2).addClass('correct');
+          $('.js-julien-left dl').eq(2).removeClass('wrong');
+          $('.js-julien-left dl .messageBox span').eq(1).html('');
+
+          if (str2 != '') {
+            if (str != str2) {
+              $('.js-julien-left dl').eq(3).addClass('wrong');
+              $('.js-julien-left dl').eq(3).removeClass('correct');
+              $('.js-julien-left dl .messageBox span').eq(2).html('不相同');
+            }
+            else{
+              $('.js-julien-left dl').eq(3).addClass('correct');
+              $('.js-julien-left dl').eq(3).removeClass('wrong');
+              $('.js-julien-left dl .messageBox span').eq(2).html('');
+            }
+          }
+        }
+      }).debounce(400);
+
+      var verifyInputRePassword = _(function() {
+        var str= $('.js-ac-password').val();
+        var str2= $('.js-ac-repeatPassword').val();
+
+
+        if (str2 == '') {
+          $('.js-julien-left dl').eq(3).removeClass('correct').removeClass('wrong');
+          $('.js-julien-left dl .messageBox span').eq(2).html('');
+        }
+        else{
+          if (str != str2) {
+            $('.js-julien-left dl').eq(3).addClass('wrong');
+            $('.js-julien-left dl').eq(3).removeClass('correct');
+            $('.js-julien-left dl .messageBox span').eq(2).html('不相同');
+          }
+          else{
+            $('.js-julien-left dl').eq(3).addClass('correct');
+            $('.js-julien-left dl').eq(3).removeClass('wrong');
+            $('.js-julien-left dl .messageBox span').eq(2).html('');
+          }
+        }
+        
+      }).debounce(400);
+
+      $('.js-ac-manual-rebate').on('keypress', verifyInputRebate);
+      $('.js-ac-userName').on('keypress', verifyInputUserName);
+      $('.js-ac-password').on('keypress', verifyInputPassword);
+      $('.js-ac-repeatPassword').on('keypress', verifyInputRePassword);
+
+      $('.js-julien-left dl ul li').on('click',function () {
+        $('.js-ac-manual-rebate').val($(this).text());
+
+        self.bindTable();
       });
-
-
+    });
   },
 
   _getTable: function(tableInfo) {
@@ -64,7 +196,7 @@ var OpenAccountManageView = Base.ItemView.extend({
     this.$('.js-ac-rebate-set-container').staticGrid({
       tableClass: 'table table-bordered table-no-lr table-center',
       colModel: [
-        {label: '彩种系列', name: 'sericeName', width: '30%',formatter: function(val,index,info){
+        {label: '游戏', name: 'sericeName', width: '30%',formatter: function(val,index,info){
           var ticket = '';
           if(val==='时时彩'){
             ticket = 'constant';
@@ -78,21 +210,30 @@ var OpenAccountManageView = Base.ItemView.extend({
           }else if(val==='老虎机秒秒彩'){
             ticket = 'smmc';
           }
-          return '<a class="js-ac-ticket-link btn-link text-pleasant" data-ticket="'+ticket+'">'+val+'</a>';
+          return '<a class="js-ac-ticket-link btn-link" data-ticket="'+ticket+'">'+val+'</a>';
         }},
-        {label: '最高奖金', name: 'maxBonus', width: '30%',formatter: function(val,index,info){
+        {label: '玩法', name: 'maxBonus', width: '30%',formatter: function(val,index,info){
           var superPlay = '';
           var normalPlay = '';
           if(info.sericeName==='时时彩' ){
-            superPlay = '<br /><div style="height:1px; width:100%; background:#c2c2c2;margin-top:5px; padding:0 3px; margin-left:-3px;"></div><span style="padding-top:5px; display:block;">超级3000：3000</span>';
-            normalPlay ='普通玩法：';
-          }
-          return '<span class="js-ac-openAccount-maxBonus" data-maxBonus="'+val+'" data-name="'+info.sericeName+'">'+ normalPlay +
+            superPlay = '<br /><div style="height:1px; width:100%; background:#c2c2c2;margin-top:5px; padding:0 3px; margin-left:-3px;"></div><span style="padding-top:5px; display:block;">超级3000</span>';
+            normalPlay ='普通玩法';
+            return '<span class="js-ac-openAccount-maxBonus" data-maxBonus="'+val+'" data-name="'+info.sericeName+'">'+ normalPlay +
             self.calculateMaxBonus(info.sericeName,_(info.subAcctRebate).formatDiv(10),val)+'</span>' + superPlay;
+          }
+          else{
+            return '所有玩法';
+          }
         }},
-        {label: '下级返点', name: 'subAcctRebate',width:'40%', merge: true, formatter: function(val, index, info) {
-          return '<input type="text" class="js-ac-manual-rebate " required value="' + _(val).formatDiv(10,{fixed:1}) + '" data-parsley-oneDecimal data-parsley-range="['+_(info.minRebate).formatDiv(10,{fixed:1})+','+_(info.maxRebate).formatDiv(10,{fixed:1})+']" > %<div class="text-center">(' +
-            info.minRebate +  '～' + _(info.maxRebate>128?128:info.maxRebate).formatDiv(10,{fixed:1}) + ')</div>';
+        {label: '奖金', name: 'maxBonus', width: '30%',formatter: function(val,index,info){
+          var superPlay = '';
+          var normalPlay = '';
+          if(info.sericeName==='时时彩' ){
+            superPlay = '<br /><div style="height:1px; width:100%; background:#c2c2c2;margin-top:5px; padding:0 3px; margin-left:-3px;"></div><span style="padding-top:5px; display:block;">3000</span>';
+            normalPlay ='';
+          }
+          return '<span class="js-ac-openAccount-maxBonus" data-maxBonus="'+val+'" data-name="'+info.sericeName+'">' +
+            self.calculateMaxBonus(info.sericeName,_(info.subAcctRebate).formatDiv(10),val)+'</span>' + superPlay;
         }}
       ],
       row: tableInfo
@@ -103,9 +244,60 @@ var OpenAccountManageView = Base.ItemView.extend({
   submitOpenAccountInfoHandler: function (e) {
     var self = this;
     var $target = $(e.currentTarget);
-    var $cardBindingForm = $('.js-ac-openAccountManual-form');
-    var clpValidate = $cardBindingForm.parsley().validate();
-    if (clpValidate) {
+
+    var iIs = 0;
+    var strRebate= $('.js-ac-manual-rebate').val();
+
+    if (strRebate == '') {
+      strRebate = 0;
+    }
+
+    var strUserName= $('.js-ac-userName').val();
+    if (strUserName.length == 0) {
+      $('.js-julien-left dl').eq(1).addClass('wrong');
+      $('.js-julien-left dl').eq(1).removeClass('correct');
+      $('.js-julien-left dl .messageBox span').eq(0).html('不能为空');
+      iIs = 1;
+    }
+    else{
+      var myReg = /^[a-zA-Z\u4e00-\u9fa5][a-zA-Z0-9\u4e00-\u9fa5]*$/;
+      if (myReg.test(strUserName)) {
+        if(strUserName.replace(/[\u4e00-\u9fa5]/g, '**').length >= 4 && strUserName.replace(/[\u4e00-\u9fa5]/g, '**').length <= 16){
+          $('.js-julien-left dl').eq(1).addClass('correct');
+          $('.js-julien-left dl').eq(1).removeClass('wrong');
+          $('.js-julien-left dl .messageBox span').eq(0).html('');
+        }
+        else{
+          iIs = 1;
+        }
+      } 
+      else{
+        iIs = 1;
+      }
+    }
+
+    var strPassword= $('.js-ac-password').val();
+    var strRePassword= $('.js-ac-repeatPassword').val();
+
+    if (strPassword.length == 0) {
+      $('.js-julien-left dl').eq(2).addClass('wrong');
+      $('.js-julien-left dl').eq(2).removeClass('correct');
+      $('.js-julien-left dl .messageBox span').eq(1).html('不能为空');
+      iIs = 1;
+    }
+    else if (strPassword.length < 6) {
+      iIs = 1;
+    }
+    else{
+      if (strPassword != strRePassword) {
+        $('.js-julien-left dl').eq(3).addClass('wrong');
+        $('.js-julien-left dl').eq(3).removeClass('correct');
+        $('.js-julien-left dl .messageBox span').eq(2).html('不相同');
+        iIs = 1;
+      }
+    }
+
+    if (iIs == 0) {
       $target.button('loading');
       var data = {
         userName: this.$('.js-ac-userName').val(),
@@ -118,14 +310,16 @@ var OpenAccountManageView = Base.ItemView.extend({
       }).always(function () {
         $target.button('reset');
       })
-        .done(function (res) {
-          if (res && res.result === 0) {
-            self.showCopyDailog(data);
-          } else {
-            Global.ui.notification.show('保存失败，'+res.msg);
-          }
-        });
-
+      .done(function (res) {
+        if (res && res.result === 0) {
+          self.showCopyDailog(data);
+        } else {
+          Global.ui.notification.show('保存失败，'+res.msg);
+        }
+      })
+      .fail(function () {
+        Global.ui.notification.show('网络报错！');
+      })
     }
   },
   checkUserExistHandler: function(e){
@@ -157,11 +351,25 @@ var OpenAccountManageView = Base.ItemView.extend({
       Global.ui.notification.show('请输入有效的返点值。');
     }
   },
-  inputRebateHandler: function(e){
+  inputRebateHandler: function(){
+    setTimeout(function(){
+      $('.js-julien-left dl ul').addClass('hidden');
+    }, 200);
+  },
+  bindTable: function() {
+
     var self = this;
-    var $target = $(e.currentTarget);
+    var $target = $('.js-ac-manual-rebate');
     var range = eval($target.data('parsley-range'));
     var rebate = Number($target.val());
+
+    if (rebate == '') {
+      rebate = 0;
+    }
+    else{
+      $('.js-julien-left dl ul').addClass('hidden');
+    }
+    
     if(rebate!==''&& _(rebate).isFinite() && range.length==2){
       if(rebate<range[0]){
         $target.val(range[0]);
@@ -172,7 +380,8 @@ var OpenAccountManageView = Base.ItemView.extend({
       $target.val(range[0]);
     }
     rebate = Number($target.val());
-    var $maxBonus = $target.parent().parent().parent().find('.js-ac-openAccount-maxBonus');
+    var $maxBonus = $('.js-ac-openAccount-maxBonus');
+    console.dir($maxBonus);
     _($maxBonus).each(function(item,index){
       var $item = $(item);
       var maxBonus = $item.data('maxbonus');
@@ -190,13 +399,13 @@ var OpenAccountManageView = Base.ItemView.extend({
   showCopyDailog: function(data){
     var $dialog = Global.ui.dialog.show({
       title: '开户成功',
-      size: 'modal-md',
-      body: '<form><div class="p-left-lg m-bottom-lg m-top-lg">' +
-      '<div class="control-group m-left-sm p-left-lg m-top-md  m-bottom-md"><label class="text-left">账号:&nbsp;&nbsp;&nbsp;&nbsp;  '+data.userName+'</label></div>'+
-      '<div class="control-group m-left-sm p-left-lg m-top-md  m-bottom-md"><label class="text-left">密码:&nbsp;&nbsp;&nbsp;&nbsp;  '+data.loginPwd+'</label></div>'+
-      '<div class="control-group m-left-sm p-left-lg m-top-md  m-bottom-md"><label class="text-left">返点:&nbsp;&nbsp;&nbsp;&nbsp;  '+_(data.rebate).formatDiv(10,{fixed:1})+'</label></div></div>' +
-      '<div class="m-top-lg m-bottom-lg"><button type="button" class="js-ac-ocm-copy ac-ocm-copy btn btn-sun" data-dismiss="modal"><span class="sfa ac-ocm-copy-coin m-right-sm"></span>复制并关闭</button></div></form>',
-      bodyClass: 'p-top-xs p-left-lg p-right-lg text-center'
+      size: 'model-sucessAndCopy-julien',
+      body: '<h3>恭喜您，手动开户成功！</h3>' +
+      '<span>账号：'+data.userName+'</span>'+
+      '<span>密码：'+data.loginPwd+'</span>'+
+      '<span>返点：'+_(data.rebate).formatDiv(10,{fixed:1})+'</span>' +
+      '<button type="button" class="js-ac-ocm-copy" data-dismiss="modal">复制并关闭</button>',
+      bodyClass: ''
     });
 
     var $chaseContainer = $dialog.find('.js-bc-chase-container');

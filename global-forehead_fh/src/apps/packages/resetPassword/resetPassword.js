@@ -33,6 +33,7 @@ $.widget('gl.resetPassword', {
     var self = this;
     //绑定事件
     this._on({
+      'click .js-set-success': 'setSuccess',//设置成功
       'click .js-reSendEmail': 'reSendEmail',//重新发送邮件
       'click .js-rp-verifySQABtn': 'verifySQABtn',//安全问题验证
       'click .js-rp-findBySQBtn': 'findBySQBtn',//进入安全问题
@@ -50,11 +51,47 @@ $.widget('gl.resetPassword', {
     });
   },
 
+  setSuccess: function(e){
+    var self = this;
+    var $target = $(e.currentTarget);
+    var type = $target.data('type');
+
+    $target.button('loading');
+    this.getEmail().fail(function () {
+      Global.ui.notification.show('网络异常');
+    })
+    .always(function() {
+      $target.button('reset');
+    })
+    .done(function (res) {
+      $('.js-emailSendLoading').addClass('hidden');
+      if (res && res.result === 0) {
+        if (res.root.success) {
+          sessionStorage.setItem('update', 'ok');
+          $('.emailFind').addClass('hidden');
+          $('.panel03').removeClass('hidden');
+
+          $('.leftMenu-julien div b').removeClass('red');
+          $('.leftMenu-julien div b').eq(2).addClass('red');
+        }
+        else{
+          Global.ui.notification.show('没有验证成功');
+        }
+      } else {
+        Global.ui.notification.show(res.msg);
+      }
+    });
+  },
+
   reSendEmail: function(){
+    $('.js-emailSendLoading').removeClass('hidden');
+
     if($('.js-emailTime').html() == 0){
       this.sendEmail().fail(function () {
+        $('.js-emailSendLoading').addClass('hidden');
         Global.ui.notification.show('邮件发送失败，网络异常');
       }).done(function (res) {
+        $('.js-emailSendLoading').addClass('hidden');
         if (res && res.result === 0) {
           Global.ui.notification.show('邮件已发送');
           $('.js-emailTime').html(50);
@@ -458,23 +495,26 @@ $.widget('gl.resetPassword', {
     $('.panel02').addClass('hidden');
     $('.emailFind').removeClass('hidden');
 
+    $('.js-emailSendLoading').removeClass('hidden');
     this.sendEmail().fail(function () {
+      $('.js-emailSendLoading').addClass('hidden');
       Global.ui.notification.show('邮件发送失败，网络异常');
     }).done(function (res) {
-        if (res && res.result === 0) {
-          $('.js-emailTime').html(50);
-          var emailTime = setInterval(function(){
-            var num = $('.js-emailTime').html() - 1;
-            if ($('.js-emailTime').html() == 0) {
-              clearInterval(emailTime)
-            }
-            else{
-              $('.js-emailTime').html(num);
-            }
-          }, 1000)
-        } else {
-          Global.ui.notification.show(res.msg);
-        }
+      $('.js-emailSendLoading').addClass('hidden');
+      if (res && res.result === 0) {
+        $('.js-emailTime').html(50);
+        var emailTime = setInterval(function(){
+          var num = $('.js-emailTime').html() - 1;
+          if ($('.js-emailTime').html() == 0) {
+            clearInterval(emailTime)
+          }
+          else{
+            $('.js-emailTime').html(num);
+          }
+        }, 1000)
+      } else {
+        Global.ui.notification.show(res.msg);
+      }
     });
   },
 
@@ -497,6 +537,7 @@ $.widget('gl.resetPassword', {
 
   //julien的验证代码
   panel01Verify: function() {
+    var self = this;
     $('#jsRPUserName').on('input', function() { 
       if ($('#jsRPUserName').val().length < 1) {
         $('.js-userName').addClass('wrong');
@@ -521,11 +562,13 @@ $.widget('gl.resetPassword', {
             $('.js-code').removeClass('wrong');
             $('.js-code').addClass('correct');
           }else{
+            self.refreshValCodeHandler();
             $('.js-code').addClass('wrong');
             $('.js-code').removeClass('correct');
           }
         }).fail(function () {
-           Global.ui.notification.show('验证码报错');
+            self.refreshValCodeHandler();
+            Global.ui.notification.show('验证码报错');
         });
       }
     });
@@ -666,14 +709,25 @@ $.widget('gl.resetPassword', {
   getUserEcurityQes: function () {
     return $.ajax({
       type: 'POST',
-      url: '/acct/usersecurity/getuserecurityqesByName.json',
+      url: '/acct/usermsg/validSecurity.json',
       data: {
         username: $('.panel02 div span').html()
       }
     });
   },
 
-  //TODO 获取安全问题
+  //TODO 获取邮件验证
+  getEmail: function () {
+    return $.ajax({
+      type: 'POST',
+      url: '/acct/usermsg/validSecurity.json',
+      data: {
+        userName: $('.panel02 div span').html()
+      }
+    });
+  },
+
+  //TODO 发送邮件
   sendEmail: function () {
     return $.ajax({
       type: 'POST',

@@ -8,7 +8,6 @@ var SearchGrid = Base.PrefabView.extend({
 
   options: {
     prevClass: 'js-pf',
-    //tableClass: 'table table-hover table-bordered table-center',
     tableClass: 'table table-bordered table-no-lr table-center',
     checkable: false,
     dataProp: 'root',
@@ -143,7 +142,7 @@ var SearchGrid = Base.PrefabView.extend({
     }
 
     this._currentUrl = options.url || this._currentUrl;
-
+console.dir(filters);
     if (options.type === 'research' || this.options.remoteEveryTime) {
       Global.sync.ajax({
         url: this._currentUrl,
