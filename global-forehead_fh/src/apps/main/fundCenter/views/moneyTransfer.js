@@ -39,6 +39,7 @@ var MoneyTransferView = Base.ItemView.extend({
 
     if (!acctInfo || acctInfo.userStatus === 100) {
       this.$('.js-fc-btn-submit').prop('disabled', true);
+
       Global.ui.notification.show('用户已被冻结，无法进行转账操作。');
     }
 
@@ -47,30 +48,26 @@ var MoneyTransferView = Base.ItemView.extend({
     this.$btnSubmit = this.$('.js-fc-btn-submit');
 
     this.getInfoXhr()
-      .always(function() {
-        self.loadingFinish();
-      })
-      .done(function(res) {
-        var data = res.root || {};
-        if (res && res.result === 0) {
-          if (self.renderBasicInfo(data)) {
-            self.lowMultiSelect = new LowMultiSelect();
-            
-            //self.$lowLevelSelect.html(self.lowMultiSelect.render().el);
-
-            self.$lowLevelSelect.append(self.lowMultiSelect.render().el);
-            
-            self.initRequestParams();
-            self.parsley = self.$form.parsley({
-              errorsWrapper: '<div class="tooltip bottom parsley-errors-list tooltip-error"><div class="tooltip-arrow"></div></div>',
-              errorTemplate: '<div class="tooltip-inner">',
-              trigger: 'change'
-            });
+        .always(function() {
+          self.loadingFinish();
+        })
+        .done(function(res) {
+          var data = res.root || {};
+          if (res && res.result === 0) {
+            if (self.renderBasicInfo(data)) {
+              self.lowMultiSelect = new LowMultiSelect();
+              self.$lowLevelSelect.html(self.lowMultiSelect.render().el);
+              self.initRequestParams();
+              self.parsley = self.$form.parsley({
+                errorsWrapper: '<div class="tooltip bottom parsley-errors-list tooltip-error"><div class="tooltip-arrow"></div></div>',
+                errorTemplate: '<div class="tooltip-inner">',
+                trigger: 'change'
+              });
+            }
+          } else {
+            Global.ui.notification.show('获取转账相关信息失败。');
           }
-        } else {
-          Global.ui.notification.show('获取转账相关信息失败。');
-        }
-      });
+        });
   },
   initRequestParams: function() {
     var username;
@@ -90,7 +87,7 @@ var MoneyTransferView = Base.ItemView.extend({
     }
     if (!data.hasMoneyPwd) {
       this.$el.securityTip({
-        content: '请补充完您的安全信息后再转账',
+        content: '请补充完您的安全信息后再提现',
         hasMoneyPwd: data.hasMoneyPwd,
         hasBankCard: true,
         showBankCard: false,
@@ -105,25 +102,25 @@ var MoneyTransferView = Base.ItemView.extend({
     var valTradeNum = data.tradeNum;
     var desMin = '';
     var desMax = '';
-    var desTradeNum = ')';
+    var desTradeNum = '';
     if(valMin === 0) {
       valMin = 1;
       desMin = '（单笔最低转账金额无限制';
     } else {
-      desMin = '（转账金额<span class="js-fc-tf-minLimit text-pleasant">' + valMin + '</span>元';
+      desMin = '（最低转账金额<span class="js-fc-tf-minLimit text-pleasant">' + valMin + '</span>元';
     }
     if(valMax === 0){
       valMax = 5000000;
       desMax = ',最高转账金额无限制';
     } else {
-      desMax = ' - <span class="js-fc-tf-maxLimit text-pleasant">' + valMax + '</span>元';
+      desMax = ',最高转账金额<span class="js-fc-tf-maxLimit text-pleasant">' + valMax + '</span>元';
     }
-    //if(data.confNum === 0) {
-    //  valTradeNum = -1;
-    //  desTradeNum = ',转账次数无限制）';
-    //} else {
-    //  desTradeNum = ',今日还可以转账<span class="text-pleasant">'+valTradeNum+'次</span>）';
-    //}
+    if(data.confNum === 0) {
+      valTradeNum = -1;
+      desTradeNum = ',转账次数无限制）';
+    } else {
+      desTradeNum = ',今日还可以转账<span class="text-pleasant">'+valTradeNum+'次</span>）';
+    }
 
     this.$('.js-fc-tf-amount').attr('data-parsley-range','['+ valMin +','+ valMax +']');
     this.$('.js-fc-mt-valDesc').html(desMin+desMax+desTradeNum);
@@ -166,32 +163,32 @@ var MoneyTransferView = Base.ItemView.extend({
     this.$btnSubmit.button('loading');
 
     this.getTransferXhr({
-      moneyPwd: this.$('.js-fc-tf-payPwd').val(),
-      tradeMoney: this.$('.js-fc-tf-amount').val(),
-      sub: sub
-    })
-      .always(function() {
-        self.$btnSubmit.button('reset');
-      })
-      .done(function(res) {
-        if (res && res.result === 0) {
-          Global.ui.notification.show('转账成功。', {
-            type: 'success'
-          });
-          self.render();
-        } else {
-          if(_(res.root).isNumber()) {
-            if (res.root > 0){
-              Global.ui.notification.show('验证失败，您还有' + res.root + '次输入机会');
-            }
-            if(res.root === 0){
-              Global.ui.notification.show('验证失败，请一个小时后再尝试！');
-            }
+          moneyPwd: this.$('.js-fc-tf-payPwd').val(),
+          tradeMoney: this.$('.js-fc-tf-amount').val(),
+          sub: sub
+        })
+        .always(function() {
+          self.$btnSubmit.button('reset');
+        })
+        .done(function(res) {
+          if (res && res.result === 0) {
+            Global.ui.notification.show('转账成功。', {
+              type: 'success'
+            });
+            self.render();
           } else {
-            Global.ui.notification.show('验证失败，' + res.msg);
+            if(_(res.root).isNumber()) {
+              if (res.root > 0){
+                Global.ui.notification.show('验证失败，您还有' + res.root + '次输入机会');
+              }
+              if(res.root === 0){
+                Global.ui.notification.show('验证失败，请一个小时后再尝试！');
+              }
+            } else {
+              Global.ui.notification.show('验证失败，' + res.msg);
+            }
           }
-        }
-      });
+        });
   }
 });
 

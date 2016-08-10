@@ -33,6 +33,7 @@ var LowMultiSelect = Base.PrefabView.extend({
   getLowLevelXhr: function() {
     return Global.sync.ajax({
       url: '/acct/usermsg/msgstat.json',
+      // url: 'acct/subacctinfo/getsubacctlist.json',
       abort: false
     });
   },

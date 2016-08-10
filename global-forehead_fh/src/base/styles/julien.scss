@@ -121,3 +121,145 @@
 		}
 	}
 }
+
+.model-sucessAndCopy-julien{
+	width: 700px !important;
+	font-family: '微软雅黑';
+	font-size: 14px;
+	color: #666666;
+
+	.modal-content{
+		background-color: #fff;
+	}
+
+	.modal-body{
+		padding: 30px 0px 50px 0px;
+		text-align: center;
+
+		h3{
+			font-size: 16px;
+			font-weight: initial;
+			color: #cc0000;
+			padding: 0px;
+			margin: 0px;
+		}
+
+		span{
+			display: block;
+			margin-bottom: 15px;
+		}
+
+		button{
+			font-size: 16px;
+			margin-top: 15px;
+      background-color: #cc0000;
+      padding: 5px 8px;
+      border-radius: 3px;
+      color: #fff;
+      border: 0px;
+      border-radius: 0px;
+		}
+	}
+}
+
+
+.julien-verify{
+	dl{
+		position: relative;
+	}
+
+	.correct{
+    i{
+      position: absolute;
+      top: 7px;
+      left: 335px;
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      background: url(~base/images/julien/07.png) no-repeat;
+    }
+  }
+
+  .messageBox{
+    position: absolute;
+    top: 2px;
+    left: 355px;
+    display: none;
+
+    b{
+      float: left;
+      display: block;
+      width: 0;
+      height: 0;
+      border-width: 5px;
+      border-style: dashed solid dashed dashed;
+      border-color: transparent #999999 transparent transparent;
+      margin-top: 8px;
+    }
+
+    span{
+      float: left;
+      display: block;
+      height: 26px;
+      background-color: #999999;
+      line-height: 26px;
+      padding: 0px 8px;
+      border-radius: 3px;
+      color: #fff;
+    }
+  }
+
+  .wrong{
+    i{
+      position: absolute;
+      top: 7px;
+      left: 335px;
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      background: url(~base/images/julien/07.png) no-repeat 0 -16px;
+    }
+
+    .messageBox{
+      display: block;
+    }
+  }
+}
+
+.slimScrollDiv{
+	height: auto !important;
+
+	.relative{
+		height: auto !important;
+	}
+}
+
+.julien-black{
+	margin: 15px;
+	margin-left: 0px;
+	text-align: center;
+	width: 120px;
+	padding: 5px 0px;
+	border: 0px;
+	background-color: #d8855a;
+	font-size: 16px;
+	font-family: '微软雅黑';
+	color: #fff;
+	display: block;
+
+	&:hover{
+		color: #fff;
+	}
+}
+
+.mask{
+	position: fixed;
+	background: #000;
+	background: rgba(0, 0, 0, 0.5);
+	position: fixed;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	left: 0px;
+	z-index: 101;
+}
