@@ -8,6 +8,10 @@ module.exports = {
       entry: ['./src/apps/packages/login/login.js'],
       //hot: true
     },
+    '1.emailverify': {
+      entry: ['./src/apps/packages/emailVerify/index.js'],
+      //hot: true
+    },
     '1.register': {
       entry: ['./src/apps/packages/register/register.js'],
       //hot: true
@@ -78,6 +82,11 @@ module.exports = {
       title: '繁华世界在线娱乐',
       template: './entry/package.html',
       chunks: ['common.1', '2.vendor', '4.base', '1.login']
+    },
+    emailverify: {
+      title: '繁华世界在线娱乐',
+      template: './entry/package.html',
+      chunks: ['common.1', '2.vendor', '4.base', '1.emailverify']
     },
     register: {
       title: '繁华世界在线娱乐',
