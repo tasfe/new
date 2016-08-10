@@ -1,35 +1,22 @@
-
-
-<form class="js-fc-transfer-form form-horizontal fc-transfer-form hidden clearfix" action="javascript:void(0);">
-
-
-
-  <!--<div class="m-bottom-smd pull-left">-->
-    <!--<strong class="text-bold-dark">选择用户：</strong>-->
-  <!--</div>-->
-
-
-
-  <div class="js-fc-lowLevelSelect fc-lowLevelSelect ">
-
-    <div class="mt-money-transfer">
+<div class="mt-money-transfer">
     <span class="text-hot">
       <i class="fa fa-info-circle text-hot"></i>
       温馨提示:为了您的资金安全,请在转账前确认需要转账的用户名
     </span>
-    </div>
+</div>
 
-
+<form class="js-fc-transfer-form form-horizontal hidden" action="javascript:void(0);">
+  <div class="m-bottom-smd pull-left">
+    <strong class="text-bold-dark">选择用户：</strong>
   </div>
-
-  <!--<div class="dot-divider dot-divider-sm margin-md"></div>-->
-
-  <div class="fc-group pull-right">
+  <div class="js-fc-lowLevelSelect fc-lowLevelSelect "></div>
+  <div class="dot-divider dot-divider-sm margin-md"></div>
+  <div class="fc-group">
     <div class="control-group">
       <label class="control-label text-bold-dark">可用金额：</label>
       <div class="controls">
         <span class=" font-lg"><span class="js-fc-avail-money text-bold-pleasant">-</span> 元</span>
-
+        <!--<span class=""><i class="fa fa-info-circle"></i> 消费满充值额的20%方可提现</span>-->
       </div>
     </div>
     <div class="control-group">
@@ -40,7 +27,7 @@
                  data-parsley-type="integer" data-parsley-max-message="您申请的金额超出可转账金额" required />
           <span class="add-on">元</span>
         </span>
-        <div class="js-fc-mt-valDesc"></div>
+        <span class="js-fc-mt-valDesc help-inline"></span>
         <input type="hidden" class="js-fc-mt-tradeNum">
       </div>
     </div>
@@ -52,7 +39,7 @@
     </div>
     <div class="control-group">
       <div class="controls control-confirm">
-        <button type="submit" class="js-fc-btn-submit btn btn-sun btn-linear" data-loading-text="提交中">确认转账</button>
+        <button type="submit" class="js-fc-btn-submit btn" data-loading-text="提交中">确定提交</button>
       </div>
     </div>
   </div>
