@@ -251,3 +251,15 @@
 		color: #fff;
 	}
 }
+
+.mask{
+	position: fixed;
+	background: #000;
+	background: rgba(0, 0, 0, 0.5);
+	position: fixed;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	left: 0px;
+	z-index: 101;
+}
