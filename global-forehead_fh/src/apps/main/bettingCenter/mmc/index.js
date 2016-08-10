@@ -25,6 +25,10 @@ var BettingCenterView = Base.ItemView.extend({
 
   events: {
     'click .js-bc-basic-rule': 'baseRuleChangeHandler',
+    'mouseover .js-bc-basic-rule': 'baseRuleChangeHandler',
+    'mouseout .js-bc-basic-rule': 'baseRuleChange1Handler',
+    'mouseover .js-bc-advance-rules': 'baseRuleChangeMOHandler',
+    'mouseout .js-bc-advance-rules': 'baseRuleChangeMO1Handler',
     'click .js-bc-play-toggle': 'togglePlayModeHandler',
     'click .js-bc-advance-rule': 'advanceRuleChangeHandler',
     'change .js-bc-bet-mode': 'betModeChangeHandler',
@@ -39,9 +43,25 @@ var BettingCenterView = Base.ItemView.extend({
     'click .js-bc-mmc-reSelect-btn' : 'reSelectHandler',
     'click .js-bc-mmc-bet-times': 'betTimesHandler',
     'click .js-bc-mmc-open-history-turn-page': 'openHistoryTurnPage',
-    'change .js-bc-mmc-continue-lottery-times': 'lotteryTimesChange'
+    'change .js-bc-mmc-continue-lottery-times': 'lotteryTimesChange',
+    'click .js-play1': 'play1',
+    'click .js-play2': 'play2'
+  },
+  play1:function () {
+    $('.js-play1').addClass('sd');
+    $('.js-play2').removeClass('sd');
+    $('.js-bc-basic-rules').addClass('hidden');
+    $('.js-bc-optional-rules').removeClass('hidden');
+    $('.js-bc-optional-rules ul').removeClass('hidden');
   },
 
+  play2:function () {
+    $('.js-play2').addClass('sd');
+    $('.js-play1').removeClass('sd');
+    $('.js-bc-basic-rules').removeClass('hidden');
+    $('.js-bc-optional-rules').addClass('hidden');
+    $('.js-bc-optional-rules ul').addClass('hidden');
+  },
   serializeData: function() {
     return {
       ticketInfo: this.options.ticketInfo
@@ -260,7 +280,7 @@ var BettingCenterView = Base.ItemView.extend({
 
 
 
-  renderBasicRules: function() {
+  /*renderBasicRules: function() {
     var playLevels = this.rulesCollection.getPlayLevels();
 
     this.$basicRules.html(this.playLevelTpl({
@@ -277,15 +297,38 @@ var BettingCenterView = Base.ItemView.extend({
     }
 
     this.selectDefaultPlay();
+  },*/
+  renderBasicRules: function() {
+    var playLevels = this.rulesCollection.getPlayLevels();
+    this.$basicRules.html(this.playLevelTpl({
+      ruleClass: 'js-bc-basic-rule',
+      rules: playLevels.normalList
+    }));
+    if (!_(playLevels.optionalList).isEmpty()) {
+      this.$rules.removeClass('rule-hide-optional');
+      this.$playToggle.parent('.bc-play-toggle').removeClass('bc-play-toggle-hasSuper');
+      this.$optionalRules.html(this.playLevelTpl({
+        ruleClass: 'js-bc-basic-rule',
+        rules: playLevels.optionalList
+      }));
+    }
+    if (!_(playLevels.superList).isEmpty()) {
+      this.$rules.removeClass('rule-hide-super');
+      this.$playToggle.parent('.bc-play-toggle').addClass('bc-play-toggle-hasSuper');
+      this.$superRules.html(this.playLevelTpl({
+        ruleClass: 'js-bc-basic-rule',
+        rules: playLevels.superList
+      }));
+    }
+    this.$playToggle.parent('.bc-play-toggle').show();
+    this.selectDefaultPlay();
   },
-
   selectDefaultPlay: function() {
     var defaultSelectInfo =  this.options.ticketInfo.info.defaultSelectPlay.split(',');
     if(!_(defaultSelectInfo).isEmpty()){
       if(_(Number(defaultSelectInfo[0])).isFinite()){
         var $basics = this.$basicRules.find('.js-bc-basic-rule');
         var $basicSelected = $basics.eq(defaultSelectInfo[0]);
-
         if ($basicSelected.length) {
           $basicSelected.trigger('click');
         } else {
@@ -563,6 +606,8 @@ var BettingCenterView = Base.ItemView.extend({
   //},
 
   baseRuleChangeHandler: function(e) {
+    this.$('.js-bc-advance-rules').show();
+
     var $target = $(e.currentTarget);
     $target.addClass('active').siblings().removeClass('active');
 
@@ -570,6 +615,12 @@ var BettingCenterView = Base.ItemView.extend({
       levelId: $target.data('id'),
       levelName: $target.data('title')
     });
+
+    var idStr =  ''+$target.data('index');
+    idStr = parseInt(idStr);
+    var playValue = (idStr+1)*69 +26;
+
+    this.$('.js-bc-advance-rules').css('left',playValue+'px');
   },
 
   togglePlayModeHandler: function(e) {
@@ -677,6 +728,19 @@ var BettingCenterView = Base.ItemView.extend({
       this.lotteryConfirmHandler();
     }
   },
+
+
+  baseRuleChange1Handler: function(e) {
+    this.$('.js-bc-advance-rules').hide();
+  },
+
+  baseRuleChangeMOHandler: function(e) {
+    this.$('.js-bc-advance-rules').show();
+  },
+  baseRuleChangeMO1Handler: function(e) {
+    this.$('.js-bc-advance-rules').hide();
+  },
+
 
   //波动拉杆,或者点击按钮
   lotteryConfirmHandler: function(e) {
@@ -1261,7 +1325,7 @@ var BettingCenterView = Base.ItemView.extend({
     }
 
     var type = $(e.currentTarget).data('type');
-    var height = -40;
+    var height = -33;
     var $target = this.$OpenHistory;
     var currentY = $target.position().top;
     var speed = 500;

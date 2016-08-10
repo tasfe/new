@@ -30,12 +30,12 @@
           <div class="inline-block js-bc-mmc-open-history-turn-page bc-mmc-open-history-turn-page bc-mmc-open-history-turn-page-down" data-type="down">
             <span class="sfa sfa-triangle-up vertical-middle" ></span>
           </div>
-         <!-- <div class=" bc-mmc-open-history clearfix">
+         <div class=" bc-mmc-open-history clearfix">
 
             <div class="js-bc-mmc-open-history bc-mmc-open-history-div" >
 
             </div>
-          </div>-->
+          </div>
           <div class="js-bc-mmc-more-history bc-mmc-more-history"><a href="trend.html?ticketId=19" target="_blank">查看更多</a></div>
           <div class="js-bc-mmc-start mmc-bc-start">
           </div>
@@ -46,27 +46,19 @@
 </div>
 
   <div class="js-bc-main-area bc-main-area ">
-    <div class="js-bc-rules bc-rules rule-hide-optional clearfix">
-      <div class="bc-play-toggle">
-        <div class="js-bc-play-toggle bc-play-toggle-item bc-play-normal active" data-type="normal">
-          <span class="sfa sfa-bc-play-normal m-right-md vertical-middle"></span> 常规玩法</div>
-        <div class="js-bc-play-toggle bc-play-toggle-item bc-play-optional" data-type="special">
-          <span class="sfa sfa-bc-play-optional m-right-md vertical-middle"></span> 任选玩法
-        </div>
+    <div class="js-bc-rules bc-menu">
+      <div class="bc-toggle">
+        <span class="js-play1">任选玩法</span>
+        <span class="js-play2 sd">常规玩法</span>
       </div>
       <div class="js-bc-basic-rules bc-basic-rules"></div>
       <div class="js-bc-optional-rules bc-basic-rules hidden"></div>
-
-    </div>
-    <div class="bc-play-section">
       <div class="js-bc-advance-rules bc-advance-rules"></div>
-
-
     </div>
     <div class="bc-example-container">
     <div class="bc-play-brief">
       <div class="pull-left">中奖示例：</div>
-      <div class="overflow-hidden">
+      <div class="overflow-hidden ">
         <span class="js-bc-play-example bc-play-example"></span>
         <!--<div>-->
         <a class="js-bc-play-tip bc-play-tip btn btn-sm bc-example-button" href="javascript:void(0)">
@@ -80,16 +72,17 @@
       </div>
     </div>
     </div>
-    <div class="bc-play-container">
-      <div class="js-bc-play-area bc-play-area">
+    <div class="bc-mmc-play-container">
+      <div class="js-bc-play-area bc-mmc-play-area">
         <div class="gl-loading">
           <%=Global.ui.loader.get() %>
         </div>
       </div>
     </div>
 
-    <div class="bc-statics-area clearfix">
+    <div class="bc-mmc-statics-area">
       <div class="bc-result-container">
+
         <div class="inline-block bc-result-bet-model " >
           <span>倍数：</span>
           <span class="js-bc-multi-range vertical-middle bc-multi-range inline-block"></span>
@@ -102,16 +95,15 @@
               <span class="js-bc-monetary-unit tab m-right-sm" data-rate="100">分</span>
               <!--<span class="js-bc-monetary-unit tab m-right-sm" data-rate="10">厘</span>-->
             </div>
+
           </div>
         </div>
-        <div class="bc-result-bet-total inline-block m-left-md pull-right">
-          <span>您当前选择了</span>
-          <span class="js-bc-statistics-lottery">0</span>
-          <span>注，共</span>
-          <span class="js-bc-statistics-money bc-mmc-bet-total-text-italic">0</span>
-          <span>元</span>
-        </div>
+        <div class="js-bc-multi-range bc-multi-range inline-block vertical-middle num-range"></div>
+        倍
+        <span class="price">共<span class="js-bc-statistics-money">0</span>元</span>
       </div>
+      <!--<span class="js-bc-quick-bet bet-quick">快速投注</span>-->
+        </div>
     </div>
     <div class="bc-lottery-add">
       <div class="bc-lottery-add-btn-div">
