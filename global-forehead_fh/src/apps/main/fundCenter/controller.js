@@ -17,6 +17,7 @@ var FundCenterController = RouterController.extend({
       },
       sidebar: Global.ui.menu.get('fc')
     });
+    $('#main > .clearfix').addClass('ac-block ac-block2');
   },
 
   accountDetails: function() {

@@ -11,6 +11,7 @@ var TrackRecordsView = SearchGrid.extend({
   template: require('./index.html'),
 
   events: {
+
   },
 
   initialize: function () {
@@ -26,11 +27,11 @@ var TrackRecordsView = SearchGrid.extend({
         },
         {
           name: '已追/总期数',
-          width: '12%'
+          width: '10%'
         },
         {
           name: '已投/总金额',
-          width: '18%'
+          width: '12%'
         },
         {
           name: '中奖金额',
@@ -45,8 +46,8 @@ var TrackRecordsView = SearchGrid.extend({
           width: '15%'
         },
         {
-          name: '操作',
-          width: '10%'
+          name: '追号编号',
+          width: '18%'
         }
       ],
       gridOps: {
@@ -133,13 +134,12 @@ var TrackRecordsView = SearchGrid.extend({
         _(gridData.prizeMoneyTotal).convert2yuan(),
          '', ''
       ]
-    })
-      .hideLoading();
+    }).hideLoading();
+
   },
 
   formatRowData: function(rowInfo) {
     var row = [];
-
     row.push(rowInfo.userName);
     row.push(rowInfo.ticketName);
    // row.push(rowInfo.ticketPlanId);
@@ -155,7 +155,6 @@ var TrackRecordsView = SearchGrid.extend({
     }
 
     row.push(status);
-
     switch(rowInfo.chaseStatus) {
       case 0:
         rowInfo.formatChaseStatus = '未开始';
@@ -169,12 +168,11 @@ var TrackRecordsView = SearchGrid.extend({
       case 3:
         rowInfo.formatChaseStatus = '已中止';
         break;
-
     }
 
     row.push(rowInfo.formatChaseStatus);
     row.push(_(rowInfo.chaseTime).toTime());
-    row.push('<a class="router btn-link btn-link-sun" href="' + _.getUrl('/detail/' + rowInfo.ticketTradeNo) + '">查看详情</a>');
+    row.push('<a class="router btn-link btn-link-sun" href="' + _.getUrl('/detail/' + rowInfo.ticketTradeNo) + '">'+rowInfo.ticketTradeNo+'</a>');
 
     return row;
   }

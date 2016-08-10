@@ -39,7 +39,6 @@ var MoneyTransferView = Base.ItemView.extend({
 
     if (!acctInfo || acctInfo.userStatus === 100) {
       this.$('.js-fc-btn-submit').prop('disabled', true);
-
       Global.ui.notification.show('用户已被冻结，无法进行转账操作。');
     }
 
@@ -56,7 +55,11 @@ var MoneyTransferView = Base.ItemView.extend({
         if (res && res.result === 0) {
           if (self.renderBasicInfo(data)) {
             self.lowMultiSelect = new LowMultiSelect();
-            self.$lowLevelSelect.html(self.lowMultiSelect.render().el);
+            
+            //self.$lowLevelSelect.html(self.lowMultiSelect.render().el);
+
+            self.$lowLevelSelect.append(self.lowMultiSelect.render().el);
+            
             self.initRequestParams();
             self.parsley = self.$form.parsley({
               errorsWrapper: '<div class="tooltip bottom parsley-errors-list tooltip-error"><div class="tooltip-arrow"></div></div>',
