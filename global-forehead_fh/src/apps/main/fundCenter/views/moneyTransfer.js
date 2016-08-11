@@ -139,6 +139,7 @@ var MoneyTransferView = Base.ItemView.extend({
   submitHandler: function(e) {
     var self = this;
     var sub = _(this.lowMultiSelect.getAll()).pluck('id');
+    
     if(this.$('.js-fc-mt-tradeNum').val()===''||Number(this.$('.js-fc-mt-tradeNum').val())==='0'){
       Global.ui.notification.show('可转账次数不足。');
       return false;

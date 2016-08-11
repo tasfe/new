@@ -218,7 +218,7 @@ var OpenAccountManageView = Base.ItemView.extend({
           if(info.sericeName==='时时彩' ){
             superPlay = '<br /><div style="height:1px; width:100%; background:#c2c2c2;margin-top:5px; padding:0 3px; margin-left:-3px;"></div><span style="padding-top:5px; display:block;">超级3000</span>';
             normalPlay ='普通玩法';
-            return '<span class="js-ac-openAccount-maxBonus" data-maxBonus="'+val+'" data-name="'+info.sericeName+'">'+ normalPlay +
+            return '<span data-maxBonus="'+val+'" data-name="'+info.sericeName+'">'+ normalPlay +
             self.calculateMaxBonus(info.sericeName,_(info.subAcctRebate).formatDiv(10),val)+'</span>' + superPlay;
           }
           else{

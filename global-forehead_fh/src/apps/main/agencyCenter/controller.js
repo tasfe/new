@@ -245,8 +245,10 @@ var AgencyCenterController = RouterController.extend({
       main: {
         title: '分红管理'
       },
-      sidebar: Global.ui.menu.get(['ac', 'uc', 'aa'])
+      sidebar: Global.ui.menu.get(['ac'])
     });
+
+    $('#main > .clearfix').addClass('ac-block');
   },
 
   redPacket: function() {
