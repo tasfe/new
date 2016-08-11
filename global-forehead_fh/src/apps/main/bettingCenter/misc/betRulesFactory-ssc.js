@@ -3,6 +3,10 @@
 var factory = require('bettingCenter/misc/betRulesFactory');
 var algorithm = require('bettingCenter/misc/betRulesAlgorithm');
 
+
+var danshuang = ['大', '小', '单', '双'];
+var longhu = ['龙', '虎', '和'];
+
 function _create(ticketId) {
   //==================================================
   //五星
@@ -910,7 +914,252 @@ function _create(ticketId) {
     })
   });
 
-  
+  //==================================================
+  //趣味
+  // 后二大小单双
+  factory.addRule([ticketId, '160201'], {
+    algorithm: algorithm.mulAll,
+    list: factory.createList(['十位', '个位'], {
+      items: danshuang,
+      operate: 'none'
+    }),
+    format: {symbol: ' '},
+    formatToNum: true,
+    create: algorithm.getCreateFunc(2, {
+      range: danshuang,
+      matching: true
+    })
+  });
+
+  // 后三大小单双
+  factory.addRule([ticketId, '160202'], {
+    algorithm: algorithm.mulAll,
+    list: factory.createList(['百位','十位', '个位'], {
+      items: danshuang,
+      operate: 'none'
+    }),
+    format: {symbol: ' '},
+    formatToNum: true,
+    create: algorithm.getCreateFunc(3, {
+      range: danshuang,
+      matching: true
+    })
+  });
+
+  // 前二大小单双
+  factory.addRule([ticketId, '160203'], {
+    algorithm: algorithm.mulAll,
+    list: factory.createList(['万位','千位'], {
+      items: danshuang,
+      operate: 'none'
+    }),
+    format: {symbol: ' '},
+    formatToNum: true,
+    create: algorithm.getCreateFunc(2, {
+      range: danshuang,
+      matching: true
+    })
+  });
+  // 前三大小单双
+  factory.addRule([ticketId, '160204'], {
+    algorithm: algorithm.mulAll,
+    list: factory.createList(['万位','千位','百位'], {
+      items: danshuang,
+      operate: 'none'
+    }),
+    format: {symbol: ' '},
+    formatToNum: true,
+    create: algorithm.getCreateFunc(3, {
+      range: danshuang,
+      matching: true
+    })
+  });
+
+
+  // 一帆风顺
+  factory.addRule([ticketId, '160301'], {
+    algorithm: algorithm.group,
+    algorithmProps: {
+      mainRow: 0,
+      cTimes: 1
+    },
+    list: factory.createList(['']),
+    create: algorithm.getCreateFunc(1)
+  });
+
+  // 好事成双
+  factory.addRule([ticketId, '160302'], {
+    algorithm: algorithm.group,
+    algorithmProps: {
+      mainRow: 0,
+      cTimes: 1
+    },
+    list: factory.createList(['']),
+    create: algorithm.getCreateFunc(1)
+  });
+
+  // 三星报喜
+  factory.addRule([ticketId, '160303'], {
+    algorithm: algorithm.group,
+    algorithmProps: {
+      mainRow: 0,
+      cTimes: 1
+    },
+    list: factory.createList(['']),
+    create: algorithm.getCreateFunc(1)
+  });
+
+  // 四季发财
+  factory.addRule([ticketId, '160304'], {
+    algorithm: algorithm.group,
+    algorithmProps: {
+      mainRow: 0,
+      cTimes: 1
+    },
+    list: factory.createList(['']),
+    create: algorithm.getCreateFunc(1)
+  });
+
+  // 龙虎和
+  factory.addRule([ticketId, '160101'], {
+    algorithm: algorithm.addAll,
+    list: factory.createList(['龙虎'], {
+      items: longhu,
+      operate: 'none'
+    }),
+    format: {symbol: ' '},
+    formatToNum: true,
+    create: algorithm.getCreateFunc(1, {
+      range: longhu,
+      matching: true
+    })
+  });
+
+  factory.addRule([ticketId, '160102'], {
+    algorithm: algorithm.addAll,
+    list: factory.createList(['龙虎'], {
+      items: longhu,
+      operate: 'none'
+    }),
+    format: {symbol: ' '},
+    formatToNum: true,
+    create: algorithm.getCreateFunc(1, {
+      range: longhu,
+      matching: true
+    })
+  });
+
+  factory.addRule([ticketId, '160103'], {
+    algorithm: algorithm.addAll,
+    list: factory.createList(['龙虎'], {
+      items: longhu,
+      operate: 'none'
+    }),
+    format: {symbol: ' '},
+    formatToNum: true,
+    create: algorithm.getCreateFunc(1, {
+      range: longhu,
+      matching: true
+    })
+  });
+
+  factory.addRule([ticketId, '160104'], {
+    algorithm: algorithm.addAll,
+    list: factory.createList(['龙虎'], {
+      items: longhu,
+      operate: 'none'
+    }),
+    format: {symbol: ' '},
+    formatToNum: true,
+    create: algorithm.getCreateFunc(1, {
+      range: longhu,
+      matching: true
+    })
+  });
+
+  factory.addRule([ticketId, '160105'], {
+    algorithm: algorithm.addAll,
+    list: factory.createList(['龙虎'], {
+      items: longhu,
+      operate: 'none'
+    }),
+    format: {symbol: ' '},
+    formatToNum: true,
+    create: algorithm.getCreateFunc(1, {
+      range: longhu,
+      matching: true
+    })
+  });
+
+  factory.addRule([ticketId, '160106'], {
+    algorithm: algorithm.addAll,
+    list: factory.createList(['龙虎'], {
+      items: longhu,
+      operate: 'none'
+    }),
+    format: {symbol: ' '},
+    formatToNum: true,
+    create: algorithm.getCreateFunc(1, {
+      range: longhu,
+      matching: true
+    })
+  });
+
+  factory.addRule([ticketId, '160107'], {
+    algorithm: algorithm.addAll,
+    list: factory.createList(['龙虎'], {
+      items: longhu,
+      operate: 'none'
+    }),
+    format: {symbol: ' '},
+    formatToNum: true,
+    create: algorithm.getCreateFunc(1, {
+      range: longhu,
+      matching: true
+    })
+  });
+
+  factory.addRule([ticketId, '160108'], {
+    algorithm: algorithm.addAll,
+    list: factory.createList(['龙虎'], {
+      items: longhu,
+      operate: 'none'
+    }),
+    format: {symbol: ' '},
+    formatToNum: true,
+    create: algorithm.getCreateFunc(1, {
+      range: longhu,
+      matching: true
+    })
+  });
+
+  factory.addRule([ticketId, '160109'], {
+    algorithm: algorithm.addAll,
+    list: factory.createList(['龙虎'], {
+      items: longhu,
+      operate: 'none'
+    }),
+    format: {symbol: ' '},
+    formatToNum: true,
+    create: algorithm.getCreateFunc(1, {
+      range: longhu,
+      matching: true
+    })
+  });
+
+  factory.addRule([ticketId, '160110'], {
+    algorithm: algorithm.addAll,
+    list: factory.createList(['龙虎'], {
+      items: longhu,
+      operate: 'none'
+    }),
+    format: {symbol: ' '},
+    formatToNum: true,
+    create: algorithm.getCreateFunc(1, {
+      range: longhu,
+      matching: true
+    })
+  });
 
 }
 

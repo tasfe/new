@@ -111,7 +111,8 @@ var BettingCenterPlayAreaView = Base.ItemView.extend({
     return {
       rowsResult: this.options.rowsResult,
       selectOptionals: this.options.selectOptionals,
-      format: this.options.format
+      format: this.options.format,
+      formatToNum: this.options.formatToNum || false // PK10大小单双文字数字转换标示
     };
   },
 

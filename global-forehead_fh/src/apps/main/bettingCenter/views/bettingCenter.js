@@ -719,7 +719,8 @@ var BettingCenterView = Base.ItemView.extend({
       lotteryList: bettingInfo.rowsResult,
       selectOptionals: bettingInfo.selectOptionals,
       format: bettingInfo.format,
-      type: 'select'
+      type: 'select',
+      formatToNum: bettingInfo.formatToNum
     });
 
     if (result) {
@@ -740,7 +741,8 @@ var BettingCenterView = Base.ItemView.extend({
       lotteryList: bettingInfo.passNumbers,
       selectOptionals: bettingInfo.selectOptionals,
       format: bettingInfo.format,
-      type: 'input'
+      type: 'input',
+      formatToNum: bettingInfo.formatToNum
     });
 
     if (result) {
@@ -791,26 +793,9 @@ var BettingCenterView = Base.ItemView.extend({
       levelName: $target.data('title')
     });
 
-    var idStr =  ''+$target.data('id');
-    idStr = idStr.substr(idStr.length - 2);
+    var idStr =  ''+$target.data('index');
     idStr = parseInt(idStr);
-    if(idStr == 9) {
-      idStr = 1;
-    }
-    if(idStr == 10) {
-      idStr = 2;
-    }
-    if(idStr == 11) {
-      idStr = 3;
-    }
-    if(idStr == 12) {
-      idStr = 4;
-    }
-    if(idStr == 13) {
-      idStr = 5;
-    }
-    var playValue = idStr*79 +17;
-
+    var playValue = (idStr+1)*69 +26;
     this.$('.js-bc-advance-rules').css('left',playValue+'px');
 
   },

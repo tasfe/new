@@ -43,7 +43,7 @@ var LotteryTypeListView = Base.ItemView.extend({
     lotteryList += '<a href="#bc/3"><div class="js-list-close1 sfa-d-ssc-xj  ssc-style-select"></div></a>';
     lotteryList += '<a href="#bc/8"><div class="js-list-close1  sfa-d-ssc-tj ssc-style-select"></div></a>';
     lotteryList += '<a href="#bc/9"><div class="js-list-close1 sfa-d-ssc-hlj  ssc-style-select"></div></a>';
-    lotteryList += '<a href="#"><div class="js-list-close1 sfa-d-korea-15  ssc-style-select"></div></a>';
+    lotteryList += '<a href="#"><div class="js-list-close1 sfa-d-ssc-hg  ssc-style-select"></div></a>';
     lotteryList += '</div>';
     lotteryList += '<div class="js-lotteryList-1 hidden">';
     lotteryList += '<a href="#bc/10"><div class="js-list-close1 sfa-d-sp-ssc-ffc  ssc-style-select"></div></a>';
@@ -64,7 +64,7 @@ var LotteryTypeListView = Base.ItemView.extend({
     lotteryList += '<a href="#bc/20"><div class="js-list-close1 sfa-d-sp-num-ffc  ssc-style-select"></div></a>';
     lotteryList += '</div>';
     lotteryList += '<div class="js-lotteryList-4 hidden">';
-    lotteryList += '<a href="#bc/18"><div class="js-list-close1 sfa-d-bj-px10 ssc-style-select"></div></a>';
+    lotteryList += '<a href="#bc/18"><div class="js-list-close1 sfa-d-happy-pk10  ssc-style-select"></div></a>';
     lotteryList += '</div>';
     $('.js-active-context').html(lotteryList);
 
