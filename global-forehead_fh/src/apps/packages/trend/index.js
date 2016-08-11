@@ -73,6 +73,43 @@ $.widget('gl.trend', {
         window.location.href = window.location.href;
       };
     }
+
+
+  /*  if(this.ticketId == 18) {
+      this.$pageToggle.removeClass('hidden');
+    }
+    // 北京pk10分页展示
+    this.$pageToggle.find('.js-toggle-page1').bind('click', function() {
+      $(this).addClass('active');
+      $(this).siblings().removeClass('active');
+      $('.col0').css('display', 'table-cell');
+      $('.col1').css('display', 'table-cell');
+      $('.col2').css('display', 'table-cell');
+      $('.col3').css('display', 'table-cell');
+      $('.col4').css('display', 'table-cell');
+      $('.col5').css('display', 'none');
+      $('.col6').css('display', 'none');
+      $('.col7').css('display', 'none');
+      $('.col8').css('display', 'none');
+      $('.col9').css('display', 'none');
+      self.draw(0);
+    });
+    this.$pageToggle.find('.js-toggle-page2').bind('click', function() {
+      $(this).addClass('active');
+      $(this).siblings().removeClass('active');
+      $('.col0').css('display', 'none');
+      $('.col1').css('display', 'none');
+      $('.col2').css('display', 'none');
+      $('.col3').css('display', 'none');
+      $('.col4').css('display', 'none');
+      $('.col5').css('display', 'table-cell');
+      $('.col6').css('display', 'table-cell');
+      $('.col7').css('display', 'table-cell');
+      $('.col8').css('display', 'table-cell');
+      $('.col9').css('display', 'table-cell');
+      self.draw(60);
+    });*/
+
   },
 
   draw: function() {

@@ -327,6 +327,10 @@ module.exports = {
     }));
   },
 
+  getHappyList: function() {
+    return happyConfig.list;
+  },
+
   getAll: function() {
     return allConfig;
   },
