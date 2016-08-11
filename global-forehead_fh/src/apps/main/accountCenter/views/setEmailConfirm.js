@@ -28,6 +28,24 @@ var confirmEmailView = Base.ItemView.extend({
         this.loadingFinish();
 
 
+        $('.js-emailTime').html(50);
+
+        alert(this.$('.js-emailTime').html());
+
+        var emailTime = setInterval(function(){
+
+            var num = $('.js-emailTime').html() - 1;
+
+            if ($('.js-emailTime').html() == 0) {
+                clearInterval(emailTime)
+            }else{
+                $('.js-emailTime').html(num);
+            }
+
+        }, 1000)
+
+
+
     },
 
     nextHandler: function () {

@@ -277,7 +277,13 @@
     margin-top: 100px;
     width: 430px;
 
-    .ac-setemail-icon{
+    .ac-unbind-email{
+      background: url("unbind-email.png") no-repeat;
+      margin-top: 25px;
+      width: 111px;
+      height: 76px;
+    }
+    .ac-binded-email{
       background: url("ac-emailsetting.png") no-repeat;
       width: 111px;
       height: 127px;
@@ -287,6 +293,9 @@
       width: 245px;
       height: 40px;
       font-size: 14px;
+      .as-launch-set{
+        text-decoration: underline;
+      }
     }
 
   }
