@@ -502,6 +502,7 @@ $.widget('gl.resetPassword', {
     }).done(function (res) {
       $('.js-emailSendLoading').addClass('hidden');
       if (res && res.result === 0) {
+        
         $('.js-emailTime').html(50);
         var emailTime = setInterval(function(){
           var num = $('.js-emailTime').html() - 1;
