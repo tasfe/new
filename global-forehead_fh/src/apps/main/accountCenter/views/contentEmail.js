@@ -24,7 +24,7 @@ var contentEmailView = Base.ItemView.extend({
 
     nextHandler: function (e) {
 
-        // var self = this;
+        var self = this;
         // var $target = $(e.currentTarget);
         // $target.button('loading');
         // Global.sync.ajax({
@@ -37,7 +37,7 @@ var contentEmailView = Base.ItemView.extend({
         //     .done(function(res) {
         //         if (res && res.result === 0) {
 
-                    var confirm = new ConfirmView();
+                    var confirm = new ConfirmView({email:self.$setEmail.val()});
                     $('.js-acse-container').html(confirm.render().el);
                     this.destroy();
 
