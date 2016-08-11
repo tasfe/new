@@ -126,27 +126,27 @@ var InsideLetterView = Base.ItemView.extend({
       userId: ops.userId,
       lastMsgId: ops.lastMsgId
     })
-      .done(function(res) {
-        var list;
-        res.root = res.root || {};
-        if (res && res.result === 0) {
-          list = res.root || [];
+    .done(function(res) {
+      var list;
+      res.root = res.root || {};
+      if (res && res.result === 0) {
+        list = res.root || [];
 
-          var hasNew = self.renderLetterChat(list, ops.userId, !!ops.lastMsgId);
+        var hasNew = self.renderLetterChat(list, ops.userId, !!ops.lastMsgId);
 
-          if (!ops.lastMsgId) {
-            if (hasNew) {
-              Global.m.message.setRead(ops.userId);
-            }
-            if (ops.scroll) {
-              self.$singleChat.scrollTop(self.singleChat.height());
-            }
+        if (!ops.lastMsgId) {
+          if (hasNew) {
+            Global.m.message.setRead(ops.userId);
           }
-
-        } else {
-          Global.ui.notification.show('系统异常，请稍后再试');
+          if (ops.scroll) {
+            self.$singleChat.scrollTop(self.singleChat.height());
+          }
         }
-      });
+
+      } else {
+        Global.ui.notification.show('系统异常，请稍后再试');
+      }
+    });
   },
 
   renderLetterChat: function(chatData, userId, prepend) {
