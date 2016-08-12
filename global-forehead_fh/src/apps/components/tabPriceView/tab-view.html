@@ -1,0 +1,17 @@
+
+<ul id="<%=_.unique() %>" class="js-view-tabs nav <% if(!menushow){%>hidden<% } %>" style="border-radius: 2px;height: 30px;width: 505px; border: 1px solid #999999;">
+  <% _(tabs).each(function(tab, index) { %>
+  <li class=" <% if ((!triggerTab && index) === 0 || (tab.name === triggerTab)) { %>active<% } %> " style="border-right: 1px solid #999999;list-style: none;line-height: 30px;text-align: center;float: left;width: 100px;height: 30px">
+    <a href="#<%=tab.id %>" class="js-pf-tabView-item" data-toggle="tab" data-index="<%=index %>" data-name="<%=tab.name %>">
+      <span><%=tab.label %></span>
+    </a>
+  </li>
+  <% }); %>
+</ul>
+
+<%=append%>
+<div id="<%=_.unique() %>" class="view-container tab-content">
+  <% _(tabs).each(function(tab, index) { %>
+  <div id="<%=tab.id %>" class="tab-pane fade <% if ((!triggerTab && index) === 0 || (tab.name === triggerTab)) { %>in active <% } %>"></div>
+  <% }); %>
+</div>

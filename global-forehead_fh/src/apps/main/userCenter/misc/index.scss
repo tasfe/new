@@ -767,3 +767,28 @@
   }
 
 }
+
+.price-ul{
+  height: 500px;
+}
+
+.price-ul>ul>li.active a{
+  background-color: lightgrey;
+}
+.price-ul>ul>li>a {
+
+  &:hover{
+    background-color: lightgrey;
+  }
+  &:visited{
+    background-color: lightgrey;
+  }
+  &:focus{
+    background-color: lightgrey;
+  }
+}
+
+.price-container{
+  height: 500px;
+  overflow-y: auto;
+}
