@@ -6,14 +6,18 @@ var findPwdView = Base.ItemView.extend({
 
   //构造通过安全问题找回资金密码页面
   bySQTpl: _.template(require('accountCenter/templates/passwordManage-bySQ.html')),
+  
   //构造通过银行卡信息找回资金密码页面
   byCITpl: _.template(require('accountCenter/templates/passwordManage-byCI.html')),
+  
 
   events: {
     //选择找回资金密码的方式
     'click .js-ac-findBySQBtn': 'findBySqHandler',
     //选择找回资金密码的方式
     'click .js-ac-findByCIBtn': 'findByCIHandler',
+
+    'click .js-ac-findByEMBtn': 'findByEMHandler',
 
     'click .js-ac-return-select': 'returnSelectHandler',
 
@@ -31,6 +35,12 @@ var findPwdView = Base.ItemView.extend({
   getRechargeBaseInfoXhr: function(){
     return Global.sync.ajax({
       url:'/fund/recharge/rechargetype.json'
+    });
+  },
+
+  getHasEmail:function () {
+    return Global.sync.ajax({
+      url:'/acct/userinfo/userdetail.json'
     });
   },
 
@@ -100,6 +110,24 @@ var findPwdView = Base.ItemView.extend({
         }
       });
 
+    this.getHasEmail()
+        .done(function(res) {
+          var data = res.root || {};
+          if (res && res.result === 0) {
+            if (data.userEmail === null) {
+              self.$('.js-ac-findByEMBtn').addClass('hidden');
+              //显示为不可用的提示文字
+              self.$('.js-ac-findByEM-notice').removeClass('hidden');
+              $findWayContainer.removeClass('hidden');
+            }else {
+              self.$('.js-ac-findByEMBtn').removeClass('hidden');
+              //显示为不可用的提示文字
+              self.$('.js-ac-findByEM-notice').addClass('hidden');
+              $findWayContainer.removeClass('hidden');
+            }
+
+          }
+        });
 
     //Julien检查代码
     var newFundPassword = _(function() {
@@ -225,6 +253,10 @@ var findPwdView = Base.ItemView.extend({
           // alert(res.root);
         }
       });
+  },
+
+  findByEMHandler:function (e) {
+    
   },
 
   //3.2.1选择找回资金密码的方式时展示不同页面

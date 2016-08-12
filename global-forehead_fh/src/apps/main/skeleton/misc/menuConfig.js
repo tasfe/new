@@ -47,7 +47,7 @@ var menuConfig = [
       },
       {
         id: 107,
-        router: 'uc/pal',
+        router: 'ac/rm',
         name: '彩票盈亏'
       },
       {

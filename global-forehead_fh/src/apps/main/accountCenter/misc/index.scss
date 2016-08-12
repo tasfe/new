@@ -165,9 +165,13 @@
 }
 
 .as-security-add-notice {
-  width: 325px;
+  width: 385px;
   padding: 5px 10px;
   margin: 10px auto;
+  border-radius: 20px;
+  text-align: center;
+  background-color: #CC0002;
+  color: white;
 }
 
 .as-securityQuestion-step1-div {
@@ -320,4 +324,135 @@
   height: 30px;
   cursor: pointer;
 
+}
+
+.fc-cant-receive{
+  text-align: center;
+}
+
+.waite-for-time{
+  background-color: #999999;
+  text-align: center;
+  line-height: 20px;
+  color: white;
+  height: 20px;
+  width: 20px;
+  margin: 5px;
+
+}
+
+.fc-next-confirm{
+  margin-top: 10px;
+  margin-left: 270px;
+}
+
+
+.st-em-progress {
+  display: inline-flex;
+  margin-bottom: 10px;
+  width: 100%;
+  height: 30px;
+}
+
+.st-wd-pg-line {
+  margin-top: 14px;
+  background-color: #cc0001;
+  width: 130px;
+  height: 2px;
+}
+
+.st-wd-pg-round {
+  font-weight: bolder;
+  margin: 0px 5px 0px 5px;
+  background-color: #cc0001;
+  height: 30px;
+  width: 30px;
+  line-height: 30px;
+  text-align: center;
+  border-radius: 15px;
+  color: #fff;
+}
+
+.st-wd-pg-line1 {
+  margin-top: 14px;
+  background-color: #959595;
+  width: 130px;
+  height: 2px;
+}
+
+.st-wd-pg-round1 {
+  font-weight: bolder;
+  margin: 0px 5px 0px 5px;
+  background-color: #959595;
+  height: 30px;
+  width: 30px;
+  line-height: 30px;
+  text-align: center;
+  border-radius: 15px;
+  color: #fff;
+}
+
+.st-wd-title0 {
+  font-weight: bolder;
+  text-align: right;
+  line-height: 20px;
+  color: #cc0001;
+  width: 175px;
+}
+
+.st-wd-title {
+  color: #959595;
+  font-weight: bolder;
+  text-align: right;
+  line-height: 20px;
+  width: 167px;
+}
+
+.ac-ad-pwdAdministration{
+  padding-top: 100px;
+  display: flex;
+  height: 300px;
+  float: left;
+  width: 100%;
+
+  .ac-ad-mvlped{
+    background: url("ac-ad-mvlped.png") no-repeat;
+    margin: 10px 10px 10px 200px;
+    width: 253px;
+    height: 113px;
+  }
+
+  .ac-ad-mvmpwd{
+    background: url("ac-ad-mvmpwd.png") no-repeat;
+    margin: 10px;
+    width: 253px;
+    height: 113px;
+
+  }
+
+  .ac-ac-rempwd{
+    background: url("ac-ad-rempwd.png") no-repeat;
+    margin: 10px;
+    width: 253px;
+    height: 113px;
+  }
+
+}
+
+.ac-security-question{
+  background: url("security-question.png") no-repeat;
+  width: 36px;
+  height: 38px;
+}
+
+.ac-banck-card{
+  background: url("banck-card.png") no-repeat;
+  width: 35px;
+  height: 31px;
+}
+
+.verify-email{
+  background: url("verify-email.png") no-repeat;
+  width: 33px;
+  height: 29px;
 }
