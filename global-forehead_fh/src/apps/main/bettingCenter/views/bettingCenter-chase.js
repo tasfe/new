@@ -1,6 +1,6 @@
 "use strict";
 
-var TabView = require('com/tabView');
+var TabView = require('com/tabChaseView');
 
 var ChaseNormalView = require('bettingCenter/views/bettingCenter-chase-normal');
 var ChaseProfitView = require('bettingCenter/views/bettingCenter-chase-profit');
