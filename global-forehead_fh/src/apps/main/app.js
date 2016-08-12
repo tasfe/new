@@ -78,7 +78,7 @@ function _bindLetterHandler() {
 
     var $dialog = Global.ui.dialog.show({
       title: '发送站内信',
-      size: 'modal-lg',
+      size: 'modal-info-julien',
       body: '<div class="js-nc-insideLetter"></div>',
       bodyClass: 'no-padding',
       footer: ''

@@ -523,13 +523,9 @@
 
   .text-center{
     width: 100%;
-    height: 80px;
+    min-height: 200px;
     margin-top: 15px;
   }
-}
-
-.sfa-grid-empty{
-  margin-top:50px;
 }
 
 .lowLevelManage-view{
@@ -954,5 +950,79 @@
     td{
       padding: 8px 3px;
     }
+  }
+}
+
+
+
+.julien-search-condition-table{
+  font-size: 14px;
+  font-family: '微软雅黑';
+  margin: 0px 20px;
+  color: #999999;
+
+  .julien-title{
+    color: #eb2020;
+    margin-top:-15px;
+    margin-bottom: 5px;
+  }
+  
+  > div{
+    height: 35px;
+    margin-bottom: 15px;
+
+    >div{
+      float: right;
+      width: 75px;
+      border-left: 1px solid #cccccc;
+
+      button{
+        width: 62px;
+        height: 30px;
+        background-color: #ff6600;
+        color: #fff;
+        font-family: '微软雅黑';
+        font-size: 16px;
+        border: 0px;
+      }
+    }
+  }
+
+  dt,dd{
+    display: inline-block;
+  }
+  dt{
+    margin-right: 5px;
+    font-weight: normal;
+    font-size: 14px;
+    color: #999999;
+    font-family: '微软雅黑';
+  }
+
+  select{
+    width: 86px;
+    padding: 0px 5px;
+  }
+
+  input{
+    width: 86px;
+    height: 28px;
+    padding: 0px 5px;
+  }
+
+  dl.width150{
+    width: 150px;
+
+    dt{
+      margin-right: 0px;
+    }
+  }
+
+  dl.width185{
+    width: 185px;
+  }
+
+  dl{
+    display: inline-block;
   }
 }
