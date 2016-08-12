@@ -45,8 +45,31 @@ var BettingCenterView = Base.ItemView.extend({
     'click .js-bc-mmc-open-history-turn-page': 'openHistoryTurnPage',
     'change .js-bc-mmc-continue-lottery-times': 'lotteryTimesChange',
     'click .js-bc-smmc-treasure-button': 'get',
-    'click .js-bc-mmc-result-mask': 'closeMaskHandler'
+    'click .js-bc-mmc-result-mask': 'closeMaskHandler',
     //'click .js-bc-smmc-rule': 'checkSmmcJackpotRuleHandler'
+
+    'mouseover .js-bc-basic-rule': 'baseRuleChangeHandler',
+    'mouseout .js-bc-basic-rule': 'baseRuleChange1Handler',
+    'mouseover .js-bc-advance-rules': 'baseRuleChangeMOHandler',
+    'mouseout .js-bc-advance-rules': 'baseRuleChangeMO1Handler',
+    'click .js-play1': 'play1',
+    'click .js-play2': 'play2'
+  },
+
+  play1:function () {
+    $('.js-play1').addClass('sd');
+    $('.js-play2').removeClass('sd');
+    $('.js-bc-basic-rules').addClass('hidden');
+    $('.js-bc-optional-rules').removeClass('hidden');
+    $('.js-bc-optional-rules ul').removeClass('hidden');
+  },
+
+  play2:function () {
+    $('.js-play2').addClass('sd');
+    $('.js-play1').removeClass('sd');
+    $('.js-bc-basic-rules').removeClass('hidden');
+    $('.js-bc-optional-rules').addClass('hidden');
+    $('.js-bc-optional-rules ul').addClass('hidden');
   },
 
   serializeData: function () {
@@ -653,7 +676,21 @@ var BettingCenterView = Base.ItemView.extend({
   //  $target.attr('href', this.infoModel.getVideoUrl() || 'javascript:void(0)');
   //},
 
+  baseRuleChange1Handler: function(e) {
+    this.$('.js-bc-advance-rules').hide();
+  },
+
+  baseRuleChangeMOHandler: function(e) {
+    this.$('.js-bc-advance-rules').show();
+  },
+  baseRuleChangeMO1Handler: function(e) {
+    this.$('.js-bc-advance-rules').hide();
+  },
+
+
   baseRuleChangeHandler: function (e) {
+    this.$('.js-bc-advance-rules').show();
+
     var $target = $(e.currentTarget);
     $target.addClass('active').siblings().removeClass('active');
 
@@ -661,6 +698,12 @@ var BettingCenterView = Base.ItemView.extend({
       levelId: $target.data('id'),
       levelName: $target.data('title')
     });
+
+    var idStr =  ''+$target.data('index');
+    idStr = parseInt(idStr);
+    var playValue = (idStr+1)*69 +26;
+
+    this.$('.js-bc-advance-rules').css('left',playValue+'px');
   },
 
   togglePlayModeHandler: function (e) {

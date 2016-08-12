@@ -10,8 +10,10 @@ $.widget('gl.securityTip', {
     title: '安全提示',
     content: '请补充完您的安全信息后再提现',
     hasMoneyPwd: false,
+    hasSecurity: false,
     hasBankCard: false,
     showBankCard: true,
+    showSecurity: true,
     showMoneyPwd: true
   },
 
@@ -23,7 +25,6 @@ $.widget('gl.securityTip', {
     body.push('<div class="text-center margin-sm">');
     body.push('<div class="m-bottom-md font-md fc-security-notice-content">' + this.options.content + '</div>');
     body.push('<div class="fc-security-notice-link">');
-
     if(this.options.showMoneyPwd){
       body.push('<div class="security-notice-type-div">');
       var fundPasswordHmtl = '<span class="security-notice-span text-left">资金密码已设置完毕</span>';
@@ -40,6 +41,17 @@ $.widget('gl.securityTip', {
         bankCardHtml = '<span class="security-notice-span text-left">建议您</span><a class="js-fc-aHref  btn-link text-pleasant " href="#uc/cm" >去绑定银行卡</a>';
       }
       body.push(bankCardHtml+'</div>');
+    }
+
+    if(this.options.showSecurity){
+
+      body.push('<div class="security-notice-type-div">');
+      var securityHtml = '<span class="security-notice-span text-left">安全问题已绑定</span>';
+      
+      if (!this.options.hasSecurity) {
+        securityHtml = '<span class="security-notice-span text-left">建议您</span><a class="js-fc-aHref  btn-link text-pleasant " href="#as/sq" >去绑定安全问题</a>';
+      }
+      body.push(securityHtml+'</div>');
     }
 
     body.push('</div>');

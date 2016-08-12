@@ -341,7 +341,7 @@
   .ac-tm-data-label{
     font-size: 14px;
     color:#666666;
-    padding: 15px 10px 0 35px;
+    padding: 15px 10px 0 25px;
   }
   .ac-btnGroup {
 
@@ -414,7 +414,7 @@
     margin: 5px 20px 0 20px;
   }
   .ac-grid-title-div {
-    margin: 0 12px 0 12px;
+    margin: 0 20px;
   }
 }
 
@@ -523,13 +523,9 @@
 
   .text-center{
     width: 100%;
-    height: 80px;
+    min-height: 200px;
     margin-top: 15px;
   }
-}
-
-.sfa-grid-empty{
-  margin-top:50px;
 }
 
 .lowLevelManage-view{
@@ -856,5 +852,177 @@
       display: block;
       clear: both;
     }
+  }
+}
+
+.julienTeamTitle{
+  margin: 10px 20px;
+  font-family: '微软雅黑';
+
+  div{
+    padding-top: 8px;
+    width: 185px;
+    float: left;
+    height: 48px;
+    line-height: 26px;
+    text-align: center;
+    font-size: 14px;
+    color: #6d6d6d;
+    border-right: 1px solid #e5e5e5;
+
+    &.noborder{
+      border: 0px;
+    }
+
+    span{
+      display: block;
+      color: #2b7eb1;
+    }
+  }
+
+  b{
+    margin-top: 15px;
+    display: block;
+    width: 21px;
+    height: 37px;
+    background: url(~base/images/julien/24.png) no-repeat;
+    float: left;
+
+    &:last-child{
+      background-position: right;
+      float: right;
+    }
+  }
+
+  &:after{
+    content: '';
+    clear: both;
+    display: block;
+  }
+}
+
+.js-ac-search-bar{
+  .julien-select{
+    border-top: 1px solid #cccccc;
+    margin:10px 20px 0 20px;
+
+    .btn{
+      width: 78px;
+      height: 26px;
+      border: 1px solid #cccccc;
+      border-left: 0px;
+      padding: 0px;
+      margin: 0px;
+      float:left;
+      background: #fefefe;
+      box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+      margin-top: 13px;
+
+      &:first-child{
+        border-left: 1px solid #cccccc;
+      }
+
+      &.active{
+        background-color:#e0e0e0;
+      }
+    }
+  }
+}
+
+.ac-grid-title-div{
+  > div >div > table{
+      tr{
+      height: 38px;
+      background-color: #f2f2f2;
+      line-height: 38px;
+      color: #999999;
+      font-family: '\5FAE\8F6F\96C5\9ED1';
+      font-size: 14px;
+
+      th{
+        vertical-align: middle;
+        background: none;
+      }
+    }
+  }
+
+  div div div table{
+    td{
+      padding: 8px 3px;
+    }
+  }
+}
+
+
+
+.julien-search-condition-table{
+  font-size: 14px;
+  font-family: '微软雅黑';
+  margin: 0px 20px;
+  color: #999999;
+
+  .julien-title{
+    color: #eb2020;
+    margin-top:-15px;
+    margin-bottom: 5px;
+  }
+  
+  > div{
+    height: 35px;
+    margin-bottom: 15px;
+
+    >div{
+      float: right;
+      width: 75px;
+      border-left: 1px solid #cccccc;
+
+      button{
+        width: 62px;
+        height: 30px;
+        background-color: #ff6600;
+        color: #fff;
+        font-family: '微软雅黑';
+        font-size: 16px;
+        border: 0px;
+      }
+    }
+  }
+
+  dt,dd{
+    display: inline-block;
+  }
+  dt{
+    margin-right: 5px;
+    font-weight: normal;
+    font-size: 14px;
+    color: #999999;
+    font-family: '微软雅黑';
+  }
+
+  select{
+    width: 86px;
+    padding: 0px 5px;
+  }
+
+  input{
+    width: 86px;
+    height: 28px;
+    padding: 0px 5px;
+  }
+
+  dl.width150{
+    width: 150px;
+
+    dt{
+      margin-right: 0px;
+    }
+  }
+
+  dl.width185{
+    width: 185px;
+  }
+
+  dl{
+    display: inline-block;
   }
 }

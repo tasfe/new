@@ -11,9 +11,28 @@ var LowLevelManageView = SearchGrid.extend({
   className: 'lowLevelManage-view',
 
   events: {
+    'click .js-ac-llm-quota': 'changeQuota',
+    'click .js-ac-rebate': 'changeRebate',
     'click .js-ac-expend-btn': 'expendHandler',
     'click .js-ac-llm-cp': 'checkPayPwdSet',
     'click .js-toggle-seach': 'toggleSeach'
+  },
+
+  changeQuota: function (e) {
+    var $target = $(e.currentTarget);
+    $(document).quota({
+      title: $target.data('username'),
+      userId: $target.data('subacctid')
+    });
+  },
+
+  changeRebate: function (e) {
+    var $target = $(e.currentTarget);
+
+    $(document).rebate({
+      title: '提升' + $target.data('username') + '返点',
+      userId: $target.data('subacctid')
+    });
   },
 
   initialize: function() {
@@ -196,13 +215,13 @@ var LowLevelManageView = SearchGrid.extend({
     var cell = [];
     
     if (rowInfo.direct && !this.isSub()) {
-      cell.push('<a href="javascript:void(0);"  class="js-ac-llm-quota btn btn-link ">配额</a>');
+      cell.push('<a href="javascript:void(0);" class="js-ac-llm-quota btn btn-link" data-subacctid="' + rowInfo.userId + '" data-username="' + rowInfo.userName + '">配额</a>');
     }
     if (rowInfo.direct && !this.isSub()) {
-      cell.push('<a href="' + _.getUrl('/rebate/' + rowInfo.userId, 'name', rowInfo.userName) + '" class="router btn btn-link">升点</a>');
+      cell.push('<a href="javascript:void(0);" class="js-ac-rebate btn btn-link" data-subacctid="' + rowInfo.userId + '" data-username="' + rowInfo.userName + '">升点</a>');
     }
     if (rowInfo.direct && !this.isSub()) {
-      cell.push('<a href="javascript:void(0);"  class="js-ac-llm-cp btn btn-link ">转账</a>');
+      cell.push('<a href="javascript:void(0);"  class="js-ac-llm-cp btn btn-link" data-subacctid="' + rowInfo.userId + '" data-username="' + rowInfo.userName + '">转账</a>');
     }
     if (rowInfo.direct && !this.isSub()) {
       cell.push('<a href="javascript:void(0);" class="js-gl-letter btn btn-link text-sunshine"' +
@@ -210,7 +229,6 @@ var LowLevelManageView = SearchGrid.extend({
     }
 
     html = html.concat(cell);
-
     return html.join('');
   },
 
@@ -230,28 +248,45 @@ var LowLevelManageView = SearchGrid.extend({
     $currentTr.siblings().find('.js-ac-expend').css('height', '').end()
         .find('.js-ac-expend-btn').addClass('fa-rotate-180');
   },
+  
   checkPayPwdSet: function(e){
     var $target = $(e.currentTarget);
-    var rowInfo = this.grid.getRowData($target);
-    this.checkPayPwdXhr()
-        .done(function(res) {
-          if (res && res.result === 0) {
-            //设置了则弹出验证框
-            //$(document).verifyFundPwd({parentView:self});
-            Global.appRouter.navigate('#ac/llm/transfer/' + rowInfo.userId+'?name='+rowInfo.userName,{trigger: true, replace: false});
-          } else if (res && res.result === 1) {
-            //未设置则弹出链接到资金密码设置页面的提示框
-            $(document).securityTip({
-              content: '请补充完您的安全信息后再转账',
-              showMoneyPwd: true,
-              hasMoneyPwd: false,
-              showBankCard: false,
-              hasBankCard: false
-            });
-            //self.$('.js-uc-cm-fundPwdSetNotice').removeClass('hidden');
-            //self.$el.removeClass('hidden');
-          }
-        });
+
+    var acctInfo = Global.memoryCache.get('acctInfo');
+    if (!acctInfo || acctInfo.userStatus === 100) {
+      this.$dialog.modal('hide');
+      Global.ui.notification.show('用户已被冻结，无法进行转账操作。');
+    }
+    else{
+      this.getInfoXhr().fail(function () {
+         Global.ui.notification.show('网络报错！');
+      })
+      .done(function(res) {
+        if(res.root.hasMoneyPwd && res.root.hasSecurity){
+           $(document).transfer({
+            title: $target.data('username'),
+            userId: $target.data('subacctid'),
+            data: res
+          });
+        }
+        else{
+          $(document).securityTip({
+            content: '请补充完您的安全信息后再转账',
+            showMoneyPwd: !res.root.hasMoneyPwd,
+            showBankCard: false,
+            showSecurity: !res.root.hasSecurity
+          });
+        }
+      });
+    }
+  },
+
+  //获取转账信息
+  getInfoXhr: function() {
+    return Global.sync.ajax({
+      url: '/acct/subacctinfo/gettradeinfo.json',
+      abort: false
+    });
   }
 });
 

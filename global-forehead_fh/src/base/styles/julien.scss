@@ -1,3 +1,6 @@
+body{
+	background: url('~base/images/fh/bg.png') no-repeat #f8f8f8;
+}
 .modal-lg-julien{
 	width: 1020px !important;
 	margin-left: -510px !important;
@@ -52,6 +55,21 @@
 		textarea{
 			background-color: #f7f7f7;
 			border: 1px solid #ccc;
+		}
+
+		.rebateBtn{
+			margin: 20px;
+			text-align: center;
+			input{
+				width: 50px;
+			}
+			button{
+				background-color: #cc0000;
+				padding: 7px 19px;
+				border: 0px;
+				color: #fff;
+				margin-left: 20px;
+			}
 		}
 	}
 }
@@ -172,7 +190,6 @@
     i{
       position: absolute;
       top: 7px;
-      left: 335px;
       display: inline-block;
       width: 16px;
       height: 16px;
@@ -183,7 +200,6 @@
   .messageBox{
     position: absolute;
     top: 2px;
-    left: 355px;
     display: none;
 
     b{
@@ -213,7 +229,6 @@
     i{
       position: absolute;
       top: 7px;
-      left: 335px;
       display: inline-block;
       width: 16px;
       height: 16px;
@@ -228,6 +243,7 @@
 
 .slimScrollDiv{
 	height: auto !important;
+	min-height: 20px;
 
 	.relative{
 		height: auto !important;
@@ -262,4 +278,208 @@
 	bottom: 0px;
 	left: 0px;
 	z-index: 101;
+}
+
+.julien-rebate-dialog{
+	font-family: '微软雅黑';
+	margin: 0px 130px;
+
+	.tips{
+		text-align: center;
+	}
+
+	> div > div > table{
+		tr{
+			height: 38px;
+			background-color: #f2f2f2;
+			line-height: 38px;
+			color: #999999;
+			font-family: '\5FAE\8F6F\96C5\9ED1';
+			font-size: 14px;
+
+			th{
+				vertical-align: middle;
+				background: none;
+			}
+		}
+	}
+
+	> div > div > div >table{
+		tr{
+			background-color: #fff;
+			color: #666666;
+			font-size: 14px;
+		}
+		td{
+			padding: 8px 3px;
+		}
+		a{
+			color: #666666;
+			font-size: 14px;
+		}
+	}
+}
+
+.julien-quota-dialog{
+	font-family: '微软雅黑';
+
+	.title{
+		font-size: 16px;
+		color: #666666;
+		margin-bottom: 15px;
+
+		span{
+			display: inline-block;
+			margin-right: 100px;
+			b{
+				color: #cc0000;
+				font-weight: initial;
+			}
+		}
+	}
+}
+
+#footer{
+	.foot1{
+		clear: both;
+		position: fixed;
+		bottom: 0px;
+		left: 0px;
+		width: 100%;
+	}
+	.foot2{
+		height: 100px;
+	}
+}
+
+.julien-table-title{
+	tr{
+		height: 38px;
+    background-color: #f2f2f2;
+    line-height: 38px;
+    color: #999999;
+    font-family: '\5FAE\8F6F\96C5\9ED1';
+    font-size: 14px;
+
+    th{
+    	vertical-align: middle;
+			background: none;
+    }
+	}
+}
+
+.julien-transfer-dialog{
+	font-family: '微软雅黑';
+	color: #666666;
+	font-size: 14px;
+
+	.tips{
+		margin: 0px 152px 40px 152px !important;
+		text-align: center;
+	}
+
+	dt,dd{
+		padding: 0px;
+		margin: 0px;
+		display: inline-block;
+	}
+
+	dl{
+		margin-left: 320px;
+		width: 620px;
+		height: 35px;
+
+		dt{
+			width: 81px;
+			text-align: right;
+			font-weight: initial;
+			margin-right: 10px;
+		}
+
+		&.price{
+			dd{
+				color: #cc0000;
+				font-size: 18px;
+			}
+		}
+
+		dd{
+			i{
+				left: 285px;
+			}
+			.messageBox{
+				left: 305px;
+			}
+			
+		}
+	}
+
+	.row-btn{
+		text-align: center;
+		border-top: 1px solid #e2e2e2;
+		margin-top: 45px;
+		padding-top: 28px;
+		margin-bottom: 20px;
+
+		button{
+			background-color: #cc0000;
+			padding: 7px 19px;
+			border: 0px;
+			color: #fff;
+		}
+	}
+}
+
+.security-notice-type-div{
+	line-height: 24px;
+	font-size: 14px;
+	font-family: '微软雅黑';
+}
+
+.julien-div-table-title{
+	>table{
+		tr{
+			height: 38px;
+	    background-color: #f2f2f2;
+	    line-height: 38px;
+	    color: #999999;
+	    font-family: '\5FAE\8F6F\96C5\9ED1';
+	    font-size: 14px;
+
+	    th{
+	    	vertical-align: middle;
+				background: none;
+	    }
+		}
+	}
+}
+
+.js-pf-search-grid{
+	margin: 0px 20px;
+}
+
+.modal-info-julien{
+	width: 1020px !important;
+	margin-left: -510px !important;
+	font-size: 14px;
+	font-family: '微软雅黑';
+	background: url(~base/images/julien/modal-lg-julien-bg.jpg) no-repeat;
+
+	.modal-header-left{
+		width: 290px;
+		height: 38px;
+		line-height: 38px;
+		font-size: 16px;
+		font-family: '微软雅黑';
+		color: #000000;
+		float: left;
+		border: 1px solid #cccccc;
+	}
+	.modal-header{
+		width: 500px;
+		float: left;
+	}
+	.modal-body{
+		clear: both;
+	}
 }

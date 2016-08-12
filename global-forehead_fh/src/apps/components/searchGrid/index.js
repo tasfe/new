@@ -142,7 +142,7 @@ var SearchGrid = Base.PrefabView.extend({
     }
 
     this._currentUrl = options.url || this._currentUrl;
-console.dir(filters);
+
     if (options.type === 'research' || this.options.remoteEveryTime) {
       Global.sync.ajax({
         url: this._currentUrl,

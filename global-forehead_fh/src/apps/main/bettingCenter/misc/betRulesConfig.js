@@ -9,6 +9,8 @@ define(function(require, exports, module) {
   var ThreeDFactory = require('bettingCenter/misc/betRulesFactory-3d');
   var P5P3Factory = require('bettingCenter/misc/betRulesFactory-p5p3');
 
+  var BjPKFactory = require('bettingCenter/misc/betRulesFactory-bjpk');
+
   var sscList = ticketConfig.getSccList();
 
   _(sscList).each(function(ssc) {
@@ -33,6 +35,11 @@ define(function(require, exports, module) {
     P5P3Factory.install(p5P3.id);
   });
 
+
+  var bjPKList = ticketConfig.getHappyList();
+  _(bjPKList).each(function(bjpk) {
+    BjPKFactory.install(bjpk.id);
+  });
 
   var _betRules = _(factory.betRules);
 

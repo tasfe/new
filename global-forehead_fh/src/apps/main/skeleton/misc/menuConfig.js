@@ -89,13 +89,18 @@ var menuConfig = [
       {
         id: 133,
         router: 'ac/cs',
-        name: '佣金统计'
+        name: '佣金管理'
       },
       {
         id: 134,
-        router: 'ac/rm',
-        name: '报表查询'
+        router: 'ac/salary',
+        name: '日工资管理'
       },
+     // {
+    //    id: 134,
+    //    router: 'ac/rm',
+  //      name: '报表查询'
+    //  },
       {
         id: 135,
         router: 'uc/dm',

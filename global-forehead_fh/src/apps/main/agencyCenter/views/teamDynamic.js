@@ -81,6 +81,7 @@ var LowLevelDynamicView = Base.ItemView.extend({
     var self = this;
     this.$TodayProfitTotal = this.$('.js-ac-ta-pl');
     this.$BalanceTotal = this.$('.js-ac-ta-ba');
+    this.$TodayWithdrawTotal = this.$('.js-ac-ta-wd');
     this.$TodayRechargeTotal = this.$('.js-ac-ta-re');
     this.$TodayBetTotal = this.$('.js-ac-ta-bt');
     this.$TodayOnlineTotal = this.$('.js-ac-ta-ol');
@@ -1000,6 +1001,7 @@ var LowLevelDynamicView = Base.ItemView.extend({
 
           self.$TodayProfitTotal.text(_(res.root.todayProfitTotal).convert2yuan());
           self.$BalanceTotal.text(_(res.root.balanceTotal).convert2yuan());
+          self.$TodayWithdrawTotal.text(_(res.root.todayWithdrawTotal).convert2yuan());
           self.$TodayRechargeTotal.text(_(res.root.todayRechargeTotal).convert2yuan());
           self.$TodayBetTotal.text(_(res.root.todayBetTotal).convert2yuan());
           self.$TodayOnlineTotal.text(res.root.todayOnlineTotal);
