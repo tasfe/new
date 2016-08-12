@@ -49,11 +49,11 @@ var BettingRecordsView = SearchGrid.extend({
         {
           name: '投注时间',
           width: '15%'
-        },
-        {
-          name: '投注玩法',
-          width: '8%'
         }
+        // {
+        //   name: '投注玩法',
+        //   width: '8%'
+        // }
       ],
       gridOps: {
         emptyTip: '没有投注记录'
@@ -75,14 +75,14 @@ var BettingRecordsView = SearchGrid.extend({
 
   onRender: function() {
 
-    //
-    // var cheAr = ['今天','三天','七天'];
-    // this.$content = this.$('.br-excess-tbutton');
-    // var cheInd=0;
-    // this.$content.html(_(cheAr).map(function (val) {
-    //   cheInd++;
-    //   return '<button class="js-excess-cell br-excess-cell" data-index='+cheInd+'>'+val+'</button>';
-    // }));
+
+    var cheAr = ['今天','三天','七天'];
+    this.$content = this.$('.br-excess-tbutton');
+    var cheInd=0;
+    this.$content.html(_(cheAr).map(function (val) {
+      cheInd++;
+      return '<button class="js-excess-cell br-excess-cell" data-index='+cheInd+'>'+val+'</button>';
+    }));
 
     //初始化时间选择
     new Timeset({
@@ -191,7 +191,7 @@ var BettingRecordsView = SearchGrid.extend({
     row.push(status);
     row.push('<a class="router btn-link btn-link-sun" href="' + _.getUrl('/detail/' + rowInfo.ticketTradeNo) + '">'+rowInfo.ticketTradeNo+'</a>');
     row.push(_(rowInfo.betTime).toTime());
-    row.push(rowInfo.ticketTradeNo);
+    //row.push(rowInfo.ticketTradeNo);
 
     return row;
   }

@@ -38,6 +38,12 @@ var findPwdView = Base.ItemView.extend({
     });
   },
 
+  getHasEmail:function () {
+    return Global.sync.ajax({
+      url:'/acct/userinfo/userdetail.json'
+    });
+  },
+
   //渲染时绑定事件、创建的对象、执行初始化
   onRender: function() {
     var self = this;
@@ -104,6 +110,24 @@ var findPwdView = Base.ItemView.extend({
         }
       });
 
+    this.getHasEmail()
+        .done(function(res) {
+          var data = res.root || {};
+          if (res && res.result === 0) {
+            if (data.userEmail === null) {
+              self.$('.js-ac-findByEMBtn').addClass('hidden');
+              //显示为不可用的提示文字
+              self.$('.js-ac-findByEM-notice').removeClass('hidden');
+              $findWayContainer.removeClass('hidden');
+            }else {
+              self.$('.js-ac-findByEMBtn').removeClass('hidden');
+              //显示为不可用的提示文字
+              self.$('.js-ac-findByEM-notice').addClass('hidden');
+              $findWayContainer.removeClass('hidden');
+            }
+
+          }
+        });
 
     //Julien检查代码
     var newFundPassword = _(function() {

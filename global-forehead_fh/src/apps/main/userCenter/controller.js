@@ -32,7 +32,11 @@ var VipCashView = require('userCenter/vipCash');
 //var VipInfoView = require('userCenter/vipInfo');
 var VipCreditView = require('userCenter/vipCredit');
 
-var LotteryPALView = require('userCenter/lottoryPAL/ProfitAndLoss');
+//var LotteryPALView = require('userCenter/lottoryPAL/ProfitAndLoss');
+//var ReportManageView = require('agencyCenter/reportManage');
+
+var ReportManageView = require('agencyCenter/reportManage/teamReport');
+
 var BaccaratPalView = require('userCenter/baccaratPal/baccaratPal');
 var transforRecordView = require('userCenter/transforRecord/transforRecord');
 
@@ -54,9 +58,9 @@ var UserCenterController = RouterController.extend({
     });
     $('#main > .clearfix').addClass('ac-block ac-block2');
   },
-  
-  lottoryPal:function () {
-    this.changeMainReginView(new LotteryPALView(), {
+
+  reportManage:function () {
+    this.changeMainReginView(new ReportManageView(), {
       sidebar: Global.ui.menu.get(['uc'])
     });
     $('#main > .clearfix').addClass('ac-block ac-block2');

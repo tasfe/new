@@ -7,7 +7,7 @@ var UserCenterController = require('userCenter/controller');
 exports.install = function() {
 
   window.Global.appRouter.processAppRoutes(new UserCenterController(), {
-    'uc/pal':'lottoryPal',
+    'ac/rm': 'reportManage', //报表查询(彩票盈亏)
     'uc/bac':'baccaratPal',
     'uc/tfr':'transforRecord',
     'uc/br': 'bettingRecords', // 投注信息
