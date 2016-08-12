@@ -91,6 +91,11 @@ var menuConfig = [
         router: 'ac/cs',
         name: '佣金管理'
       },
+      {
+        id: 134,
+        router: 'ac/salary',
+        name: '日工资管理'
+      },
      // {
     //    id: 134,
     //    router: 'ac/rm',

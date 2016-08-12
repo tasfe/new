@@ -48,7 +48,7 @@ $.widget('gl.transfer', {
 
     var data = this.options.data.root;
       
-    $('.js-ac-transfer-container dl dd').eq(0).html(data.balance);
+    $('.js-ac-transfer-container dl dd').eq(0).html(data.balance / 10000);
     $('.js-ac-transfer-container dl dd').eq(2).html(data.question);
     $('.js-question-input').attr('data-qid',data.securityId);
 
@@ -75,7 +75,7 @@ $.widget('gl.transfer', {
 
       var amount = $('.js-fc-tf-amount').val() * 1;
       var range = $('.js-fc-tf-amount').data('parsley-range');
-      var balance = $('.js-ac-transfer-container dl dd').eq(0).text() * 1;
+      var balance = $('.js-ac-transfer-container dl dd').eq(0).text() / 10000;
 
       var iIs = 0;
 

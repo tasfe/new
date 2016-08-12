@@ -36,6 +36,9 @@ var DialogModule = Base.Module.extend({
     html.push('<div class="modal-content">');
 
     if (options.title) {
+      if (options.size == 'modal-info-julien') {
+         html.push('<div class="modal-header-left"></div>');
+      }
       html.push('<div class="modal-header">');
       html.push('<span class="sfa sfa-dialog-close close" data-dismiss="modal">');
       //html.push('<span aria-hidden="true">&times;</span>');

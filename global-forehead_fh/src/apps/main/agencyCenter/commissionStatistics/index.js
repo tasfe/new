@@ -7,7 +7,6 @@ var ReportManageView = SearchGrid.extend({
   template: require('./index.html'),
 
   events: {
-    'blur .js-ac-timeSel': 'submitForm'
   },
 
   initialize: function () {
@@ -36,7 +35,7 @@ var ReportManageView = SearchGrid.extend({
           width: '10%'
         }
       ],
-      tip: '<div class="m-left-md"><span>注意:</span> 只保留最近30天的报表查询。</div>',
+      tip: '',
       gridOps: {
         emptyTip: '没有佣金变更记录'
       },
@@ -114,11 +113,6 @@ var ReportManageView = SearchGrid.extend({
     row.push('<a href="' + _.addHrefArgs('#ac/betting/' + rowInfo.consumeUserId, 'name', rowInfo.consumeUser) + '" class="router btn btn-link no-padding text-sunshine">查看投注</a>&nbsp;&nbsp;');
 
     return row;
-  },
-
-  submitForm: function(e){
-    var $target = $(e.currentTarget);
-    var $form = $target.closest('form').trigger('submit');
   }
 });
 
