@@ -5,6 +5,11 @@ require('./misc/index.scss');
 var RouterController = require('skeleton/controllers/router');
 
 var PasswordManageView = require('accountCenter/views/passwordManage');
+
+// var PwdAdministration = require('accountCenter/views/pwdAdministration');
+
+
+
 var SecurityQuestionView = require('accountCenter/views/securityQuestion');
 var LoginLogView = require('accountCenter/views/loginLog');
 var settingEmailView = require('accountCenter/views/settingEmail');
@@ -43,6 +48,16 @@ var AccountCenterController = RouterController.extend({
     var publicView = new PublicView();
     publicView.checkState();
   },
+
+  // loginPwd: function() {
+  //   this.changeMainReginView(new PwdAdministration(), {
+  //     sidebar: Global.ui.menu.get(['pc'])
+  //   });
+  //
+  //   var PublicView = require('userCenter/views/publicView');
+  //   var publicView = new PublicView();
+  //   publicView.checkState();
+  // },
 
   fundPwd: function() {
     this.changeMainReginView(new PasswordManageView({

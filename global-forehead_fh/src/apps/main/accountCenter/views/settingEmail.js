@@ -2,6 +2,8 @@
 
 var ContentEmailView = require('accountCenter/views/contentEmail');
 
+var verifyOldEmail = require('accountCenter/views/verifyOldEmail');
+
 var SettingEmail = Base.ItemView.extend({
 
     template: require('accountCenter/templates/settingEmail.html'),
@@ -11,9 +13,7 @@ var SettingEmail = Base.ItemView.extend({
     startOnLoading: true,
     
     events: {
-        
         'click .js-modify-email': 'modifyEmailHandler'
-        
     },
 
     initialize: function() {
@@ -51,6 +51,7 @@ var SettingEmail = Base.ItemView.extend({
 
                         this.$hasEmail = true;
                         self.$bindEmail.addClass('ac-binded-email');
+                        self.$oldEmail = data.userEmail;
                         var html = '已绑定邮箱'+data.userEmail+' </br>请问您是否需要 ' +
                             '<span class="js-modify-email as-launch-set text-hot" >修改绑定邮箱？</span>';
                         self.$verifyEmail.html(html);
@@ -73,10 +74,13 @@ var SettingEmail = Base.ItemView.extend({
         });
 
         if (this.$hasEmail){
-
-        }else {
             var conetent = new ContentEmailView();
             this.$dialog.find('.js-acse-container').html(conetent.render().el);
+
+        }else {
+            
+            var verify = new verifyOldEmail({oldEmial:this.$oldEmail});
+            this.$dialog.find('.js-acse-container').html(verify.render().el);
         }
 
         this.$dialog.on('hidden.modal', function () {

@@ -6,14 +6,18 @@ var findPwdView = Base.ItemView.extend({
 
   //构造通过安全问题找回资金密码页面
   bySQTpl: _.template(require('accountCenter/templates/passwordManage-bySQ.html')),
+  
   //构造通过银行卡信息找回资金密码页面
   byCITpl: _.template(require('accountCenter/templates/passwordManage-byCI.html')),
+  
 
   events: {
     //选择找回资金密码的方式
     'click .js-ac-findBySQBtn': 'findBySqHandler',
     //选择找回资金密码的方式
     'click .js-ac-findByCIBtn': 'findByCIHandler',
+
+    'click .js-ac-findByEMBtn': 'findByEMHandler',
 
     'click .js-ac-return-select': 'returnSelectHandler',
 
@@ -225,6 +229,10 @@ var findPwdView = Base.ItemView.extend({
           // alert(res.root);
         }
       });
+  },
+
+  findByEMHandler:function (e) {
+    
   },
 
   //3.2.1选择找回资金密码的方式时展示不同页面
