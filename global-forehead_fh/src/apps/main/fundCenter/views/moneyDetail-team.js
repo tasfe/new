@@ -10,7 +10,22 @@ var MoneyDetailView = SearchGrid.extend({
 
   template: require('fundCenter/templates/moneyDetails.html'),
 
-  events: {},
+  events: {
+    'click .js-excess-cell': 'dateSelectHandler'
+  },
+
+  dateSelectHandler:function (e) {
+
+    var recIndex = $(e.currentTarget).data('index');
+    if (recIndex===1){
+      this.$('.js-start-time').val(_(moment().add('days')).toDate()+' 0:00:00');
+    }else if (recIndex===2){
+      this.$('.js-start-time').val(_(moment().add('days',-3)).toDate()+' 0:00:00');
+    }else if (recIndex===3){
+      this.$('.js-start-time').val(_(moment().add('days',-7)).toDate()+' 0:00:00');
+    }
+
+  },
 
   initialize: function() {
     _(this.options).defaults({
@@ -54,9 +69,9 @@ var MoneyDetailView = SearchGrid.extend({
         url: '/fund/balance/history.json'
       },
       reqData: {
-        subUser: 1
+        subUser: 0
       },
-      viewType: 'team'
+      // viewType: 'team'
     });
   },
 
@@ -70,16 +85,6 @@ var MoneyDetailView = SearchGrid.extend({
     if(this.options.reqData.username){
       this.$('input[name="username"]').val(this.options.reqData.username);
     }
-
-    var qrArray=[{id:0,zhName:'个人'},{id:0,zhName:'团队'}];
-    this.$('select[name=queryRange]').html(_(qrArray).map(function (qr) {
-      return '<option value="'+qr.id+'">'+qr.zhName+'</option>';
-    }).join(''));
-
-    var plArray=[{id:-1,zhName:'全部'},{id:0,zhName:'等待支付'},{id:1,zhName:'支付成功'},{id:2,zhName:'支付失败'}];
-    this.$('select[name=commentType]').html(_(plArray).map(function (qr) {
-      return '<option value="'+qr.id+'">'+qr.zhName+'</option>';
-    }).join(''));
     
     this.$('select[name=tradeType]').html(_(tradingStatusConfig.get()).map(function(status) {
       return '<option value="' + status.id + '">' + status.searchName + '</option>';
