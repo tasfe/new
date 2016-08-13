@@ -64,8 +64,8 @@
     height: 16px;
   }
   .bc-smmc-jake-pool-area {
-    height: 194px;
-    width: 1025px;
+    height: 234px;
+    width: 1200px;
     z-index: -1;
     margin-left: -13px;
     background-color: transparent;
@@ -76,8 +76,8 @@
     .bc-smmc-jakePool-total {
       position: relative;
       font-size: 29px;
-      left: 462px;
-      top: 15px;
+      left: 495px;
+      top: 36px;
       color: #ffff00 !important;
       text-align: left;
       width: 200px;
@@ -86,8 +86,8 @@
     .bc-smmc-jakePool-crown {
       position: relative;
       font-size: 29px;
-      left: 275px;
-      top: 45px;
+      left: 315px;
+      top: 54px;
       display: inline-block;
       text-align: left;
       width: 200px;
@@ -95,8 +95,8 @@
     .bc-smmc-jakePool-diamond {
       position: relative;
       font-size: 29px;
-      left: 567px;
-      top: 45px;
+      left: 600px;
+      top: 54px;
       display: inline-block;
       text-align: left;
       width: 200px;
@@ -104,8 +104,8 @@
     .bc-smmc-jakePool-gold {
       position: relative;
       font-size: 29px;
-      left: 275px;
-      top: 58px;
+      left: 315px;
+      top: 65px;
       display: inline-block;
       text-align: left;
       width: 200px;
@@ -113,8 +113,8 @@
     .bc-smmc-jakePool-egg {
       position: relative;
       font-size: 29px;
-      left: 567px;
-      top: 58px;
+      left: 600px;
+      top: 68px;
       display: inline-block;
       text-align: left;
       width: 200px;
@@ -122,10 +122,15 @@
   }
 
   .mmc-main-bg {
-    background: url(smmc_head_bg_light.gif) top center no-repeat;
+    background: url(smmc_head_bg_light.png) top center no-repeat;
     background-color: #333;
-    height: 201px;
-    width: 1022px;
+    //height: 201px;
+    //width: 1022px;
+    //margin-top: 13px;
+    //margin-left: -11px;
+
+    height: 301px;
+    width: 1200px;
     margin-top: 13px;
     margin-left: -11px;
   }
@@ -159,8 +164,8 @@
     .bc-smmc-rule {
       width: 100px;
       position: absolute;
-      bottom: 35px;
-      left: 220px;
+      bottom: -45px;
+      left: 90px;
       > a {
         color: #f6b06c;
         text-decoration: underline;
@@ -195,10 +200,10 @@
   }
   .mmc-num-box {
     height: 116px;
-    width: 500px;
+    width: 600px;
     position: absolute;
-    left: 222px;
-    top: 39px;
+    left: 235px;
+    top: 120px;
     z-index: 1;
     overflow: hidden;
     text-align: center;
@@ -209,12 +214,14 @@
       background: url(smmc_win_bg.png) no-repeat;
       widht:100px;
       height:116px;
+      margin-left: 2px;
     }
     .mmc-num {
       background: url(num.png) top center repeat-y;
       width: 100px;
       height: 116px;
       //margin: -3px 0 -6px 44px;
+      margin-left: 6px;
     }
 
     .mmc-num-stop {
@@ -236,19 +243,23 @@
     cursor: pointer;
   }
   .bc-mmc-open-history-turn-page-up {
-    top: 97px;
+    top: 197px;
+    //background-color: blue;
+    left: 842px;
   }
   .bc-mmc-open-history-turn-page-down {
-    top: 39px;
+    top: 109px;
+    //background-color: red;
+    left: 842px;
   }
   .bc-mmc-open-history {
     //background:url(history-bg.png) 0px 0px no-repeat;
     overflow: hidden;
     position: absolute;
-    left: 763px;
-    top: 43px;
+    left: 900px;
+    top: 116px;
     height: 108px;
-    width: 150px;
+    width: 190px;
     font-size: 0px;
     .bc-mmc-open-history-div {
       position: absolute;
@@ -262,7 +273,7 @@
           color: #c6c6c8;
           line-height: 36px;
           font-size: 18px;
-          margin: 0 7px 0 7px;
+          margin: 0 16px 0 7px;
           width: 15px;
         }
       }
@@ -273,27 +284,27 @@
       top: 36px;
       width: 149px;
       height: 36px;
-      background-color: rgba(0,0,0,0.2);
-      z-index: 1;
-      border-radius: 8px;
+      //background-color: rgba(0,0,0,0.2);
+      //z-index: 1;
+      //border-radius: 8px;
     }
     .bc-mmc-open-history-num-mask2 {
       position: absolute;
       top: 72px;
       width: 149px;
       height: 36px;
-      background-color: rgba(0,0,0,0.2);
-      z-index: 1;
-      border-radius: 8px
+      //background-color: rgba(0,0,0,0.2);
+      //z-index: 1;
+      //border-radius: 8px
     }
   }
   .bc-mmc-more-history {
     position: absolute;
-    right: 81px;
-    top: 47px;
+    right: 158px;
+    top: 220px;
     color: #fff;
-    height: 100px;
-    width: 23px;
+    height: 25px;
+    width: 79px;
     a {
       width: 12px;
       height: 64px;
@@ -306,7 +317,7 @@
     height: 110px;
     position: absolute;
     right: 9px;
-    bottom: 68px;
+    bottom: 0px;
     margin: 0 auto;
     cursor: pointer;
     clear: both;
@@ -317,14 +328,14 @@
 
   .bc-main-area-wrapper {
     background-color: #333;
-    width: 1022px;
+    width: 1200px;
     margin-left: -11px;
 
     .bc-main-area {
       padding-top: 14px;
       margin-left: 11px;
       background-color: #fff;
-      width: 1000px;
+      width: 1178px;
       border: 0px solid #c2c2c2;
       min-height: 0px;
       overflow: hidden;
@@ -387,7 +398,7 @@
     border: 0px;
     .bc-play-area.loaded {
       height: 256px;
-      width: 100%;
+      width: 1180px;
       padding-top: 13px;
 
       .bc-playArea-items {
@@ -402,7 +413,7 @@
           }
         }
         .tab-toolbar {
-          margin-bottom: 13px;
+          //margin-bottom: 13px;
 
         }
         .tab-toolbar .tab-group {
