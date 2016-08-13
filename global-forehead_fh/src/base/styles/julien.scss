@@ -440,22 +440,20 @@ body{
 	>table{
 		tr{
 			height: 38px;
-	    background-color: #f2f2f2;
-	    line-height: 38px;
-	    color: #999999;
-	    font-family: '\5FAE\8F6F\96C5\9ED1';
-	    font-size: 14px;
+		    background-color: #f2f2f2;
+		    line-height: 38px;
+		    color: #999999;
+		    font-family: '\5FAE\8F6F\96C5\9ED1';
+		    font-size: 14px;
 
-	    th{
-	    	vertical-align: middle;
+
+		    th{
+		    	vertical-align: middle;
 				background: none;
-	    }
+				font-weight: normal;
+		    }
 		}
 	}
-}
-
-.js-pf-search-grid{
-	margin: 0px 20px;
 }
 
 .modal-info-julien{
@@ -466,20 +464,73 @@ body{
 	background: url(~base/images/julien/modal-lg-julien-bg.jpg) no-repeat;
 
 	.modal-header-left{
-		width: 290px;
-		height: 38px;
-		line-height: 38px;
+		padding-left: 50px;
+		width: 240px;
+		height: 42px;
+		line-height: 41px;
 		font-size: 16px;
-		font-family: '微软雅黑';
 		color: #000000;
 		float: left;
 		border: 1px solid #cccccc;
+		border-top: 0px;
+		border-left: 0px;
+		background: url(~base/images/julien/25.png) no-repeat 15px 15px;
 	}
 	.modal-header{
-		width: 500px;
+		width: 715px;
 		float: left;
+		border-bottom: 1px solid #cccccc;
 	}
 	.modal-body{
 		clear: both;
+		border-bottom: 1px solid #cccccc;
+		border-top: 0px;
+	}
+}
+
+.bg-bread{
+	.btn-link-cool{
+		color: #666;
+		&:hover{
+			color: #666;
+		}
+	}
+}
+
+.border-table-bottom{
+	border: 0px;
+}
+
+.marginlr20{
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+.julien-table-footer{
+	border-top: 0px;
+	font-size: 16px;
+	font-family: '微软雅黑';
+
+	.brw{
+		border-right: 1px solid #fff;
+	}
+
+	span{
+		color: #333;
+		margin-left: -700px;
+	}
+
+	.price{
+		background-color: #c2b5ed;
+		color: #fff;
+	}
+}
+
+.slimScrollDiv{
+	table{
+		td{
+			padding-top: 8px;
+			padding-bottom: 8px;
+		}
 	}
 }

@@ -35,7 +35,7 @@ var ReportManageView = SearchGrid.extend({
           width: '10%'
         }
       ],
-      tip: '',
+      tip: 'juliencs',
       gridOps: {
         emptyTip: '没有佣金变更记录'
       },
@@ -83,17 +83,13 @@ var ReportManageView = SearchGrid.extend({
     //  this.renderBread();
     //}
 
-    this.grid.addFooterRows({
-      trClass: 'tr-footer',
+    this.grid.addFooterRows2({
+      trClass: 'julien-table-footer',
       columnEls: [
-        '<strong>所有页统计</strong>',
-        '',
-        _(gridData.betTotal).fixedConvert2yuan(),
-        _(gridData.commissionAmount).fixedConvert2yuan(),
-        ''
+        '所有页面总计',
+        _(gridData.commissionAmount).fixedConvert2yuan()
       ]
-    })
-      .hideLoading();
+    }).hideLoading();
   },
 
   formatRowData:function(rowInfo) {

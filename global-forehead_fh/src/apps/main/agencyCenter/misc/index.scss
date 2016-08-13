@@ -231,6 +231,7 @@
           th{
             padding: 0px;
             vertical-align: inherit;
+            font-weight: normal;
           }
         }
       }
@@ -931,7 +932,7 @@
 
 .ac-grid-title-div{
   > div >div > table{
-      tr{
+    tr{
       height: 38px;
       background-color: #f2f2f2;
       line-height: 38px;
@@ -942,6 +943,7 @@
       th{
         vertical-align: middle;
         background: none;
+        font-weight: normal;
       }
     }
   }
