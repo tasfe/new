@@ -260,42 +260,41 @@ var findPwdView = Base.ItemView.extend({
 
   //3.2.3选择找回资金密码的方式时展示不同页面
   findByEMHandler:function (e) {
+
+    // var self = this;
+    // var $target = $(e.currentTarget);
+    // $target.button('loading');
+    //
+    // Global.sync.ajax({
+    //       url: '/fund/bankcard/verifycard.json'
+    //     })
+    //     .always(function() {
+    //       //恢复确认按钮的状态
+    //       $target.button('reset');
+    //     })
+    //     .done(function(res) {
+    //       if (res && res.result === 0) {
+    //         self.$validate.html(this.byEMTpl());
+    //
+    //         self.$selectWay.addClass('hidden');
+    //         self.$validate.removeClass('hidden');
+    //
+    //       }else {
+    //         Global.ui.notification.show(res.msg);
+    //       }
+    //
+    //     });
+
     this.$validate.html(this.byEMTpl());
 
     this.$selectWay.addClass('hidden');
     this.$validate.removeClass('hidden');
   },
 
-  inputEmailHandler:function (e) {
+  inputEmailHandler:function () {
     var self = this;
-    var $target = $(e.currentTarget);
-    $target.button('loading');
-    Global.sync.ajax({
-          url: '/fund/bankcard/verifycard.json'
-        })
-        .always(function() {
-          //恢复确认按钮的状态
-          $target.button('reset');
-        })
-        .done(function(res) {
-          if (res && res.result === 0) {
-            //设置验证token到页面，用于重置资金密码
-            self.$('.js-as-resetFundPassword-submit').data('type', res.root);
-            //验证成功则跳转资金密码重置页
-            self.$findFundPasswordContainer.steps('goTo', 1);
-          } else {
-            //fail,验证失败则提示验证失败
-            if(res.root!=null&&_(res.root).isNumber()) {
-              if(res.root>0){
-                self.$('.js-ac-valCardNotice-div').html(self._getErrorMsg('验证失败,剩余' + res.root + '次机会。'));
-              }else{
-                self.$('.js-ac-valCardNotice-div').html(self._getErrorMsg('验证失败,请一个小时后再验证！'));
-              }
-            }else{
-              self.$('.js-ac-valCardNotice-div').html(self._getErrorMsg('验证失败,' + res.msg));
-            }
-          }
-        });
+    self.$('.js-as-resetFundPassword-submit').data('type', this.$('#account-name').val());
+    self.$findFundPasswordContainer.steps('goTo', 1);
 
   },
   
@@ -421,6 +420,7 @@ var findPwdView = Base.ItemView.extend({
     var self = this;
     var $target = $(e.currentTarget);
     var type = $target.data('type'); //token 存放在按钮的data-type中
+    var code = $target.data('code');
     var clpValidate = this.$('.js-ac-resetPayPwd-form').parsley().validate();
 
     if (clpValidate) {
