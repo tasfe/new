@@ -24,10 +24,10 @@
 
   .nc-ilSend-sendTo-list {
     display: inline-block;
-    width: 25%;
+    width: 290px;
     height: 400px;
-    padding: 10px;
-    border: 1px solid $gray-color;
+    border-right: 1px solid #cccccc;
+    border-left: 1px solid #cccccc;
   }
 
   .nc-ilSend-sendTo-content {
@@ -58,7 +58,7 @@
       top: 20px;
       font-size: 15px;
     }
+
+
   }
-
-
 }
