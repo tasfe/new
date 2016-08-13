@@ -14,7 +14,7 @@ var BettingRecordsView = SearchGrid.extend({
 
   events: {
     'click .js-excess-cell': 'dateSelectHandler',
-    'toggle .js-toggle-seach': 'toggleseachHandler'
+    'click .js-toggle-seach': 'toggleseachHandler'
   },
 
   dateSelectHandler:function (e) {
@@ -31,8 +31,16 @@ var BettingRecordsView = SearchGrid.extend({
   },
 
   toggleseachHandler:function () {
-    alert(11);
-    $('row2').addClass('hidden');
+
+    if($('.js-toggle-seach').hasClass('on')) {
+
+      $('.search-condition-table .row2').addClass('hidden');
+      $('.js-toggle-seach').removeClass('on')
+      
+    } else{
+      $('.search-condition-table .row2').removeClass('hidden');
+      $('.js-toggle-seach').addClass('on')
+    }
   },
 
   initialize: function() {

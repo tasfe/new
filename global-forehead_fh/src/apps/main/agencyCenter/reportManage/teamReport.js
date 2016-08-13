@@ -15,7 +15,8 @@ var ReportManageView = SearchGrid.extend({
     'click .js-ac-pr-wr': 'showWithdrawRecord',
     'click .js-ac-pr-br': 'showBettingRecord',
     'click .js-ac-pr-ar': 'showActiveRecord',
-    'click .js-excess-cell': 'dateSelectHandler'
+    'click .js-excess-cell': 'dateSelectHandler',
+    'click .js-toggle-seach': 'toggleseachHandler'
   },
 
   dateSelectHandler:function (e) {
@@ -29,6 +30,19 @@ var ReportManageView = SearchGrid.extend({
       this.$('.js-start-time').val(_(moment().add('days',-7)).toDate()+' 0:00:00');
     }
 
+  },
+
+  toggleseachHandler:function () {
+
+    if($('.js-toggle-seach').hasClass('on')) {
+
+      $('.search-condition-table .row2').addClass('hidden');
+      $('.js-toggle-seach').removeClass('on')
+
+    } else{
+      $('.search-condition-table .row2').removeClass('hidden');
+      $('.js-toggle-seach').addClass('on')
+    }
   },
 
   initialize: function () {
