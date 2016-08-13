@@ -2,6 +2,8 @@
 
 var SearchGrid = require('com/searchGrid');
 
+var TicketSelectGroup = require('com/ticketSelectGroup');
+
 var Timeset = require('com/timeset');
 
 var trackStatusConfig = require('userCenter/misc/trackStatusConfig');
@@ -11,6 +13,19 @@ var TrackRecordsView = SearchGrid.extend({
   template: require('./index.html'),
 
   events: {
+    'click .js-excess-cell': 'dateSelectHandler'
+  },
+
+  dateSelectHandler:function (e) {
+
+    var recIndex = $(e.currentTarget).data('index');
+    if (recIndex===1){
+      this.$('.js-start-time').val(_(moment().add('days')).toDate()+' 0:00:00');
+    }else if (recIndex===2){
+      this.$('.js-start-time').val(_(moment().add('days',-3)).toDate()+' 0:00:00');
+    }else if (recIndex===3){
+      this.$('.js-start-time').val(_(moment().add('days',-7)).toDate()+' 0:00:00');
+    }
 
   },
 
@@ -56,9 +71,9 @@ var TrackRecordsView = SearchGrid.extend({
       ajaxOps: {
         url: '/ticket/bethistory/userchasehistory.json'
       },
-      viewType: 'team',
+      // viewType: 'team',
       reqData: {
-        subUser: 1
+        subUser: 0
       },
       tip: '<div class="m-left-md"><span>注意:</span> 追号记录只保留最近30天。</div>',
       height: 310
@@ -66,6 +81,7 @@ var TrackRecordsView = SearchGrid.extend({
   },
 
   onRender: function() {
+
     //初始化时间选择
     new Timeset({
       el: this.$('.js-pf-timeset'),
@@ -76,35 +92,12 @@ var TrackRecordsView = SearchGrid.extend({
       this.$('input[name="username"]').val(this.options.reqData.username);
     }
     //
-    var qrArray=[{id:0,zhName:'个人'},{id:0,zhName:'团队'}];
-    this.$('select[name=queryRange]').html(_(qrArray).map(function (qr) {
-      return '<option value="'+qr.id+'">'+qr.zhName+'</option>';
-    }).join(''));
+    //初始化彩种选择
+    new TicketSelectGroup({
+      el: this.$('.js-uc-ticket-select-group')
+    });
 
     //
-    var nokArray=[{
-      id: 20,
-      zhName: "老虎机秒秒彩"
-    },
-      {
-        id:19,
-        zhName:'亿贝秒秒彩'
-      }];
-    this.$('select[name=nameofkind]').html(_(nokArray).map(function (qr) {
-      return '<option value="'+qr.id+'">'+qr.zhName+'</option>';
-    }).join(''));
-
-    //
-    var gopArray=[{id:0,zhName:'五星'},{id:1,zhName:'四星'}];
-    this.$('select[name=groupofpw]').html(_(gopArray).map(function (qr) {
-      return '<option value="'+qr.id+'">'+qr.zhName+'</option>';
-    }).join(''));
-
-    //
-    var plArray=[{id:0,zhName:'单式直选'},{id:1,zhName:'直选和值'}];
-    this.$('select[name=playway]').html(_(plArray).map(function (qr) {
-      return '<option value="'+qr.id+'">'+qr.zhName+'</option>';
-    }).join(''));
     this.$('select[name=chaseStatus]').html(_(trackStatusConfig.get()).map(function(betStatus) {
       return '<option value="' + betStatus.id + '">' + betStatus.zhName + '</option>';
     }).join(''));

@@ -1,4 +1,3 @@
-
 "use strict";
 
 var SearchGrid = require('com/searchGrid');
@@ -15,7 +14,21 @@ var ReportManageView = SearchGrid.extend({
     'click .js-ac-pr-rr': 'showRechargeRecord',
     'click .js-ac-pr-wr': 'showWithdrawRecord',
     'click .js-ac-pr-br': 'showBettingRecord',
-    'click .js-ac-pr-ar': 'showActiveRecord'
+    'click .js-ac-pr-ar': 'showActiveRecord',
+    'click .js-excess-cell': 'dateSelectHandler'
+  },
+
+  dateSelectHandler:function (e) {
+
+    var recIndex = $(e.currentTarget).data('index');
+    if (recIndex===1){
+      this.$('.js-start-time').val(_(moment().add('days')).toDate()+' 0:00:00');
+    }else if (recIndex===2){
+      this.$('.js-start-time').val(_(moment().add('days',-3)).toDate()+' 0:00:00');
+    }else if (recIndex===3){
+      this.$('.js-start-time').val(_(moment().add('days',-7)).toDate()+' 0:00:00');
+    }
+
   },
 
   initialize: function () {
@@ -79,35 +92,31 @@ var ReportManageView = SearchGrid.extend({
         emptyTip: '没有资金变更记录'
       },
       ajaxOps: {
-        url: '/fund/fundreport/profitreport.json'
+        url: '/fund/fundreport/amountreport.json',
+        abort: false
       },
-      subOps: {
-        url: '/fund/fundreport/profitdetail.json',
-        data: ['userId']
+      reqData: {
+        subUser: 0
       }
+
     });
   },
 
   onRender: function () {
+
     //初始化时间选择
     new Timeset({
-      el: this.$('.js-ac-timeSel'),
-      startTime: 'startTime',
-      endTime: 'endTime',
-      startTimeHolder: '起始日期',
-      startDefaultDate: _(moment()).toDate(),
-      endTimeHolder: '结束日期',
-      endDefaultDate: _(moment()).toDate(),
-      startOps: {
-        format: 'YYYY-MM-DD'
-      },
-      endOps: {
-        format: 'YYYY-MM-DD'
-      }
+      el: this.$('.js-pf-timeset'),
+      startDefaultDate: this.options.reqData.startTime?this.options.reqData.startTime:_(moment().startOf('day')).toTime(),
+      endDefaultDate: this.options.reqData.endTime?this.options.reqData.endTime:_(moment().endOf('day')).toTime()
     }).render();
+    if(this.options.reqData.username){
+      this.$('input[name="username"]').val(this.options.reqData.username);
+    }
 
+    //初始化彩种选择
     new TicketSelectGroup({
-      el: this.$('.js-ac-ticket-select')
+      el: this.$('.js-uc-ticket-select-group')
     });
 
     //初始化彩种
@@ -124,7 +133,7 @@ var ReportManageView = SearchGrid.extend({
 
     this.grid.refreshRowData(rowsData, gridData.rowCount, {
       pageIndex: this.filterHelper.get('pageIndex'),
-      initPagination: false
+      initPagination: true
     });
 
     if (!_(gridData.parents).isEmpty()) {
@@ -134,8 +143,6 @@ var ReportManageView = SearchGrid.extend({
           day: parent.day
         };
 
-        //data.url = data.day ? this.options.subOps.url : this.options.ajaxOps.url;
-
         return {
           data: data,
           label: parent.userName
@@ -144,6 +151,7 @@ var ReportManageView = SearchGrid.extend({
       this.renderBread();
     }
 
+    //加上统计行
     this.grid.addFooterRows({
         trClass: 'tr-footer',
         columnEls: [
@@ -158,6 +166,7 @@ var ReportManageView = SearchGrid.extend({
         ]
       })
       .hideLoading();
+
   },
 
   formatRowData:function(rowInfo) {

@@ -1,51 +1,58 @@
 <div class="search-condition-table m-LR-smd">
 
-  <!--<div  class="control-group row1 search-condition-layout">-->
-    <!--<label class="control-label">账号：</label>-->
-    <!--<input type="text" name="username" class="input3 margin-add">-->
-  <!--</div>-->
-
-  <!--<div class="control-group row1 search-condition-layout">-->
-    <!--<label class="control-label">查询范围：</label>-->
-    <!--<select name="queryRange" class=" select1"></select>-->
-  <!--</div>-->
-
   <div class="control-group row1 search-condition-layout">
+
+    <label class="control-label">账号：</label>
+    <input type="text" name="username" class="input3 margin-add">
+
+    <label class="control-label">查询范围：</label>
+    <select name="subUser" class=" select1">
+      <option value="0">个人</option>
+      <option value="1">团队</option>
+    </select>
+
     <label class="control-label">投注时间：</label>
     <span class="js-pf-timeset input-date"></span>
+
+    <button class="js-excess-cell br-excess-cell" data-index="1">今天</button>
+    <button class="js-excess-cell br-excess-cell" data-index="2">三天</button>
+    <button class="js-excess-cell br-excess-cell" data-index="3">七天</button>
+
+    <div class="pull-right uc-search-buttondiv">
+      <button type="submit" class="btn uc-search-button">搜索</button>
+    </div>
+
   </div>
 
-  <div class="br-excess-tbutton control-group row1 search-condition-layout"></div>
-  
-  <!--<div class="control-group row2 search-condition-layout">-->
-    <!--<label class="control-label">彩种名称：</label>-->
-    <!--<select name="nameofkind" class=" select1"></select>-->
-  <!--</div>-->
-  <!--<div class="control-group row2 search-condition-layout">-->
-    <!--<label class="control-label">玩法群：</label>-->
-    <!--<select name="groupofpw" class=" select1"></select>-->
-  <!--</div>-->
-  <!--<div class="control-group row2 search-condition-layout">-->
-    <!--<label class="control-label">玩法：</label>-->
-    <!--<select name="playway" class=" select1"></select>-->
-  <!--</div>-->
-
-  <!--<div class="control-group row2 search-condition-layout">-->
-    <!--<label class="control-label">期号：</label>-->
-    <!--<input type="text" name="tradeNo" class="input3 margin-add" data-parsley-maxlength="30">-->
-  <!--</div>-->
 
   <div class="control-group row2 search-condition-layout">
+
+    <span class="js-uc-ticket-select-group">
+      <label class="control-label">彩种名称:</label>
+      <select class="js-pf-select-ticket-list select2" name="ticketId" data-parsley-numAndMidLine></select>
+    </span>
+
+    <label class>期号:</label>
+    <input type="text" name="ticketPlanId" class="input3 margin-add" data-parsley-maxlength="30">
+
     <label class="control-label">订单号：</label>
     <input type="text" name="tradeNo" class="input3 margin-add" data-parsley-maxlength="30">
-  </div>
 
-  <div class="control-group row2 search-condition-layout">
     <label class="control-label">订单状态：</label>
     <select name="betStatus" class=" select1"></select>
-    <div class="pull-right">
-      <button type="submit" class="btn btn-link text-hot">搜索</button>
-      <button type="reset" class="btn btn-link text-hot">清空条件</button>
-    </div>
+
+
   </div>
+
+  <div class="hidden-seach-ucenter">
+    <hr>
+    <span class="js-toggle-seach"></span>
+  </div>
+
+    <!--<div class="bd-dd-revokeOrder">-->
+      <!--<div class="js-dd-bgLine"></div>-->
+      <!--<div class="js-dd-cantCancel bd-dd-revokeOrder0"></div>-->
+    <!--</div>-->
+
+
 </div>

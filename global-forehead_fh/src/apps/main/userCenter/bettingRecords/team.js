@@ -2,6 +2,8 @@
 
 var SearchGrid = require('com/searchGrid');
 
+var TicketSelectGroup = require('com/ticketSelectGroup');
+
 var Timeset = require('com/timeset');
 
 var betStatusConfig = require('userCenter/misc/betStatusConfig');
@@ -11,12 +13,26 @@ var BettingRecordsView = SearchGrid.extend({
   template: require('./index.html'),
 
   events: {
-    'click .js-excess-cell': 'dateSelectHandler'
+    'click .js-excess-cell': 'dateSelectHandler',
+    'toggle .js-toggle-seach': 'toggleseachHandler'
   },
 
   dateSelectHandler:function (e) {
-      alert($(e.currentTarget).data('index'));
     
+    var recIndex = $(e.currentTarget).data('index');
+    if (recIndex===1){
+      this.$('.js-start-time').val(_(moment().add('days')).toDate()+' 0:00:00');
+    }else if (recIndex===2){
+      this.$('.js-start-time').val(_(moment().add('days',-3)).toDate()+' 0:00:00');
+    }else if (recIndex===3){
+      this.$('.js-start-time').val(_(moment().add('days',-7)).toDate()+' 0:00:00');
+    }
+
+  },
+
+  toggleseachHandler:function () {
+    alert(11);
+    $('row2').addClass('hidden');
   },
 
   initialize: function() {
@@ -50,10 +66,7 @@ var BettingRecordsView = SearchGrid.extend({
           name: '投注时间',
           width: '15%'
         }
-        // {
-        //   name: '投注玩法',
-        //   width: '8%'
-        // }
+
       ],
       gridOps: {
         emptyTip: '没有投注记录'
@@ -62,9 +75,9 @@ var BettingRecordsView = SearchGrid.extend({
         url: '/ticket/bethistory/userbethistory.json?_t=1',
         abort: false
       },
-      viewType: 'team',
+      // viewType: 'team',
       reqData: {
-        subUser: 1
+        subUser: 0
       },
       listProp: 'root.betList',
       tip: '<div class="m-left-md"><span>注意:</span> 投注记录只保留最近30天。</div>',
@@ -74,15 +87,6 @@ var BettingRecordsView = SearchGrid.extend({
   },
 
   onRender: function() {
-
-
-    var cheAr = ['今天','三天','七天'];
-    this.$content = this.$('.br-excess-tbutton');
-    var cheInd=0;
-    this.$content.html(_(cheAr).map(function (val) {
-      cheInd++;
-      return '<button class="js-excess-cell br-excess-cell" data-index='+cheInd+'>'+val+'</button>';
-    }));
 
     //初始化时间选择
     new Timeset({
@@ -94,36 +98,10 @@ var BettingRecordsView = SearchGrid.extend({
       this.$('input[name="username"]').val(this.options.reqData.username);
     }
 
-    //
-    // var qrArray=[{id:0,zhName:'个人'},{id:0,zhName:'团队'}];
-    // this.$('select[name=queryRange]').html(_(qrArray).map(function (qr) {
-    //     return '<option value="'+qr.id+'">'+qr.zhName+'</option>';
-    //   }).join(''));
-
-    //i 
-    // var nokArray=[{
-    //                 id: 20,
-    //                 zhName: "老虎机秒秒彩"
-    //               },
-    //               {
-    //                 id:19,
-    //                 zhName:'亿贝秒秒彩'
-    //               }];
-    // this.$('select[name=nameofkind]').html(_(nokArray).map(function (qr) {
-    //   return '<option value="'+qr.id+'">'+qr.zhName+'</option>';
-    // }).join(''));
-
-    //
-    // var gopArray=[{id:0,zhName:'五星'},{id:1,zhName:'四星'}];
-    // this.$('select[name=groupofpw]').html(_(gopArray).map(function (qr) {
-    //   return '<option value="'+qr.id+'">'+qr.zhName+'</option>';
-    // }).join(''));
-
-    //
-    // var plArray=[{id:0,zhName:'单式直选'},{id:1,zhName:'直选和值'}];
-    // this.$('select[name=playway]').html(_(plArray).map(function (qr) {
-    //   return '<option value="'+qr.id+'">'+qr.zhName+'</option>';
-    // }).join(''));
+    //初始化彩种选择
+    new TicketSelectGroup({
+      el: this.$('.js-uc-ticket-select-group')
+    });
 
     //
     this.$('select[name=betStatus]').html(_(betStatusConfig.get()).map(function(betStatus) {
