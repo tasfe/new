@@ -1,25 +1,46 @@
-<input type="text" class="js-pf-input-search-user pf-input-search-user" placeholder="搜索用户名" />
-<div class="js-pf-select-container pf-select-container">
-  <div class="js-fc-parent control-group no-m-bottom hidden ">
-    <div class="js-pf-select-search-user js-pf-select-superior pf-select-superior" data-id="" data-name="我的上级">
-      <span>我的上级</span>
-      <i></i>
+<div class="low-multi-select-main pull-left">
+  <div class="low-multi-search search-input">
+    <input type="text" class="js-pf-input-search-user hidden" placeholder="搜索账号" />
+  </div>
+  <div class="js-pf-select-container pf-select-container">
+    <div class="js-fc-parent control-group no-m-bottom hidden ">
+      <strong class="">我的上级：</strong>
+      <div class="overflow-hidden" style="padding-left: 40px">
+        <span class="online-tip sfa sfa-online-tip hidden"></span>
+        <a href="javascript:void(0);" class="js-pf-select-superior" data-no="" data-name="我的上级">
+          <span class="js-pf-select-search-user">
+            上级
+          </span>
+        </a>
+        <input type="hidden" name="parentId" />
+      </div>
     </div>
-    <input type="hidden" name="parentId" />
+    <div class="control-group ">
+      <strong class="" style="margin-top: 8px;">我的下级：</strong>
+
+      <div class="text-center" style="display: inline-block;">
+        <label class="js-pf-selectAll selectAll-btn hidden">
+            <span class="custom-checkbox">
+              <input type="checkbox" id="selectAll" name="selectAll" value="1" class="js-pf-selectAll-input">
+              <label for="selectAll"></label>
+            </span>
+          全选
+        </label>
+      </div>
+
+      <div class="overflow-hidden m-top-xs">
+        <div class="js-pf-jstree" style="padding-left: 40px"></div>
+      </div>
+    </div>
   </div>
-  <div class="pf-select-superior subordinate">
-    <span>我的下级</span>
-    <i></i>
-    <b>群发消息</b>
-  </div>
-  <div class="js-pf-jstree julien-user-list"></div>
+  <div class="js-pf-search-container hidden"></div>
 </div>
-<div class="js-pf-search-container hidden"></div>
 
+<!--<div class="low-multi-select-go-to pull-left"><img src="go-to.png" /></div>-->
 
+<!--<div class="low-multi-selected">-->
+  <!--<div class="js-selected-container ">-->
+  <!--</div>-->
+  <!--<div class="js-lms-empty-container lms-empty-container  empty-container text-center"><div class="empty-container-main"><div class="sfa-grid-empty"></div>暂时没有选中的下属</div></div>-->
+<!--</div>-->
 
-<div class="low-multi-selected">
-  <div class="js-selected-container ">
-  </div>
-  <div class="js-lms-empty-container lms-empty-container  empty-container text-center"><div class="empty-container-main"><div class="sfa-grid-empty"></div>暂时没有选中的下属</div></div>
-</div>
