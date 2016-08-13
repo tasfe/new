@@ -78,7 +78,6 @@ var SettingEmail = Base.ItemView.extend({
             this.$dialog.find('.js-acse-container').html(conetent.render().el);
 
         }else {
-            
             var verify = new verifyOldEmail({oldEmial:this.$oldEmail});
             this.$dialog.find('.js-acse-container').html(verify.render().el);
         }
