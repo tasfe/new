@@ -72,31 +72,31 @@ var LowMultiSelect = Base.PrefabView.extend({
     }).treeView('instance');
 
     this.getLowLevelXhr()
-        .done(function(res) {
-          var data = res.root || {};
-          if (res && res.result === 0) {
-            if(res.root.pStatus === 0) {
-              if (data.parentId) {
-                self.$('.js-fc-parent').removeClass('hidden');
-                self.$('.js-pf-select-superior').data('id',data.parentId);
-                self.$('input[name=parentId]').val(data.parentId);
-              }
-            }
-            if(res.root.sStatus === 0){
-              self.$('.js-pf-input-search-user').removeClass('hidden');
-              self.treeView.insertNode(_(data.subNameList).map(function (sub) {
-                return {
-                  text: sub.subAcctName,
-                  value: sub.subAcctId,
-                  subItem: false
-                  //text: sub.subAcctName+ ((sub.subNo !== 0)? ('('+sub.subNo+')') :''),
-                  //value: sub.subAcctId,
-                  //subItem: sub.subNo !== 0
-                };
-              }));
-            }
+    .done(function(res) {
+      var data = res.root || {};
+      if (res && res.result === 0) {
+        if(res.root.pStatus === 0) {
+          if (data.parentId) {
+            self.$('.js-fc-parent').removeClass('hidden');
+            self.$('.js-pf-select-superior').data('id',data.parentId);
+            self.$('input[name=parentId]').val(data.parentId);
           }
-        });
+        }
+        if(res.root.sStatus === 0){
+          self.$('.js-pf-input-search-user').removeClass('hidden');
+          self.treeView.insertNode(_(data.subNameList).map(function (sub) {
+            return {
+              text: sub.subAcctName,
+              value: sub.subAcctId,
+              subItem: false
+              //text: sub.subAcctName+ ((sub.subNo !== 0)? ('('+sub.subNo+')') :''),
+              //value: sub.subAcctId,
+              //subItem: sub.subNo !== 0
+            };
+          }));
+        }
+      }
+    });
   },
 
   renderLowLevel: function(e, parentId) {
@@ -120,6 +120,7 @@ var LowMultiSelect = Base.PrefabView.extend({
   },
 
   selectUser: function(id, name) {
+    alert('a');
     var user = {
       id: id,
       name: name

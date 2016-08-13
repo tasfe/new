@@ -2,122 +2,53 @@
 "src/base/styles/imports";
 
 .low-multi-select {
-  width: 900px;
-  height: 320px;
-  //$mainWidth: 300px !default;
-  //$mainPaddingTop: 12px !default;
-  //$mainPaddingSide: 15px !default;
-  //$goToWidth: 180px !default;
-  //$mainHeight: 300px !default;
+  //width: 50%;
+  //height: 278px;
+  $mainWidth: 300px !default;
+  $mainPaddingTop: 12px !default;
+  $mainPaddingSide: 15px !default;
+  $goToWidth: 130px !default;
+  $mainHeight: 300px !default;
   $bgColor: $gray-color;
   overflow: hidden;
-
-  .pf-select-superior{
-    height: 38px;
-    line-height: 38px;
-    border-bottom: 1px solid #cccccc;
-    width: 290px;
-    color: #999999;
-    font-size: 14px;
-    font-family: '微软雅黑';
-    position: relative;
-    cursor: pointer;
-
-    span{
-      padding-left: 24px;
-      display: inline-block;
-      border-left: 5px solid #990000;
-    }
-
-    i{
-      width: 0;
-      height: 0;
-      border-width: 4px;
-      border-style: dashed dashed solid dashed;
-      border-color: transparent transparent #666666 transparent;
-      position: absolute;
-      left: 95px;
-      top: 14px;
-    }
-  }
-
-  .subordinate{
-    i{
-      border-style: solid dashed dashed dashed;
-      border-color: #666666 transparent transparent transparent;
-      top: 18px;
-    }
-    b{
-      position: absolute;
-      left: 225px;
-      top: 0px;
-      font-weight: normal;
-    }
-  }
-
-  .julien-user-list{
-    font-family: '微软雅黑';
-    font-size: 14px;
-
-    .tree-view {
-      ul{
-        li{
-          padding-left: 33px;
-          margin: 6px 0px;
-          a{
-            color: #66cc00;
-          }
-        }
-      }   
-    }
-  }
+  //border: 1px solid $gray-color;
 
   .low-multi-select-main {
-    width: 330px;
-    height: 300px;
-    padding: 10px;
+    //width: $mainWidth - $mainPaddingSide * 2;
+    //height: $mainHeight - $mainPaddingTop;
+    //padding: $mainPaddingTop $mainPaddingSide 0;
     display: inline-block;
+    //background-color: $bgColor;
     vertical-align: top;
+    width: 100%;
+
 
     .pf-select-container {
-      height: 270px;
+      height: 300px;
       overflow: auto;
     }
-  }
-
-  .pf-input-search-user{
-    padding-left: 46px;
-    width: 238px;
-    height: 25px;
-    line-height: 41px;
-    font-size: 14px;
-    color: #666666;
-    border: 0px;
-    border-bottom: 1px solid #cccccc;
-    background: url(~base/images/julien/26.png) no-repeat 15px 10px;
   }
 
   .low-multi-search-area {
     margin: 10px 15px;
   }
 
-  .low-multi-select-go-to {
-    margin-top: 10px;
-    width: 180px;
-    height: 300px;
-    //background-color: $bgColor;
-    display: inline-block;
-    text-align: center;
-    line-height: 300px;
-    vertical-align: top;
-    border-left: 1px solid $light-color;
-    border-right: 1px solid $light-color;
-  }
+  //.low-multi-select-go-to {
+  //  width: $goToWidth;
+  //  height: $mainHeight;
+  //  //background-color: $bgColor;
+  //  display: inline-block;
+  //  text-align: center;
+  //  line-height: 300px;
+  //  vertical-align: top;
+  //  border-left: 1px solid $light-color;
+  //  border-right: 1px solid $light-color;
+  //}
 
   .low-multi-selected {
-    width: 330px;
-    height: 300px;
-    padding: 10px;
+    width: $mainWidth - $mainPaddingSide * 2;
+    height: $mainHeight - $mainPaddingTop;
+    padding: $mainPaddingTop $mainPaddingSide 0;
     //background-color: $bgColor;
     display: inline-block;
     overflow: auto;
@@ -139,7 +70,7 @@
 }
 
 .low-multi-search {
-  width: 250px;
+  //width: 250px;
   margin-bottom: 10px;
 }
 

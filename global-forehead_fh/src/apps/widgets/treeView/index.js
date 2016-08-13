@@ -184,11 +184,8 @@ $.widget('gl.treeView', {
 
   nodeCheckHandler: function(e) {
     var $target = $(e.currentTarget);
-
     var $a = $target.parent('a');
-
     this.options.onClick.call(this, e, $a.data('no'), $a.data('data'));
-
     //return false;
   },
 

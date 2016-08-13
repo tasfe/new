@@ -384,7 +384,6 @@ var findPwdView = Base.ItemView.extend({
     var clpValidate = this.$('.js-ac-resetPayPwd-form').parsley().validate();
 
     if (clpValidate) {
-      //alert(1);
       Global.sync.ajax({
         url: '/fund/moneypd/updatepaypwd.json',
         data: {
