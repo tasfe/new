@@ -1125,3 +1125,32 @@ $main-area-width: 870px;
   width: 140px;
   height: 40px;
 }
+
+
+
+.chase-confirm{
+  background-image:  url(~base/images/fh/bet/chase-confirm.png);
+  width: 100px;
+  height: 30px;
+  position: absolute;
+  margin: -23px 750px;
+}
+.chase-normal{
+  background-image:  url(~base/images/fh/bet/chase-normal.png);
+  width: 120px;
+  height: 20px;
+  background-repeat: no-repeat;
+}
+.chase-num{
+  background-image:  url(~base/images/fh/bet/chase-num.png);
+  width: 90px;
+  height: 30px;
+  position: absolute;
+  margin: -30px 870px;
+}
+.chase-profit{
+  background-image:  url(~base/images/fh/bet/chase-profit.png);
+  width: 90px;
+  height: 30px;
+  background-repeat: no-repeat;
+}

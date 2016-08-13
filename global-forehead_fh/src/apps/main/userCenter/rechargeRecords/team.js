@@ -10,7 +10,22 @@ var RechargeRecordsView = SearchGrid.extend({
 
   template: require('./index.html'),
 
-  events: {},
+  events: {
+    'click .js-excess-cell': 'dateSelectHandler'
+  },
+
+  dateSelectHandler:function (e) {
+
+    var recIndex = $(e.currentTarget).data('index');
+    if (recIndex===1){
+      this.$('.js-start-time').val(_(moment().add('days')).toDate()+' 0:00:00');
+    }else if (recIndex===2){
+      this.$('.js-start-time').val(_(moment().add('days',-3)).toDate()+' 0:00:00');
+    }else if (recIndex===3){
+      this.$('.js-start-time').val(_(moment().add('days',-7)).toDate()+' 0:00:00');
+    }
+
+  },
 
   initialize: function () {
     _(this.options).extend({
@@ -55,9 +70,9 @@ var RechargeRecordsView = SearchGrid.extend({
         url: '/fund/recharge/rechargelist.json',
         abort: false
       },
-      viewType: 'team',
+      // viewType: 'team',
       reqData: {
-        subUser: 1
+        subUser: 0
       },
       listProp: 'root.rechargeList',
       height: 315
@@ -72,19 +87,10 @@ var RechargeRecordsView = SearchGrid.extend({
       startDefaultDate: this.options.reqData.startTime?this.options.reqData.startTime:_(moment().startOf('day')).toTime(),
       endDefaultDate: this.options.reqData.endTime?this.options.reqData.endTime:_(moment().endOf('day')).toTime()
     }).render();
-    
-    var plArray=[{id:0,zhName:'单式直选'},{id:1,zhName:'直选和值'}];
-    this.$('select[name=payStatus]').html(_(plArray).map(function (qr) {
-      return '<option value="'+qr.id+'">'+qr.zhName+'</option>';
-    }).join(''));
-
-    var plArray=[{id:0,zhName:'单式直选'},{id:1,zhName:'直选和值'}];
-    this.$('select[name=widthdrawStatus]').html(_(plArray).map(function (qr) {
-      return '<option value="'+qr.id+'">'+qr.zhName+'</option>';
-    }).join(''));
-
     if(this.options.reqData.username){
       this.$('input[name="username"]').val(this.options.reqData.username);
+
+
     }
     SearchGrid.prototype.onRender.apply(this, arguments);
   },

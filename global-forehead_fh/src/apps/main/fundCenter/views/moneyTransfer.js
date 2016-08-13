@@ -100,6 +100,7 @@ var MoneyTransferView = Base.ItemView.extend({
     this.$('.js-fc-transfer-form').removeClass('hidden');
     this.$('.js-fc-avail-money').html(_(data.balance).convert2yuan());
     this.$('.js-fc-question').html(data.question);
+    this.$securityId = data.securityId;
     var valMin = _(data.minMoney).convert2yuan();
     var valMax = _(data.maxMoney).convert2yuan();
     var valTradeNum = data.tradeNum;
@@ -168,6 +169,8 @@ var MoneyTransferView = Base.ItemView.extend({
 
     this.getTransferXhr({
           moneyPwd: this.$('.js-fc-tf-payPwd').val(),
+          securityId: this.$securityId,
+          answer: this.$('.js-mt-answer').val(),
           tradeMoney: this.$('.js-fc-tf-amount').val(),
           sub: sub
         })

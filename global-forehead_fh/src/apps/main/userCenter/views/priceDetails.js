@@ -1,4 +1,4 @@
-var TabView = require('com/tabView');
+var TabView = require('com/tabPriceView');
 var cup = require('../misc/cup.png');
 var IDsSuper3 = require('bettingCenter/misc/super3k/IDsOfSuper3k');
 
@@ -17,31 +17,31 @@ var TrackRecordsView = TabView.extend({
           name: 'constant',
           id: 'jsUCConstantTab',
           view: '',
-          template: '<div class="js-uc-constContainer"><div class="js-uc-constNotice"></div><div class="js-uc-constGrid portlet-filter uc-prize"></div></div>'
+          template: '<div class="js-uc-constContainer price-container"><div class="js-uc-constNotice"></div><div class="js-uc-constGrid portlet-filter uc-prize"></div></div>'
         },
         {
           label: '11选5',
           name: 'elev',
           id: 'jsUCElevenSelectFiveTab',
-          template: '<div class="js-uc-ElevContainer"><div class="js-uc-ElevNotice"></div><div class="js-uc-ElevGrid portlet-filter uc-prize"></div></div>'
+          template: '<div class="js-uc-ElevContainer price-container"><div class="js-uc-ElevNotice"></div><div class="js-uc-ElevGrid portlet-filter uc-prize"></div></div>'
         },
         {
           label: '低频彩',
           name: 'low',
           id: 'jsUCLowFrequentTab',
-          template: '<div class="js-uc-lowContainer"><div class="js-uc-lowNotice"></div><div class="js-uc-lowGrid portlet-filter uc-prize"></div></div>'
+          template: '<div class="js-uc-lowContainer price-container"><div class="js-uc-lowNotice"></div><div class="js-uc-lowGrid portlet-filter uc-prize"></div></div>'
         },
         {
           label: '秒秒彩',
           name: 'mmc',
           id: 'jsUCMmcFrequentTab',
-          template: '<div class="js-uc-mmcContainer"><div class="js-uc-mmcNotice"></div><div class="js-uc-mmcGrid portlet-filter uc-prize"></div></div>'
+          template: '<div class="js-uc-mmcContainer price-container"><div class="js-uc-mmcNotice"></div><div class="js-uc-mmcGrid portlet-filter uc-prize"></div></div>'
         },
         {
           label: '老虎机秒秒彩',
           name: 'smmc',
           id: 'jsUCSmmcFrequentTab',
-          template: '<div class="js-uc-smmcContainer"><div class="js-uc-smmcNotice"></div><div class="js-uc-smmcGrid portlet-filter uc-prize"></div></div>'
+          template: '<div class="js-uc-smmcContainer price-container"><div class="js-uc-smmcNotice"></div><div class="js-uc-smmcGrid portlet-filter uc-prize"></div></div>'
         }
       ],
       append:  '<div class="controls fc-lesson">' +
@@ -84,6 +84,8 @@ var TrackRecordsView = TabView.extend({
     var params = {ticketSeriesId: 6, subAcctId: this.options.userId};
     this._loadPage(params, 'js-uc-smmcGrid');
   },
+
+  
   _loadPage: function (params, classValue) {
     this.$('.' + classValue).html(Global.ui.loader.get());
 

@@ -1,21 +1,41 @@
-<div class="search-condition-table">
-<div class="control-group row3">
 
-    <label class="control-label label3">查询日期：</label>
-    <span class="js-ac-timeSel input-date-sm"></span>
+<div class="search-condition-table m-LR-smd">
 
-  <label class="control-label label3">账号：</label>
-  <input type="text" name="username" class="js-rm-userName input-sm" data-parsley-username=""/>
-  <input type="hidden" name="subUser" value="1">
-  <div class="inline-block ">
-    <button type="submit" class="btn btn-link text-pleasant">搜索</button>
+  <div class="control-group row1 search-condition-layout">
+
+    <label class="control-label">账号：</label>
+    <input type="text" name="username" class="input3 margin-add">
+
+    <label class="control-label">查询范围：</label>
+    <select name="subUser" class=" select1">
+      <option value="0">个人</option>
+      <option value="1">团队</option>
+    </select>
+
+    <label class="control-label">查询日期：</label>
+    <span class="js-pf-timeset input-date"></span>
+
+    <button class="js-excess-cell br-excess-cell" data-index="1">今天</button>
+    <button class="js-excess-cell br-excess-cell" data-index="2">三天</button>
+    <button class="js-excess-cell br-excess-cell" data-index="3">七天</button>
+
+    <div class="pull-right uc-search-buttondiv">
+      <button type="submit" class="btn uc-search-button">搜索</button>
+    </div>
+
   </div>
-  <div class="inline-block">
-    <button type="reset" class="btn btn-link text-pleasant">清空条件</button>
+
+
+  <div class="control-group row2 search-condition-layout">
+
+    <span class="js-uc-ticket-select-group">
+      <label class="control-label">彩种名称:</label>
+      <select class="js-pf-select-ticket-list select2" name="ticketId" data-parsley-numAndMidLine></select>
+    </span>
+
+
   </div>
 
-  <input type="hidden" name="pageSize" value="10">
 
 </div>
 
-</div>

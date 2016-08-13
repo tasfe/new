@@ -25,16 +25,19 @@
   }
 
   &.btn-linear {
-    background: $linearColor;
-    &:hover {
-      background: map_get($hover, linear-color);
-    }
-    &:focus{
-      background: map_get($focus, linear-color);
-    }
-    &.active, &:active {
-      background: map_get($active, linear-color);
-    }
+    //background: $linearColor;
+
+    background: #CC0002;
+
+    //&:hover {
+    //  background: map_get($hover, linear-color);
+    //}
+    //&:focus{
+    //  background: map_get($focus, linear-color);
+    //}
+    //&.active, &:active {
+    //  background: map_get($active, linear-color);
+    //}
   }
 }
 
