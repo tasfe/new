@@ -24,30 +24,28 @@ var verifyOldEmail = Base.ItemView.extend({
 
     nextHandler: function (e) {
 
-        //var self = this;
-        // var $target = $(e.currentTarget);
-        // $target.button('loading');
-        // Global.sync.ajax({
-        //         url: '/acct/usermsg/sendEmailToken.json',
-        //         data:{sendType:1}
-        //     })
-        //     .always(function() {
-        //         $target.button('reset');
-        //     })
-        //     .done(function(res) {
-        //         if (res && res.result === 0) {
-
-
+        var self = this;
+        var $target = $(e.currentTarget);
+        $target.button('loading');
+        Global.sync.ajax({
+                url: '/acct/usermsg/sendEmailToken.json',
+                data:{sendType:1}
+            })
+            .always(function() {
+                $target.button('reset');
+            })
+            .done(function(res) {
+                if (res && res.result === 0) {
+                    
                     var newEmail = new inputNewEmail();
                     $('.js-acse-container').html(newEmail.render().el);
-                    this.destroy();
+                    self.destroy();
 
-            //     }else {
-            //         Global.ui.notification.show(res.msg);
-            //     }
-            //
-            // });
-        
+                }else {
+                    Global.ui.notification.show(res.msg);
+                }
+            
+            });
         
 
     }

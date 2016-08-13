@@ -22,6 +22,8 @@ var SettingEmail = Base.ItemView.extend({
 
     onRender: function() {
 
+        this.$hasEmail = false;
+
         this.$verifyEmail = this.$('.js-verify-email');
         this.$bindEmail = this.$('.js-bind-email');
 
@@ -41,7 +43,7 @@ var SettingEmail = Base.ItemView.extend({
                 if (res && res.result === 0) {
                     if (data.userEmail ===null){
 
-                        this.$hasEmail = false;
+                        self.$hasEmail = false;
                         self.$bindEmail.addClass('ac-unbind-email');
                         var html = '未绑定邮箱 </br>请问是否需要 ' +
                             '<span class="js-modify-email as-launch-set text-hot" >绑定邮箱？</span>';
@@ -49,7 +51,7 @@ var SettingEmail = Base.ItemView.extend({
 
                     }else {
 
-                        this.$hasEmail = true;
+                        self.$hasEmail = true;
                         self.$bindEmail.addClass('ac-binded-email');
                         self.$oldEmail = data.userEmail;
                         var html = '已绑定邮箱'+data.userEmail+' </br>请问您是否需要 ' +
@@ -73,13 +75,12 @@ var SettingEmail = Base.ItemView.extend({
             bodyClass: 'ac-setemail-dialog'
         });
 
-        if (this.$hasEmail){
-            var conetent = new ContentEmailView();
-            this.$dialog.find('.js-acse-container').html(conetent.render().el);
-
-        }else {
+        if (this.$hasEmail===true){
             var verify = new verifyOldEmail({oldEmial:this.$oldEmail});
             this.$dialog.find('.js-acse-container').html(verify.render().el);
+        }else {
+            var conetent = new ContentEmailView();
+            this.$dialog.find('.js-acse-container').html(conetent.render().el);
         }
 
         this.$dialog.on('hidden.modal', function () {

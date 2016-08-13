@@ -18,16 +18,38 @@
     <div class="fc-wd-title">更新成功</div>
 </div>
 
+<div class="fc-wd-div0 text-center">
+    温馨提示:如果您没有收到邮件,请在一分钟后点击重新发送。
+</div>
+
+<div class="ac-new-email-container">
+
+    <div class="fc-verify-code m-bottom-md">
+        <span >验证码:&nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <div class="inline-block">
+            <input type="text" name="verifyCode" class="js-verifyCode fc-wd-amount " >
+        </div>
+    </div>
+
+    <div class="fc-verify-code m-bottom-md">
+        <span >新邮箱:&nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <div class="inline-block">
+            <input type="text" name="email" class="js-set-email fc-wd-amount " >
+        </div>
+        </br><span class="text-hot">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请输入正确的邮箱地址(4-30位),如abc123@163.com</span>
+    </div>
 
 
-<div class="fc-wd-div2">
-    <span>在更新之前请允许繁华世界验证您是否是当前账户的拥有者.</br>您的邮箱地址是:<span class="js-old-email"></span> </span>
 </div>
 
 <div class="m-bottom-md rc-seperate-line"></div>
 
 
 <div class="text-center  m-bottom-md fc-next-button">
-    <button type="button" class="js-ac-next btn fc-wd-commit" data-loading-text="加载中">发送邮箱验证</button>
+    <button type="button" class="js-ac-next btn fc-wd-commit" data-loading-text="加载中">下一步</button>
+    <button type="button" class="js-ac-again btn fc-wd-commit" data-loading-text="加载中">
+        重新发送
+        <span class="js-waite-email-time"></span>
+    </button>
 
 </div>

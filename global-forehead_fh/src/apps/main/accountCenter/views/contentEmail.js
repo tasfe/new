@@ -36,7 +36,7 @@ var contentEmailView = Base.ItemView.extend({
 
                     var confirm = new ConfirmView({email:self.$setEmail.val()});
                     $('.js-acse-container').html(confirm.render().el);
-                    this.destroy();
+                    self.destroy();
 
                 }else {
                     Global.ui.notification.show(res.msg);

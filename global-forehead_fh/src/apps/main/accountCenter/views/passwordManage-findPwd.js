@@ -9,7 +9,9 @@ var findPwdView = Base.ItemView.extend({
   
   //构造通过银行卡信息找回资金密码页面
   byCITpl: _.template(require('accountCenter/templates/passwordManage-byCI.html')),
-  
+
+  //构造通过邮箱找回资金密码页面
+  byEMTpl: _.template(require('accountCenter/templates/passwordManage-byEM.html')),
 
   events: {
     //选择找回资金密码的方式
@@ -26,6 +28,7 @@ var findPwdView = Base.ItemView.extend({
     'change .js-ac-findByQuestionSelect': 'questionSelectChangeHandler',
     //验证银行卡信息
     'click .js-ac-cardInfo-submit': 'inputCardInfoHandler',
+    'click .js-ac-email-submit': 'inputEmailHandler',
     //返回按钮
     'click .js-ac-findFundGoStep': 'findFundGoStepHandler',
     //重置资金密码
@@ -255,10 +258,47 @@ var findPwdView = Base.ItemView.extend({
       });
   },
 
+  //3.2.3选择找回资金密码的方式时展示不同页面
   findByEMHandler:function (e) {
-    
+    this.$validate.html(this.byEMTpl());
+
+    this.$selectWay.addClass('hidden');
+    this.$validate.removeClass('hidden');
   },
 
+  inputEmailHandler:function (e) {
+    var self = this;
+    var $target = $(e.currentTarget);
+    $target.button('loading');
+    Global.sync.ajax({
+          url: '/fund/bankcard/verifycard.json'
+        })
+        .always(function() {
+          //恢复确认按钮的状态
+          $target.button('reset');
+        })
+        .done(function(res) {
+          if (res && res.result === 0) {
+            //设置验证token到页面，用于重置资金密码
+            self.$('.js-as-resetFundPassword-submit').data('type', res.root);
+            //验证成功则跳转资金密码重置页
+            self.$findFundPasswordContainer.steps('goTo', 1);
+          } else {
+            //fail,验证失败则提示验证失败
+            if(res.root!=null&&_(res.root).isNumber()) {
+              if(res.root>0){
+                self.$('.js-ac-valCardNotice-div').html(self._getErrorMsg('验证失败,剩余' + res.root + '次机会。'));
+              }else{
+                self.$('.js-ac-valCardNotice-div').html(self._getErrorMsg('验证失败,请一个小时后再验证！'));
+              }
+            }else{
+              self.$('.js-ac-valCardNotice-div').html(self._getErrorMsg('验证失败,' + res.msg));
+            }
+          }
+        });
+
+  },
+  
   //3.2.1选择找回资金密码的方式时展示不同页面
   findByCIHandler: function(e) {
     this.$validate.html(this.byCITpl());
