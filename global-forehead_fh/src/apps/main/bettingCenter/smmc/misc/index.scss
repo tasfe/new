@@ -394,7 +394,7 @@
   }
 
   .bc-play-container {
-    height: 366px;
+    height: 396px;
     border: 0px;
     .bc-play-area.loaded {
       height: 256px;
@@ -464,18 +464,18 @@
 
   .bc-statics-area {
     border: 0;
+    width: 1140px;
+    margin-top:-60px;
     .bc-result-container {
       margin-left: 41px;
       margin-bottom: 11px;
       border: 0px;
-      width: 940px;
-
     }
   }
 
   .bc-mmc-selected-area {
     height: 178px;
-    width: 1024px;
+    width: 1200px;
     margin-left: -12px;
     margin-bottom: 12px;
     //background-color: #333;//    5d1e1e
