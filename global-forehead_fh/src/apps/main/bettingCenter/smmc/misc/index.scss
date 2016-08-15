@@ -2,10 +2,12 @@
 
 @import "~base/styles/imports";
 
+body.mmc {
+  background: url(smmc-bg.png) no-repeat center top;
+}
 
 .js-wrapper {
 
-  background: url('~base/images/fh/bg.png') no-repeat #f8f8f8;
   width: 100%;
   .global-main.wrapper {
     height: 100%;
@@ -23,7 +25,7 @@
   background: transparent;
   height: 215px;
   //margin-bottom: 150px;
-  .bc-smmc-jackpot-notice{
+  .bc-smmc-jackpot-notice {
     position: absolute;
     width: 1920px;
     margin-left: -460px;
@@ -32,20 +34,20 @@
 
     top: 0;
     font-size: 18px;
-    background-color: rgba(148,4,6,0.9);
-    color:#fff;
-    >ul{
+    background-color: rgba(148, 4, 6, 0.9);
+    color: #fff;
+    > ul {
 
       list-style: none;
-      li{
+      li {
         line-height: 38px;
-        span{
-          color:#ffff00;
+        span {
+          color: #ffff00;
         }
       }
     }
   }
-  .bc-smmc-jackpot-notice-height{
+  .bc-smmc-jackpot-notice-height {
     height: 38px;
   }
   .bc-smmc-bg-area {
@@ -72,7 +74,7 @@
     background-image: url(smmc_jackpot_bg.png);
     background-repeat: no-repeat;
     color: #fff !important;
-
+    margin-left: 50px;
     .bc-smmc-jakePool-total {
       position: relative;
       font-size: 29px;
@@ -123,15 +125,14 @@
 
   .mmc-main-bg {
     background: url(smmc_head_bg_light.png) top center no-repeat;
-    background-color: #333;
+    //background-color: #333;
     //height: 201px;
     //width: 1022px;
     //margin-top: 13px;
     //margin-left: -11px;
-
     height: 301px;
     width: 1200px;
-    margin-top: 13px;
+    margin-top: -55px;
     margin-left: -11px;
   }
   .mmc-main {
@@ -207,13 +208,13 @@
     z-index: 1;
     overflow: hidden;
     text-align: center;
-    .smmc-num-wrapper{
+    .smmc-num-wrapper {
       float: left;
     }
-    .bc-smmc-num-win-icon{
+    .bc-smmc-num-win-icon {
       background: url(smmc_win_bg.png) no-repeat;
-      widht:100px;
-      height:116px;
+      widht: 100px;
+      height: 116px;
       margin-left: 2px;
     }
     .mmc-num {
@@ -327,16 +328,16 @@
   }
 
   .bc-main-area-wrapper {
-    background-color: #333;
+    //background-color: #333;
     width: 1200px;
     margin-left: -11px;
 
     .bc-main-area {
-      padding-top: 14px;
-      margin-left: 11px;
+      //padding-top: 14px;
+      //margin-left: 11px;
       background-color: #fff;
-      width: 1178px;
-      border: 0px solid #c2c2c2;
+      width: 1200px;
+      border: 1px solid #c2c2c2;
       min-height: 0px;
       overflow: hidden;
       .bc-first-title {
@@ -395,21 +396,21 @@
 
   .bc-play-container {
     height: 396px;
-    border: 0px;
+    border: 1px;
     .bc-play-area.loaded {
       height: 256px;
       width: 1180px;
       padding-top: 13px;
-
+      //border: 1px solid #c2c2c2;
       .bc-playArea-items {
         padding-left: 18px;
         .bc-select-item {
           margin-right: 16px;
           .tab {
-            border: 1px solid #4e4e4e;
+            //border: 1px solid #4e4e4e;
           }
           .active {
-            border: 1px solid #ffba00;
+            //border: 1px solid #ffba00;
           }
         }
         .tab-toolbar {
@@ -465,11 +466,12 @@
   .bc-statics-area {
     border: 0;
     width: 1140px;
-    margin-top:-60px;
+    margin-top: -60px;
+    margin-left: 1px;
     .bc-result-container {
       margin-left: 41px;
       margin-bottom: 11px;
-      border: 0px;
+      //border: 1px solid grey;
     }
   }
 
@@ -478,13 +480,13 @@
     width: 1200px;
     margin-left: -12px;
     margin-bottom: 12px;
-    //background-color: #333;//    5d1e1e
-    background: linear-gradient(to bottom, #333, #5d1e1e);
-    border-bottom-left-radius: 12px;
-    border-bottom-right-radius: 12px;
+    /* background: -webkit-linear-gradient(top, #333, #5d1e1e); */
+    /* background: linear-gradient(to bottom, #333, #5d1e1e); */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff333333', endColorstr='#ff5d1e1e', GradientType=0);
     color: #fff;
     position: relative;
-
+    background-color: #484848;
+    margin-top: 30px;
     .bc-lottery-add {
 
       text-align: center;
@@ -556,13 +558,13 @@
         min-width: 225px;
         text-align: center;
         height: 38px;
-        padding: 0 10px 0 80px ;
+        padding: 0 10px 0 80px;
         span {
           color: #fff;
           font-size: 14px;
           line-height: 38px;
         }
-        .bc-mmc-result-win-gold{
+        .bc-mmc-result-win-gold {
           background: url('gold_coin.png') no-repeat;
           width: 122px;
           height: 39px;
@@ -615,7 +617,7 @@
         right: 10px;
         top: -28px;
         a {
-          color: #999;
+          color: #fff;
         }
       }
       .bc-betting-preview-detail {
@@ -775,7 +777,7 @@
 
 //宝箱样式
 .bc-smmc-treasure-modal {
-  width: 995px  !important;
+  width: 995px !important;
   margin-left: -482px !important;
   padding-top: 38px;
 
@@ -814,7 +816,6 @@
 .modal-backdrop.fade.in {
   opacity: 0.5;
 }
-
 
 //freegame样式
 .bc-smmc-free-game-modal {
@@ -917,7 +918,7 @@
       bottom: 45px;
       text-align: center;
       margin: 0 auto;
-      width:100%;
+      width: 100%;
     }
     .bc-smmc-free-game-total-prize {
       background: linear-gradient(to bottom, #e8675f, #cd0505);
@@ -946,16 +947,16 @@
       color: #fff;
       text-align: center;
       margin: 0 auto;
-      width:100%;
+      width: 100%;
     }
 
   }
 }
 
 .bc-smmc-jackpot-modal {
-  width: 1000px  !important;;
-  margin-left: -500px  !important;;
-  padding-top: 38px  !important;;
+  width: 1000px !important;;
+  margin-left: -500px !important;;
+  padding-top: 38px !important;;
   text-align: center;
   .modal-body {
     background-color: transparent;
@@ -989,18 +990,18 @@
       display: inline-block;
       margin: 15px 72px;
       vertical-align: middle;
-      .bc-smmc-jackpot-mode-wrapper{
+      .bc-smmc-jackpot-mode-wrapper {
         /*position: absolute;*/
       }
-      .bc-smmc-jackpot-mode-item-unknown{
+      .bc-smmc-jackpot-mode-item-unknown {
         background: url(jackpot_unknown.png) no-repeat;
         border-radius: 71px;
         width: 130px;
         height: 130px;
         margin: 0 auto;
       }
-      .bc-smmc-jackpot-mode-item-wrapper{
-        top:0;
+      .bc-smmc-jackpot-mode-item-wrapper {
+        top: 0;
         background: url(jackpot_result_bg.png) no-repeat;
         border-radius: 60px;
         width: 0px;
@@ -1034,21 +1035,21 @@
 }
 
 .bc-smmc-jackpot-win-modal {
-  width: 1000px  !important;
+  width: 1000px !important;
   margin-left: -500px !important;
   padding-top: 38px;
   text-align: center;
   .modal-body {
     background-color: transparent;
   }
-  .bc-smmc-jackpot{
+  .bc-smmc-jackpot {
     background: url(jackpot_win.png) no-repeat;
     width: 965px;
     height: 572px;
     margin: 0 auto;
     text-align: center;
     position: relative;
-    .bc-smmc-jackpot-title{
+    .bc-smmc-jackpot-title {
       font-size: 22px;
       color: #fff;
       width: 100%;
@@ -1065,7 +1066,7 @@
       background: linear-gradient(to bottom, #e8675f, #cd0505);
       height: 50px;
       width: 360px;
-      left:288px;
+      left: 288px;
       border: 2px solid #fff;
       border-radius: 20px;
       color: #fff;
@@ -1079,77 +1080,77 @@
 
 }
 
-.bc-smmc-jackpot-rule-modal{
-  width: 800px  !important;;
+.bc-smmc-jackpot-rule-modal {
+  width: 800px !important;;
   height: 420px;
   padding-top: 50px;
   text-align: center;
-  margin-left:  -400px !important;
-  .modal-body{
-    padding:0;
+  margin-left: -400px !important;
+  .modal-body {
+    padding: 0;
   }
-  .bc-smmc-jackpot-rule{
-    .bc-smmc-jackpot-rule-head{
+  .bc-smmc-jackpot-rule {
+    .bc-smmc-jackpot-rule-head {
       background: #920403;
       height: 40px;
-      .bc-smmc-jackpot-rule-title{
+      .bc-smmc-jackpot-rule-title {
         font-size: 18px;
         line-height: 38px;
         color: #fff;
       }
     }
-    .bc-smmc-jackpot-rule-body{
+    .bc-smmc-jackpot-rule-body {
       margin: 25px 30px 20px;
       border: 1px solid #999;
       width: 740px;
 
-      .bc-smmc-jackpot-rule-table-tr{
+      .bc-smmc-jackpot-rule-table-tr {
 
         width: 740px;
         height: 60px;
         font-size: 15px;
         color: #000;
 
-        .bc-smmc-jackpot-rule-icon-crown{
-           display: inline-block;
-           background: url(jakepot_rule_crown.png) no-repeat;
-           width: 75px;
-           height: 44px;
-         }
-        .bc-smmc-jackpot-rule-icon-diamond{
+        .bc-smmc-jackpot-rule-icon-crown {
+          display: inline-block;
+          background: url(jakepot_rule_crown.png) no-repeat;
+          width: 75px;
+          height: 44px;
+        }
+        .bc-smmc-jackpot-rule-icon-diamond {
           display: inline-block;
           background: url(jakepot_rule_diamond.png) no-repeat;
           width: 75px;
           height: 44px;
         }
-        .bc-smmc-jackpot-rule-icon-gold{
+        .bc-smmc-jackpot-rule-icon-gold {
           display: inline-block;
           background: url(jakepot_rule_gold.png) no-repeat;
           width: 75px;
           height: 45px;
         }
-        .bc-smmc-jackpot-rule-icon-egg{
+        .bc-smmc-jackpot-rule-icon-egg {
           display: inline-block;
           background: url(jakepot_rule_egg.png) no-repeat;
           width: 75px;
           height: 47px;
         }
       }
-      .bc-smmc-jackpot-rule-table-tr1{
+      .bc-smmc-jackpot-rule-table-tr1 {
         background-color: #999;
         height: 40px;
         font-size: 15px;
         color: #fff;
-        .bc-smmc-jackpot-rule-table-td1{
+        .bc-smmc-jackpot-rule-table-td1 {
           width: 15%;
         }
-        .bc-smmc-jackpot-rule-table-td2{
+        .bc-smmc-jackpot-rule-table-td2 {
           width: 15%;
         }
-        .bc-smmc-jackpot-rule-table-td3{
+        .bc-smmc-jackpot-rule-table-td3 {
           width: 45%;
         }
-        .bc-smmc-jackpot-rule-table-td4{
+        .bc-smmc-jackpot-rule-table-td4 {
           width: 25%;
         }
       }
@@ -1158,13 +1159,12 @@
       }
     }
 
-
-    .bc-smmc-jackpot-rule-foot{
+    .bc-smmc-jackpot-rule-foot {
       width: 100%;
       height: 38px;
       margin-bottom: 20px;
       text-align: center;
-      >button{
+      > button {
         background-color: #b00606;
         width: 180px;
         height: 38px;

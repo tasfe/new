@@ -65,6 +65,12 @@ var EntryView = Base.ItemView.extend({
     if (strHash=='') {
       $('.head > ul > li').eq(6).addClass('sd');
     }
+    if ( strHash.slice(0,6) == '#bc/20' ) {
+      $('body').addClass('mmc');
+    }
+    else{
+      $('body').removeClass('mmc');
+    }
 
     window.onhashchange = function () {
       var strHash = document.location.hash;
@@ -73,6 +79,13 @@ var EntryView = Base.ItemView.extend({
       }
       else{
         $('.js-main-display2').removeClass('hidden');
+      }
+
+      if ( strHash.slice(0,6) == '#bc/20' ) {
+        $('body').addClass('mmc');
+      }
+      else{
+        $('body').removeClass('mmc');
       }
     };
   },
