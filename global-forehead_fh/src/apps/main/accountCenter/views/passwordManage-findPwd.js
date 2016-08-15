@@ -285,11 +285,7 @@ var findPwdView = Base.ItemView.extend({
           }
 
         });
-
-    // this.$validate.html(this.byEMTpl());
-    //
-    // this.$selectWay.addClass('hidden');
-    // this.$validate.removeClass('hidden');
+    
   },
 
   inputEmailHandler:function (e) {

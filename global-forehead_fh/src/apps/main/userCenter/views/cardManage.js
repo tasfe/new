@@ -4,15 +4,17 @@ var bindBankConfig = require('../misc/bankConfig');
 var lockPng = require('../misc/lock.png');
 var deletePng = require('../misc/delete.png');
 
-var BindCardView = require('userCenter/views/cardBinding')
+var BindCardView = require('userCenter/views/cardBinding');
 
 var CardManageView = Base.ItemView.extend({
 
   template: require('userCenter/templates/cardManage.html'),
+
   //startOnLoading: true,
   itemTpl: _(require('userCenter/templates/cardManage-item.html')).template(),
 
   validateTpl: _(require('userCenter/templates/cardManage-validate.html')).template(),
+
   bindingCardTpl: _(require('userCenter/templates/cardBinding.html')).template(),
 
   className: 'uc-cardManage-view',
@@ -70,8 +72,8 @@ var CardManageView = Base.ItemView.extend({
   },
 
   onRender: function() {
-    var self = this;
 
+    var self = this;
     this.$validateError = this.$('.js-uc-cmValPayPwdNotice');
     // this.hasBeenVerified = Global.memoryCache.get('hasBeenVerified');
 
@@ -225,6 +227,7 @@ var CardManageView = Base.ItemView.extend({
   //"#uc/cm/bind"
   //绑定按钮
   goToBingBankCardHandler: function(e) {
+
     var $target = $(e.currentTarget);
     var size = this.$('.js-uc-cmCardNum').val();
     if (this.locked) {
@@ -260,7 +263,8 @@ var CardManageView = Base.ItemView.extend({
       title: '绑定银行卡',
       body: '<div class="js-uc-cm-bindContainer uc-cm-bindContainer"></div>',
       bodyClass: 'no-padding uc-cm-bindDialog',
-      size: 'modal-md2'
+      size: 'modal-lg'
+      //size: 'modal-md2'
     });
 
     $dialog.find('.js-uc-cm-bindContainer').html(bindCardView.render().el);
@@ -271,8 +275,10 @@ var CardManageView = Base.ItemView.extend({
 
     $dialog.off('click.bindCard')
         .on('click.bindCard', '.js-uc-cbCardBinding-check', function (e) {
+
           // bindCardView.checkCardBindingInfoHandler(e,$dialog);
           bindCardView.submitBankCard(e,$dialog);
+
         });
 
   },

@@ -90,7 +90,7 @@
 
 //end 1投追记录页查询栏样式
 
-//begin 2 明细页
+
 //公共小弹窗提示
 .js-pf-popover {
   min-height: 20px;
@@ -135,7 +135,6 @@
 
 //begin 3 个人资料
 .uc-personalManage-form {
-
   padding: 30px 14px 14px 290px;
 
   //特定长度输入框
@@ -258,10 +257,13 @@
 
 //绑定页
 .uc-cbCardBindingForm {
-  padding: 40px 0 0 11px;
+  margin-top: 40px;
+  //padding: 40px 0 0 11px;
+  background: url("~/bases/header/affiche_bg.png") no-repeat;
   .control-group {
     padding: 0 0 5px 0;
     display: inline-block;
+    margin-left: 165px;
   }
   .select1 {
     width: 352px;
@@ -291,7 +293,7 @@
 }
 
 .uc-lg-input {
-  width: 340px;
+  width: 440px;
 }
 
 .price-ul {
@@ -335,7 +337,9 @@
   word-break: break-word;
 }
 .uc-cm-bindDialog {
-  width: 560px;
+  background-color: #fff;
+  //width: 560px;
+  ;
 }
 .uc-cm-bindContainer {
   .popover{
@@ -375,9 +379,9 @@
 .uc-cmPayPwd {
   width: 236px;
 }
+
 .uc-cm-province-div {
   margin-bottom: 2px;
-
 }
 
 .vc-gp-get {
@@ -904,6 +908,26 @@
       }
     }
   }
+}
+
+.binding-card-icon{
+  background-color: red;
+  width: 120px;
+  height: 40px;
+}
+
+.binding-card-cardName{
+  margin-left: 32px;
+  margin-bottom: 5px;
+  font-size: 16px;
+  line-height: 35px;
+}
+
+.binding-card-cardNo{
+  margin-left: 32px;
+  margin-bottom: 5px;
+  font-size: 16px;
+  line-height: 35px;
 }
 
 

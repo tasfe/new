@@ -1,6 +1,6 @@
 <form class="js-uc-cbCardBindingForm form-horizontal uc-cbCardBindingForm">
   <div class="control-group">
-    <label class="control-label text-bold-dark">开户行：</label>
+    <label class="control-label text-bold-dark">银行名称：</label>
 
     <div class="controls">
       <select class="js-uc-cbBankId select1" required>
@@ -8,24 +8,9 @@
       </select>
     </div>
   </div>
-  <div class="control-group">
-    <label class="control-label text-bold-dark">卡号：</label>
-
-    <div class="controls">
-      <input type="text" class="js-uc-cbCardNo uc-lg-input input2"  data-parsley-num data-parsley-length="[13,19]" required>
-    </div>
-  </div>
 
   <div class="control-group">
-    <label class="control-label text-bold-dark">开户人姓名：</label>
-
-    <div class="controls">
-      <input type="text" class="js-uc-cbAccountName input2" data-parsley-length="[2,50]" data-parsley-zhAndLDBMaxLen="20" required >
-    </div>
-  </div>
-
-  <div class="control-group">
-    <label class="control-label text-bold-dark">开户省市：</label>
+    <label class="control-label text-bold-dark">开户城市：</label>
 
     <div class="controls">
       <select class="js-uc-cbProvince select2" required>
@@ -38,7 +23,7 @@
   </div>
 
   <div class="control-group">
-    <label class="control-label text-bold-dark">开户支行：</label>
+    <label class="control-label text-bold-dark">支行名称：</label>
 
     <div class="controls">
       <select class="js-uc-cbBankBranch select1 "  required >
@@ -52,6 +37,22 @@
     <div class="controls">
       <ul class="js-uc-cm-bingCardNotice parsley-errors-list filled font-sm">
       </ul>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <label class="control-label text-bold-dark">开户人姓名：</label>
+
+    <div class="controls">
+      <input type="text" class="js-uc-cbAccountName input2" data-parsley-length="[2,50]" data-parsley-zhAndLDBMaxLen="20" required >
+    </div>
+  </div>
+
+  <div class="control-group">
+    <label class="control-label text-bold-dark">卡号：</label>
+
+    <div class="controls">
+      <input type="text" class="js-uc-cbCardNo uc-lg-input input2"  data-parsley-num data-parsley-length="[13,19]" required>
     </div>
   </div>
 
