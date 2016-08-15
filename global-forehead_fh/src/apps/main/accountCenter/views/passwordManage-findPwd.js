@@ -9,7 +9,9 @@ var findPwdView = Base.ItemView.extend({
   
   //构造通过银行卡信息找回资金密码页面
   byCITpl: _.template(require('accountCenter/templates/passwordManage-byCI.html')),
-  
+
+  //构造通过邮箱找回资金密码页面
+  byEMTpl: _.template(require('accountCenter/templates/passwordManage-byEM.html')),
 
   events: {
     //选择找回资金密码的方式
@@ -26,6 +28,7 @@ var findPwdView = Base.ItemView.extend({
     'change .js-ac-findByQuestionSelect': 'questionSelectChangeHandler',
     //验证银行卡信息
     'click .js-ac-cardInfo-submit': 'inputCardInfoHandler',
+    'click .js-ac-email-submit': 'inputEmailHandler',
     //返回按钮
     'click .js-ac-findFundGoStep': 'findFundGoStepHandler',
     //重置资金密码
@@ -255,10 +258,46 @@ var findPwdView = Base.ItemView.extend({
       });
   },
 
+  //3.2.3选择找回资金密码的方式时展示不同页面
   findByEMHandler:function (e) {
-    
+
+    // var self = this;
+    // var $target = $(e.currentTarget);
+    // $target.button('loading');
+    //
+    // Global.sync.ajax({
+    //       url: '/fund/bankcard/verifycard.json'
+    //     })
+    //     .always(function() {
+    //       //恢复确认按钮的状态
+    //       $target.button('reset');
+    //     })
+    //     .done(function(res) {
+    //       if (res && res.result === 0) {
+    //         self.$validate.html(this.byEMTpl());
+    //
+    //         self.$selectWay.addClass('hidden');
+    //         self.$validate.removeClass('hidden');
+    //
+    //       }else {
+    //         Global.ui.notification.show(res.msg);
+    //       }
+    //
+    //     });
+
+    this.$validate.html(this.byEMTpl());
+
+    this.$selectWay.addClass('hidden');
+    this.$validate.removeClass('hidden');
   },
 
+  inputEmailHandler:function () {
+    var self = this;
+    self.$('.js-as-resetFundPassword-submit').data('type', this.$('#account-name').val());
+    self.$findFundPasswordContainer.steps('goTo', 1);
+
+  },
+  
   //3.2.1选择找回资金密码的方式时展示不同页面
   findByCIHandler: function(e) {
     this.$validate.html(this.byCITpl());
@@ -381,6 +420,7 @@ var findPwdView = Base.ItemView.extend({
     var self = this;
     var $target = $(e.currentTarget);
     var type = $target.data('type'); //token 存放在按钮的data-type中
+    var code = $target.data('code');
     var clpValidate = this.$('.js-ac-resetPayPwd-form').parsley().validate();
 
     if (clpValidate) {

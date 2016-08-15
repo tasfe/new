@@ -1,9 +1,8 @@
 "use strict";
 
+var inputNewEmail = require('accountCenter/views/inputNewEmail');
 
-var ConfirmView = require('accountCenter/views/setEmailConfirm');
-
-var contentEmailView = Base.ItemView.extend({
+var verifyOldEmail = Base.ItemView.extend({
 
     template: require('accountCenter/templates/verifyOldEmail.html'),
 
@@ -29,26 +28,24 @@ var contentEmailView = Base.ItemView.extend({
         var $target = $(e.currentTarget);
         $target.button('loading');
         Global.sync.ajax({
-                url: '/acct/usermsg/sendEmail.json'
+                url: '/acct/usermsg/sendEmailToken.json',
+                data:{sendType:1}
             })
             .always(function() {
                 $target.button('reset');
             })
             .done(function(res) {
                 if (res && res.result === 0) {
-
-                    alert(res);
-
-                    // var confirm = new ConfirmView({email:self.$setEmail.val()});
-                    // $('.js-acse-container').html(confirm.render().el);
-                    // this.destroy();
+                    
+                    var newEmail = new inputNewEmail();
+                    $('.js-acse-container').html(newEmail.render().el);
+                    self.destroy();
 
                 }else {
                     Global.ui.notification.show(res.msg);
                 }
-
+            
             });
-        
         
 
     }
@@ -56,4 +53,4 @@ var contentEmailView = Base.ItemView.extend({
 
 });
 
-module.exports = contentEmailView;
+module.exports = verifyOldEmail;
