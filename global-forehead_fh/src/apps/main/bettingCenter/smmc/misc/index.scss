@@ -555,7 +555,7 @@ body.mmc {
       position: relative;
       background-color: #434343;
       width: 1000px;
-      height: 92px;
+      height: 110px;
       margin: 27px auto 13px auto;
       border-right: 0;
       .bc-mmc-result-win {
@@ -596,7 +596,7 @@ body.mmc {
           margin: 52px 0 0 271px;
           padding: 143px 0 0 0;
           text-align: center;
-          z-index: 2;
+          z-index: 100;
           span {
             position: relative;
             color: #c21d15;
@@ -613,10 +613,10 @@ body.mmc {
           position: absolute;
           width: 469px;
           height: 56px;
-          margin: 54px 0 0 271px;
+          margin: -34px 0 0 271px;
           padding: 143px 0 0 0;
           text-align: center;
-          z-index: 2;
+          z-index:100;
         }
       }
 
