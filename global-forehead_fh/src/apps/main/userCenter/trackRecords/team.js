@@ -138,7 +138,7 @@ var TrackRecordsView = SearchGrid.extend({
         '<strong>所有页总计</strong>', '', '',
         _(gridData.betMoneyTotal).convert2yuan(),
         _(gridData.prizeMoneyTotal).convert2yuan(),
-         '', ''
+         '', '', ''
       ]
     }).hideLoading();
 

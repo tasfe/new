@@ -140,7 +140,7 @@ var BettingRecordsView = SearchGrid.extend({
         '<div class="text-hot">所有页总计</div>', '', '',
         '<div class="text-hot">' + _(gridData.betMoneyTotal).fixedConvert2yuan() + '</div>',
         '<div class="text-hot">' + _(gridData.prizeMoneyTotal).convert2yuan() + '</div>',
-        '', '', ''
+        '', ''
       ]
     })
       .hideLoading();
