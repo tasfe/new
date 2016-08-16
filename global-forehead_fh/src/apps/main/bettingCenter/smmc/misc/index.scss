@@ -314,11 +314,11 @@ body.mmc {
   }
   .mmc-bc-start {
     background: url(smmc_drawbar_up.png) 0px 0px no-repeat;
-    width: 49px;
-    height: 110px;
+    width: 59px;
+    height: 130px;
     position: absolute;
-    right: 9px;
-    bottom: 0px;
+    right: 11px;
+    bottom: -30px;
     margin: 0 auto;
     cursor: pointer;
     clear: both;
@@ -333,13 +333,12 @@ body.mmc {
     margin-left: -11px;
 
     .bc-main-area {
-      //padding-top: 14px;
-      //margin-left: 11px;
       background-color: #fff;
-      width: 1200px;
+      width: 1170px;
       border: 1px solid #c2c2c2;
       min-height: 0px;
       overflow: hidden;
+      margin: 15px auto;
       .bc-first-title {
         height: 49px;
         line-height: 49px;
@@ -348,7 +347,7 @@ body.mmc {
 
   }
   .bc-smmc-main-area {
-    height: 20px;
+    height: 0px;
     border-bottom: 2px solid #222;
   }
 
@@ -404,6 +403,7 @@ body.mmc {
       //border: 1px solid #c2c2c2;
       .bc-playArea-items {
         padding-left: 18px;
+
         .bc-select-item {
           margin-right: 16px;
           .tab {
@@ -415,6 +415,7 @@ body.mmc {
         }
         .tab-toolbar {
           //margin-bottom: 13px;
+          //margin-left: 100px;
 
         }
         .tab-toolbar .tab-group {
@@ -464,10 +465,17 @@ body.mmc {
   }
 
   .bc-statics-area {
+    //border: 0;
+    //width: 1140px;
+    //margin-top: -145px;
+    //margin-left: 3px;
+    //border: 1px solid lightgrey;
     border: 0;
     width: 1140px;
-    margin-top: -60px;
-    margin-left: 1px;
+    float: left;
+    margin-top: -20px;
+    margin-left: 0px;
+    border: 1px solid lightgrey;
     .bc-result-container {
       margin-left: 41px;
       margin-bottom: 11px;
@@ -478,7 +486,7 @@ body.mmc {
   .bc-mmc-selected-area {
     height: 178px;
     width: 1200px;
-    margin-left: -12px;
+    margin-left: -11px;
     margin-bottom: 12px;
     /* background: -webkit-linear-gradient(top, #333, #5d1e1e); */
     /* background: linear-gradient(to bottom, #333, #5d1e1e); */
@@ -486,7 +494,7 @@ body.mmc {
     color: #fff;
     position: relative;
     background-color: #484848;
-    margin-top: 30px;
+    //margin-top: 70px;
     .bc-lottery-add {
 
       text-align: center;
@@ -495,16 +503,16 @@ body.mmc {
       .bc-lottery-add-btn-div {
         margin: -21px auto 0;
         width: 180px;
-        border: 3px solid #efefef;
+        //border: 3px solid #efefef;
         border-radius: 10px;
-        background-color: #efefef;
+        //background-color: #efefef;
         z-index: 1;
         height: 36px;
         .bc-mmc-btn-lottery-add {
           position: relative;
-          margin-top: -6px;
+          margin-top: -120px;
           width: 180px;
-          height: 38px;
+          height: 48px;
           border: 1px solid #b51810;
           background-color: #b51810;
           margin-left: 0px;
@@ -777,7 +785,7 @@ body.mmc {
 
 //宝箱样式
 .bc-smmc-treasure-modal {
-  width: 995px !important;
+  width: 795px !important;
   margin-left: -482px !important;
   padding-top: 38px;
 
@@ -787,16 +795,17 @@ body.mmc {
 
   .bc-smmc-treasure-chest {
     background: url(smmc_treasure.png) no-repeat;
-    width: 965px;
+    width: 765px;
     height: 578px;
+    margin-left: 100px;
     text-align: center;
     .bc-smmc-treasure-button {
       position: relative;
-      top: 528px;
+      top: 269px;
+      right: -200px;
       width: 354px;
       height: 43px;
-      background: linear-gradient(to bottom, #e8675f, #cd0505);
-      border: 3px solid #fff;
+      /* border: 3px solid #fff; */
       border-radius: 21px;
       color: #fff;
       > span {
@@ -812,6 +821,7 @@ body.mmc {
 
   }
 }
+
 
 .modal-backdrop.fade.in {
   opacity: 0.5;
@@ -915,7 +925,7 @@ body.mmc {
       font-size: 22px;
       color: #fff;
       position: absolute;
-      bottom: 45px;
+      bottom: 192px;
       text-align: center;
       margin: 0 auto;
       width: 100%;
@@ -923,7 +933,7 @@ body.mmc {
     .bc-smmc-free-game-total-prize {
       background: linear-gradient(to bottom, #e8675f, #cd0505);
       position: absolute;
-      bottom: -15px;
+      bottom: 90px;
       left: 100px;
       text-align: center;
       margin: 0 auto;
@@ -942,7 +952,7 @@ body.mmc {
     //jackpot
     .bc-smmc-jackpot-title {
       position: absolute;
-      bottom: 45px;
+      bottom: 190px;
       font-size: 28px;
       color: #fff;
       text-align: center;
@@ -996,8 +1006,8 @@ body.mmc {
       .bc-smmc-jackpot-mode-item-unknown {
         background: url(jackpot_unknown.png) no-repeat;
         border-radius: 71px;
-        width: 130px;
-        height: 130px;
+        width: 150px;
+        height: 150px;
         margin: 0 auto;
       }
       .bc-smmc-jackpot-mode-item-wrapper {
@@ -1176,4 +1186,10 @@ body.mmc {
   }
 }
 
+.pic-rules {
+  background: url(rules.png) no-repeat;
+  width: 673px;
+  height: 277px;
+  margin-left: 55px;
+}
 
