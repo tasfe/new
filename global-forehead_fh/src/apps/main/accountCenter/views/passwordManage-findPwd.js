@@ -261,40 +261,54 @@ var findPwdView = Base.ItemView.extend({
   //3.2.3选择找回资金密码的方式时展示不同页面
   findByEMHandler:function (e) {
 
-    // var self = this;
-    // var $target = $(e.currentTarget);
-    // $target.button('loading');
-    //
-    // Global.sync.ajax({
-    //       url: '/fund/bankcard/verifycard.json'
-    //     })
-    //     .always(function() {
-    //       //恢复确认按钮的状态
-    //       $target.button('reset');
-    //     })
-    //     .done(function(res) {
-    //       if (res && res.result === 0) {
-    //         self.$validate.html(this.byEMTpl());
-    //
-    //         self.$selectWay.addClass('hidden');
-    //         self.$validate.removeClass('hidden');
-    //
-    //       }else {
-    //         Global.ui.notification.show(res.msg);
-    //       }
-    //
-    //     });
+    var self = this;
+    var $target = $(e.currentTarget);
+    $target.button('loading');
 
-    this.$validate.html(this.byEMTpl());
+    Global.sync.ajax({
+          url: '/acct/usermsg/sendEmailToken.json',
+          data:{sendType:'1'}
+        })
+        .always(function() {
+          //恢复确认按钮的状态
+          $target.button('reset');
+        })
+        .done(function(res) {
+          if (res && res.result === 0) {
+            self.$validate.html(self.byEMTpl());
 
-    this.$selectWay.addClass('hidden');
-    this.$validate.removeClass('hidden');
+            self.$selectWay.addClass('hidden');
+            self.$validate.removeClass('hidden');
+
+          }else {
+            Global.ui.notification.show(res.msg);
+          }
+
+        });
+    
   },
 
-  inputEmailHandler:function () {
+  inputEmailHandler:function (e) {
     var self = this;
-    self.$('.js-as-resetFundPassword-submit').data('type', this.$('#account-name').val());
-    self.$findFundPasswordContainer.steps('goTo', 1);
+    var $target = $(e.currentTarget);
+    $target.button('loading');
+    Global.sync.ajax({
+          url: '/acct/usermsg/validatePwdCode.json',
+          data:{validateCode:this.$('#account-name').val()}
+        })
+        .always(function() {
+          //恢复确认按钮的状态
+          $target.button('reset');
+        })
+        .done(function(res) {
+          if (res && res.result === 0) {
+            self.$('.js-as-resetFundPassword-submit').data('type',res.root);
+            self.$findFundPasswordContainer.steps('goTo', 1);
+          }else {
+            Global.ui.notification.show(res.msg);
+          }
+
+        });
 
   },
   
@@ -420,7 +434,7 @@ var findPwdView = Base.ItemView.extend({
     var self = this;
     var $target = $(e.currentTarget);
     var type = $target.data('type'); //token 存放在按钮的data-type中
-    var code = $target.data('code');
+    //var code = $target.data('code');
     var clpValidate = this.$('.js-ac-resetPayPwd-form').parsley().validate();
 
     if (clpValidate) {

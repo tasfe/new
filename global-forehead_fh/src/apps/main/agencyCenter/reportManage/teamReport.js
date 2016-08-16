@@ -95,7 +95,7 @@ var ReportManageView = SearchGrid.extend({
           width: '12%',
           sortable: true,
           id: 6
-        },
+        }
         //{
         //  name: '操作',
         //  width: '9%'

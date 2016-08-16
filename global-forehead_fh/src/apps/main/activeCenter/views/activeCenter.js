@@ -16,8 +16,14 @@ var ActiveCenterView = Base.ItemView.extend({
     var $target = $(e.currentTarget);
     $target.addClass('list-active');
 
-    var currentIndex = $target.data('index');
-    //alert(currentIndex);
+    var currentIndex = $target.data('index')-1;
+
+    if (currentIndex<0){
+      this.renderActiveGrid(0,'');
+    }else {
+      this.renderActiveGrid(0,currentIndex);
+    }
+
 
   },
 
@@ -27,7 +33,7 @@ var ActiveCenterView = Base.ItemView.extend({
     this.$activeHeader = this.$('.js-activeHeader-list');
 
     this.initSliderTab();
-    this.renderActiveGrid(0);
+    this.renderActiveGrid(0,'');
 
   },
 
@@ -51,12 +57,13 @@ var ActiveCenterView = Base.ItemView.extend({
     });
   },
 
-  renderActiveGrid: function(pageIndex) {
+  renderActiveGrid: function(pageIndex,type) {
     var self = this;
     this.$activeContext.empty();
     this.getActiveXhr({
       pageSize: 20,
-      pageIndex: pageIndex
+      pageIndex: pageIndex,
+      type:type
     })
       .always(function() {
         self.loadingFinish();
@@ -76,7 +83,6 @@ var ActiveCenterView = Base.ItemView.extend({
   renderActiveContex:function (activityList) {
 
     //$('#main').html(this.el);
-
 
     if (_(activityList).isEmpty()) {
       this.$activeContext.html(this.getEmptyHtml('暂时没有活动'));
