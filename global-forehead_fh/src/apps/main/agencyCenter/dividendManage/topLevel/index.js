@@ -2,7 +2,8 @@
 
 var TabView = require('com/tabView');
 
-var SelfView = require('./self');
+var FirstView = require('../firstLevel');
+var TopView = require('./self');
 var LowLevelView = require('./lowLevel');
 var UserManageView = require('./userManage');
 
@@ -25,13 +26,16 @@ var TopLevelView = TabView.extend({
   },
 
   initialize: function() {
-    _(this.options).extend({
-      tabs: [
+    var tabs;
+    var acctInfo = Global.memoryCache.get('acctInfo');
+
+    if (acctInfo.userRebate === 130 && acctInfo.userGroupLevel === 0) {
+      tabs = [
         {
           label: '我的分红',
           name: 'self',
           id: 'jsAcSelf',
-          view: SelfView
+          view: TopView
         },
         {
           label: '下级分红发放',
@@ -45,7 +49,25 @@ var TopLevelView = TabView.extend({
           id: 'jsAcUserManage',
           view: UserManageView
         }
-      ],
+      ];
+    } else {
+      tabs = [
+        {
+          label: '下级分红发放',
+          name: 'lowLevel',
+          id: 'jsAcLowLevel',
+          view: LowLevelView
+        },
+        {
+          label: '分红用户管理',
+          name: 'user',
+          id: 'jsAcUserManage',
+          view: UserManageView
+        }
+      ];
+    }
+    _(this.options).extend({
+      tabs: tabs,
       append: '<div class="js-ac-add-user cursor-pointer ac-add-user pull-right text-pleasant">' +
       '<span class="sfa sfa-divid-add vertical-bottom"></span> ' +
       '签约分红用户</div>' +
@@ -72,7 +94,6 @@ var TopLevelView = TabView.extend({
   },
 
   //event handlers
-
   addUserHandler: function(e) {
     var self = this;
     var $target = $(e.currentTarget);
@@ -81,7 +102,7 @@ var TopLevelView = TabView.extend({
       title: '签约分红用户',
       body: '<div class="js-ac-add-container"></div>',
       modalClass: 'ten',
-      size: 'modal-lg',
+      size: 'modal-lg-julien',
       footer: ''
     });
 

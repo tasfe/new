@@ -126,7 +126,7 @@ var LowLevelView = SearchGrid.extend({
     }
 
     if (rowInfo.status === grantConfig.getByName('DONE').id) {
-      operate.push('<a href="#uc/ad?tradeNo=' + rowInfo.tradeNo + '" class="btn btn-link btn-link-pleasant">查看</a>');
+      operate.push('<a href="#fc/ad?tradeNo=' + rowInfo.tradeNo + '" class="btn btn-link btn-link-pleasant">查看</a>');
     }
 
     operate.push('<button class="js-ac-detail btn btn-link btn-link-cool">明细</button>');

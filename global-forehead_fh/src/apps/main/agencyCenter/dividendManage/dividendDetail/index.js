@@ -11,22 +11,22 @@ var DividendDetailView = Base.ItemView.extend({
   render: function() {
     var self = this;
 
-    this.$el.staticGrid({
-      height: 349,
-      tableClass: 'table table-bordered table-no-lr table-center',
+    return this.$el.staticGrid({
+      tableClass: 'table table-bordered table-hover table-center',
+      height: 369,
       colModel: [
-        {label: '日期', name: 'cycle', width: '10%'},
-        //{label: '用户名', name: 'username', width: '10%'},
-        //{label: '团队投注', name: 'betTotal', width: '10%', formatter: function(val) {
-        //  return _(val).fixedConvert2yuan();
-        //}},
-        {label: '结算', name: 'profitTotal', width: '10%', formatter: function(val) {
+        {label: '结算日期', name: 'cycle', width: '10%'},
+        {label: '用户名', name: 'username', width: '10%'},
+        {label: '团队投注', name: 'betTotal', width: '10%', formatter: function(val) {
           return _(val).fixedConvert2yuan();
         }},
-        {label: '分红比', name: 'divid', width: '10%', formatter: function(val) {
+        {label: '团队盈亏', name: 'profitTotal', width: '10%', formatter: function(val) {
+          return _(val).fixedConvert2yuan();
+        }},
+        {label: '分红比例', name: 'divid', width: '10%', formatter: function(val) {
           return _(val).formatDiv(100);
         }},
-        {label: '预计分红', name: 'dividTotal', width: '10%', formatter: function(val) {
+        {label: '分红金额', name: 'dividTotal', width: '10%', formatter: function(val) {
           return _(val).convert2yuan();
         }}
       ],
@@ -44,16 +44,14 @@ var DividendDetailView = Base.ItemView.extend({
         self.$el.staticGrid('addFooterRows', {
           trClass: 'tr-footer',
           columnEls: [
-            '<strong>总计</strong>',
-            //_(data.betTotal).fixedConvert2yuan(),
+            '<strong>总计</strong>', '',
+            _(data.betTotal).fixedConvert2yuan(),
             _(data.profitTotal).fixedConvert2yuan(),
             '',
             _(data.dividTotal).convert2yuan()
           ]
         });
       });
-
-    return this;
   }
 });
 

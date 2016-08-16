@@ -90,7 +90,7 @@ var AgreementView = Base.ItemView.extend({
                   Global.ui.notification.show('签署分红协议成功。', {
                     event: function() {
                       Global.m.oauth.check();
-                      Global.router.goTo('uc/dm');
+                      Global.router.goTo('ac/dm');
                     }
                   });
                 } else {

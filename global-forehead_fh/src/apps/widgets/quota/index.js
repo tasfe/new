@@ -18,8 +18,6 @@ $.widget('gl.quota', {
     body.push('<div class="row-btn"><button type="button" class="js-ac-submitQuota" data-loading-text="保存中">保存修改</button></div>');
     body.push('</div>');
 
-    
-
     this.$dialog = Global.ui.dialog.show({
       id: this.uuid,
       title: '转给' + this.options.title + '配额',
