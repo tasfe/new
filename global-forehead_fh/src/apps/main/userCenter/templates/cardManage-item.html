@@ -14,16 +14,23 @@
         <!--<div class="js-uc-cmSingCardBindTime  ">绑定时间:<%=_(card.bindTime).toTime() %></div>-->
       </div>
 
-        <div class="js-uc-cm-option binding-card-op" data-type="<%=card.cardId %>">
-          <div class="js-uc-binding-card-triangle binding-card-triangle-yellow"></div>
-          <div class="js-uc-binding-card-sign <%= locked? 'binding-card-sign-locked':'binding-card-sign-checkMark'%>"></div>
-          <!--checkMark cross-->
-        </div>
+
+      <% if (!locked) { %>
+        <div class="js-uc-cmDeleteSingCard binding-card-delete " data-type="<%=card.cardId %>">×</div>
+      <% } %>
+
+      <div class="js-uc-cm-option binding-card-op" data-type="<%=card.cardId %>">
+
+          <div class="js-uc-binding-card-triangle binding-card-triangle-yellow">已设置默认</div>
+
+          <!--<div class="js-uc-binding-card-sign <%= locked? 'binding-card-sign-locked':'binding-card-sign-checkMark'%>"></div>-->
+
+      </div>
 
     </div>
 
 
-    <div class="bank-card-backdrop <%= locked? '':'hidden'%>"></div>
+    <!--<div class="bank-card-backdrop <%= locked? '':'hidden'%>"></div>-->
 
   </div>
 </li>
