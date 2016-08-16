@@ -677,12 +677,12 @@ body.mmc {
         font-size: 0;
         input {
           display: inline-block !important;
-          background-color: #B51810; //
-          color: #fff;
+          background-color: #fff; //
+          color: #000;
           border: 1px solid #fff;
           height: 20px;
           padding: 4px 5px;
-          width: 40px;
+          width: 30px;
           font-size: 12px;
         }
         button {
@@ -698,19 +698,20 @@ body.mmc {
           margin-top: 0px;
           border-radius: 0px;
           font-size: 12px;
-          width: 61px;
+          width: 51px;
           //background-color: #fff;
           bottom: 100%;
           top: inherit;
           color: #fff; //000
-          left: -40px;
+          left: -30px;
           border: 1px solid #fff; //c2c2c2
           border-bottom: none;
           box-shadow: none;
           li {
-            background-color: #B51810;
+            background-color: #fff;
             //background-color: #fff;
             font-size: 12px;
+            color: #000;
             &:hover {
               background-color: #fff; //#e8675d;
               color: #000;
