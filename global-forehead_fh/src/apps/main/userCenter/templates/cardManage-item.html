@@ -12,13 +12,14 @@
         <div class="binding-card-cardName"><%=card.name %> </div>
 
         <!--<div class="js-uc-cmSingCardBindTime  ">绑定时间:<%=_(card.bindTime).toTime() %></div>-->
-        <!--</div>-->
-
-      <div class="js-uc-cm-option binding-card-op" data-type="<%=card.cardId %>">
-        <div class="js-uc-binding-card-triangle binding-card-triangle-yellow"></div>
-        <div class="js-uc-binding-card-sign <%= locked? 'binding-card-sign-locked':'binding-card-sign-checkMark'%>"></div>
-        <!--checkMark cross-->
       </div>
+
+        <div class="js-uc-cm-option binding-card-op" data-type="<%=card.cardId %>">
+          <div class="js-uc-binding-card-triangle binding-card-triangle-yellow"></div>
+          <div class="js-uc-binding-card-sign <%= locked? 'binding-card-sign-locked':'binding-card-sign-checkMark'%>"></div>
+          <!--checkMark cross-->
+        </div>
+
     </div>
 
 

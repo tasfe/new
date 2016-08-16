@@ -15,7 +15,7 @@
     //width: $cards-width;
     //height: $cards-height;
     width: 410px;
-    //height: 100px;
+    height: 100px;
     position: relative;
 
     border:1px solid;
@@ -23,7 +23,7 @@
     .binding-card-main {
       display: inline-flex;
       color: $background-color;
-      padding: 25px 10px 25px 30px;
+      padding: 15px 10px 15px 30px;
     }
     .binding-card-op {
       position: absolute;
@@ -37,13 +37,13 @@
   .uc-lockedRectangle {
     //width: $cards-width;
     //height: $cards-height;
-    border: 1px solid;
+    //border: 1px solid;
     width: 410px;
-    height: 78px;
+    //height: 78px;
     text-align: center;
     //background-image: url(~base/images/lockedRectangle.png);
     .uc-add-sign {
-      margin-top:10px;
+      margin-top:20px;
       display: inline-block;
       width: 34px;
       height: 34px;
