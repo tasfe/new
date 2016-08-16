@@ -146,19 +146,19 @@ var EntryView = Base.ItemView.extend({
 
     html.push('<div class="quick-title ' + extraCSS + '">');
 
-    if (entry.icon) {
-      if (entry.iconType === 'sfa') {
-        html.push('<span class="fa-stack m-right-sm text-center">');
-        html.push('<i class="fa fa-circle fa-stack-2x ' + entry.backStyle + '"></i>');
-        html.push('<i class="sfa sfa-sidebar-' + entry.icon + ' text-light"></i>');
-        html.push('</span>');
-      } else {
-        html.push('<span class="fa-stack m-right-sm">');
-        html.push('<i class="fa fa-circle fa-stack-2x ' + entry.backStyle + '"></i>');
-        html.push('<i class="fa fa-stack-1x fa-' + entry.icon + ' text-light"></i>');
-        html.push('</span>');
-      }
-    }
+    //if (entry.icon) {
+    //  if (entry.iconType === 'sfa') {
+    //    html.push('<span class="fa-stack m-right-sm text-center">');
+    //    html.push('<i class="fa fa-circle fa-stack-2x ' + entry.backStyle + '"></i>');
+    //    html.push('<i class="sfa sfa-sidebar-' + entry.icon + ' text-light"></i>');
+    //    html.push('</span>');
+    //  } else {
+    //    html.push('<span class="fa-stack m-right-sm">');
+    //    html.push('<i class="fa fa-circle fa-stack-2x ' + entry.backStyle + '"></i>');
+    //    html.push('<i class="fa fa-stack-1x fa-' + entry.icon + ' text-light"></i>');
+    //    html.push('</span>');
+    //  }
+    //}
 
     html.push(entry.name);
 
