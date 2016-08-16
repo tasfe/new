@@ -1,6 +1,6 @@
 "use strict";
 
-var BettingChoiceModel = require('bettingCenter/models/bettingChoice-Mmc');
+var BettingChoiceModel = require('bettingCenter/models/bettingChoice-mmc');
 var BettingRulesCollection = require('bettingCenter/collections/bettingRules');
 
 var PlayAreaSelectView = require('bettingCenter/views/bettingCenter-playArea-select');

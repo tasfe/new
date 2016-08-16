@@ -2,7 +2,7 @@
 
 require('./index.scss');
 
-var LowMultiSelect = require('com/lowMultiSelect');
+var LowMultiSelect = require('com/lowMultiSelect2');
 
 var Chat = require('com/chat');
 

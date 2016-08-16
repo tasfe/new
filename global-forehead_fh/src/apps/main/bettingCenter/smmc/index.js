@@ -53,7 +53,44 @@ var BettingCenterView = Base.ItemView.extend({
     'mouseover .js-bc-advance-rules': 'baseRuleChangeMOHandler',
     'mouseout .js-bc-advance-rules': 'baseRuleChangeMO1Handler',
     'click .js-play1': 'play1',
-    'click .js-play2': 'play2'
+    'click .js-play2': 'play2',
+    'click .js-lottery-rules': 'lottertyRulesHandler'
+  },
+
+  lottertyRulesHandler: function() {
+
+    var self = this;
+
+    var $dialogRe = Global.ui.dialog.show({
+      id: _.now(),
+      title: '奖池规则',
+      size: 'modal-lg',
+      body: '<div class="js-lottery-rules pic-rules"></div>'
+    });
+
+    //var lotteryTypeListView = new LotteryTypeListView({parentView: self});
+    //lotteryTypeListView.onRender();
+    //
+    //$dialogRe.on('click', '.js-list-active1', function(e) {
+    //  $('.list-active').removeClass('list-active');
+    //  var $target = $(e.currentTarget);
+    //  $target.addClass('list-active');
+    //
+    //  var currentIndex = $target.data('index');
+    //  $('.js-lotteryList-0').addClass('hidden');
+    //  $('.js-lotteryList-1').addClass('hidden');
+    //  $('.js-lotteryList-2').addClass('hidden');
+    //  $('.js-lotteryList-3').addClass('hidden');
+    //  $('.js-lotteryList-4').addClass('hidden');
+    //  $('.js-lotteryList-'+currentIndex).removeClass('hidden');
+    //
+    //
+    //});
+    //
+    //$dialogRe.on('click', '.js-list-close1', function(e) {
+    //  $dialogRe.modal('hide');
+    //});
+
   },
 
   play1:function () {
@@ -518,7 +555,7 @@ var BettingCenterView = Base.ItemView.extend({
       this.$playArea.addClass('middle')
     } else {
       this.$playArea.removeClass('middle')
-    }
+  }
 
     //console.log(this.model.pick('ticketId', 'levelId', 'groupId', 'playId'));
   },
@@ -701,7 +738,7 @@ var BettingCenterView = Base.ItemView.extend({
 
     var idStr =  ''+$target.data('index');
     idStr = parseInt(idStr);
-    var playValue = (idStr+1)*69 +26;
+    var playValue = (idStr+1)*69 +30;
 
     this.$('.js-bc-advance-rules').css('left',playValue+'px');
   },
@@ -814,7 +851,11 @@ var BettingCenterView = Base.ItemView.extend({
 
   //波动拉杆,或者点击按钮
   lotteryConfirmHandler: function (e) {
+
+
+
     var self = this;
+
     var status = this.$btnConfirm.data('status');//按钮状态：当前事件仅处理“1-马上开奖，3-再玩一次”这两个状态，“2-停止”由另一事件处理。
     if (status === '2' || status === 2) {
       this.UserStop = true;//定义变量标记，用户操作了停止按钮。
@@ -881,6 +922,7 @@ var BettingCenterView = Base.ItemView.extend({
 
 
     this.dealCycle();
+    $('.bc-lottery-add').hide();
 
   },
   toggleShowDealOnce: function () {
@@ -1191,6 +1233,7 @@ var BettingCenterView = Base.ItemView.extend({
   },
   //重新选号按钮事件
   reSelectHandler: function () {
+    $('.bc-lottery-add').show();
     this.showLotteryTime(false);
     this.$reSelectBtn.addClass('hidden');
     this.$lotteryCurrResultPreview.addClass('hidden');

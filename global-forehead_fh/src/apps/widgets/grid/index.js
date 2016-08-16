@@ -21,6 +21,7 @@ $.widget('gl.grid', {
     onSort: _.noop,
     rowData: null,
     'showHead': true,
+    divStyle: '',
 
     //pagination
     pageIndex: 0,
@@ -35,6 +36,11 @@ $.widget('gl.grid', {
     this.options.hasBorder = this.options.tableClass.indexOf('table-bordered') > -1;
 
     this._data = [];
+
+    if (this.options.tip == 'juliencs') {
+      this.options.tip = '';
+      this.options.divStyle = 'marginlr20 tableNoBorder';
+    }
 
     if (!this._formatColumnDefinitions()) {
       window.WemartApp.ui.notification.show('Table 列定义信息不足');
@@ -54,7 +60,8 @@ $.widget('gl.grid', {
       'footerClass',
       'columnDefinitions',
       'hasBorder',
-      'showHead'
+      'showHead',
+      'divStyle'
     )));
 
     this.element.html(html);
@@ -218,6 +225,17 @@ $.widget('gl.grid', {
     } else {
       this.$footerBody.append(html);
     }
+
+    return this;
+  },
+
+  addFooterRows2: function(rows) {
+    var html = '<table class="table table-bordered table-no-lr table-center ' + rows.trClass + '" >';
+
+    html += '<colgroup><col width="10%"><col width="10%"><col width="10%"><col width="10%"><col width="10%"></colgroup>';
+    html += '<tbody><tr class="tr-footer"><td class="brw"></td><td class="brw"></td><td><span>' + rows.columnEls[0] + '</span></td><td class="price">' + rows.columnEls[1] + '</td><td></td></tr></tbody></table>'
+
+    this.$bodyDiv.append(html);
 
     return this;
   },
