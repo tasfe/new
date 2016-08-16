@@ -37,10 +37,12 @@ var DialogModule = Base.Module.extend({
 
     if (options.title) {
       if (options.size == 'modal-info-julien') {
-         html.push('<div class="modal-header-left">消息管理</div>');
+        $('body').addClass('overflow-hidden');
+
+        html.push('<div class="modal-header-left">消息管理</div>');
       }
       html.push('<div class="modal-header">');
-      html.push('<span class="sfa sfa-dialog-close close" data-dismiss="modal">');
+      html.push('<span class="sfa sfa-dialog-close close js-no-lock" data-dismiss="modal">');
       //html.push('<span aria-hidden="true">&times;</span>');
       html.push('</span>');
       html.push('<h4 class="modal-title" id="' + id + 'Label">' +
@@ -66,6 +68,11 @@ var DialogModule = Base.Module.extend({
       $container.find('#' + options.id).modal({
         backdrop: options.backdrop
       });
+    }
+    if (options.size == 'modal-info-julien') {
+      $('.js-no-lock').on('click',function () {
+        $('body').removeClass('overflow-hidden')
+      })
     }
 
     return $container.find('#' + options.id);

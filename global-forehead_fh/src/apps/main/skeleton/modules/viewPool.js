@@ -54,8 +54,6 @@ var PollingModule = Base.Module.extend({
     } else {
       viewInfo.parentId = Global.entryRegin.currentView.changeActiveInfo(viewInfo.initId, viewInfo.router);
     }
-
-    console.log(this._polling);
   },
 
   getById: function(initId) {
@@ -96,15 +94,12 @@ var PollingModule = Base.Module.extend({
       last.view.mainRegin.attachView(viewInfo.view);
 
       this._polling.push(last);
-
-      console.log(this._polling);
     }
   },
 
   pop: function() {
     var current = this._polling.pop();
     var find;
-    console.log(this._polling);
 
     if (this._polling.length === 0) {
 
@@ -131,8 +126,6 @@ var PollingModule = Base.Module.extend({
     _(this._polling).each(function(superior) {
       superior.regin.empty();
     });
-
-    console.log(this._polling);
   },
 
   setCurrentView: function(view) {
@@ -178,8 +171,6 @@ var PollingModule = Base.Module.extend({
     //viewInfo.view._remain = true;
 
     this._polling.push(viewInfo);
-
-    console.log(this._polling);
   },
 
   getQuick: function(router) {
@@ -212,7 +203,6 @@ var PollingModule = Base.Module.extend({
   destroyView: function(poll) {
     poll && poll.view && !poll.view.isDestroyed && poll.view.destroy();
     this._polling = _(this._polling).without(poll);
-    console.log(this._polling);
   }
 });
 

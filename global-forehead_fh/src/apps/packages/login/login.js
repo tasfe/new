@@ -107,7 +107,6 @@ $.widget('gl.login', {
       })
         .always(function(res) {
           self.element.find('.js-connect-server-' + index).addClass('connect-speeds-tested connect-speeds-' + Math.floor((Date.now() - start) / 200));
-          console.log(serverInfo.server + ': ' + (Date.now() - start));
         });
     });
   },

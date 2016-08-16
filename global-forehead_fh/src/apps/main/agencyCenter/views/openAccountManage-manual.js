@@ -381,7 +381,7 @@ var OpenAccountManageView = Base.ItemView.extend({
     }
     rebate = Number($target.val());
     var $maxBonus = $('.js-ac-openAccount-maxBonus');
-    console.dir($maxBonus);
+    
     _($maxBonus).each(function(item,index){
       var $item = $(item);
       var maxBonus = $item.data('maxbonus');

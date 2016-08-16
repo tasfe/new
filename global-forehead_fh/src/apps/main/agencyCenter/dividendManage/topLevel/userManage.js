@@ -28,7 +28,7 @@ var UserManageView = Base.ItemView.extend({
     this.$grid = this.$('.js-ac-user-grid');
 
     this.grid = this.$grid.staticGrid({
-      tableClass: 'table table-bordered table-center',
+      tableClass: 'table table-bordered table-center julien-table-title',
       colModel: [
         {label: '用户名', name: 'username', width: 120},
         {label: '分红比例', name: 'divid', width: 100, formatter: function(val, index, info) {

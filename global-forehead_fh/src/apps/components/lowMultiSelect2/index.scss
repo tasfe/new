@@ -41,6 +41,12 @@
     }
   }
 
+  .pf-select-superior-sd{
+    i{
+      border-color: transparent transparent #990000 transparent;
+    }
+  }
+
   .subordinate{
     i{
       border-style: solid dashed dashed dashed;
@@ -49,9 +55,15 @@
     }
     b{
       position: absolute;
-      left: 225px;
+      left: 205px;
       top: 0px;
       font-weight: normal;
+    }
+  }
+
+  .subordinate-sd{
+    i{
+      border-color: #990000 transparent transparent transparent;
     }
   }
 
@@ -60,12 +72,40 @@
     font-size: 14px;
 
     .tree-view {
+      height: 345px;
+      overflow-y: auto;
       ul{
         li{
-          padding-left: 33px;
           margin: 6px 0px;
           a{
+            
+            color: #999999;
+            span{
+              display: inline-block;
+              padding-left: 5px;
+              width: 250px;
+            }
+
+            i{
+              margin-left: 20px;
+              width: 8px;
+              height: 8px;
+              border-radius: 4px;
+              display: inline-block;
+            }
+          }
+          a:hover{
+            i{
+              background-color: #e60012;
+            }
+          }
+          a.online{
             color: #66cc00;
+          }
+          a.sd{
+            i{
+              background-color: #e60012;
+            }
           }
         }
       }   
@@ -146,4 +186,44 @@
 .online-tip {
   margin-right: 5px;
   margin-left: -12px;
+}
+
+.modal-info-julien{
+  .low-multi-select{
+    margin: 0px;
+    border: 0px;
+    width: auto;
+    height: auto;
+  }
+
+  .nc-ilSend-sendTo-content{
+    height: auto;
+    margin-top: 86px;
+  }
+}
+
+.julien-low-multi-selected{
+  position: absolute;
+  top: 0px;
+  left: 315px;
+  width: 678px;
+  height: 70px;
+  font-family: '微软雅黑';
+  font-size: 14px;
+  border-bottom: 1px solid #e0e0e0;
+
+  li{
+    list-style: none;
+    display: inline-block;
+    line-height: 25px;
+    color: #666666;
+    margin-right: 20px;
+    margin-top: 12px;
+  }
+
+  h3{
+    font-weight: normal;
+    font-size: 16px;
+    color: #666;
+  }
 }
