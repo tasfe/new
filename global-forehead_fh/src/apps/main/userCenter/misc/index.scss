@@ -227,9 +227,13 @@
     margin-left: 33px;
   }
   .uc-cm-lg-btn {
+
+    background-color: #cc9966;
+    border-radius: 0px;
     width: 251px;
-    height: 28px;
-    background-color: $color-sunshine;
+    height: 50px;
+    border: 0px;
+
   }
   .uc-cm-btn-unlock-sign {
     background: url(unLocked.png)  no-repeat;
@@ -932,8 +936,31 @@
   font-size: 16px;
   line-height: 35px;
   color: black;
+}
+
+.binding-card-delete{
+
+  background-color: #cc0000;
+  position: relative;
+  margin-left: 79px;
+  height: 80px;
+  width: 80px;
 
 }
+
+.uc-add-mark{
+  text-align: center;
+  font-size: 40px;
+  color: #cfa945;
+}
+
+.uc-add-words{
+  font-size: 16px;
+  color: #cc9966;
+
+}
+
+
 
 
  

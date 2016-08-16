@@ -119,6 +119,7 @@ var CardManageView = Base.ItemView.extend({
 
 
   deleteSingCardHandler: function(e) {
+
     if (this.locked) {
       Global.ui.notification.show('银行卡已锁定，不能删除银行卡');
       return;
@@ -131,6 +132,7 @@ var CardManageView = Base.ItemView.extend({
       var type = "delBankCard";
       this.popValidateCardInfoModal(type,cardId);
     }
+
   },
 
   propConfirmModel: function(cardId, pwdToken) {
@@ -160,6 +162,7 @@ var CardManageView = Base.ItemView.extend({
   },
 
   lockBankCardHandler: function(e) {
+    
     var self = this;
     var $target = $(e.currentTarget);
 
@@ -219,8 +222,7 @@ var CardManageView = Base.ItemView.extend({
         deletePng: deletePng
       });
     }, this);
-
-
+    
     return cardInfoHtmlArr.join('');
   },
 
@@ -277,6 +279,7 @@ var CardManageView = Base.ItemView.extend({
         .on('click.bindCard', '.js-uc-cbCardBinding-check', function (e) {
 
           // bindCardView.checkCardBindingInfoHandler(e,$dialog);
+
           bindCardView.submitBankCard(e,$dialog);
 
         });
@@ -389,6 +392,7 @@ var CardManageView = Base.ItemView.extend({
           }
         });
   },
+  
   toggleOptionClassHandler: function(e){
     var $target = $(e.currentTarget);
     var $div = $target.find('.js-uc-binding-card-triangle');
@@ -401,6 +405,7 @@ var CardManageView = Base.ItemView.extend({
       $target.toggleClass('js-uc-cmDeleteSingCard');
     }
   },
+  
   _getErrorEl: function (text) {
     return '<div class="alert alert-danger alert-dismissible" role="alert">' +
         '<button type="button" class="close" data-dismiss="alert">' +
