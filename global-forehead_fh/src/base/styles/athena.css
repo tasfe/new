@@ -1,5 +1,7 @@
- .btn,.uc-search-button,.athena{
-    margin-left:15px;
+.athena{
+    .btn,.uc-search-button,{
+        margin-left:15px;
+    }
 }
  .search-condition-table,.m-LR-smd,.athena{
      margin-left:50px;
