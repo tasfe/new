@@ -9,6 +9,10 @@ body{
 	font-family: '微软雅黑';
 	background: url(~base/images/julien/modal-lg-julien-bg.jpg) no-repeat;
 
+	.athena-quota{
+		border:1px solid #e4393c;
+	}
+
 	.modal-body{
 		background: none;
 
@@ -480,6 +484,9 @@ body{
 		    }
 		}
 	}
+}
+.athena-dl{
+	display:none;
 }
 
 .modal-info-julien{

@@ -69,7 +69,7 @@ $.widget('gl.quota', {
           var strInput = '';
           var q = '/';
           if(arr[list.rebate] != undefined){
-            strInput = '<input  type="text" data-size="'+ list.rebate /10  + '" class="js-quota-rebate-01 js-quota-rebate-Inp" >';
+            strInput = '<input  type="text" data-size="'+ list.quota  + '" data-id="'+ list.rebate  + '" class="js-quota-rebate-01 js-quota-rebate-Inp" >';
             q = arr[list.rebate];
           }
           strTableTtbody+= '<tr><td>'+list.rebate /10+'</td><td class="js-athena-val">'+ list.quota+'<span ></span></td><td class="athena-num">' + strInput + '</td><td>' + q + '<span></span></td></tr>';
@@ -92,10 +92,25 @@ $.widget('gl.quota', {
 
           $(this).parent().prev().children().html("-"+$(this).val());
           $(this).parent().next().children().html("+"+$(this).val());
-          console.log(vals);
         });
 
       }
+
+      $('.js-ac-submitQuota').on('click',function(){
+          if($('.js-quota-rebate-01').val()==''){
+              $('.js-quota-rebate-01').addClass('athena-quota');
+          }
+          else{
+            self.setQuota().done(function(res) {
+              if (res && res.result === 0) {
+                self.$dialog.modal('hide');
+                Global.ui.notification.show('成功');
+              } else {
+                Global.ui.notification.show(res.msg);
+              }
+            });
+          }
+      })
     });
 
   },
@@ -124,7 +139,32 @@ $.widget('gl.quota', {
         userId:this.options.userId
       }
     });
+  },
+
+  setQuota: function() {
+
+    var quotaList = [];
+    for (var i = 0; i < $('.js-quota-rebate-01').length; i++){
+      quotaList[i] = {
+        quota: $('.js-quota-rebate-01').eq(i).val(),
+        rebate: $('.js-quota-rebate-01').eq(i).data('id')
+      };
+    }
+
+    console.log(quotaList);
+
+    //quotaList.push($('js-quota-rebate-01').val());
+    //console.log(quotaList);
+    return Global.sync.ajax({
+      url: '/acct/subaccount/quotatransfer.json',
+      tradition: true,
+      data:{
+        userId:this.options.userId,
+        quota: quotaList
+      }
+    });
   }
 });
+
 
 module.exports = $.gl.quota;
