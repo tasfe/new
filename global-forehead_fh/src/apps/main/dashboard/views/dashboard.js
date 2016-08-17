@@ -22,8 +22,20 @@ var DashboardView = Base.ItemView.extend({
     'click .js-db-ticket-scroll': 'ticketScrollHandler',
     //'click .js-db-prev': 'prevPageHandler',
     //'click .js-db-next': 'nextPageHandler'
-    'click .js-lottery': 'lottertyEnterHandler'
+    'click .js-lottery': 'lottertyEnterHandler',
+    'click .js-comingsoon': 'comeingsoonHandler'
 
+  },
+
+  comeingsoonHandler: function() {
+      var self = this;
+
+      var $dialogRe = Global.ui.dialog.show({
+        id: _.now(),
+        title: '敬请期待',
+        size: 'modal-lg',
+        body: '<div class="comingsoon-pic"></div>'
+      });
   },
 
   lottertyEnterHandler: function() {

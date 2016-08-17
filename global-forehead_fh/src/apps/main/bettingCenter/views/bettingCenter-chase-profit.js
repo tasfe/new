@@ -167,7 +167,7 @@ var BettingCenterChaseProfitView = Base.ItemView.extend({
     var self = this;
 
     this.staticGrid = this.$chaseContainer.staticGrid({
-      tableClass: 'table table-bordered table-center no-margin',
+      tableClass: 'table table-bordered table-center no-margin background-color-white',
       emptyTip: '没有符合条件的追号方式',
       colModel: [
         {label: '序号', name: 'index', width: '5%', formatter: function(val, index) {
