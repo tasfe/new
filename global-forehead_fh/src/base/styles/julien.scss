@@ -9,6 +9,10 @@ body{
 	font-family: '微软雅黑';
 	background: url(~base/images/julien/modal-lg-julien-bg.jpg) no-repeat bottom #fff;
 
+	.athena-quota{
+		border:1px solid #e4393c;
+	}
+
 	.modal-body{
 		background: none;
 
@@ -341,6 +345,7 @@ body{
 		color: #666666;
 		margin-bottom: 15px;
 
+
 		span{
 			display: inline-block;
 			margin-right: 100px;
@@ -381,7 +386,18 @@ body{
 	    }
 	}
 }
-
+.julien-table-tbody{
+	tr{
+		color:#444;
+		span{
+			color:red;
+		}
+	}
+}
+.row-span{
+	height:13px;
+	display:inline-block;
+}
 .julien-transfer-dialog{
 	font-family: '微软雅黑';
 	color: #666666;
@@ -468,6 +484,9 @@ body{
 		    }
 		}
 	}
+}
+.athena-dl{
+	display:none;
 }
 
 .modal-info-julien{
@@ -564,14 +583,23 @@ body{
 .overflow-hidden{
 	overflow: hidden;
 }
-
+.js-quota-rebate-Inp{
+	width:35px;
+	height:26px;
+}
 .julien-button{
 	background-color: #cc0000;
 	padding: 7px 19px;
 	border: 0px;
 	color: #fff;
 }
-
+.julien-button-margin{
+	margin-left:430px;
+	margin-top:30px;
+}
+.julien-btn{
+	height:80px;
+}
 .julien-close-btn{
 	background-color: #cc9966;
 	padding: 7px 19px;
