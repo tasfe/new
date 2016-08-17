@@ -64,10 +64,22 @@ var BettingRecordsView = SearchGrid.extend({
 
   onRender: function() {
     //初始化时间选择
+  alert(1);
+
     new Timeset({
       el: this.$('.js-pf-timeset'),
-      startDefaultDate: this.options.reqData.startTime?this.options.reqData.startTime:_(moment().startOf('day')).toTime(),
-      endDefaultDate: this.options.reqData.endTime?this.options.reqData.endTime:_(moment().endOf('day')).toTime()
+      startTime: 'regTimeStart',
+      endTime: 'regTimeEnd',
+      startTimeHolder: '起始日期',
+      endTimeHolder: '结束日期',
+      size: 'julien-time',
+      prevClass: 'js-pf',
+      startOps: {
+        format: 'YYYY-MM-DD'
+      },
+      endOps: {
+        format: 'YYYY-MM-DD'
+      }
     }).render();
 
     //初始化彩种选择
@@ -80,6 +92,8 @@ var BettingRecordsView = SearchGrid.extend({
     }).join(''));
 
     SearchGrid.prototype.onRender.apply(this, arguments);
+
+
   },
 
   renderGrid: function(gridData) {

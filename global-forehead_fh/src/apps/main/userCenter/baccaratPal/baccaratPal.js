@@ -4,13 +4,39 @@ var SearchGrid = require('com/searchGrid');
 
 var Timeset = require('com/timeset');
 
-var betStatusConfig = require('userCenter/misc/betStatusConfig');
-
 var RechargeRecordsView = SearchGrid.extend({
 
     template: require('./index.html'),
 
-    events: {},
+    events: {
+        'click .js-excess-cell': 'dateSelectHandler',
+        'click .js-toggle-seach': 'toggleseachHandler'
+    },
+    dateSelectHandler:function (e) {
+        this. $('.toggle-athena').removeClass('toggle-athena');
+        $(e.currentTarget).addClass('toggle-athena');
+   var recIndex = $(e.currentTarget).data('index');
+    if (recIndex===1){
+           this.$('.js-start-time').val(_(moment().add('days')).toDate()+' 0:00:00');
+      }else if (recIndex===2){
+            this.$('.js-start-time').val(_(moment().add('days',-3)).toDate()+' 0:00:00');
+        }else if (recIndex===3){
+            this.$('.js-start-time').val(_(moment().add('days',-7)).toDate()+' 0:00:00');
+       }
+
+    },
+    toggleseachHandler:function () {
+
+        if($('.js-toggle-seach').hasClass('on')) {
+
+            $('.search-condition-table .row2').addClass('hidden');
+            $('.js-toggle-seach').removeClass('on')
+
+        } else{
+            $('.search-condition-table .row2').removeClass('hidden');
+            $('.js-toggle-seach').addClass('on')
+        }
+    },
 
     initialize: function () {
         _(this.options).extend({
@@ -71,6 +97,22 @@ var RechargeRecordsView = SearchGrid.extend({
             el: this.$('.js-pf-timeset'),
             startDefaultDate: this.options.reqData.startTime?this.options.reqData.startTime:_(moment().startOf('day')).toTime(),
             endDefaultDate: this.options.reqData.endTime?this.options.reqData.endTime:_(moment().endOf('day')).toTime()
+        }).render();
+
+        new Timeset({
+            el: this.$('.js-pf-timeset'),
+            startTime: 'regTimeStart',
+            endTime: 'regTimeEnd',
+            startTimeHolder: '起始日期',
+            endTimeHolder: '结束日期',
+            size: 'julien-time',
+            prevClass: 'js-pf',
+            startOps: {
+                format: 'YYYY-MM-DD'
+            },
+            endOps: {
+                format: 'YYYY-MM-DD'
+            }
         }).render();
 
         var plArray=[{id:0,zhName:'单式直选'},{id:1,zhName:'直选和值'}];
