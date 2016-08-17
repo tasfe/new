@@ -16,7 +16,8 @@ var RechargeRecordsView = SearchGrid.extend({
   },
 
   dateSelectHandler:function (e) {
-
+    this. $('.toggle-athena').removeClass('toggle-athena');
+    $(e.currentTarget).addClass('toggle-athena');
     var recIndex = $(e.currentTarget).data('index');
     if (recIndex===1){
       this.$('.js-start-time').val(_(moment().add('days')).toDate()+' 0:00:00');
@@ -99,7 +100,6 @@ var RechargeRecordsView = SearchGrid.extend({
       startDefaultDate: this.options.reqData.startTime?this.options.reqData.startTime:_(moment().startOf('day')).toTime(),
       endDefaultDate: this.options.reqData.endTime?this.options.reqData.endTime:_(moment().endOf('day')).toTime()
     }).render();
-
     if(this.options.reqData.username){
       this.$('input[name="username"]').val(this.options.reqData.username);
     }
@@ -121,7 +121,6 @@ var RechargeRecordsView = SearchGrid.extend({
     });
 
     //加上统计行
-
     this.grid.addFooterRows({
       //trClass: 'tr-footer',
       columnEls: [
@@ -129,8 +128,8 @@ var RechargeRecordsView = SearchGrid.extend({
         '<div class="text-hot">' + _(gridData.amountTotal).fixedConvert2yuan() + '</div>',
         '', '', ''
       ]
-    })
-      .hideLoading();
+    }).hideLoading();
+
   },
 
   formatRowData: function(rowInfo) {

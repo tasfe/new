@@ -651,6 +651,7 @@
 .content-bock{
   input{
     color: #333333;
+    width: 160px;
   }
   .gender{
     line-height: 25px;
@@ -848,7 +849,7 @@
   width: 100px;
   height: 30px;
   float: right;
-  margin-left: 150px;
+  margin-left: 70px;
   border-left: 1px solid #ccc;
   padding-left: 10px;
 }
@@ -862,6 +863,7 @@
 }
 
 .hidden-seach-ucenter{
+  margin-top:10px;
   height: 14px;
   position: relative;
   text-align: center;
@@ -939,13 +941,6 @@
 }
 
 
-//
-//.uc-bet-onselected{
-//  background-color: #e0e0e0;
-//  outline: none;
-//  inline:none;
-//}
-
 .binding-card-delete{
 
   background-color: #cc0000;
@@ -966,6 +961,20 @@
   font-size: 16px;
   color: #cc9966;
 
+}
+
+.br-excess-cell{
+  margin:0px;
+  width:60px;
+  height:28px;
+  background:#f4f4f4;
+  border:1px solid #c4c4c4;
+
+}
+.toggle-athena{
+  background-color: #e0e0e0;
+  outline: none;
+  inline:none;
 }
 
 

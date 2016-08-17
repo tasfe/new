@@ -92,31 +92,31 @@ var ProfitAndLoss = SearchGrid.extend({
             endDefaultDate: this.options.reqData.endTime?this.options.reqData.endTime:_(moment().endOf('day')).toTime()
         }).render();
 
-        new Timeset({
-            el: this.$('.js-pf-timeset'),
-            startTime: 'regTimeStart',
-            endTime: 'regTimeEnd',
-            startTimeHolder: '起始日期',
-            endTimeHolder: '结束日期',
-            size: 'julien-time',
-            prevClass: 'js-pf',
-            startOps: {
-                format: 'YYYY-MM-DD'
-            },
-            endOps: {
-                format: 'YYYY-MM-DD'
-            }
-        }).render();
+        // new Timeset({
+        //     el: this.$('.js-pf-timeset'),
+        //     startTime: 'regTimeStart',
+        //     endTime: 'regTimeEnd',
+        //     startTimeHolder: '起始日期',
+        //     endTimeHolder: '结束日期',
+        //     size: 'julien-time',
+        //     prevClass: 'js-pf',
+        //     startOps: {
+        //         format: 'YYYY-MM-DD'
+        //     },
+        //     endOps: {
+        //         format: 'YYYY-MM-DD'
+        //     }
+        // }).render();
 
-        var plArray=[{id:0,zhName:'单式直选'},{id:1,zhName:'直选和值'}];
-        this.$('select[name=payStatus]').html(_(plArray).map(function (qr) {
-            return '<option value="'+qr.id+'">'+qr.zhName+'</option>';
-        }).join(''));
-
-        var plArray=[{id:0,zhName:'单式直选'},{id:1,zhName:'直选和值'}];
-        this.$('select[name=widthdrawStatus]').html(_(plArray).map(function (qr) {
-            return '<option value="'+qr.id+'">'+qr.zhName+'</option>';
-        }).join(''));
+        // var plArray=[{id:0,zhName:'单式直选'},{id:1,zhName:'直选和值'}];
+        // this.$('select[name=payStatus]').html(_(plArray).map(function (qr) {
+        //     return '<option value="'+qr.id+'">'+qr.zhName+'</option>';
+        // }).join(''));
+        //
+        // var plArray=[{id:0,zhName:'单式直选'},{id:1,zhName:'直选和值'}];
+        // this.$('select[name=widthdrawStatus]').html(_(plArray).map(function (qr) {
+        //     return '<option value="'+qr.id+'">'+qr.zhName+'</option>';
+        // }).join(''));
 
         if(this.options.reqData.username){
             this.$('input[name="username"]').val(this.options.reqData.username);

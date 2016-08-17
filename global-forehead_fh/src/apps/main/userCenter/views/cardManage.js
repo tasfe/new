@@ -22,7 +22,7 @@ var CardManageView = Base.ItemView.extend({
   events: {
     'click .js-uc-cmBindCard-btn': 'goToBingBankCardHandler',//绑定按钮
     'click .js-uc-cmLockCard-btn': 'lockBankCardHandler',//锁定按钮
-    // 'click .js-uc-cmUpdateSingCard': 'updateSingCardHandler',//修改按钮
+    //'click .js-uc-cmUpdateSingCard': 'updateSingCardHandler',//修改按钮
     'click .js-uc-cmDeleteSingCard': 'deleteSingCardHandler',//删除按钮
     //'click .js-uc-validatePayPwd': 'validatePayPwdHandler'//验证资金密码,
     'mouseover .js-uc-cm-option': 'toggleOptionClassHandler',
