@@ -242,6 +242,19 @@ $.widget('gl.grid', {
     return this;
   },
 
+  addFooterRows3: function(rows) {
+    $('.js-julien-floot').remove();
+    if (rows.iIs == 1) {
+      var html = '<table class="table table-bordered table-no-lr table-center js-julien-floot ' + rows.trClass + '" >';
+
+      html += '<colgroup><col width="15%"><col width="15%"><col width="15%"><col width="15%"><col width="15%"><col width="25%"></colgroup>';
+      html += '<tbody><tr class="tr-footer"><td>' + rows.columnEls[0] + '</td><td class="price2">' + rows.columnEls[1] + '</td><td></td><td></td><td class="price">' + rows.columnEls[2] + '</td><td></td></tr></tbody></table>'
+
+      this.$bodyDiv.append(html);
+    }
+    return this;
+  },
+
   _addExtRows: function(row) {
     var self = this;
 

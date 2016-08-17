@@ -28,6 +28,8 @@ var BettingChoiceModel = Model.extend({
     var self = this;
 
     var params = this.pick('playId', 'multiple', 'userRebate', 'previewList');
+
+    console.log(params.previewList);
     var previewList = _(params.previewList).reduce(function(list, item) {
 
       list.push({
@@ -41,6 +43,8 @@ var BettingChoiceModel = Model.extend({
 
       return list;
     }, []);
+
+    console.log(previewList);
 
     return Global.sync.ajax({
       url: '/ticket/bet/bet.json',

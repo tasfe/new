@@ -550,7 +550,24 @@ body{
 		background-color: #c2b5ed;
 		color: #fff;
 	}
+
+	.price2{
+		background-color: #edb5d9;
+		color: #fff;
+	}
+	
 }
+
+.lowLevelManage-view{
+	.get-red{
+		color: #cf4f45;
+		cursor: pointer;
+	}
+	.get-no{
+		color: #cccccc;
+	}
+}
+
 
 .slimScrollDiv{
 	table{
