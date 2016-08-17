@@ -27,7 +27,7 @@ exports.install = function() {
     'ac/betting/:userId/:tabName/detail/:betId': 'bettingDetail', //投注详情
     'ac/track/:userId/:tabName/detail/:tradeNo': 'trackDetail', //追号详情
 
-    'uc/dm': 'dividendManage', //分红管理
+    'ac/dm': 'dividendManage', //分红管理
     'ac/rp': 'redPacket', //红包查询,
     'ac/cs': 'commissionStatistics',
     'ac/rm/rr/:tabName': 'rechargeRecords4Report', //充值记录

@@ -33,7 +33,7 @@ var mainConfig = require('./webpack.main.config');
 var externalConfig = require('./webpack.external.config');
 
 var serverIP = 'http://forehead.highborn.cn';
-//var serverIP = 'http://forehead.yb8.com';
+//var serverIP = 'http://forehead.5x5x.com';
 
 var packageConfig;
 var projectPath;

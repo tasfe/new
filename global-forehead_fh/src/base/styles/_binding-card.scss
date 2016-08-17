@@ -1,5 +1,5 @@
 .binding-container {
-  margin-left: auto;
+  margin-left: 355px;
   margin-right: auto;
   width: 770px;
   //margin: 0 auto;
@@ -7,21 +7,21 @@
 }
 
 .binding-card {
-
   margin-bottom: 9px;
   color: $dark-color;
 
   .binding-card-bg {
-    //width: $cards-width;
-    //height: $cards-height;
-    width: 410px;
-    //height: 100px;
+    display: -webkit-box;
     position: relative;
+    border:1px solid #e5e5e5;
+    height: 80px;
+    width: 450px;
 
     .binding-card-main {
       display: inline-flex;
       color: $background-color;
-      padding: 25px 10px 25px 30px;
+      padding: 5px;
+      //padding: 15px 10px 15px 30px;
     }
     .binding-card-op {
       position: absolute;
@@ -33,25 +33,28 @@
     }
   }
   .uc-lockedRectangle {
-    //width: $cards-width;
-    //height: $cards-height;
-    border: 1px solid;
-    width: 410px;
-    height: 78px;
+    border:2px dashed #cfa945;
     text-align: center;
-    //background-image: url(~base/images/lockedRectangle.png);
+    width: 450px;
+    height: 80px;
     .uc-add-sign {
-      margin-top:10px;
+      background: url(~base/images/lockedAdd.png) no-repeat;
       display: inline-block;
+      margin-top:10px;
       width: 34px;
       height: 34px;
-      background: url(~base/images/lockedAdd.png) no-repeat;
+
     }
   }
   .binding-card-triangle-yellow {
-    width: 29px;
+    text-align: center;
+    margin-top: 25px;
+    color: #999999;
     height: 29px;
-    background: url(~base/images/yellowTriangle.png) no-repeat;
+    width: 70px;
+
+
+    //background: url(~base/images/yellowTriangle.png) no-repeat;
   }
   .binding-card-triangle-red {
     width: 29px;

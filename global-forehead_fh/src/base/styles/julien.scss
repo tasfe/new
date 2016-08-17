@@ -1,5 +1,6 @@
 body{
 	background: url('~base/images/fh/bg.png') no-repeat #f8f8f8;
+	font-family: '微软雅黑';
 }
 .modal-lg-julien{
 	width: 1020px !important;
@@ -15,6 +16,10 @@ body{
 			color: #cc0000;
 			font-size: 14px;
 			padding-left: 20px;
+		}
+
+		.control-group,.controls-group{
+			margin-left: 100px;
 		}
 
 		.tips{
@@ -300,6 +305,7 @@ body{
 			th{
 				vertical-align: middle;
 				background: none;
+				font-weight: normal;
 			}
 		}
 	}
@@ -355,16 +361,17 @@ body{
 .julien-table-title{
 	tr{
 		height: 38px;
-    background-color: #f2f2f2;
-    line-height: 38px;
-    color: #999999;
-    font-family: '\5FAE\8F6F\96C5\9ED1';
-    font-size: 14px;
+	    background-color: #f2f2f2;
+	    line-height: 38px;
+	    color: #999999;
+	    font-family: '\5FAE\8F6F\96C5\9ED1';
+	    font-size: 14px;
 
-    th{
-    	vertical-align: middle;
+	    th{
+	    	vertical-align: middle;
 			background: none;
-    }
+			font-weight: normal;
+	    }
 	}
 }
 
@@ -461,7 +468,15 @@ body{
 	margin-left: -510px !important;
 	font-size: 14px;
 	font-family: '微软雅黑';
-	background: url(~base/images/julien/modal-lg-julien-bg.jpg) no-repeat;
+	background: url(~base/images/julien/modal-lg-julien-bg.jpg) no-repeat 100px 80px #fff;
+
+	.modal-body{
+		background: none;
+	}
+
+	.modal-title{
+		margin: 0 0 0 20px;
+	}
 
 	.modal-header-left{
 		padding-left: 50px;
@@ -485,6 +500,10 @@ body{
 		clear: both;
 		border-bottom: 1px solid #cccccc;
 		border-top: 0px;
+	}
+
+	form{
+		margin: 0px;
 	}
 }
 
@@ -517,7 +536,7 @@ body{
 
 	span{
 		color: #333;
-		margin-left: -700px;
+		margin-left: -870px;
 	}
 
 	.price{
@@ -533,4 +552,37 @@ body{
 			padding-bottom: 8px;
 		}
 	}
+}
+
+.overflow-hidden{
+	overflow: hidden;
+}
+
+.julien-button{
+	background-color: #cc0000;
+	padding: 7px 19px;
+	border: 0px;
+	color: #fff;
+}
+
+.julien-close-btn{
+	background-color: #cc9966;
+	padding: 7px 19px;
+	border: 0px;
+	color: #fff;
+	margin-left: 10px;
+}
+
+dl,dt,dd{
+	padding: 0px;
+	margin: 0px;
+	font-weight: normal;
+	display: inline-block;
+}
+
+.julien-btn-group{
+	margin-top: 30px;
+	padding-top: 20px;
+	border-top: 1px solid #e2e2e2;
+	text-align: center;
 }

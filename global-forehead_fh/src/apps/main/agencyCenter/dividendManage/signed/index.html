@@ -1,49 +1,64 @@
+
 <form class="js-ac-signed-form ac-signed-form form-horizontal" action="javascript:void(0);">
-  <div class="control-group">
-    <label class="control-label">用户名：</label>
-    <div class="controls">
-      <input type="text" class="input-sm" name="username" <% if (obj.userData) { %>readonly<% } %>
+  <div class="julien-row">
+    <span>用户名：</span>
+    <input type="text" class="input-sm" name="username" <% if (obj.userData) { %>readonly<% } %>
       value="<%=obj.userData && obj.userData.username %>"
       data-parsley-username required
       data-parsley-remote data-parsley-remote-validator="accheckusername"
       data-parsley-remote-options='{"type": "POST"}'
       required />
-      <span class="help-inline"><%=dividConf.formatRebateLimit %>%返点以下用户不可签约</span>
-    </div>
+    <span><%=dividConf.formatRebateLimit %>%返点以下用户不可签约</span>
   </div>
-
-  <div class="control-group">
-    <label class="control-label">分红比例</label>
-    <div class="controls">
-      <input type="text" class="js-ac-divid input-sm" name="divid" value="<%=obj.userData && userData.formatDivid %>"
-         data-parsley-twodecimal required />
-
-      <span class="help-inline">% 可分红范围（<%=dividConf.formatDividMin %>-<%=dividConf.formatDividMax %>%）</span>
-    </div>
+  <dl class="julien-row">
+    <dt>
+      半月销量：
+    </dt>
+    <dd>
+      <b>>=</b>
+      <input type="text" name="betTotal">
+    </dd>
+    <dt>
+      分红比：
+    </dt>
+    <dd>
+      <input type="text" name="divid" data-parsley-twodecimal required>
+      <b>%</b>
+    </dd>
+    <dd>
+      <span class="julien-button js-add-area">+ 增加分红段</span>
+    </dd>
+  </dl>
+  <div class="julien-dm-area">
+    <dl class="title">
+      <dd>半月销量</dd>
+      <dd>分红比</dd>
+      <dt>操作</dt>
+    </dl>
+    <dl>
+      <dd><span>234</span></dd>
+      <dd><span>123</span>%</dd>
+      <dt><span>删除</span></dt>
+    </dl>
+    <dl>
+      <dd><span>234</span></dd>
+      <dd><span>123</span>%</dd>
+      <dt><span>删除</span></dt>
+    </dl>
+    <dl>
+      <dd><span>234</span></dd>
+      <dd><span>123</span>%</dd>
+      <dt><span>删除</span></dt>
+    </dl>
+    <dl>
+      <dd><span>234</span></dd>
+      <dd><span>123</span>%</dd>
+      <dt><span>删除</span></dt>
+    </dl>
   </div>
-  <div class="control-group">
-    <label class="control-label">协议内容</label>
-    <div class="controls">
-      <textarea maxlength="100" name="agreement" required data-parsley-zhmaxlength="50"><%=obj.userData && obj.userData.agreement %></textarea>
-      <span class="help-inline vertical-bottom">限50字</span>
-    </div>
-  </div>
-  <div class="control-group">
-    <div class="controls">
-      <label>
-        <span class="custom-checkbox checkbox-inverse">
-          <input type="checkbox" id="jsAcAgreeSign">
-          <label for="jsAcAgreeSign"></label>
-        </span>
-        同意此<a href="javascript:void(0)" class="js-ac-check-agreement btn-link btn-link-pleasant">协议条款</a>
-      </label>
-    </div>
-  </div>
-  <div class="dot-divider dot-divider-md"></div>
-  <div class="controls-group control-confirm">
-    <div class="controls">
-      <button type="submit" class="js-ac-next btn btn-cool" disabled>下一步</button>
-    </div>
+  <div class="julien-btn-group">
+    <button type="submit" class="js-ac-next julien-button" disabled>下一步</button>
+    <button type="button" class="julien-close-btn" data-dismiss="modal">取消</button>
   </div>
 </form>
 <div class="js-ac-verify"></div>

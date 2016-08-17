@@ -4,6 +4,7 @@
 
 body.mmc {
   background: url(smmc-bg.png) no-repeat center top;
+  background-position-y: 30px;
 }
 
 .js-wrapper {
@@ -510,7 +511,7 @@ body.mmc {
         height: 36px;
         .bc-mmc-btn-lottery-add {
           position: relative;
-          margin-top: -120px;
+          margin-top: -100px;
           width: 180px;
           height: 48px;
           border: 1px solid #b51810;
@@ -554,7 +555,7 @@ body.mmc {
     .bc-lottery-preview {
       position: relative;
       background-color: #434343;
-      width: 1000px;
+      width: 1100px;
       height: 92px;
       margin: 27px auto 13px auto;
       border-right: 0;
@@ -583,7 +584,7 @@ body.mmc {
       .bc-mmc-result-total {
         position: absolute;
         background: url('mmc_mask.png') no-repeat;
-        width: 1022px;
+        width: 1100px;
         height: 352px;
         margin: -250px 0 0 -11px;
         z-index: 1;
@@ -613,7 +614,7 @@ body.mmc {
           position: absolute;
           width: 469px;
           height: 56px;
-          margin: 54px 0 0 271px;
+          margin: -34px 0 0 271px;
           padding: 143px 0 0 0;
           text-align: center;
           z-index: 2;
@@ -676,12 +677,12 @@ body.mmc {
         font-size: 0;
         input {
           display: inline-block !important;
-          background-color: #B51810; //
-          color: #fff;
+          background-color: #fff; //
+          color: #000;
           border: 1px solid #fff;
           height: 20px;
           padding: 4px 5px;
-          width: 40px;
+          width: 30px;
           font-size: 12px;
         }
         button {
@@ -697,19 +698,20 @@ body.mmc {
           margin-top: 0px;
           border-radius: 0px;
           font-size: 12px;
-          width: 61px;
+          width: 51px;
           //background-color: #fff;
           bottom: 100%;
           top: inherit;
           color: #fff; //000
-          left: -40px;
+          left: -30px;
           border: 1px solid #fff; //c2c2c2
           border-bottom: none;
           box-shadow: none;
           li {
-            background-color: #B51810;
+            background-color: #fff;
             //background-color: #fff;
             font-size: 12px;
+            color: #000;
             &:hover {
               background-color: #fff; //#e8675d;
               color: #000;
@@ -858,14 +860,21 @@ body.mmc {
       }
     }
     .bc-smmc-free-game-play {
-      margin: 32px 0;
+      //margin: 32px 0;
+      background: url(free_game_title.png) no-repeat ;
+      height: 100px;
+      margin-left: 190px;
+      margin-bottom: 70px;
+      margin-top: 50px;
       > span {
         padding: 14px 10px;
         line-height: 38px;
-        font-size: 15px;
+        font-size: 18px;
         color: #fff;
-        background-color: #cc0000;
         border-radius: 19px;
+        margin-top: 25px;
+        margin-left: -370px;
+        position: absolute;
       }
     }
     .bc-smmc-free-game-mode {
@@ -881,7 +890,11 @@ body.mmc {
         margin: 65px auto;
         font-size: 19px;
         .bc-smmc-free-game-mode-times {
-          font-size: 27px;
+          font-size: 15px;
+          margin-top: 15px;
+          margin-left: -65px;
+          position: absolute;
+          font-weight:bold;
         }
       }
     }
@@ -976,11 +989,12 @@ body.mmc {
     height: 578px;
     text-align: center;
     .bc-smmc-jackpot-head {
-      background-color: rgba(0, 0, 0, 0.7);
-      width: 321px;
+      //background-color: rgba(0, 0, 0, 0.7);
+      background: url(jackpot_entry.png) no-repeat;
+      width: 521px;
       margin: 0 auto;
-      height: 85px;
-      border-radius: 42px;
+      height: 108px;
+      //border-radius: 42px;
       color: #fff;
       font-size: 23px;
       .bc-smmc-jackpot-title1 {
@@ -1014,8 +1028,8 @@ body.mmc {
         top: 0;
         background: url(jackpot_result_bg.png) no-repeat;
         border-radius: 60px;
-        width: 0px;
-        height: 130px;
+        height: 150px;
+        width: 150px;
         z-index: 1;
         display: none;
         margin: 0 auto;
@@ -1030,15 +1044,19 @@ body.mmc {
       }
       .bc-smmc-jackpot-mode-crown {
         background: url(jackpot_crown.png) no-repeat;
+        margin-left: 10px;
       }
       .bc-smmc-jackpot-mode-diamond {
         background: url(jackpot_diamond.png) no-repeat;
+        margin-left: 10px;
       }
       .bc-smmc-jackpot-mode-gold {
         background: url(jackpot_gold.png) no-repeat;
+        margin-left: 10px;
       }
       .bc-smmc-jackpot-mode-egg {
         background: url(jackpot_egg.png) no-repeat;
+        margin-left: 10px;
       }
     }
   }
@@ -1056,35 +1074,44 @@ body.mmc {
     background: url(jackpot_win.png) no-repeat;
     width: 965px;
     height: 572px;
-    margin: 0 auto;
+    margin: 0 135px;
     text-align: center;
     position: relative;
     .bc-smmc-jackpot-title {
       font-size: 22px;
       color: #fff;
       width: 100%;
-      margin: 0 auto;
+      margin: 275px -130px;
       position: absolute;
-      bottom: 74px;
 
     }
 
     .bc-smmc-free-game-total-prize {
-      margin: 0 auto;
+      //margin: 0 auto;
+      //position: absolute;
+      //bottom: 0px;
+      //background: linear-gradient(to bottom, #e8675f, #cd0505);
+      //height: 50px;
+      //width: 360px;
+      //left: 288px;
+      //border: 2px solid #fff;
+      //border-radius: 20px;
+      //color: #fff;
+      //font-size: 18px;
+      //> span {
+      //  font-size: 30px;
+      //  color: #fefe00;
+      //}
+      margin: 215px -123px;
+      font-family: "Microsoft YaHei" !important;
+      color: #cc1f34;
+      font-weight: bold;
       position: absolute;
-      bottom: 0px;
-      background: linear-gradient(to bottom, #e8675f, #cd0505);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffe8675f', endColorstr='#ffcd0505', GradientType=0);
       height: 50px;
       width: 360px;
       left: 288px;
-      border: 2px solid #fff;
-      border-radius: 20px;
-      color: #fff;
-      font-size: 18px;
-      > span {
-        font-size: 30px;
-        color: #fefe00;
-      }
+      font-size: 27px;
     }
   }
 
@@ -1193,3 +1220,6 @@ body.mmc {
   margin-left: 55px;
 }
 
+.free-game-amount-cog {
+  font-size: 30px;color: yellow;
+}

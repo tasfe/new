@@ -227,9 +227,13 @@
     margin-left: 33px;
   }
   .uc-cm-lg-btn {
+
+    background-color: #cc9966;
+    border-radius: 0px;
     width: 251px;
-    height: 28px;
-    background-color: $color-sunshine;
+    height: 50px;
+    border: 0px;
+
   }
   .uc-cm-btn-unlock-sign {
     background: url(unLocked.png)  no-repeat;
@@ -913,22 +917,27 @@
 .binding-card-icon{
   background-color: red;
   width: 120px;
-  height: 40px;
+  height: 69px;
 }
 
 .binding-card-cardName{
+  margin-top: 20px;
   margin-left: 32px;
   margin-bottom: 5px;
   font-size: 16px;
   line-height: 35px;
+  color: black;
 }
 
 .binding-card-cardNo{
+  margin-top: 20px;
   margin-left: 32px;
   margin-bottom: 5px;
   font-size: 16px;
   line-height: 35px;
+  color: black;
 }
+
 
 //
 //.uc-bet-onselected{
@@ -936,5 +945,28 @@
 //  outline: none;
 //  inline:none;
 //}
+
+.binding-card-delete{
+
+  background-color: #cc0000;
+  position: relative;
+  margin-left: 79px;
+  height: 80px;
+  width: 80px;
+
+}
+
+.uc-add-mark{
+  text-align: center;
+  font-size: 40px;
+  color: #cfa945;
+}
+
+.uc-add-words{
+  font-size: 16px;
+  color: #cc9966;
+
+}
+
 
  

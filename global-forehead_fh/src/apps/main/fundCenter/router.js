@@ -8,7 +8,6 @@ define(function(require, exports, module) {
       'fc/pt': 'platformTransfer',
       'uc/ad': 'accountDetails'
     });
-
   };
 
 });

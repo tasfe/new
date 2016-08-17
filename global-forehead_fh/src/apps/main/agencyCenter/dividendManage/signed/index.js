@@ -10,10 +10,15 @@ var SignedView = Base.ItemView.extend({
 
   events: {
     'click .js-ac-check-agreement': 'checkAgreementHandler',
+    'click .js-add-area': 'addArea',
     'change #jsAcAgreeSign': 'changeAgreeHandler',
     'change .js-ac-divid': 'dividChangeHandler',
     'submit .js-ac-signed-form': 'nextHandler',
     'submit .js-ac-verify-form': 'confirmHandler'
+  },
+
+  addArea: function () {
+    alert(1);
   },
 
   signXhr: function(data) {
@@ -100,7 +105,7 @@ var SignedView = Base.ItemView.extend({
     var $target = $(e.currentTarget);
 
     var $dialog = Global.ui.dialog.show({
-      title: '亿贝在线娱乐分红协议条款',
+      title: '无限娱乐分红协议条款',
       size: 'modal-lg',
       body: '<div class="ac-official">' + this.officialAgreementTpl() + '</div>',
       footer: ''
