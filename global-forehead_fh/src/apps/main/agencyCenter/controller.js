@@ -38,12 +38,25 @@ var RushRewardView = require('./rushReward');
 
 var LowLevelUserManageView =  require('agencyCenter/views/index');
 
+var SalaryView = require('agencyCenter/views/salaryManage');
+
 var AgencyCenterController = RouterController.extend({
 
   lowLevelManage: function() {
     this.changeMainReginView(new LowLevelUserManageView(), {
       main: {
         title: '下级管理'
+      },
+      sidebar: Global.ui.menu.get(['ac'])
+    });
+
+    $('#main > .clearfix').addClass('ac-block');
+  },
+
+  salaryManage: function () {
+    this.changeMainReginView(new SalaryView(), {
+      main: {
+        title: '日工资管理'
       },
       sidebar: Global.ui.menu.get(['ac'])
     });
