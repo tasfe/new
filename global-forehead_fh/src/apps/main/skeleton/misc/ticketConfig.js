@@ -79,16 +79,16 @@ var specialConfig = {
       board: true,
       badge: 'hot'
     },
-    //{
-    //  id: 14,
-    //  type: 'num',
-    //  mark: 'num-ffc',
-    //  zhName: "11选5分分彩",
-    //  optional: false,
-    //  desc: '全天24小时 共1440期',
-    //  defaultSelectPlay: defaultSelect115,
-    //  hot: true
-    //},
+    {
+      id: 14,
+      type: 'num',
+      mark: 'num-ffc',
+      zhName: "11选5分分彩",
+      optional: false,
+      desc: '全天24小时 共1440期',
+      defaultSelectPlay: defaultSelect115,
+      hot: true
+    },
     //{
     //  id: 15,
     //  type: 'num',

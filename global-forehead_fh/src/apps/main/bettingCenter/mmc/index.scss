@@ -23,6 +23,7 @@
   .bc-mmc-result{
     background: url('mmc_loser.png') top center repeat-y;
     height: 430px;
+    margin-top: -200px;
   }
   .bc-mmc-result-choose{
     height: 40px;
@@ -54,6 +55,7 @@
   text-align: center;
   .modal-body {
     background-color: transparent;
+    margin-top: -200px;
   }
   .bc-mmc-result{
     background: url('mmc_bet_win.png') top center repeat-y;

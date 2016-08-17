@@ -6,7 +6,7 @@ $.widget('gl.fileLoad', {
 
   template: '' +
   '<button class="btn <%=btnClass %> fileinput-button">' +
-  '<i class="sfa sfa-btn-upload vertical-middle"></i> ' +
+  '<i class="sfa vertical-middle"></i> ' +
   '<span><%=title %></span>' +
   '<input class="js-wt-fileLoad-btn" accept="<%=accept %>" type="file" name="files[]" multiple />' +
   '</button>' +

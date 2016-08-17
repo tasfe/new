@@ -30,6 +30,7 @@ var BettingRulesCollection = Collection.extend({
     var superList = [];
 
     this.each(function(ruleModel) {
+
       if (!(ruleModel.get('playLevelName').indexOf('任选') === -1) && self.ticketInfo.info.optional) {
         optionalList.push({
           type: 'optional',

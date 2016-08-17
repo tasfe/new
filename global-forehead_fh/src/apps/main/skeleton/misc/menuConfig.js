@@ -103,7 +103,7 @@ var menuConfig = [
     //  },
       {
         id: 135,
-        router: 'uc/dm',
+        router: 'ac/dm',
         name: '分红管理',
         needAuth: true
       },

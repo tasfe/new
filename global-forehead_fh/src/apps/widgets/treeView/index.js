@@ -100,7 +100,7 @@ $.widget('gl.treeView', {
   },
 
 
-  _getTreeViewLiOpenTag: function(hasSubTree, isLast, text, value, data, extra) {
+  _getTreeViewLiOpenTag: function(hasSubTree, isLast, text, value, data, extra,online,headId) {
     var openable = (hasSubTree ? 'openable ' : '');
 
     var type = (hasSubTree ? 'group' : 'item');
@@ -126,9 +126,14 @@ $.widget('gl.treeView', {
         '</div>';
     }
 
+    var onlineCss = '';
+    if (online) {
+      onlineCss = 'online';
+    }
+
     var liOpenTagHtml = '<li class="' + openable + isLastLink + '">' +
-      '<a href="javascript:void 0;" data-data=\'' + (JSON.stringify(data) || '{}') + '\' data-no="' + value + '">' +
-      checkboxHtml + icon + extraContent + '<span class="js-wt-title">' + text + '</span>' +
+      '<a href="javascript:void 0;" data-data=\'' + (JSON.stringify(data) || '{}') + '\' data-no="' + value + '" data-headId="' + headId + '" data-name="' + text + '" class="js-wt-title ' + onlineCss + '">' + '<i></i>' +
+      checkboxHtml + icon + extraContent + '<span>' + text + '</span>' +
       '</a>';
 
     return liOpenTagHtml;
@@ -144,7 +149,6 @@ $.widget('gl.treeView', {
 
     function _doRecursion(list) {
       var html = '';
-
       _.each(list, function(item, index) {
         var hasSubTree = !!item.subItem;
 
@@ -152,7 +156,7 @@ $.widget('gl.treeView', {
 
         var extra = item.extra || '';
 
-        html += it._getTreeViewLiOpenTag(hasSubTree, isLast, item.text, item.value, item.data, extra);
+        html += it._getTreeViewLiOpenTag(hasSubTree, isLast, item.text, item.value, item.data, extra,item.online,item.headId);
 
         if (hasSubTree) {
           html += '<ul class="subtree">';
@@ -184,8 +188,16 @@ $.widget('gl.treeView', {
 
   nodeCheckHandler: function(e) {
     var $target = $(e.currentTarget);
-    var $a = $target.parent('a');
-    this.options.onClick.call(this, e, $a.data('no'), $a.data('data'));
+    var iIs = 0;
+    if ($target.hasClass('sd')) {
+      $target.removeClass('sd');
+    }
+    else{
+      iIs = 1;
+      $target.addClass('sd');
+    }
+    
+    this.options.onClick.call(this, e, $target.data('no'), $target.data('data'),iIs);
     //return false;
   },
 

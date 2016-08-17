@@ -1,33 +1,44 @@
 <div class="search-condition-table m-LR-smd">
 
-    <!--<div  class="control-group row1 search-condition-layout">-->
-        <!--<label class="control-label">账号：</label>-->
-        <!--<input type="text" name="username" class="input3 margin-add">-->
-    <!--</div>-->
-
-    <!--<div class="control-group row1 search-condition-layout">-->
-        <!--<label class="control-label">查询范围：</label>-->
-        <!--<select name="queryRange" class=" select1"></select>-->
-    <!--</div>-->
-
     <div class="control-group row1 search-condition-layout">
-        <label class="control-label">投注时间：</label>
-        <span class="js-pf-timeset input-date"></span>
-    </div>
 
-    <div class="control-group row1 search-condition-layout">
-        <label class="control-label">支付状态：</label>
-        <select name="payStatus" class=" select1"></select>
-    </div>
+        <label class="control-label">查询范围：</label>
+        <select name="subUser" class=" select1">
+            <option value="0">个人</option>
+            <option value="1">团队</option>
+        </select>
+        <label class="control-label">账号：</label>
+        <input type="text" name="username" class="input3 margin-add">
 
-    <div class="control-group row2 search-condition-layout">
-        <label class="control-label">提现状态：</label>
-        <select name="widthdrawStatus" class=" select1"></select>
-        <div class="pull-right">
-            <button type="submit" class="btn btn-link text-hot">搜索</button>
-            <button type="reset" class="btn btn-link text-hot">清空条件</button>
+
+
+        <label class="control-label">充值时间</label>
+        <button class="js-excess-cell br-excess-cell athena toggle-athena" data-index="1">今天</button>
+        <button class="js-excess-cell br-excess-cell athena_th" data-index="2">三天</button>
+        <button class="js-excess-cell br-excess-cell athena_th" data-index="3">七天</button>
+        <span class="js-pf-timeset input-date input_athena"></span>
+
+
+
+        <div  class="pull-right uc-search-buttondiv athena3">
+            <button type="submit" class="btn uc-search-button">搜索</button>
         </div>
+    </div>
+    <!--支付状态-->
+    <div class="control-group row2 hidden search-condition-layout">
+    <label class="control-label">游戏类型：</label>
+    <select name="subUser" class=" select1">
+        <option value="0">彩票</option>
+        <option value="1">团队</option>
+    </select>
+    </div>
+    <!--充值方式-->
+
+    <!--分割线-->
+
+    <div class="hidden-seach-ucenter athena-hr">
+        <hr>
+        <span class="js-toggle-seach"></span>
     </div>
 
 </div>
-

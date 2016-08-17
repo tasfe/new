@@ -1809,7 +1809,7 @@ var BettingCenterView = Base.ItemView.extend({
               //翻开图片
               target.find('.js-bc-smmc-jackpot-mode-item').addClass('bc-smmc-jackpot-mode-' + lastIcon);
               //target.children().removeClass('hidden');
-              var verticalOpts = [{'width':1},{'width':'130px'}];
+              var verticalOpts = [{'width':1},{'width':'150px'}];
               $(target).find('.js-bc-smmc-jackpot-mode-item-unknown').stop().animate(verticalOpts[0],100,function(){
                 $(this).hide().prev().show();
                 $(this).prev().animate(verticalOpts[1],100);

@@ -29,10 +29,6 @@ var ReportManageView = SearchGrid.extend({
         {
           name: '佣金',
           width: '10%'
-        },
-        {
-          name: '操作',
-          width: '10%'
         }
       ],
       tip: 'juliencs',
@@ -70,25 +66,19 @@ var ReportManageView = SearchGrid.extend({
       pageIndex: this.filterHelper.get('pageIndex'),
       initPagination: true
     });
-
-    //if (!_(gridData.parents).isEmpty()) {
-    //  this._breadList = _(gridData.parents).map(function(parent, index) {
-    //    return {
-    //      data: {
-    //        userParentId: parent.userId
-    //      },
-    //      label: parent.userName
-    //    };
-    //  });
-    //  this.renderBread();
-    //}
+    
+    var iIs = 0;
+    if (rowsData != null && rowsData != '') {
+      iIs = 1;
+    }
 
     this.grid.addFooterRows2({
       trClass: 'julien-table-footer',
       columnEls: [
         '所有页面总计',
         _(gridData.commissionAmount).fixedConvert2yuan()
-      ]
+      ],
+      iIs: iIs
     }).hideLoading();
   },
 
@@ -106,7 +96,6 @@ var ReportManageView = SearchGrid.extend({
     row.push(rowInfo.relationship);
     row.push(_(rowInfo.consumeAmount).fixedConvert2yuan());
     row.push(_(rowInfo.commissionAmount).fixedConvert2yuan());
-    row.push('<a href="' + _.addHrefArgs('#ac/betting/' + rowInfo.consumeUserId, 'name', rowInfo.consumeUser) + '" class="router btn btn-link no-padding text-sunshine">查看投注</a>&nbsp;&nbsp;');
 
     return row;
   }

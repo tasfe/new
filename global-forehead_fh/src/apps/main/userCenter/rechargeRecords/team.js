@@ -94,7 +94,7 @@ var RechargeRecordsView = SearchGrid.extend({
   },
 
   onRender: function() {
-    
+
     //初始化时间选择
     new Timeset({
       el: this.$('.js-pf-timeset'),

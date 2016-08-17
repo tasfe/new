@@ -1,20 +1,21 @@
 <div class="bc-smmc-free-game">
-  <div class="bc-smmc-free-game-head">
+ <!-- <div class="bc-smmc-free-game-head">
     <span class="bc-smmc-free-game-title1">恭喜您进入FREE GAME</span>
     </br>
     <span class="bc-smmc-free-game-title2">请选择类型</span>
-  </div>
+  </div>-->
 
   <div class="bc-smmc-free-game-play"><span >您的玩法是：<%=play %>，祝您好运！</span></div>
 
   <div>
     <% _(modeList).each(function(mode,index){%>
     <div class="js-bc-smmc-free-game bc-smmc-free-game-mode <%=mode.modeClass%>" data-id="<%=mode.freeId%>" data-multiple="<%=mode.mutiple %>"  data-method="<%=mode.method %>" data-dismiss="modal">
-      <div class="bc-smmc-free-game-mode-content1"><%=mode.mutiple %>倍奖金</br><%=mode.formatUnit %>模式</div>
+    <!--  <div class="bc-smmc-free-game-mode-content1"><%=mode.mutiple %>倍奖金</br><%=mode.formatUnit %>模式</div>-->
+
       <div class="bc-smmc-free-game-mode-content2">
-        <span class="bc-smmc-free-game-mode-times"><%=mode.times %>次</span>
-        </br>
-        <%=mode.formatUnit %>模式</div>
+        <span class="bc-smmc-free-game-mode-times"> <%=mode.mutiple %>倍 <%=mode.times %>次</span>
+
+      </div>
     </div>
     <!--<div class="js-bc-smmc-free-game bc-smmc-free-game">-->
       <!--<div>2倍奖金</br>角模式</div>-->

@@ -18,7 +18,8 @@ var BettingRecordsView = SearchGrid.extend({
   },
 
   dateSelectHandler:function (e) {
-    
+    this. $('.toggle-athena').removeClass('toggle-athena');
+    $(e.currentTarget).addClass('toggle-athena');
     var recIndex = $(e.currentTarget).data('index');
     if (recIndex===1){
       this.$('.js-start-time').val(_(moment().add('days')).toDate()+' 0:00:00');
@@ -102,10 +103,22 @@ var BettingRecordsView = SearchGrid.extend({
       startDefaultDate: this.options.reqData.startTime?this.options.reqData.startTime:_(moment().startOf('day')).toTime(),
       endDefaultDate: this.options.reqData.endTime?this.options.reqData.endTime:_(moment().endOf('day')).toTime()
     }).render();
-    if(this.options.reqData.username){
-      this.$('input[name="username"]').val(this.options.reqData.username);
-    }
 
+    new Timeset({
+      el: this.$('.js-pf-timeset'),
+      startTime: 'regTimeStart',
+      endTime: 'regTimeEnd',
+      startTimeHolder: '起始日期',
+      endTimeHolder: '结束日期',
+      size: 'julien-time',
+      prevClass: 'js-pf',
+      startOps: {
+        format: 'YYYY-MM-DD'
+      },
+      endOps: {
+        format: 'YYYY-MM-DD'
+      }
+    }).render();
     //初始化彩种选择
     new TicketSelectGroup({
       el: this.$('.js-uc-ticket-select-group')
