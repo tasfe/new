@@ -5,7 +5,7 @@
 .progressbar_1{
   background-color:#eee;
   height:5px;
-  width:620px;
+  width:1060px;
   border:1px solid #bbb;
   color:#222;
 }
@@ -28,15 +28,11 @@
   display: inline-block;
   background: url("./misc/points.png") no-repeat;
   height:17px;
-  width:620px;
+  width:1060px;
   >span{
     //position: relative;
     display: inline-block;
-    width: 83px;
-    border-left: 1px solid $gray-color;
-  }
-  >span :last-child{
-    border-right: 1px solid $gray-color;
+    width: 150px;
   }
 }
 
@@ -44,14 +40,10 @@
   display: inline-block;
   //background: url("./misc/points.png") no-repeat;
   height:17px;
-  width:620px;
+  width:1060px;
   >span{
     //position: relative;
     display: inline-block;
-    width: 83px;
-    border-left: 1px solid $white-color;
-  }
-  >span :last-child{
-    border-right: 1px solid $white-color;
+    width: 150px;
   }
 }
