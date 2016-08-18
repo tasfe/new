@@ -31,12 +31,12 @@ var TrackRecordsView = TabView.extend({
           id: 'jsUCLowFrequentTab',
           template: '<div class="js-uc-lowContainer price-container"><div class="js-uc-lowNotice"></div><div class="js-uc-lowGrid portlet-filter uc-prize"></div></div>'
         },
-        {
-          label: '秒秒彩',
-          name: 'mmc',
-          id: 'jsUCMmcFrequentTab',
-          template: '<div class="js-uc-mmcContainer price-container"><div class="js-uc-mmcNotice"></div><div class="js-uc-mmcGrid portlet-filter uc-prize"></div></div>'
-        },
+        // {
+        //   label: '秒秒彩',
+        //   name: 'mmc',
+        //   id: 'jsUCMmcFrequentTab',
+        //   template: '<div class="js-uc-mmcContainer price-container"><div class="js-uc-mmcNotice"></div><div class="js-uc-mmcGrid portlet-filter uc-prize"></div></div>'
+        // },
         {
           label: '老虎机秒秒彩',
           name: 'smmc',

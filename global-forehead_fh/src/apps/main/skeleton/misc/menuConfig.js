@@ -17,23 +17,14 @@ var menuConfig = [
     icon: 'history',
     sub: [
       {
-        id: 102,
-        router: 'uc/br',
-        name: '投注记录',
-        // iconType: 'fa',
-        // backStyle: 'text-hot',
-        // icon: 'shopping-basket',
-      },
-      {
-        id: 103,
-        router: 'uc/tr',
-        name: '追号记录',
-        //icon: 'chase',
-      },
-      {
         id: 104,
         router: 'uc/rr',
         name: '充值记录'
+      },
+      {
+        id: 109,
+        router: 'uc/tfr',
+        name: '转账记录'
       },
       {
         id: 105,
@@ -46,6 +37,16 @@ var menuConfig = [
         name: '账户明细'
       },
       {
+        id: 102,
+        router: 'uc/br',
+        name: '投注记录'
+      },
+      {
+        id: 103,
+        router: 'uc/tr',
+        name: '追号记录'
+      },
+      {
         id: 107,
         router: 'ac/rm',
         name: '彩票盈亏'
@@ -54,11 +55,6 @@ var menuConfig = [
         id: 108,
         router: 'uc/bac',
         name: '百家乐盈亏'
-      },
-      {
-        id: 109,
-        router: 'uc/tfr',
-        name: '转账记录'
       }
     ]
   },

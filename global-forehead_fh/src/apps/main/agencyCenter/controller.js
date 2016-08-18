@@ -165,14 +165,6 @@ var AgencyCenterController = RouterController.extend({
     $('#main > .clearfix').addClass('ac-block');
   },
 
-  //profitAndLoss: function() {
-  //  this.changeMainReginView(new ProfitAndLossView(), {
-  //    main: {
-  //      title: '盈亏报表'
-  //    },
-  //    sidebar: Global.ui.menu.get(['ac', 'uc', 'aa'])
-  //  });
-  //},
 
   teamDynamic: function() {
     this.changeMainReginView(new TeamDynamicView(), {

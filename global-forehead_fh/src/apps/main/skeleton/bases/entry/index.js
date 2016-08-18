@@ -381,7 +381,7 @@ var EntryView = Base.ItemView.extend({
       body: '<div class="js-gl-quick-setting"></div>',
       bodyClass: 'no-padding',
       footer: '<div class="text-center control-confirm-special ">' +
-      //'<p class="text-pleasant text-center">说明：最多可选择一个菜单和三个彩种。</p>' +
+      '<p class="text-pleasant text-center">注：最多可自由选择4个快捷菜单。</p>' +
       '<button type="button" class="js-gl-confirm btn btn-left " data-loading-text="保存中">保存修改</button>' +
       //'<button type="button" class="btn btn-link btn-right " data-dismiss="modal">取消</button>' +
       '</div>'

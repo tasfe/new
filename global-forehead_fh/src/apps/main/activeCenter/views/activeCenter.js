@@ -20,20 +20,31 @@ var ActiveCenterView = Base.ItemView.extend({
 
     if (currentIndex<0){
       this.renderActiveGrid(0,'');
+      this.$type = '';
     }else {
       this.renderActiveGrid(0,currentIndex);
+      this.$type = currentIndex;
     }
-
-
   },
 
   onRender: function() {
 
+    var self = this;
+    this.$pagination = this.$('.js-aa-pagination');
     this.$activeContext = this.$('.js-active-context');
     this.$activeHeader = this.$('.js-activeHeader-list');
+    this.$type = '';
 
     this.initSliderTab();
-    this.renderActiveGrid(0,'');
+
+    this.$pagination.pagination({
+     onPaginationChange: function(index) {
+       self.renderActiveGrid(index,self.$type);
+     }
+    });
+    this.pagination = this.$pagination.pagination('instance');
+
+    this.renderActiveGrid(0,self.$type);
 
   },
 
@@ -61,7 +72,7 @@ var ActiveCenterView = Base.ItemView.extend({
     var self = this;
     this.$activeContext.empty();
     this.getActiveXhr({
-      pageSize: 20,
+      pageSize: 10,
       pageIndex: pageIndex,
       type:type
     })
@@ -71,7 +82,7 @@ var ActiveCenterView = Base.ItemView.extend({
       .done(function(res) {
         var data = res.root || {};
         if (res && res.result === 0) {
-
+          self.pagination.update(data.rowCount, pageIndex);
           self.renderActiveContex(data.activityList);
 
         } else {

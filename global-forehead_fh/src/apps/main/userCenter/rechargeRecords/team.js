@@ -16,7 +16,8 @@ var RechargeRecordsView = SearchGrid.extend({
   },
 
   dateSelectHandler:function (e) {
-
+    this. $('.toggle-athena').removeClass('toggle-athena');
+    $(e.currentTarget).addClass('toggle-athena');
     var recIndex = $(e.currentTarget).data('index');
     if (recIndex===1){
       this.$('.js-start-time').val(_(moment().add('days')).toDate()+' 0:00:00');
@@ -103,8 +104,6 @@ var RechargeRecordsView = SearchGrid.extend({
     }).render();
     if(this.options.reqData.username){
       this.$('input[name="username"]').val(this.options.reqData.username);
-
-
     }
     SearchGrid.prototype.onRender.apply(this, arguments);
   },
