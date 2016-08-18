@@ -2,7 +2,7 @@
 <form class="js-ac-signed-form ac-signed-form form-horizontal" action="javascript:void(0);">
   <div class="julien-row">
     <span>用户名：</span>
-    <input type="text" class="input-sm" name="username" <% if (obj.userData) { %>readonly<% } %>
+    <input type="text" class="input-sm js-username" name="username" <% if (obj.userData) { %>readonly<% } %>
       value="<%=obj.userData && obj.userData.username %>"
       data-parsley-username required
       data-parsley-remote data-parsley-remote-validator="accheckusername"
@@ -15,30 +15,25 @@
       半月销量：
     </dt>
     <dd>
-      <b>>=</b>
-      <input type="text" name="betTotal">
+      <b>≥</b>
+      <input type="text" name="betTotal" class="js-betTotal" data-parsley-twodecima>
     </dd>
     <dt>
       分红比：
     </dt>
     <dd>
-      <input type="text" name="divid" data-parsley-twodecimal required>
-      <b>%</b>
+      <input type="text" name="divid" class="js-rebetRate" data-parsley-twodecimal>
+      <b>%</b> <span class="help-inline">可分红范围（<%=dividConf.formatDividMin %>-<%=dividConf.formatDividMax %>%）</span>
     </dd>
     <dd>
-      <span class="julien-button js-add-area">+ 999增加分红段</span>
+      <span class="julien-button js-add-area">+ 增加分红段</span>
     </dd>
   </dl>
   <div class="julien-dm-area js-julien-dm-area hidden">
     <dl class="title"><dd>半月销量</dd><dd>分红比</dd><dt>操作</dt></dl>
-    <!--<dl>-->
-      <!--<dd><span>234</span></dd>-->
-      <!--<dd><span>123</span>%</dd>-->
-      <!--<dt><span>删除</span></dt>-->
-    <!--</dl>-->
   </div>
   <div class="julien-btn-group">
-    <button type="submit" class="js-ac-next julien-button" disabled>下一步</button>
+    <button type="button" class="js-ac-next julien-button">确定签约</button>
     <button type="button" class="julien-close-btn" data-dismiss="modal">取消</button>
   </div>
 </form>

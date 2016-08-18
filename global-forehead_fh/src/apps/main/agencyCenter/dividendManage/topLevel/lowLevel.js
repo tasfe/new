@@ -27,24 +27,36 @@ var LowLevelView = SearchGrid.extend({
     _(this.options).extend({
       columns: [
         {
-          name: '结算日期',
-          width: '23%'
+          name: '账号',
+          width: '12%'
         },
         {
-          name: '用户名',
-          width: '18%'
+          name: '结算周期',
+          width: '12%'
         },
         {
-          name: '分红金额',
-          width: '18%'
+          name: '累计销量 ',
+          width: '15%'
+        },
+        {
+          name: '盈亏累计',
+          width: '15%'
+        },
+        {
+          name: '分红比',
+          width: '6%'
+        },
+        {
+          name: '分红比',
+          width: '12%'
         },
         {
           name: '状态',
-          width: '18%'
+          width: '12%'
         },
         {
           name: '操作',
-          width: '18%'
+          width: '12%'
         }
       ],
       gridOps: {
@@ -55,9 +67,7 @@ var LowLevelView = SearchGrid.extend({
       },
       checkable: true,
       listProp: 'root.dividList',
-      tip: '<span class="m-right-sm vertical-middle"><span class="js-pf-select-all cursor-pointer">全选</span> | ' +
-      '<span class="js-pf-inverse cursor-pointer">反选</span></span>' +
-      '<div class="btn-group"><button class="js-ac-multi-grant btn btn-sm">发放</button></div>',
+      tip: '<div class="julien-btn-group-top"><button class="js-ac-multi-grant">提交分红申请</button></div>',
       height: 290
     });
   },
@@ -74,10 +84,7 @@ var LowLevelView = SearchGrid.extend({
     }).join(''));
 
     this.$('.js-pf-breadcrumb').before(
-      '<div class="alert">' +
-      '<span class="text-bold-dark">温馨提示：</span>' +
-      '提示：下级分红每月1号和16号结算，只保留上一次的记录，未按时下发分红给下级平台会强制发放。' +
-      '</div>'
+      '<div class="tips22">温馨提示：下级分红每月1号和16号结算，只保留上一次的记录，未按时下发分红给下级平台会强制发放。</div>'
     );
 
     SearchGrid.prototype.onRender.apply(this, arguments);
@@ -98,24 +105,32 @@ var LowLevelView = SearchGrid.extend({
     });
 
     //加上统计行
+    var iIs = 0;
+    if (rowsData != null && rowsData != '') {
+      iIs = 1;
+    }
 
-    this.grid.addFooterRows({
-      trClass: 'tr-footer',
+    this.grid.addFooterRows4({
+      trClass: 'julien-table-footer',
       columnEls: [
-        '', '',
+        '所有页总计',
         _(gridData.dividTotal).convert2yuan(),
-        '', ''
-      ]
+      ],
+      iIs: iIs
     })
-      .hideLoading();
+    .hideLoading();
   },
 
   formatRowData: function(rowInfo) {
     var row = [];
 
-    row.push(rowInfo.cycle);
     row.push(rowInfo.username);
-    row.push('<span class="text-bold-pleasant">' + _(rowInfo.dividTotal).convert2yuan({fixed: 2, clear: false}) + '</span>');
+    row.push(rowInfo.cycle);
+    row.push( _(rowInfo.betTotal).convert2yuan() );
+    row.push( _(rowInfo.profitTotal).convert2yuan() );
+    row.push(rowInfo.divid + '%');
+    
+    row.push( _(rowInfo.dividTotal).convert2yuan({fixed: 2, clear: false}) );
 
     row.push(grantConfig.getZh(rowInfo.status));
 
@@ -126,10 +141,10 @@ var LowLevelView = SearchGrid.extend({
     }
 
     if (rowInfo.status === grantConfig.getByName('DONE').id) {
-      operate.push('<a href="#fc/ad?tradeNo=' + rowInfo.tradeNo + '" class="btn btn-link btn-link-pleasant">查看</a>');
+      operate.push('<a href="#fc/ad?tradeNo=' + rowInfo.tradeNo + '" class="btn btn-link btn-link-pleasant">查看明细</a>');
     }
 
-    operate.push('<button class="js-ac-detail btn btn-link btn-link-cool">明细</button>');
+    operate.push('<button class="js-ac-detail btn btn-link">明细</button>');
     row.push(operate.join(''));
 
     return row;
@@ -188,7 +203,7 @@ var LowLevelView = SearchGrid.extend({
 
     var $dialog = Global.ui.dialog.show({
       title: data.username + '的分红明细',
-      size: 'modal-lg',
+      size: 'modal-lg-julien',
       body: '<div class="js-ac-detail"></div>',
       footer: ''
     });
@@ -197,7 +212,6 @@ var LowLevelView = SearchGrid.extend({
 
     $dialog.on('hidden.modal', function() {
       $(this).remove();
-      dividendDetailView.destroy();
     });
 
     var dividendDetailView = new DividendDetailView({

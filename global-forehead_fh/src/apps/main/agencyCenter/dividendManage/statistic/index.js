@@ -66,8 +66,8 @@ var StatisticView = Base.ItemView.extend({
     });
 
     this.$status.html(statusInfo.type === 'button' ?
-    '<button class="js-ac-status-op btn btn-sm" data-loading-text="' + statusInfo.loadingText + '" data-status="' + info.status +
-    '" data-divid-id="' + info.dividId + '">' + statusInfo.zhName + '</button>' : statusInfo.zhName);
+    '<button class="js-ac-status-op" data-loading-text="' + statusInfo.loadingText + '" data-status="' + info.status +
+    '" data-divid-id="' + info.dividId + '">' + statusInfo.zhName + '</button>' : '<span>' + statusInfo.zhName + '</span>');
   },
 
   detailHandler: function(e) {

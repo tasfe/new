@@ -12,11 +12,11 @@
     <thead class="<%=showHead %>">
       <tr>
         <% if (checkable) { %>
-        <th class="text-center no-padding">
-          <!--<div class="custom-checkbox checkbox-small hidden">-->
-            <!--<input type="checkbox" id="<%=chkAllId %>" class="js-wt-select-all">-->
-            <!--<label for="<%=chkAllId %>"></label>-->
-          <!--</div>-->
+        <th>
+          <div class="custom-checkbox checkbox-small">
+            <input type="checkbox" id="<%=chkAllId %>" class="js-wt-select-all">
+            <label for="<%=chkAllId %>"></label>
+          </div>
         </th>
         <% } %>
         <% _.each(columnDefinitions, function(columnDefinition) { %>
