@@ -92,7 +92,7 @@ $quickEntryPaddingX: 5px !default;
         color: $light-color;
         //background-color: $dark-color;
         &:after {
-          border-right: 0;
+          //border-right: 0;
         }
       }
     }
@@ -112,8 +112,8 @@ $quickEntryPaddingX: 5px !default;
       content: '';
       height: $quick-entry-height - $quick-vertical-margin * 2;
       top: $quick-vertical-margin;
-      right: 0;
-      border-right: 1px solid $gray-color;
+      //right: 0;
+      //border-right: 1px solid $gray-color;
     }
   }
 
