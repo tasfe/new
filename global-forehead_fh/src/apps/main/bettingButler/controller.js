@@ -4,14 +4,14 @@ require('./misc/index.scss');
 
 var RouterController = require('skeleton/controllers/router');
 
-var BettingRecordView = require('bettingButler/views/index');
+var BettingButlerView = require('bettingButler/views/index');
 
 
 var bettingButlerController = RouterController.extend({
 
 
   bettingbutler: function() {
-    this.changeMainReginView(new BettingRecordView(), {
+    this.changeMainReginView(new BettingButlerView(),{
 
     });
   }

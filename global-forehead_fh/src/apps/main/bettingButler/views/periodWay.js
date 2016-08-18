@@ -1,10 +1,10 @@
 "use strict";
 
-var butlerColPlan = Base.ItemView.extend({
+var periodWay = Base.ItemView.extend({
 
-    template: require('bettingButler/templates/myCollectedPlan.html'),
+    template: require('bettingButler/templates/periodWay.html'),
 
-    startOnLoading: true,
+    //startOnLoading: true,
 
     events: {
         'click .js-list-active': 'activeChangeHandler'
@@ -16,7 +16,7 @@ var butlerColPlan = Base.ItemView.extend({
 
         var self = this;
 
-        self.loadingFinish();
+        //self.loadingFinish();
 
     },
 
@@ -61,4 +61,4 @@ var butlerColPlan = Base.ItemView.extend({
     }
 });
 
-module.exports = butlerColPlan;
+module.exports = periodWay;

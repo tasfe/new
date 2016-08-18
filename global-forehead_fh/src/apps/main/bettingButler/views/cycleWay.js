@@ -1,8 +1,8 @@
 "use strict";
 
-var butlerColPlan = Base.ItemView.extend({
+var cycleWay = Base.ItemView.extend({
 
-    template: require('bettingButler/templates/myCollectedPlan.html'),
+    template: require('bettingButler/templates/cycleWay.html'),
 
     startOnLoading: true,
 
@@ -61,4 +61,4 @@ var butlerColPlan = Base.ItemView.extend({
     }
 });
 
-module.exports = butlerColPlan;
+module.exports = cycleWay;

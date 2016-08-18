@@ -2,7 +2,7 @@ var SearchGrid = require('com/searchGrid');
 
 var Timeset = require('com/timeset');
 
-var ProfitAndLoss = SearchGrid.extend({
+var TransforRecords = SearchGrid.extend({
 
     template: require('./index.html'),
 
@@ -15,7 +15,7 @@ var ProfitAndLoss = SearchGrid.extend({
                 },
                 {
                     name: '交易流水号',
-                    width: '22%'
+                    width: '20%'
                 },
                 {
                     name: '操作时间',
@@ -23,25 +23,25 @@ var ProfitAndLoss = SearchGrid.extend({
                 },
                 {
                     name: '转账金额',
-                    width: '15%',
+                    width: '10%',
                     sortable: true,
                     id: 0
                 },
                 {
                     name: '转出账户',
-                    width: '14%'
+                    width: '10%'
                 },
                 {
                     name: '转出账户余额',
-                    width: '14%'
+                    width: '10%'
                 },
                 {
                     name: '转入账户',
-                    width: '14%'
+                    width: '10%'
                 },
                 {
                     name: '转入账户余额',
-                    width: '15%',
+                    width: '10%',
                     sortable: true,
                     id: 1
                 }
@@ -50,7 +50,7 @@ var ProfitAndLoss = SearchGrid.extend({
                 emptyTip: '没有转账记录'
             },
             ajaxOps: {
-                url: '/fund/recharge/rechargelist.json',
+                url: '/fund/transfer/agTransfer.json',
                 abort: false
             },
             reqData: {
@@ -79,12 +79,9 @@ var ProfitAndLoss = SearchGrid.extend({
 
     },
     toggleseachHandler:function () {
-
         if($('.js-toggle-seach').hasClass('on')) {
-
             $('.search-condition-table .row2').addClass('hidden');
             $('.js-toggle-seach').removeClass('on')
-
         } else{
             $('.search-condition-table .row2').removeClass('hidden');
             $('.js-toggle-seach').addClass('on')
@@ -143,4 +140,4 @@ var ProfitAndLoss = SearchGrid.extend({
 
 });
 
-module.exports = ProfitAndLoss;
+module.exports = TransforRecords;
