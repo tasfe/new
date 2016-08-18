@@ -42,7 +42,7 @@ var VipLevelView = SearchGrid.extend({
       reqData: {
         subUser: 0
       },
-      tip: '<div class="m-left-md"><span>提示：</span> 每月初根据积分情况重新调整vip等级。</div>',
+      //tip: '<div class="m-left-md"><span>提示：</span> 每月初根据积分情况重新调整vip等级。</div>',
       listProp: 'root.dataList',
       height: 400
     });
@@ -55,7 +55,11 @@ var VipLevelView = SearchGrid.extend({
 
     var acctInfo = Global.memoryCache.get('acctInfo');
     this.$(".js_vipLevel").html(acctInfo.memberLevel);
+    this.$(".js-vip-level").addClass('vip-main1')
+
   },
+
+
 
   renderGrid: function(gridData) {
     var rowsData = _(gridData.dataList).map(function(info, index, list) {

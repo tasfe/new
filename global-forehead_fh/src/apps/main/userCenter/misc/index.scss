@@ -508,10 +508,41 @@
   }
 }
 
+.vip-main1{
+  background: url(~base/images/fh/vc.png) no-repeat ;
+  width:282px;
+  height:65px;
+  position: absolute;
+  top:-20px;
+}
+
+.vip-sidebar{
+  border-bottom: 2px solid #a60000;
+  margin-top:50px;
+}
+
+.vip-sidebar::before{
+  content:"";
+  width:10px;
+  height:2px;
+  position: absolute;
+  left:0;
+  border-top:1px solid #a60000;
+}
+.vip-sidebar::after{
+  content:"";
+  width:10px;
+  height:2px;
+  position: absolute;
+  right:0;
+  top:52px;
+  border-top:1px solid #a60000;
+}
+
 .menu-bock{
   background-color: #fff;
   border: 1px solid #ccc;
-  border-top: 0px;
+  border-top: 2px solid #a60000;
   border-bottom: 0px;
 
   .sidebar-title{
@@ -521,7 +552,7 @@
   ul{
     height: 30px;
     margin: 0 10px;
-    padding-bottom: 15px;
+    padding:15px 0;
     border-bottom: 1px solid #cccccc;
 
     li{
@@ -555,13 +586,13 @@
   background-color: #fff;
   border:1px solid #ccc;
   border-top: 0px;
-  color: #666666;
   font-family: '微软雅黑';
   padding-bottom: 20px;
   margin-bottom: 20px;
 
   .controls > span{
     margin-top:0px;
+    font-size: 16px;
     margin-left: 10px;
   }
 
@@ -627,7 +658,7 @@
   }
 
   .search-condition-table{
-    margin-top: 35px;
+    margin-top: 20px;
     margin-bottom: 25px;
   }
   .search-condition-layout{

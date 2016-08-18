@@ -8,7 +8,8 @@ var HelpCenterController = RouterController.extend({
 
   helpCenter: function() {
     this.changeMainReginView(new HelpCenterView());
-  }
+  },
+
 });
 
 module.exports = HelpCenterController;
