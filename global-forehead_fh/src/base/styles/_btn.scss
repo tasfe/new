@@ -186,3 +186,23 @@ button.btn.btn-xs, input[type="submit"].btn.btn-xs {
   }
 }
 
+.btn-vip{
+  padding: 0 10px;
+  background:#ff6600;
+  color:#fff;
+  width:65px;
+  line-height: 30px;
+  text-align:center;
+  border-radius:0;
+  border:none;
+  outline:none;
+}
+.btn-vip:hover{
+  background:#ff6600!important;
+
+}
+
+.vip-line{
+  border-left:1px solid #ccc;
+  padding-left:23px;
+}
