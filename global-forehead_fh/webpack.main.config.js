@@ -74,32 +74,32 @@ module.exports = {
   },
   entries: {
     index: {
-      title: '繁华世界在线娱乐',
+      title: '繁华娱乐在线娱乐',
       template: './entry/index.html',
       chunks: ['common.1', '2.vendor', '4.base', '1.main']
     },
     login: {
-      title: '繁华世界在线娱乐',
+      title: '繁华娱乐在线娱乐',
       template: './entry/package.html',
       chunks: ['common.1', '2.vendor', '4.base', '1.login']
     },
     emailverify: {
-      title: '繁华世界在线娱乐',
+      title: '繁华娱乐在线娱乐',
       template: './entry/package.html',
       chunks: ['common.1', '2.vendor', '4.base', '1.emailverify']
     },
     register: {
-      title: '繁华世界在线娱乐',
+      title: '繁华娱乐在线娱乐',
       template: './entry/package.html',
       chunks: ['common.1', '2.vendor', '4.base', '1.register']
     },
     trend: {
-      title: '繁华世界在线娱乐',
+      title: '繁华娱乐在线娱乐',
       template: './entry/package.html',
       chunks: ['common.1', '2.vendor', '4.base', '1.trend']
     },
     gengxin: {
-      title: '繁华世界在线娱乐',
+      title: '繁华娱乐在线娱乐',
       template: './entry/package.html',
       chunks: ['common.1', '2.vendor', '4.base',  '1.gengxin']
     },
@@ -109,42 +109,42 @@ module.exports = {
       chunks: ['common.1', '2.vendor', '4.base', '1.charge']
     },
     client: {
-      title: '繁华世界在线娱乐',
+      title: '繁华娱乐在线娱乐',
       template: './entry/package.html',
       chunks: ['common.1', '2.vendor', '4.base', '1.client','1.download']
     },
     download: {
-      title: '繁华世界在线娱乐',
+      title: '繁华娱乐在线娱乐',
       template: './entry/package.html',
       chunks: ['common.1', '2.vendor', '4.base','1.download']
     },
     //super3000: {
-    //    title: '繁华世界在线娱乐',
+    //    title: '繁华娱乐在线娱乐',
     //    template: './entry/package.html',
     //    chunks: ['common.1', '2.vendor', '4.base','1.super3000']
     //  },
     //vip: {
-    //  title: '繁华世界在线娱乐',
+    //  title: '繁华娱乐在线娱乐',
     //  template: './entry/package.html',
     //  chunks: ['common.1', '2.vendor', '4.base','1.vip']
     //},
     //mmc: {
-    //  title: '繁华世界在线娱乐',
+    //  title: '繁华娱乐在线娱乐',
     //  template: './entry/package.html',
     //  chunks: ['common.1', '2.vendor', '4.base','1.mmc']
     //},
     resetPassword: {
-      title: '繁华世界在线娱乐',
+      title: '繁华娱乐在线娱乐',
       template: './entry/package.html',
       chunks: ['common.1', '2.vendor', '4.base', '1.resetPassword']
     },
     updateUserInfo: {
-      title: '繁华世界在线娱乐',
+      title: '繁华娱乐在线娱乐',
       template: './entry/package.html',
       chunks: ['common.1', '2.vendor', '4.base', '1.updateUserInfo']
     },
     404: {
-      title: '繁华世界在线娱乐',
+      title: '繁华娱乐在线娱乐',
       template: './entry/package.html',
       chunks: ['common.1', '4.base', '1.404']
     }

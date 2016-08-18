@@ -166,7 +166,7 @@ var DriftActivity = Base.ItemView.extend({
       this.$popStatus.children("div").addClass('pop_status_pic_0' + ops.type);
 
       if (ops.userType === 1) {
-        text = '繁华世界在线娱乐赠您';
+        text = '繁华娱乐在线娱乐赠您';
         text += '“'+ config.getById(ops.type).name +'”字漂流瓶' +
           '<br>' + config.getGreetingById(ops.greeting).title + '<br><br>';
       } else {
