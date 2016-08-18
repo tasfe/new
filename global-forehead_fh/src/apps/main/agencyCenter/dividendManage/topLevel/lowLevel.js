@@ -84,7 +84,7 @@ var LowLevelView = SearchGrid.extend({
     }).join(''));
 
     this.$('.js-pf-breadcrumb').before(
-      '<div class="tips22">温馨提示：提示：下级分红每月1号和16号结算，只保留上一次的记录，未按时下发分红给下级平台会强制发放。</div>'
+      '<div class="tips22">温馨提示：下级分红每月1号和16号结算，只保留上一次的记录，未按时下发分红给下级平台会强制发放。</div>'
     );
 
     SearchGrid.prototype.onRender.apply(this, arguments);
