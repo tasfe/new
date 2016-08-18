@@ -179,6 +179,41 @@
   .dot-divider {
     margin-bottom: 12px;
   }
+
+  .gap{
+    margin: 0px;
+  }
+
+  span.a{
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  span.dm-table-update{
+    color: #cfa945;
+    text-decoration: underline;
+    margin-right: 20px;
+    cursor: pointer;
+  }
+
+  span.dm-table-off{
+    color: #cc0000;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  .julien-btn-group-top{
+    position: absolute;
+    top: 148px;
+
+    button{
+      background-color: #cc0000;
+      padding: 5px 12px;
+      color: #fff;
+      border: 0px;
+      outline: none;
+    }
+  }
 }
 
 //topLevel
@@ -288,7 +323,11 @@
 
 
 .julien-dm{
-   font-family: '微软雅黑';
+  font-family: '微软雅黑';
+
+  .ac-statics-text{
+    display: inline-block;
+  }
 
   .julien-fh-block1{
     background: url(./kuang1.png) no-repeat;
@@ -297,8 +336,9 @@
     color: #746f6f;
     font-size: 14px;
     padding-left: 20px;
+    margin-bottom: 15px;
 
-    div{
+    > div{
       margin-top: 8px;
       width: 270px;
       height: 69px;
@@ -307,6 +347,36 @@
       text-align: center;
       line-height: 30px;
       padding-top: 9px;
+
+      .left{
+        width: 170px;
+        float: left;
+      }
+      .right{
+        width: 120px;
+        float: left;
+        text-align: center;
+
+        div{
+          span{
+            color: #666;
+            font-size: 14px;
+            border: 1px solid #666;
+            border-radius: 5px;
+            padding: 0px 10px;
+            display: inline-block;
+          }
+          button{
+            background-color: #cc0000;
+            border: 0px;
+            color: #fff;
+            font-size: 16px;
+            font-weight: normal;
+            padding: 0px 15px;
+          }
+        }
+
+      }
 
       p{
         color: #333333;
@@ -374,6 +444,12 @@
     padding: 10px 0px;
   }
 
+  .tips22{
+    color: #eb2020;
+    padding: 13px 0px;
+    margin-left: 120px;
+  }
+
   .search-condition-table{
     padding: 20px 0px;
     border: 1px solid #cccccc;
@@ -381,8 +457,24 @@
     border-right: 0px;
     margin-bottom: 0px;
 
+    input {
+        width: 86px;
+        height: 28px;
+        padding: 0px 5px;
+    }
+
+    select{
+      width: 86px;
+      height: 31px;
+      padding: 0px 5px;
+    }
+
     .row1{
       margin-bottom: 0px;
+
+      dl{
+        margin-right: 10px;
+      }
     }
 
     > div{
@@ -421,21 +513,18 @@
       color: #999999;
       font-family: '微软雅黑';
     }
+  }
 
-    select{
-      width: 86px;
-      padding: 0px 5px;
-    }
-
-    input{
-      width: 86px;
-      height: 28px;
-      padding: 0px 5px;
-    }
+  dl.width155{
+    width: 155px;
   }
 
   dl.width160{
-    width: 150px;
+    width: 160px;
+  }
+
+  dl.width165{
+    width: 165px;
   }
 }
 

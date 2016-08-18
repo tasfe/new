@@ -1,19 +1,4 @@
 
-.athena{
-    .btn,.uc-search-button,{
-        margin-left:15px;
-    }
-}
- .search-condition-table,.m-LR-smd,.athena{
-     margin-left:50px;
- }
- .js-excess-cell,.br-excess-cell,.athena{
-     margin-left:10px;
-     width:60px;
-     height:28px;
-     background:#f4f4f4;
-     border:1px solid #c4c4c4;
- }
 
 .athena_th{
     margin-left: -10px;

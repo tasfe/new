@@ -16,14 +16,14 @@
     </dt>
     <dd>
       <b>≥</b>
-      <input type="text" name="betTotal" class="js-betTotal" required>
+      <input type="text" name="betTotal" class="js-betTotal" data-parsley-twodecima>
     </dd>
     <dt>
       分红比：
     </dt>
     <dd>
-      <input type="text" name="divid" class="js-rebetRate" data-parsley-twodecimal required>
-      <b>%</b>
+      <input type="text" name="divid" class="js-rebetRate" data-parsley-twodecimal>
+      <b>%</b> <span class="help-inline">可分红范围（<%=dividConf.formatDividMin %>-<%=dividConf.formatDividMax %>%）</span>
     </dd>
     <dd>
       <span class="julien-button js-add-area">+ 增加分红段</span>
