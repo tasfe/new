@@ -312,13 +312,13 @@ var BettingCenterView = Base.ItemView.extend({
       tableClass: 'table table-dashed',
       colModel: [
         //{label: '玩法/投注内容  ', name: 'title', key: true, width: '43%'},
-        {label: '玩法/投注内容  ', name: 'title', key: true, width: '65%'},
+        {label: '玩法/投注内容  ', name: 'title', key: true, width: '55%'},
         //{label: '奖金模式', name: 'bonusMode', width: '20%'},
-        {label: '注数/倍数/模式', name: 'mode', width: '35%'}
+        {label: '注数/倍数/模式', name: 'mode', width: '45%'}
         //{label: '注数/倍数/模式', name: 'mode', width: '20%'}
         //{label: '投注金额', name: 'bettingMoney', width: '17%'}
       ],
-      showHeader: false,
+      showHeader: true,
       height: 310,
       startOnLoading: false,
       emptyTip: ''
@@ -795,7 +795,7 @@ var BettingCenterView = Base.ItemView.extend({
 
     var idStr =  ''+$target.data('index');
     idStr = parseInt(idStr);
-    var playValue = (idStr+1)*69 +26;
+    var playValue = (idStr+1)*82 +14;
     this.$('.js-bc-advance-rules').css('left',playValue+'px');
 
   },

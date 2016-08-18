@@ -28,16 +28,12 @@ var BettingRecordsView = SearchGrid.extend({
     }else if (recIndex===3){
       this.$('.js-start-time').val(_(moment().add('days',-7)).toDate()+' 0:00:00');
     }
-
   },
 
   toggleseachHandler:function () {
-
     if($('.js-toggle-seach').hasClass('on')) {
-
       $('.search-condition-table .row2').addClass('hidden');
       $('.js-toggle-seach').removeClass('on')
-      
     } else{
       $('.search-condition-table .row2').removeClass('hidden');
       $('.js-toggle-seach').addClass('on')
@@ -50,6 +46,10 @@ var BettingRecordsView = SearchGrid.extend({
         {
           name: '账号',
           width: '10%'
+        },
+        {
+          name: '订单编号',
+          width: '15%'
         },
         {
           name: '彩种名称',
@@ -68,14 +68,9 @@ var BettingRecordsView = SearchGrid.extend({
           width: '12%'
         },
         {
-          name: '订单编号',
-          width: '15%'
-        },
-        {
           name: '投注时间',
           width: '15%'
         }
-
       ],
       gridOps: {
         emptyTip: '没有投注记录'
@@ -89,7 +84,7 @@ var BettingRecordsView = SearchGrid.extend({
         subUser: 0
       },
       listProp: 'root.betList',
-      tip: '<div class="m-left-md"><span>注意:</span> 投注记录只保留最近30天。</div>',
+      tip: '<div class="m-left-md m-top-md text-hot"><span>注意:</span> 投注记录只保留最近30天。</div>',
       height: 310
     });
     Global.memoryCache.set('ticketCachedList', []);
@@ -103,22 +98,10 @@ var BettingRecordsView = SearchGrid.extend({
       startDefaultDate: this.options.reqData.startTime?this.options.reqData.startTime:_(moment().startOf('day')).toTime(),
       endDefaultDate: this.options.reqData.endTime?this.options.reqData.endTime:_(moment().endOf('day')).toTime()
     }).render();
-
-    new Timeset({
-      el: this.$('.js-pf-timeset'),
-      startTime: 'regTimeStart',
-      endTime: 'regTimeEnd',
-      startTimeHolder: '起始日期',
-      endTimeHolder: '结束日期',
-      size: 'julien-time',
-      prevClass: 'js-pf',
-      startOps: {
-        format: 'YYYY-MM-DD'
-      },
-      endOps: {
-        format: 'YYYY-MM-DD'
-      }
-    }).render();
+    if(this.options.reqData.username){
+      this.$('input[name="username"]').val(this.options.reqData.username);
+    }
+    
     //初始化彩种选择
     new TicketSelectGroup({
       el: this.$('.js-uc-ticket-select-group')
@@ -153,7 +136,7 @@ var BettingRecordsView = SearchGrid.extend({
         '<div class="text-hot">所有页总计</div>', '', '',
         '<div class="text-hot">' + _(gridData.betMoneyTotal).fixedConvert2yuan() + '</div>',
         '<div class="text-hot">' + _(gridData.prizeMoneyTotal).convert2yuan() + '</div>',
-        '', ''
+        ''
       ]
     })
       .hideLoading();
@@ -163,6 +146,7 @@ var BettingRecordsView = SearchGrid.extend({
 
     var row = [];
     row.push(rowInfo.userName);
+    row.push('<a class="router btn-link btn-link-sun" href="' + _.getUrl('/detail/' + rowInfo.ticketTradeNo) + '">'+rowInfo.ticketTradeNo+'</a>');
     row.push(rowInfo.ticketName);
     if(rowInfo.ticketPlanId==='mmc'){
       row.push('/');
@@ -188,12 +172,10 @@ var BettingRecordsView = SearchGrid.extend({
     });
     
     row.push(status);
-    row.push('<a class="router btn-link btn-link-sun" href="' + _.getUrl('/detail/' + rowInfo.ticketTradeNo) + '">'+rowInfo.ticketTradeNo+'</a>');
     row.push(_(rowInfo.betTime).toTime());
-    //row.push(rowInfo.ticketTradeNo);
-
     return row;
   }
+
 });
 
 module.exports = BettingRecordsView;

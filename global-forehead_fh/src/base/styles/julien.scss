@@ -7,7 +7,7 @@ body{
 	margin-left: -510px !important;
 	font-size: 14px;
 	font-family: '微软雅黑';
-	background: url(~base/images/julien/modal-lg-julien-bg.jpg) no-repeat;
+	background: url(~base/images/julien/modal-lg-julien-bg.jpg) no-repeat bottom #fff;
 
 	.athena-quota{
 		border:1px solid #e4393c;
@@ -261,7 +261,7 @@ body{
 
 .modal-dialog{
 	.slimScrollDiv{
-		height: 210px !important;
+		height: 230px !important;
 		overflow-y: auto !important;
 	}
 }

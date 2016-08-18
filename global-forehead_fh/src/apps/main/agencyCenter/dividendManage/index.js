@@ -59,7 +59,7 @@ var DividendManageView = Base.ItemView.extend({
     var $target = $(e.currentTarget);
 
     var $dialog = Global.ui.dialog.show({
-      title: '繁华世界分红协议条款',
+      title: '繁华娱乐分红协议条款',
       size: 'modal-lg',
       body: '<div class="ac-official">' + this.officialAgreementTpl() + '</div>',
       footer: ''

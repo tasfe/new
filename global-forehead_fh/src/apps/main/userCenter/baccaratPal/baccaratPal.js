@@ -26,12 +26,9 @@ var RechargeRecordsView = SearchGrid.extend({
 
     },
     toggleseachHandler:function () {
-
         if($('.js-toggle-seach').hasClass('on')) {
-
             $('.search-condition-table .row2').addClass('hidden');
             $('.js-toggle-seach').removeClass('on')
-
         } else{
             $('.search-condition-table .row2').removeClass('hidden');
             $('.js-toggle-seach').addClass('on')
@@ -98,36 +95,10 @@ var RechargeRecordsView = SearchGrid.extend({
             startDefaultDate: this.options.reqData.startTime?this.options.reqData.startTime:_(moment().startOf('day')).toTime(),
             endDefaultDate: this.options.reqData.endTime?this.options.reqData.endTime:_(moment().endOf('day')).toTime()
         }).render();
-
-        new Timeset({
-            el: this.$('.js-pf-timeset'),
-            startTime: 'regTimeStart',
-            endTime: 'regTimeEnd',
-            startTimeHolder: '起始日期',
-            endTimeHolder: '结束日期',
-            size: 'julien-time',
-            prevClass: 'js-pf',
-            startOps: {
-                format: 'YYYY-MM-DD'
-            },
-            endOps: {
-                format: 'YYYY-MM-DD'
-            }
-        }).render();
-
-        var plArray=[{id:0,zhName:'单式直选'},{id:1,zhName:'直选和值'}];
-        this.$('select[name=payStatus]').html(_(plArray).map(function (qr) {
-            return '<option value="'+qr.id+'">'+qr.zhName+'</option>';
-        }).join(''));
-
-        var plArray=[{id:0,zhName:'单式直选'},{id:1,zhName:'直选和值'}];
-        this.$('select[name=widthdrawStatus]').html(_(plArray).map(function (qr) {
-            return '<option value="'+qr.id+'">'+qr.zhName+'</option>';
-        }).join(''));
-
         if(this.options.reqData.username){
             this.$('input[name="username"]').val(this.options.reqData.username);
         }
+        
         SearchGrid.prototype.onRender.apply(this, arguments);
     },
 

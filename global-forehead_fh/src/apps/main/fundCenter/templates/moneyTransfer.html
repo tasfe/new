@@ -5,10 +5,12 @@
     </span>
 </div>
 
+<div class="mt-money-transfer fc-group ">
+  <strong class="text-bold-dark">选择用户：</strong>
+</div>
+
 <form class="js-fc-transfer-form form-horizontal hidden" action="javascript:void(0);">
-  <div class="mt-money-transfer fc-group ">
-    <strong class="text-bold-dark">选择用户：</strong>
-  </div>
+
   <div class="js-fc-lowLevelSelect fc-lowLevelSelect "></div>
   <div class="dot-divider dot-divider-sm margin-md"></div>
   <div class="fc-group">
@@ -22,7 +24,7 @@
       <label class="control-label text-bold-dark">转账金额：</label>
       <div class="controls">
         <span class="input-append">
-          <input type="text" class="js-fc-tf-amount" autocomplete="off"  name="amount"
+          <input type="text" class="js-fc-tf-amount mt-transfor-input" autocomplete="off"  name="amount"
                  data-parsley-type="integer" data-parsley-max-message="您申请的金额超出可转账金额" required />
           <span class="add-on">元</span>
         </span>
@@ -41,14 +43,14 @@
     <div class="control-group">
       <label class="control-label text-bold-dark">问题答案：</label>
       <div class="controls">
-        <input type="text" class="js-mt-answer fc-wd-amount " >
+        <input type="text" class="js-mt-answer mt-transfor-input " >
       </div>
     </div>
 
     <div class="control-group">
       <label class="control-label text-bold-dark">资金密码：</label>
       <div class="controls">
-        <input type="password" class="js-fc-tf-payPwd fc-mt-password" data-parsley-noSpecialChar data-parsley-length="[6, 20]"  required />
+        <input type="password" class="js-fc-tf-payPwd mt-transfor-input" data-parsley-noSpecialChar data-parsley-length="[6, 20]"  required />
       </div>
     </div>
     <div class="control-group">
