@@ -2,9 +2,9 @@
 
 var RouterController = require('skeleton/controllers/router');
 
-// var BettingRecordView = require('userCenter/bettingRecords');
+var BettingRecordView = require('userCenter/bettingRecords');
 
-var BettingRecordView = require('userCenter/bettingRecords/team');
+//var BettingRecordView = require('userCenter/bettingRecords/team');
 var BettingDetailView = require('userCenter/views/bettingDetail');
 
 // var TrackRecordView = require('userCenter/trackRecords');
@@ -32,8 +32,6 @@ var VipCashView = require('userCenter/vipCash');
 //var VipInfoView = require('userCenter/vipInfo');
 var VipCreditView = require('userCenter/vipCredit');
 
-//var LotteryPALView = require('userCenter/lottoryPAL/ProfitAndLoss');
-//var ReportManageView = require('agencyCenter/reportManage');
 
 var ReportManageView = require('agencyCenter/reportManage/teamReport');
 

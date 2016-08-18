@@ -30,12 +30,9 @@ var RechargeRecordsView = SearchGrid.extend({
   },
 
   toggleseachHandler:function () {
-
     if($('.js-toggle-seach').hasClass('on')) {
-
       $('.search-condition-table .row2').addClass('hidden');
       $('.js-toggle-seach').removeClass('on')
-
     } else{
       $('.search-condition-table .row2').removeClass('hidden');
       $('.js-toggle-seach').addClass('on')
@@ -74,7 +71,7 @@ var RechargeRecordsView = SearchGrid.extend({
           id: 1
         },
         {
-          name: '状态',
+          name: '支付状态',
           width: '10%'
         }
       ],
