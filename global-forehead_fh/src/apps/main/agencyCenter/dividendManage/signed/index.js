@@ -18,7 +18,19 @@ var SignedView = Base.ItemView.extend({
   },
 
   addArea: function () {
-    alert(1);
+   // alert(1);
+      $('.js-julien-dm-area').removeClass('hidden');
+     $('.julien-dm-area').append('<dl><dd><span class="js-athena-span-01" >234</span></dd><dd><span class="js-athena-span-02">123</span>%</dd><dt><span class="athena-dl-area">删除</span></dt> </dl>');
+
+    $('.athena-dl-area').click(function(){
+       $(this).parent().parent().remove();
+      console.log(this.index);
+    });
+    $('.js-add-area').click(function(){
+      //alert(1);
+      $('.js-athena-span-01').eq($('.js-athena-span-01').length -1).html($('[name="betTotal"]').val());
+      $('.js-athena-span-02').eq($('.js-athena-span-02').length -1).html($('[name="divid"]').val());
+    })
   },
 
   signXhr: function(data) {

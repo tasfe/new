@@ -7,6 +7,7 @@ exports.install = function() {
 
   window.Global.appRouter.processAppRoutes(new FundCenterController(), {
     'ac/llm': 'lowLevelManage', //下级管理
+    'ac/salary': 'salaryManage',//日工资管理
     'ac/llm/rebate/:userId': 'rebateManage', //升点(返点)管理
 
     'ac/llm/detail/:userId': 'lowLevelDetail', //下级管理详情

@@ -165,7 +165,7 @@ var BettingCenterChaseNormalView = Base.ItemView.extend({
     var self = this;
 
     this.staticGrid = this.$chaseContainer.staticGrid({
-      tableClass: 'table table-bordered table-center no-margin',
+      tableClass: 'table table-bordered table-center no-margin background-color-white',
       colModel: [
         {label: '序号', name: 'index', width: '15%', formatter: function(val, index) {
           return index + 1;
@@ -190,6 +190,7 @@ var BettingCenterChaseNormalView = Base.ItemView.extend({
       ],
       startOnLoading: false,
       height: 210
+
     }).staticGrid('instance');
   },
 

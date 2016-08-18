@@ -56,3 +56,12 @@
     bottom: 137px;
   }
 }
+
+.alert-info-list {
+  background: url(~base/images/fh/alert_info.png) no-repeat;
+  width: 265px;
+  height: 128px;
+  position: absolute;
+  margin: -25px 1650px;
+  z-index: -9;
+}
