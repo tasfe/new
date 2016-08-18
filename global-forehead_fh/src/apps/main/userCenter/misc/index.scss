@@ -917,9 +917,9 @@
 }
 
 .binding-card-icon{
-  background-color: red;
-  width: 120px;
-  height: 69px;
+  //background-color: red;
+  width: 206px;
+  height: 66px;
 }
 
 .binding-card-cardName{
@@ -942,8 +942,8 @@
 
 
 .binding-card-delete{
-
-  background-color: #cc0000;
+  background: url("bank-card-delete.png") no-repeat;
+  //background-color: #cc0000;
   position: relative;
   margin-left: 79px;
   height: 80px;
