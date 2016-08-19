@@ -2,6 +2,8 @@
 
 require('./index.scss');
 
+var AgTransferView = require('./agTransform');
+
 var GameCenterView = Base.ItemView.extend({
 
   template: require('./index.html'),
@@ -20,19 +22,20 @@ var GameCenterView = Base.ItemView.extend({
   },
 
   transforMoneyHandler:function () {
-
+    
     this.$dialog = Global.ui.dialog.show({
       title: '转账',
       size: 'modal-lg',
       body: '<div class="js-ag-transfor-container"></div>',
       bodyClass: 'ag-transfor-dialog'
     });
-
-    // this.$dialog.find('.js-acse-container').html(conetent.render().el);
-
+    var $transferContainer = this.$dialog.find('.js-ag-transfor-container');
+    var agt = new AgTransferView({el: $transferContainer}).render();
     this.$dialog.on('hidden.modal', function () {
       $(this).remove();
+      agt.destroy();
     });
+    
   }
 
 });
