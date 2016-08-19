@@ -162,7 +162,19 @@
     a{
       color: #cc0000;
       text-decoration: underline;
+
+      &.julien-btn3{
+        background-color: #cc9966;
+        padding: 6px 12px;
+        border: 0px;
+        color: #fff;
+        margin-left: 10px;
+        text-decoration: none;
+        color: #fff;
+        margin: 0px;
+      }
     }
+
   }
 }
 
@@ -655,10 +667,12 @@
   }
   .gender{
     line-height: 25px;
+
     input[type="radio"]{
       padding: 0px;
       margin: 0px;
       margin-top: -3px;
+      width: auto;
     }
     span{
       margin-right: 20px;
