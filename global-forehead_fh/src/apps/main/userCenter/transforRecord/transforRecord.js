@@ -2,7 +2,7 @@ var SearchGrid = require('com/searchGrid');
 
 var Timeset = require('com/timeset');
 
-var ProfitAndLoss = SearchGrid.extend({
+var TransforRecords = SearchGrid.extend({
 
     template: require('./index.html'),
 
@@ -10,39 +10,47 @@ var ProfitAndLoss = SearchGrid.extend({
         _(this.options).extend({
             columns: [
                 {
-                    name: '交易流水号',
-                    width: '22%'
+                    name: '账号',
+                    width: '10%'
                 },
                 {
-                    name: '充值时间',
+                    name: '交易流水号',
                     width: '20%'
                 },
                 {
-                    name: '充值方式',
-                    width: '14%'
+                    name: '操作时间',
+                    width: '20%'
                 },
                 {
-                    name: '充值金额',
-                    width: '15%',
+                    name: '转账金额',
+                    width: '10%',
                     sortable: true,
                     id: 0
                 },
                 {
-                    name: '账户余额',
-                    width: '15%',
-                    sortable: true,
-                    id: 1
+                    name: '转出账户',
+                    width: '10%'
                 },
                 {
-                    name: '状态',
-                    width: '14%'
+                    name: '转出账户余额',
+                    width: '10%'
+                },
+                {
+                    name: '转入账户',
+                    width: '10%'
+                },
+                {
+                    name: '转入账户余额',
+                    width: '10%',
+                    sortable: true,
+                    id: 1
                 }
             ],
             gridOps: {
-                emptyTip: '没有充值记录'
+                emptyTip: '没有转账记录'
             },
             ajaxOps: {
-                url: '/fund/recharge/rechargelist.json',
+                url: '/fund/transfer/agTransfer.json',
                 abort: false
             },
             reqData: {
@@ -71,12 +79,9 @@ var ProfitAndLoss = SearchGrid.extend({
 
     },
     toggleseachHandler:function () {
-
         if($('.js-toggle-seach').hasClass('on')) {
-
             $('.search-condition-table .row2').addClass('hidden');
             $('.js-toggle-seach').removeClass('on')
-
         } else{
             $('.search-condition-table .row2').removeClass('hidden');
             $('.js-toggle-seach').addClass('on')
@@ -91,36 +96,10 @@ var ProfitAndLoss = SearchGrid.extend({
             startDefaultDate: this.options.reqData.startTime?this.options.reqData.startTime:_(moment().startOf('day')).toTime(),
             endDefaultDate: this.options.reqData.endTime?this.options.reqData.endTime:_(moment().endOf('day')).toTime()
         }).render();
-
-        // new Timeset({
-        //     el: this.$('.js-pf-timeset'),
-        //     startTime: 'regTimeStart',
-        //     endTime: 'regTimeEnd',
-        //     startTimeHolder: '起始日期',
-        //     endTimeHolder: '结束日期',
-        //     size: 'julien-time',
-        //     prevClass: 'js-pf',
-        //     startOps: {
-        //         format: 'YYYY-MM-DD'
-        //     },
-        //     endOps: {
-        //         format: 'YYYY-MM-DD'
-        //     }
-        // }).render();
-
-        // var plArray=[{id:0,zhName:'单式直选'},{id:1,zhName:'直选和值'}];
-        // this.$('select[name=payStatus]').html(_(plArray).map(function (qr) {
-        //     return '<option value="'+qr.id+'">'+qr.zhName+'</option>';
-        // }).join(''));
-        //
-        // var plArray=[{id:0,zhName:'单式直选'},{id:1,zhName:'直选和值'}];
-        // this.$('select[name=widthdrawStatus]').html(_(plArray).map(function (qr) {
-        //     return '<option value="'+qr.id+'">'+qr.zhName+'</option>';
-        // }).join(''));
-
         if(this.options.reqData.username){
             this.$('input[name="username"]').val(this.options.reqData.username);
         }
+
         SearchGrid.prototype.onRender.apply(this, arguments);
     },
 
@@ -161,4 +140,4 @@ var ProfitAndLoss = SearchGrid.extend({
 
 });
 
-module.exports = ProfitAndLoss;
+module.exports = TransforRecords;

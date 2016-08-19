@@ -172,6 +172,7 @@ module.exports = {
       'dynamicCenter': 'apps/main/dynamicCenter',
       'helpCenter': 'apps/main/helpCenter',
       'gameCenter': 'apps/main/gameCenter',
+      'bettingButler': 'apps/main/bettingButler',
 
       'snap': 'Snap.svg/dist/snap.svg',
       'bootstrap': 'vendor/scripts/bootstrap',

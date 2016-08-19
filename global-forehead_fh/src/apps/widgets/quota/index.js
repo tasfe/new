@@ -150,8 +150,6 @@ $.widget('gl.quota', {
       };
     }
 
-    console.log(quotaList);
-
     //quotaList.push($('js-quota-rebate-01').val());
     //console.log(quotaList);
     return Global.sync.ajax({
