@@ -84,7 +84,7 @@ var BettingRecordsView = SearchGrid.extend({
         subUser: 0
       },
       listProp: 'root.betList',
-      tip: '<div class="m-left-md"><span>注意:</span> 投注记录只保留最近30天。</div>',
+      tip: '<div class="m-left-md m-top-md text-hot"><span>注意:</span> 投注记录只保留最近30天。</div>',
       height: 310
     });
     Global.memoryCache.set('ticketCachedList', []);
