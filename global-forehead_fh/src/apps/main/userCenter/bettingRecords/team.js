@@ -12,6 +12,8 @@ var BettingRecordsView = SearchGrid.extend({
 
   template: require('./index.html'),
 
+
+
   events: {
     'click .js-excess-cell': 'dateSelectHandler',
     'click .js-toggle-seach': 'toggleseachHandler'
@@ -91,6 +93,7 @@ var BettingRecordsView = SearchGrid.extend({
   },
 
   onRender: function() {
+    this.$('.js-pf-search-grid').addClass('bc-report-table');
 
     //初始化时间选择
     new Timeset({
