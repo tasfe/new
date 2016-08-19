@@ -35,14 +35,20 @@ var HeaderView = Base.ItemView.extend({
     'click .js-athena_st_01': 'tempClick',
     'click .js-athena_st_05': 'tempClick',
     'click .js-athena_st_06': 'tempClick',
-    //鼠标经过
-    'mouseover .js-athena_st_04': 'tempMouse',
-    'mouseover .js-athena_st_02': 'tempMouse',
-    'mouseover .js-athena_st_03': 'tempMouse',
-    'mouseover .js-athena_st_01': 'tempMouse',
-    'mouseover .js-athena_st_05': 'tempMouse',
-    'mouseover .js-athena_st_06': 'tempMouse',
+    'click .js-athena_st_07': 'tempClick',
+    'click .js-athena_st_08': 'tempClick',
+    'click .js-athena_st_09': 'tempClick',
+    'click .js-athena_st_10': 'tempClick',
 
+    //鼠标经过
+    'mouseover .js-athena_st_04': 'tempMouseover',
+    'mouseover .js-athena_st_02': 'tempMouseover',
+    'mouseover .js-athena_st_03': 'tempMouseover',
+    'mouseover .js-athena_st_01': 'tempMouseover',
+    'mouseover .js-athena_st_05': 'tempMouseover',
+    'mouseover .js-athena_st_06': 'tempMouseover',
+
+    //
     'mouseout .js-athena_st_04': 'tempMouseOut',
     'mouseout .js-athena_st_02': 'tempMouseOut',
     'mouseout .js-athena_st_03': 'tempMouseOut',
@@ -51,15 +57,11 @@ var HeaderView = Base.ItemView.extend({
     'mouseout .js-athena_st_06': 'tempMouseOut'
 
     },
-  tempMouse:function(e){
+  tempMouseover:function(e){
     //this.clearClick();
     var $target = $(e.currentTarget);
-    //$(e.currentTarget).mouseover(function(){
-    //      alert(index);
-    //})
     var index = $target.data('index');
     var self = this;
-    // alert(index);
     if(index==1) {
         if(! self.$('.js-athena_st_01').hasClass('athnea-st_03')) {
           self.$('.js-athena_st_01').removeClass('athnea-st_01').removeClass('athnea-st_02').removeClass('athnea-st_03');
@@ -78,6 +80,25 @@ var HeaderView = Base.ItemView.extend({
         self.$('.js-athena_st_03').addClass('athnea-zr_02');
       }
     };
+    if(index==4) {
+      if(! self.$('.js-athena_st_04').hasClass('athnea-yh_03')) {
+        self.$('.js-athena_st_04').removeClass('athnea-yh_01').removeClass('athnea-yh_02').removeClass('athnea-yh_03');
+        self.$('.js-athena_st_04').addClass('athnea-yh_02');
+      }
+    };
+    if(index==5) {
+      if(! self.$('.js-athena_st_05').hasClass('athnea-gg_03')) {
+        self.$('.js-athena_st_05').removeClass('athnea-gg_01').removeClass('athnea-gg_02').removeClass('athnea-gg_03');
+        self.$('.js-athena_st_05').addClass('athnea-gg_02');
+      }
+    };
+    if(index==6) {
+      if(! self.$('.js-athena_st_06').hasClass('athnea-zx_03')) {
+        self.$('.js-athena_st_06').removeClass('athnea-zx_01').removeClass('athnea-zx_02').removeClass('athnea-zx_03');
+        self.$('.js-athena_st_06').addClass('athnea-zx_02');
+      }
+    };
+
   },
 
   tempMouseOut:function(e){
@@ -105,6 +126,24 @@ var HeaderView = Base.ItemView.extend({
       if(! self.$('.js-athena_st_03').hasClass('athnea-zr_03')) {
         self.$('.js-athena_st_03').removeClass('athnea-zr_01').removeClass('athnea-zr_02').removeClass('athnea-zr_03');
         self.$('.js-athena_st_03').addClass('athnea-zr_01');
+      }
+    };
+    if(index==4) {
+      if(! self.$('.js-athena_st_04').hasClass('athnea-yh_03')) {
+        self.$('.js-athena_st_04').removeClass('athnea-yh_01').removeClass('athnea-yh_02').removeClass('athnea-yh_03');
+        self.$('.js-athena_st_04').addClass('athnea-yh_01');
+      }
+    };
+    if(index==5) {
+      if(! self.$('.js-athena_st_05').hasClass('athnea-gg_03')) {
+        self.$('.js-athena_st_05').removeClass('athnea-gg_01').removeClass('athnea-gg_02').removeClass('athnea-gg_03');
+        self.$('.js-athena_st_05').addClass('athnea-gg_01');
+      }
+    };
+    if(index==6) {
+      if(! self.$('.js-athena_st_06').hasClass('athnea-zx_03')) {
+        self.$('.js-athena_st_06').removeClass('athnea-zx_01').removeClass('athnea-zx_02').removeClass('athnea-zx_03');
+        self.$('.js-athena_st_06').addClass('athnea-zx_01');
       }
     };
   },
@@ -144,7 +183,7 @@ var HeaderView = Base.ItemView.extend({
     };
     if(index==6) {
       this.$('.js-athena_st_06').removeClass('athnea-zx_01').removeClass('athnea-zx_02').removeClass('athnea-zx_03');
-      $('.js-athena_st_06').addClass('athnea-zx_03');
+      $('.js-athena_zx_06').addClass('athnea-zx_03');
     };
 
   },
