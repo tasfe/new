@@ -48,7 +48,7 @@ var OpenAccountManageView = Base.ItemView.extend({
       if (res && res.result === 0) {
         var rows =_(data.linkList).map(function (linkInfo) {
           var rank = '/';
-          if(linkInfo.subAcctRebate != 0){ rank = linkInfo.subAcctRebate; }
+          if(linkInfo.subAcctRebate != 0){ rank = linkInfo.subAcctRebate / 10; }
           return{
             userLinkId: linkInfo.userLinkUrl,
             regUserNum: linkInfo.regUserNum,
@@ -100,9 +100,9 @@ var OpenAccountManageView = Base.ItemView.extend({
           var link = _('/register.html?linkId=' + userLinkId).toLink();
           return  '<div class="linkAddress">'+link+'</div>';
         },width: 200},
-        {label: '链接生成时间', name: 'createTime',width: 100},
-        {label: '反点等级', name: 'rank',width: 100},
-        {label: '点击人数', name: 'accessNum',width: 100},
+        {label: '链接生成时间', name: 'createTime',width: 120},
+        {label: '返点等级', name: 'rank',width: 90},
+        {label: '点击人数', name: 'accessNum',width: 90},
         {label: '已注册人数', name: 'regUserNum',width: 100},
         {label: '备注用途', name: 'userLinkDes',width: 100},
         {label: '操作', name: 'userLinkId',formatter:function(userLinkId, index) {
@@ -244,10 +244,7 @@ var OpenAccountManageView = Base.ItemView.extend({
           var superPlay = '';
           var normalPlay = '';
 
-          if(info.sericeName==='时时彩' ){
-            superPlay = '<br /><div style="height:1px; width:100%; background:#c2c2c2;margin-top:5px; padding:0 3px; margin-left:-3px;"></div><span style="padding-top:5px; display:block;">3000</span>';
-            normalPlay ='';
-          }
+
           return '<span class="js-ac-openAccount-maxBonus" data-maxBonus="'+val+'" data-name="'+info.sericeName+'">'+ normalPlay +
             self.calculateMaxBonus(info.sericeName,_(info.subAcctRebate).formatDiv(10),val)+'</span>' + superPlay;
         }},

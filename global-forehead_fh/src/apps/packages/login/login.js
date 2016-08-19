@@ -15,6 +15,8 @@ $.widget('gl.login', {
   resetInput: false,
 
   _create: function () {
+    $('body').css('display','none');
+    
 
     this.element.html(_(this.template).template()({
       time: moment().format('M月DD日 ddd'),
@@ -107,28 +109,20 @@ $.widget('gl.login', {
       })
         .always(function(res) {
           self.element.find('.js-connect-server-' + index).addClass('connect-speeds-tested connect-speeds-' + Math.floor((Date.now() - start) / 200));
+          $('body').css('display','block');
         });
     });
+
   },
 
   _bindEvent: function () {
     var self = this;
-    //绑定事件
-    //this._on(this.$form,{
-    //  'submit': 'loginHandler'//校验用户名
-    //});
     this._on({
       'click .js-login-login-btn': 'valCodeHandler',//校验用户名
-    //  'blur .js-login-valCode': 'valCodeHandler',//校验验证码
-    //  'blur input[name="username"]': 'valUsernameNeedValCode',//校验是否需要输入验证码
-    //  'blur input[name="loginPwd"]': 'valUsernameNeedValCode',//校验是否需要输入验证码
       'click .js-login-valImg': 'refreshValCodeHandler',//刷新验证码
       'click input[type!=hidden]': 'resetInputHandler',
       'click .js-showConnectTest': 'showConnectTest'
     });
-    //this.$valCode.on('keyup', function() {
-    //  self.valCodeHandler();
-    //});
   },
 
   _onPageLoaded: function() {

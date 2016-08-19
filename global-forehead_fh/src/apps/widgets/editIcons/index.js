@@ -10,6 +10,7 @@ $.widget('gl.editIcons', {
 
   _create: function() {
     var self = this;
+    
     var body = [];
     body.push('<div class="text-center margin-sm julien-dialog">');
     body.push('<div class="uc-bank-manage-lock">');
