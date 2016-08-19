@@ -1,11 +1,11 @@
 "use strict";
 
-var bettingButlerController = require('bettingButlerController/controller');
+var bettingButlerController = require('./controller');
 
 exports.install = function() {
 
   window.Global.appRouter.processAppRoutes(new bettingButlerController(), {
-    'bbc/sp': 'bettingbutler'
+    'tzgj': 'bettingbutler'
   });
 
 };

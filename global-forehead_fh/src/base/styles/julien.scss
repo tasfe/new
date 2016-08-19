@@ -2,6 +2,11 @@ body{
 	background: url('~base/images/fh/bg.png') no-repeat #f8f8f8;
 	font-family: '微软雅黑';
 }
+
+.table{
+	font-size: 14px;
+	color: #666666;
+}
 .modal-lg-julien{
 	width: 1020px !important;
 	margin-left: -510px !important;
@@ -569,7 +574,24 @@ body{
 		background-color: #c2b5ed;
 		color: #fff;
 	}
+
+	.price2{
+		background-color: #edb5d9;
+		color: #fff;
+	}
+	
 }
+
+.lowLevelManage-view{
+	.get-red{
+		color: #cf4f45;
+		cursor: pointer;
+	}
+	.get-no{
+		color: #cccccc;
+	}
+}
+
 
 .slimScrollDiv{
 	table{
@@ -592,6 +614,13 @@ body{
 	padding: 7px 19px;
 	border: 0px;
 	color: #fff;
+}
+.julien-button2{
+	background-color: #cc0000;
+	padding: 7px 19px;
+	border: 0px;
+	color: #fff;
+	margin-top: 15px;
 }
 .julien-button-margin{
 	margin-left:430px;
@@ -620,4 +649,30 @@ dl,dt,dd{
 	padding-top: 20px;
 	border-top: 1px solid #e2e2e2;
 	text-align: center;
+}
+
+.julien-table-content{
+	border-left: 1px solid #ccc;
+	
+	td{
+		border-right: 1px solid #ccc;
+		border-bottom: 1px solid #ccc;
+	}
+}
+
+.julien-title{
+	line-height: 40px;
+}
+
+.julien-remark{
+	border: 1px solid #ccc;
+}
+
+.modal-dialog{
+	font-size: 14px;
+	color: #999;
+}
+
+.margin20-0{
+	margin: 20px 0px;
 }

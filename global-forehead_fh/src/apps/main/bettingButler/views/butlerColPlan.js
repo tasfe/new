@@ -2,7 +2,7 @@
 
 var butlerColPlan = Base.ItemView.extend({
 
-    template: require('bettingButler/templates/butlerColPlan.html'),
+    template: require('bettingButler/templates/myCollectedPlan.html'),
 
     startOnLoading: true,
 

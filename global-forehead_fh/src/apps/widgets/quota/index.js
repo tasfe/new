@@ -36,7 +36,6 @@ $.widget('gl.quota', {
 
   bindTable: function () {
     var self = this;
-
     this.getQuotaCfg().done(function(res) {
       if (res && res.result === 0) {
         var strTitle = '';
@@ -150,8 +149,6 @@ $.widget('gl.quota', {
         rebate: $('.js-quota-rebate-01').eq(i).data('id')
       };
     }
-
-    console.log(quotaList);
 
     //quotaList.push($('js-quota-rebate-01').val());
     //console.log(quotaList);

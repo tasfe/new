@@ -24,10 +24,154 @@ var HeaderView = Base.ItemView.extend({
     'click .js-gl-hd-logout': 'logoutHandler',
     'mouseover .js-bc-lottery-list': 'lotteryListHandler',
     'mouseout .js-bet-lottery-menu': 'outlotteryListHandler',
-    'click .js-affiche-show': 'afficShowHandler'
+    'click .js-affiche-show': 'afficShowHandler',
+    //'mouseover .js-athena_cp_01':'athenahover',
+    //'mouseover .js-athena_gg_01':'athenahover_gg',
+    //'mouseover .js-athena_st_01':'athenahover_st',
+    //'mouseover .js-athena_zr_01':'athenahover_zr',
+    'click .js-athena_st_04': 'tempClick',
+    'click .js-athena_st_02': 'tempClick',
+    'click .js-athena_st_03': 'tempClick',
+    'click .js-athena_st_01': 'tempClick',
+    'click .js-athena_st_05': 'tempClick',
+    'click .js-athena_st_06': 'tempClick',
+    //鼠标经过
+    'mouseover .js-athena_st_04': 'tempMouse',
+    'mouseover .js-athena_st_02': 'tempMouse',
+    'mouseover .js-athena_st_03': 'tempMouse',
+    'mouseover .js-athena_st_01': 'tempMouse',
+    'mouseover .js-athena_st_05': 'tempMouse',
+    'mouseover .js-athena_st_06': 'tempMouse',
+
+    'mouseout .js-athena_st_04': 'tempMouseOut',
+    'mouseout .js-athena_st_02': 'tempMouseOut',
+    'mouseout .js-athena_st_03': 'tempMouseOut',
+    'mouseout .js-athena_st_01': 'tempMouseOut',
+    'mouseout .js-athena_st_05': 'tempMouseOut',
+    'mouseout .js-athena_st_06': 'tempMouseOut'
+
+    },
+  tempMouse:function(e){
+    //this.clearClick();
+    var $target = $(e.currentTarget);
+    //$(e.currentTarget).mouseover(function(){
+    //      alert(index);
+    //})
+    var index = $target.data('index');
+    var self = this;
+    // alert(index);
+    if(index==1) {
+        if(! self.$('.js-athena_st_01').hasClass('athnea-st_03')) {
+          self.$('.js-athena_st_01').removeClass('athnea-st_01').removeClass('athnea-st_02').removeClass('athnea-st_03');
+          self.$('.js-athena_st_01').addClass('athnea-st_02');
+        }
+    };
+    if(index==2) {
+      if(! self.$('.js-athena_st_02').hasClass('athnea-cp_03')) {
+        self.$('.js-athena_st_02').removeClass('athnea-cp_01').removeClass('athnea-cp_02').removeClass('athnea-cp_03');
+        self.$('.js-athena_st_02').addClass('athnea-cp_02');
+      }
+    };
+    if(index==3) {
+      if(! self.$('.js-athena_st_03').hasClass('athnea-zr_03')) {
+        self.$('.js-athena_st_03').removeClass('athnea-zr_01').removeClass('athnea-zr_02').removeClass('athnea-zr_03');
+        self.$('.js-athena_st_03').addClass('athnea-zr_02');
+      }
+    };
   },
 
+  tempMouseOut:function(e){
+    //this.clearClick();
+    var $target = $(e.currentTarget);
+    //$(e.currentTarget).mouseover(function(){
+    //      alert(index);
+    //})
+    var index = $target.data('index');
+    var self = this;
+    // alert(index);
+    if(index==1) {
+      if(!$('.js-athena_st_01').hasClass('athnea-st_03')) {
+        self.$('.js-athena_st_01').removeClass('athnea-st_01').removeClass('athnea-st_02').removeClass('athnea-st_03');
+        self.$('.js-athena_st_01').addClass('athnea-st_01');
+      }
+    };
+    if(index==2) {
+      if(! self.$('.js-athena_st_02').hasClass('athnea-cp_03')) {
+        self.$('.js-athena_st_02').removeClass('athnea-cp_01').removeClass('athnea-cp_02').removeClass('athnea-cp_03');
+        self.$('.js-athena_st_02').addClass('athnea-cp_01');
+      }
+    };
+    if(index==3) {
+      if(! self.$('.js-athena_st_03').hasClass('athnea-zr_03')) {
+        self.$('.js-athena_st_03').removeClass('athnea-zr_01').removeClass('athnea-zr_02').removeClass('athnea-zr_03');
+        self.$('.js-athena_st_03').addClass('athnea-zr_01');
+      }
+    };
+  },
+
+  tempClick:function(e) {
+
+    this.clearClick();
+    var $target = $(e.currentTarget);
+    //$(e.currentTarget).mouseover(function(){
+    //      alert(index);
+    //})
+    var index = $target.data('index');
+   // alert(index);
+    if(index==1) {
+      this.$('.js-athena_st_01').removeClass('athnea-st_01').removeClass('athnea-st_02').removeClass('athnea-st_03');
+      $('.js-athena_st_01').addClass('athnea-st_03');
+
+      this.$('.js-athena_st_01').removeClass('athnea-st_01').removeClass('athnea-st_02').removeClass('athnea-st_03');
+      $('.js-athena_st_01').addClass('athnea-st_03');
+    };
+    if(index==2) {
+      this.$('.js-athena_st_02').removeClass('athnea-cp_01').removeClass('athnea-cp_02').removeClass('athnea-cp_03');
+      $('.js-athena_st_02').addClass('athnea-cp_03');
+
+    };
+    if(index==3) {
+      this.$('.js-athena_st_03').removeClass('athnea-zr_01').removeClass('athnea-zr_02').removeClass('athnea-zr_03');
+      $('.js-athena_st_03').addClass('athnea-zr_03');
+    };
+    if(index==4) {
+      this.$('.js-athena_st_04').removeClass('athnea-yh_01').removeClass('athnea-yh_02').removeClass('athnea-yh_03');
+      $('.js-athena_st_04').addClass('athnea-yh_03');
+    };
+    if(index==5) {
+      this.$('.js-athena_st_05').removeClass('athnea-gg_01').removeClass('athnea-gg_02').removeClass('athnea-gg_03');
+      $('.js-athena_st_05').addClass('athnea-gg_03');
+    };
+    if(index==6) {
+      this.$('.js-athena_st_06').removeClass('athnea-zx_01').removeClass('athnea-zx_02').removeClass('athnea-zx_03');
+      $('.js-athena_st_06').addClass('athnea-zx_03');
+    };
+
+  },
+
+  clearClick:function () {
+
+    $('.js-athena_st_02').removeClass('athnea-cp_01').removeClass('athnea-cp_02').removeClass('athnea-cp_03');
+    $('.js-athena_st_01').removeClass('athnea-st_01').removeClass('athnea-st_02').removeClass('athnea-st_03');
+    $('.js-athena_st_03').removeClass('athnea-zr_01').removeClass('athnea-zr_02').removeClass('athnea-zr_03');
+    $('.js-athena_st_04').removeClass('athnea-yh_01').removeClass('athnea-yh_02').removeClass('athnea-yh_03');
+    $('.js-athena_st_05').removeClass('athnea-gg_01').removeClass('athnea-gg_02').removeClass('athnea-gg_03');
+    $('.js-athena_st_06').removeClass('athnea-zx_01').removeClass('athnea-zx_02').removeClass('athnea-zx_03');
+
+
+    $('.js-athena_st_02').addClass('athnea-cp_01');
+    $('.js-athena_st_01').addClass('athnea-st_01');
+    $('.js-athena_st_03').addClass('athnea-zr_01');
+    $('.js-athena_st_04').addClass('athnea-yh_01');
+    $('.js-athena_st_05').addClass('athnea-gg_01');
+    $('.js-athena_st_06').addClass('athnea-zx_01');
+
+
+  },
+
+
   afficShowHandler: function() {
+
     var self = this;
     var html = '<div class="affiche-body-back">'+
         '<div class="affiche-body-leftBody">' +
@@ -200,6 +344,67 @@ var HeaderView = Base.ItemView.extend({
         $('.head li').removeClass('sd');
         $(this).addClass('sd');
       }
+    });
+
+    this.$('.athena-asdf').find('.js-lottery-id').on('click',function () {
+      self.clearClick();
+      self.$('.js-athena_st_02').removeClass('athnea-cp_01').removeClass('athnea-cp_02').removeClass('athnea-cp_03');
+      self.$('.js-athena_st_02').addClass('athnea-cp_03');
+
+    });
+    //this.initMenuList();
+  },
+
+  initMenuList: function() {
+    var self = this;
+    this.$('.js-athena_st_01').mouseover(function(){
+      self.$('.js-athena_st_01').removeClass('athnea-st_01').removeClass('athnea-st_02').removeClass('athnea-st_03');
+      $('.js-athena_st_01').addClass('athnea-st_02');
+    });
+    this.$('.js-athena_st_01').mouseout(function(){
+      self.$('.js-athena_st_01').removeClass('athnea-st_01').removeClass('athnea-st_02').removeClass('athnea-st_03');
+      $('.js-athena_st_01').addClass('athnea-st_01');
+    });
+
+    this.$('.js-athena_st_02').mouseover(function(){
+      self.$('.js-athena_st_02').removeClass('athnea-cp_01').removeClass('athnea-cp_02').removeClass('athnea-cp_03');
+      $('.js-athena_st_02').addClass('athnea-cp_02');
+    });
+    this.$('.js-athena_st_02').mouseout(function(){
+      self.$('.js-athena_st_02').removeClass('athnea-cp_01').removeClass('athnea-cp_02').removeClass('athnea-cp_03');
+      $('.js-athena_st_02').addClass('athnea-cp_01');
+    });
+
+
+    this.$('.js-athena_st_03').mouseover(function(){
+      self.$('.js-athena_st_03').removeClass('athnea-zr_01').removeClass('athnea-zr_02').removeClass('athnea-zr_03');
+      $('.js-athena_st_03').addClass('athnea-zr_02');
+    });
+    this.$('.js-athena_st_03').mouseout(function(){
+      self.$('.js-athena_st_03').removeClass('athnea-zr_01').removeClass('athnea-zr_02').removeClass('athnea-zr_03');
+      $('.js-athena_st_03').addClass('athnea-zr_01');
+    });
+    //优惠活动
+    this.$('.js-athena_st_04').mouseover(function(){
+      self.$('.js-athena_st_04').removeClass('athnea-yh_01').removeClass('athnea-yh_02').removeClass('athnea-yh_03');
+      $('.js-athena_st_03').addClass('athnea-yh_02');
+    });
+    this.$('.js-athena_st_04').mouseout(function(){
+      self.$('.js-athena_st_04').removeClass('athnea-yh_01').removeClass('athnea-yh_02').removeClass('athnea-yh_03');
+      $('.js-athena_st_04').addClass('athnea-yh_01');
+    });
+    //平台公告
+    this.$('.js-athena_st_05').mouseover(function(){
+      self.$('.js-athena_st_05').removeClass('athnea-gg_01').removeClass('athnea-gg_02').removeClass('athnea-gg_03');
+      $('.js-athena_st_03').addClass('athnea-gg_02');
+    });
+    this.$('.js-athena_st_05').mouseout(function(){
+      self.$('.js-athena_st_05').removeClass('athnea-gg_01').removeClass('athnea-gg_02').removeClass('athnea-gg_03');
+      $('.js-athena_st_05').addClass('athnea-gg_01');
+    });
+    this.$('.js-athena_st_06').mouseout(function(){
+      self.$('.js-athena_st_06').removeClass('athnea-zx_01').removeClass('athnea-zx_02').removeClass('athnea-zx_03');
+      $('.js-athena_st_06').addClass('athnea-zx_01');
     });
   },
 

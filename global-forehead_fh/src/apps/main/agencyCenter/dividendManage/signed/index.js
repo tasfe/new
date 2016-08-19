@@ -11,32 +11,65 @@ var SignedView = Base.ItemView.extend({
   events: {
     'click .js-ac-check-agreement': 'checkAgreementHandler',
     'click .js-add-area': 'addArea',
+    'click .js-ac-next': 'saveData',
     'change #jsAcAgreeSign': 'changeAgreeHandler',
-    'change .js-ac-divid': 'dividChangeHandler',
-    'submit .js-ac-signed-form': 'nextHandler',
-    'submit .js-ac-verify-form': 'confirmHandler'
+    'change .js-rebetRate': 'dividChangeHandler',
+    'submit .js-ac-signed-form': 'nextHandler'
+  },
+
+  saveData: function () {
+    var clpValidate = this.$('.js-ac-signed-form').parsley().validate();
+    if (clpValidate) {
+      var self = this;
+      var $btnConfirm = this.$('.js-ac-next');
+      $btnConfirm.button('loading');
+
+      this.signXhr()
+      .always(function() {
+        $btnConfirm.button('reset');
+      })
+      .done(function(res) {
+        if (res && res.result === 0) {
+          $('.modal-lg-julien').modal('hide');
+          Global.ui.notification.show('操作成功！<br />等待下级同意签约。');
+        } else {
+          Global.ui.notification.show(res.msg || '');
+        }
+      });
+    }
   },
 
   addArea: function () {
-   // alert(1);
+    if ($('.js-betTotal').val() != '' && $('.js-rebetRate').val() != '') {
       $('.js-julien-dm-area').removeClass('hidden');
-     $('.julien-dm-area').append('<dl><dd><span class="js-athena-span-01" >234</span></dd><dd><span class="js-athena-span-02">123</span>%</dd><dt><span class="athena-dl-area">删除</span></dt> </dl>');
+      $('.julien-dm-area').append('<dl><dd>≥<span class="js-athena-span-01" >' + $('[name="betTotal"]').val() +'</span></dd><dd><span class="js-athena-span-02">' + $('[name="divid"]').val() + '</span>%</dd><dt><span class="athena-dl-area">删除</span></dt> </dl>');
 
-    $('.athena-dl-area').click(function(){
-       $(this).parent().parent().remove();
-      console.log(this.index);
-    });
-    $('.js-add-area').click(function(){
-      //alert(1);
-      $('.js-athena-span-01').eq($('.js-athena-span-01').length -1).html($('[name="betTotal"]').val());
-      $('.js-athena-span-02').eq($('.js-athena-span-02').length -1).html($('[name="divid"]').val());
-    })
+      $('.athena-dl-area').click(function(){
+         $(this).parent().parent().remove();
+
+         if ($('.js-julien-dm-area dl').length == 1) {
+          $('.js-julien-dm-area').addClass('hidden');
+         }
+      });
+    }
   },
 
-  signXhr: function(data) {
+  signXhr: function() {
+    var itemList = [];
+    for (var i = 0; i < $('.js-athena-span-01').length; i++){
+      itemList[i] = {
+        betTotal: $('.js-athena-span-01').eq(i).text(),
+        divid: $('.js-athena-span-02').eq(i).text() *10
+      };
+    }
+
     return Global.sync.ajax({
       url: '/fund/divid/sign.json',
-      data: data
+      tradition: true,
+      data:{
+        username: $('.js-username').val(),
+        itemList: itemList
+      }
     });
   },
 
@@ -78,6 +111,28 @@ var SignedView = Base.ItemView.extend({
 
       return valid;
     }, '/fund/divid/valid.json');
+
+    var listContent = $('.js-update-content').val();
+    var username = $('.js-update-username').val();
+    if (listContent != '') {
+      $('.js-username').val(username);
+      $('.js-julien-dm-area').removeClass('hidden');
+
+      var data = listContent.split(' ');
+      var obj = {};
+      for (var i = 0; i < data.length - 1; i++) {
+        obj = eval('(' + data[i] + ')');
+        $('.julien-dm-area').append('<dl><dd>≥<span class="js-athena-span-01" >' + obj.betTotal/10000 +'</span></dd><dd><span class="js-athena-span-02">' + obj.divid/100 + '</span>%</dd><dt><span class="athena-dl-area">删除</span></dt> </dl>');
+      }
+
+      $('.athena-dl-area').click(function(){
+         $(this).parent().parent().remove();
+
+         if ($('.js-julien-dm-area dl').length == 1) {
+          $('.js-julien-dm-area').addClass('hidden');
+         }
+      });
+    }
   },
 
   changeAgreeHandler: function(e) {
@@ -92,25 +147,6 @@ var SignedView = Base.ItemView.extend({
     this.$verify.html(this.verifyTpl(_({
       dividConf: this.options.dividConf
     }).extend(this.data)));
-  },
-
-  confirmHandler: function(e) {
-    var self = this;
-    var $btnConfirm = this.$('.js-ac-confirm');
-    $btnConfirm.button('loading');
-
-    this.signXhr(this.data)
-      .always(function() {
-        $btnConfirm.button('reset');
-      })
-      .done(function(res) {
-        if (res && res.result === 0) {
-          Global.ui.notification.show('操作成功！<br />等待下级同意签约。');
-          self.trigger('hide');
-        } else {
-          Global.ui.notification.show(res.msg || '');
-        }
-      });
   },
 
   checkAgreementHandler: function(e) {

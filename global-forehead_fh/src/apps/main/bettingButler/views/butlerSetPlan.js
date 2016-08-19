@@ -1,64 +1,40 @@
 "use strict";
 
-var butlerSetPlan = Base.ItemView.extend({
+var TabView = require('com/tabView');
 
-    template: require('bettingButler/templates/butlerSetPlan.html'),
+var periodWay = require('bettingButler/views/periodWay');
+var cycleWay = require('bettingButler/views/cycleWay');
 
-    startOnLoading: true,
+var butlerSetPlan = TabView.extend({
 
-    events: {
-        'click .js-list-active': 'activeChangeHandler'
-    },
-
-
+    className: 'bb-butler-view menu-bock-butler',
 
     onRender: function() {
-
-        var self = this;
-        
-        self.loadingFinish();
-
+        this.initialize();
     },
 
-   
 
-    renderActiveGrid: function(pageIndex) {
-        var self = this;
-        this.$activeContext.empty();
-        this.getActiveXhr({
-                pageSize: 10,
-                pageIndex: pageIndex,
-                type:type
-            })
-            .always(function() {
-                self.loadingFinish();
-            })
-            .done(function(res) {
-                var data = res.root || {};
-                if (res && res.result === 0) {
-
-
-                } else {
-                    Global.ui.notification.show('加载失败，请稍后再试');
+    initialize: function() {
+        _(this.options).extend({
+            tabs: [
+                {
+                    label: '期数方式',
+                    name: 'manual',
+                    id: 'jsAcManualAccount',
+                    view: periodWay
+                },
+                {
+                    label: '周期方式',
+                    name: 'auto',
+                    id: 'jsAcAutoAccount',
+                    view: cycleWay
                 }
-            });
-    },
+            ]
+        });
 
-
-
-    getEmptyHtml: function(emptyTip) {
-        var html = [];
-        if (emptyTip) {
-            html.push('<div class="js-wt-empty-container empty-container text-center">');
-            html.push('<div class="empty-container-main">');
-            html.push('<div class="sfa-grid-empty"></div>');
-            html.push(emptyTip);
-            html.push('</div>');
-            html.push('</div>');
-        }
-
-        return html.join('');
     }
+
+
 });
 
 module.exports = butlerSetPlan;

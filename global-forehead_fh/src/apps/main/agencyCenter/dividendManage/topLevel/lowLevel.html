@@ -1,10 +1,25 @@
-<div class="control-group">
-  <label class="control-label">用户名:</label>
-  <input type="text" class="input-sm m-right-md" name="username">
 
-  <label class="control-label">状态:</label>
-  <select name="status" class="input-sm m-right-md">
-    <option value="-1">全部</option>
-  </select>
-  <button type="submit" class="btn">搜索</button>
+<div class="search-condition-table">
+	<div class="row1">
+		<dl class="width165">
+	      <dt>周期查询</dt>
+	      <dd><input type="text" name="cycle"></dd>
+	    </dl>
+		<dl class="width155">
+	      <dt>用户名</dt>
+	      <dd><input type="text" name="username"></dd>
+	    </dl>
+	    <dl class="width160">
+		    <dt>状态</dt>
+		    <dd>
+		      	<select name="status">
+					<option value="-1">全部</option>
+				</select>
+			</dd>
+	    </dl>
+	    <div>
+	      <button type="submit">搜索</button>
+	    </div>
+	</div>
 </div>
+<div class="js-ac-user-grid"></div>

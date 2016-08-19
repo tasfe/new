@@ -11,6 +11,7 @@ var SalaryManageView = SearchGrid.extend({
   className: 'lowLevelManage-view',
 
   events: {
+    'click .js-get-salary': 'getSalary'
   },
 
   initialize: function() {
@@ -58,6 +59,18 @@ var SalaryManageView = SearchGrid.extend({
     });
   },
 
+  getSalary: function () {
+    this.doRebateXhr()
+    .done(function(res) {
+      if (res && res.result === 0) {
+        $('.js-get-salary').html('已领取');
+        $('.js-get-salary').removeClass('.js-get-salary').removeClass('.get-red');
+        Global.ui.notification.show('领取成功！');
+      } else {
+        Global.ui.notification.show(res.msg);
+      }
+    });
+  },
 
   onRender: function () {
     //初始化时间选择
@@ -82,8 +95,17 @@ var SalaryManageView = SearchGrid.extend({
     SearchGrid.prototype.onRender.apply(this, arguments);
   },
 
+  doRebateXhr: function() {
+    return Global.sync.ajax({
+      url: '/info/rebateactivity/doget.json',
+      data: {
+        activityId: 6
+      }
+    });
+  },
+
   renderGrid: function(gridData) {
-    var rowsData = _(gridData.detailList).map(function(fundTrace, index, betList) {
+    var rowsData = _(gridData.itemList).map(function(fundTrace, index, betList) {
       return {
         columnEls: this.formatRowData(fundTrace, index, betList),
         dataAttr: fundTrace
@@ -100,11 +122,12 @@ var SalaryManageView = SearchGrid.extend({
       iIs = 1;
     }
 
-    this.grid.addFooterRows2({
+    this.grid.addFooterRows3({
       trClass: 'julien-table-footer',
       columnEls: [
-        '所有页面总计',
-        _(gridData.commissionAmount).fixedConvert2yuan()
+        '总计',
+        _(gridData.betTotal).fixedConvert2yuan(),
+        _(gridData.wagesTotal).fixedConvert2yuan()
       ],
       iIs: iIs
     }).hideLoading();
@@ -112,11 +135,24 @@ var SalaryManageView = SearchGrid.extend({
 
   formatRowData:function(rowInfo) {
     var row = [];
-console.log(rowInfo);
-    row.push('<span class="text-coffee">'+rowInfo.consumeUser+'</span>'+(rowInfo.online?onlineStatus:''));
-    row.push(rowInfo.relationship);
-    row.push(_(rowInfo.consumeAmount).fixedConvert2yuan());
-    row.push(_(rowInfo.commissionAmount).fixedConvert2yuan());
+    row.push(_(rowInfo.date).toDate());
+    row.push(_(rowInfo.bet).fixedConvert2yuan());
+    row.push(_(rowInfo.profit).fixedConvert2yuan());
+    row.push(rowInfo.rate + '%');
+    row.push(_(rowInfo.wages).fixedConvert2yuan());
+
+    var timestamp = Date.parse(new Date()) - 86400000;
+    if (rowInfo.status == 0) {
+      if (_(timestamp).toDate() == _(rowInfo.date).toDate()) {
+        row.push('<span class="js-get-salary get-red">领取</span>');
+      }
+      else{
+        row.push('<span class="get-no">未领取</span>');
+      }
+    }
+    else{
+      row.push('<span class="get-no">已领取</span>');
+    }
 
     return row;
   }
