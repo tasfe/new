@@ -10,8 +10,9 @@
 </ul>
 
 <%=append%>
-<div id="<%=_.unique() %>" class="view-container tab-content">
+<div id="<%=_.unique() %>" class="view-container tab-content <%=tabClass%>-content">
   <% _(tabs).each(function(tab, index) { %>
   <div id="<%=tab.id %>" class="tab-pane fade <% if ((!triggerTab && index) === 0 || (tab.name === triggerTab)) { %>in active <% } %>"></div>
   <% }); %>
+  <p class="clear" style="clear:both;"></p>
 </div>

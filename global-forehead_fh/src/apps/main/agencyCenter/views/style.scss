@@ -30,12 +30,12 @@
   //background: url("../misc/points.png") no-repeat;
   height:30px;
   line-height:30px;
-  width:1060px;
-  margin-left:20px;
+  width:1035px;
+  margin-left:50px;
   >span{
     //position: relative;
     display: inline-block;
-    width: 100px;
+    width: 140px;
     padding-left:3px;
 
   }
@@ -47,15 +47,16 @@
   display: inline-block;
   //background: url("../misc/points.png") no-repeat;
   height:17px;
-  width:1060px;
+  width:1035px;
   >span{
-    //position: relative;
+    position: relative;
     display: inline-block;
-    width:100px;
+    width:140px;
+    left:31px;
 
     border-left: 1px solid $white-color;
     img{
-      position: absolute; left:0;top:22px;
+      position: absolute; left:0px;top:22px;
     }
   }
   //>span :last-child{

@@ -197,7 +197,8 @@ var VipPointView = Base.ItemView.extend({
     var withValue = tempIndex* cvalue + ( (integral-tempValue)/(tempNext - tempValue))*cvalue ;
 
     var vippoints = '<div class="progressbar_1" >'+
-                    '<div class="bar" style="width: '+withValue+'%"></div><span style="margin-left: '+withValue+'% " >'+integral+'</span>'+
+                    '<div class="bar" style="width: '+withValue+'%">'+'</div>'+
+                     '<span style="margin-top:15px;position: absolute; margin-left: '+withValue+'% " >'+integral+'</span>'+
                     '</div>';
     row.push(vippoints);
 

@@ -27,12 +27,14 @@
 .uc-vip-head-grade {
   display: inline-block;
   background: url("./misc/points.png") no-repeat;
-  height:17px;
-  width:1060px;
+  line-height: 30px;
+  height:30px;
+  width:1035px;
+  margin-left:50px;
   >span{
     //position: relative;
     display: inline-block;
-    width: 150px;
+    width: 130px;
   }
 }
 
@@ -40,11 +42,11 @@
   display: inline-block;
   //background: url("./misc/points.png") no-repeat;
   height:17px;
-  width:1060px;
+  width:1020px;
   >span{
     position: relative;
     display: inline-block;
-    width: 150px;
+    width: 130px;
     img{
       position: absolute; left:0;top:20px;
     }

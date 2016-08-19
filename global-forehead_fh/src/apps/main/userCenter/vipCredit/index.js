@@ -12,6 +12,7 @@ var VipCreditView = TabView.extend({
 
   initialize: function() {
     _(this.options).extend({
+      tabClass:'vip-tab',
       tabs: [
         {
           label: '提交申请',
