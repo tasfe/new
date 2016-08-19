@@ -104,7 +104,6 @@ var EntryModel = Model.extend({
         });
       } else {
         find = ticketConfig.getComplete(Number(ops.router.match(/\d+/)[0]));
-
         return {
           type: 'ticket',
           initId: ops.initId,

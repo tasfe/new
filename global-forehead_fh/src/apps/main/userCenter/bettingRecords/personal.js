@@ -63,24 +63,17 @@ var BettingRecordsView = SearchGrid.extend({
   },
 
   onRender: function() {
-    //初始化时间选择
-  alert(1);
 
+
+    //初始化时间选择
     new Timeset({
       el: this.$('.js-pf-timeset'),
-      startTime: 'regTimeStart',
-      endTime: 'regTimeEnd',
-      startTimeHolder: '起始日期',
-      endTimeHolder: '结束日期',
-      size: 'julien-time',
-      prevClass: 'js-pf',
-      startOps: {
-        format: 'YYYY-MM-DD'
-      },
-      endOps: {
-        format: 'YYYY-MM-DD'
-      }
+      startDefaultDate: this.options.reqData.startTime?this.options.reqData.startTime:_(moment().startOf('day')).toTime(),
+      endDefaultDate: this.options.reqData.endTime?this.options.reqData.endTime:_(moment().endOf('day')).toTime()
     }).render();
+    if(this.options.reqData.username){
+      this.$('input[name="username"]').val(this.options.reqData.username);
+    }
 
     //初始化彩种选择
     //new TicketSelectGroup({
@@ -111,7 +104,6 @@ var BettingRecordsView = SearchGrid.extend({
     });
 
     //加上统计行
-
     this.grid.addFooterRows({
       //trClass: 'tr-footer',
       columnEls: [

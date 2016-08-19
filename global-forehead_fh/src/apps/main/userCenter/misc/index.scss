@@ -860,7 +860,7 @@
 }
  
 .uc-search-buttondiv{
-  width: 100px;
+  //width: 100px;
   height: 30px;
   float: right;
   margin-left: 70px;
@@ -931,9 +931,9 @@
 }
 
 .binding-card-icon{
-  background-color: red;
-  width: 120px;
-  height: 69px;
+  //background-color: red;
+  width: 206px;
+  height: 66px;
 }
 
 .binding-card-cardName{
@@ -956,8 +956,8 @@
 
 
 .binding-card-delete{
-
-  background-color: #cc0000;
+  background: url("bank-card-delete.png") no-repeat;
+  //background-color: #cc0000;
   position: relative;
   margin-left: 79px;
   height: 80px;

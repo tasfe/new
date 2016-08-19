@@ -30,7 +30,7 @@ exports.install = function() {
     'vip/prize': 'vipPrize',
     'vip/cash': 'vipCash',
     //'vip/info': 'vipInfo',
-    'vip/credit': 'vipCredit',
+    'vip/credit': 'vipCredit'
 
   });
 

@@ -36,7 +36,6 @@ $.widget('gl.quota', {
 
   bindTable: function () {
     var self = this;
-
     this.getQuotaCfg().done(function(res) {
       if (res && res.result === 0) {
         var strTitle = '';
