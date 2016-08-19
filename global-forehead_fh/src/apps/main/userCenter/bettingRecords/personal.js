@@ -8,20 +8,51 @@ var betStatusConfig = require('userCenter/misc/betStatusConfig');
 
 var BettingRecordsView = SearchGrid.extend({
 
-  template: require('./index.html'),
+  template: require('./personal.html'),
 
-  events: {},
-
+  events: {
+    'click .js-excess-cell': 'dateSelectHandler',
+    'click .js-toggle-seach': 'toggleseachHandler'
+  },
+  dateSelectHandler:function (e) {
+    this. $('.toggle-athena').removeClass('toggle-athena');
+    $(e.currentTarget).addClass('toggle-athena');
+    var recIndex = $(e.currentTarget).data('index');
+    if (recIndex===1){
+      this.$('.js-start-time').val(_(moment().add('days')).toDate()+' 0:00:00');
+    }else if (recIndex===2){
+      this.$('.js-start-time').val(_(moment().add('days',-3)).toDate()+' 0:00:00');
+    }else if (recIndex===3){
+      this.$('.js-start-time').val(_(moment().add('days',-7)).toDate()+' 0:00:00');
+    }
+  },
+  toggleseachHandler:function () {
+    if($('.js-toggle-seach').hasClass('on')) {
+      $('.search-condition-table .row2').addClass('hidden');
+      $('.js-toggle-seach').removeClass('on')
+    } else{
+      $('.search-condition-table .row2').removeClass('hidden');
+      $('.js-toggle-seach').addClass('on')
+    }
+  },
   initialize: function () {
     _(this.options).extend({
       columns: [
         {
-          name: '彩种名称',
+          name: '订单编号',
+          width: '15%'
+        },
+        {
+          name: '游戏名称',
           width: '10%'
         },
         {
           name: '投注奖期',
           width: '12%'
+        },
+        {
+          name: '投注时间',
+          width: '15%'
         },
         {
           name: '投注金额',
@@ -32,18 +63,11 @@ var BettingRecordsView = SearchGrid.extend({
           width: '12%'
         },
         {
-          name: '是否追号',
+          name: '盈亏金额',
           width: '8%'
-        },
-        {
-          name: '投注时间',
-          width: '15%'
-        },
-        {
-          name: '操作',
-          width: '15%'
         }
       ],
+      tableClass:'bc-report-table table table-bordered table-no-lr table-center',
       gridOps: {
         emptyTip: '没有投注记录'
       },
@@ -52,18 +76,16 @@ var BettingRecordsView = SearchGrid.extend({
         abort: false
       },
       reqData: {
-        subUser: 0
+        subUser: 1
       },
       listProp: 'root.betList',
-      tip: '<div class="m-left-md"><span>注意:</span> 投注记录只保留最近30天。</div>',
+      tip: '<div class="m-left-md m-top-md text-hot"><span>注意:</span> 投注记录只保留最近30天。</div>',
       height: 310
     });
-
     Global.memoryCache.set('ticketCachedList', []);
   },
 
   onRender: function() {
-
 
     //初始化时间选择
     new Timeset({
@@ -86,7 +108,6 @@ var BettingRecordsView = SearchGrid.extend({
 
     SearchGrid.prototype.onRender.apply(this, arguments);
 
-
   },
 
   renderGrid: function(gridData) {
@@ -107,17 +128,16 @@ var BettingRecordsView = SearchGrid.extend({
     this.grid.addFooterRows({
       //trClass: 'tr-footer',
       columnEls: [
-        '<div class="text-hot">所有页总计</div>', '',
+        '<div class="text-hot">所有页总计</div>', '','', '',
         '<div class="text-hot">' + _(gridData.betMoneyTotal).fixedConvert2yuan() + '</div>',
-        '<div class="text-hot">' + _(gridData.prizeMoneyTotal).convert2yuan() + '</div>',
-        '', '', ''
+        '<div class="text-hot">' + _(gridData.prizeMoneyTotal).convert2yuan() + '</div>', ''
       ]
-    })
-      .hideLoading();
+    }).hideLoading();
   },
 
   formatRowData: function(rowInfo) {
     var row = [];
+    row.push('<a class="router btn-link btn-link-sun" href="' + _.getUrl('/detail/' + rowInfo.ticketTradeNo) + '">查看详情</a>');
 
     row.push(rowInfo.ticketName);
     if(rowInfo.ticketPlanId==='mmc'){
@@ -126,11 +146,16 @@ var BettingRecordsView = SearchGrid.extend({
       row.push(rowInfo.ticketPlanId);
     }
 
+    row.push(_(rowInfo.betTime).toTime());
+
     if(rowInfo.betTotalMoney==0) {
       row.push('免费游戏');
     }else {
       row.push(_(rowInfo.betTotalMoney).fixedConvert2yuan());
     }
+
+
+    
     //0:未中奖，1：已中奖，2：用户撤单，3：系统撤单,ticketResult,prizeTotalMoney
     var status = _.checkBettingStatus({
       betStatus: rowInfo.ticketBetStatus,
@@ -146,8 +171,8 @@ var BettingRecordsView = SearchGrid.extend({
 
     row.push(status);
     row.push(rowInfo.chaseId ? '是' : '否');
-    row.push(_(rowInfo.betTime).toTime());
-    row.push('<a class="router btn-link btn-link-sun" href="' + _.getUrl('/detail/' + rowInfo.ticketTradeNo) + '">查看详情</a>');
+
+
 
     return row;
   }

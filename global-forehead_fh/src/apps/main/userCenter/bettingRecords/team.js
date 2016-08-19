@@ -12,6 +12,8 @@ var BettingRecordsView = SearchGrid.extend({
 
   template: require('./index.html'),
 
+
+
   events: {
     'click .js-excess-cell': 'dateSelectHandler',
     'click .js-toggle-seach': 'toggleseachHandler'
@@ -75,6 +77,7 @@ var BettingRecordsView = SearchGrid.extend({
       gridOps: {
         emptyTip: '没有投注记录'
       },
+      tableClass:'bc-report-table table table-bordered table-no-lr table-center',
       ajaxOps: {
         url: '/ticket/bethistory/userbethistory.json?_t=1',
         abort: false

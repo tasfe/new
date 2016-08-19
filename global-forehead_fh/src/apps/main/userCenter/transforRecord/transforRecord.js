@@ -46,6 +46,7 @@ var TransforRecords = SearchGrid.extend({
                     id: 1
                 }
             ],
+            tableClass:'bc-report-table table table-bordered table-no-lr table-center',
             gridOps: {
                 emptyTip: '没有转账记录'
             },

@@ -76,6 +76,7 @@ var TrackRecordsView = SearchGrid.extend({
           width: '15%'
         }
       ],
+      tableClass:'bc-report-table table table-bordered table-no-lr table-center',
       gridOps: {
         emptyTip: '没有追号记录'
       },

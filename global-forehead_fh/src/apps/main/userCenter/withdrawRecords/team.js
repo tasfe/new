@@ -30,12 +30,9 @@ var RechargeRecordsView = SearchGrid.extend({
   },
 
   toggleseachHandler:function () {
-
     if($('.js-toggle-seach').hasClass('on')) {
-
       $('.search-condition-table .row2').addClass('hidden');
       $('.js-toggle-seach').removeClass('on')
-
     } else{
       $('.search-condition-table .row2').removeClass('hidden');
       $('.js-toggle-seach').addClass('on')
@@ -78,6 +75,7 @@ var RechargeRecordsView = SearchGrid.extend({
           width: '20%'
         }
       ],
+      tableClass:'table table-bordered table-no-lr table-center bc-report-table',
       gridOps: {
         emptyTip: '没有提现记录'
       },
@@ -134,7 +132,6 @@ var RechargeRecordsView = SearchGrid.extend({
 
   formatRowData: function(rowInfo) {
     var row = [];
-
     row.push(rowInfo.userName);
     row.push(rowInfo.tradeNo);
     row.push(_(rowInfo.createTime).toTime());
@@ -142,7 +139,6 @@ var RechargeRecordsView = SearchGrid.extend({
     row.push(_(rowInfo.balance).fixedConvert2yuan());
     row.push(rowInfo.status);
     row.push(rowInfo.remark);
-
     return row;
   }
 });

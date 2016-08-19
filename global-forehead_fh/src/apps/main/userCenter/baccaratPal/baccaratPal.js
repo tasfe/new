@@ -71,6 +71,7 @@ var RechargeRecordsView = SearchGrid.extend({
                     width: '10%'
                 }
             ],
+            tableClass:'bc-report-table table table-bordered table-no-lr table-center',
             gridOps: {
                 emptyTip: '没有充值记录'
             },
