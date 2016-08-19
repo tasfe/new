@@ -71,7 +71,6 @@ var RechargeRecordsView = SearchGrid.extend({
                     width: '10%'
                 }
             ],
-            tableClass:'bc-report-table table table-bordered table-no-lr table-center',
             gridOps: {
                 emptyTip: '没有充值记录'
             },
@@ -89,6 +88,8 @@ var RechargeRecordsView = SearchGrid.extend({
     },
 
     onRender: function() {
+
+        this.$('.js-pf-search-grid').addClass('bc-report-table');
 
         //初始化时间选择
         new Timeset({

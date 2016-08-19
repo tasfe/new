@@ -46,7 +46,6 @@ var TransforRecords = SearchGrid.extend({
                     id: 1
                 }
             ],
-            tableClass:'bc-report-table table table-bordered table-no-lr table-center',
             gridOps: {
                 emptyTip: '没有转账记录'
             },
@@ -90,7 +89,7 @@ var TransforRecords = SearchGrid.extend({
     },
 
     onRender: function() {
-
+        this.$('.js-pf-search-grid').addClass('bc-report-table');
         //初始化时间选择
         new Timeset({
             el: this.$('.js-pf-timeset'),

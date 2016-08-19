@@ -77,7 +77,6 @@ var BettingRecordsView = SearchGrid.extend({
       gridOps: {
         emptyTip: '没有投注记录'
       },
-      tableClass:'bc-report-table table table-bordered table-no-lr table-center',
       ajaxOps: {
         url: '/ticket/bethistory/userbethistory.json?_t=1',
         abort: false
@@ -94,6 +93,7 @@ var BettingRecordsView = SearchGrid.extend({
   },
 
   onRender: function() {
+    this.$('.js-pf-search-grid').addClass('bc-report-table');
 
     //初始化时间选择
     new Timeset({

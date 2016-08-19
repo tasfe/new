@@ -76,7 +76,6 @@ var TrackRecordsView = SearchGrid.extend({
           width: '15%'
         }
       ],
-      tableClass:'bc-report-table table table-bordered table-no-lr table-center',
       gridOps: {
         emptyTip: '没有追号记录'
       },
@@ -93,7 +92,7 @@ var TrackRecordsView = SearchGrid.extend({
   },
 
   onRender: function() {
-
+    this.$('.js-pf-search-grid').addClass('bc-report-table');
     //初始化时间选择
     new Timeset({
       el: this.$('.js-pf-timeset'),
