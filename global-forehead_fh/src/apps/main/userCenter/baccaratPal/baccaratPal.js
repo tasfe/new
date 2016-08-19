@@ -89,6 +89,8 @@ var RechargeRecordsView = SearchGrid.extend({
 
     onRender: function() {
 
+        this.$('.js-pf-search-grid').addClass('bc-report-table');
+
         //初始化时间选择
         new Timeset({
             el: this.$('.js-pf-timeset'),

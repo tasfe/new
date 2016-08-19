@@ -30,12 +30,9 @@ var RechargeRecordsView = SearchGrid.extend({
   },
 
   toggleseachHandler:function () {
-
     if($('.js-toggle-seach').hasClass('on')) {
-
       $('.search-condition-table .row2').addClass('hidden');
       $('.js-toggle-seach').removeClass('on')
-
     } else{
       $('.search-condition-table .row2').removeClass('hidden');
       $('.js-toggle-seach').addClass('on')
@@ -94,6 +91,7 @@ var RechargeRecordsView = SearchGrid.extend({
   },
 
   onRender: function() {
+    this.$('.js-pf-search-grid').addClass('bc-report-table');
     //初始化时间选择
     new Timeset({
       el: this.$('.js-pf-timeset'),
@@ -134,7 +132,6 @@ var RechargeRecordsView = SearchGrid.extend({
 
   formatRowData: function(rowInfo) {
     var row = [];
-
     row.push(rowInfo.userName);
     row.push(rowInfo.tradeNo);
     row.push(_(rowInfo.createTime).toTime());
@@ -142,7 +139,6 @@ var RechargeRecordsView = SearchGrid.extend({
     row.push(_(rowInfo.balance).fixedConvert2yuan());
     row.push(rowInfo.status);
     row.push(rowInfo.remark);
-
     return row;
   }
 });
