@@ -74,10 +74,11 @@ App.addInitializer(function(options) {
 function _bindLetterHandler() {
   $(document).off('click.letter').on('click.letter', '.js-gl-letter', function(e) {
     var $target = $(e.currentTarget);
+
     var insideLetterView;
 
     var $dialog = Global.ui.dialog.show({
-      title: '发送站内信',
+      title: '对话列表',
       size: 'modal-info-julien',
       body: '<div class="js-nc-insideLetter"></div>',
       bodyClass: 'no-padding',

@@ -228,9 +228,13 @@
     margin-left: 33px;
   }
   .uc-cm-lg-btn {
+
+    background-color: #cc9966;
+    border-radius: 0px;
     width: 251px;
-    height: 28px;
-    background-color: $color-sunshine;
+    height: 50px;
+    border: 0px;
+
   }
   .uc-cm-btn-unlock-sign {
     background: url(unLocked.png)  no-repeat;
@@ -679,6 +683,7 @@
 .content-bock{
   input{
     color: #333333;
+    width: 160px;
   }
   .gender{
     line-height: 25px;
@@ -873,10 +878,10 @@
 }
  
 .uc-search-buttondiv{
-  width: 100px;
+  //width: 100px;
   height: 30px;
   float: right;
-  margin-left: 150px;
+  margin-left: 70px;
   border-left: 1px solid #ccc;
   padding-left: 10px;
 }
@@ -890,6 +895,7 @@
 }
 
 .hidden-seach-ucenter{
+  margin-top:10px;
   height: 14px;
   position: relative;
   text-align: center;
@@ -943,23 +949,64 @@
 }
 
 .binding-card-icon{
-  background-color: red;
-  width: 120px;
-  height: 40px;
+  //background-color: red;
+  width: 206px;
+  height: 66px;
 }
 
 .binding-card-cardName{
+  margin-top: 20px;
   margin-left: 32px;
   margin-bottom: 5px;
   font-size: 16px;
   line-height: 35px;
+  color: black;
 }
 
 .binding-card-cardNo{
+  margin-top: 20px;
   margin-left: 32px;
   margin-bottom: 5px;
   font-size: 16px;
   line-height: 35px;
+  color: black;
+}
+
+
+.binding-card-delete{
+  background: url("bank-card-delete.png") no-repeat;
+  //background-color: #cc0000;
+  position: relative;
+  margin-left: 79px;
+  height: 80px;
+  width: 80px;
+
+}
+
+.uc-add-mark{
+  text-align: center;
+  font-size: 40px;
+  color: #cfa945;
+}
+
+.uc-add-words{
+  font-size: 16px;
+  color: #cc9966;
+
+}
+
+.br-excess-cell{
+  margin:0px;
+  width:60px;
+  height:28px;
+  background:#f4f4f4;
+  border:1px solid #c4c4c4;
+
+}
+.toggle-athena{
+  background-color: #e0e0e0;
+  outline: none;
+  inline:none;
 }
 
 

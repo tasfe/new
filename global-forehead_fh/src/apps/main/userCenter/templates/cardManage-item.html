@@ -1,26 +1,36 @@
 <li class="js-fc-payment">
   <div class="js-uc-cmSingleCard-container binding-card">
 
-    <div class="binding-card-bg" style="background-image: url(<%=card.pic%>);">
+    <!--<div class="binding-card-bg" style="background-image: url(<%=card.pic%>);">-->
+
+    <div class="binding-card-bg">
 
       <div class="binding-card-main ">
 
-        <div class="binding-card-icon"></div>
+        <div class="binding-card-icon"><img src="<%=card.pic%>"></div>
         <div class="js-uc-cmSingCardName&Num binding-card-cardNo"><%=card.cardNo %></div>
         <div class="binding-card-cardName"><%=card.name %> </div>
 
         <!--<div class="js-uc-cmSingCardBindTime  ">绑定时间:<%=_(card.bindTime).toTime() %></div>-->
-        <!--</div>-->
+      </div>
+
+
+      <% if (!locked) { %>
+        <div class="js-uc-cmDeleteSingCard binding-card-delete " data-type="<%=card.cardId %>"></div>
+      <% } %>
 
       <div class="js-uc-cm-option binding-card-op" data-type="<%=card.cardId %>">
-        <div class="js-uc-binding-card-triangle binding-card-triangle-yellow"></div>
-        <div class="js-uc-binding-card-sign <%= locked? 'binding-card-sign-locked':'binding-card-sign-checkMark'%>"></div>
-        <!--checkMark cross-->
+
+          <div class="js-uc-binding-card-triangle binding-card-triangle-yellow">已设置默认</div>
+
+          <!--<div class="js-uc-binding-card-sign <%= locked? 'binding-card-sign-locked':'binding-card-sign-checkMark'%>"></div>-->
+
       </div>
+
     </div>
 
 
-    <div class="bank-card-backdrop <%= locked? '':'hidden'%>"></div>
+    <!--<div class="bank-card-backdrop <%= locked? '':'hidden'%>"></div>-->
 
   </div>
 </li>

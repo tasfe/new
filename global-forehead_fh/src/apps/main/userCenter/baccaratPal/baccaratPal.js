@@ -4,13 +4,36 @@ var SearchGrid = require('com/searchGrid');
 
 var Timeset = require('com/timeset');
 
-var betStatusConfig = require('userCenter/misc/betStatusConfig');
-
 var RechargeRecordsView = SearchGrid.extend({
 
     template: require('./index.html'),
 
-    events: {},
+    events: {
+        'click .js-excess-cell': 'dateSelectHandler',
+        'click .js-toggle-seach': 'toggleseachHandler'
+    },
+    dateSelectHandler:function (e) {
+        this. $('.toggle-athena').removeClass('toggle-athena');
+        $(e.currentTarget).addClass('toggle-athena');
+   var recIndex = $(e.currentTarget).data('index');
+    if (recIndex===1){
+           this.$('.js-start-time').val(_(moment().add('days')).toDate()+' 0:00:00');
+      }else if (recIndex===2){
+            this.$('.js-start-time').val(_(moment().add('days',-3)).toDate()+' 0:00:00');
+        }else if (recIndex===3){
+            this.$('.js-start-time').val(_(moment().add('days',-7)).toDate()+' 0:00:00');
+       }
+
+    },
+    toggleseachHandler:function () {
+        if($('.js-toggle-seach').hasClass('on')) {
+            $('.search-condition-table .row2').addClass('hidden');
+            $('.js-toggle-seach').removeClass('on')
+        } else{
+            $('.search-condition-table .row2').removeClass('hidden');
+            $('.js-toggle-seach').addClass('on')
+        }
+    },
 
     initialize: function () {
         _(this.options).extend({
@@ -72,20 +95,10 @@ var RechargeRecordsView = SearchGrid.extend({
             startDefaultDate: this.options.reqData.startTime?this.options.reqData.startTime:_(moment().startOf('day')).toTime(),
             endDefaultDate: this.options.reqData.endTime?this.options.reqData.endTime:_(moment().endOf('day')).toTime()
         }).render();
-
-        var plArray=[{id:0,zhName:'单式直选'},{id:1,zhName:'直选和值'}];
-        this.$('select[name=payStatus]').html(_(plArray).map(function (qr) {
-            return '<option value="'+qr.id+'">'+qr.zhName+'</option>';
-        }).join(''));
-
-        var plArray=[{id:0,zhName:'单式直选'},{id:1,zhName:'直选和值'}];
-        this.$('select[name=widthdrawStatus]').html(_(plArray).map(function (qr) {
-            return '<option value="'+qr.id+'">'+qr.zhName+'</option>';
-        }).join(''));
-
         if(this.options.reqData.username){
             this.$('input[name="username"]').val(this.options.reqData.username);
         }
+        
         SearchGrid.prototype.onRender.apply(this, arguments);
     },
 

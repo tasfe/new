@@ -1,53 +1,50 @@
-<div class="js-ac-statics-bread ac-statistic">
-  <div class="padding-smd">
-    <!--<span class="js-ad-detail ad-btn-detail">分红明细</span>-->
-    <ul class="nav nav-tabs nav-tabs-border no-margin">
-
-      <% _(dividList).each(function(divid, index) { %>
-      <li class="js-ad-statics">
-        <a href="#jsTeam" class="" data-toggle="tab">
-          <span><%=divid.cycle %></span>
-        </a>
-      </li>
-        <!--<a href="javascript:void(0)">分红统计</a>-->
-        <!--<% if (index !== dividList.length - 1) { %>-->
-        <!--<span class="divider">/</span>-->
-        <!--<% } %>-->
-      <!--</li>-->
-      <% }); %>
-    </ul>
+<div class="julien-menu-03">
+  <ul>
+    <% _(dividList).each(function(divid, index) { %>
+    <li class="js-ad-statics">
+      <a href="javascript:void(0)"><%=divid.cycle %>分红统计</a>
+      <% if (index !== dividList.length - 1) { %>
+      <span class="divider">/</span>
+      <% } %>
+    </li>
+    <% }); %>
+  </ul>
+  <div class="js-ac-freezeTotal-container ac-statics-text">
+    目前冻结的金额：
+    <span class="js-ac-freezeTotal"></span>元
+    <i class="js-ac-freeze-top sfa sfa-help-tip cursor-pointer vertical-middle"></i>
   </div>
-  <div class="ac-statics-detail clearfix m-bottom-sm">
-    <div class="ac-total ac-statics-detail-item">
-      <div class="ac-statics-text">团队总投注额
-        <div><span class="js-ac-betTotal"></span>元</div>
-      </div>
+</div>
+<div class="js-ac-statics-bread julien-fh-block1">
+  <div>
+    团队总投注额
+    <p>
+      <span class="js-ac-betTotal"></span>元
+    </p>
+  </div>
+  <div>
+    团队总盈亏
+    <p class="red">
+      <span class="js-ac-profitTotal"></span>元
+    </p>
+  </div>
+  <div>
+    您分红比例
+    <p>
+      <span class="js-ac-divid"></span>%
+    </p>
+  </div>
+  <div>
+    <div class="left">
+      您应得到的分红金额：
+      <p>
+        <span class="js-ac-dividTotal red"></span>元
+      </p>
     </div>
-    <div class="ac-total-statistic ac-statics-detail-item">
-      <div class="ac-statics-text">团队总盈亏
-        <div><span class="js-ac-profitTotal"></span>元</div>
+    <div class="right">
+      <div class="js-ac-status">
       </div>
-    </div>
-    <div class="ac-rate ac-statics-detail-item">
-      <div class="ac-statics-text">您分红比例
-        <div><span class="js-ac-divid"></span>%</div>
-      </div>
-    </div>
-    <div class="ac-money ac-statics-detail-item">
-      <div class="ac-statics-text">
-        分红金额
-        <span class="m-left-xs"><span class="js-ac-status text-hot"></span></span>
-        <div>
-          <span class="js-ac-dividTotal"></span>元
-        </div>
-      </div>
-    </div>
-    <div class="js-ac-freezeTotal-container ac-statics-text hidden">目前冻结的金额：
-      <div><span class="js-ac-freezeTotal"></span>元
-        <i class="js-ac-freeze-top sfa sfa-help-tip cursor-pointer vertical-middle"></i>
-      </div>
+      <span class="js-ad-detail ad-btn-detail">分红明细</span>
     </div>
   </div>
 </div>
-
-<div class="js-ac-detail"></div>

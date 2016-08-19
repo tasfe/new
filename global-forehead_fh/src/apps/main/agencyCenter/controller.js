@@ -38,12 +38,25 @@ var RushRewardView = require('./rushReward');
 
 var LowLevelUserManageView =  require('agencyCenter/views/index');
 
+var SalaryView = require('agencyCenter/views/salaryManage');
+
 var AgencyCenterController = RouterController.extend({
 
   lowLevelManage: function() {
     this.changeMainReginView(new LowLevelUserManageView(), {
       main: {
         title: '下级管理'
+      },
+      sidebar: Global.ui.menu.get(['ac'])
+    });
+
+    $('#main > .clearfix').addClass('ac-block');
+  },
+
+  salaryManage: function () {
+    this.changeMainReginView(new SalaryView(), {
+      main: {
+        title: '日工资管理'
       },
       sidebar: Global.ui.menu.get(['ac'])
     });
@@ -152,14 +165,6 @@ var AgencyCenterController = RouterController.extend({
     $('#main > .clearfix').addClass('ac-block');
   },
 
-  //profitAndLoss: function() {
-  //  this.changeMainReginView(new ProfitAndLossView(), {
-  //    main: {
-  //      title: '盈亏报表'
-  //    },
-  //    sidebar: Global.ui.menu.get(['ac', 'uc', 'aa'])
-  //  });
-  //},
 
   teamDynamic: function() {
     this.changeMainReginView(new TeamDynamicView(), {

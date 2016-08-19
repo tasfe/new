@@ -1,12 +1,22 @@
 body{
 	background: url('~base/images/fh/bg.png') no-repeat #f8f8f8;
+	font-family: '微软雅黑';
+}
+
+.table{
+	font-size: 14px;
+	color: #666666;
 }
 .modal-lg-julien{
 	width: 1020px !important;
 	margin-left: -510px !important;
 	font-size: 14px;
 	font-family: '微软雅黑';
-	background: url(~base/images/julien/modal-lg-julien-bg.jpg) no-repeat;
+	background: url(~base/images/julien/modal-lg-julien-bg.jpg) no-repeat bottom #fff;
+
+	.athena-quota{
+		border:1px solid #e4393c;
+	}
 
 	.modal-body{
 		background: none;
@@ -15,6 +25,10 @@ body{
 			color: #cc0000;
 			font-size: 14px;
 			padding-left: 20px;
+		}
+
+		.control-group,.controls-group{
+			margin-left: 100px;
 		}
 
 		.tips{
@@ -250,6 +264,13 @@ body{
 	}
 }
 
+.modal-dialog{
+	.slimScrollDiv{
+		height: 230px !important;
+		overflow-y: auto !important;
+	}
+}
+
 .julien-black{
 	margin: 15px;
 	margin-left: 0px;
@@ -300,6 +321,7 @@ body{
 			th{
 				vertical-align: middle;
 				background: none;
+				font-weight: normal;
 			}
 		}
 	}
@@ -328,6 +350,7 @@ body{
 		color: #666666;
 		margin-bottom: 15px;
 
+
 		span{
 			display: inline-block;
 			margin-right: 100px;
@@ -355,19 +378,31 @@ body{
 .julien-table-title{
 	tr{
 		height: 38px;
-    background-color: #f2f2f2;
-    line-height: 38px;
-    color: #999999;
-    font-family: '\5FAE\8F6F\96C5\9ED1';
-    font-size: 14px;
+	    background-color: #f2f2f2;
+	    line-height: 38px;
+	    color: #999999;
+	    font-family: '\5FAE\8F6F\96C5\9ED1';
+	    font-size: 14px;
 
-    th{
-    	vertical-align: middle;
+	    th{
+	    	vertical-align: middle;
 			background: none;
-    }
+			font-weight: normal;
+	    }
 	}
 }
-
+.julien-table-tbody{
+	tr{
+		color:#444;
+		span{
+			color:red;
+		}
+	}
+}
+.row-span{
+	height:13px;
+	display:inline-block;
+}
 .julien-transfer-dialog{
 	font-family: '微软雅黑';
 	color: #666666;
@@ -455,13 +490,24 @@ body{
 		}
 	}
 }
+.athena-dl{
+	display:none;
+}
 
 .modal-info-julien{
 	width: 1020px !important;
 	margin-left: -510px !important;
 	font-size: 14px;
 	font-family: '微软雅黑';
-	background: url(~base/images/julien/modal-lg-julien-bg.jpg) no-repeat;
+	background: url(~base/images/julien/modal-lg-julien-bg.jpg) no-repeat 100px 80px #fff;
+
+	.modal-body{
+		background: none;
+	}
+
+	.modal-title{
+		margin: 0 0 0 20px;
+	}
 
 	.modal-header-left{
 		padding-left: 50px;
@@ -485,6 +531,10 @@ body{
 		clear: both;
 		border-bottom: 1px solid #cccccc;
 		border-top: 0px;
+	}
+
+	form{
+		margin: 0px;
 	}
 }
 
@@ -517,14 +567,31 @@ body{
 
 	span{
 		color: #333;
-		margin-left: -700px;
+		margin-left: -870px;
 	}
 
 	.price{
 		background-color: #c2b5ed;
 		color: #fff;
 	}
+
+	.price2{
+		background-color: #edb5d9;
+		color: #fff;
+	}
+	
 }
+
+.lowLevelManage-view{
+	.get-red{
+		color: #cf4f45;
+		cursor: pointer;
+	}
+	.get-no{
+		color: #cccccc;
+	}
+}
+
 
 .slimScrollDiv{
 	table{
@@ -533,4 +600,79 @@ body{
 			padding-bottom: 8px;
 		}
 	}
+}
+
+.overflow-hidden{
+	overflow: hidden;
+}
+.js-quota-rebate-Inp{
+	width:35px;
+	height:26px;
+}
+.julien-button{
+	background-color: #cc0000;
+	padding: 7px 19px;
+	border: 0px;
+	color: #fff;
+}
+.julien-button2{
+	background-color: #cc0000;
+	padding: 7px 19px;
+	border: 0px;
+	color: #fff;
+	margin-top: 15px;
+}
+.julien-button-margin{
+	margin-left:430px;
+	margin-top:30px;
+}
+.julien-btn{
+	height:80px;
+}
+.julien-close-btn{
+	background-color: #cc9966;
+	padding: 7px 19px;
+	border: 0px;
+	color: #fff;
+	margin-left: 10px;
+}
+
+dl,dt,dd{
+	padding: 0px;
+	margin: 0px;
+	font-weight: normal;
+	display: inline-block;
+}
+
+.julien-btn-group{
+	margin-top: 30px;
+	padding-top: 20px;
+	border-top: 1px solid #e2e2e2;
+	text-align: center;
+}
+
+.julien-table-content{
+	border-left: 1px solid #ccc;
+	
+	td{
+		border-right: 1px solid #ccc;
+		border-bottom: 1px solid #ccc;
+	}
+}
+
+.julien-title{
+	line-height: 40px;
+}
+
+.julien-remark{
+	border: 1px solid #ccc;
+}
+
+.modal-dialog{
+	font-size: 14px;
+	color: #999;
+}
+
+.margin20-0{
+	margin: 20px 0px;
 }

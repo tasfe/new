@@ -13,38 +13,38 @@
     </select>
 
     <label class="control-label">投注时间：</label>
-    <span class="js-pf-timeset input-date"></span>
-    <button class="js-excess-cell br-excess-cell" data-index="1">今天</button>
+    <button class="js-excess-cell br-excess-cell toggle-athena" data-index="1">今天</button>
     <button class="js-excess-cell br-excess-cell" data-index="2">三天</button>
     <button class="js-excess-cell br-excess-cell" data-index="3">七天</button>
+    <span class="js-pf-timeset input-date"></span>
 
-    <div class="pull-right uc-search-buttondiv">
+
+    <div class="pull-right uc-search-buttondiv ">
       <button type="submit" class="btn uc-search-button">搜索</button>
     </div>
 
   </div>
 
-  <div class="control-group row2 hidden search-condition-layout">
-    <label>交易流水号:</label>
-    <input type="text" name="tradeNo" class="input3 margin-add" data-parsley-maxlength="30">
+<!--充值方式-->
+<div class="control-group row2 hidden search-condition-layout">
+  <label class="control-label">充值方式：</label>
+  <select name="type" class=" select1">
+    <option value="0">全部</option>
+    <option value="1">银联支付</option>
+    <option value="2">支付宝</option>
+    <option value="3">微信</option>
+  </select>
 
-    <label>充值方式:</label>
-    <select name="type"  style="width:90px" >
-      <option value="0">全部</option>
-      <option value="1">银联支付</option>
-      <option value="2">支付宝</option>
-      <option value="3">微信</option>
-    </select>
 
-    <label>支付状态:</label>
-    <select name="status" style="width:100px" >
-      <option value="-1">全部</option>
-      <option value="0">等待支付</option>
-      <option value="1">支付成功</option>
-      <option value="2">支付失败</option>
-    </select>
-
-    </div>
+  <!--支付状态-->
+  <label class="control-label">支付状态：</label>
+  <select name="status" class=" select1">
+    <option value="-1">全部</option>
+    <option value="0">等待支付</option>
+    <option value="1">支付成功</option>
+    <option value="2">支付失败</option>
+  </select>
+</div>
 
 
   <!--分割线操作-->
@@ -52,7 +52,6 @@
     <hr>
     <span class="js-toggle-seach"></span>
   </div>
-
 
 
 </div>

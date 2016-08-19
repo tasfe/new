@@ -59,6 +59,8 @@ var BettingCenterView = Base.ItemView.extend({
     $('.js-bc-basic-rules').addClass('hidden');
     $('.js-bc-optional-rules').removeClass('hidden');
     $('.js-bc-optional-rules ul').removeClass('hidden');
+
+    $('.js-rule-title-clear').html('');
   },
 
   play2:function () {
@@ -67,6 +69,8 @@ var BettingCenterView = Base.ItemView.extend({
     $('.js-bc-basic-rules').removeClass('hidden');
     $('.js-bc-optional-rules').addClass('hidden');
     $('.js-bc-optional-rules ul').addClass('hidden');
+
+   $('.js-rule-title-clear').html('');
   },
 
   serializeData: function() {
@@ -312,13 +316,13 @@ var BettingCenterView = Base.ItemView.extend({
       tableClass: 'table table-dashed',
       colModel: [
         //{label: '玩法/投注内容  ', name: 'title', key: true, width: '43%'},
-        {label: '玩法/投注内容  ', name: 'title', key: true, width: '65%'},
+        {label: '玩法/投注内容  ', name: 'title', key: true, width: '55%'},
         //{label: '奖金模式', name: 'bonusMode', width: '20%'},
-        {label: '注数/倍数/模式', name: 'mode', width: '35%'}
+        {label: '注数/倍数/模式', name: 'mode', width: '45%'}
         //{label: '注数/倍数/模式', name: 'mode', width: '20%'}
         //{label: '投注金额', name: 'bettingMoney', width: '17%'}
       ],
-      showHeader: false,
+      showHeader: true,
       height: 310,
       startOnLoading: false,
       emptyTip: ''
@@ -795,9 +799,12 @@ var BettingCenterView = Base.ItemView.extend({
 
     var idStr =  ''+$target.data('index');
     idStr = parseInt(idStr);
-    var playValue = (idStr+1)*69 +26;
+    var playValue = (idStr+1)*82 +14;
     this.$('.js-bc-advance-rules').css('left',playValue+'px');
 
+    this.$('.js-rule-title-hidden-temp').html(idStr);
+
+    this.$('.js-rule-title-clear').html('');
   },
 
 
@@ -857,6 +864,11 @@ var BettingCenterView = Base.ItemView.extend({
       playId: $target.data('id'),
       playName: $target.data('title')
     });
+
+    var idStr =this.$('.js-rule-title-hidden-temp').html();
+
+    this.$('.js-rule-title-clear').html('');
+    this.$(".js-rule-title-sub-"+idStr).html($target.data('title'));
   },
 
   betModeChangeHandler: function(e) {

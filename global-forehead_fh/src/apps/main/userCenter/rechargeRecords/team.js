@@ -16,7 +16,8 @@ var RechargeRecordsView = SearchGrid.extend({
   },
 
   dateSelectHandler:function (e) {
-
+    this. $('.toggle-athena').removeClass('toggle-athena');
+    $(e.currentTarget).addClass('toggle-athena');
     var recIndex = $(e.currentTarget).data('index');
     if (recIndex===1){
       this.$('.js-start-time').val(_(moment().add('days')).toDate()+' 0:00:00');
@@ -29,12 +30,9 @@ var RechargeRecordsView = SearchGrid.extend({
   },
 
   toggleseachHandler:function () {
-
     if($('.js-toggle-seach').hasClass('on')) {
-
       $('.search-condition-table .row2').addClass('hidden');
       $('.js-toggle-seach').removeClass('on')
-
     } else{
       $('.search-condition-table .row2').removeClass('hidden');
       $('.js-toggle-seach').addClass('on')
@@ -73,7 +71,7 @@ var RechargeRecordsView = SearchGrid.extend({
           id: 1
         },
         {
-          name: '状态',
+          name: '支付状态',
           width: '10%'
         }
       ],
@@ -94,7 +92,7 @@ var RechargeRecordsView = SearchGrid.extend({
   },
 
   onRender: function() {
-    
+
     //初始化时间选择
     new Timeset({
       el: this.$('.js-pf-timeset'),
@@ -103,8 +101,6 @@ var RechargeRecordsView = SearchGrid.extend({
     }).render();
     if(this.options.reqData.username){
       this.$('input[name="username"]').val(this.options.reqData.username);
-
-
     }
     SearchGrid.prototype.onRender.apply(this, arguments);
   },

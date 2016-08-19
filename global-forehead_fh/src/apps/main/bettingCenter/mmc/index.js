@@ -1102,8 +1102,8 @@ var BettingCenterView = Base.ItemView.extend({
     this.$lotteryTotalResultPreview.addClass('hidden');
     this.toggleShowDealOnce();
     this.model.emptyPrevBetting();//删除之前的选号
-    this.showWinResult(false);
-    this.showLastResult(false);
+    //this.showWinResult(false);
+    //this.showLastResult(false);
     this.$LotteryTime.val(1);
     this.$WinStop.prop('checked',false);
 
@@ -1364,6 +1364,13 @@ var BettingCenterView = Base.ItemView.extend({
         }),
         modalClass: 'bc-mmc-win-model'
       });
+
+      var timeout = setTimeout(function () {
+        $dialog.modal('hide');
+      }, 3000);
+      $dialog.on('hidden.modal', function () {
+        $dialog.remove();
+      });
     }else {
       this.$CurrentResult.addClass('hidden');
       this.$CurrentResult.html('<span></span>');
@@ -1372,6 +1379,14 @@ var BettingCenterView = Base.ItemView.extend({
         }),
         modalClass: 'bc-mmc-lose-model'
       });
+
+      var timeout = setTimeout(function () {
+        $dialog.modal('hide');
+      }, 3000);
+      $dialog.on('hidden.modal', function () {
+        $dialog.remove();
+      });
+
     }
   },
   showLastResult: function(flag,prize){

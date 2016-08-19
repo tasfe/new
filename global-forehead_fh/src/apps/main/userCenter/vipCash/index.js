@@ -78,7 +78,6 @@ var VipCashView = SearchGrid.extend({
     });
 
     //加上统计行
-
     this.grid.addFooterRows({
       //trClass: 'tr-footer',
       columnEls: [

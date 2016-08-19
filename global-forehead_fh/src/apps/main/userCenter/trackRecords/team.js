@@ -18,7 +18,8 @@ var TrackRecordsView = SearchGrid.extend({
   },
 
   dateSelectHandler:function (e) {
-
+    this.$('.toggle-athena').removeClass('toggle-athena');
+    $(e.currentTarget).addClass('toggle-athena');
     var recIndex = $(e.currentTarget).data('index');
     if (recIndex===1){
       this.$('.js-start-time').val(_(moment().add('days')).toDate()+' 0:00:00');
@@ -30,12 +31,9 @@ var TrackRecordsView = SearchGrid.extend({
 
   },
   toggleseachHandler:function () {
-
     if($('.js-toggle-seach').hasClass('on')) {
-
       $('.search-condition-table .row2').addClass('hidden');
       $('.js-toggle-seach').removeClass('on')
-
     } else{
       $('.search-condition-table .row2').removeClass('hidden');
       $('.js-toggle-seach').addClass('on')
@@ -50,8 +48,16 @@ var TrackRecordsView = SearchGrid.extend({
           width: '10%'
         },
         {
+          name: '追号编号',
+          width: '18%'
+        },
+        {
           name: '彩种名称',
           width: '12%'
+        },
+        {
+          name: '追号状态',
+          width: '8%'
         },
         {
           name: '已追/总期数',
@@ -66,16 +72,8 @@ var TrackRecordsView = SearchGrid.extend({
           width: '12%'
         },
         {
-          name: '追号状态',
-          width: '8%'
-        },
-        {
           name: '追号时间',
           width: '15%'
-        },
-        {
-          name: '追号编号',
-          width: '18%'
         }
       ],
       gridOps: {
@@ -104,7 +102,7 @@ var TrackRecordsView = SearchGrid.extend({
     if(this.options.reqData.username){
       this.$('input[name="username"]').val(this.options.reqData.username);
     }
-    //
+
     //初始化彩种选择
     new TicketSelectGroup({
       el: this.$('.js-uc-ticket-select-group')
@@ -136,9 +134,8 @@ var TrackRecordsView = SearchGrid.extend({
       trClass: 'tr-footer',
       columnEls: [
         '<strong>所有页总计</strong>', '', '',
-        _(gridData.betMoneyTotal).convert2yuan(),
-        _(gridData.prizeMoneyTotal).convert2yuan(),
-         '', ''
+        _(gridData.prizeMoneyTotal).convert2yuan(),'', '',
+        _(gridData.betMoneyTotal).convert2yuan(), ''
       ]
     }).hideLoading();
 
@@ -147,20 +144,9 @@ var TrackRecordsView = SearchGrid.extend({
   formatRowData: function(rowInfo) {
     var row = [];
     row.push(rowInfo.userName);
+    row.push('<a class="router btn-link btn-link-sun" href="' + _.getUrl('/detail/' + rowInfo.ticketTradeNo) + '">'+rowInfo.ticketTradeNo+'</a>');
     row.push(rowInfo.ticketName);
-   // row.push(rowInfo.ticketPlanId);
-    row.push(rowInfo.chaseBetCount + '/' + rowInfo.chaseAllPeriods);
-    row.push('&nbsp;' + _(rowInfo.chaseBetMoney).fixedConvert2yuan() +
-      '/' + _(rowInfo.chaseAllMoney).fixedConvert2yuan());
-    var status = '';
 
-    if(rowInfo.chasePrizeMoney === 0 || rowInfo.chasePrizeMoney === null ){
-      status = '0';
-    } else {
-      status = '<span class="text-pleasant">' + _(rowInfo.chasePrizeMoney).convert2yuan() + '</span>';
-    }
-
-    row.push(status);
     switch(rowInfo.chaseStatus) {
       case 0:
         rowInfo.formatChaseStatus = '未开始';
@@ -175,11 +161,19 @@ var TrackRecordsView = SearchGrid.extend({
         rowInfo.formatChaseStatus = '已中止';
         break;
     }
-
     row.push(rowInfo.formatChaseStatus);
-    row.push(_(rowInfo.chaseTime).toTime());
-    row.push('<a class="router btn-link btn-link-sun" href="' + _.getUrl('/detail/' + rowInfo.ticketTradeNo) + '">'+rowInfo.ticketTradeNo+'</a>');
 
+    row.push(rowInfo.chaseBetCount + '/' + rowInfo.chaseAllPeriods);
+    row.push('&nbsp;' + _(rowInfo.chaseBetMoney).fixedConvert2yuan() + '/' + _(rowInfo.chaseAllMoney).fixedConvert2yuan());
+
+    var status = '';
+    if(rowInfo.chasePrizeMoney === 0 || rowInfo.chasePrizeMoney === null ){
+      status = '0';
+    } else {
+      status = '<span class="text-pleasant">' + _(rowInfo.chasePrizeMoney).convert2yuan() + '</span>';
+    }
+    row.push(status);
+    row.push(_(rowInfo.chaseTime).toTime());
     return row;
   }
 });

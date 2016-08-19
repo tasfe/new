@@ -738,7 +738,7 @@ var BettingCenterView = Base.ItemView.extend({
 
     var idStr =  ''+$target.data('index');
     idStr = parseInt(idStr);
-    var playValue = (idStr+1)*69 +30;
+    var playValue = (idStr+1)*82 +17;//(idStr+1)*69 +30;
 
     this.$('.js-bc-advance-rules').css('left',playValue+'px');
   },
@@ -1809,7 +1809,7 @@ var BettingCenterView = Base.ItemView.extend({
               //翻开图片
               target.find('.js-bc-smmc-jackpot-mode-item').addClass('bc-smmc-jackpot-mode-' + lastIcon);
               //target.children().removeClass('hidden');
-              var verticalOpts = [{'width':1},{'width':'130px'}];
+              var verticalOpts = [{'width':1},{'width':'150px'}];
               $(target).find('.js-bc-smmc-jackpot-mode-item-unknown').stop().animate(verticalOpts[0],100,function(){
                 $(this).hide().prev().show();
                 $(this).prev().animate(verticalOpts[1],100);

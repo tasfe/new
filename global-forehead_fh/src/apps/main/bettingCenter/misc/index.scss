@@ -215,7 +215,7 @@ $main-area-width: 870px;
           background-color: grey;
           color: white;
           //background-image:  url(~base/images/fh/bet/selected.png);
-          width: 80px;
+          width: 115px;
           height: 49px;
         }
       }
@@ -224,7 +224,7 @@ $main-area-width: 870px;
   &.nav-tabs-border > li > a {
     > div {
       height: 49px;
-      width: 69.8px;
+      width: 83px;
       //width: 71px;
       padding-left: 0;
       padding-right: 0;
@@ -1149,4 +1149,8 @@ $main-area-width: 870px;
   width: 90px;
   height: 30px;
   background-repeat: no-repeat;
+}
+
+.background-color-white {
+  background-color: #fff;
 }

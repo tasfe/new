@@ -7,6 +7,7 @@ exports.install = function() {
 
   window.Global.appRouter.processAppRoutes(new FundCenterController(), {
     'ac/llm': 'lowLevelManage', //下级管理
+    'ac/salary': 'salaryManage',//日工资管理
     'ac/llm/rebate/:userId': 'rebateManage', //升点(返点)管理
 
     'ac/llm/detail/:userId': 'lowLevelDetail', //下级管理详情
@@ -27,7 +28,7 @@ exports.install = function() {
     'ac/betting/:userId/:tabName/detail/:betId': 'bettingDetail', //投注详情
     'ac/track/:userId/:tabName/detail/:tradeNo': 'trackDetail', //追号详情
 
-    'uc/dm': 'dividendManage', //分红管理
+    'ac/dm': 'dividendManage', //分红管理
     'ac/rp': 'redPacket', //红包查询,
     'ac/cs': 'commissionStatistics',
     'ac/rm/rr/:tabName': 'rechargeRecords4Report', //充值记录

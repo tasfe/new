@@ -146,19 +146,19 @@ var EntryView = Base.ItemView.extend({
 
     html.push('<div class="quick-title ' + extraCSS + '">');
 
-    if (entry.icon) {
-      if (entry.iconType === 'sfa') {
-        html.push('<span class="fa-stack m-right-sm text-center">');
-        html.push('<i class="fa fa-circle fa-stack-2x ' + entry.backStyle + '"></i>');
-        html.push('<i class="sfa sfa-sidebar-' + entry.icon + ' text-light"></i>');
-        html.push('</span>');
-      } else {
-        html.push('<span class="fa-stack m-right-sm">');
-        html.push('<i class="fa fa-circle fa-stack-2x ' + entry.backStyle + '"></i>');
-        html.push('<i class="fa fa-stack-1x fa-' + entry.icon + ' text-light"></i>');
-        html.push('</span>');
-      }
-    }
+    //if (entry.icon) {
+    //  if (entry.iconType === 'sfa') {
+    //    html.push('<span class="fa-stack m-right-sm text-center">');
+    //    html.push('<i class="fa fa-circle fa-stack-2x ' + entry.backStyle + '"></i>');
+    //    html.push('<i class="sfa sfa-sidebar-' + entry.icon + ' text-light"></i>');
+    //    html.push('</span>');
+    //  } else {
+    //    html.push('<span class="fa-stack m-right-sm">');
+    //    html.push('<i class="fa fa-circle fa-stack-2x ' + entry.backStyle + '"></i>');
+    //    html.push('<i class="fa fa-stack-1x fa-' + entry.icon + ' text-light"></i>');
+    //    html.push('</span>');
+    //  }
+    //}
 
     html.push(entry.name);
 
@@ -381,7 +381,7 @@ var EntryView = Base.ItemView.extend({
       body: '<div class="js-gl-quick-setting"></div>',
       bodyClass: 'no-padding',
       footer: '<div class="text-center control-confirm-special ">' +
-      //'<p class="text-pleasant text-center">说明：最多可选择一个菜单和三个彩种。</p>' +
+      '<p class="text-pleasant text-center">注：最多可自由选择4个快捷菜单。</p>' +
       '<button type="button" class="js-gl-confirm btn btn-left " data-loading-text="保存中">保存修改</button>' +
       //'<button type="button" class="btn btn-link btn-right " data-dismiss="modal">取消</button>' +
       '</div>'
