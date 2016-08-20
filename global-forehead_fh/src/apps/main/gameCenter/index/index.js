@@ -30,12 +30,15 @@ var GameCenterView = Base.ItemView.extend({
       bodyClass: 'ag-transfor-dialog'
     });
     var $transferContainer = this.$dialog.find('.js-ag-transfor-container');
-    var agt = new AgTransferView({el: $transferContainer}).render();
+    var agt = new AgTransferView({el: $transferContainer,parentView: this}).render();
     this.$dialog.on('hidden.modal', function () {
       $(this).remove();
       agt.destroy();
     });
     
+  },
+  closeDialog: function() {
+    this.$dialog.modal('hide');
   }
 
 });
