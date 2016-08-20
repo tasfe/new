@@ -835,9 +835,11 @@ img{
     }
   }
 }
+//表格边距
 .gauge{
   margin:0 15px;
 }
+//
 .bd-bet-header{
 
   border-bottom: 1px solid #CCCCCC;
@@ -1138,4 +1140,90 @@ img{
 }
 
 
- 
+ //弹窗
+.vip-popup{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  width:100%;
+  height:100%;
+  z-index:9999;
+  background:rgba(40,40,40,0.6);
+
+}
+
+.vip-popup-conter{
+  width:700px;
+  height:280px;
+  overflow: auto;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: #fff;
+}
+.vip-success{
+  .clear{
+    clear:both;
+  }
+  width:700px;
+  height:40px;
+  background:url(../misc/bg-p.png) no-repeat center;
+  p{
+    float:left;
+    margin:10px 0 0 20px;
+    font-size: 14px;
+    color:#fff;
+  }
+  span{
+    float:right;
+    display: inline-block;
+    width:20px;
+    height:20px;
+    text-align: center;
+    line-height: 19px;
+    color:#fff;
+    font-size:20px;
+    margin:9px 20px 0 0;
+    border:1px solid #fff;
+  }
+}
+.vip-return{
+  text-align: center;
+  heitht:200px;
+  padding-top:80px;
+  p{
+    display: inline-block;
+    color:#cc3333;
+    font-size:16px;
+  }
+  img{
+    display: inline-block;
+    padding-right:15px;
+    vertical-align: middle;
+  }
+}
+.button-success{
+  text-align: center;
+  margin-top:30px;
+  button{
+    width: 100px;
+    line-height: 30px;
+    background:#cc0000;
+    color:#fff;
+    text-align: center;
+    border:none;
+    outline:none;
+  }
+.cancel{
+  background:#cc6600;
+  margin-left:10px;
+}
+}
+.vip-return .py{
+  color:#999;
+}
