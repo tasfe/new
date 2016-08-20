@@ -225,6 +225,25 @@ $header-margin-top: 6px;
     //line-height:-100px !important;
   }
 }
+
+.athena-message1{
+  background: url(images/athena-message1.png) no-repeat left !important;
+  width:45px;
+  height:17px;
+  margin-left:10px;
+  margin-top: -2px !important;
+
+  span{
+    margin-left:20px;
+    display: inline-block;
+    width:16px;
+    height:16px;
+    border-radius: 50%;
+    text-align: center;
+    background-color:#bb0101;
+    //line-height:-100px !important;
+  }
+}
 .athena-line{
   background: url(images/athena-line.png) no-repeat right !important;
   background-color: red;
