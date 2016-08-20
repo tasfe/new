@@ -23,9 +23,138 @@ var DashboardView = Base.ItemView.extend({
     //'click .js-db-prev': 'prevPageHandler',
     //'click .js-db-next': 'nextPageHandler'
     'click .js-lottery': 'lottertyEnterHandler',
-    'click .js-comingsoon': 'comeingsoonHandler'
+    'click .js-comingsoon': 'comeingsoonHandler',
+    'mouseover .js-athena_st_07': 'tempMouseover',
+    'mouseover .js-athena_st_08': 'tempMouseover',
+    'mouseover .js-athena_st_09': 'tempMouseover',
+    'mouseover .js-athena_st_10': 'tempMouseover',
+
+    'mouseout .js-athena_st_07': 'tempMouseOut',
+    'mouseout .js-athena_st_08': 'tempMouseOut',
+    'mouseout .js-athena_st_09': 'tempMouseOut',
+    'mouseout .js-athena_st_10': 'tempMouseOut',
+
+    'click .js-athena_st_07': 'tempClick',
+    'click .js-athena_st_08': 'tempClick',
+    'click .js-athena_st_09': 'tempClick',
+    'click .js-athena_st_10': 'tempClick',
+  },
+
+  tempMouseover:function(e){
+    //this.clearClick();
+
+    var $target = $(e.currentTarget);
+    var index = $target.data('index');
+    var self = this;
+    //alert(index);
+    if(index==7) {
+     if(! self.$('.js-athena_st_07').hasClass('athnea-education_03')) {
+        self.$('.js-athena_st_07').removeClass('athnea-education_01').removeClass('athnea-education_02').removeClass('athnea-education_03');
+        self.$('.js-athena_st_07').addClass('athnea-education_02');
+      }
+    };
+    if(index==8) {
+     if(! self.$('.js-athena_st_08').hasClass('athnea-tiger_03')) {
+       self.$('.js-athena_st_08').removeClass('athnea-tiger_01').removeClass('athnea-tiger_02').removeClass('athnea-tiger_03');
+        self.$('.js-athena_st_08').addClass('athnea-tiger_02');
+      }
+    };
+    if(index==9) {
+      if(! self.$('.js-athena_st_09').hasClass('athnea-Reality_03')) {
+        self.$('.js-athena_st_09').removeClass('athnea-Reality_01').removeClass('athnea-Reality_02').removeClass('athnea-Reality_03');
+        self.$('.js-athena_st_09').addClass('athnea-Reality_02');
+      }
+    };
+    if(index==10) {
+      if(! self.$('.js-athena_st_10').hasClass('athnea-ticket_03')) {
+        self.$('.js-athena_st_10').removeClass('athnea-ticket_01').removeClass('athnea-ticket_02').removeClass('athnea-ticket_03');
+        self.$('.js-athena_st_10').addClass('athnea-ticket_02');
+     }
+    };
+    },
+
+  tempMouseOut:function(e){
+    //this.clearClick();
+    var $target = $(e.currentTarget);
+    //$(e.currentTarget).mouseover(function(){
+    //      alert(index);
+    //})
+    var index = $target.data('index');
+    var self = this;
+    // alert(index);
+
+    if(index==7) {
+     if(! self.$('.js-athena_st_07').hasClass('athnea-education_03')) {
+        self.$('.js-athena_st_07').removeClass('athnea-education_01').removeClass('athnea-education_02').removeClass('athnea-education_03');
+        self.$('.js-athena_st_07').addClass('athnea-education_01');
+      }
+    };
+    if(index==8) {
+      if(! self.$('.js-athena_st_08').hasClass('athnea-tiger_03')) {
+        self.$('.js-athena_st_08').removeClass('athnea-tiger_01').removeClass('athnea-tiger_02').removeClass('athnea-tiger_03');
+        self.$('.js-athena_st_08').addClass('athnea-tiger_01');
+      }
+    };
+   if(index==9) {
+      if(! self.$('.js-athena_st_09').hasClass('athnea-Reality_03')) {
+        self.$('.js-athena_st_09').removeClass('athnea-Reality_01').removeClass('athnea-Reality_02').removeClass('athnea-Reality_03');
+        self.$('.js-athena_st_09').addClass('athnea-Reality_01');
+      }
+    };
+    if(index==10) {
+     if(! self.$('.js-athena_st_10').hasClass('athnea-ticket_03')) {
+        self.$('.js-athena_st_10').removeClass('athnea-ticket_01').removeClass('athnea-ticket_02').removeClass('athnea-ticket_03');
+        self.$('.js-athena_st_10').addClass('athnea-ticket_01');
+     }
+   };
+  },
+
+  tempClick:function(e) {
+
+    this.clearClick();
+    var $target = $(e.currentTarget);
+    //$(e.currentTarget).mouseover(function(){
+    //      alert(index);
+    //})
+    var index = $target.data('index');
+     //alert(index);
+
+    if(index==7) {
+      this.$('.js-athena_st_07').removeClass('athnea-education_01').removeClass('athnea-education_02').removeClass('athnea-education_03');
+      $('.js-athena_st_07').addClass('athnea-education_03');
+    };
+    if(index==8) {
+     this.$('.js-athena_st_08').removeClass('athnea-tiger_01').removeClass('athnea-tiger_02').removeClass('athnea-tiger_03');
+      $('.js-athena_st_08').addClass('athnea-tiger_03');
+    };
+    if(index==9) {
+     this.$('.js-athena_st_09').removeClass('athnea-Reality_01').removeClass('athnea-Reality_02').removeClass('athnea-Reality_03');
+      $('.js-athena_st_09').addClass('athnea-Reality_03');
+      $('.js-athena_st_03').removeClass('athnea-zr_01').removeClass('athnea-zr_02').removeClass('athnea-zr_03');
+      $('.js-athena_st_03').addClass('athnea-zr_03');
+      $('.js-athena_st_01').removeClass('athnea-st_01').removeClass('athnea-st_02').removeClass('athnea-st_03');
+      $('.js-athena_st_01').addClass('athnea-st_01');
+    };
+    if(index==10) {
+      this.$('.js-athena_st_10').removeClass('athnea-ticket_01').removeClass('athnea-ticket_02').removeClass('athnea-ticket_03');
+      $('.js-athena_st_10').addClass('athnea-ticket_03');
+    };
+  },
+
+  clearClick:function () {
+    $('.js-athena_st_07').removeClass('athnea-education_01').removeClass('athnea-education_02').removeClass('athnea-education_03');
+    $('.js-athena_st_08').removeClass('athnea-tiger_01').removeClass('athnea-tiger_02').removeClass('athnea-tiger_03');
+    $('.js-athena_st_09').removeClass('athnea-Reality_01').removeClass('athnea-Reality_02').removeClass('athnea-Reality_03');
+    $('.js-athena_st_10').removeClass('athnea-ticket_01').removeClass('athnea-ticket_02').removeClass('athnea-ticket_03');
+
+    $('.js-athena_st_07').addClass('athnea-education_01');
+    $('.js-athena_st_08').addClass('athnea-tiger_01');
+    $('.js-athena_st_09').addClass('athnea-Reality_01');
+    $('.js-athena_st_10').addClass('athnea-ticket_01');
 
   },
+
+
 
   comeingsoonHandler: function() {
       var self = this;

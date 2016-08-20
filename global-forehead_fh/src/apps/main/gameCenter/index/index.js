@@ -8,11 +8,22 @@ var GameCenterView = Base.ItemView.extend({
 
   events: {
     'click .js-ag-bettingRecords': 'bettingRecordsHandler',
-    'click .js-ag-transforMoney': 'transforMoneyHandler'
+    'click .js-ag-transforMoney': 'transforMoneyHandler',
+    'click .js-ag-game-enter': 'enterAgHandler'
   },
 
   onRender: function() {
     var self = this;
+  },
+
+  getAgXhr: function() {
+    return Global.sync.ajax({
+      url: '/acct/login/doAglogin.json'
+    });
+  },
+
+  enterAgHandler:function() {
+    this.getAgXhr();
   },
 
   bettingRecordsHandler:function () {

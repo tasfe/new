@@ -16,6 +16,20 @@ body{
 	}
 }
 
+.table_bg{
+	font-size: 14px;
+	width: 100%;
+	tr{
+		th{
+			font-weight: normal;
+		}
+		td{
+			//background-color: #fff;
+		}
+	}
+}
+
+
 select {
 	outline: none;
 }

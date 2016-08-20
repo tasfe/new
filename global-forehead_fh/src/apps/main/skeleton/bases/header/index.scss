@@ -93,7 +93,11 @@ $header-margin-top: 6px;
   }
 
 }
-
+//.athena_incon-mailbox{
+//  width:50px;
+//  height:80px;
+//  background:blue;
+//}
 .head{
   width: 1200px;
   height: 104px;
@@ -196,6 +200,19 @@ $header-margin-top: 6px;
     margin-top: 20px;
   }
 
+}
+.cursor-pointer:hover{
+  color:red !important;
+}
+.athena-three{
+  background: url(images/athena-three.png) no-repeat right !important;
+}
+.athena-message{
+  background: url(images/athena-message.png) no-repeat  left !important;
+}
+.athena-line{
+  background: url(images/athena-line.png) no-repeat right !important;
+  background-color: red;
 }
 .athnea-cp_01{
   background: url(images/cp_01.png) no-repeat center;
