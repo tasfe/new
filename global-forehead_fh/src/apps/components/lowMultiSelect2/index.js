@@ -137,7 +137,8 @@ var LowMultiSelect = Base.PrefabView.extend({
               value: sub.userId,
               subItem: false,
               online: sub.online,
-              headId: sub.headId
+              headId: sub.headId,
+              newMsgNum: sub.newMsgNum
             };
           }));
         }
@@ -214,7 +215,7 @@ var LowMultiSelect = Base.PrefabView.extend({
       this.$selectedContainer.html('');
     }else{
       this.$selectedContainer.html(_(this.selectedUsers).map(function(user) {
-        return '<li class="js-pf-selected-user cursor-pointer" data-id="' + user.id + '">' + user.name + '</li>';
+        return '<li class="js-pf-selected-user cursor-pointer" data-id="' + user.id + '"><span>' + user.name + '</span><i></i></li>';
       }));
     }
     $('.js-single-to-user').change();

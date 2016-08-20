@@ -262,6 +262,30 @@ dl,dt,dd{
       }
     }
 
+    .bottom{
+      background: url(~base/images/julien/re-bottom-bg.png) no-repeat bottom;
+      height: 81px;
+      width: 978px;
+      margin: 0px auto;
+      padding-top: 20px;
+      clear: both;
+      font-size: 14px;
+      font-family: '微软雅黑';
+      color: #000000;
+
+      a{
+        margin-right: 145px;
+        text-align: center;
+        display: inline-block;
+        width: 75px;
+        padding-top: 60px;
+
+        &:last-child{
+          margin:0px;
+        }
+      }
+    }
+
     .carousel-indicators{
       bottom: 0px;
       width: 100%;

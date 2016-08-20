@@ -99,6 +99,13 @@ var InsideLetterView = Base.ItemView.extend({
           var acctInfo = Global.memoryCache.get('acctInfo');
 
           if (!jQuery.isEmptyObject(list)) {
+            var num = $('.js-selected-container li').length;
+            var userId = $('.js-selected-container li').eq(num - 1).data('id');
+
+      //      if (hasNew) {
+      //        Global.m.message.setRead(userId);
+      //      }
+
             if(sessionStorage.getItem('message') != list[list.length -1].messageId && sessionStorage.getItem('message') != null || $('.js-single-container ul').html() == ''){
               sessionStorage.setItem('message', list[list.length -1].messageId);
               $('.js-single-container ul').html('');

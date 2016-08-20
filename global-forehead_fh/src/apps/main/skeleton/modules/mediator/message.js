@@ -48,6 +48,16 @@ var MessageMediatorModule = Base.Module.extend({
             parse: true
           });
 
+          var newsNum = 0;
+
+          newsNum += data.parent.newMsgNum;
+
+          for (var i = data.subList.length - 1; i >= 0; i--) {
+            newsNum += data.subList[i].newMsgNum;
+          }
+          
+          $('.js-gl-letter-unread').text(newsNum);
+
           Global.m.publish('message:updating', self.model);
         }
       });
