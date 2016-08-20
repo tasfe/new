@@ -18,7 +18,12 @@ $main-top: 110px !default;
 .db-ticket-scroll {
   bottom: $main-top !important;
 }
+.athena-bg-active{
+    width:75px;
+  height:150px;
+  background-color: red;
 
+}
 .carousel-inner {
   .item{
     width: 1200px !important;
@@ -31,7 +36,7 @@ $main-top: 110px !default;
 }
 
 .db-slogan {
-  background: url(~base/images/julien/11.png) no-repeat left center;
+  background: url(~base/images/julien/11.png) no-repeat  center;
   height: 40px;
   line-height: 40px;
   margin: 10px 0 20px 0;

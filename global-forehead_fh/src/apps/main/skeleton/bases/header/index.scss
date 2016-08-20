@@ -208,11 +208,33 @@ $header-margin-top: 6px;
   background: url(images/athena-three.png) no-repeat right !important;
 }
 .athena-message{
-  background: url(images/athena-message.png) no-repeat  left !important;
+  background: url(images/athena-message.png) no-repeat left !important;
+  width:45px;
+  height:17px;
+  margin-left:10px;
+  margin-top: -2px !important;
+
+  span{
+    margin-left:20px;
+    display: inline-block;
+    width:16px;
+    height:16px;
+    border-radius: 50%;
+    text-align: center;
+    background-color:#bb0101;
+    //line-height:-100px !important;
+  }
 }
 .athena-line{
   background: url(images/athena-line.png) no-repeat right !important;
   background-color: red;
+}
+
+.athena-line:hover{
+  color:#f90 !important;
+}
+.athena-line1:hover{
+  color:red !important;
 }
 .athnea-cp_01{
   background: url(images/cp_01.png) no-repeat center;
@@ -281,8 +303,8 @@ $header-margin-top: 6px;
   //}
   ul{
     li:hover a{
-      color:red;
-
+      color:#c00;
+      text-decoration:underline;
 
     }
   }
