@@ -13,16 +13,16 @@ var BettingRecordsView = TabView.extend({
     _(this.options).extend({
       tabs: [
         {
-          label: '彩票',
-          name: 'team',
-          id: 'jsTeam',
-          view: TeamView
-        },
-        {
           label: 'AG游戏',
           name: 'personal',
           id: 'jsPersonal',
           view: PersonalView
+        },
+        {
+          label: '彩票',
+          name: 'team',
+          id: 'jsTeam',
+          view: TeamView
         }
       ]
     });

@@ -19,12 +19,29 @@
   margin-top: -230px;
 }
 
-.ag-betting-records {
-  font-size: 22px;
+.ag-transfer-balance{
+  //background-color: #9fda58;
   position: absolute;
-  margin-left: 605px;
-  margin-top: -370px;
-  color: wheat;
+  margin-left: 290px;
+  margin-top: -350px;
+  font-size: 22px;
+  color: white;
+  //width: 100px;
+  height: 30px;
+  .ag-balance-unit{
+      font-size: 14px;
+  }
+}
+
+.ag-betting-records {
+  a{
+    font-size: 22px;
+    position: absolute;
+    margin-left: 605px;
+    margin-top: -370px;
+    color: wheat;
+  }
+
 }
 
 .ag-transfer-account {
