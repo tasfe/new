@@ -19,12 +19,29 @@
   margin-top: -230px;
 }
 
-.ag-betting-records {
-  font-size: 22px;
+.ag-transfer-balance{
+  //background-color: #9fda58;
   position: absolute;
-  margin-left: 605px;
-  margin-top: -370px;
-  color: wheat;
+  margin-left: 290px;
+  margin-top: -350px;
+  font-size: 22px;
+  color: white;
+  //width: 100px;
+  height: 30px;
+  .ag-balance-unit{
+      font-size: 14px;
+  }
+}
+
+.ag-betting-records {
+  a{
+    font-size: 22px;
+    position: absolute;
+    margin-left: 605px;
+    margin-top: -370px;
+    color: wheat;
+  }
+
 }
 
 .ag-transfer-account {
@@ -33,4 +50,101 @@
   margin-left: 902px;
   margin-top: -370px;
   color: wheat;
+}
+
+
+
+
+
+.ag-transfor-dialog{
+  background-color: #ffffff;
+  overflow: hidden;
+  height: 400px;
+  padding: 0px;
+}
+
+.ag-transfer-content{
+  background: url("~skeleton/bases/header/affiche_bg.png") no-repeat 250px 0px;
+  height: 390px;
+  .ag-transger-header{
+    display: -webkit-box;
+    width: 100%;
+    .ag-lottery-account{
+      border: 1px solid #CCCCCC;
+      border-radius: 10px;
+      text-align: center;
+      line-height: 40px;
+      height: 40px;
+      width: 270px;
+      margin: 10px;
+
+    }
+    .ag-game-account{
+      border: 1px solid #CCCCCC;
+      border-radius: 10px;
+      text-align: center;
+      line-height: 40px;
+      height: 40px;
+      width: 220px;
+      margin: 10px;
+    }
+    .ag-transfer-alert{
+      margin: 10px;
+    }
+  }
+}
+
+.ag-transfer-input{
+  display: inline-flex;
+  margin-left: 260px;
+  height: 30px;
+  width: 500px;
+  margin-bottom: 10px;
+  .ag-trans-lab{
+    line-height: 30px;
+    height: 30px;
+    width: 45px;
+  }
+  .ag-trans-text{
+    background-color: #f7f7f7;
+    border: 1px solid #CCCCCC;
+    text-align: center;
+    line-height: 30px;
+    width: 230px;
+    height: 30px;
+  }
+  .ag-trans-amount{
+    border: 1px solid #CCCCCC;
+    line-height: 25px;
+    width: 220px;
+    height: 22px;
+  }
+}
+.ag-transfer-tip{
+  margin-bottom: 60px;
+  text-align: center;
+}
+.ag-transfer-switch{
+  background: url("ag-switch-bg.png") no-repeat;
+  position: absolute;
+  height: 54px;
+  width: 101px;
+  left: 538px;
+  top: 92px;
+  .ag-switch-button{
+    background-color: #ff6600;
+    border-radius: 0px;
+    position: relative;
+    text-align: center;
+    line-height: 30px;
+    cursor: pointer;
+    height: 30px;
+    color: #fff;
+    border: 0px;
+    width: 62px;
+    left: 40px;
+    top: 12px;
+
+  }
+
 }
