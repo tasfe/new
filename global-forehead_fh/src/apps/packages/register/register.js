@@ -241,7 +241,7 @@ $.widget('gl.register', {
             $('.content-julien .right dl').eq(0).removeClass('correct');
             $('.content-julien .right dl .messageBox span').eq(0).html('字符4到6');
           }
-        } 
+        }
         else{
           $('.content-julien .right dl').eq(0).addClass('wrong');
           $('.content-julien .right dl').eq(0).removeClass('correct');
