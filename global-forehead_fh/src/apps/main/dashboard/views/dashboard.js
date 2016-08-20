@@ -34,10 +34,10 @@ var DashboardView = Base.ItemView.extend({
     'mouseout .js-athena_st_09': 'tempMouseOut',
     'mouseout .js-athena_st_10': 'tempMouseOut',
 
-    'click .js-athena_st_07': 'tempClick',
-    'click .js-athena_st_08': 'tempClick',
-    'click .js-athena_st_09': 'tempClick',
-    'click .js-athena_st_10': 'tempClick',
+    'mousedown  .js-athena_st_07': 'tempClick',
+    'mousedown  .js-athena_st_08': 'tempClick',
+    'mousedown  .js-athena_st_09': 'tempClick',
+    'mousedown  .js-athena_st_10': 'tempClick',
   },
 
   tempMouseover:function(e){
@@ -84,28 +84,28 @@ var DashboardView = Base.ItemView.extend({
     // alert(index);
 
     if(index==7) {
-     if(! self.$('.js-athena_st_07').hasClass('athnea-education_03')) {
+     //if(! self.$('.js-athena_st_07').hasClass('athnea-education_03')) {
         self.$('.js-athena_st_07').removeClass('athnea-education_01').removeClass('athnea-education_02').removeClass('athnea-education_03');
         self.$('.js-athena_st_07').addClass('athnea-education_01');
       }
-    };
+    //};
     if(index==8) {
-      if(! self.$('.js-athena_st_08').hasClass('athnea-tiger_03')) {
+      //if(! self.$('.js-athena_st_08').hasClass('athnea-tiger_03')) {
         self.$('.js-athena_st_08').removeClass('athnea-tiger_01').removeClass('athnea-tiger_02').removeClass('athnea-tiger_03');
         self.$('.js-athena_st_08').addClass('athnea-tiger_01');
-      }
+      //}
     };
    if(index==9) {
-      if(! self.$('.js-athena_st_09').hasClass('athnea-Reality_03')) {
+      //if(! self.$('.js-athena_st_09').hasClass('athnea-Reality_03')) {
         self.$('.js-athena_st_09').removeClass('athnea-Reality_01').removeClass('athnea-Reality_02').removeClass('athnea-Reality_03');
         self.$('.js-athena_st_09').addClass('athnea-Reality_01');
-      }
+      //}
     };
     if(index==10) {
-     if(! self.$('.js-athena_st_10').hasClass('athnea-ticket_03')) {
+     //if(! self.$('.js-athena_st_10').hasClass('athnea-ticket_03')) {
         self.$('.js-athena_st_10').removeClass('athnea-ticket_01').removeClass('athnea-ticket_02').removeClass('athnea-ticket_03');
         self.$('.js-athena_st_10').addClass('athnea-ticket_01');
-     }
+     //}
    };
   },
 

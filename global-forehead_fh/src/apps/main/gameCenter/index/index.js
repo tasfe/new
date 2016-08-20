@@ -17,8 +17,10 @@ var GameCenterView = Base.ItemView.extend({
   },
 
   getAgXhr: function() {
+
     return Global.sync.ajax({
-      url: '/acct/login/doAglogin.json'
+      url: '/acct/login/doAglogin.json',
+      type: 'get'
     });
   },
 
