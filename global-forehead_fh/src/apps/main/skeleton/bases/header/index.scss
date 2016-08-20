@@ -122,7 +122,7 @@ $header-margin-top: 6px;
     margin-left: 20px;
     margin-top: 16px;
     font-weight: bold;
-    width: 148px;
+    width: 138px;
     height: 47px;
     line-height: 47px;
     text-align: center;
@@ -401,4 +401,41 @@ $header-margin-top: 6px;
   background-color: #fff;
   color: #562e0f;
   padding: 15px;
+}
+
+.publicTeamData{
+  width: 1200px;
+  margin: 0px auto;
+  position: relative;
+
+  span{
+    position: absolute;
+    font-size: 24px;
+    font-family: 'Arial';
+
+    &.julien-data1{
+      color: #236892;
+      left: 335px;
+      top: 10px;
+      font-size: 30px;
+    }
+
+    &.julien-data2{
+      color: #26875f;
+      left: 583px;
+      top: 15px;
+    }
+
+    &.julien-data3{
+      color: #a02f61;
+      left: 813px;
+      top: 15px;
+    }
+
+    &.julien-data4{
+      color: #925316;
+      left: 1041px;
+      top: 15px;
+    }
+  }
 }

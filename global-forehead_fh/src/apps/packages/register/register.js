@@ -13,24 +13,9 @@ $.widget('gl.register', {
   _create: function () {
 
     this.element.html(_(this.template).template()());
-    this.$username = this.element.find('.js-re-userName');
-    this.$usernameValRes = this.element.find('.js-re-username-val-res');
-    this.$usernameValDes = this.element.find('.js-re-verify-username');
 
-    this.$password = this.element.find('#jsRELoginPassword');
-    this.$passwordValRes = this.element.find('.js-re-password-val-res');
-    this.$passwordValDes = this.element.find('.js-re-verify-password');
-
-
-    this.$password1 = this.element.find('#jsRELoginPassword1');
-    this.$password1ValRes = this.element.find('.js-re-password1-val-res');
-    this.$password1ValDes = this.element.find('.js-re-verify-password1');
-
-    this.$valCode = this.element.find('.js-re-valCode');
+    this.$valCode = this.element.find('.js-rp-valCode');
     this.$valImg = this.element.find('.js-re-valImg');
-    this.$valCodeRes = this.element.find('.js-re-valCode-val-res');
-    this.$valCodeDes = this.element.find('.js-re-valCode-val-des');
-
 
     var url =  window.self.location.toString();
     this.codeUrl = url.substring(0, url.indexOf('/', url.indexOf('://',0)+3))+'/acct/imgcode/code';
@@ -42,12 +27,8 @@ $.widget('gl.register', {
     }).render();
 
     this._setupForm();
-
     this._bindEvent();
-
-
     this.safetyTipsBind();
-
   },
 
 
@@ -75,8 +56,101 @@ $.widget('gl.register', {
     var self = this;
     //绑定事件
     this._on({
-      'click .js-re-valImg': 'refreshValCodeHandler'//刷新验证码
+      'click .js-re-valImg': 'refreshValCodeHandler',//刷新验证码
+      'click .js-re-register-submit': 'registerSubmit' //提交注册
     });
+  },
+
+   registerXhr: function () {
+    return $.ajax({
+      type: 'POST',
+      url: '/acct/reg/doreg.json',
+      data: {
+        userName: $('.js-re-userName').val(),
+        loginPwd: $('.js-rp-loginPwd1').val(),
+        linkId: _.getUrlParam('linkId')
+      }
+    });
+  },
+
+  getBannerADXhr: function () {
+    return $.ajax({
+      type: 'POST',
+      url: '/acct/usernotice/getregadvertise.json'
+    });
+  },
+
+  registerSubmit: function (e) {
+    var self = this;
+    var $target = $(e.currentTarget);
+
+    var iIs = 0;
+    var str= $('.js-rp-loginPwd1').val();
+    var str2= $('.js-rp-loginPwd2').val();
+    if (str.length == 0) {
+      $('.content-julien .right dl').eq(1).addClass('wrong');
+      $('.content-julien .right dl').eq(1).removeClass('correct');
+      $('.content-julien .right dl .messageBox span').eq(0).html('不能为空');
+
+      iIs = 1;
+    }
+    else{
+      if (str2.length == 0) {
+        $('.content-julien .right dl').eq(2).addClass('wrong');
+        $('.content-julien .right dl').eq(2).removeClass('correct');
+
+        iIs = 1;
+      }
+    }
+
+    var str3= $('.js-re-userName').val();
+    if (str3.length == 0) {
+      $('.content-julien .right dl').eq(0).addClass('wrong');
+      $('.content-julien .right dl').eq(0).removeClass('correct');
+      $('.content-julien .right dl .messageBox span').eq(0).html('不能为空');
+
+      iIs = 1;
+    }
+
+    if ($('.js-rp-valCode').val() == '') {
+      self.refreshValCodeHandler();
+      $('.js-code').addClass('wrong');
+      $('.js-code').removeClass('correct');
+
+      iIs = 1;
+    }
+
+    var obj = $('.content-julien .right dl');
+    if ( iIs == 0 && obj.eq(0).hasClass('correct') && obj.eq(1).hasClass('correct') && obj.eq(2).hasClass('correct') && obj.eq(3).hasClass('correct') ) {
+      
+      this.registerXhr().always(function() {
+        $target.button('reset');
+      }).fail(function() {
+        Global.ui.notification.show('注册失败！',{btnContent:'重新注册',event:function(){
+          self._create();
+        }});
+      }).done(function (res) {
+        if (res.result === 0) {
+          Global.ui.notification.show('注册成功！',{type:'success',btnContent:'登陆',event:function(){
+            Global.cookieCache.set('token', res.root.token);
+            window.location.href = 'index.html';
+          }});
+        } else {
+         // self.element.find('.js-re-notice').html(self._getErrorEl('注册失败！' + res.msg));
+          var msg = '注册失败！';
+          if(res.msg!=='fail'){
+            msg = res.msg;
+            Global.ui.notification.show( msg ,{btnContent:'确定',event:function(){
+              self._create();
+            }});
+          }else{
+            Global.ui.notification.show( msg,{btnContent:'重新注册',event:function(){
+              self._create();
+            }});
+          }
+        }
+      });
+    }
   },
 
   safetyTipsBind: function () {
@@ -211,7 +285,6 @@ $.widget('gl.register', {
 
 
     var verifyInputUserName = _(function() {
-      alert(1);
       var str= $('.js-re-userName').val();
       if (str.length == 0) {
         $('.content-julien .right dl').eq(0).addClass('wrong');
@@ -259,146 +332,13 @@ $.widget('gl.register', {
     this.$valCode.val('');
   },
 
-  getADInfoXhr: function () {
-    return $.ajax({
-      type: 'POST',
-      url: ''
-    });
-  },
-  registerXhr: function (data) {
-    return $.ajax({
-      type: 'POST',
-      url: '/acct/reg/doreg.json',
-      data: data
-    });
-  },
-
-  getBannerADXhr: function () {
-    return $.ajax({
-      type: 'POST',
-      url: '/acct/usernotice/getregadvertise.json'
-    });
-  },
-  registerHandler: function (e) {
-    var self = this;
-    var $target = $(e.currentTarget);
-    var $registerForm = this.element.find('.js-re-registerForm');
-   // var clpValidate = $registerForm.parsley().validate();
-
-    var flag = true;
-    if(self.$username.val()==='' || self.$usernameValRes.val()==='1'){
-      self._showValResult(1,self.$usernameValDes,'请输入有效的用户名',self.$usernameValRes);
-      flag =  false;
-    }
-    //if(self.$userUName.val()==='' || self.$userUNameValRes.val()==='1'){
-    //  self._showValResult(1,self.$userUNameValDes,'请输入有效的昵称',self.$userUNameValRes);
-    //  flag =  false;
-    //}
-    if(self.$password.val()===''){
-      self._showValResult(1,self.$passwordValDes,'密码不能为空',self.$passwordValRes);
-      flag =  false;
-    }else  if(self.$password.val()!=='' && self.$passwordValRes.val()!=='0'){
-      if(!self._valPassword(self.$password, self.$passwordValRes,self.$passwordValDes,self.$password1,self.$password1ValRes)){
-        flag = false;
-      }
-    }
-
-    if(self.$password1.val()==='' ){
-      self._showValResult(1,self.$password1ValDes,'密码不能为空',self.$password1ValRes);
-      flag =  false;
-    }else  if(self.$password1.val()!=='' && self.$password1ValRes.val()!=='0'){
-      if(!self._valPassword(self.$password1, self.$password1ValRes,self.$password1ValDes,self.$password,self.$passwordValRes)){
-        flag = false;
-      }
-
-    }
-
-    if(self.$valCode.val()===''||self.$valCodeRes.val()==='1'){
-      self._showValResult(1,self.$valCodeDes,'请输入正确的验证码',self.$valCodeRes);
-      self.refreshValCodeHandler();
-      flag =  false;
-    }
-
-    if (flag ) {
-      $target.button('loading');
-      var data = _($registerForm.serializeArray()).serializeObject();
-      this.registerXhr(data).always(function() {
-        $target.button('reset');
-      }).fail(function() {
-        Global.ui.notification.show('注册失败！',{btnContent:'重新注册',event:function(){
-          self._create();
-        }});
-      }).done(function (res) {
-        if (res.result === 0) {
-          Global.ui.notification.show('注册成功！',{type:'success',btnContent:'登陆',event:function(){
-            Global.cookieCache.set('token', res.root.token);
-            window.location.href = 'index.html';
-          }});
-          //self.element.find('.js-re-notice').html(self._getErrorEl('注册成功！'));
-        } else {
-         // self.element.find('.js-re-notice').html(self._getErrorEl('注册失败！' + res.msg));
-          var msg = '注册失败！';
-          if(res.msg!=='fail'){
-            msg = res.msg;
-            Global.ui.notification.show( msg ,{btnContent:'确定',event:function(){
-              self._create();
-            }});
-          }else{
-            Global.ui.notification.show( msg,{btnContent:'重新注册',event:function(){
-              self._create();
-            }});
-          }
-        }
-      });
-    }else{
-      self.refreshValCodeHandler();
-    }
-  },
-
-  _valPassword: function($password,$result,$describe,$target,$targetResult){
-    var password = $password.val();
-    var myReg = /[~`\-\_^@\/\'\\\"#$%&\*\?\(\),\+;\[\]\{\}\|\.:：<>!！￥？（），。、—]/;
-    var msg = [];
-    if(password.length<6||password.length>20){
-      msg.push( '密码长度限制6-20位字符');
-    }
-    if( myReg.test(password)){
-      msg.push('不能使用特殊字符');
-    }
-    if($target && password!=='' && $target.val()!==''){
-      if(password !== $target.val()){
-        msg.push('两次输入的密码不一致');
-      }else{
-        if(_(msg).isEmpty() && $targetResult.val()==='1'){
-          this._showValResult(0,$describe,'',$result);
-          $target.trigger('blur');
-        }
-      }
-    }
-    if(_(msg).size()>0){
-      this._showValResult(1,$describe,msg.join(','),$result);
-      return false;
-    }else{
-      this._showValResult(0,$describe,'',$result);
-      return true;
-    }
-  },
-
-  valPasswordHandler: function(){
-    this._valPassword(this.$password,this.$passwordValRes,this.$passwordValDes,this.$password1,this.$password1ValRes);
-  },
-  valPassword1Handler: function(){
-    this._valPassword(this.$password1,this.$password1ValRes,this.$password1ValDes,this.$password,this.$passwordValRes);
-  },
-
-
   _setupForm: function () {
     var self = this;
     var linkId = _.getUrlParam('linkId');
-    this.element.find('.js-re-linkId').val(linkId);
     //加载广告信息
     this.renderRegistrationBannerAD();
   },
+
   renderRegistrationBannerAD: function () {
     var self = this;
     this.getBannerADXhr().done(function (res) {
@@ -407,6 +347,7 @@ $.widget('gl.register', {
       }
     });
   },
+
   generateBannerAD: function (data) {
     var liList = [];
     var divList = [];
@@ -450,87 +391,9 @@ $.widget('gl.register', {
     });
   },
 
-  _getErrorEl: function (text) {
-    return '<div class="alert alert-danger alert-dismissible" role="alert">' +
-      '<button type="button" class="close" data-dismiss="alert">' +
-      '<span aria-hidden="true">×</span>' +
-      '</button>' +
-      '<i class="fa fa-times-circle m-right-xs"></i>' +
-      '<strong>提示！</strong> ' + text +
-      '</div>';
-  },
-
-
   refreshValCodeOnly: function(){
     this.$valImg.attr('src','');
     this.$valImg.attr('src',this.codeUrl+'?_t='+_.now());
-  },
-
-  valCodeHandler: function (e) {
-    var self = this;
-    if(self.$valCode && self.$valCode.val()!='' && self.$valCode.val().length===4){
-      $.ajax({
-        type: 'POST',
-        url: '/acct/imgcode/val.json',
-        data: {
-          code: self.$valCode.val()
-        }
-      }).done(function (data, status, xhr) {
-        if (data.result === 0) {
-          self._showValResult(0,self.$valCodeDes,'',self.$valCodeRes);
-          self.registerHandler(e);
-        }else{
-          self._showValResult(1,self.$valCodeDes,'验证码输入有误',self.$valCodeRes);
-          //self.refreshValCodeHandler();
-          self.refreshValCodeOnly();
-        }
-      }).fail(function () {
-        self._showValResult(1,self.$valCodeDes,'验证码输入有误',self.$valCodeRes);
-        //self.refreshValCodeHandler();
-        self.refreshValCodeOnly();
-      });
-    }else{
-      self.$valCodeRes.val('1');
-      self.$valCodeDes.html('');
-      if(self.$valCode.val()===''||self.$valCodeRes.val()==='1'){
-        self._showValResult(1,self.$valCodeDes,'请输入正确的验证码',self.$valCodeRes);
-       // self.refreshValCodeHandler();
-        flag =  false;
-      }
-    }
-  },
-  _showValResult: function(result,$container,msg,$valResult,notShowRightTag){
-    var wrong = '<span class="text-danger">'+msg+'</span>';
-    var right = '';
-    if(!notShowRightTag){
-       right = '';
-    }
-    if(result===0){
-      $container.html(right);
-      if($valResult){
-        $valResult.val('0');
-      }
-    }else if(result===1){
-      $container.html(wrong);
-      if($valResult) {
-        $valResult.val('1');
-      }
-    }else{
-      $container.html('');
-    }
-  },
-  
-  renderError: function(text) {
-    this.$form.find('.login-error-message').html(text);
-  },
-
-  resetInputHandler: function(e) {
-    var $target = $(e.currentTarget);
-    var $pInput1 = this.element.find('#jsRELoginPassword');
-    var $pInput2 = this.element.find('#jsRELoginPassword1');
-    if ($pInput1.val() != $pInput2.val()) {
-      $target.val('');
-    }
   }
   
 });

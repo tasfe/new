@@ -16,7 +16,6 @@ $.widget('gl.login', {
 
   _create: function () {
     $('body').css('display','none');
-    
 
     this.element.html(_(this.template).template()({
       time: moment().format('M月DD日 ddd'),
