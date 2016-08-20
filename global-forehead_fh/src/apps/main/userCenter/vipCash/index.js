@@ -12,6 +12,7 @@ var VipCashView = SearchGrid.extend({
 
   initialize: function () {
     _(this.options).extend({
+      tableClass:'table vip-table no-margin table-bordered table-no-lr table-center',
       columns: [
         {
           name: '发放时间',
@@ -60,8 +61,9 @@ var VipCashView = SearchGrid.extend({
         format: 'YYYY-MM-DD'
       }
     }).render();
-
+    this.$('.js-pf-search-grid').addClass('gauge');
     SearchGrid.prototype.onRender.apply(this, arguments);
+
   },
 
   renderGrid: function(gridData) {

@@ -12,6 +12,7 @@ var PrizeRecordView = SearchGrid.extend({
 
   initialize: function () {
     _(this.options).extend({
+      tableClass:'table vip-table no-margin table-bordered table-no-lr table-center',
       columns: [
         {
           name: '领取时间',

@@ -636,13 +636,16 @@ img{
   float:left;
   margin-left:20px;
   width:1070px;
-
 }
+.vip-tab-content .vip-main1{
+  left:0px
+}
+
 .vip-tab {
   float: left;
   margin-top: 8px;
   width: 80px;
-  margin-left: 20px;
+  margin-left: 15px;
   position: relative;
   li {
     margin-top: 18px;
@@ -676,16 +679,22 @@ img{
   display: none;
 }
 
-.vip-tab span:hover {
+.vip-tab span:hover,.vip-tab .active span{
   background: #ffcc66;
   color: #333;
 }
 
-.vip-tab span:hover::after {
+.vip-tab span:hover::after,.vip-tab .active span::after {
   display: block;
 }
 
 
+//VIP中心表格背景修改
+.vip-table th{
+  background:#f2f2f2 !important;
+  color:#999;
+  font-weight:normal;
+}
 
 
 
@@ -807,13 +816,14 @@ img{
     color: #333333;
     font-size: 14px;
     font-family: '微软雅黑';
-
     .control-label{
       font-size: 14px;
     }
   }
 }
-
+.gauge{
+  margin:0 15px;
+}
 .bd-bet-header{
 
   border-bottom: 1px solid #CCCCCC;

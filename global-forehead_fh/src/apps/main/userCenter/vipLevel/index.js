@@ -10,6 +10,7 @@ var VipLevelView = SearchGrid.extend({
 
   initialize: function () {
     _(this.options).extend({
+      tableClass:'table vip-table no-margin table-bordered table-no-lr table-center',
       columns: [
         {
           name: '日期',
@@ -55,8 +56,8 @@ var VipLevelView = SearchGrid.extend({
 
     var acctInfo = Global.memoryCache.get('acctInfo');
     this.$(".js_vipLevel").html(acctInfo.memberLevel);
-    this.$(".js-vip-level").addClass('vip-main1')
-
+    this.$(".js-vip-level").addClass('vip-main1');
+    this.$('.js-pf-search-grid').addClass('gauge');
   },
 
 
@@ -94,5 +95,7 @@ var VipLevelView = SearchGrid.extend({
   }
 
 });
+
+
 
 module.exports = VipLevelView;
