@@ -74,7 +74,10 @@ var BettingRecordsView = SearchGrid.extend({
         url: '/ticket/bethistory/agBetReport.json',
         abort: false
       },
-      listProp: 'root',
+      reqData: {
+        subUser: 0
+      },
+      listProp: 'root.data',
       tip: '<div class="m-left-md m-top-md text-hot"><span>注意:</span> 投注记录只保留最近30天。</div>',
       height: 310
     });
@@ -82,38 +85,23 @@ var BettingRecordsView = SearchGrid.extend({
   },
 
   onRender: function() {
-
-    var self = this;
-    
     this.$('.js-pf-search-grid').addClass('bc-report-table');
-    
     //初始化时间选择
-
-    // new Timeset({
-    //   el: this.$('.js-pf-timeset'),
-    //   startDefaultDate: this.options.reqData.startTime?this.options.reqData.startTime:_(moment().startOf('day')).toTime(),
-    //   endDefaultDate: this.options.reqData.endTime?this.options.reqData.endTime:_(moment().endOf('day')).toTime()
-    // }).render();
-    // if(this.options.reqData.username){
-    //   this.$('input[name="username"]').val(this.options.reqData.username);
-    // }
-
-    //初始化彩种选择
-    //new TicketSelectGroup({
-    //  el: this.$('.js-uc-ticket-select-group')
-    //});
-
-    // this.$('select[name=betStatus]').html(_(betStatusConfig.get()).map(function(betStatus) {
-    //   return '<option value="' + betStatus.id + '">' + betStatus.zhName + '</option>';
-    // }).join(''));
+    new Timeset({
+      el: this.$('.js-pf-timeset'),
+      startDefaultDate: this.options.reqData.startTime?this.options.reqData.startTime:_(moment().startOf('day')).toTime(),
+      endDefaultDate: this.options.reqData.endTime?this.options.reqData.endTime:_(moment().endOf('day')).toTime()
+    }).render();
+    if(this.options.reqData.username){
+      this.$('input[name="username"]').val(this.options.reqData.username);
+    }
 
     SearchGrid.prototype.onRender.apply(this, arguments);
-
   },
 
   renderGrid: function(gridData) {
-    Global.memoryCache.set('agBetCachedList', _(gridData.betList).pluck('billNo'));
-    var rowsData = _(gridData.betList).map(function(bet, index, root) {
+    Global.memoryCache.set('agBetCachedList', _(gridData.data).pluck('billNo'));
+    var rowsData = _(gridData.data).map(function(bet, index, root) {
       return {
         columnEls: this.formatRowData(bet, index, root),
         dataAttr: bet
@@ -127,12 +115,11 @@ var BettingRecordsView = SearchGrid.extend({
 
     //加上统计行
     this.grid.addFooterRows({
-      //trClass: 'tr-footer',
-      // columnEls: [
-      //   '<div class="text-hot">所有页总计</div>', '','', '',
-      //   '<div class="text-hot">' + _(gridData.betMoneyTotal).fixedConvert2yuan() + '</div>',
-      //   '<div class="text-hot">' + _(gridData.prizeMoneyTotal).convert2yuan() + '</div>', ''
-      // ]
+      trClass: 'tr-footer',
+      columnEls: [
+        '<div class="text-hot">所有页总计</div>', '','', '',
+        '<div class="text-hot">' + _(gridData.betTotalAmount).fixedConvert2yuan() + '</div>', '', ''
+      ]
     }).hideLoading();
   },
 
@@ -140,41 +127,11 @@ var BettingRecordsView = SearchGrid.extend({
     var row = [];
     row.push('<a class="router btn-link btn-link-sun" href="' + _.getUrl('/detail/' + rowInfo.billNo) + '">查看详情</a>');
     row.push(rowInfo.gameName);
-
-
-/*
-    if(rowInfo.ticketPlanId==='mmc'){
-      row.push('/');
-    }else{
-      row.push(rowInfo.ticketPlanId);
-    }
-
+    row.push(rowInfo.gameCode);
     row.push(_(rowInfo.betTime).toTime());
-
-    if(rowInfo.betTotalMoney==0) {
-      row.push('免费游戏');
-    }else {
-      row.push(_(rowInfo.betTotalMoney).fixedConvert2yuan());
-    }
-    
-    //0:未中奖，1：已中奖，2：用户撤单，3：系统撤单,ticketResult,prizeTotalMoney
-    var status = _.checkBettingStatus({
-      betStatus: rowInfo.ticketBetStatus,
-      hasException: rowInfo.hasException,
-      openNumbers: rowInfo.ticketResult,
-      openStatus: rowInfo.ticketOpenStatus,
-      prizing: rowInfo.prizing,
-      prizeTotalMoney: rowInfo.prizeTotalMoney,
-      betTime: rowInfo.betTime,
-      prizeClass: 'text-bold-hot',
-      ticketPlanId: rowInfo.ticketPlanId
-    });
-
-    row.push(status);
-    row.push(rowInfo.chaseId ? '是' : '否');
-*/
-
-
+    row.push(rowInfo.betAmount);
+    row.push(rowInfo.settlmentStatus);
+    row.push(rowInfo.profitLossMoney);
     return row;
   }
 });
