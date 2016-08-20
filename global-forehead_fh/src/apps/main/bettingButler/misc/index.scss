@@ -1,8 +1,5 @@
 @charset "UTF-8";
-
 @import "~base/styles/imports";
-
-
  .Betting-img{
   width:50%;
   height:80px;
@@ -10,20 +7,26 @@
 }
 .main-active-container{
   width: 100%;
-
   .active-container-header{
     width: 100%;
-    height: 50px;
+    height:800px;
+    border-top:1px solid #a60000;
+    border-left:1px solid #ccc;
+    border-right:1px solid #ccc;
+    border-bottom:1px solid #ccc;
+
+    background-color: #fff;
     ul{
       height: 30px;
-      border-bottom: 2px solid #a60000;
-      padding-bottom: 1px;
       font-size: 16px;
+      display: table;
+      overflow: hidden;
+      margin:20px 10px ;
     }
     li{
-      border-left: 1px solid #cccccc;
-      border-right: 1px solid #cccccc;
-      border-top: 1px solid #cccccc;
+      //border-left: 1px solid #cccccc;
+      //border-right: 1px solid #cccccc;
+      //border-top: 1px solid #cccccc;
       width: 120px;
       list-style: none;
       margin-bottom: 2px;
@@ -33,25 +36,21 @@
       text-align: center;
       float: left;
       margin-right: 9px;
-      color: #000;
+      color: #fff;
     }
     .list-active{
       color: #fff;
       background: url(../templates/Betting-tab.png) no-repeat;
     }
-    //.list-hidden{
-    //  color: #fff;
-    //  background: url(../templates/Betting-tab_01.png) no-repeat;
-    //}
   }
   .active-context{
-    margin-top: -10px;
     padding-top: 20px;
-    background-color: white;
-    width: 100%;
-    overflow-y: auto;
-    border: 1px solid #ccc;
-    padding-bottom: 30px;
+    background-color:#fff;
+    border-top:1px solid #ccc;
+    //overflow-y: auto;
+    border-left:1px solid #ccc;
+    border-bottom:1px solid #ccc;
+    //padding-right: 30px;
     height: 800px;
 
     .active-container-line{
