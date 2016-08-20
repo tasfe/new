@@ -82,7 +82,6 @@ var RechargeRecordsView = SearchGrid.extend({
     });
 
     //加上统计行
-
     this.grid.addFooterRows({
       //trClass: 'tr-footer',
       columnEls: [
@@ -90,20 +89,17 @@ var RechargeRecordsView = SearchGrid.extend({
         '<div class="text-hot">' + _(gridData.amountTotal).fixedConvert2yuan() + '</div>',
         '', '', ''
       ]
-    })
-      .hideLoading();
+    }).hideLoading();
   },
 
   formatRowData: function(rowInfo) {
     var row = [];
-
     row.push(rowInfo.tradeNo);
     row.push(_(rowInfo.createTime).toTime());
     row.push(_(rowInfo.amount).fixedConvert2yuan());
     row.push(_(rowInfo.balance).fixedConvert2yuan());
     row.push(rowInfo.status);
     row.push(rowInfo.remark);
-
     return row;
   }
 });

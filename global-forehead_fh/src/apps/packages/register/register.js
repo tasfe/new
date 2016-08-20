@@ -16,9 +16,6 @@ $.widget('gl.register', {
     this.$username = this.element.find('.js-re-userName');
     this.$usernameValRes = this.element.find('.js-re-username-val-res');
     this.$usernameValDes = this.element.find('.js-re-verify-username');
-    //this.$userUName = this.element.find('.js-re-uName');
-    //this.$userUNameValRes = this.element.find('.js-re-uName-val-res');
-    //this.$userUNameValDes = this.element.find('.js-re-verify-userUName');
 
     this.$password = this.element.find('#jsRELoginPassword');
     this.$passwordValRes = this.element.find('.js-re-password-val-res');
@@ -33,6 +30,8 @@ $.widget('gl.register', {
     this.$valImg = this.element.find('.js-re-valImg');
     this.$valCodeRes = this.element.find('.js-re-valCode-val-res');
     this.$valCodeDes = this.element.find('.js-re-valCode-val-des');
+
+
     var url =  window.self.location.toString();
     this.codeUrl = url.substring(0, url.indexOf('/', url.indexOf('://',0)+3))+'/acct/imgcode/code';
     this.$valImg.attr('src',this.codeUrl+'?_t='+_.now());
@@ -46,16 +45,23 @@ $.widget('gl.register', {
 
     this._bindEvent();
 
+
+    this.safetyTipsBind();
+
   },
 
-  checkNameExistXhr: function(data){
+
+  checkNameExistXhr: function(){
     var self = this;
     return $.ajax({
       type: 'POST',
       url: '/acct/reg/userexist.json',
-      data: data
+      data: {
+        username: $('.js-re-userName').val()
+      }
     });
   },
+
   checkUNameExistXhr: function(data){
     var self = this;
     return $.ajax({
@@ -64,21 +70,193 @@ $.widget('gl.register', {
       data: data
     });
   },
+
   _bindEvent: function () {
     var self = this;
     //绑定事件
     this._on({
-      'click .js-re-register-submit': 'valCodeHandler',//校验用户名
-      'blur .js-re-userName': 'checkNameExistHandler',//校验用户名是否存在
-      //'blur .js-re-uName': 'checkUNameExistHandler',//校验昵称是否存在
-      'click .js-re-valImg': 'refreshValCodeHandler',//刷新验证码
-      'blur #jsRELoginPassword': 'valPasswordHandler',
-      'blur #jsRELoginPassword1': 'valPassword1Handler',
-      'click input[type=password]': 'resetInputHandler'
+      'click .js-re-valImg': 'refreshValCodeHandler'//刷新验证码
     });
-    //this.element.find('.js-re-valCode').on('blur', function() {
-    //  self.valCodeHandler();//校验验证码
-    //});
+  },
+
+  safetyTipsBind: function () {
+    var self = this;
+
+    var newLoginPassword = _(function() {
+      var str= $('.js-rp-loginPwd1').val();
+      var str2= $('.js-rp-loginPwd2').val();
+
+      if (str.length == 0) {
+        $('.content-julien .right dl').eq(1).addClass('wrong');
+        $('.content-julien .right dl').eq(1).removeClass('correct');
+        $('.content-julien .right dl .messageBox span').eq(0).html('不能为空');
+      }
+      else if ( !isNaN(str) && str.length < 9 ) {
+        $('.content-julien .right dl').eq(1).addClass('wrong');
+        $('.content-julien .right dl').eq(1).removeClass('correct');
+        $('.content-julien .right dl .messageBox span').eq(0).html('不能是9位以下的纯数字（≤8个阿拉伯数字）');
+      }
+      else if(str.indexOf(" ")>0){
+        $('.content-julien .right dl').eq(1).addClass('wrong');
+        $('.content-julien .right dl').eq(1).removeClass('correct');
+        $('.content-julien .right dl .messageBox span').eq(0).html('不能包含空格');
+      }
+      else if (str.length < 6 || str.length > 20) {
+        $('.content-julien .right dl').eq(1).addClass('wrong');
+        $('.content-julien .right dl').eq(1).removeClass('correct');
+        $('.content-julien .right dl .messageBox span').eq(0).html('6-20位字符组成');
+      }
+      else{
+        $('.content-julien .right dl').eq(1).removeClass('wrong');
+        $('.content-julien .right dl').eq(1).addClass('correct');
+        $('.content-julien .right dl .messageBox span').eq(0).html('');
+      }
+
+      if (str2 != '') {
+        if (str == str2) {
+          $('.content-julien .right dl').eq(2).removeClass('wrong');
+          $('.content-julien .right dl').eq(2).addClass('correct');
+        }
+        else{
+          $('.content-julien .right dl').eq(2).addClass('wrong');
+          $('.content-julien .right dl').eq(2).removeClass('correct');
+        }
+      }
+
+      var num = 0;
+      if ( str.length > 0 ) {
+        if(/\d/gi.test(str)){
+          num++;
+        }
+
+        if (/[A-Za-z]/.test(str)) {
+          num++;
+        }
+
+        if(/[@#\$%\^&\*\!]+/g.test(str)){
+          num++;
+        }
+
+        $('.js-passwdSafetyTips span').removeClass('s3').removeClass('s2').removeClass('s1');
+        $('.js-passwdSafetyTips p').removeClass('s3').removeClass('s2').removeClass('s1');
+        if (num == 3) {
+          $('.js-passwdSafetyTips span').eq(0).addClass('s1');
+          $('.js-passwdSafetyTips span').eq(1).addClass('s2');
+          $('.js-passwdSafetyTips span').eq(2).addClass('s3');
+          $('.js-passwdSafetyTips p').addClass('s3');
+        }
+        if (num == 2) {
+          $('.js-passwdSafetyTips span').eq(0).addClass('s1');
+          $('.js-passwdSafetyTips p').addClass('s2');
+          $('.js-passwdSafetyTips span').eq(1).addClass('s2');
+        }
+        if (num == 1) {
+          $('.js-passwdSafetyTips span').eq(0).addClass('s1');
+          $('.js-passwdSafetyTips p').addClass('s1');
+        }
+
+        num = 0;
+        num = 0;
+      }
+
+      if (str.length != 0) {
+        $('.passwdSafetyTips').removeClass('hide');
+      }
+      else{
+        $('.passwdSafetyTips').addClass('hide');
+      }
+
+    }).debounce(400);
+
+    var newLoginPassword2 = _(function() {
+      var str= $('.js-rp-loginPwd1').val();
+      var str2= $('.js-rp-loginPwd2').val();
+
+      if (str != str2){
+        $('.content-julien .right dl').eq(2).addClass('wrong');
+        $('.content-julien .right dl').eq(2).removeClass('correct');
+      }
+      else{
+        $('.content-julien .right dl').eq(2).removeClass('wrong');
+        $('.content-julien .right dl').eq(2).addClass('correct');
+      }
+    }).debounce(400);
+
+    $('.js-rp-loginPwd1').on('keypress', newLoginPassword);
+    $('.js-rp-loginPwd2').on('keypress', newLoginPassword2);
+
+    $('.js-rp-valCode').on('input', function() {
+      if ($('.js-rp-valCode').val().length == 4) {
+        Global.sync.ajax({
+          type: 'POST',
+          url: '/acct/imgcode/val.json',
+          data: {
+            code: $('.js-rp-valCode').val()
+          }
+        }).done(function (data, status, xhr) {
+          if (data.result === 0) {
+            $('.js-code').removeClass('wrong');
+            $('.js-code').addClass('correct');
+          }else{
+            self.refreshValCodeHandler();
+            $('.js-code').addClass('wrong');
+            $('.js-code').removeClass('correct');
+          }
+        }).fail(function () {
+            self.refreshValCodeHandler();
+            Global.ui.notification.show('验证码报错');
+        });
+      }
+    });
+
+
+    var verifyInputUserName = _(function() {
+      alert(1);
+      var str= $('.js-re-userName').val();
+      if (str.length == 0) {
+        $('.content-julien .right dl').eq(0).addClass('wrong');
+        $('.content-julien .right dl').eq(0).removeClass('correct');
+        $('.content-julien .right dl .messageBox span').eq(0).html('不能为空');
+      }
+      else{
+        var myReg = /^[a-zA-Z\u4e00-\u9fa5][a-zA-Z0-9\u4e00-\u9fa5]*$/;
+        if (myReg.test(str)) {
+          if(str.replace(/[\u4e00-\u9fa5]/g, '**').length >= 4 && str.replace(/[\u4e00-\u9fa5]/g, '**').length <= 16){
+            self.checkNameExistXhr().fail(function(){
+              Global.ui.notification.show('用户名验证出错');
+            }).done(function(res){
+              if(res.result===0){
+                $('.content-julien .right dl').eq(0).addClass('correct');
+                $('.content-julien .right dl').eq(0).removeClass('wrong');
+                $('.content-julien .right dl .messageBox span').eq(0).html('');
+              }else{
+                $('.content-julien .right dl').eq(0).addClass('wrong');
+                $('.content-julien .right dl').eq(0).removeClass('correct');
+                $('.content-julien .right dl .messageBox span').eq(0).html('用户名已存在');
+              }
+            });
+          }
+          else{
+            $('.content-julien .right dl').eq(0).addClass('wrong');
+            $('.content-julien .right dl').eq(0).removeClass('correct');
+            $('.content-julien .right dl .messageBox span').eq(0).html('字符4到6');
+          }
+        } 
+        else{
+          $('.content-julien .right dl').eq(0).addClass('wrong');
+          $('.content-julien .right dl').eq(0).removeClass('correct');
+          $('.content-julien .right dl .messageBox span').eq(0).html('格式不符');
+        }
+      }
+    }).debounce(400);
+
+    $('.js-re-userName').on('keypress', verifyInputUserName);
+  },
+
+  refreshValCodeHandler: function(){
+    this.$valImg.attr('src','');
+    this.$valImg.attr('src',this.codeUrl+'?_t='+_.now());
+    this.$valCode.val('');
   },
 
   getADInfoXhr: function () {
@@ -281,82 +459,8 @@ $.widget('gl.register', {
       '<strong>提示！</strong> ' + text +
       '</div>';
   },
-  checkNameExistHandler: function(e){
-    var self = this;
-    var cookie = new Base.Storage({
-      name: 'appstorage',
-      type: 'cookie'
-    });
-    var data = {
-      username: this.$username.val()
-    };
-    if(this.$username.val()===''){
-      self._showValResult(1,this.$usernameValDes,"用户名不能为空",self.$usernameValRes);
-      return false;
-    }else{
-      var myReg = /^[A-Za-z][A-Za-z0-9]{3,15}$/;
-      if(!myReg.test(this.$username.val())){
-        self._showValResult(1,this.$usernameValDes,"仅支持4-16位字母和数字，不能以数字开头",self.$usernameValRes);
-        return;
-      }
-    }
-    this.checkNameExistXhr(data).fail(function(){
-      self._showValResult(1,self.$usernameValDes,"用户名验证出错",self.$usernameValRes);
-    }).done(function(res){
-      if(res.result===0){
-        self._showValResult(0,self.$usernameValDes,"",self.$usernameValRes);
-      }else{
-        self._showValResult(1,self.$usernameValDes,res.msg,self.$usernameValRes);
-      }
-    });
 
-  },
-  
-  //checkUNameExistHandler: function(e){
-  //  var self = this;
-  //  var cookie = new Base.Storage({
-  //    name: 'appstorage',
-  //    type: 'cookie'
-  //  });
-  //  var data = {
-  //    uname:this.$userUName.val()
-  //  };
-  //  if(this.$userUName.val()==''){
-  //    self._showValResult(1,self.$userUNameValDes,"昵称不能为空",this.$userUNameValRes);
-  //    return;
-  //  }else {
-  //    var myReg = /^[a-zA-Z\u4e00-\u9fa5][a-zA-Z0-9\u4e00-\u9fa5]*$/;
-  //    if (myReg.test(this.$userUName.val())) {
-  //       if(!(this.$userUName.val().replace(/[\u4e00-\u9fa5]/g, '**').length >= 4 && this.$userUName.val().replace(/[\u4e00-\u9fa5]/g, '**').length <= 16)){
-  //         self._showValResult(1,self.$userUNameValDes,"昵称仅支持4-16个字符，",this.$userUNameValRes);
-  //         return false;
-  //       }
-  //    }else{
-  //      self._showValResult(1,self.$userUNameValDes,"昵称仅支持英文和数字，不能以数字开头",this.$userUNameValRes);
-  //      return false;
-  //    }
-  //  }
-  //  this.checkUNameExistXhr(data).fail(function(){
-  //    self._showValResult(1,self.$userUNameValDes,"昵称验证失败",self.$userUNameValRes);
-  //  }).done(function(res){
-  //    if(res.result===0){
-  //      //self.element.find('.js-re-uName-tip').addClass('hidden');
-  //      self._showValResult(0,self.$userUNameValDes,"",self.$userUNameValRes);
-  //    }else{
-  //      //self.element.find('.js-re-uName-tip').removeClass('hidden').html(res.msg);
-  //      self._showValResult(1,self.$userUNameValDes,res.msg,self.$userUNameValRes);
-  //    }
-  //  });
-  //},
-  
-  refreshValCodeHandler: function(){
-    this.$valImg.attr('src','');
-    this.$valImg.attr('src',this.codeUrl+'?_t='+_.now());
-    this.$valCodeRes.val('1');
-    this.$valCode.val('');
-    this.$valCode.focus();
-    this.$valCodeDes.html('');
-  },
+
   refreshValCodeOnly: function(){
     this.$valImg.attr('src','');
     this.$valImg.attr('src',this.codeUrl+'?_t='+_.now());
@@ -432,9 +536,5 @@ $.widget('gl.register', {
 });
 
 $(document).ready(function() {
-  //$('.js-package').before(_(header).template()({
-  //  extra: '<span class="header-login">已有账号，<a class="text-pleasant" href="login.html">登录</a></span>'
-  //})).after(footer);
   $('.js-package').register();
-
 });

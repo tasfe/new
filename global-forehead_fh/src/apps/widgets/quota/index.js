@@ -52,10 +52,10 @@ $.widget('gl.quota', {
 
         $('.js-quota-title').html(strTitle);
 
-        var strTableTitle = '<table class="table table-bordered table-no-lr table-center no-margin julien-table-title julien-table-tbody"><colgroup><col width="22%"><col width="26%"><col width="26%"><col width="26%"></colgroup>';
+        var strTableTitle = '<table class="table table-bordered table-no-lr table-center no-margin julien-table-title"><colgroup><col width="22%"><col width="26%"><col width="26%"><col width="26%"></colgroup>';
         strTableTitle += '<thead><tr><th>账号层级</th><th>我的剩余配额</th><th>转移数量</th><th>' + self.options.title + '的剩余配额</th></tr></thead></table>';
       //console.log(res.root.userQuota);
-      var strTableTtbody='<table class="table table-bordered table-no-lr table-center no-margin julien-table-title julien-table-tbody"><colgroup><col width="22%"><col width="26%"><col width="26%"><col width="26%"></colgroup>';
+      var strTableTtbody='<table class="table table-bordered table-no-lr table-center no-margin julien-table-tbody"><colgroup><col width="22%"><col width="26%"><col width="26%"><col width="26%"></colgroup>';
         var arr= new Array();
 
         $.each(res.root.subUserQuota,function(i,list){

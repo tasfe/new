@@ -3,137 +3,350 @@
 @import
 "~base/styles/imports";
 
-$main-light-color: #1ba1b5 !default;
-$main-border-color: #007e90 !default;
-$input-placeholder: #0297ad !default;
-
-.reg-ad{
-  display:inline-block;
-  width: 291px;
-  height: 410px;
+body{
+  background: url('~base/images/julien/login-bg3.jpg') no-repeat;
+  font-family: '微软雅黑';
+  color: #343434;
 }
 
-.ac-reg-pic{
-  width: 100%;
-  height: 357px;
-  overflow: hidden;
+dl,dt,dd{
+  margin: 0px;
+  padding: 0px;
+  font-weight: normal;
 }
 
-.reg-help {
-  line-height: 30px;
-  font-size: 14px;
-  a {
-    color: $color-sunshine;
-  }
-}
-
-.panel {
-  margin: 0 auto;
-  width: 708px;
-  //height: 471px;
-  border: 0 !important;
-
-  .panel-header {
-    left: 0;
-    padding: 0;
-
-    &.title-underLine {
-      width: 100%;
-
-      .title {
-        width: 30%;
-      }
-    }
-  }
-
-  .form-inline {
-    margin: 20px auto;
-  }
-
-
-  .ac-reg-body{
-
-    .reg-head-div {
-      height: 65px;
-      .reg-head-span {
-
-        background-color: #02bcc2;
-        font-size: 16px;
-        padding: 6px 6px;
-        margin-top: 16px;
-        margin-left: -5px;
-      }
-    }
-
-    .reg-info{
-      display:inline-block;
-      width: 416px;
-      height: 399px;
-      vertical-align: top;
-      padding-top: 20px;
-
-    }
-
-    .control-group {
-      margin-bottom: 15px;
-    }
-
-
-    .help-inline {
-      font-size: 12px;
-      color: #b5b4b4;
-    }
-    .input-varCode {
-      border: 1px solid darkgray;
-      border-radius: 4px;
-      height: 32px;
-      width: 161px;
-      padding-top: 4px;
-      padding-bottom: 4px;
-    }
-    .var-code {
-      background-color: #eceff4;
-      height: 28px;
-      width: 65px;
-      margin-top: 2px;
-      margin-right: 2px;
-      margin-bottom: 2px;
-      margin-left: 2px;
-
-    }
-    .ac-reg-button{
-      width: 161px;
-      height: 32px;
-      border-radius: 4px;
-    }
-
-  }
-}
-
-
-
-.ac-reg-code-lan-width{
-  width: 170px;
-}
-.ac-reg-code-left-width{
-  width: 75px;
-}
-
-
-.header-login {
+.menuTips{
   font-size: 16px;
-  float: right;
-  margin-top: 14px;
-  margin-right: 20px;
+  position: absolute;
+  top: 39px;
+  left: 1200px;
+
+  a{
+    display: block;
+    width: 99px;
+    height: 33px;
+    line-height: 30px;
+    float: left;
+    margin-right: 20px;
+    text-align: right;
+    color: #666666;
+  }
+
+  a.m1{
+    background: url(~base/images/julien/04.png) no-repeat 5px 3px;
+  }
+  a.m2{
+    background: url(~base/images/julien/05.png) no-repeat 5px 3px;
+  }
+  a.m3{
+    background: url(~base/images/julien/03.png) no-repeat 5px 3px;
+    width: 114px;
+  }
 }
 
-.register-header {
-  background: $background-dark;
-  height: 90px;
-  line-height: 90px;
 
-  .register-brand {
-    width: $package-main-width;
-    margin: 0 auto;
+.register{
+  border: 1px solid #cccccc;
+  width: 1182px;
+  height: 723px;
+  margin: 132px auto 20px auto; 
+
+  padding: 0px 8px;
+  font-family: '微软雅黑';
+  font-size: 14px;
+
+  button{
+    width: 100px;
+    height: 30px;
+    color: #fff;
+    background-color: #cc0000;
+    font-size: 16px;
+    border: 0px;
+    margin-right: 13px;
+    float: left;
+  }
+
+  .title-julien{
+    height: 60px;
+    border-bottom: 1px solid #cccccc;
+    text-align: center;
+    font-size: 16px;
+    line-height: 60px;
+  }
+
+  .serverOnline{
+    height: 50px;
+    line-height: 50px;
+    background: url(~base/images/julien/28.png) no-repeat left center;
+    width: 100px;
+    padding-left: 27px;
+    color: #666666;
+    float: right;
+
+    a{
+      color: #ff3333;
+      text-decoration: underline;
+    }
+  }
+
+  .content-julien{
+    clear: both;
+    margin: 0px 20px;
+
+    .left{
+      width: 503px;
+      height: 327px;
+      float: left;
+    }
+
+    .right{
+      width: 620px;
+      height: 450px;
+      float: right;
+
+      .correct{
+          i{
+            left: 365px;
+          }
+        }
+
+      .wrong{
+        i{
+          left: 365px;
+        }
+
+        .messageBox{
+          left: 385px;
+        }
+      }
+
+
+      input{
+        width: 240px;
+      }
+
+      dl{
+        position: relative;
+        height: 30px;
+        line-height: 30px;
+        margin-bottom: 28px;
+        
+        &:after{
+          clear:both;
+          content: '';
+          display: block;
+        }
+      }
+
+      dt{
+        width: 100px;
+        float: left;
+        line-height: 30px;
+        height: 30px;
+        text-align: right;
+        color: #333333;
+
+        span{
+          color: #f95710;
+        }
+      }
+
+      dd{
+        width: 500px;
+        float: left;
+
+        p{
+          line-height: 30px;
+          font-size: 12px;
+          margin: 0px;
+          color: #999999;
+        }
+
+        a{
+          color: #666666;
+          text-decoration: underline;
+          display: inline-block;
+          margin-top: 10px;
+        }
+      }
+
+      .code{
+        margin-top: -10px;
+        margin-bottom: 20px;
+
+        input{
+          width: 96px;
+        }
+
+        img{
+          height: 28px;
+          margin-left: 10px;
+          cursor: pointer;
+        }
+
+        i{
+          left: 305px !important;
+        }
+
+        .messageBox{
+          left: 325px  !important;
+        }
+      }
+
+      .passwdSafetyTips{
+        padding-left: 100px;
+        color: #999999;
+        text-align: left;
+        margin-top: -10px;
+
+        span{
+          display: inline-block;
+          width: 69px;
+          height: 15px;
+          margin: 0px;
+          border: 1px solid #fff;
+          background-color: #e7e7e7;
+          float: left;
+          margin-top: 5px;
+          font-size: 12px;
+          text-align: center;
+          color: #fff;
+        }
+
+        p{
+          clear: both;
+          font-size: 12px;
+        }
+
+        span.s1{
+          background-color: #ff6600;
+        }
+        span.s2{
+          background-color: #ff9900;
+        }
+        span.s3{
+          background-color: #339900;
+        }
+
+        p.s1{
+          color: #ff6600;
+        }
+        p.s2{
+          color: #ff9900;
+        }
+        p.s3{
+          color: #339900;
+        }
+
+
+        b{
+          margin-left: 10px;
+          color: #fff;
+          height: 20px;
+          width: 20px;
+          display: inline-block;
+          line-height: 20px;
+          text-align: center;
+          border-radius: 2px;
+        }
+
+        b.s1{
+          background-color: #ff6600;
+        }
+        b.s2{
+          background-color: #ff9900;
+        }
+        b.s3{
+          background-color: #99cc33;
+        }
+      }
+    }
+
+    .carousel-indicators{
+      bottom: 0px;
+      width: 100%;
+      margin: 0px;
+      padding: 10px 0px 4px 0px;
+      left: 0;
+      background: rgba(0, 0, 0, 0.5);
+      li{
+        width: 13px;
+        height: 13px;
+        border-radius: 13px;
+        background-color: #fff;
+        margin: 0px 4px;
+
+        &.active{
+          background-color: #990000;
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+a.logo{
+  display: block;
+  width: 150px;
+  height: 83px;
+  position: absolute;
+  left: 385px;
+  top: 20px;
+}
+
+.correct{
+  i{
+    position: absolute;
+    top: 7px;
+    left: 335px;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background: url(~base/images/julien/07.png) no-repeat;
+  }
+}
+
+.messageBox{
+  position: absolute;
+  top: 2px;
+  left: 355px;
+  display: none;
+
+  b{
+    float: left;
+    display: block;
+    width: 0;
+    height: 0;
+    border-width: 5px;
+    border-style: dashed solid dashed dashed;
+    border-color: transparent #999999 transparent transparent;
+    margin-top: 8px;
+  }
+
+  span{
+    float: left;
+    display: block;
+    height: 26px;
+    background-color: #999999;
+    line-height: 26px;
+    padding: 0px 8px;
+    border-radius: 3px;
+    color: #fff;
+  }
+}
+
+.wrong{
+  i{
+    position: absolute;
+    top: 7px;
+    left: 335px;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background: url(~base/images/julien/07.png) no-repeat 0 -16px;
+  }
+
+  .messageBox{
+    display: block;
   }
 }

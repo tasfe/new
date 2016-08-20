@@ -208,8 +208,7 @@
     li {
       a {
         span {
-          padding-left: 30px !important;
-          padding-right: 30px !important;
+
         }
       }
     }
@@ -630,6 +629,7 @@
       >div{
         float: right;
         width: 75px;
+        padding-left: 20px;
         border-left: 1px solid #cccccc;
 
         button{
@@ -764,12 +764,9 @@
     }
 
     .tips{
-      color: #fff;
+      color: #cc0000;
       height: 33px;
       line-height: 33px;
-      background-color: #cc0000;
-      border-radius: 33px;
-      padding-left: 20px;
       margin-bottom: 20px;
     }
 
@@ -808,7 +805,7 @@
           line-height: 25px;
           height: 25px;
           color: #666666;
-          width: 40px;
+          width: 82px;
           text-align: center;
           margin: 0px 5px 5px 0px;
           display: inline-block;
@@ -816,10 +813,18 @@
           border-radius: 5px;
           cursor: pointer;
 
+          span{
+            color: #999;
+          }
+
           &:hover{
             background-color:#cc0000;
             color: #fff;
             border-color: #cc0000;
+
+            span{
+              color: #ccc;
+            }
           }
         }
       }
@@ -992,7 +997,7 @@
   .julien-title{
     color: #eb2020;
     margin-top:-15px;
-    margin-bottom: 5px;
+    margin-bottom: 15px;
   }
   
   > div{
@@ -1003,6 +1008,7 @@
       float: right;
       width: 75px;
       border-left: 1px solid #cccccc;
+      padding-left: 20px;
 
       button{
         width: 62px;

@@ -19,7 +19,6 @@ var OpenAccountManageView = Base.ItemView.extend({
 
   inputRebateClick: function () {
     $('.julien-left .manualRebate ul').removeClass('hidden');
-
   },
 
   getSubAcctXhr: function() {
@@ -62,8 +61,17 @@ var OpenAccountManageView = Base.ItemView.extend({
 
         self._parentView.renderLimit(self.$limit,res.root.quotaList);
         $('.manualRebate ul').html('');
+
+        var arry = [];
+        arry['13'] = 1960;
+        arry['12.9'] = 1958;
+        arry['12.8'] = 1956;
+        arry['12.7'] = 1954;
+        arry['12.6'] = 1952;
+        arry['12.5'] = 1950;
+
         _.each(res.root.quotaList, function(object){
-          $('.manualRebate ul').append('<li>' + object.quotaLevel / 10 + '</li>');
+          $('.manualRebate ul').append('<li>' + object.quotaLevel / 10 + ' <span>(' + arry[ object.quotaLevel / 10 ] + ')</span></li>');
         });
 
         if(res.root.quotaList != null){
@@ -215,23 +223,13 @@ var OpenAccountManageView = Base.ItemView.extend({
         {label: '玩法', name: 'maxBonus', width: '30%',formatter: function(val,index,info){
           var superPlay = '';
           var normalPlay = '';
-          if(info.sericeName==='时时彩' ){
-            superPlay = '<br /><div style="height:1px; width:100%; background:#c2c2c2;margin-top:5px; padding:0 3px; margin-left:-3px;"></div><span style="padding-top:5px; display:block;">超级3000</span>';
-            normalPlay ='普通玩法';
-            return '<span data-maxBonus="'+val+'" data-name="'+info.sericeName+'">'+ normalPlay +
-            self.calculateMaxBonus(info.sericeName,_(info.subAcctRebate).formatDiv(10),val)+'</span>' + superPlay;
-          }
-          else{
-            return '所有玩法';
-          }
+
+          return '所有玩法';
         }},
         {label: '奖金', name: 'maxBonus', width: '30%',formatter: function(val,index,info){
           var superPlay = '';
           var normalPlay = '';
-          if(info.sericeName==='时时彩' ){
-            superPlay = '<br /><div style="height:1px; width:100%; background:#c2c2c2;margin-top:5px; padding:0 3px; margin-left:-3px;"></div><span style="padding-top:5px; display:block;">3000</span>';
-            normalPlay ='';
-          }
+
           return '<span class="js-ac-openAccount-maxBonus" data-maxBonus="'+val+'" data-name="'+info.sericeName+'">' +
             self.calculateMaxBonus(info.sericeName,_(info.subAcctRebate).formatDiv(10),val)+'</span>' + superPlay;
         }}

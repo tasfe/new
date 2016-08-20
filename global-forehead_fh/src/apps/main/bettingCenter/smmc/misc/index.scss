@@ -563,8 +563,8 @@ body.mmc {
       .bc-mmc-result-win {
         background-color: #cd3301;
         border: 2px solid #252525;
-        position: absolute;
-        margin: -48px 0 0 330px;
+        position: fixed;
+        margin: -80px 0 0 330px;
         min-width: 225px;
         text-align: center;
         height: 38px;
@@ -612,7 +612,7 @@ body.mmc {
         }
         .bc-mmc-result-lost-total {
           background: url('mmc_lost.png') no-repeat;
-          position: absolute;
+          position: fixed;
           width: 469px;
           height: 56px;
           margin: -34px 0 0 271px;
