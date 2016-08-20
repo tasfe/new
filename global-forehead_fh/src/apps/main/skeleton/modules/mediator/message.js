@@ -56,7 +56,7 @@ var MessageMediatorModule = Base.Module.extend({
             newsNum += data.subList[i].newMsgNum;
           }
           
-          $('.js-gl-letter-unread').text(newsNum);
+          $('.js-gl-letter-unread').html('<span>'+newsNum+'</span>');
 
           Global.m.publish('message:updating', self.model);
         }
