@@ -1,8 +1,7 @@
 <form action="javascript:void(0);" class="js-uc-personalManage-form form-horizontal uc-personalManage-form">
   <div class="control-group uc-personalManage-div">
     <label class="control-label color-dark ">用户名：</label>
-    <div class="controls">
-      <span class="js-uc-userName" ></span>
+    <div class="controls js-uc-userName">
     </div>
   </div>
   <div class="control-group uc-personalManage-div">
@@ -10,6 +9,16 @@
     <div class="controls gender">
       <input type="radio" name="gender" value="1" > <span>男</span>
       <input type="radio" name="gender" value="2"> <span>女</span>
+    </div>
+  </div>
+  <div class="control-group uc-personalManage-div">
+    <label class="control-label color-dark ">VIP等级：</label>
+    <div class="controls js-vip">
+    </div>
+  </div>
+  <div class="control-group uc-personalManage-div">
+    <label class="control-label color-dark ">积分：</label>
+    <div class="controls js-integral">
     </div>
   </div>
   <div class="control-group uc-personalManage-div">
@@ -23,7 +32,7 @@
     <label class="control-label color-dark">邮箱：</label>
     <div class="controls">
       <input type="text" class="js-uc-eMail input4" disabled="disabled"  data-parsley-email>
-      <span class="help-inline "><a href="#as/se">修改邮箱</a></span>
+      <span class="help-inline "><a href="#as/se" class="julien-btn3">绑定验证</a></span>
     </div>
   </div>
   <div class="control-group uc-personalManage-div">

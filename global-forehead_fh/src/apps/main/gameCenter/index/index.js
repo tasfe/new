@@ -12,7 +12,8 @@ var GameCenterView = Base.ItemView.extend({
 
   events: {
     'click .js-ag-bettingRecords': 'bettingRecordsHandler',
-    'click .js-ag-transforMoney': 'transforMoneyHandler'
+    'click .js-ag-transforMoney': 'transforMoneyHandler',
+    'click .js-ag-game-enter': 'enterAgHandler'
   },
 
   onRender: function() {

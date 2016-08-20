@@ -10,13 +10,17 @@ $.widget('gl.editIcons', {
 
   _create: function() {
     var self = this;
+    
     var body = [];
     body.push('<div class="text-center margin-sm julien-dialog">');
     body.push('<div class="uc-bank-manage-lock">');
     body.push('<div class="control-group uc-cm-fund-pwd-div">');
     body.push('<div class="julien-images">');
+    body.push('<span class="iconsImage8 js-image8" data-headid="8"></span>');
     for (var i = 1; i <= 12; i++) {
-      body.push('<span class="iconsImage' + i + ' js-image' + i + '" data-headid="' + i + '"></span>');
+      if (i != 8) {
+        body.push('<span class="iconsImage' + i + ' js-image' + i + '" data-headid="' + i + '"></span>');
+      }
     }
     body.push('</div>');
     body.push('</div>');
@@ -44,10 +48,32 @@ $.widget('gl.editIcons', {
 
     this._bindEvents();
 
-    var acctInfo = Global.memoryCache.get('acctInfo');
+    if (sessionStorage.getItem('headId') == null) {
+      var acctInfo = Global.memoryCache.get('acctInfo');
 
-    $('.julien-images span').eq(acctInfo.headId - 1).addClass('sd');
-    sessionStorage.setItem('headId', acctInfo.headId);
+      if (acctInfo.headId == 8) {
+        $('.julien-images span').eq(0).addClass('sd');
+      }
+      else if( acctInfo.headId > 8 ){
+        $('.julien-images span').eq(acctInfo.headId - 1).addClass('sd');
+      }
+      else{
+        $('.julien-images span').eq(acctInfo.headId).addClass('sd');
+      }
+
+      sessionStorage.setItem('headId', acctInfo.headId);
+    }
+    else{
+      if ( sessionStorage.getItem('headId') == 8 ) {
+        $('.julien-images span').eq(0).addClass('sd');
+      }
+      else if( sessionStorage.getItem('headId') > 8 ){
+        $('.julien-images span').eq( sessionStorage.getItem('headId') - 1 ).addClass('sd');
+      }
+      else{
+        $('.julien-images span').eq( sessionStorage.getItem('headId') ).addClass('sd');
+      }
+    }
   },
 
   _bindEvents: function() {

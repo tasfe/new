@@ -29,6 +29,9 @@ var PersonalManageView = Base.ItemView.extend({
           self.$('.js-uc-eMail').val(res.root.userEmail);
           self.$('.js-uc-tel').val(res.root.userCellphone);
 
+          self.$('.js-vip').text(res.root.memberLevel);
+          self.$('.js-integral').text(res.root.integral);
+
           var userSex = res.root.userSex;
           if (userSex == 1) {
             self.$('.gender input').eq(0).attr("checked", "true");

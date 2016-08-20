@@ -198,7 +198,7 @@ var BettingCenterView = Base.ItemView.extend({
     //this.renderCountdown();
 
     this.lotteryPreview = this.$lotteryPreview.staticGrid({
-      tableClass: 'table table-dashed',
+      tableClass: 'table_bg table-dashed',
       colModel: [
         //{label: '玩法/投注内容  ', name: 'title', key: true, width: '43%'},
         {label: '玩法/投注内容  ', name: 'title', key: true, width: '55%'},
@@ -215,7 +215,7 @@ var BettingCenterView = Base.ItemView.extend({
 
 
     this.lotteryCurrResultPreview = this.$lotteryCurrResultPreview.staticGrid({
-      tableClass: 'table table-dashed',
+      tableClass: 'table_bg table-dashed',
       colModel: [
         {label: '玩法/投注内容  ', name: 'title', key: true, width: '48%'},
         {label: '奖金模式', name: 'bonusMode', width: '12%'},
@@ -230,7 +230,7 @@ var BettingCenterView = Base.ItemView.extend({
     }).staticGrid('instance');
 
     this.lotteryTotalResultPreview = this.$lotteryTotalResultPreview.staticGrid({
-      tableClass: 'table table-dashed',
+      tableClass: 'table_bg table-dashed',
       colModel: [
         {label: '批次', name: 'title', key: true, width: '40%'},
         {label: '开奖结果  ', name: 'result', key: true, width: '45%'},
