@@ -100,7 +100,7 @@ $.widget('gl.treeView', {
   },
 
 
-  _getTreeViewLiOpenTag: function(hasSubTree, isLast, text, value, data, extra,online,headId) {
+  _getTreeViewLiOpenTag: function(hasSubTree, isLast, text, value, data, extra,online,headId,newMsgNum) {
     var openable = (hasSubTree ? 'openable ' : '');
 
     var type = (hasSubTree ? 'group' : 'item');
@@ -131,9 +131,15 @@ $.widget('gl.treeView', {
       onlineCss = 'online';
     }
 
+    var strNewMsgNum = '';
+    if (newMsgNum != undefined && newMsgNum != 0) {
+      strNewMsgNum = '<b>' + newMsgNum + '</b>';
+    }
+    
+
     var liOpenTagHtml = '<li class="' + openable + isLastLink + '">' +
       '<a href="javascript:void 0;" data-data=\'' + (JSON.stringify(data) || '{}') + '\' data-no="' + value + '" data-headId="' + headId + '" data-name="' + text + '" class="js-wt-title ' + onlineCss + '">' + '<i></i>' +
-      checkboxHtml + icon + extraContent + '<span>' + text + '</span>' +
+      checkboxHtml + icon + extraContent + '<span>' + text + strNewMsgNum + '</span>'
       '</a>';
 
     return liOpenTagHtml;
@@ -148,15 +154,19 @@ $.widget('gl.treeView', {
     var it = this;
 
     function _doRecursion(list) {
+      var list2 = _(list).sortBy('online');
+      list2 = _(list2).sortBy('newMsgNum');
+      list2 = list2.reverse();
+
       var html = '';
-      _.each(list, function(item, index) {
+      _.each(list2, function(item, index) {
         var hasSubTree = !!item.subItem;
 
         var isLast = (1 + index === list.length);
 
         var extra = item.extra || '';
 
-        html += it._getTreeViewLiOpenTag(hasSubTree, isLast, item.text, item.value, item.data, extra,item.online,item.headId);
+        html += it._getTreeViewLiOpenTag(hasSubTree, isLast, item.text, item.value, item.data, extra,item.online,item.headId,item.newMsgNum);
 
         if (hasSubTree) {
           html += '<ul class="subtree">';

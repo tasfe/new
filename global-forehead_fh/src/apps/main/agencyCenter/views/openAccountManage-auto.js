@@ -75,12 +75,7 @@ var OpenAccountManageView = Base.ItemView.extend({
 
 
         $('.js-ac-btn-link-copy').on('click',function () {
-          var $dialog = Global.ui.dialog.show({
-            title: '复制成功',
-            size: 'model-copy-julien',
-            body: '<div>恭喜复制成功！</div>',
-            bodyClass: ''
-          });
+          Global.ui.notification.show('复制成功',{type: 'success'});
 
           var url = $(this).data('url');
           $(this).textCopy({

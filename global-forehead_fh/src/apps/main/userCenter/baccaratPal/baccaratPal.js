@@ -43,31 +43,32 @@ var RechargeRecordsView = SearchGrid.extend({
                     width: '13%'
                 },
                 {
-                    name: '交易流水号',
+                    name: '充值',
                     width: '22%'
                 },
                 {
-                    name: '充值时间',
-                    width: '20%'
-                },
-                {
-                    name: '充值方式',
+                    name: '提现',
                     width: '10%'
                 },
                 {
-                    name: '充值金额',
+                    name: '投注',
+                    width: '20%'
+                },
+
+                {
+                    name: '中奖',
                     width: '12%',
                     sortable: true,
                     id: 0
                 },
                 {
-                    name: '账户余额',
+                    name: '返点',
                     width: '13%',
                     sortable: true,
                     id: 1
                 },
                 {
-                    name: '状态',
+                    name: '盈亏',
                     width: '10%'
                 }
             ],

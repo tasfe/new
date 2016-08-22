@@ -76,7 +76,7 @@ var MoneyDetailView = SearchGrid.extend({
           width: '15%'
         }
       ],
-      tip: '<div class="tip-hot"><span>提示</span> 帐户明细只保留30天数据。</div>',
+      tip: '<div class="m-left-md m-top-md text-hot"><span>提示</span> 帐户明细只保留30天数据。</div>',
       gridOps: {
         emptyTip: '没有账户明细'
       },
@@ -85,7 +85,7 @@ var MoneyDetailView = SearchGrid.extend({
       },
       reqData: {
         subUser: 0
-      },
+      }
       // viewType: 'team'
     });
   },

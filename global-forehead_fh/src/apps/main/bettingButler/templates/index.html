@@ -14,17 +14,29 @@
     <!--togglebtn-->
         <div class="js-active-header active-container-header-btn">
             <div class="js-active-context "></div>
-            <div class="alert-text-select">
+
+            <div class="js-uc-ticket-select-group alert-text-select">
                 选择彩种:
-                <select name="" id="">
-                    <options>00</options>
-                </select>
+                <select class="js-pf-select-ticket-list select2" name="ticketId" data-parsley-numAndMidLine></select>
             </div>
-            <div class="alert-text-select">
-                开始时间:
-                <input type="text" class="js-excess-cell js-start-time input-md uc-bt-dateshow" name="startTime" placeholder="每日追号计划" value="每日追号计划">
-                <a>新建计划</a>
-            </div>
+
+
+            <!--<div class="alert-text-select">-->
+                <!--开始时间:-->
+                <!--<input type="text" class="js-excess-cell js-start-time input-md uc-bt-dateshow" name="startTime" placeholder="每日追号计划" value="每日追号计划">-->
+                <!--<a>新建计划</a>-->
+            <!--</div>-->
+
+                <div class="alert-text-select">
+
+                    <dt>开始时间:</dt>
+                    <dd>
+                        <span class="js-pf-timeset"></span>
+                    </dd>
+
+                </div>
+
+
             <div class="alert-text-select">
                 投注计划:
                 <input style="background-color: red" type="radio"  name="sex" value="male">我的收藏方案 <input type="radio" name="sex"  >手动输入方案
