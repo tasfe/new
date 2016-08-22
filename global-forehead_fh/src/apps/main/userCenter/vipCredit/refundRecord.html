@@ -1,11 +1,62 @@
+<div class="vip-main1"></div>
 <div class="search-condition-table m-LR-smd">
   <div class="control-group row1">
     <label class="control-label">借款日期：</label>
     <span class="js-pf-timeset input-date"></span>
 
-    <div class="pull-right">
-      <button type="submit" class="btn btn-link text-hot">搜索</button>
-      <button type="reset" class="btn btn-link text-hot">清空条件</button>
+    <div class="pull-right vip-line">
+      <button type="submit" class="btn-vip">搜索</button>
+
+    </div>
+  </div>
+
+</div>
+
+<!--还款成功弹窗-->
+<div class="vip-popup" id="refund" style="display: none;">
+  <div class="vip-popup-conter">
+    <div class="vip-success">
+      <p>提示</p>
+      <span>&times</span>
+      <p class="clear"></p>
+    </div>
+    <div class="vip-return">
+      <p><img src="../misc/vipright.png" alt="">恭喜还款成功！</p>
+    </div>
+  </div>
+</div>
+<!--还款失败弹窗-->
+<div class="vip-popup" id="refundwrong" style="display: none;">
+  <div class="vip-popup-conter">
+    <div class="vip-success">
+      <p>提示</p>
+      <span>&times</span>
+      <p class="clear"></p>
+    </div>
+    <div class="vip-return">
+      <p><img src="../misc/vipwrong.png" alt="">账户余额不足，结算失败。</p>
+    </div>
+    <div class="button-success">
+      <button type="button">确认</button>
+    </div>
+  </div>
+
+</div>
+
+<!--还款提示-->
+<div class="vip-popup" id="fullhint">
+  <div class="vip-popup-conter">
+    <div class="vip-success">
+      <p>提示</p>
+      <span>&times</span>
+      <p class="clear"></p>
+    </div>
+    <div class="vip-return">
+      <p class="py">账户结算时，会有限扣除流水来冲抵借款（每XX流水可抵消X元借款）</br>若流水不足，会再从账户余额中进行扣除。您确定要继续吗？余额不足，结算失败。</p>
+    </div>
+    <div class="button-success">
+      <button type="button">确认</button>
+      <button type="button" class="cancel">取消</button>
     </div>
   </div>
 

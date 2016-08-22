@@ -123,7 +123,7 @@ var UserManageView = SearchGrid.extend({
     
     var strContent = '<div class="julien-title">下级：' + $target.parent().parent().data('username') + ' 自愿达成以下分红协议</div>';
     strContent += '<div class="julien-div-table-title">';
-    strContent += '<table class="table table-bordered table-no-lr table-center no-margin"><colgroup><col width="50%"><col width="50%"></colgroup><thead><tr><th>半月销量</th><th>分红比例</th></tr></thead></table>';
+    strContent += '<table class="bb table table-bordered table-no-lr table-center no-margin"><colgroup><col width="50%"><col width="50%"></colgroup><thead><tr><th>半月销量</th><th>分红比例</th></tr></thead></table>';
     strContent += '</div>';
 
     strContent += '<table class="table table-center no-margin julien-table-content"><colgroup><col width="50%"><col width="50%"></colgroup>';

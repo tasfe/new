@@ -124,40 +124,40 @@ var UserCenterController = RouterController.extend({
 
   vipPoint:function() {
     this.changeMainReginView(new VipPointView(), {
-      sidebar: Global.ui.menu.get(['pc','vip'])
+      sidebar: Global.ui.menu.get(['vip'])
     });
-
+    $('.js-gl-sidebar').addClass('vip-sidebar');
   },
 
   vipLevel:function() {
     this.changeMainReginView(new VipLevelView(), {
-      sidebar: Global.ui.menu.get(['pc','vip'])
+      sidebar: Global.ui.menu.get(['vip'])
     });
-
+    $('.js-gl-sidebar').addClass('vip-sidebar');
   },
   vipPrize:function() {
     this.changeMainReginView(new VipPrizeView(), {
-      sidebar: Global.ui.menu.get(['pc','vip'])
+      sidebar: Global.ui.menu.get(['vip'])
     });
-
+    $('.js-gl-sidebar').addClass('vip-sidebar');
   },
   vipCash:function() {
     this.changeMainReginView(new VipCashView(), {
-      sidebar: Global.ui.menu.get(['pc','vip'])
+      sidebar: Global.ui.menu.get(['vip'])
     });
-
+    $('.js-gl-sidebar').addClass('vip-sidebar');
   },
   //vipInfo:function() {
   //  this.changeMainReginView(new VipInfoView(), {
-  //    sidebar: Global.ui.menu.get(['pc','vip'])
+  //    sidebar: Global.ui.menu.get(['vip'])
   //  });
   //
   //},
   vipCredit:function() {
   this.changeMainReginView(new VipCreditView(), {
-    sidebar: Global.ui.menu.get(['pc','vip'])
+    sidebar: Global.ui.menu.get(['vip'])
   });
-
+    $('.js-gl-sidebar').addClass('vip-sidebar');
 },
 
   personalManage: function() {

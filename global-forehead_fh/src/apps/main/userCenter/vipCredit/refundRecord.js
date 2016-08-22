@@ -16,6 +16,7 @@ var RefundRecordView = SearchGrid.extend({
 
   initialize: function () {
     _(this.options).extend({
+      tableClass:'table vip-table no-margin table-bordered table-no-lr table-center',
       columns: [
         {
           name: '借款日期',
@@ -68,7 +69,15 @@ var RefundRecordView = SearchGrid.extend({
     new Timeset({
       el: this.$('.js-pf-timeset'),
       startDefaultDate: this.options.reqData.startTime?this.options.reqData.startTime:_(moment().startOf('day')).toTime(),
-      endDefaultDate: this.options.reqData.endTime?this.options.reqData.endTime:_(moment().endOf('day')).toTime()
+      endDefaultDate: this.options.reqData.endTime?this.options.reqData.endTime:_(moment().endOf('day')).toTime(),
+      endOps:{
+        viewMode: 'years',
+        format: 'YYYY-MM-DD'
+      },
+      startOps:{
+        viewMode: 'years',
+        format: 'YYYY-MM-DD'
+      }
     }).render();
     if(this.options.reqData.username){
       this.$('input[name="username"]').val(this.options.reqData.username);

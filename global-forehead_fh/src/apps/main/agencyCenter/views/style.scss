@@ -4,8 +4,8 @@
 
 .progressbar_1{
   background-color:#eee;
-  height:5px;
-  width:620px;
+  height:10px;
+  width:1030px;
   border:1px solid #bbb;
   color:#222;
   line-height:13px;
@@ -27,32 +27,39 @@
 }
 .uc-vip-head-grade {
   display: inline-block;
-  background: url("../misc/points.png") no-repeat;
-  height:17px;
-  width:620px;
+  //background: url("../misc/points.png") no-repeat;
+  height:30px;
+  line-height:30px;
+  width:1035px;
+  margin-left:50px;
   >span{
     //position: relative;
     display: inline-block;
-    width: 83px;
-    border-left: 1px solid $gray-color;
+    width: 140px;
+    padding-left:3px;
+
   }
-  >span :last-child{
-    border-right: 1px solid $gray-color;
-  }
+
 }
 
 .uc-vip-head-grade1 {
+
   display: inline-block;
   //background: url("../misc/points.png") no-repeat;
   height:17px;
-  width:620px;
+  width:1035px;
   >span{
-    //position: relative;
+    position: relative;
     display: inline-block;
-    width: 83px;
+    width:140px;
+    left:31px;
+
     border-left: 1px solid $white-color;
+    img{
+      position: absolute; left:0px;top:22px;
+    }
   }
-  >span :last-child{
-    border-right: 1px solid $white-color;
-  }
+  //>span :last-child{
+  //  border-right: 1px solid $white-color;
+  //}
 }
