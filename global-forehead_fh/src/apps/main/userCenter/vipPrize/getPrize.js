@@ -40,7 +40,7 @@ var GetPrizeView = SearchGrid.extend({
       },
       listProp: 'root.dataList',
       height: 245,
-      tip: '<div style="display: none" class="js-divFlag"><button  class="js-getPrize btn btn-sun btn-linear input-lg vc-gp-get m-left-lg" >领取</button></div>'
+      tip: '<div class="js-divFlag" ><button  class="js-getPrize btn btn-sun btn-linear input-lg vc-gp-get m-left-lg left-vip">立即领取</button></div>'
     });
   },
 
@@ -86,6 +86,7 @@ var GetPrizeView = SearchGrid.extend({
     return Global.sync.ajax({
       url: '/acct/vip/receivePrize.json'
     });
+
   },
 
   getPrizeHandler: function() {

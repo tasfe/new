@@ -50,16 +50,16 @@ var VipCashView = SearchGrid.extend({
     //初始化时间选择
     new Timeset({
       el: this.$('.js-pf-timeset'),
-      startDefaultDate: this.options.startTime?this.options.startTime:_(moment().startOf('day')).toTime(),
-      endDefaultDate: this.options.endTime?this.options.endTime:_(moment().endOf('day')).toTime(),
-      endOps:{
-        viewMode: 'years',
-        format: 'YYYY-MM-DD'
-      },
-      startOps:{
-        viewMode: 'years',
-        format: 'YYYY-MM-DD'
-      }
+      startDefaultDate: this.options.startTime?this.options.startTime:_(moment().startOf('day')).toDate(),
+      endDefaultDate: this.options.endTime?this.options.endTime:_(moment().endOf('day')).toDate(),
+      //endOps:{
+      //  viewMode: 'years',
+      //  format: 'YYYY-MM-DD'
+      //},
+      //startOps:{
+      //  viewMode: 'years',
+      //  format: 'YYYY-MM-DD'
+      //}
     }).render();
     this.$('.js-pf-search-grid').addClass('gauge');
     SearchGrid.prototype.onRender.apply(this, arguments);
@@ -81,7 +81,7 @@ var VipCashView = SearchGrid.extend({
 
     //加上统计行
     this.grid.addFooterRows({
-      //trClass: 'tr-footer',
+      trClass: 'tr-footer',
       columnEls: [
         '<div class="text-hot">总计</div>',
         '<div class="text-hot">' + (gridData.totalMoney/10000) + '</div>',

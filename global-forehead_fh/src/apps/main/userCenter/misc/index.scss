@@ -779,11 +779,17 @@ img{
     //background: #990000 !important;
     background: #CC0002;
     color: #fff;
-    font-size: 18px;
-
+    font-size: 16px;
+    border:none;
+    outline:none;
+    margin-top:10px;
     &:hover{
       color:#fff;
     }
+  }
+//
+  .left-vip{
+    margin-left:400px !important;
   }
 
   .search-condition-table{

@@ -44,7 +44,7 @@
 </div>
 
 <!--还款提示-->
-<div class="vip-popup" id="fullhint">
+<div class="vip-popup" id="fullhint" style="display: none;">
   <div class="vip-popup-conter">
     <div class="vip-success">
       <p>提示</p>
@@ -52,7 +52,7 @@
       <p class="clear"></p>
     </div>
     <div class="vip-return">
-      <p class="py">账户结算时，会有限扣除流水来冲抵借款（每XX流水可抵消X元借款）</br>若流水不足，会再从账户余额中进行扣除。您确定要继续吗？余额不足，结算失败。</p>
+      <p class="py">账户结算时，会有限扣除流水来冲抵借款（每<span id="js-consume">XX</span>流水可抵消<span id="js-money">X</span>>元借款）</br>若流水不足，会再从账户余额中进行扣除。您确定要继续吗？余额不足，结算失败。</p>
     </div>
     <div class="button-success">
       <button type="button">确认</button>
