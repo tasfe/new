@@ -26,7 +26,7 @@ var InsideLetterView = Base.ItemView.extend({
 
   getChatXhr: function() {
     var num = $('.js-selected-container li').length;
-    var userId = $('.js-selected-container li').eq(num - 1).data('id');
+    var userId = sessionStorage.getItem('selectUserId');
 
     return Global.sync.ajax({
       url: '/acct/usermsg/msglist.json',
@@ -75,9 +75,7 @@ var InsideLetterView = Base.ItemView.extend({
     this.$singleChat.html(this.singleChat.render().el);
 
     $('.js-single-to-user').change(function(){
-
       self.showCurrentSingleChat();
-      
     });
 
     if (this.options.reqData && this.options.reqData.userId) {
@@ -98,10 +96,26 @@ var InsideLetterView = Base.ItemView.extend({
           list = res.root || [];
           var acctInfo = Global.memoryCache.get('acctInfo');
 
-          if (!jQuery.isEmptyObject(list)) {
-            var num = $('.js-selected-container li').length;
-            var userId = $('.js-selected-container li').eq(num - 1).data('id');
+          var num = $('.js-selected-container li').length;
+          var userId = 0;
 
+          if ( sessionStorage.getItem('selectUserId') == 0) {
+            userId = $('.js-selected-container li').eq(num - 1).data('id');
+            sessionStorage.setItem('selectUserId',userId)
+          }
+          else{
+            userId = sessionStorage.getItem('selectUserId');
+          }
+
+          $('.js-selected-container li').removeClass('sd');
+
+          for (var i = $('.js-selected-container li').length - 1; i >= 0; i--) {
+            if( $('.js-selected-container li').eq(i).data('id') == userId ){
+              $('.js-selected-container li').eq(i).addClass('sd');
+            }
+          }
+
+          if (!jQuery.isEmptyObject(list)) {
       //      if (hasNew) {
       //        Global.m.message.setRead(userId);
       //      }

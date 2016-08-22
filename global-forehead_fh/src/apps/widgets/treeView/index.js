@@ -12,7 +12,6 @@ $.widget('gl.treeView', {
 
   _addEventHandler: function() {
     this._on({
-      'dblclick li .js-wt-title': 'dblNodeCheckHandler',
       'click li .js-wt-title': 'nodeCheckHandler',
       'click li .js-wt-collapse': 'collapseHandler',
       'click li .custom-checkbox': 'checkboxHandler'
@@ -208,16 +207,6 @@ $.widget('gl.treeView', {
     }
     
     this.options.onClick.call(this, e, $target.data('no'), $target.data('data'),iIs);
-    //return false;
-  },
-
-  dblNodeCheckHandler: function(e) {
-    var $target = $(e.currentTarget);
-
-    var $a = $target.parent('a');
-
-    this.options.onDblclick.call(this, e, $a.data('no'), $a.data('data'));
-
     //return false;
   },
 

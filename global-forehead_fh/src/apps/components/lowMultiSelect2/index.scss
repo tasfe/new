@@ -233,12 +233,37 @@
     line-height: 25px;
     color: #666666;
     margin-right: 10px;
-    margin-top: 12px;
+    margin-top: 8px;
     padding: 0px 22px 0px 12px;
     border-radius: 12px;
+    position: relative;
+
+    &.sd{
+      background-color: #eeeeee;
+    }
 
     &:hover{
       border: 1px solid #ccc;
+      padding: 0px 21px 0px 11px;
+      line-height: 23px;
+      span{
+        color: #666666;
+      }
+
+      i{
+        color: #666666;
+
+        &:hover{
+          color: #990000;
+        }
+
+        &:before{
+          font-family: 'Arial';
+          content: 'x';
+          position: absolute;
+          right: 7px;
+        }
+      }
     }
   }
 
