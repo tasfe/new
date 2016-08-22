@@ -183,6 +183,7 @@ $main-area-width: 870px;
 .bc-playArea-items {
   .tab-border {
     margin-top: 8px;
+    //margin-right: 0px;
   }
   .js-bc-select-op {
     background-color: $deep-gray-color;
@@ -261,7 +262,7 @@ $main-area-width: 870px;
   .bc-advance-rule {
     min-width: 130px;
     //display: inline-block;
-    font-size: 16px;
+    font-size: 14px;
     padding: 5px;
   }
 
@@ -784,7 +785,7 @@ $main-area-width: 870px;
     width: 134px;
     height: 40px;
     line-height: 40px;
-    background-color: #bcbcbc;
+    background-color: #cc0000;
     color: #fff;
     text-align: center;
     display: block;
@@ -793,6 +794,9 @@ $main-area-width: 870px;
     font-family: '微软雅黑';
     margin-top: 10px;
     cursor: pointer;
+  }
+  .bet-quick:hover{
+    background-color: #eb4929;
   }
 
   .bc-menu{
@@ -936,6 +940,7 @@ $main-area-width: 870px;
         position: absolute;
         left: 8px;
         top: 8px;
+        color: #d8855a;
       }
 
     }
@@ -962,13 +967,16 @@ $main-area-width: 870px;
     text-align: center;
     display: inline-block;
     background-color: #d8855a;
+    &:hover{
+      background-color: #eb4929;
+    }
   }
 
   .add-number{
     width: 134px;
     height: 40px;
     line-height: 40px;
-    background-color: #bcbcbc;
+    background-color: #d8855a;
     color: #fff;
     text-align: center;
     display: inline-block;
@@ -976,6 +984,9 @@ $main-area-width: 870px;
     margin-top: 10px;
     cursor: pointer;
     margin-left: 585px;
+  }
+  .add-number:hover{
+    background-color: #eb4929;
   }
 
   .commit-number {
@@ -991,11 +1002,15 @@ $main-area-width: 870px;
     width: 212px;
     margin-left: 30px;
   }
+  .commit-number:hover{
+    background-color: #eb4929;
+  }
+
 
   .chase-number{
     height: 40px;
     line-height: 40px;
-    background-color: #cc9966;
+    background-color: #d8855a;
     color: #fff;
     text-align: center;
     display: inline-block;
@@ -1004,6 +1019,10 @@ $main-area-width: 870px;
     cursor: pointer;
     width: 98px;
     margin-left: -4px;
+    //&h
+  }
+  .chase-number:hover{
+    background-color: #eb4929;
   }
 }
 
@@ -1153,4 +1172,12 @@ $main-area-width: 870px;
 
 .background-color-white {
   background-color: #fff;
+}
+
+.btn-pressdown-color1 {
+  background-color: #a53c3c !important;
+}
+
+.btn-pressdown-color2 {
+  background-color: #bc7048 !important;
 }

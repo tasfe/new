@@ -30,8 +30,10 @@ var NewsMediatorModule = Base.Module.extend({
         var acctInfo = res.root || {};
 
         acctInfo.fBalance = _(acctInfo.balance).convert2yuan();
+        acctInfo.agBalance = _(acctInfo.agBalance).convert2yuan();
         acctInfo.fLastLoginTime = _(acctInfo.lastLoginTime).toTime();
         acctInfo.fLoginTime = _(acctInfo.loginTime).toTime();
+
 
         if (self.login && acctInfo.outTime && acctInfo.outTime !== 0) {
           self.autoLogoutCountdown(acctInfo.outTime);

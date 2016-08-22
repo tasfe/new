@@ -46,6 +46,19 @@ Base.Prefab.Timeset = Base.PrefabView.extend({
       useCurrent: true,
       maxDate: this.options.endDate.toDate()
     });
+
+    // _.defaults(this.options.startOps, {
+    //   format: 'YYYY-MM-DD',
+    //   useCurrent: false,
+    //   maxDate: this.options.endDate.toDate()
+    // });
+    //
+    // _.defaults(this.options.endOps, {
+    //   format: 'YYYY-MM-DD',
+    //   useCurrent: true,
+    //   maxDate: this.options.endDate.toDate()
+    // });
+
   },
 
   render: function(options) {

@@ -144,15 +144,17 @@ $tab-toolbar-circle-colors: (
       font-size: 14px;
 
       &:hover {
-        color: $dark-color;
+        //color: $dark-color;
         //border: 1px solid $color-pleasant;
-        background: linear-gradient(to bottom, #fdbe29, #e3a511);
+        background: linear-gradient(to bottom, #c00, #c00);
+        color: white;
       }
 
       &.active {
-        color: $dark-color;
+        //color: $dark-color;
         //border: 1px solid $color-pleasant;
-        background: linear-gradient(to bottom, #fdbe29, #e3a511);
+        background: linear-gradient(to bottom, #c00, #c00);
+        color: white;
       }
     }
 

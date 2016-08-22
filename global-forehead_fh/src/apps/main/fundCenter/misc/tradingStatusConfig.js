@@ -44,6 +44,12 @@ var status = [
     searchName: '&nbsp;&nbsp;&nbsp;&nbsp;>转账'
   },
   {
+    index: 'OUTCOME_TRANSFER',
+    id: 111,
+    zhName: '转账',
+    searchName: '&nbsp;&nbsp;&nbsp;&nbsp;>转出AG'
+  },
+  {
     index: 'INCOME_SYSTEM',
     id: 105,
     zhName: '系统加币',
@@ -72,6 +78,12 @@ var status = [
     id: 108,
     zhName: '转账',
     searchName: '&nbsp;&nbsp;&nbsp;&nbsp;>转账'
+  },
+  {
+    index: 'OUTCOME_TRANSFER',
+    id: 110,
+    zhName: '转账',
+    searchName: '&nbsp;&nbsp;&nbsp;&nbsp;>转入AG'
   },
   {
     index: 'OUTCOME_SYSTEM',
