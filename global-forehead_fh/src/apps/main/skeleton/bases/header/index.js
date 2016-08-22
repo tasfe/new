@@ -39,6 +39,7 @@ var HeaderView = Base.ItemView.extend({
     'click .js-athena_st_08': 'tempClick',
     'click .js-athena_st_09': 'tempClick',
     'click .js-athena_st_10': 'tempClick',
+    
 
     //鼠标经过
     'mouseover .js-athena_st_04': 'tempMouseover',
@@ -455,6 +456,8 @@ var HeaderView = Base.ItemView.extend({
 
     this.$('.js-gl-hd-nickName').text(acctInfo.uName ? acctInfo.uName : acctInfo.username);
     this.$('.js-gl-hd-balance').text(acctInfo.fBalance);
+    this.$('.js-gl-ag-balance').text(acctInfo.agBalance);
+
   },
 
   toggleDividend: function(auth) {
