@@ -57,7 +57,7 @@ var DashboardView = Base.ItemView.extend({
         '<div class="js-affiche-list affiche-body-list"></div>'+
         '</div>' +
         '<div class="affiche-body-detail">' +
-        '<div  class="affiche-body-righthead">平台公告<button type="button" class="affiche-body-close pull-right" data-dismiss="modal">x</button></div>' +
+        '<div  class="affiche-body-righthead">平台公告<span class="affiche-body-close sfa sfa-dialog-close close js-no-lock" data-dismiss="modal"></span></div>' +
         '<div class="js-affiche-detail affiche-detail-content"></div>'+
         '</div>'+
         '</div>';
@@ -80,6 +80,8 @@ var DashboardView = Base.ItemView.extend({
 
     $dialog.find('.js-affiche-list').on('click','.js-board-Affiche',function (e) {
       var $target = $(e.currentTarget);
+      $dialog.find('.affiche-list-active').removeClass('affiche-list-active');
+      $target.addClass('affiche-list-active');
       var afficheId = $target.data('affiche');
       self.startLoadAfficheDetail(afficheId);
     });

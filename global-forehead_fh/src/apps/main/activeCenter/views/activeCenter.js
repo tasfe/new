@@ -105,20 +105,24 @@ var ActiveCenterView = Base.ItemView.extend({
         var target = activity.bannerUrl||'javascript:void(0)';
         var badgeClass = '';
         var badgeInner = '';
+        var dotClass = '';
         switch (activity.bannerStatus) {
           case 1:
             break;
           case 0:
             badgeInner = '进行中';
             badgeClass = 'active-badge-running';
+            dotClass = 'round-dot-running';
             break;
           case 2:
             badgeInner = '已结束';
             badgeClass = 'active-badge-over';
+            dotClass = 'round-dot-over';
             break;
           default:
             badgeInner = '待开始';
             badgeClass = 'active-badge-comming';
+            dotClass = 'round-dot-comming';
             break;
         }
 
@@ -132,7 +136,7 @@ var ActiveCenterView = Base.ItemView.extend({
             '<div class="active-left-title">'+activity.activityTitle+'</div>'+
             '<div class='+badgeClass+'>'+badgeInner+'</div>'+
             '</div>'+
-            '<div class="active-round-dot"></div>'+
+            '<div class='+dotClass+'></div>'+
             '<div class="active-round-line"></div>'+
             '<div class="active-right-content">' +
             '<a href='+target+' target="_blank">' +

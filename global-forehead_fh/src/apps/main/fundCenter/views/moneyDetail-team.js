@@ -60,6 +60,10 @@ var MoneyDetailView = SearchGrid.extend({
           width: '20%'
         },
         {
+          name: '交易流水号',
+          width: '20%'
+        },
+        {
           name: '交易类型',
           width: '8%'
         },
@@ -141,6 +145,8 @@ var MoneyDetailView = SearchGrid.extend({
 
     //TODO 增加账号字段
     row.push(info.userName);
+
+    row.push(info.tradeNo);
 
     row.push(_(info.createTime).toTime());
 

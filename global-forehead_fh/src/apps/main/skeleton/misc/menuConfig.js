@@ -21,11 +21,11 @@ var menuConfig = [
         router: 'uc/rr',
         name: '充值记录'
       },
-      {
-        id: 109,
-        router: 'uc/tfr',
-        name: '转账记录'
-      },
+      // {
+      //   id: 109,
+      //   router: 'uc/tfr',
+      //   name: '转账记录'
+      // },
       {
         id: 105,
         router: 'uc/wr',
@@ -34,7 +34,7 @@ var menuConfig = [
       {
         id: 106,
         router: 'uc/ad',
-        name: '账户明细'
+        name: '账变明细'
       },
       {
         id: 102,

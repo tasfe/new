@@ -13,16 +13,16 @@ var RechargeRecordsView = SearchGrid.extend({
         'click .js-toggle-seach': 'toggleseachHandler'
     },
     dateSelectHandler:function (e) {
-        this. $('.toggle-athena').removeClass('toggle-athena');
+        this.$('.toggle-athena').removeClass('toggle-athena');
         $(e.currentTarget).addClass('toggle-athena');
-   var recIndex = $(e.currentTarget).data('index');
-    if (recIndex===1){
-           this.$('.js-start-time').val(_(moment().add('days')).toDate());
-      }else if (recIndex===2){
-            this.$('.js-start-time').val(_(moment().add('days',-3)).toDate());
+        var recIndex = $(e.currentTarget).data('index');
+        if (recIndex===1){
+            this.$('.js-start-time').val(_(moment().add('days')).toDate()+' 0:00:00');
+        }else if (recIndex===2){
+            this.$('.js-start-time').val(_(moment().add('days',-3)).toDate()+' 0:00:00');
         }else if (recIndex===3){
-            this.$('.js-start-time').val(_(moment().add('days',-7)).toDate());
-       }
+            this.$('.js-start-time').val(_(moment().add('days',-7)).toDate()+' 0:00:00');
+        }
 
     },
     toggleseachHandler:function () {
@@ -40,50 +40,50 @@ var RechargeRecordsView = SearchGrid.extend({
             columns: [
                 {
                     name: '账号',
-                    width: '13%'
+                    width: '16%'
                 },
                 {
                     name: '充值',
-                    width: '22%'
+                    width: '14%'
                 },
                 {
                     name: '提现',
-                    width: '10%'
+                    width: '14%'
                 },
                 {
                     name: '投注',
-                    width: '20%'
+                    width: '14%'
                 },
-
                 {
                     name: '中奖',
-                    width: '12%',
+                    width: '14%',
                     sortable: true,
                     id: 0
                 },
                 {
                     name: '返点',
-                    width: '13%',
+                    width: '14%',
                     sortable: true,
                     id: 1
                 },
                 {
                     name: '盈亏',
-                    width: '10%'
+                    width: '14%'
                 }
             ],
             gridOps: {
-                emptyTip: '没有充值记录'
+                emptyTip: '没有盈亏记录'
             },
             ajaxOps: {
-                url: '/fund/recharge/rechargelist.json',
+                url: '/ticket/bethistory/agProfitLossReport.json',
                 abort: false
             },
-            viewType: 'team',
+            //viewType: 'team',
             reqData: {
                 subUser: 1
             },
-            listProp: 'root.rechargeList',
+            tip: '<div class="m-left-md m-top-md text-hot"><span>注意:</span> 盈亏记录只保留最近30天。</div>',
+            listProp: 'root.data',
             height: 315
         });
     },
@@ -95,15 +95,25 @@ var RechargeRecordsView = SearchGrid.extend({
         //初始化时间选择
         new Timeset({
             el: this.$('.js-pf-timeset'),
-            startDefaultDate:_(moment().add('days')).toDate(),
-            endDefaultDate: _(moment().add('days')).toDate()
+            startDefaultDate: this.options.reqData.startTime?this.options.reqData.startTime:_(moment().startOf('day')).toTime(),
+            endDefaultDate: this.options.reqData.endTime?this.options.reqData.endTime:_(moment().endOf('day')).toTime()
         }).render();
-        
+        if(this.options.reqData.username){
+            this.$('input[name="username"]').val(this.options.reqData.username);
+        }
+
+        // //初始化时间选择
+        // new Timeset({
+        //     el: this.$('.js-pf-timeset'),
+        //     startDefaultDate:_(moment().add('days')).toDate(),
+        //     endDefaultDate: _(moment().add('days')).toDate()
+        // }).render();
+        //
         SearchGrid.prototype.onRender.apply(this, arguments);
     },
 
     renderGrid: function(gridData) {
-        var rowsData = _(gridData.rechargeList).map(function(info, index, list) {
+        var rowsData = _(gridData.data).map(function(info, index, list) {
             return {
                 columnEls: this.formatRowData(info, index, list),
                 dataAttr: info
@@ -119,9 +129,13 @@ var RechargeRecordsView = SearchGrid.extend({
         this.grid.addFooterRows({
                 //trClass: 'tr-footer',
                 columnEls: [
-                    '<div class="text-hot">所有页总计</div>', '', '','',
-                    '<div class="text-hot">' + _(gridData.amountTotal).fixedConvert2yuan() + '</div>',
-                    '',''
+                    '<div class="text-hot">所有页总计</div>',
+                    '<div class="text-hot">' + gridData.rechargeTotal + '</div>',
+                    '<div class="text-hot">' + gridData.withdrawTotal + '</div>',
+                    '<div class="text-hot">' + gridData.betTotal + '</div>',
+                    '<div class="text-hot">' + gridData.prizeTotal + '</div>',
+                    '<div class="text-hot">' + gridData.rebateTotal + '</div>',
+                    '<div class="text-hot">' + gridData.profitLossTotal + '</div>'
                 ]
             })
             .hideLoading();
@@ -129,13 +143,13 @@ var RechargeRecordsView = SearchGrid.extend({
 
     formatRowData: function(rowInfo) {
         var row = [];
-        row.push(rowInfo.userName);
-        row.push(rowInfo.tradeNo);
-        row.push(_(rowInfo.payTime).toTime());
-        row.push(rowInfo.type);
-        row.push(_(rowInfo.amount).fixedConvert2yuan());
-        row.push(_(rowInfo.balance).fixedConvert2yuan());
-        row.push(rowInfo.status);
+        row.push(rowInfo.userAccount);
+        row.push(rowInfo.rechargeTotal);
+        row.push(rowInfo.withdrawTotal);
+        row.push(rowInfo.betTotal);
+        row.push(rowInfo.prizeTotal);
+        row.push(rowInfo.rebateTotal);
+        row.push(rowInfo.profitLossTotal);
         return row;
     }
 });
