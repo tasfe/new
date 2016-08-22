@@ -17,11 +17,11 @@ var RechargeRecordsView = SearchGrid.extend({
         $(e.currentTarget).addClass('toggle-athena');
    var recIndex = $(e.currentTarget).data('index');
     if (recIndex===1){
-           this.$('.js-start-time').val(_(moment().add('days')).toDate()+' 0:00:00');
+           this.$('.js-start-time').val(_(moment().add('days')).toDate());
       }else if (recIndex===2){
-            this.$('.js-start-time').val(_(moment().add('days',-3)).toDate()+' 0:00:00');
+            this.$('.js-start-time').val(_(moment().add('days',-3)).toDate());
         }else if (recIndex===3){
-            this.$('.js-start-time').val(_(moment().add('days',-7)).toDate()+' 0:00:00');
+            this.$('.js-start-time').val(_(moment().add('days',-7)).toDate());
        }
 
     },
@@ -95,12 +95,9 @@ var RechargeRecordsView = SearchGrid.extend({
         //初始化时间选择
         new Timeset({
             el: this.$('.js-pf-timeset'),
-            startDefaultDate: this.options.reqData.startTime?this.options.reqData.startTime:_(moment().startOf('day')).toTime(),
-            endDefaultDate: this.options.reqData.endTime?this.options.reqData.endTime:_(moment().endOf('day')).toTime()
+            startDefaultDate:_(moment().add('days')).toDate(),
+            endDefaultDate: _(moment().add('days')).toDate()
         }).render();
-        if(this.options.reqData.username){
-            this.$('input[name="username"]').val(this.options.reqData.username);
-        }
         
         SearchGrid.prototype.onRender.apply(this, arguments);
     },

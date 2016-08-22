@@ -16,6 +16,7 @@ var DashboardView = Base.ItemView.extend({
   dynamicTpl: _(require('dashboard/templates/dashboard-dynamic.html')).template(),
 
   itemTpl:_.template(require('dynamicCenter/templates/noticeBoard-item.html')),
+
   AfficheTpl:_.template(require('dynamicCenter/templates/noticeDetail.html')),
 
   ticketListTpl: _(require('dashboard/templates/dashboard-ticketList.html')).template(),

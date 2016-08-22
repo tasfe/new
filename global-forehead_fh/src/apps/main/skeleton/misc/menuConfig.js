@@ -54,7 +54,7 @@ var menuConfig = [
       {
         id: 108,
         router: 'uc/bac',
-        name: '百家乐盈亏'
+        name: 'AG游戏盈亏'
       }
     ]
   },
