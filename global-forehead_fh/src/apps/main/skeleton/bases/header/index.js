@@ -54,9 +54,23 @@ var HeaderView = Base.ItemView.extend({
     'mouseout .js-athena_st_03': 'tempMouseOut',
     'mouseout .js-athena_st_01': 'tempMouseOut',
     'mouseout .js-athena_st_05': 'tempMouseOut',
-    'mouseout .js-athena_st_06': 'tempMouseOut'
+    'mouseout .js-athena_st_06': 'tempMouseOut',
+
+    'mouseover .js-gl-letter-unread': 'letterRed',
+    'mouseout .js-gl-letter-unread': 'letterBlack',
 
     },
+
+  letterRed:function(e){
+    $('.js-gl-letter-unread').removeClass('athena-message');
+    $('.js-gl-letter-unread').addClass('athena-message1');
+  },
+
+  letterBlack:function(e){
+    $('.js-gl-letter-unread').removeClass('athena-message1');
+    $('.js-gl-letter-unread').addClass('athena-message');
+  },
+
   tempMouseover:function(e){
     //this.clearClick();
     var $target = $(e.currentTarget);

@@ -708,3 +708,9 @@ dl,dt,dd{
 .margin20-0{
 	margin: 20px 0px;
 }
+
+body.footerShow{
+	#footer{
+		display: block !important;
+	}
+}

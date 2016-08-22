@@ -6,7 +6,6 @@ var FooterView = Base.ItemView.extend({
 
   template: require('./index.html'),
 
-
   render: function() {
     this.$el.html(_(this.template).template()(this.options));
 

@@ -13,6 +13,7 @@ var bannerConfig = [
     advUrl: null,
     picUrl: require('./banner-3.png')
   }
+
 ];
 
 module.exports = bannerConfig;
