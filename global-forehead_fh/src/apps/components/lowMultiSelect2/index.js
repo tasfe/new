@@ -31,10 +31,14 @@ var LowMultiSelect = Base.PrefabView.extend({
   subordinate: function () {
     var obj = $('.julien-user-list ul li a');
     var num = this.selectedUsers.length;
-    sessionStorage.setItem('selectUserId', 0);
+    sessionStorage.setItem('selectUserId', -1);
+
+    $('.js-pf-select-superior b').addClass('hidden');
+
     if ($('.js-pf-select-superior').hasClass('pf-select-superior-sd')) {
       num--;
     }
+
     if (num == obj.length) {
       if ($('.js-pf-select-superior').hasClass('pf-select-superior-sd')) {
         this.selectedUsers = _.filter(this.selectedUsers, function(obj){ return obj.id == $('.js-pf-select-superior').data('id'); });
@@ -137,6 +141,11 @@ var LowMultiSelect = Base.PrefabView.extend({
           self.$('.js-pf-select-superior').attr('data-id',data.parent.userId);
           self.$('.js-pf-select-superior').attr('data-headid',data.parent.headId);
           self.$('input[name=parentId]').val(data.parent.userId);
+
+          if (data.parent.newMsgNum == 0) {
+            self.$('.js-pf-select-superior b').addClass('hidden');
+          }
+          self.$('.js-pf-select-superior b').text(data.parent.newMsgNum);
         }
 
         if(res.root.subList != null){
@@ -226,13 +235,15 @@ var LowMultiSelect = Base.PrefabView.extend({
   },
 
   renderSelectedUsers: function() {
+
     if(_(this.selectedUsers).size()<1){
       this.$selectedContainer.html('');
     }else{
       this.$selectedContainer.html(_(this.selectedUsers).map(function(user) {
-        return '<li class="cursor-pointer" data-id="' + user.id + '"><span class="js-pf-selected-user" >' + user.name + '</span><i class="js-pf-close-user" ></i></li>';
+        return '<li data-id="' + user.id + '"><span class="js-pf-selected-user" >' + user.name + '</span><i class="js-pf-close-user" ></i></li>';
       }));
     }
+
     $('.js-single-to-user').change();
   },
 
@@ -275,7 +286,9 @@ var LowMultiSelect = Base.PrefabView.extend({
   cancelSelectHandler: function(e) {
     var $target = $(e.currentTarget);
 
-    sessionStorage.setItem('selectUserId', $target.parent().data('id') );
+    if ( $target.parent().data('id') == $('.js-selected-container .sd').data('id') ) {
+      sessionStorage.setItem('selectUserId',0);
+    }
 
     this.selectedUsers = _(this.selectedUsers).without(_(this.selectedUsers).findWhere({
       id: $target.parent().data('id')

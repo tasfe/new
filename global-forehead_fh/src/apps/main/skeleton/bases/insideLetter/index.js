@@ -87,6 +87,42 @@ var InsideLetterView = Base.ItemView.extend({
   pullChat: function() {
     var self = this;
 
+    var num = $('.js-selected-container li').length;
+    var userId = 0;
+
+    if ( sessionStorage.getItem('selectUserId') == 0 ) {
+      userId = $('.js-selected-container li').eq(num - 1).data('id');
+      sessionStorage.setItem('selectUserId',userId);
+    }
+    else if ( sessionStorage.getItem('selectUserId') == -1 ) {
+      userId = $('.js-selected-container li').eq(0).data('id');
+      sessionStorage.setItem('selectUserId',userId);
+    }
+    else{
+      userId = sessionStorage.getItem('selectUserId');
+    }
+
+    $('.js-selected-container li').removeClass('sd');
+    for (var i = $('.js-selected-container li').length - 1; i >= 0; i--) {
+      if( $('.js-selected-container li').eq(i).data('id') == userId ){
+        $('.js-selected-container li').eq(i).addClass('sd');
+      }
+    }
+
+    $('.js-pf-jstree li a').removeClass('sd2');
+    $('.js-pf-jstree li a').removeClass('sd3');
+    for (var i = $('.js-pf-jstree li a').length - 1; i >= 0; i--) {
+      if( $('.js-pf-jstree li a').eq(i).data('no') == userId ){
+        $('.js-pf-jstree li a').eq(i).addClass('sd3');
+      }
+    }
+
+    for (var i = $('.js-wt-title').length - 1; i >= 0; i--) {
+      if ( $('.js-wt-title').eq(i).data('no') == userId ) {
+        $('.js-wt-title b').eq(i).addClass('hidden');
+      }
+    }
+
     if ($('.js-selected-container li').length > 0) {
       return this.getChatXhr()
       .done(function(res) {
@@ -96,32 +132,16 @@ var InsideLetterView = Base.ItemView.extend({
           list = res.root || [];
           var acctInfo = Global.memoryCache.get('acctInfo');
 
-          var num = $('.js-selected-container li').length;
-          var userId = 0;
-
-          if ( sessionStorage.getItem('selectUserId') == 0) {
-            userId = $('.js-selected-container li').eq(num - 1).data('id');
-            sessionStorage.setItem('selectUserId',userId)
-          }
-          else{
-            userId = sessionStorage.getItem('selectUserId');
-          }
-
-          $('.js-selected-container li').removeClass('sd');
-
-          for (var i = $('.js-selected-container li').length - 1; i >= 0; i--) {
-            if( $('.js-selected-container li').eq(i).data('id') == userId ){
-              $('.js-selected-container li').eq(i).addClass('sd');
+          for (var i = $('.js-pf-jstree li a').length - 1; i >= 0; i--) {
+            if( $('.js-pf-jstree li a').eq(i).data('no') == userId ){
+              $('.js-pf-jstree li a').eq(i).addClass('sd2');
             }
           }
 
           if (!jQuery.isEmptyObject(list)) {
-      //      if (hasNew) {
-      //        Global.m.message.setRead(userId);
-      //      }
-
             if(sessionStorage.getItem('message') != list[list.length -1].messageId && sessionStorage.getItem('message') != null || $('.js-single-container ul').html() == ''){
               sessionStorage.setItem('message', list[list.length -1].messageId);
+
               $('.js-single-container ul').html('');
               var arr = new Array();
               var arr2 = new Array();
@@ -138,19 +158,27 @@ var InsideLetterView = Base.ItemView.extend({
 
               var acctInfo = Global.memoryCache.get('acctInfo');
 
+              Global.m.message.setRead( sessionStorage.getItem('selectUserId') );
+
               var list2 = _(list).sortBy('sendTime');
+              var date = '';
               _(list2).each(function(info) {
+                if (date != _(info.sendTime).toDate()) {
+                  date = _(info.sendTime).toDate();
+                  $('.js-single-container ul').append('<li class="date-tips">' + _(info.sendTime).toDate() + '</li>');
+                }
+
                 if (acctInfo.userId == info.sendId) {
-                  $('.js-single-container ul').append('<li class="me"><p>' + arr2[info.sendId] +' : ' + _(info.sendTime).toTime('HH') + ':' + _(info.sendTime).toTime('mm') + '</p><div><i class="iconsImage' + arr[info.sendId] + '"></i><b></b><span>' + info.content + '</span></div></li>');
+                  $('.js-single-container ul').append('<li class="me" data-id="' + info.messageId + '"><p>' + arr2[info.sendId] +' : ' + _(info.sendTime).toTime('HH') + ':' + _(info.sendTime).toTime('mm') + '</p><div><i class="iconsImage' + arr[info.sendId] + '"></i><b></b><span>' + info.content + '</span></div></li>');
                 }
                 else{
-                  $('.js-single-container ul').append('<li class="other"><p>' + arr2[info.sendId] +' : ' + _(info.sendTime).toTime('HH') + ':' + _(info.sendTime).toTime('mm') + '</p><i class="iconsImage' + arr[info.sendId] + '"></i><div><span>' + info.content + '</span><b></b><b class="b2"></b></div></li>');
+                  $('.js-single-container ul').append('<li class="other" data-id="' + info.messageId + '"><p>' + arr2[info.sendId] +' : ' + _(info.sendTime).toTime('HH') + ':' + _(info.sendTime).toTime('mm') + '</p><i class="iconsImage' + arr[info.sendId] + '"></i><div><span>' + info.content + '</span><b></b><b class="b2"></b></div></li>');
                 }
               });
-            }
 
-            if ($('.js-single-container').height() > 300) {
-              self.$('.js-single-detail-form').scrollTop($('.js-single-container').height() - 280);
+              if ($('.js-single-container').height() > 300) {
+                self.$('.js-single-detail-form').scrollTop($('.js-single-container').height() - 275);
+              }
             }
           }
           else{
@@ -209,14 +237,7 @@ var InsideLetterView = Base.ItemView.extend({
           strToUser += toUser.eq(i).data('id');
         }
 
-        var strToUserName = '';
-
-        for (var i = 0; i < toUser.length; i++) {
-          if (i != 0) {
-            strToUserName += ' | ';
-          }
-          strToUserName += toUser.eq(i).text();
-        }
+        
 
         var myDate = new Date();
         var hours = myDate.getHours();
@@ -230,6 +251,16 @@ var InsideLetterView = Base.ItemView.extend({
         }
 
         var acctInfo = Global.memoryCache.get('acctInfo');
+
+        var strToUserName = acctInfo.username;
+
+        var obj = $('.js-single-container .date-tips');
+        var timestamp = Date.parse(new Date());
+        //alert(obj.length.text() + '-' + _(timestamp).toDate());
+        if ( obj.eq(obj.length-1).text() !=  _(timestamp).toDate() ) {
+          $('.js-single-container ul').append('<li class="date-tips">' + _(timestamp).toDate() + '</li>');
+        }
+
         $('.js-single-container ul').append('<li class="me"><p>' + strToUserName + ' : ' + hours + ':' + minutes + '</p><div><i class="iconsImage' + acctInfo.headId + '"></i><b></b><span>' + content + '</span></div></li>');
         $('.js-single-content').val('');
 
