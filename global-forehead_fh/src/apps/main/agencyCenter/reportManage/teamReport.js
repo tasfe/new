@@ -102,7 +102,7 @@ var ReportManageView = SearchGrid.extend({
         //  width: '9%'
         //}
       ],
-      tip: '注意：只保留最近35天的报表查询。</div>',
+      tip: '<div class="m-left-md m-top-md text-hot"><span>注意：</span> 只保留最近30天的记录。</div>',
       gridOps: {
         emptyTip: '没有资金变更记录'
       },

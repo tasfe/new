@@ -1,11 +1,14 @@
-<li>
-  <a class="db-dynamic-item router color-<%=_.random(0, 5) %> clearfix " href="#nc/nb/detail/<%=bulletionId %>">
+<li class="js-dynamic-itemShow" data-bulletionId="<%=bulletionId %>">
+  <a class=" db-dynamic-item  color-<%=_.random(0, 5) %> clearfix ">
     <div class="pull-left dynamic-text">
       <div><%=month %>月<%=day %>日</div>
     </div>
     <div class="overflow-hidden dynamic-main">
-      <div class="dynamic-title ellipsis" ><%=title %></div>
+      <div  class="dynamic-title ellipsis" ><%=title %></div>
       <div class="ellipsis hidden"><%=desc %></div>
     </div>
   </a>
 </li>
+
+
+<!--router href="#nc/nb/detail/<%=bulletionId %>"-->
