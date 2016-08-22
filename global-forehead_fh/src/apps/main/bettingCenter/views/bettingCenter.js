@@ -58,6 +58,40 @@ var BettingCenterView = Base.ItemView.extend({
     'mouseout .js-bc-video-main2': 'divShow04',
     'mouseover .js-bc-video-main3': 'divShow05',
     'mouseout .js-bc-video-main3': 'divShow06',
+
+    'mousedown  .js-tzgj': 'btnPressdown2',
+    'mousedown  .js-bc-btn-lottery-add': 'btnPressdown2',
+    'mousedown  .js-bc-chase': 'btnPressdown2',
+    'mousedown  .js-bc-quick-bet': 'btnPressdown1',
+    'mousedown  .js-bc-btn-lottery-confirm': 'btnPressdown1',
+
+    'mouseout  .js-tzgj': 'btnPressup2',
+    'mouseout  .js-bc-btn-lottery-add': 'btnPressup2',
+    'mouseout  .js-bc-chase': 'btnPressup2',
+    'mouseout  .js-bc-quick-bet': 'btnPressup1',
+    'mouseout  .js-bc-btn-lottery-confirm': 'btnPressup1',
+  },
+
+  btnPressup1:function (e) {
+    var $target = $(e.currentTarget);
+    $target.removeClass('btn-pressdown-color1');
+  },
+
+  btnPressup2:function (e) {
+    var $target = $(e.currentTarget);
+    $target.removeClass('btn-pressdown-color2');
+  },
+
+
+  btnPressdown2:function (e) {
+    var $target = $(e.currentTarget);
+    $target.addClass('btn-pressdown-color2');
+  },
+
+  btnPressdown1:function (e) {
+    var $target = $(e.currentTarget);
+    $target.addClass('btn-pressdown-color1');
+
   },
 
   divShow01:function () {
