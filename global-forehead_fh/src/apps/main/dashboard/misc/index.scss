@@ -24,6 +24,10 @@ $main-top: 110px !default;
   background-color: red;
 
 }
+.toggle-btn-betting{
+    width:250px;
+  height:40px;
+}
 .carousel-inner {
   .item{
     width: 1200px !important;
@@ -36,11 +40,11 @@ $main-top: 110px !default;
 }
 
 .db-slogan {
-  background: url(~base/images/julien/11.png) no-repeat  center;
+  background: url(~base/images/julien/11.png) no-repeat 1spx 12px;
   height: 40px;
   line-height: 40px;
   margin: 10px 0 20px 0;
-  padding-left: 30px;
+  padding-left:40px;
   overflow: hidden;
   border-bottom: 1px solid #e4e4e4;
 

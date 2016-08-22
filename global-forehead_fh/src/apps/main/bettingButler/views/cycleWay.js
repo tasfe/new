@@ -1,64 +1,102 @@
-"use strict";
-
-var cycleWay = Base.ItemView.extend({
-
-    template: require('bettingButler/templates/cycleWay.html'),
-
-    startOnLoading: true,
-
-    events: {
-        'click .js-list-active': 'activeChangeHandler'
-    },
-
-
-
-    onRender: function() {
-
-        var self = this;
-
-        self.loadingFinish();
-
-    },
-
-
-
-    renderActiveGrid: function(pageIndex) {
-        var self = this;
-        this.$activeContext.empty();
-        this.getActiveXhr({
-                pageSize: 10,
-                pageIndex: pageIndex,
-                type:type
-            })
-            .always(function() {
-                self.loadingFinish();
-            })
-            .done(function(res) {
-                var data = res.root || {};
-                if (res && res.result === 0) {
-
-
-                } else {
-                    Global.ui.notification.show('加载失败，请稍后再试');
-                }
-            });
-    },
-
-
-
-    getEmptyHtml: function(emptyTip) {
-        var html = [];
-        if (emptyTip) {
-            html.push('<div class="js-wt-empty-container empty-container text-center">');
-            html.push('<div class="empty-container-main">');
-            html.push('<div class="sfa-grid-empty"></div>');
-            html.push(emptyTip);
-            html.push('</div>');
-            html.push('</div>');
-        }
-
-        return html.join('');
-    }
-});
-
-module.exports = cycleWay;
+//"use strict";
+//var SearchGrid = require('com/searchGrid');
+//var RechargeRecordsView = SearchGrid.extend({
+//    template: require('bettingButler/templates/cycleWay.html'),
+//    events: {
+//        'click .js-excess-cell': 'dateSelectHandler',
+//        'click .js-toggle-seach': 'toggleseachHandler'
+//    },
+//    initialize: function () {
+//        _(this.options).extend({
+//            columns: [
+//                {
+//                    name: '账号',
+//                    width: '13%'
+//                },
+//                {
+//                    name: '交易流水号',
+//                    width: '22%'
+//                },
+//                {
+//                    name: '充值时间',
+//                    width: '20%'
+//                },
+//                {
+//                    name: '充值方式',
+//                    width: '10%'
+//                },
+//                {
+//                    name: '充值金额',
+//                    width: '12%',
+//                    sortable: true,
+//                    id: 0
+//                },
+//                {
+//                    name: '账户余额',
+//                    width: '13%',
+//                    sortable: true,
+//                    id: 1
+//                },
+//                {
+//                    name: '状态',
+//                    width: '10%'
+//                }
+//            ],
+//            gridOps: {
+//                emptyTip: '没有充值记录'
+//            },
+//            ajaxOps: {
+//                url: '/fund/recharge/rechargelist.json',
+//                abort: false
+//            },
+//            viewType: 'team',
+//            reqData: {
+//                subUser: 1
+//            },
+//            listProp: 'root.rechargeList',
+//            height: 315
+//        });
+//    },
+//    onRender: function() {
+//        this.$('.js-pf-search-grid').addClass('bc-report-table');
+//        SearchGrid.prototype.onRender.apply(this, arguments);
+//    },
+//    renderGrid: function(gridData) {
+//        var rowsData = _(gridData.rechargeList).map(function(info, index, list) {
+//            return {
+//                columnEls: this.formatRowData(info, index, list),
+//                dataAttr: info
+//            };
+//        }, this);
+//
+//        this.grid.refreshRowData(rowsData, gridData.rowCount, {
+//            pageIndex: this.filterHelper.get('pageIndex'),
+//            initPagination: true
+//        });
+//
+//        //加上统计行
+//        this.grid.addFooterRows({
+//                //trClass: 'tr-footer',
+//                columnEls: [
+//                    '<div class="text-hot">所有页总计</div>', '', '','',
+//                    '<div class="text-hot">' + _(gridData.amountTotal).fixedConvert2yuan() + '</div>',
+//                    '',''
+//                ]
+//            })
+//            .hideLoading();
+//    },
+//
+//    formatRowData: function(rowInfo) {
+//        var row = [];
+//        row.push(rowInfo.userName);
+//        row.push(rowInfo.tradeNo);
+//        row.push(_(rowInfo.payTime).toTime());
+//        row.push(rowInfo.type);
+//        row.push(_(rowInfo.amount).fixedConvert2yuan());
+//        row.push(_(rowInfo.balance).fixedConvert2yuan());
+//        row.push(rowInfo.status);
+//        return row;
+//    }
+//});
+//
+//module.exports = RechargeRecordsView;

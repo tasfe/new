@@ -21,7 +21,6 @@ var index = Base.ItemView.extend({
         this.$('.list-active').removeClass('list-active');
         var $target = $(e.currentTarget);
         $target.addClass('list-active');
-
         var currentIndex = $target.data('index');
         if (currentIndex==0){
             var butler = new ButlerSetPlan();
