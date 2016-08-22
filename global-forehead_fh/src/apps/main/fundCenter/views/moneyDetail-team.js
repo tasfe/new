@@ -53,26 +53,34 @@ var MoneyDetailView = SearchGrid.extend({
       columns: [
         {
           name: '账号',
-          width: '15%'
+          width: '10%'
         },
         {
           name: '交易时间',
-          width: '20%'
+          width: '15%'
+        },
+        {
+          name: '交易流水号',
+          width: '15%'
         },
         {
           name: '交易类型',
           width: '8%'
         },
+        // {
+        //   name: '备注类型',
+        //   width: '8%'
+        // },
         {
-          name: '账变',
+          name: '交易金额',
           width: '15%'
         },
         {
           name: '账户余额',
-          width: '20%'
+          width: '15%'
         },
         {
-          name: '操作',
+          name: '备注',
           width: '15%'
         }
       ],
@@ -128,9 +136,8 @@ var MoneyDetailView = SearchGrid.extend({
         trClass: 'tr-cool',
         columnEls: [
           '<div class="text-hot">所有页总计</div>',
-          '', '',
-         '<div class="text-hot">' +  _(gridData.income + gridData.spending).convert2yuan() + '</div>',
-          '', ''
+          '', '', '',
+         '<div class="text-hot">' +  _(gridData.income + gridData.spending).convert2yuan() + '</div>', '',''
         ]
       })
       .hideLoading();
@@ -144,6 +151,8 @@ var MoneyDetailView = SearchGrid.extend({
 
     row.push(_(info.createTime).toTime());
 
+    row.push(info.tradeNo);
+
     row.push(tradingStatusConfig.toZh(info.tradeType));
 
 
@@ -155,6 +164,7 @@ var MoneyDetailView = SearchGrid.extend({
     }
 
     row.push('<span class="text-bold-cool">'+_(info.balance).convert2yuan()+'</span>');
+
     //var remark = info.remark;
     //
     //if (remark.replace(/[\u4e00-\u9fa5]/g, '**').length>16) {
@@ -169,13 +179,18 @@ var MoneyDetailView = SearchGrid.extend({
     //}
 
     //Number(info.tradeType) === 107 || info.tradeType === '投注'
-    if ( info.remark==='投注扣款'||info.remark==='免费游戏中奖'||info.remark==='中奖'||info.remark.indexOf('投注所得')!==-1||info.remark==='用户撤单'||info.remark==='系统撤单') {
-      row.push('<a href="' + this.options.betDetailPrevUrl + info.tradeNo + _.getUrlParamStr() + '" class="router btn-link btn-link-sun">' + '查看详情' + '</a>');
-    } else if(info.remark==='追号扣款'||info.remark.indexOf('撤销追号')!==-1) {//
-      row.push('<a href="' + this.options.chaseDetailPrevUrl + info.tradeNo + _.getUrlParamStr() + '" class="router btn-link btn-link-sun">' + '查看详情' + '</a>');
-    } else {
-      row.push('');
-    }
+
+
+
+    // if ( info.remark==='投注扣款'||info.remark==='免费游戏中奖'||info.remark==='中奖'||info.remark.indexOf('投注所得')!==-1||info.remark==='用户撤单'||info.remark==='系统撤单') {
+    //   row.push('<a href="' + this.options.betDetailPrevUrl + info.tradeNo + _.getUrlParamStr() + '" class="router btn-link btn-link-sun">' + '查看详情' + '</a>');
+    // } else if(info.remark==='追号扣款'||info.remark.indexOf('撤销追号')!==-1) {//
+    //   row.push('<a href="' + this.options.chaseDetailPrevUrl + info.tradeNo + _.getUrlParamStr() + '" class="router btn-link btn-link-sun">' + '查看详情' + '</a>');
+    // } else {
+    //   row.push('');
+    // }
+
+    row.push(info.remark);
 
     return row;
   }

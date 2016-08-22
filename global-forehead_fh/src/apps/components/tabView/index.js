@@ -72,7 +72,6 @@ var TabView = Base.LayoutView.extend({
   },
 
   //common APIs
-
   updateTabs: function(tabs) {
     this.tabs = tabs;
     this._renderTemplate();

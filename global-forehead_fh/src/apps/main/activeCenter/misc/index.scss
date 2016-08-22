@@ -27,7 +27,7 @@
             background-color: #fff;
             text-align: center;
             float: left;
-            margin-right: 9px;
+            margin-right: 5px;
             color: #000;
         }
         .list-active{
@@ -69,7 +69,7 @@
                 padding-left: 10px;
             }
             .active-badge-comming{
-                background-color: #fd9900;
+                background-color: #f90;
                 float: right;
                 width: 80px;
                 height: 30px;
@@ -81,7 +81,7 @@
 
             }
             .active-badge-running{
-                background-color: #ce0201;
+                background-color: #c00;
                 float: right;
                 width: 80px;
                 height: 30px;
@@ -93,26 +93,38 @@
 
             }
             .active-badge-over{
-                background-color: #cccccc;
+                background-color: #ccc;
                 float: right;
-                width: 80px;
-                height: 30px;
-                line-height: 30px;
-                font-weight: bolder;
-                font-size: 15px;
+                width: 50px;
+                height: 22px;
+                line-height: 22px;
+                font-size: 14px;
                 color: white;
                 text-align: center;
 
             }
-            .active-round-dot{
+            .round-dot-comming{
+                background-color: #f90;
                 margin: 20px 30px 0px 30px;
                 width: 10px;
                 height: 10px;
                 border-radius: 35px;
-                background-color: #ce0000;
-                color: white;
-                text-align: center;
-                line-height: 30px;
+                z-index: 2;
+            }
+            .round-dot-running{
+                background-color: #c00;
+                margin: 20px 30px 0px 30px;
+                width: 10px;
+                height: 10px;
+                border-radius: 35px;
+                z-index: 2;
+            }
+            .round-dot-over{
+                background-color: #ccc;
+                margin: 20px 30px 0px 30px;
+                width: 10px;
+                height: 10px;
+                border-radius: 35px;
                 z-index: 2;
             }
             .active-round-line{
