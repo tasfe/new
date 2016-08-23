@@ -9,52 +9,26 @@ var butlerSetPlan = TabView.extend({
 
     className: ' bb-butler-view menu-bock-butler',
 
-
-    events: {
-        'click .js-pf-tabView-item': 'activeChangeHandler1'
-    },
-
-    onRender: function() {
-
-    },
-
-
     initialize: function() {
         _(this.options).extend({
             tabs: [
                 {
                     label: '期数方式',
-                    name: 'manual',
-                    id: 'jsAcManualAccount',
+                    name: 'period',
+                    id: 'jsPeriod',
                     view: PeriodWayView
                 },
                 {
                     label: '周期方式',
-                    name: 'auto',
-                    id: 'jsAcAutoAccount',
+                    name: 'cycle',
+                    id: 'jsCycle',
                     view: CycleWayView
+
                 }
             ]
         });
 
-    },
-
-    activeChangeHandler1:function (e) {
-
-        var $target = $(e.currentTarget);
-
-        var currentIndex = $target.data('index');
-        if (currentIndex==0){
-            var butler = new PeriodWayView();
-            $('.js-active-context1').html(butler.render().$el);
-        }
-        if (currentIndex==1){
-            var butler1 = new CycleWayView();
-            $('.js-active-context1').html(butler1.render().$el);
-        }
-
-    },
-
+    }
 
 });
 

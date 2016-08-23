@@ -22,7 +22,6 @@ var butlerColPlan = Base.ItemView.extend({
 
         self.loadingFinish();
 
-        alert('sdf');
 
     },
 
