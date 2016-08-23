@@ -126,6 +126,7 @@ $quickEntryPaddingX: 5px !default;
   .quick-title {
     position: relative;
     z-index: 10;
+    margin-left: 9px;
     .fa-stack {
       vertical-align: inherit;
     }
@@ -293,7 +294,7 @@ $quickEntryPaddingX: 5px !default;
 
   .shortcutRight{
     position: absolute;
-    right: -155px;
+    right: -150px;
     width: 150px;
     top: 220px;
   }

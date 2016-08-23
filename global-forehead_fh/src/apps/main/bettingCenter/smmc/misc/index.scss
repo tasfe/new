@@ -8,7 +8,6 @@ body.mmc {
 }
 
 .js-wrapper {
-
   width: 100%;
   .global-main.wrapper {
     height: 100%;
@@ -416,7 +415,7 @@ body.mmc {
         }
         .tab-toolbar {
           //margin-bottom: 13px;
-          //margin-left: 100px;
+          //margin-left: 90px;
 
         }
         .tab-toolbar .tab-group {
@@ -555,8 +554,10 @@ body.mmc {
     .bc-lottery-preview {
       position: relative;
       background-color: #434343;
+
       width: 1100px;
       height: 92px;
+
       margin: 27px auto 13px auto;
       border-right: 0;
       .bc-mmc-result-win {
@@ -597,7 +598,7 @@ body.mmc {
           margin: 52px 0 0 271px;
           padding: 143px 0 0 0;
           text-align: center;
-          z-index: 2;
+          z-index: 100;
           span {
             position: relative;
             color: #c21d15;
@@ -617,7 +618,7 @@ body.mmc {
           margin: -34px 0 0 271px;
           padding: 143px 0 0 0;
           text-align: center;
-          z-index: 2;
+          z-index:100;
         }
       }
 

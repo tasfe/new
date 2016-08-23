@@ -2,6 +2,62 @@
 
 @import
 "~base/styles/imports";
+.download-common1{
+   width:80px;
+   height:30px;
+   line-height:80px;
+   display: inline-block;
+   margin-top:10px;
+   color:#666;
+   font-size: 16px;
+   margin-left:50px!important;
+ }
+.download-common2{
+  width:80px;
+  height:30px;
+  line-height:80px;
+  display: inline-block;
+  margin-top:10px;
+  color:#666;
+  font-size: 16px;
+  margin-left:50px!important;
+}
+.download-common3{
+  width:80px;
+  height:30px;
+  line-height:80px;
+  display: inline-block;
+  margin-top:10px;
+  color:#666;
+  font-size: 16px;
+  margin-left:50px!important;
+}
+.download_client{
+    background: url(../../../base/images/fh/download_client.png) no-repeat top;
+
+}
+
+.help_center{
+  background: url(../../../base/images/fh/help_center.png) no-repeat top;
+
+}
+.brand_info{
+  background: url(../../../base/images/fh/brand_info.png) no-repeat top;
+
+}
+.download-common1:hover{
+    color:#900;
+    background: url(../../../base/images/fh/download_client1.png) no-repeat top;
+}
+.download-common2:hover{
+  color:#900;
+  background: url(../../../base/images/fh/help_center1.png) no-repeat top;
+}
+
+.download-common3:hover{
+  color:#900;
+  background: url(../../../base/images/fh/brand_info1.png) no-repeat top;
+}
 
 .footer {
   clear: both;

@@ -1,49 +1,92 @@
 @charset "UTF-8";
-
 @import "~base/styles/imports";
+ .Betting-img{
+  width:50%;
+  height:80px;
+  background:url(../templates/Betting.png) no-repeat left;
+}
+.alert-text-select{
+  width:97%;
+  height:50px;
+  color:#999;
+  font-size: 14px;
+  line-height: 50px;
+  margin-left:14px;
+  a{
+    color:#ff6600;
+    text-decoration: underline;
 
-
-
+  }
+}
+.cycle-btn{
+  width:62px;
+  height:29px;
+  background: #ff6600;
+  border-radius:0px;
+}
+.alert-text-container{
+  width:97%;
+  height:80px;
+  color:#cc0000;
+  font-size: 14px;
+  line-height: 50px;
+  border-top:1px solid  #ccc;
+  margin-left:14px;
+}
 .main-active-container{
   width: 100%;
-  .active-container-header{
-    width: 100%;
-    height: 50px;
+  .active-container-header-betting{
+    width:100%;
+    height:120px !important;
+    border-top:1px solid #a60000;
+
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    background-color: #fff;
     ul{
-      height: 40px;
-      border-bottom: 2px solid #a60000;
-      padding-bottom: 1px;
+      height: 30px;
       font-size: 16px;
+      display: table;
+      overflow: hidden;
+      margin:20px 10px ;
     }
     li{
-      border-left: 1px solid #cccccc;
-      border-right: 1px solid #cccccc;
-      border-top: 1px solid #cccccc;
-      width: 140px;
+      width: 120px;
       list-style: none;
       margin-bottom: 2px;
-      height: 40px;
-      line-height: 40px;
-      background-color: #fff;
+      height: 30px;
+      line-height: 30px;
+      background: url(../templates/Betting-tab_01.png) no-repeat;
       text-align: center;
       float: left;
       margin-right: 9px;
-      color: #000;
+      color: #fff;
     }
     .list-active{
       color: #fff;
-      background: url(~base/images/julien/btn-bg01.jpg) no-repeat;
+      background: url(../templates/Betting-tab.png) no-repeat;
     }
-
   }
+
+
+
+
+
+
+
+
+
+
+
+
   .active-context{
-    margin-top: -10px;
     padding-top: 20px;
-    background-color: white;
-    width: 100%;
-    overflow-y: auto;
-    border: 1px solid #ccc;
-    padding-bottom: 30px;
+    background-color:#fff;
+    border-top:1px solid #ccc;
+    //overflow-y: auto;
+    border-left:1px solid #ccc;
+    border-bottom:1px solid #ccc;
+    //padding-right: 30px;
     height: 800px;
 
     .active-container-line{
@@ -142,7 +185,9 @@
   }
 
 }
-
+.cycle-context{
+  background-color: red !important;
+}
 .num{
   text-align: right;
   font-size: 24px;
@@ -150,17 +195,7 @@
   font-family: '微软雅黑';
 }
 
-
-.bb-butler-view{
-
-  border-top: 1px solid #a80000;
-  border-bottom: 1px solid #35414f;
-  border-left: 1px solid #35414f;
-  border-right: 1px solid #35414f;
-  height: 600px;
-}
-
-.menu-bock-butler{
+.menu-bock-butl er{
   border: 1px solid #ccc;
   border-top: 0px;
   border-bottom: 0px;
@@ -169,36 +204,71 @@
     display: none;
   }
 
+  //ul{
+  //  height: 30px;
+  //  margin: 0 10px;
+  //  padding-bottom: 15px;
+  //  border-bottom: 1px solid #cccccc;
+  //  list-style: none;
+  //
+  //  li{
+  //    width: 150px;
+  //    height: 30px;
+  //    line-height: 30px;
+  //    text-align: center;
+  //    float: left;
+  //    margin-right: 9px;
+  //    background-color:#e0e0e0 ;
+  //
+  //    a{
+  //      color: #fff;
+  //    }
+  //
+  //    &.active{
+  //      background-color:#f7f7f7;
+  //      color: #fff;
+  //    }
+  //  }
+
+  //  &:after{
+  //    clear: both;
+  //    content: '';
+  //    display: block;
+  //  }
+  //}
+}
+.active-container-header-btn{
+  width:100%;
+  height:600px !important;
+  border-bottom:1px solid #ccc;
+  border-left:1px solid #ccc ;
+  border-right:1px solid #ccc;
+  background-color: #fff;
   ul{
-    height: 30px;
-    margin: 0 10px;
-    padding-bottom: 15px;
-    border-bottom: 1px solid #cccccc;
+    font-size: 16px;
+    overflow: hidden !important;
+    margin-left: -80px;
+    border-bottom: 0px solid #ccc !important;
+  }
+  li{
+    width: 120px;
     list-style: none;
-
-    li{
-      width: 150px;
-      height: 30px;
-      line-height: 30px;
-      background: url(~base/images/julien/menu-bg01.png) no-repeat;
-      text-align: center;
-      float: left;
-      margin-right: 9px;
-
-      a{
-        color: #fff;
-      }
-
-      &.active{
-        background: url(~base/images/julien/btn-bg01.jpg) no-repeat;
-        color: #fff;
-      }
-    }
-
-    &:after{
-      clear: both;
-      content: '';
-      display: block;
-    }
+    margin-top:-4px;
+    height:40px;
+    border:1px solid #fff !important;
+    line-height: 30px;
+    background:#e0e0e0;
+    text-align: center;
+    margin-left: -2px;
+    float: left;
+    color: #fff;
+  }
+  a{
+    border-bottom-color: #fff;
+  }
+  .list-active{
+    color: #fff;
+    background:#fff;
+    border:1px solid red;
   }
 }

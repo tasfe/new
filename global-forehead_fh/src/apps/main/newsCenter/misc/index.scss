@@ -131,14 +131,15 @@
 
 
 .nc-grid {
-  top: -23px;
+  top: -33px;
+  color:#562e0f;
   position: relative;
   //margin-left: 8px;
   tbody {
     tr {
-      border-bottom: 1px solid $gray-color !important;
+      //border-bottom: 1px solid $gray-color !important;
       td {
-        padding: 10px 20px;
+        padding: 20px 20px;
         font-size: 12px;
         .badge {
           font-size: 14px;

@@ -50,7 +50,78 @@ var BettingCenterView = Base.ItemView.extend({
     'click .js-bc-nav-index':'severalHaddler',
     'click .js-bc-quick-bet': 'quickBetHandler',
     'click .js-play1': 'play1',
-    'click .js-play2': 'play2'
+    'click .js-play2': 'play2',
+
+    'mouseover .js-bc-video-main': 'divShow01',
+    'mouseout .js-bc-video-main': 'divShow02',
+    'mouseover .js-bc-video-main2': 'divShow03',
+    'mouseout .js-bc-video-main2': 'divShow04',
+    'mouseover .js-bc-video-main3': 'divShow05',
+    'mouseout .js-bc-video-main3': 'divShow06',
+
+    'mousedown  .js-tzgj': 'btnPressdown2',
+    'mousedown  .js-bc-btn-lottery-add': 'btnPressdown2',
+    'mousedown  .js-bc-chase': 'btnPressdown2',
+    'mousedown  .js-bc-quick-bet': 'btnPressdown1',
+    'mousedown  .js-bc-btn-lottery-confirm': 'btnPressdown1',
+
+    'mouseout  .js-tzgj': 'btnPressup2',
+    'mouseout  .js-bc-btn-lottery-add': 'btnPressup2',
+    'mouseout  .js-bc-chase': 'btnPressup2',
+    'mouseout  .js-bc-quick-bet': 'btnPressup1',
+    'mouseout  .js-bc-btn-lottery-confirm': 'btnPressup1',
+  },
+
+  btnPressup1:function (e) {
+    var $target = $(e.currentTarget);
+    $target.removeClass('btn-pressdown-color1');
+  },
+
+  btnPressup2:function (e) {
+    var $target = $(e.currentTarget);
+    $target.removeClass('btn-pressdown-color2');
+  },
+
+
+  btnPressdown2:function (e) {
+    var $target = $(e.currentTarget);
+    $target.addClass('btn-pressdown-color2');
+  },
+
+  btnPressdown1:function (e) {
+    var $target = $(e.currentTarget);
+    $target.addClass('btn-pressdown-color1');
+
+  },
+
+  divShow01:function () {
+    $('.js-bc-video-2').show();
+    $('.js-bc-video-1').hide();
+  },
+
+  divShow02:function () {
+    $('.js-bc-video-1').show();
+    $('.js-bc-video-2').hide();
+  },
+
+  divShow03:function () {
+    $('.js-bc-video-4').show();
+    $('.js-bc-video-3').hide();
+  },
+
+  divShow04:function () {
+    $('.js-bc-video-3').show();
+    $('.js-bc-video-4').hide();
+  },
+
+  divShow05:function () {
+    $('.js-bc-video-6').show();
+    $('.js-bc-video-5').hide();
+  },
+
+  divShow06:function () {
+    $('.js-bc-video-5').show();
+    $('.js-bc-video-6').hide();
   },
 
   play1:function () {
@@ -799,7 +870,7 @@ var BettingCenterView = Base.ItemView.extend({
 
     var idStr =  ''+$target.data('index');
     idStr = parseInt(idStr);
-    var playValue = (idStr+1)*82 +14;
+    var playValue = (idStr+1)*82 +3;
     this.$('.js-bc-advance-rules').css('left',playValue+'px');
 
     this.$('.js-rule-title-hidden-temp').html(idStr);

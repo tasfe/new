@@ -71,7 +71,7 @@ var OpenAccountManageView = Base.ItemView.extend({
         arry['12.5'] = 1950;
 
         _.each(res.root.quotaList, function(object){
-          $('.manualRebate ul').append('<li>' + object.quotaLevel / 10 + ' <span>(' + arry[ object.quotaLevel / 10 ] + ')</span></li>');
+          $('.manualRebate ul').append('<li><span>' + object.quotaLevel / 10 + '</span> (' + arry[ object.quotaLevel / 10 ] + ')</li>');
         });
 
         if(res.root.quotaList != null){
@@ -192,7 +192,7 @@ var OpenAccountManageView = Base.ItemView.extend({
       $('.js-ac-repeatPassword').on('keypress', verifyInputRePassword);
 
       $('.js-julien-left dl ul li').on('click',function () {
-        $('.js-ac-manual-rebate').val($(this).text());
+        $('.js-ac-manual-rebate').val($(this).find("span").text());
 
         self.bindTable();
       });

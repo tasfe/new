@@ -72,8 +72,25 @@ var EntryView = Base.ItemView.extend({
       $('body').removeClass('mmc');
     }
 
+    var strType = strHash.slice(0,3);
+    if (strType == '#ac' || strType == '#uc') {
+      $('.js-publicTeamData').removeClass('hidden');
+    }
+    else{
+      $('.js-publicTeamData').addClass('hidden');
+    }
+
     window.onhashchange = function () {
       var strHash = document.location.hash;
+
+      var strType = strHash.slice(0,3);
+      if (strType == '#ac' || strType == '#uc') {
+        $('.js-publicTeamData').removeClass('hidden');
+      }
+      else{
+        $('.js-publicTeamData').addClass('hidden');
+      }
+
       if (strHash=='') {
         $('.js-main-display2').addClass('hidden');
       }
@@ -86,6 +103,13 @@ var EntryView = Base.ItemView.extend({
       }
       else{
         $('body').removeClass('mmc');
+      }
+
+      if (strHash.slice(0,6) == '#bc/20' || strHash.slice(0,6) == '#bc/19') {
+        $('body').removeClass('footerShow');
+      }
+      else{
+        $('body').addClass('footerShow');
       }
     };
   },
@@ -222,7 +246,7 @@ var EntryView = Base.ItemView.extend({
   renderUpdateUnread: function(model) {
     var unRead = model.getUnreadCount();
 
-    this.$unRead.text(unRead > 99 ? 99 : unRead);
+    this.$unRead.html('<span>'+unRead > 99 ? 99 : unRead+'</span>');
     //if (unRead) {
     //  this.$unRead.removeClass('hidden').text(unRead > 99 ? 99 : unRead);
     //} else {

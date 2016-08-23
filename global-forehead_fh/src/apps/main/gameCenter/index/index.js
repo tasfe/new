@@ -20,7 +20,9 @@ var GameCenterView = Base.ItemView.extend({
     var self = this;
     this.$agBalance = this.$('.js-transfer-balance');
 
+
     self.loadUserBalance();
+
 
   },
   loadUserBalance:function () {
