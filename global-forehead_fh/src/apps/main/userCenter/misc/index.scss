@@ -37,7 +37,7 @@
       font-size: 12px;
       margin-left: 4px;
       margin-right: 4px;
-      background:url(~base/images/fh/calendar.png) no-repeat 100px center;
+      background:url(~base/images/fh/calendar.png) no-repeat 110px center;
     }
   }
   .input-date-sm {
@@ -855,6 +855,7 @@ img{
   text-decoration: underline;
 }
 
+//投注记录详情
 .bd-dd-revokeOrder{
   text-align: center;
   line-height: 30px;
@@ -879,20 +880,34 @@ img{
   }
 
   .bd-dd-revokeOrder0{
+    display: block;
+    cursor: pointer;
     background-color: #d8855a;
+    margin: 8px auto 20px auto;
     position: relative;
-    margin-right: auto;
-    margin-left: auto;
-    width: 100px;
-    height: 30px;
+    width: 63px;
+    height: 14px;
     color: #fff;
     z-index: 3;
+    &:before{
+      content:'';
+      display: block;
+      width: 0;
+      height: 0;
+      border-width: 5px;
+      border-style: dashed dashed solid dashed;
+      border-color: transparent transparent #fff transparent;
+      position: absolute;
+      left: 27px;
+      top: -1px;
+    }
+
   }
 
 }
 
+//追号记录详情
 .bd-dd-revoked{
-
   background:url('bg-revoke-status.png');
   position: absolute;
   height: 160px;
@@ -927,14 +942,27 @@ img{
     z-index: 2;
   }
   .bd-dd-revokeOrder0{
+    display: block;
+    cursor: pointer;
     background-color: #d8855a;
+    margin: 8px auto 20px auto;
     position: relative;
-    margin-right: auto;
-    margin-left: auto;
-    width: 100px;
-    height: 30px;
+    width: 63px;
+    height: 14px;
     color: #fff;
     z-index: 3;
+    &:before{
+      content:'';
+      display: block;
+      width: 0;
+      height: 0;
+      border-width: 5px;
+      border-style: dashed dashed solid dashed;
+      border-color: transparent transparent #fff transparent;
+      position: absolute;
+      left: 27px;
+      top: -1px;
+    }
   }
 
 }
@@ -1227,4 +1255,16 @@ img{
 }
 .vip-return .py{
   color:#999;
+}
+
+.uc-bd-tHeader1{
+  display: inline-flex;
+  dd{
+    margin-right: 100px;
+  }
+}
+
+.ucbt-open-number{
+  height: 50px;
+  line-height: 50px;
 }
