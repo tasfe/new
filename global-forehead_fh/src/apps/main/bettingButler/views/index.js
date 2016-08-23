@@ -14,6 +14,12 @@ var index = Base.ItemView.extend({
         'click .js-list-active': 'activeChangeHandler',
         'click .js-newplan':'newPlan',
         'click.js-selete-text-content':'deletecontent',
+        'click.js-hidden-dialog':'changeHrefHandler',
+    },
+    changeHrefHandler: function(e) {
+       $('.js-hidden-dialog').click(function(){
+          $('.js-alert-background-dialog').hide(1000);
+       })
     },
     deletecontent:function(){
         $('.js-selete-text-content').click(function(){
@@ -30,7 +36,7 @@ var index = Base.ItemView.extend({
         });
         //新建计划的内容.active-display
         $('.js-newplan').click(function(){
-            $('.js-alert-new ').addClass('active-display');
+            $('.js-alert-background-dialog').hide(1000);
             $('.js-hidden').click(function(){
                 $('.js-alert-new ').removeClass('active-display');
             })

@@ -239,15 +239,15 @@ input {
 }
 .active-container-header-btn{
   width:100%;
-  height:600px !important;
+  height:580px !important;
   border-bottom:1px solid #ccc;
-  border-left:1px solid #ccc ;
+  border-left:1px solid #ccc;
   border-right:1px solid #ccc;
   background-color: #fff;
   ul{
     font-size: 16px;
     overflow: hidden !important;
-    margin-left: -80px;
+    margin-left: 10px;
     border-bottom: 0px solid #ccc !important;
   }
   li{
@@ -360,4 +360,60 @@ input {
   width:100px;
   height:50px;
   flaot:left;
+}
+//弹窗的样式
+.collect-Way{
+  width:2000px;
+  height:1200px;
+  position: absolute;;
+  left:-31%;
+  top:-20%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 999;
+}
+.collectImage{
+  color:#fff;
+  width:700px;
+  margin-left: 0px;
+  background: url(../templates/border.png) no-repeat center !important;
+}
+.btn-close{
+  background: url(../templates/close.png) no-repeat 20px center !important;
+  float:left;
+  width:50px;
+  height:50px;
+  background: red;
+  display: inline-block;
+  margin-left: 600px;
+}
+.text-contentalign{
+  text-align: center;
+  background-color: red;
+  height:140px;
+  line-height:280px;
+  background: url(../templates/waring.png) no-repeat center !important;
+}
+.margin-text{
+  margin-top: 50px;
+}
+.perirod-btn {
+  margin-left:240px;
+  border-radius: 0px;
+  width:100px;
+  height:30px;
+  background-color:#cc0000 ;
+}
+.cancel-btn{
+  margin-left:10px;
+  border-radius: 0px;
+  width:100px;
+  height:30px;
+  background-color:#cc9966;
+  border:0px solid #ccc;
+}
+.ofstecontemnt{
+  margin:350px 600px;
+}
+.alert-background-dialog{
+  display:none;
 }
