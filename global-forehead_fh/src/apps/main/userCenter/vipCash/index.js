@@ -12,6 +12,7 @@ var VipCashView = SearchGrid.extend({
 
   initialize: function () {
     _(this.options).extend({
+      tableClass:'table vip-table no-margin table-bordered table-no-lr table-center',
       columns: [
         {
           name: '发放时间',
@@ -50,10 +51,19 @@ var VipCashView = SearchGrid.extend({
     new Timeset({
       el: this.$('.js-pf-timeset'),
       startDefaultDate: this.options.startTime?this.options.startTime:_(moment().startOf('day')).toTime(),
-      endDefaultDate: this.options.endTime?this.options.endTime:_(moment().endOf('day')).toTime()
+      endDefaultDate: this.options.endTime?this.options.endTime:_(moment().endOf('day')).toTime(),
+      endOps:{
+        viewMode: 'years',
+        format: 'YYYY-MM-DD'
+      },
+      startOps:{
+        viewMode: 'years',
+        format: 'YYYY-MM-DD'
+      }
     }).render();
-
+    this.$('.js-pf-search-grid').addClass('gauge');
     SearchGrid.prototype.onRender.apply(this, arguments);
+
   },
 
   renderGrid: function(gridData) {
@@ -73,7 +83,7 @@ var VipCashView = SearchGrid.extend({
     this.grid.addFooterRows({
       //trClass: 'tr-footer',
       columnEls: [
-        '','<div class="text-hot">总计</div>',
+        '<div class="text-hot">总计</div>',
         '<div class="text-hot">' + (gridData.totalMoney/10000) + '</div>',
         ''
       ]

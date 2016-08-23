@@ -11,6 +11,7 @@ var VipPrizeView = TabView.extend({
 
   initialize: function() {
     _(this.options).extend({
+      tabClass:'vip-tab',
       tabs: [
         {
           label: '领取奖金',

@@ -12,6 +12,7 @@ var ApplyRecordView = SearchGrid.extend({
 
   initialize: function () {
     _(this.options).extend({
+      tableClass:'table vip-table no-margin table-bordered table-no-lr table-center',
       columns: [
         {
           name: '申请日期',
@@ -54,7 +55,15 @@ var ApplyRecordView = SearchGrid.extend({
     new Timeset({
       el: this.$('.js-pf-timeset'),
       startDefaultDate: this.options.startTime?this.options.startTime:_(moment().startOf('day')).toTime(),
-      endDefaultDate: this.options.endTime?this.options.endTime:_(moment().endOf('day')).toTime()
+      endDefaultDate: this.options.endTime?this.options.endTime:_(moment().endOf('day')).toTime(),
+      endOps:{
+        viewMode: 'years',
+        format: 'YYYY-MM-DD'
+      },
+      startOps:{
+        viewMode: 'years',
+        format: 'YYYY-MM-DD'
+      }
     }).render();
 
     SearchGrid.prototype.onRender.apply(this, arguments);
