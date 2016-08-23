@@ -240,7 +240,7 @@ var LowMultiSelect = Base.PrefabView.extend({
       this.$selectedContainer.html('');
     }else{
       this.$selectedContainer.html(_(this.selectedUsers).map(function(user) {
-        return '<li data-id="' + user.id + '"><span class="js-pf-selected-user" >' + user.name + '</span><i class="js-pf-close-user" ></i></li>';
+        return '<li data-id="' + user.id + '"><b></b><span class="js-pf-selected-user" >' + user.name + '</span><i class="js-pf-close-user" ></i></li>';
       }));
     }
 
