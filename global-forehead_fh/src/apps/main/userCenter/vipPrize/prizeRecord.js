@@ -108,4 +108,6 @@ var PrizeRecordView = SearchGrid.extend({
   }
 });
 
+
+
 module.exports = PrizeRecordView;

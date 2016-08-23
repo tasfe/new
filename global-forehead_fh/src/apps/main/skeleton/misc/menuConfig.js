@@ -216,7 +216,7 @@ var menuConfig = [
   },
   {
     router: 'hc',
-    titleClass: 'bg-pink',
+    titleClass: 'hidden',
     //router: 'hc?page=newbie',
     name: '帮助中心'
     //icon: 'help'
