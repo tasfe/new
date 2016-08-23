@@ -3,7 +3,7 @@
  .Betting-img{
   width:50%;
   height:80px;
-  background:url(../templates/Betting.png) no-repeat left;
+  background:url(./Betting.png) no-repeat left;
 }
 .alert-text-select{
   width:97%;
@@ -56,7 +56,7 @@
       margin-bottom: 2px;
       height: 30px;
       line-height: 30px;
-      background: url(../templates/Betting-tab_01.png) no-repeat;
+      background: url(./Betting-tab_01.png) no-repeat;
       text-align: center;
       float: left;
       margin-right: 9px;
@@ -64,7 +64,7 @@
     }
     .list-active{
       color: #fff;
-      background: url(../templates/Betting-tab.png) no-repeat;
+      background: url(./Betting-tab.png) no-repeat;
     }
   }
 
@@ -377,10 +377,10 @@ input {
   color:#fff;
   width:700px;
   margin-left: 0px;
-  background: url(../templates/border.png) no-repeat center !important;
+  background: url(./border.png) no-repeat center !important;
 }
 .btn-close{
-  background: url(../templates/close.png) no-repeat 20px center !important;
+  background: url(./close.png) no-repeat 20px center !important;
   float:left;
   width:50px;
   height:50px;
@@ -393,7 +393,7 @@ input {
   background-color: red;
   height:140px;
   line-height:280px;
-  background: url(../templates/waring.png) no-repeat center !important;
+  background: url(./waring.png) no-repeat center !important;
 }
 .margin-text{
   margin-top: 50px;

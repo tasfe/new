@@ -1,8 +1,12 @@
 "use strict";
 
+
+
 var butlerColPlan = Base.ItemView.extend({
 
     template: require('bettingButler/templates/myCollectedPlan.html'),
+
+    dialog:require('bettingButler/templates/collectedDialog.html'),
 
     startOnLoading: true,
 
@@ -22,6 +26,28 @@ var butlerColPlan = Base.ItemView.extend({
 
         self.loadingFinish();
 
+        //self.showDialog();
+
+    },
+
+    showDialog:function () {
+
+
+        var $dialog = Global.ui.dialog.show({
+            title:'提示',
+            size: 'modal-lg',
+            body: '<div class="js-collection-container"></div>',
+            bodyClass: 'bb-collection-dialog'
+        });
+
+        $dialog.find('.ac-collection-dialog').removeClass('modal-body');
+        
+        $dialog.find('.js-collection-container').html(this.dialog().el);
+
+
+        $dialog.on('hidden.modal', function () {
+            $(this).remove();
+        });
 
     },
 

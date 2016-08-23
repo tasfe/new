@@ -16,6 +16,9 @@ var overPlan = Base.ItemView.extend({
        var self = this;
 
        self.loadingFinish();
+       
+       
+       
 
    },
 
