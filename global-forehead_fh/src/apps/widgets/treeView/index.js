@@ -6,6 +6,7 @@ $.widget('gl.treeView', {
   options: {
     namespace: 'treeView',
     onClick: _.noop,
+    onClick2: _.noop,
     onDblclick: _.noop,
     onCollapsed: _.noop
   },
@@ -13,6 +14,7 @@ $.widget('gl.treeView', {
   _addEventHandler: function() {
     this._on({
       'click li .js-wt-title': 'nodeCheckHandler',
+      'click li .js-wt-title-close': 'nodeCheckHandler2',
       'click li .js-wt-collapse': 'collapseHandler',
       'click li .custom-checkbox': 'checkboxHandler'
     });
@@ -131,15 +133,22 @@ $.widget('gl.treeView', {
     }
 
     var strNewMsgNum = '';
-    if (newMsgNum != undefined && newMsgNum != 0) {
-      strNewMsgNum = '<b>' + newMsgNum + '</b>';
+    var strStrong = '';
+    if (newMsgNum != undefined) {
+      strStrong = ' <strong class="js-wt-title-close hidden">x</strong>';
+
+      if (newMsgNum == 0) {
+        strNewMsgNum = '<b class="hidden">' + newMsgNum + '</b>';
+      }
+      else{
+        strNewMsgNum = '<b>' + newMsgNum + '</b>';
+      }
     }
     
 
     var liOpenTagHtml = '<li class="' + openable + isLastLink + '">' +
       '<a href="javascript:void 0;" data-data=\'' + (JSON.stringify(data) || '{}') + '\' data-no="' + value + '" data-headId="' + headId + '" data-name="' + text + '" class="js-wt-title ' + onlineCss + '">' + '<i></i>' +
-      checkboxHtml + icon + extraContent + '<span>' + text + strNewMsgNum + '</span>'
-      '</a>';
+      checkboxHtml + icon + extraContent + '<span>' + text + '</span>' + strNewMsgNum + '</a>' + strStrong + '</li>';
 
     return liOpenTagHtml;
   },
@@ -199,14 +208,24 @@ $.widget('gl.treeView', {
     var $target = $(e.currentTarget);
     var iIs = 0;
     if ($target.hasClass('sd')) {
-      $target.removeClass('sd');
     }
     else{
       iIs = 1;
       $target.addClass('sd');
+      $target.next().removeClass('hidden');
     }
     
     this.options.onClick.call(this, e, $target.data('no'), $target.data('data'),iIs);
+    //return false;
+  },
+
+  nodeCheckHandler2: function(e) {
+    var $target = $(e.currentTarget);
+    
+    $target.prev().removeClass('sd');
+    $target.addClass('hidden');
+    
+    this.options.onClick2.call( this, e, $target.prev().data('no'), $target.prev().data('data') );
     //return false;
   },
 
