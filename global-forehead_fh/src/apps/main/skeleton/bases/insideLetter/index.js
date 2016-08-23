@@ -11,7 +11,7 @@ var InsideLetterView = Base.ItemView.extend({
   template: require('./index.html'),
 
   options: {
-    pageSize: 10
+    pageSize: 20
   },
 
   events: {
@@ -80,7 +80,6 @@ var InsideLetterView = Base.ItemView.extend({
 
     if (this.options.reqData && this.options.reqData.userId) {
       this.singleSelect.selectUser(this.options.reqData.userId, this.options.reqData.name);
-      
     }
   },
 
@@ -103,6 +102,7 @@ var InsideLetterView = Base.ItemView.extend({
     }
 
     $('.js-selected-container li').removeClass('sd');
+    $('.js-selected-container li').removeClass('sd2');
     for (var i = $('.js-selected-container li').length - 1; i >= 0; i--) {
       if( $('.js-selected-container li').eq(i).data('id') == userId ){
         $('.js-selected-container li').eq(i).addClass('sd');
@@ -123,8 +123,23 @@ var InsideLetterView = Base.ItemView.extend({
       }
     }
 
+    $('.js-pf-select-superior').removeClass('pf-select-superior-sd2');
+    $('.js-pf-select-superior').removeClass('pf-select-superior-sd3');
+    if( $('.js-pf-select-superior').eq(0).data('id') == userId ){
+      $('.js-pf-select-superior').addClass('pf-select-superior-sd2');
+    }
+
     if ($('.js-selected-container li').length > 0) {
+      if( $('.js-selected-container .sd').data('id') != sessionStorage.getItem('currentMessageId') ){
+        $('.js-julien-loading').removeClass('hidden');
+      }
+      
       return this.getChatXhr()
+      .fail(function () {
+        if( $('.js-selected-container .sd').data('id') != sessionStorage.getItem('currentMessageId') ){
+          $('.js-single-container ul').html('');
+        }
+      })
       .done(function(res) {
         var list;
         res.root = res.root || {};
@@ -132,9 +147,19 @@ var InsideLetterView = Base.ItemView.extend({
           list = res.root || [];
           var acctInfo = Global.memoryCache.get('acctInfo');
 
+          if ( $('.js-pf-select-superior').hasClass('pf-select-superior-sd2') ) {
+            $('.js-pf-select-superior').addClass('pf-select-superior-sd3');
+          }
+
           for (var i = $('.js-pf-jstree li a').length - 1; i >= 0; i--) {
             if( $('.js-pf-jstree li a').eq(i).data('no') == userId ){
               $('.js-pf-jstree li a').eq(i).addClass('sd2');
+            }
+          }
+
+          for (var i = $('.js-selected-container li').length - 1; i >= 0; i--) {
+            if( $('.js-selected-container li').eq(i).data('id') == userId ){
+              $('.js-selected-container li').eq(i).addClass('sd2');
             }
           }
 
@@ -187,6 +212,10 @@ var InsideLetterView = Base.ItemView.extend({
         } else {
           Global.ui.notification.show('系统异常，请稍后再试');
         }
+      })
+      .always(function() {
+        $('.js-julien-loading').addClass('hidden');
+        sessionStorage.setItem('currentMessageId', $('.js-selected-container .sd').data('id') );
       });
     }
     else{
