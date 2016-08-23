@@ -68,17 +68,6 @@
     }
   }
 
-
-
-
-
-
-
-
-
-
-
-
   .active-context{
     padding-top: 20px;
     background-color:#fff;
@@ -237,6 +226,17 @@
   //  }
   //}
 }
+.alert-text-select{
+  a{
+    cursor:pointer;
+  }
+}
+.select2-sel{
+  //-webkit-appearance:none !important;
+}
+input {
+  font:in
+}
 .active-container-header-btn{
   width:100%;
   height:600px !important;
@@ -271,4 +271,93 @@
     background:#fff;
     border:1px solid red;
   }
+}
+.periodWay{
+
+  position:absolute;
+  left:1px;
+  top:80px;
+  width:100%;
+  height:720px;
+  background: rgba(0, 0, 0, 0.5);
+  display:none;
+}
+.periodWay-content-athena{
+  width:700px;
+  height:300px;
+  background:#fff;
+  margin:120px 250px;
+  opacity:1 !important;
+}
+.alert-text-periodWay{
+  width:660px;
+  height:40px;
+  color:#000;
+  font-size: 14px;
+  line-height: 50px;
+  margin-left:14px;
+
+}
+.btn-athena{
+  cursor: pointer;
+}
+.active-display{
+  display:block;
+}
+.text-content-span{
+  padding:15px 4px;
+  text-align: right;
+}
+.alert-hidden{
+  overflow: hidden;
+  margin-top: 10px;
+  height:170px;
+}
+.alert-scroll{
+  float:left;
+  text-align:right;
+  line-height:16px;
+  height:190px;
+}
+.periodWay-text{
+  border-bottom: 1px solid #000;
+  width:700px;
+  margin-left: 0px;
+
+}
+.text-content-wd{
+  float:left;
+  width:93%;
+  overflow: scroll;
+}
+.delete-pointer{
+  cursor:pointer;
+}
+.text-content-wd-collection{
+  float:left;
+  width:93%;
+  //overflow: scroll;
+}
+.text-content-span-plan{
+  padding:15px 10px;
+}
+.checkbox-style{
+  width:10px;
+  height:10px;
+  border:1px solid #ccc;
+}
+.btn-plan{
+  margin-left: 65px;
+  display: inline-block;
+  width:100px;
+  height:30px;
+  background: #cc0000;
+  border-radius: 0px;
+}
+.text-content-span-inheirt{
+  display: inline-block;;
+  text-align: right;
+  width:100px;
+  height:50px;
+  flaot:left;
 }
