@@ -9,24 +9,20 @@ var butlerSetPlan = TabView.extend({
 
     className: 'bb-butler-view menu-bock-butler',
 
-    onRender: function() {
-        this.initialize();
-    },
-
 
     initialize: function() {
         _(this.options).extend({
             tabs: [
                 {
                     label: '期数方式',
-                    name: 'manual',
-                    id: 'jsAcManualAccount',
+                    name: 'period',
+                    id: 'jsPeriod',
                     view: periodWay
                 },
                 {
                     label: '周期方式',
-                    name: 'auto',
-                    id: 'jsAcAutoAccount',
+                    name: 'cycle',
+                    id: 'jsCycle',
                     view: cycleWay
                 }
             ]

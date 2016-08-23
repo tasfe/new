@@ -17,7 +17,9 @@ var RuningPlanView = Base.ItemView.extend({
     },
 
     onRender: function() {
-        alert('sdfds');
+
+
+        
     }
 
    
