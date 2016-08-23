@@ -13,7 +13,12 @@ var TrackDetailView = Base.ItemView.extend({
   events: {
     'click .js-uc-td-cancelAllTrack':'cancelAllBettingHandler',
     'click .js-uc-td-cancel': 'cancelBettingHandler',
-    'click .js-uc-betDetail-optional-betNum': 'showBettingDetailOfOptionalHandler'
+    'click .js-uc-betDetail-optional-betNum': 'showBettingDetailOfOptionalHandler',
+    'click .js-bd-backAction':'backActionHandler'
+  },
+
+  backActionHandler:function () {
+    window.history.back();
   },
 
   getBetDetailXhr: function(data) {
