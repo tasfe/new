@@ -1,7 +1,6 @@
 "use strict";
 
 
-
 var PeriodWayView = Base.ItemView.extend({
 
     template: require('bettingButler/templates/periodWay.html'),

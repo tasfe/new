@@ -16,13 +16,13 @@ var butlerSetPlan = TabView.extend({
                     label: '期数方式',
                     name: 'period',
                     id: 'jsPeriod',
-                    view: periodWay
+                    view: PeriodWayView
                 },
                 {
                     label: '周期方式',
                     name: 'cycle',
                     id: 'jsCycle',
-                    view: cycleWay
+                    view: CycleWayView
 
                 }
             ]

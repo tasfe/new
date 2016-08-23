@@ -3,7 +3,7 @@
 
 var TabView = require('com/tabView');
 
-var RuningPlanView = require('bettingButler/views/runingPlan');
+var RuningPlanView = require('./runingPlan');
 
 var OverPlan = require('./overPlan');
 

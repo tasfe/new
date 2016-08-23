@@ -12,16 +12,10 @@ var RuningPlanView = TabView.extend({
     },
 
     initialize: function () {
-        alert('sdfds');
+
     },
     onRender: function() {
-<<<<<<< HEAD
 
-
-        
-=======
-        initialize();
->>>>>>> master
     }
 
    
