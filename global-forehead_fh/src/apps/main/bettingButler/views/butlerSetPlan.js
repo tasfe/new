@@ -36,7 +36,7 @@ var butlerSetPlan = TabView.extend({
                 }
             ]
         });
-       
+
     },
 
     activeChangeHandler1:function (e) {
