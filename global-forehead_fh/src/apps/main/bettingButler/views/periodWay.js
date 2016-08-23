@@ -9,10 +9,14 @@ var PeriodWayView = Base.ItemView.extend({
 
     template: require('bettingButler/templates/periodWay.html'),
 
+    dialog: _.template(require('bettingButler/templates/periodWayDialog.html')),
+
+
     events: {
         'click .js-newplan':'newPlan',
         'click.js-selete-text-content':'deletecontent',
-        'click.js-hidden-dialog':'changeHrefHandler'
+        'click.js-hidden-dialog':'changeHrefHandler',
+        'click.js-generate-plan':'generatePlanHandler'
     },
 
     initialize: function () {
@@ -74,9 +78,10 @@ var PeriodWayView = Base.ItemView.extend({
         }).render();
 
 
-        //this.showDialog();
+
     },
-    showDialog:function () {
+    generatePlanHandler:function () {
+
         
         
         var $dialog = Global.ui.dialog.show({
@@ -87,8 +92,8 @@ var PeriodWayView = Base.ItemView.extend({
         });
 
         $dialog.find('.ac-periodWay-dialog').removeClass('modal-body');
-        
-        $dialog.find('.js-pw-container').html();
+
+        $dialog.find('.js-pw-container').html(this.dialog());
 
 
         $dialog.on('hidden.modal', function () {

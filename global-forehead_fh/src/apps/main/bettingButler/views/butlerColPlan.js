@@ -6,7 +6,7 @@ var butlerColPlan = Base.ItemView.extend({
 
     template: require('bettingButler/templates/myCollectedPlan.html'),
 
-    dialog:require('bettingButler/templates/collectedDialog.html'),
+    dialog: _.template(require('bettingButler/templates/collectedDialog.html')),
 
     startOnLoading: true,
 
@@ -42,7 +42,7 @@ var butlerColPlan = Base.ItemView.extend({
 
         $dialog.find('.ac-collection-dialog').removeClass('modal-body');
         
-        $dialog.find('.js-collection-container').html(this.dialog().el);
+        $dialog.find('.js-collection-container').html(this.dialog());
 
 
         $dialog.on('hidden.modal', function () {
