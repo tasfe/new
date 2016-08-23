@@ -10,12 +10,10 @@ var PeriodWayView = Base.ItemView.extend({
     },
 
     initialize: function () {
-      alert(template)
     },
 
 
     onRender: function() {
-        alert(1111)
     }
 });
 

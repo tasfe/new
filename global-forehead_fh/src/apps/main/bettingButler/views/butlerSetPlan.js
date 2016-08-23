@@ -15,8 +15,7 @@ var butlerSetPlan = TabView.extend({
     },
 
     onRender: function() {
-        //this.initialize();
-        this.$activeContext = this.$('.js-active-context1');
+
     },
 
 
@@ -37,7 +36,7 @@ var butlerSetPlan = TabView.extend({
                 }
             ]
         });
-
+       
     },
 
     activeChangeHandler1:function (e) {
@@ -47,13 +46,11 @@ var butlerSetPlan = TabView.extend({
         var currentIndex = $target.data('index');
         if (currentIndex==0){
             var butler = new PeriodWayView();
-            this.$activeContext.html(butler.render().$el);
-
-            this.$('.js-active-context1').html(butler.render().$el);
+            $('.js-active-context1').html(butler.render().$el);
         }
         if (currentIndex==1){
             var butler1 = new CycleWayView();
-            this.$('.js-active-context1').html(butler1.render().$el);
+            $('.js-active-context1').html(butler1.render().$el);
         }
 
     },
