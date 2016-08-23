@@ -50,9 +50,12 @@ var VipPointView = Base.ItemView.extend({
         emptyTip: ''
       },
       ajaxOps: {
-        url: '/acct/vip/vipIntegral.json'
+        url: 'acct/vip/vipIntegral.json'
       },
-      tip: '<div class="m-left-md"><span>提示：</span> 只保留最近35天的记录。</div>',
+      //reqData:{
+      //  token:""
+      //},
+      //tip: '<div class="m-left-md"><span>提示：</span> 只保留最近35天的记录。</div>',
       height: 500,
       showHead: 'hidden'
     });
@@ -110,6 +113,7 @@ var VipPointView = Base.ItemView.extend({
         }
       })
       .done(function(res) {
+        console.log(res)
         if (res && res.result === 0) {
           self.renderGrid(res.root, res);
           //Global.m.news.updateUnReadNum({unReadNotice:res.root.unReadNotice});
