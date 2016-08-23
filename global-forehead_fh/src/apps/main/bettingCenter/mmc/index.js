@@ -618,7 +618,7 @@ var BettingCenterView = Base.ItemView.extend({
 
     var idStr =  ''+$target.data('index');
     idStr = parseInt(idStr);
-    var playValue = (idStr+1)*79 +17;
+    var playValue = (idStr+1)*79 +6;
 
     this.$('.js-bc-advance-rules').css('left',playValue+'px');
   },

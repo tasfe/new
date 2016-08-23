@@ -125,7 +125,7 @@ var BettingRecordsView = SearchGrid.extend({
 
   formatRowData: function(rowInfo) {
     var row = [];
-    row.push('<a class="router btn-link btn-link-sun" href="' + _.getUrl('/detail/' + rowInfo.billNo) + '">查看详情</a>');
+    row.push(rowInfo.billNo);
     row.push(rowInfo.gameName);
     row.push(rowInfo.gameCode);
     row.push(_(rowInfo.betTime).toTime());
