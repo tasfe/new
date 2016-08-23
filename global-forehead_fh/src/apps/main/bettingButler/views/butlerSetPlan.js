@@ -2,13 +2,12 @@
 
 var TabView = require('com/tabView');
 
-var periodWay = require('bettingButler/views/periodWay');
-var cycleWay = require('bettingButler/views/cycleWay');
+var PeriodWayView = require('./periodWay');
+var CycleWayView = require('./cycleWay');
 
 var butlerSetPlan = TabView.extend({
 
-    className: 'bb-butler-view menu-bock-butler',
-
+    className: ' bb-butler-view menu-bock-butler',
 
     initialize: function() {
         _(this.options).extend({
@@ -24,12 +23,12 @@ var butlerSetPlan = TabView.extend({
                     name: 'cycle',
                     id: 'jsCycle',
                     view: cycleWay
+
                 }
             ]
         });
 
     }
-
 
 });
 

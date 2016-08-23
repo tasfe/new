@@ -1,10 +1,9 @@
 "use strict";
 
-var SearchGrid = require('com/searchGrid');
 
+var TabView = require('com/tabView');
 
-
-var RuningPlanView = Base.ItemView.extend({
+var RuningPlanView = TabView.extend({
 
     template: require('bettingButler/templates/runningPlan.html'),
 
@@ -13,13 +12,16 @@ var RuningPlanView = Base.ItemView.extend({
     },
 
     initialize: function () {
-        
+        alert('sdfds');
     },
-
     onRender: function() {
+<<<<<<< HEAD
 
 
         
+=======
+        initialize();
+>>>>>>> master
     }
 
    

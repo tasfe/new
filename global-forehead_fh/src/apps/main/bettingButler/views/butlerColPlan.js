@@ -9,7 +9,11 @@ var butlerColPlan = Base.ItemView.extend({
     events: {
         'click .js-list-active': 'activeChangeHandler'
     },
-
+    getRuleXhr: function() {
+        return Global.sync.ajax({
+            url: '/fund/redenvelope/info.json'
+        });
+    },
 
 
     onRender: function() {
@@ -17,6 +21,8 @@ var butlerColPlan = Base.ItemView.extend({
         var self = this;
 
         self.loadingFinish();
+
+        alert('sdf');
 
     },
 
