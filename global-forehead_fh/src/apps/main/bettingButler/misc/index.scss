@@ -12,10 +12,17 @@
   font-size: 14px;
   line-height: 50px;
   margin-left:14px;
+  overflow: hidden;;
   a{
     color:#ff6600;
     text-decoration: underline;
 
+  }
+  .text-conten-Input{
+    width:1055px;
+    height:50px;
+    float:left;
+    margin-left: 5px;
   }
 }
 .cycle-btn{
@@ -74,7 +81,7 @@
     border-top:1px solid #ccc;
     //overflow-y: auto;
     border-left:1px solid #ccc;
-    border-bottom:1px solid #ccc;
+
     //padding-right: 30px;
     height: 800px;
 
@@ -155,7 +162,7 @@
         left: 164px;
       }
       .active-right-content{
-        border: 1px solid lightgrey;
+        //border: 1px solid lightgrey;
         width: 965px;
         height: 200px;
         overflow: hidden;
@@ -193,38 +200,7 @@
     display: none;
   }
 
-  //ul{
-  //  height: 30px;
-  //  margin: 0 10px;
-  //  padding-bottom: 15px;
-  //  border-bottom: 1px solid #cccccc;
-  //  list-style: none;
-  //
-  //  li{
-  //    width: 150px;
-  //    height: 30px;
-  //    line-height: 30px;
-  //    text-align: center;
-  //    float: left;
-  //    margin-right: 9px;
-  //    background-color:#e0e0e0 ;
-  //
-  //    a{
-  //      color: #fff;
-  //    }
-  //
-  //    &.active{
-  //      background-color:#f7f7f7;
-  //      color: #fff;
-  //    }
-  //  }
 
-  //  &:after{
-  //    clear: both;
-  //    content: '';
-  //    display: block;
-  //  }
-  //}
 }
 .alert-text-select{
   a{
@@ -247,9 +223,7 @@ input {
   ul{
     font-size: 16px;
     overflow: hidden !important;
-
-    margin-left: 50px;
-
+    margin-left:12px;
     border-bottom: 0px solid #ccc !important;
   }
   li{
@@ -257,7 +231,7 @@ input {
     list-style: none;
     margin-top:-4px;
     height:40px;
-    border:1px solid #fff !important;
+    border:1px solid red;
     line-height: 30px;
     background:#e0e0e0;
     text-align: center;
@@ -266,16 +240,15 @@ input {
     color: #fff;
   }
   a{
-    border-bottom-color: #fff;
+
   }
   .list-active{
     color: #fff;
     background:#fff;
-    border:1px solid red;
+
   }
 }
 .periodWay{
-
   position:absolute;
   left:1px;
   top:80px;
@@ -307,7 +280,11 @@ input {
   display:block;
 }
 .text-content-span{
-  padding:15px 4px;
+  width:105px;
+  margin-left:-30px;
+  line-height: 50px;
+  height:50px;
+  float:left;
   text-align: right;
 }
 .alert-hidden{
@@ -329,8 +306,10 @@ input {
 }
 .text-content-wd{
   float:left;
-  width:93%;
+  width:100%;
+  height:300px;
   overflow: scroll;
+
 }
 .delete-pointer{
   cursor:pointer;
@@ -349,7 +328,7 @@ input {
   border:1px solid #ccc;
 }
 .btn-plan{
-  margin-left: 65px;
+  margin-left:0px;
   display: inline-block;
   width:100px;
   height:30px;
@@ -359,7 +338,7 @@ input {
 .text-content-span-inheirt{
   display: inline-block;;
   text-align: right;
-  width:100px;
+  width:130px;
   height:50px;
   flaot:left;
 }
@@ -418,4 +397,7 @@ input {
 }
 .alert-background-dialog{
   display:none;
+}
+.new-width-overplan{
+  width:100%;
 }
