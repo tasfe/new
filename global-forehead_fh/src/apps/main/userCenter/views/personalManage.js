@@ -26,7 +26,12 @@ var PersonalManageView = Base.ItemView.extend({
 
           self.$('.js-uc-userName').html(res.root.userName);
           self.$('.js-uc-qqNum').val(res.root.userQq);
-          self.$('.js-uc-eMail').val(res.root.userEmail);
+
+          if (res.root.userEmail != '' || res.root.userEmail != null) {
+            self.$('.js-uc-eMail div').text(res.root.userEmail);
+            self.$('.js-uc-eMail').removeClass('hidden');
+          }
+          
           self.$('.js-uc-tel').val(res.root.userCellphone);
 
           self.$('.js-vip').text(res.root.memberLevel);
