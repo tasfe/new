@@ -157,25 +157,11 @@
     height: 32px;
   }
 
-  .help-inline{
-    font-size: 12px;
-
-    a{
-      color: #cc0000;
-      text-decoration: underline;
-
-      &.julien-btn3{
-        background-color: #cc9966;
-        padding: 6px 12px;
-        border: 0px;
-        color: #fff;
-        margin-left: 10px;
-        text-decoration: none;
-        color: #fff;
-        margin: 0px;
-      }
+  .controls{
+    span.help-inline-julien{
+      font-size: 12px;
+      color: #999;
     }
-
   }
 }
 
@@ -478,6 +464,7 @@
       font-size: 12px;
       border-bottom: 1px solid #e5e5e5;
       line-height: 30px;
+      display: block;
 
       span{
         color: #cc0000;
