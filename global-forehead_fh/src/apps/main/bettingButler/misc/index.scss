@@ -397,8 +397,8 @@
           color: #666666;
           font-size: 14px;
           background: #fefefe;
-          background-image:-webkit-linear-gradient(90deg, #fff, #eaeaea);
-          background-image:linear-gradient(90deg, #fff, #eaeaea);
+          background-image:-webkit-linear-gradient( #fff, #eaeaea);
+          background-image:linear-gradient( #fff, #eaeaea);
 
           &:after{
             display:none;
