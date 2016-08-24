@@ -32,7 +32,6 @@ var butlerColPlan = Base.ItemView.extend({
 
     showDialog:function () {
 
-
         var $dialog = Global.ui.dialog.show({
             title:'提示',
             size: 'modal-lg',
