@@ -85,10 +85,7 @@ var PeriodWayView = Base.ItemView.extend({
         });
 
         $dialog.find('.ac-periodWay-dialog').removeClass('modal-body');
-
         $dialog.find('.js-pw-container').html(this.dialog());
-
-
         $dialog.on('hidden.modal', function () {
             $(this).remove();
         });
