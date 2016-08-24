@@ -51,6 +51,29 @@ var AgencyCenterController = RouterController.extend({
     });
 
     $('#main > .clearfix').addClass('ac-block');
+
+    this.getTeamOnlineXhr().done(function (res) {
+      var data = res && res.root || {};
+      console.log(data.todayOnlineTotal);
+      if (res && res.result === 0) {
+        $('.js-julien-data1').text( (data.balanceTotal / 10000).toFixed(2) );
+        $('.js-julien-data2').text( data.todayRegTotal);
+        $('.js-julien-data3').text( data.todayOnlineTotal);
+        $('.js-julien-data4').text( data.todayBonusTotal);
+      }
+    });
+  },
+
+  getTeamOnlineXhr: function() {
+    var timestamp = Date.parse(new Date());
+    var now = _(timestamp).toDate();
+    return Global.sync.ajax({
+      url: '/info/teamreport/subuserstat.json',
+      data: {
+        'startTime': now,
+        'endTime': now
+      }
+    });
   },
 
   salaryManage: function () {

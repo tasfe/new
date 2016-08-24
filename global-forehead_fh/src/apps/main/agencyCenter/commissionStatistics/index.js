@@ -6,6 +6,8 @@ var ReportManageView = SearchGrid.extend({
 
   template: require('./index.html'),
 
+  className: 'ac-cs-view',
+
   events: {
   },
 

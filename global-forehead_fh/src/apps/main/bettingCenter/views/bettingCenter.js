@@ -72,6 +72,18 @@ var BettingCenterView = Base.ItemView.extend({
     'mouseout  .js-bc-btn-lottery-confirm': 'btnPressup1',
   },
 
+  getTeamOnlineXhr: function() {
+    var timestamp = Date.parse(new Date());
+    var now = _(timestamp).toDate();
+    return Global.sync.ajax({
+      url: '/info/teamreport/subuserstat.json',
+      data: {
+        'startTime': now,
+        'endTime': now
+      }
+    });
+  },
+
   btnPressup1:function (e) {
     var $target = $(e.currentTarget);
     $target.removeClass('btn-pressdown-color1');
@@ -206,6 +218,16 @@ var BettingCenterView = Base.ItemView.extend({
 
     this.on('entry:show router:back', function() {
       this.bettingRecordsView.update();
+    });
+
+    this.getTeamOnlineXhr().done(function (res) {
+      var data = res && res.root || {};
+      if (res && res.result === 0) {
+        $('.js-julien-data1').text( '团队余额：'+(data.balanceTotal / 10000).toFixed(2) );
+        $('.js-julien-data2').text( '今日注册：'+data.todayRegTotal);
+        $('.js-julien-data3').text( '当前在线：'+data.todayOnlineTotal);
+        $('.js-julien-data4').text( '今日返点：'+data.todayBonusTotal);
+      }
     });
   },
 

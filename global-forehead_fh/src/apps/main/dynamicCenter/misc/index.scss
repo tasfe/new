@@ -11,9 +11,9 @@
 }
 
 .nc-board-item {
-  overflow: hidden;
+  //overflow: hidden;
   text-overflow: clip;
-  width: 240px;
+  width: 255px;
   display: block;
   border-bottom: 1px solid $color-deep-gray;
   margin: 0;
