@@ -1,7 +1,5 @@
 "use strict";
 
-
-
 var butlerColPlan = Base.ItemView.extend({
 
     template: require('bettingButler/templates/myCollectedPlan.html'),
@@ -13,26 +11,19 @@ var butlerColPlan = Base.ItemView.extend({
     events: {
         'click .js-list-active': 'activeChangeHandler'
     },
+
     getRuleXhr: function() {
         return Global.sync.ajax({
             url: '/fund/redenvelope/info.json'
         });
     },
 
-
     onRender: function() {
-
         var self = this;
-
         self.loadingFinish();
-
-        //self.showDialog();
-
     },
 
     showDialog:function () {
-
-
         var $dialog = Global.ui.dialog.show({
             title:'提示',
             size: 'modal-lg',
@@ -41,42 +32,35 @@ var butlerColPlan = Base.ItemView.extend({
         });
 
         $dialog.find('.ac-collection-dialog').removeClass('modal-body');
-        
         $dialog.find('.js-collection-container').html(this.dialog());
-
 
         $dialog.on('hidden.modal', function () {
             $(this).remove();
         });
-
     },
-
-
 
     renderActiveGrid: function(pageIndex) {
         var self = this;
         this.$activeContext.empty();
         this.getActiveXhr({
-                pageSize: 10,
-                pageIndex: pageIndex,
-                type:type
-            })
-            .always(function() {
-                self.loadingFinish();
-            })
-            .done(function(res) {
-                var data = res.root || {};
-                if (res && res.result === 0) {
+            pageSize: 10,
+            pageIndex: pageIndex,
+            type:type
+        })
+        .always(function() {
+            self.loadingFinish();
+        })
+        .done(function(res) {
+            var data = res.root || {};
+            if (res && res.result === 0) {
 
 
-                } else {
-                    Global.ui.notification.show('加载失败，请稍后再试');
-                }
-            });
+            } else {
+                Global.ui.notification.show('加载失败，请稍后再试');
+            }
+        });
     },
-
-
-
+    
     getEmptyHtml: function(emptyTip) {
         var html = [];
         if (emptyTip) {
