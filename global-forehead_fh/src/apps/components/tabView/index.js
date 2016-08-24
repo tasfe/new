@@ -1,7 +1,5 @@
 "use strict";
-
 var TabView = Base.LayoutView.extend({
-
   _tabTemplate: require('./tab-view.html'),
 
   _tabViews: {},

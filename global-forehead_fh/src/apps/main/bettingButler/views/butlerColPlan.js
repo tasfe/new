@@ -1,15 +1,8 @@
 "use strict";
-
-
-
 var butlerColPlan = Base.ItemView.extend({
-
     template: require('bettingButler/templates/myCollectedPlan.html'),
-
     dialog: _.template(require('bettingButler/templates/collectedDialog.html')),
-
     startOnLoading: true,
-
     events: {
         'click .js-list-active': 'activeChangeHandler'
     },
@@ -18,7 +11,6 @@ var butlerColPlan = Base.ItemView.extend({
             url: '/fund/redenvelope/info.json'
         });
     },
-
 
     onRender: function() {
 
@@ -41,7 +33,6 @@ var butlerColPlan = Base.ItemView.extend({
         });
 
         $dialog.find('.ac-collection-dialog').removeClass('modal-body');
-        
         $dialog.find('.js-collection-container').html(this.dialog());
 
 

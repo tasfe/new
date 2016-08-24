@@ -1,6 +1,4 @@
 "use strict";
-
-
 var ButlerSetPlan = require('bettingButler/views/butlerSetPlan');
 var ButlerRunPlan = require('bettingButler/views/butlerRunPlan');
 var ButlerColPlan = require('bettingButler/views/butlerColPlan');
