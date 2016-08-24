@@ -128,8 +128,7 @@ var LoginPwdView = Base.ItemView.extend({
             type: 'success'
           });
           self.render();
-           
-
+          
           //var LoginOutTips = require('com/loginOutTips');
           //this.loginOutTips = new LoginOutTips();
           //this.loginOutTips.checkState();

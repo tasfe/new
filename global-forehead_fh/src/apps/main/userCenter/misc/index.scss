@@ -768,7 +768,9 @@ img{
   }
 
   .help-inline{
-    color: #cc0000;
+    //color: #cc0000;
+    color: grey;
+    font-size: 12px;
   }
 
   .portlet{
@@ -839,7 +841,7 @@ img{
     font-family: '微软雅黑';
     .control-label{
       font-size: 14px;
-      width: 70px;
+      width: 85px;
       text-align: right;
     }
   }
