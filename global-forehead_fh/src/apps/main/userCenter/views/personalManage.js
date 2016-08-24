@@ -27,7 +27,7 @@ var PersonalManageView = Base.ItemView.extend({
           self.$('.js-uc-userName').html(res.root.userName);
           self.$('.js-uc-qqNum').val(res.root.userQq);
 
-          if (res.root.userEmail != '' || res.root.userEmail != null) {
+          if (res.root.userEmail != '' && res.root.userEmail != null) {
             self.$('.js-uc-eMail div').text(res.root.userEmail);
             self.$('.js-uc-eMail').removeClass('hidden');
           }
@@ -76,6 +76,11 @@ var PersonalManageView = Base.ItemView.extend({
   },
 
   updatePersonalInfoHandler: function(e) {
+    if (this.$('.js-bday1').val() == '' || this.$('.js-bday2').val() == '') {
+      Global.ui.notification.show('请选择生日');
+      return;
+    }
+
     var self = this;
     this.$btnConfirm.button('loading');
 
@@ -100,6 +105,8 @@ var PersonalManageView = Base.ItemView.extend({
       })
       .done(function(res) {
         if (res && res.result === 0) {
+          self.$('.js-bday1').attr("disabled",true);
+          self.$('.js-bday2').attr("disabled",true);
           Global.ui.notification.show('修改个人信息成功', {
             type: 'success'
           });
