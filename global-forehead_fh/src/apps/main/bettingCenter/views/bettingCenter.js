@@ -223,10 +223,10 @@ var BettingCenterView = Base.ItemView.extend({
     this.getTeamOnlineXhr().done(function (res) {
       var data = res && res.root || {};
       if (res && res.result === 0) {
-        $('.js-julien-data1').text( '团队余额：'+(data.balanceTotal / 10000).toFixed(2) );
-        $('.js-julien-data2').text( '今日注册：'+data.todayRegTotal);
-        $('.js-julien-data3').text( '当前在线：'+data.todayOnlineTotal);
-        $('.js-julien-data4').text( '今日返点：'+data.todayBonusTotal);
+        $('.js-julien-data1').text( '今日充值：'+(data.todayRechargeTotal/10000).toFixed(2) );
+        $('.js-julien-data2').text( '今日提现：'+(data.todayWithdrawTotal/10000).toFixed(2) );
+        $('.js-julien-data3').text( '今日投注：'+(data.todayBetTotal/10000).toFixed(2) );
+        $('.js-julien-data4').text( '今日盈亏：'+(data.todayProfitTotal/10000).toFixed(2) );
       }
     });
   },
