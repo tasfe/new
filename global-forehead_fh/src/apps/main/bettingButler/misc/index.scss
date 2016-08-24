@@ -249,7 +249,7 @@
 }
 .alert-hidden{
   overflow: hidden;
-  margin-top: 10px;
+  margin-top:0px;
   height:170px;
 }
 .alert-scroll{
@@ -359,6 +359,7 @@
 }
 .new-width-overplan{
   width:100%;
+
 }
 
 
@@ -426,7 +427,11 @@
     }
   }
 
+  .no-tips-julien{
+    margin-top: 20px;
+  }
 }
+
 
 .new-plan-content{
   width:105px;
@@ -437,7 +442,7 @@
   line-height: 31px;
   position:absolute;
   left:1075px;
-  top:200px;
+  top:0px;
 }
 .alert-text-contemt{
   width:600px !important;
@@ -448,4 +453,14 @@
 .btn-color-delete {
   background-color: #cd9967;
   border: none;
+}
+.span-athena-radio{
+  background:url(./03.png) no-repeat center;
+  padding:10px 10px;
+  cursor:pointer;
+}
+.span-athena-radio-hiiHHHddHen{
+  background:url(./04.png) no-repeat center;
+  padding:10px 10px;
+  cursor:pointer;
 }

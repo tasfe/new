@@ -13,7 +13,13 @@ var PeriodWayView = Base.ItemView.extend({
         'click .js-newplan':'newPlan',
         'click.js-selete-text-content':'deletecontent',
         'click.js-hidden-dialog':'changeHrefHandler',
-        'click.js-generate-plan':'generatePlanHandler'
+        'click.js-generate-plan':'generatePlanHandler',
+        'click.js-span-athena-radio':'radioActive'
+    },
+    radioActive:function(){
+        $('.js-span-athena-radio').click(function(){
+          $(this).removeClass('.span-athena-radio-hiiHHHddHen').addClass('.span-athena-radio');
+        })
     },
 
     initialize: function () {
