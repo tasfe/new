@@ -8,10 +8,7 @@ var Timeset = require('com/timeset_single');
 var PeriodWayView = Base.ItemView.extend({
 
     template: require('bettingButler/templates/periodWay.html'),
-
     dialog: _.template(require('bettingButler/templates/periodWayDialog.html')),
-
-
     events: {
         'click .js-newplan':'newPlan',
         'click.js-selete-text-content':'deletecontent',
@@ -79,10 +76,7 @@ var PeriodWayView = Base.ItemView.extend({
 
 
     },
-    generatePlanHandler:function () {
-
-        
-        
+    newPlan:function () {
         var $dialog = Global.ui.dialog.show({
             title:'提示',
             size: 'modal-lg',

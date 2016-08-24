@@ -6,32 +6,36 @@
         <!--</div>-->
         <!--温馨提示-->
         <div style="color: red;" class=" alert-text-periodWay">温馨提示：设置好计划时间和重复周期后，系统将每周固定进行您的计划</div>
-        <div class="js-uc-ticket-select-group alert-text-periodWay">
-            <span class="text-content-span-inhrirt">计划开始时间:</span>
-            <span class="js-pf-timeset"></span>
-            <!-- <select style="font-style: normal" class="js-pf-select-ticket-list select2 select2-sel " name="ticketId" data-parsley-numAndMidLine></select>-->
-        </div>
-        <div class="js-uc-ticket-select-group alert-text-periodWay">
-            <span class="text-content-span">重复周期:</span>
-            <select name="" >
-                <option value="1">每周一</option>
-                <option value="2">每周二</option>
-                <option value="3">每周三</option>
-                <option value="4">每周四</option>
-                <option value="5">每周五</option>
-                <option value="6">每周六</option>
-            </select>
-            <span>（选定类型后，将会按照重复计划，每日进行计划）</span>
-        </div>
-        <div class="js-uc-ticket-select-group alert-text-periodWay">
-            <span class="text-content-span">备注：</span>
-            <select style="font-style: normal" class="js-pf-select-ticket-list select2 select2-sel " name="ticketId" data-parsley-numAndMidLine></select>
-        </div>
-        <div class="js-uc-ticket-select-group alert-text-periodWay margin-text">
-            <button class="js-cycle-btn btn perirod-btn ">确认</button>
-            <button class="btn cancel-btn">取消</button>
-        </div>
 
-    <!--</div>-->
+        <div class="js-uc-ticket-select-group alert-text-select">
+            <span class="text-content-span input-left">计划开始时间:</span>
+            <div class="text-conten-Input alert-text-contemt">
+                <input type="text">
+                <!--<span class="js-pf-timeset"></span>-->
+            </div>
+        </div>
+        <div class="js-uc-ticket-select-group alert-text-select">
+            <span class="text-content-span input-left">重复周期:</span>
+            <div class="text-conten-Input alert-text-contemt">
+                <select  >
+                    <option value="1">每周一</option>
+                    <option value="2">每周二</option>
+                    <option value="3">每周三</option>
+                    <option value="4">每周四</option>
+                    <option value="5">每周五</option>
+                    <option value="6">每周六</option>
+                </select>
+                <span>（选定类型后，将会按照重复计划，每日进行计划）</span>
+            </div>
+        </div>
+        <div class="js-uc-ticket-select-group alert-text-select">
+            <span class="text-content-span input-left">备注:</span>
+            <div class="text-conten-Input alert-text-contemt">
+                <input type="text" placeholder="每周追号计划">
+            </div>
+        </div>
+        <div class="js-uc-ticket-select-group alert-text-select">
+                <button style="margin-left:300px;" class="js-generate-plan btn btn-plan">确认</button>
+                <button  class="js-generate-plan btn btn-plan btn-color-delete">取消</button>
 
-<!--</div>-->
+        </div>

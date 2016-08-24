@@ -309,7 +309,6 @@ input {
   width:100%;
   height:300px;
   overflow: scroll;
-
 }
 .delete-pointer{
   cursor:pointer;
@@ -411,4 +410,14 @@ input {
   position:absolute;
   left:1075px;
   top:200px;
+}
+.alert-text-contemt{
+  width:600px !important;
+}
+.input-left{
+   margin-left: -15px;
+}
+.btn-color-delete{
+  background-color: #cd9967;
+  border:none;
 }
