@@ -78,7 +78,6 @@ var PeriodWayView = Base.ItemView.extend({
         }).render();
 
 
-
     },
     generatePlanHandler:function () {
 
@@ -87,7 +86,7 @@ var PeriodWayView = Base.ItemView.extend({
         var $dialog = Global.ui.dialog.show({
             title:'提示',
             size: 'modal-lg',
-            body: '<div class="js-pw-container"></div>',
+            body: '<div  style="background-color: #fff;" class="js-pw-container"></div>',
             bodyClass: 'ac-periodWay-dialog'
         });
 
