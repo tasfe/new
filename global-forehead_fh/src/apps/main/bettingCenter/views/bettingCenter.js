@@ -32,8 +32,8 @@ var BettingCenterView = Base.ItemView.extend({
   events: {
     'click .js-bc-video': 'openVideoHandler',
     'click .js-bc-basic-rule': 'baseRuleChangeHandler',
-    'mouseover .js-bc-basic-rule': 'baseRuleChangeHandler',
-    'mouseout .js-bc-basic-rule': 'baseRuleChange1Handler',
+    //'mouseover .js-bc-basic-rule': 'baseRuleChangeHandler',
+    //'mouseout .js-bc-basic-rule': 'baseRuleChange1Handler',
     'mouseover .js-bc-advance-rules': 'baseRuleChangeMOHandler',
     'mouseout .js-bc-advance-rules': 'baseRuleChangeMO1Handler',
     'click .js-bc-play-toggle': 'togglePlayModeHandler',

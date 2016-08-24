@@ -153,7 +153,7 @@ var SignedView = Base.ItemView.extend({
     var $target = $(e.currentTarget);
 
     var $dialog = Global.ui.dialog.show({
-      title: '无限娱乐分红协议条款',
+      title: '繁华娱乐分红协议条款',
       size: 'modal-lg',
       body: '<div class="ac-official">' + this.officialAgreementTpl() + '</div>',
       footer: ''
