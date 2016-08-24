@@ -100,7 +100,7 @@ var LoginPwdView = Base.ItemView.extend({
 
     }).debounce(400);
 
-    this.$('#newLoginPassword').on('keypress', newLoginPassword);
+    this.$('#newLoginPassword').on('keyup', newLoginPassword);
   },
 
   changeLoginPasswordHandler: function(e) {
