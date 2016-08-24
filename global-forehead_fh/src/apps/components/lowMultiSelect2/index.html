@@ -1,17 +1,19 @@
 <input type="text" class="js-pf-input-search-user pf-input-search-user" placeholder="搜索用户名" />
 <div class="js-pf-select-container pf-select-container">
   <div class="js-fc-parent control-group no-m-bottom hidden ">
-    <div class="js-pf-select-search-user js-pf-select-superior pf-select-superior" data-id="" data-name="我的上级">
-      <span>我的上级</span>
+    <div class="js-pf-select-superior pf-select-superior" data-id="" data-name="我的上级">
+      <strong></strong>
+      <span class="js-pf-select-search-user">我的上级</span>
       <i></i>
-      <b></b>
+      <big></big>
+      <b class="js-pf-select-superior-close">( 取消 )</b>
     </div>
     <input type="hidden" name="parentId" />
   </div>
   <div class="pf-select-superior subordinate js-subordinate">
     <span>我的下级</span>
     <i></i>
-    <b>(全选/取消)</b>
+    <b>( 全选/取消 )</b>
   </div>
   <div class="js-pf-jstree julien-user-list"></div>
 </div>

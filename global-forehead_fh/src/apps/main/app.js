@@ -80,7 +80,7 @@ function _bindLetterHandler() {
     var $dialog = Global.ui.dialog.show({
       title: '对话列表',
       size: 'modal-info-julien',
-      body: '<div class="js-nc-insideLetter"></div>',
+      body: '<div class="js-nc-insideLetter"></div><div class="gl-loading js-julien-loading julien-loading-leftmenu"><div class="gl-loading-main"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div>',
       bodyClass: 'no-padding',
       footer: ''
     });
@@ -99,6 +99,8 @@ function _bindLetterHandler() {
         name: $target.data('name')
       }
     }).render();
+
+    sessionStorage.setItem('openMessage', 1);
   });
 }
 

@@ -1,41 +1,65 @@
-<div class="js-active-header active-container-header-betting">
-    <ul class="js-activeHeader-list">
-        <li class="js-list-active list-active " data-index="0">设置计划</li>
-        <li class="js-list-active " data-index="1">进行中的计划</li>
-        <li class="js-list-active " data-index="2">我的收藏方案</li>
-    </ul>
-    <div class="alert-text-container">温馨提示：为了您的计划能正常进行，请确保您的账户有足够的余额，如若余额不够则无法正常进行</div>
-    <div class="js-active-context cycle-context ">3333</div>
-    <div class="alert-text-select">
-        选择彩种:
-        <select name="" id="">
-            <options>00</options>
-        </select>
+
+<div class="js-active-header ">
+    <div class="js-uc-ticket-select-group alert-text-select">
+        <span class="text-content-span">选择彩种:</span>
+        <div class="text-conten-Input">
+            <select  style="font-style: normal;line-height: 16px;" class="js-pf-select-ticket-list select2 select2-sel " name="ticketId" data-parsley-numAndMidLine></select>
+        </div>
     </div>
-    <div class="alert-text-select">
-        开始时间:
-        <input type="text" class="js-excess-cell js-start-time input-md uc-bt-dateshow" name="startTime" placeholder="每日追号计划" value="每日追号计划">
-        <a>新建计划</a>
+    <div class="js-uc-ticket-select-group alert-text-select">
+        <span class="text-content-span">开始时间:</span>
+        <div class="text-conten-Input">
+            <span class="js-pf-timeset"></span>
+            自动追：<input type="text"> 期
+        </div>
     </div>
-    <div class="alert-text-select">
-        投注计划:
-        <input style="background-color: red" type="radio"  name="sex" value="male">我的收藏方案&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; <input type="radio" name="sex"  >手动输入方案
+    <div class="js-uc-ticket-select-group alert-text-select">
+        <span class="text-content-span">投注计划:</span>
+        <div class="text-conten-Input">
+            <span></span><input style="background-color: red" type="radio"  name="sex" value="male"><span class="text-content-span-paln">我的收藏方案 </span><input type="radio" name="sex"  ><span class="text-content-span-plan">手动输入方案</span>
+        </div>
     </div>
-    <div class="alert-text-select">
-        计划详情: &nbsp; &nbsp; &nbsp; &nbsp;计划开始时间06:00&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;重复计划：周一周二周三周四周五周六周日<a>&nbsp;&nbsp;&nbsp;&nbsp;删除</a>
+
+    <div class="js-uc-ticket-select-group alert-text-select">
+        <span class="text-content-span">选择玩法群:</span>
+        <div class="text-conten-Input">
+            <span class="js-pf-timeset"></span>
+            玩法：<input type="text"> 期
+        </div>
     </div>
-    <div class="alert-text-select">
-        选择方案名:
-        <select>
-            <options>00</options>
-            <options>00</options>
-            <options>00</options>
-        </select>
-        <button class="btn cycle-btn ">添加</button>
+
+
+    <div  style="height:200px;" class="js-uc-ticket-select-group alert-text-select">
+        <span class="text-content-span">投注内容:</span>
+        <div class="text-conten-Input" style="height:300px;">
+            <div  class="text-content-wd" >
+                        <div style="width:1080px; height:198px;border:1px solid #ccc;">
+                            <span  style="padding-left: 5px;">说明：</span><br>
+                            <span style="padding-left: 5px;">手动输入每一株号码的间隔符</span><br>
+                            <span  style="padding-left: 5px;">说明：入每一株号码的间隔符</span>
+                        </div>
+            </div>
+        </div>
+
     </div>
-    <!--内容部分-->
-    <!--<div class="js-active-context toggle-btn-betting">3333</div>-->
+
+    <div class="js-uc-ticket-select-group alert-text-select">
+        <span class="text-content-span">追号方式:</span>
+        <div class="text-conten-Input">
+            <input class="checkbox-style" type="checkbox">追中即停
+            <input class="checkbox-style" type="checkbox">追中即停
+        </div>
+    </div>
+
+    <div class="js-uc-ticket-select-group alert-text-select">
+        <span class="text-content-span"></span>
+        <div class="text-conten-Input">
+            <button class="js-generate-plan btn btn-plan">开始计划</button>
+        </div>
+    </div>
 
 
 
 </div>
+<!--内容部分-->
+

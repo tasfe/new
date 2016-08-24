@@ -3,7 +3,7 @@
  .Betting-img{
   width:50%;
   height:80px;
-  background:url(../templates/Betting.png) no-repeat left;
+  background:url(./Betting.png) no-repeat left;
 }
 .alert-text-select{
   width:97%;
@@ -12,10 +12,17 @@
   font-size: 14px;
   line-height: 50px;
   margin-left:14px;
+  overflow: hidden;;
   a{
     color:#ff6600;
     text-decoration: underline;
 
+  }
+  .text-conten-Input{
+    width:1055px;
+    height:50px;
+    float:left;
+    margin-left: 5px;
   }
 }
 .cycle-btn{
@@ -56,7 +63,7 @@
       margin-bottom: 2px;
       height: 30px;
       line-height: 30px;
-      background: url(../templates/Betting-tab_01.png) no-repeat;
+      background: url(./Betting-tab_01.png) no-repeat;
       text-align: center;
       float: left;
       margin-right: 9px;
@@ -64,20 +71,9 @@
     }
     .list-active{
       color: #fff;
-      background: url(../templates/Betting-tab.png) no-repeat;
+      background: url(./Betting-tab.png) no-repeat;
     }
   }
-
-
-
-
-
-
-
-
-
-
-
 
   .active-context{
     padding-top: 20px;
@@ -85,7 +81,7 @@
     border-top:1px solid #ccc;
     //overflow-y: auto;
     border-left:1px solid #ccc;
-    border-bottom:1px solid #ccc;
+
     //padding-right: 30px;
     height: 800px;
 
@@ -166,7 +162,7 @@
         left: 164px;
       }
       .active-right-content{
-        border: 1px solid lightgrey;
+        //border: 1px solid lightgrey;
         width: 965px;
         height: 200px;
         overflow: hidden;
@@ -204,50 +200,30 @@
     display: none;
   }
 
-  //ul{
-  //  height: 30px;
-  //  margin: 0 10px;
-  //  padding-bottom: 15px;
-  //  border-bottom: 1px solid #cccccc;
-  //  list-style: none;
-  //
-  //  li{
-  //    width: 150px;
-  //    height: 30px;
-  //    line-height: 30px;
-  //    text-align: center;
-  //    float: left;
-  //    margin-right: 9px;
-  //    background-color:#e0e0e0 ;
-  //
-  //    a{
-  //      color: #fff;
-  //    }
-  //
-  //    &.active{
-  //      background-color:#f7f7f7;
-  //      color: #fff;
-  //    }
-  //  }
 
-  //  &:after{
-  //    clear: both;
-  //    content: '';
-  //    display: block;
-  //  }
-  //}
+}
+.alert-text-select{
+  a{
+    cursor:pointer;
+  }
+}
+.select2-sel{
+  //-webkit-appearance:none !important;
+}
+input {
+
 }
 .active-container-header-btn{
   width:100%;
-  height:600px !important;
+  height:580px !important;
   border-bottom:1px solid #ccc;
-  border-left:1px solid #ccc ;
+  border-left:1px solid #ccc;
   border-right:1px solid #ccc;
   background-color: #fff;
   ul{
     font-size: 16px;
     overflow: hidden !important;
-    margin-left: -80px;
+    margin-left:12px;
     border-bottom: 0px solid #ccc !important;
   }
   li{
@@ -255,7 +231,7 @@
     list-style: none;
     margin-top:-4px;
     height:40px;
-    border:1px solid #fff !important;
+    border:1px solid red;
     line-height: 30px;
     background:#e0e0e0;
     text-align: center;
@@ -264,11 +240,164 @@
     color: #fff;
   }
   a{
-    border-bottom-color: #fff;
+
   }
   .list-active{
     color: #fff;
     background:#fff;
-    border:1px solid red;
+
   }
+}
+.periodWay{
+  position:absolute;
+  left:1px;
+  top:80px;
+  width:100%;
+  height:720px;
+  background: rgba(0, 0, 0, 0.5);
+  display:none;
+}
+.periodWay-content-athena{
+  width:700px;
+  height:300px;
+  background:#fff;
+  margin:120px 250px;
+  opacity:1 !important;
+}
+.alert-text-periodWay{
+  width:660px;
+  height:40px;
+  color:#000;
+  font-size: 14px;
+  line-height: 50px;
+  margin-left:14px;
+
+}
+.btn-athena{
+  cursor: pointer;
+}
+.active-display{
+  display:block;
+}
+.text-content-span{
+  width:105px;
+  margin-left:-30px;
+  line-height: 50px;
+  height:50px;
+  float:left;
+  text-align: right;
+}
+.alert-hidden{
+  overflow: hidden;
+  margin-top: 10px;
+  height:170px;
+}
+.alert-scroll{
+  float:left;
+  text-align:right;
+  line-height:16px;
+  height:190px;
+}
+.periodWay-text{
+  border-bottom: 1px solid #000;
+  width:700px;
+  margin-left: 0px;
+
+}
+.text-content-wd{
+  float:left;
+  width:100%;
+  height:300px;
+  overflow: scroll;
+
+}
+.delete-pointer{
+  cursor:pointer;
+}
+.text-content-wd-collection{
+  float:left;
+  width:93%;
+  //overflow: scroll;
+}
+.text-content-span-plan{
+  padding:15px 10px;
+}
+.checkbox-style{
+  width:10px;
+  height:10px;
+  border:1px solid #ccc;
+}
+.btn-plan{
+  margin-left:0px;
+  display: inline-block;
+  width:100px;
+  height:30px;
+  background: #cc0000;
+  border-radius: 0px;
+}
+.text-content-span-inheirt{
+  display: inline-block;;
+  text-align: right;
+  width:130px;
+  height:50px;
+  flaot:left;
+}
+//弹窗的样式
+.collect-Way{
+  width:2000px;
+  height:1200px;
+  position: absolute;;
+  left:-31%;
+  top:-20%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 999;
+}
+.collectImage{
+  color:#fff;
+  width:700px;
+  margin-left: 0px;
+  background: url(./border.png) no-repeat center !important;
+}
+.btn-close{
+  background: url(./close.png) no-repeat 20px center !important;
+  float:left;
+  width:50px;
+  height:50px;
+  background: red;
+  display: inline-block;
+  margin-left: 600px;
+}
+.text-contentalign{
+  text-align: center;
+  background-color: red;
+  height:140px;
+  line-height:280px;
+  background: url(./waring.png) no-repeat center !important;
+}
+.margin-text{
+  margin-top: 50px;
+}
+.perirod-btn {
+  margin-left:240px;
+  border-radius: 0px;
+  width:100px;
+  height:30px;
+  background-color:#cc0000 ;
+}
+.cancel-btn{
+  margin-left:10px;
+  border-radius: 0px;
+  width:100px;
+  height:30px;
+  background-color:#cc9966;
+  border:0px solid #ccc;
+}
+.ofstecontemnt{
+  margin:350px 600px;
+}
+.alert-background-dialog{
+  display:none;
+}
+.new-width-overplan{
+  width:100%;
 }

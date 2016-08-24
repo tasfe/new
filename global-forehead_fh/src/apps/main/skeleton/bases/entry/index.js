@@ -47,6 +47,8 @@ var EntryView = Base.ItemView.extend({
     _.bindAll(this, 'renderUpdateUnread');
 
     this.subscribe('message', 'message:updating', this.renderUpdateUnread);
+
+    sessionStorage.setItem('openMessage', 0);
   },
   
   onRender: function() {
@@ -74,7 +76,18 @@ var EntryView = Base.ItemView.extend({
 
     var strType = strHash.slice(0,3);
     if (strType == '#ac' || strType == '#uc') {
-      $('.js-publicTeamData').removeClass('hidden');
+      if ( strType == '#uc' ) {
+        var strType2 = strHash.slice(4);
+        if (strType2 == 'rr' || strType2 == 'wr' || strType2 == 'ad' || strType2 == 'br' || strType2 == 'tr' || strType2 == 'rm' || strType2 == 'bac') {
+           $('.js-publicTeamData').removeClass('hidden');
+        }
+        else{
+          $('.js-publicTeamData').addClass('hidden');
+        }
+      }
+      else{
+        $('.js-publicTeamData').removeClass('hidden');
+      }
     }
     else{
       $('.js-publicTeamData').addClass('hidden');
@@ -85,7 +98,18 @@ var EntryView = Base.ItemView.extend({
 
       var strType = strHash.slice(0,3);
       if (strType == '#ac' || strType == '#uc') {
-        $('.js-publicTeamData').removeClass('hidden');
+        if ( strType == '#uc' ) {
+          var strType2 = strHash.slice(4);
+          if (strType2 == 'rr' || strType2 == 'wr' || strType2 == 'ad' || strType2 == 'br' || strType2 == 'tr' || strType2 == 'rm' || strType2 == 'bac') {
+             $('.js-publicTeamData').removeClass('hidden');
+          }
+          else{
+            $('.js-publicTeamData').addClass('hidden');
+          }
+        }
+        else{
+          $('.js-publicTeamData').removeClass('hidden');
+        }
       }
       else{
         $('.js-publicTeamData').addClass('hidden');

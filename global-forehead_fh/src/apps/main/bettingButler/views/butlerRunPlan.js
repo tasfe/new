@@ -3,17 +3,13 @@
 
 var TabView = require('com/tabView');
 
-var RuningPlanView = require('bettingButler/views/runingPlan');
+var RuningPlanView = require('./runingPlan');
+
 var OverPlan = require('./overPlan');
 
 var butlerRunPlan = TabView.extend({
 
-    className: 'bb-butler-view ',
-
-    onRender: function() {
-
-    },
-
+    className: ' bb-butler-view menu-bock-butler  active-container-header-btn',
     initialize: function() {
         _(this.options).extend({
             tabs: [

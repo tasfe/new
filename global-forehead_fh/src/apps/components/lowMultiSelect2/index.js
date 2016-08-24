@@ -15,6 +15,7 @@ var LowMultiSelect = Base.PrefabView.extend({
   events: {
     'keyup .js-pf-input-search-user': 'searchHandler',
     'click .js-pf-select-search-user': 'selectUserHandler',
+    'click .js-pf-select-superior-close': 'selectUserHandlerClose',
     'click .js-pf-selected-user': 'selectedUsersMessage',
     'click .js-pf-close-user': 'cancelSelectHandler',
     'click .js-subordinate': 'subordinate'
@@ -49,6 +50,7 @@ var LowMultiSelect = Base.PrefabView.extend({
       }
       $('.low-multi-select .subordinate').removeClass('subordinate-sd');
       $('.js-pf-jstree ul li a').removeClass('sd');
+      $('.js-wt-title-close').addClass('hidden');
     }
     else{
       if ($('.js-pf-select-superior').hasClass('pf-select-superior-sd')) {
@@ -66,8 +68,8 @@ var LowMultiSelect = Base.PrefabView.extend({
       }
       $('.julien-low-multi-selected h3').addClass('hidden');
       $('.low-multi-select .subordinate').addClass('subordinate-sd');
-      $('.js-pf-jstree ul li a').addClass('sd');
-      $('.js-pf-jstree ul li a.last-link').removeClass('sd');
+      $('.js-wt-title').addClass('sd');
+      $('.js-wt-title-close').removeClass('hidden');
     }
 
     this.renderSelectedUsers();
@@ -122,8 +124,13 @@ var LowMultiSelect = Base.PrefabView.extend({
           self.selectUser(id, data.text);
         }
         else{
-          self.deleteUser(id, data.text);
+          sessionStorage.setItem('selectUserId', id );
+          $('.js-single-to-user').change();
         }
+      },
+      onClick2: function(e, id, data) {
+        $('.low-multi-select .subordinate').removeClass('subordinate-sd');
+        self.deleteUser(id, data.text);
       },
       onCollapsed: function(e, id, data, collapsed) {
         if (!collapsed) {
@@ -133,6 +140,10 @@ var LowMultiSelect = Base.PrefabView.extend({
     }).treeView('instance');
 
     this.getLowLevelXhr()
+    .always(function() {
+      $('.js-julien-loading').addClass('hidden');
+      $('.js-julien-loading').addClass('julien-loading-content');
+    })
     .done(function(res) {
       var data = res.root || {};
       if (res && res.result === 0) {
@@ -143,9 +154,9 @@ var LowMultiSelect = Base.PrefabView.extend({
           self.$('input[name=parentId]').val(data.parent.userId);
 
           if (data.parent.newMsgNum == 0) {
-            self.$('.js-pf-select-superior b').addClass('hidden');
+            self.$('.js-pf-select-superior big').addClass('hidden');
           }
-          self.$('.js-pf-select-superior b').text(data.parent.newMsgNum);
+          self.$('.js-pf-select-superior big').text(data.parent.newMsgNum);
         }
 
         if(res.root.subList != null){
@@ -164,10 +175,12 @@ var LowMultiSelect = Base.PrefabView.extend({
       }
 
       if ($('.js-selected-container li').length == 1) {
-        var id = $('.js-selected-container li').eq(0).data('id')
+        var id = $('.js-selected-container li').eq(0).data('id');
+
         for (var i = $('.js-wt-title').length - 1; i >= 0; i--) {
           if ($('.js-wt-title').eq(i).data('no') == id) {
-            $('.js-wt-title').addClass('sd');
+            $('.js-wt-title').eq(i).addClass('sd');
+            $('.js-wt-title-close').eq(i).removeClass('hidden');
           }
         }
       }
@@ -240,7 +253,7 @@ var LowMultiSelect = Base.PrefabView.extend({
       this.$selectedContainer.html('');
     }else{
       this.$selectedContainer.html(_(this.selectedUsers).map(function(user) {
-        return '<li data-id="' + user.id + '"><span class="js-pf-selected-user" >' + user.name + '</span><i class="js-pf-close-user" ></i></li>';
+        return '<li data-id="' + user.id + '"><b></b><span class="js-pf-selected-user" >' + user.name + '</span><i class="js-pf-close-user" ></i></li>';
       }));
     }
 
@@ -272,14 +285,25 @@ var LowMultiSelect = Base.PrefabView.extend({
 
   selectUserHandler: function(e) {
     var $target = $(e.currentTarget);
+
+    $('.js-pf-select-superior big').addClass('hidden');
     
-    if ($target.hasClass('pf-select-superior-sd')) {
-      $target.removeClass('pf-select-superior-sd');
-      this.deleteUser($target.data('id'), $target.data('name'));
+    if ($target.parent().hasClass('pf-select-superior-sd')) {
+      sessionStorage.setItem('selectUserId', $target.parent().data('id') );
+      $('.js-single-to-user').change();
     }
     else{
-      $target.addClass('pf-select-superior-sd');
-      this.selectUser($target.data('id'), $target.data('name'));
+      $target.parent().addClass('pf-select-superior-sd');
+      this.selectUser($target.parent().data('id'), $target.parent().data('name'));
+    }
+  },
+
+  selectUserHandlerClose: function(e) {
+    var $target = $(e.currentTarget);
+    
+    if ($target.parent().hasClass('pf-select-superior-sd')) {
+      $target.parent().removeClass('pf-select-superior-sd');
+      this.deleteUser($target.parent().data('id'), $target.parent().data('name'));
     }
   },
 
@@ -303,7 +327,8 @@ var LowMultiSelect = Base.PrefabView.extend({
       var obj = $('.js-pf-jstree ul li a');
       for (var i = 0; i < obj.length; i++) {
         if ($target.parent().data('id') == $('.js-pf-jstree ul li a').eq(i).data('no')) {
-          $('.js-pf-jstree ul li a').eq(i).removeClass('sd');
+          $('.js-wt-title').eq(i).removeClass('sd');
+          $('.js-wt-title-close').eq(i).addClass('hidden');
         }
       }
 

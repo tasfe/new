@@ -291,7 +291,8 @@
   }
 
   td.active{
-    background-color: $color-sunshine;
+    //background-color: $color-sunshine;
+    background: url("rc-bank-selected.png");
   }
 
 }

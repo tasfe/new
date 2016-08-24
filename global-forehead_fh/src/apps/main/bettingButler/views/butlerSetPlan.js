@@ -2,38 +2,33 @@
 
 var TabView = require('com/tabView');
 
-var periodWay = require('bettingButler/views/periodWay');
-var cycleWay = require('bettingButler/views/cycleWay');
+var PeriodWayView = require('./periodWay');
+var CycleWayView = require('./cycleWay');
 
 var butlerSetPlan = TabView.extend({
 
-    className: 'bb-butler-view menu-bock-butler',
-
-    onRender: function() {
-        this.initialize();
-    },
-
+    className: ' bb-butler-view menu-bock-butler  active-container-header-btn',
 
     initialize: function() {
         _(this.options).extend({
             tabs: [
                 {
                     label: '期数方式',
-                    name: 'manual',
-                    id: 'jsAcManualAccount',
-                    view: periodWay
+                    name: 'period',
+                    id: 'jsPeriod',
+                    view: PeriodWayView
                 },
                 {
                     label: '周期方式',
-                    name: 'auto',
-                    id: 'jsAcAutoAccount',
-                    view: cycleWay
+                    name: 'cycle',
+                    id: 'jsCycle',
+                    view: CycleWayView
+
                 }
             ]
         });
 
     }
-
 
 });
 

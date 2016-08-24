@@ -32,6 +32,9 @@
 }
 
 .lowLevelManage-view {
+  .search-condition-table{
+    margin-left: 0px;
+  }
 
   .ac-user-name-div {
     .control-label{
@@ -1059,5 +1062,20 @@
 
   dl{
     display: inline-block;
+  }
+}
+
+.salary-view{
+  .julien-search-condition-table{
+    margin: 20px 0px;
+  }
+  .marginlr20{
+    margin: 0px;
+  }
+}
+
+.ac-cs-view{
+  .julien-search-condition-table{
+    margin-left: 20px;
   }
 }
