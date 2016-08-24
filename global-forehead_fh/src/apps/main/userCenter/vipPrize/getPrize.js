@@ -8,7 +8,8 @@ var GetPrizeView = SearchGrid.extend({
   template: require('./getPrize.html'),
 
   events: {
-    'click .js-getPrize': 'getPrizeHandler'
+    'click .js-getPrize': 'getPrizeHandler',
+    'click .vip-success>span':'closepopup',
   },
 
   initialize: function () {
@@ -40,13 +41,14 @@ var GetPrizeView = SearchGrid.extend({
       },
       listProp: 'root.dataList',
       height: 245,
-      tip: '<div style="display: none" class="js-divFlag"><button  class="js-getPrize btn btn-sun btn-linear input-lg vc-gp-get m-left-lg" >领取</button></div>'
+      tip: '<div class="js-divFlag" ><button  class="js-getPrize btn btn-sun btn-linear input-lg vc-gp-get m-left-lg left-vip">立即领取</button></div>'
     });
   },
 
   onRender: function() {
 
     SearchGrid.prototype.onRender.apply(this, arguments);
+
   },
 
   renderGrid: function(gridData) {
@@ -86,6 +88,7 @@ var GetPrizeView = SearchGrid.extend({
     return Global.sync.ajax({
       url: '/acct/vip/receivePrize.json'
     });
+
   },
 
   getPrizeHandler: function() {
@@ -95,16 +98,24 @@ var GetPrizeView = SearchGrid.extend({
       .done(function(res) {
         var self1 = self;
         if (res && res.result === 0) {
-            Global.ui.notification.show('领取成功', {
-              type: 'success'
-            });
-          self1.onRender();
-          self1.$('.js-divFlag').hide();
+          //  Global.ui.notification.show('领取成功', {
+          //    type: 'success'
+          //  });
+          //self1.onRender();
+          self1.$('#vip-back').show();
         }else {
-          Global.ui.notification.show('领取失败，有可能是：<br>' + res.msg);
+          self1.$('#vip-back').show();
+          //Global.ui.notification.show('领取失败，有可能是：<br>' + res.msg);
         }
       });
+  },
+  closepopup:function(){
+    this.$("#vip-back").hide()
   }
 });
+
+
+
+
 
 module.exports = GetPrizeView;

@@ -1,44 +1,65 @@
 <button class="js-uc-bdCancelBetting bc-btn-cancel btn hidden" type="button">撤销订单</button>
 <div class="bd-bet-header">
-  <span>投注详情</span><span class="bd-bet-headBack pull-right"><a href="#uc/br">返回</a></span>
+  <span>投注详情</span><span class="js-bd-backAction bd-bet-headBack pull-right">返回</span>
 </div>
 <div class="padding-smd">
   <dl class="dl-detail dl-horizontal no-margin">
-    <dt>彩种名称：</dt>
-    <dd id="jsPaTicketName"></dd>
 
-    <dt>投注奖期：</dt>
-    <dd id="jsPaTicketPlanId"></dd>
+    <div class="uc-bd-tHeader1">
 
-    <dt>投注时间：</dt>
-    <dd id="jsPaBetTime"></dd>
+      <div>
+        <dt>彩种名称：</dt>
+        <dd id="jsPaTicketName"></dd>
 
-    <dt>订单编号：</dt>
-    <dd id="jsPaTicketBetNo"></dd>
+        <dt>订单编号：</dt>
+        <dd id="jsPaTicketBetNo"></dd>
 
-    <dt>投注金额：</dt>
-    <dd id="jsPaBetAllMoney" class="text-bold-pleasant">元</dd>
+      </div>
 
-    <dt>奖金：</dt>
-    <dd id="jsPaMoney" class="text-bold-pleasant">-元</dd>
-    <dt>开奖号码：</dt>
-    <dd>
-      <span id="jsPaOpenNum"></span>
-      <a class="js-pa-link-track btn-link router hidden" href="javascript:void(0)">相关追号记录</a>
-    </dd>
+      <div>
+        <dt>投注奖期：</dt>
+        <dd id="jsPaTicketPlanId"></dd>
 
-    <div class="js-dd-revoked bd-dd-revoked hidden"></div>
+        <dt>订单总金额：</dt>
+        <dd id="jsPaBetAllMoney" class="text-bold-pleasant">元</dd>
+      </div>
 
-    <dd>
-      <div class="bd-dd-revokeOrder">
-        <div class="js-dd-bgLine"></div>
-        <div class="js-dd-cantCancel bd-dd-revokeOrder0">订单</div>
-        <div class="js-dd-canCancel bd-dd-revokeOrder hidden">撤销订单</div>
+      <div>
+        <dt>投注时间：</dt>
+        <dd id="jsPaBetTime"></dd>
+
+        <dt>总奖金：</dt>
+        <dd id="jsPaMoney" class="text-bold-pleasant">-元</dd>
+      </div>
+
+    </div>
+
+
+    <div>
+
+      <dt class="ucbt-open-number">开奖号码：</dt>
+      <dd>
+        <span id="jsPaOpenNum"></span>
+        <a class="js-pa-link-track btn-link router hidden" href="javascript:void(0)">相关追号记录</a>
+      </dd>
+
+      <div class="js-dd-revoked bd-dd-revoked hidden"></div>
+
+      <dd>
+        <div class="bd-dd-revokeOrder">
+          <div class="js-dd-bgLine"></div>
+          <div class="js-dd-cantCancel bd-dd-revokeOrder0"></div>
+          <div class="js-dd-canCancel bd-dd-revokeOrder hidden">撤销订单</div>
         </div>
-    </dd>
+      </dd>
 
-    <dt>投注号码：</dt>
+      <dt>投注号码：</dt>
+
+    </div>
+
   </dl>
+
+
   <div class="js-pa-betting-numbers detail-betting-num m-bottom-sm"></div>
   <div class="js-pa-quick-entry pagination text-center">
     <ul>

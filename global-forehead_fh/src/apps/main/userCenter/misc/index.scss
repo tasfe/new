@@ -31,13 +31,13 @@
     margin-left: -4px;
     margin-right: 3px;
     input {
-      width: 117px !important;
+      width: 135px !important;
       padding-left: 5px;
       padding-right: 5px;
       font-size: 12px;
       margin-left: 4px;
       margin-right: 4px;
-      background:url(~base/images/fh/calendar.png) no-repeat 100px center;
+      background:url(~base/images/fh/calendar.png) no-repeat 127px center;
     }
   }
   .input-date-sm {
@@ -342,6 +342,7 @@
   dd {
     margin-left: 70px;
     margin-bottom: 10px;
+    display: block !important;
   }
 }
 
@@ -779,11 +780,17 @@ img{
     //background: #990000 !important;
     background: #CC0002;
     color: #fff;
-    font-size: 18px;
-
+    font-size: 16px;
+    border:none;
+    outline:none;
+    margin-top:10px;
     &:hover{
       color:#fff;
     }
+  }
+//
+  .left-vip{
+    margin-left:400px !important;
   }
 
   .search-condition-table{
@@ -832,6 +839,8 @@ img{
     font-family: '微软雅黑';
     .control-label{
       font-size: 14px;
+      width: 70px;
+      text-align: right;
     }
   }
 }
@@ -854,6 +863,7 @@ img{
   text-decoration: underline;
 }
 
+//投注记录详情
 .bd-dd-revokeOrder{
   text-align: center;
   line-height: 30px;
@@ -878,20 +888,34 @@ img{
   }
 
   .bd-dd-revokeOrder0{
+    display: block;
+    cursor: pointer;
     background-color: #d8855a;
+    margin: 8px auto 20px auto;
     position: relative;
-    margin-right: auto;
-    margin-left: auto;
-    width: 100px;
-    height: 30px;
+    width: 63px;
+    height: 14px;
     color: #fff;
     z-index: 3;
+    &:before{
+      content:'';
+      display: block;
+      width: 0;
+      height: 0;
+      border-width: 5px;
+      border-style: dashed dashed solid dashed;
+      border-color: transparent transparent #fff transparent;
+      position: absolute;
+      left: 27px;
+      top: -1px;
+    }
+
   }
 
 }
 
+//追号记录详情
 .bd-dd-revoked{
-
   background:url('bg-revoke-status.png');
   position: absolute;
   height: 160px;
@@ -926,14 +950,27 @@ img{
     z-index: 2;
   }
   .bd-dd-revokeOrder0{
+    display: block;
+    cursor: pointer;
     background-color: #d8855a;
+    margin: 8px auto 20px auto;
     position: relative;
-    margin-right: auto;
-    margin-left: auto;
-    width: 100px;
-    height: 30px;
+    width: 63px;
+    height: 14px;
     color: #fff;
     z-index: 3;
+    &:before{
+      content:'';
+      display: block;
+      width: 0;
+      height: 0;
+      border-width: 5px;
+      border-style: dashed dashed solid dashed;
+      border-color: transparent transparent #fff transparent;
+      position: absolute;
+      left: 27px;
+      top: -1px;
+    }
   }
 
 }
@@ -1011,7 +1048,7 @@ img{
   //width: 100px;
   height: 30px;
   float: right;
-  margin-left: 70px;
+  margin-left: 40px;
   border-left: 1px solid #ccc;
   padding-left: 10px;
 }
@@ -1189,6 +1226,7 @@ img{
     color:#fff;
     font-size:20px;
     margin:9px 20px 0 0;
+    cursor:default;
     border:1px solid #fff;
   }
 }
@@ -1226,4 +1264,16 @@ img{
 }
 .vip-return .py{
   color:#999;
+}
+
+.uc-bd-tHeader1{
+  display: inline-flex;
+  dd{
+    margin-right: 100px;
+  }
+}
+
+.ucbt-open-number{
+  height: 50px;
+  line-height: 50px;
 }

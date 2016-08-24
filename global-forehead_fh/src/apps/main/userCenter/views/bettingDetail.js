@@ -13,10 +13,15 @@ var BettingDetailView = Base.ItemView.extend({
 
   events: {
     'click .js-dd-canCancel': 'cancelBettingHandler',
-    'click .js-uc-betDetail-optional-betNum': 'showBettingDetailOfOptionalHandler'
+    'click .js-uc-betDetail-optional-betNum': 'showBettingDetailOfOptionalHandler',
+    'click .js-bd-backAction':'backActionHandler'
   },
 
   className: 'main-bettingDetail',
+
+  backActionHandler:function () {
+    window.history.back();
+  },
 
   getBetDetailXhr: function(data) {
     return Global.sync.ajax({

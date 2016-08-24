@@ -11,7 +11,8 @@ var RefundRecordView = SearchGrid.extend({
   template: require('./refundRecord.html'),
 
   events: {
-    'click .js-checkout': 'checkoutHandler'
+    'click .js-checkout': 'checkoutHandler',
+    'click .vip-success>span':'closerefund',
   },
 
   initialize: function () {
@@ -161,16 +162,18 @@ var RefundRecordView = SearchGrid.extend({
             var self1 = self;
             if (res && res.result === 0) {
               if(res.root === 0) {
-                Global.ui.notification.show('结算成功', {
-                  type: 'success'
-                });
-                self1.onRender();
+                //Global.ui.notification.show('结算成功', {
+                //  type: 'success'
+                //});
+                //self1.onRender();
+                self1.$('#vip-refund').show()
               }else {
-                Global.ui.notification.show('账户余额不足，结算失败');
-
+                //Global.ui.notification.show('账户余额不足，结算失败');
+                self1.$('#vip-refund').show()
               }
             }else {
-              Global.ui.notification.show('结算失败，有可能是：<br>' + res.msg);
+              //Global.ui.notification.show('结算失败，有可能是：<br>' + res.msg);
+              self1.$('#vip-refund').show()
             }
           });
       }
@@ -212,8 +215,11 @@ var RefundRecordView = SearchGrid.extend({
           Global.ui.notification.show('结算失败，有可能是：<br>' + res.msg);
         }
       });*/
-  }
 
+  },
+  closerefund:function(){
+    this.$("#vip-refund").hide()
+  }
 });
 
 module.exports = RefundRecordView;

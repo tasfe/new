@@ -1,1 +1,73 @@
-<div>hello</div>
+
+    <div class="js-active-header ">
+        <div class="js-uc-ticket-select-group alert-text-select">
+            <span class="text-content-span">选择彩种:</span>
+            <select style="font-style: normal" class="js-pf-select-ticket-list select2 select2-sel " name="ticketId" data-parsley-numAndMidLine></select>
+        </div>
+        <div class="alert-text-select">
+            <span class="text-content-span">开始时间:</span>
+            <span class="js-pf-timeset"></span>
+            <a class="js-newplan">新建计划</a>
+        </div>
+        <div class="alert-text-select">
+            <span class="text-content-span">投注计划:</span>
+            <span></span><input style="background-color: red" type="radio"  name="sex" value="male"><span class="text-content-span-paln">我的收藏方案 </span><input type="radio" name="sex"  ><span class="text-content-span-plan">手动输入方案</span>
+        </div>
+        <div class="alert-text-select">
+            <span class="text-content-span">计划详情: 计划开始时间:</span><span class="js-plan-time"></span>&重复计划：<a>删除</a>
+        </div>
+        <div class="js-uc-ticket-select-group alert-text-select">
+            <span class="text-content-span">选择方案名:</span>
+            <select style="appearance:no;" class="js-pf-select-ticket-list select2" name="ticketId" data-parsley-numAndMidLine></select>
+            <button class="btn cycle-btn">添加</button>
+        </div>
+        <div  class="alert-text-select alert-hidden">
+            <div  class="alert-scroll"><span class="text-content-span">投注内容：</span></div>
+            <div class="text-content-wd" >
+                <table class="table table-bordered  table-center ">
+                    <colgroup>
+                        <col width="13%">
+                        <col width="13%">
+                        <col width="13%">
+                        <col width="13%">
+                        <col width="13%">
+                        <col width="13%">
+                        <col width="13%">
+                    </colgroup>
+                    <thead>
+                    <tr>
+                        <th>
+                            方案名
+                        </th>
+                        <th>
+                            投注彩种
+                        </th>
+                        <th>
+                            玩法
+                        </th>
+                        <th>
+                            投注内容
+                        </th>
+                        <th colspan="2">
+                            倍数
+                        </th>
+                        <th>
+                            投注模式
+                        </th>
+                        <th>
+                            操作
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody class="js-reward-grid">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="alert-text-select">追号方式：<input class="checkbox-style" type="checkbox">追中即停</div>
+        <div  class="alert-text-select">
+            <button class="js-generate-plan btn btn-plan">生成计划</button>
+        </div>
+    </div>
+    <!--内容部分-->
+
