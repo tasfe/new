@@ -6,7 +6,9 @@ var NewHelpCenterView = Base.ItemView.extend({
 
     template: require('newHelpCenter/index/index.html'),
 
-    events: {},
+    events: {
+        'click .menu li':'',
+    },
 });
 
 
