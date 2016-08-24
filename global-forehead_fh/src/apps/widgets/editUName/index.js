@@ -80,7 +80,7 @@ $.widget('gl.editUName', {
       }
     }).debounce(400);
 
-    $('.js-uName').on('keypress', uName);
+    $('.js-uName').on('keyup', uName);
 
     $('.js-uc-updateUName').on('click',function (e) {
       
