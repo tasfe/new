@@ -207,47 +207,7 @@
     cursor:pointer;
   }
 }
-.select2-sel{
-  //-webkit-appearance:none !important;
-}
-input {
 
-}
-.active-container-header-btn{
-  width:100%;
-  height:580px !important;
-  border-bottom:1px solid #ccc;
-  border-left:1px solid #ccc;
-  border-right:1px solid #ccc;
-  background-color: #fff;
-  ul{
-    font-size: 16px;
-    overflow: hidden !important;
-    margin-left:12px;
-    border-bottom: 0px solid #ccc !important;
-  }
-  li{
-    width: 120px;
-    list-style: none;
-    margin-top:-4px;
-    height:40px;
-    border:1px solid red;
-    line-height: 30px;
-    background:#e0e0e0;
-    text-align: center;
-    margin-left: -2px;
-    float: left;
-    color: #fff;
-  }
-  a{
-
-  }
-  .list-active{
-    color: #fff;
-    background:#fff;
-
-  }
-}
 .periodWay{
   position:absolute;
   left:1px;
@@ -400,4 +360,69 @@ input {
 }
 .new-width-overplan{
   width:100%;
+}
+
+.bb-block{
+  background:url(./Betting.png) no-repeat left top;
+  padding-top: 60px;
+  margin-top: -10px;
+
+  .active-container-header-btn{
+      border: 0px;
+  }
+
+  .julien-bb-sp{
+    margin-top: 50px;
+    position: relative;
+
+    .nav-tabs-border-content{
+      border-bottom: 0px;
+    }
+
+    ul{
+      margin-left: 10px;
+      border: 1px solid #cccccc;
+      border-right: 0px;
+      display: inline-block;
+
+      li{
+        .tips{
+          display: none;
+        }
+
+        a{
+          border: 0px;
+          border-right: 1px solid #cccccc;
+          padding: 4px 4px;
+          color: #666666;
+          font-size: 14px;
+          background: #fefefe;
+          background-image:-webkit-linear-gradient( #fff, #eaeaea);
+          background-image:linear-gradient( #fff, #eaeaea);
+
+          &:after{
+            display:none;
+          }
+        }
+
+        &.active{
+          .tips{
+            display: block;
+            position: absolute;
+            font-size: 14px;
+            font-family: '微软雅黑';
+            color: #cc0000;
+            top: -40px;
+            left: 10px;
+          }
+
+          a{
+            background-color: #e0e0e0;
+            background-image:none;
+            border-bottom: 1px solid #cccccc;
+          }
+        }
+      }
+    } 
+  }
 }

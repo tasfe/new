@@ -122,6 +122,32 @@ var menuConfig = [
       }
     ]
   },
+  {
+    router: 'bb',
+    name: '投注管家',
+    first: 'bb/sp',
+    titleClass: 'bg-sunshine',
+    backStyle: 'text-sunshine',
+    iconType: 'sfa',
+    icon: 'agency',
+    sub: [
+      {
+        id: 140,
+        router: 'bb/sp',
+        name: '设置计划'
+      },
+      {
+        id: 141,
+        router: 'bb/rp',
+        name: '进行中的计划'
+      },
+      {
+        id: 142,
+        router: 'bb/cp',
+        name: '我的收藏方案'
+      }
+    ]
+  },
   //{
   //  router: 'fc',
   //  name: '资金管理',

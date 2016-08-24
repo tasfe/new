@@ -269,13 +269,7 @@ var EntryView = Base.ItemView.extend({
 
   renderUpdateUnread: function(model) {
     var unRead = model.getUnreadCount();
-
     this.$unRead.html('<span>'+unRead > 99 ? 99 : unRead+'</span>');
-    //if (unRead) {
-    //  this.$unRead.removeClass('hidden').text(unRead > 99 ? 99 : unRead);
-    //} else {
-    //  this.$unRead.addClass('hidden');
-    //}
   },
 
   update: function(viewInfo) {

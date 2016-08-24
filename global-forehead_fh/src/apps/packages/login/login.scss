@@ -65,12 +65,30 @@ body{
     box-shadow:none;
   }
 
-  input.userNmae{
-    background: url(images/02.png) no-repeat 11px;
+  .userName{
+    position: relative;
+
+    i{
+      position: absolute;
+      width: 17px;
+      height: 20px;
+      background: url(images/02.png) no-repeat;
+      left: 10px;
+      top: 11px;
+    }
   }
 
-  input.loginPwd{
-    background: url(images/01.png) no-repeat 11px;
+  .loginPwd{
+    position: relative;
+
+    i{
+      position: absolute;
+      width: 17px;
+      height: 20px;
+      background: url(images/01.png) no-repeat;
+      left: 10px;
+      top: 11px;
+    }
   }
 
   .widget{

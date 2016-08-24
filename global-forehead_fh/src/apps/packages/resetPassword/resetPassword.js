@@ -151,9 +151,9 @@ $.widget('gl.resetPassword', {
       }
     }).debounce(400);
 
-    $('.js-answer1').on('keypress', verifyQesBind1);
-    $('.js-answer2').on('keypress', verifyQesBind2);
-    $('.js-answer3').on('keypress', verifyQesBind3);
+    $('.js-answer1').on('keyup', verifyQesBind1);
+    $('.js-answer2').on('keyup', verifyQesBind2);
+    $('.js-answer3').on('keyup', verifyQesBind3);
   },
 
   verifySQABtn: function(e){
@@ -372,8 +372,8 @@ $.widget('gl.resetPassword', {
       }
     }).debounce(400);
 
-    $('.js-rp-loginPwd1').on('keypress', newLoginPassword);
-    $('.js-rp-loginPwd2').on('keypress', newLoginPassword2);
+    $('.js-rp-loginPwd1').on('keyup', newLoginPassword);
+    $('.js-rp-loginPwd2').on('keyup', newLoginPassword2);
   },
 
   setLPHandler: function(e){

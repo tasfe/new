@@ -36,7 +36,6 @@ var TabView = Base.LayoutView.extend({
     var compiledTpl = _.template(template);
 
     var html;
-
     var _html = compiledTpl({
       tabClass: this.options.tabClass,
       tabs: this.tabs,
