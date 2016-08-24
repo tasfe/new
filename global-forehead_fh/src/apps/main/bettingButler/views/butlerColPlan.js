@@ -1,13 +1,9 @@
 "use strict";
-
+ 
 var butlerColPlan = Base.ItemView.extend({
-
     template: require('bettingButler/templates/myCollectedPlan.html'),
-
     dialog: _.template(require('bettingButler/templates/collectedDialog.html')),
-
     startOnLoading: true,
-
     events: {
         'click .js-list-active': 'activeChangeHandler'
     },
