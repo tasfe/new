@@ -11,10 +11,24 @@ var PeriodWayView = Base.ItemView.extend({
     dialog: _.template(require('bettingButler/templates/periodWayDialog.html')),
     events: {
         'click .js-newplan':'newPlan',
-        'click.js-selete-text-content':'deletecontent',
-        'click.js-hidden-dialog':'changeHrefHandler',
-        'click.js-generate-plan':'generatePlanHandler'
+        'click .js-selete-text-content':'deletecontent',
+        'click .js-hidden-dialog':'changeHrefHandler',
+        'click .js-generate-plan':'generatePlanHandler',
+        'click .js-span-athena-radioq ':'radioActive',
+        'click .js-span-athena-Inp ':'InpActive',
+
+
     },
+    InpActive:function (e) {
+        var $target = $(e.currentTarget);
+        $target.addClass('span-athena-Inp').siblings().removeClass('span-athena-Inp');
+    },
+    radioActive:function (e) {
+        var $target = $(e.currentTarget);
+        $target.addClass('span-athena-radio').siblings().removeClass('span-athena-radio');
+    },
+
+
 
     initialize: function () {
     },
@@ -64,7 +78,6 @@ var PeriodWayView = Base.ItemView.extend({
         new TicketSelectGroup({
             el: this.$('.js-uc-ticket-select-group')
         });
-
         //初始化时间
         new Timeset({
             el: this.$('.js-pf-timeset'),
@@ -73,7 +86,6 @@ var PeriodWayView = Base.ItemView.extend({
                 format: 'YYYY-MM-DD'
             }
         }).render();
-
 
     },
     newPlan:function () {
