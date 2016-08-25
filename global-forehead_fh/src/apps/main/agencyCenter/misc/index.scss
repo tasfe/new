@@ -464,9 +464,16 @@
   background: url(~base/images/julien/banner01.png) no-repeat center top;
   padding-top: 100px;
 
+  .price-ul{
+    height: auto;
+
+    ul{
+      margin-left: 20px;
+    }
+  }
+
   .menu-bock{
     background: none;
-    //height: 41px;
     height: 56px;
     border:0px;
     border-bottom: 2px solid #a60000;

@@ -1,7 +1,5 @@
 "use strict";
-
 var TabView = Base.LayoutView.extend({
-
   _tabTemplate: require('./tab-view.html'),
 
   _tabViews: {},
@@ -36,7 +34,6 @@ var TabView = Base.LayoutView.extend({
     var compiledTpl = _.template(template);
 
     var html;
-
     var _html = compiledTpl({
       tabClass: this.options.tabClass,
       tabs: this.tabs,

@@ -135,13 +135,12 @@ var BettingRecordsView = SearchGrid.extend({
     this.grid.addFooterRows({
       //trClass: 'tr-footer',
       columnEls: [
-        '<div class="text-hot">所有页总计</div>', '', '',
+        '<div class="text-hot">所有页总计</div>', '', '','',
         '<div class="text-hot">' + _(gridData.betMoneyTotal).fixedConvert2yuan() + '</div>',
         '<div class="text-hot">' + _(gridData.prizeMoneyTotal).convert2yuan() + '</div>',
         ''
       ]
-    })
-      .hideLoading();
+    }).hideLoading();
   },
 
   formatRowData: function(rowInfo) {

@@ -100,7 +100,7 @@ var LoginPwdView = Base.ItemView.extend({
 
     }).debounce(400);
 
-    this.$('#newLoginPassword').on('keypress', newLoginPassword);
+    this.$('#newLoginPassword').on('keyup', newLoginPassword);
   },
 
   changeLoginPasswordHandler: function(e) {
@@ -128,8 +128,7 @@ var LoginPwdView = Base.ItemView.extend({
             type: 'success'
           });
           self.render();
-           
-
+          
           //var LoginOutTips = require('com/loginOutTips');
           //this.loginOutTips = new LoginOutTips();
           //this.loginOutTips.checkState();

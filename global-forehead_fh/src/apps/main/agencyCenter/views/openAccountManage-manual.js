@@ -186,10 +186,10 @@ var OpenAccountManageView = Base.ItemView.extend({
         
       }).debounce(400);
 
-      $('.js-ac-manual-rebate').on('keypress', verifyInputRebate);
-      $('.js-ac-userName').on('keypress', verifyInputUserName);
-      $('.js-ac-password').on('keypress', verifyInputPassword);
-      $('.js-ac-repeatPassword').on('keypress', verifyInputRePassword);
+      $('.js-ac-manual-rebate').on('keyup', verifyInputRebate);
+      $('.js-ac-userName').on('keyup', verifyInputUserName);
+      $('.js-ac-password').on('keyup', verifyInputPassword);
+      $('.js-ac-repeatPassword').on('keyup', verifyInputRePassword);
 
       $('.js-julien-left dl ul li').on('click',function () {
         $('.js-ac-manual-rebate').val($(this).find("span").text());
