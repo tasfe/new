@@ -944,6 +944,7 @@ var BettingCenterView = Base.ItemView.extend({
   },
 
   advanceRuleChangeHandler: function(e) {
+
     var $target = $(e.currentTarget);
     var $parent = $target.closest('.js-bc-rules-toolbar');
 
@@ -963,6 +964,27 @@ var BettingCenterView = Base.ItemView.extend({
     this.$('.js-rule-title-clear').html('');
     this.$(".js-rule-title-sub-"+idStr).html($target.data('title'));
   },
+
+  //advanceRuleDefaultChangeHandler: function(e) {
+  //  var $target = $(e.currentTarget);
+  //  var $parent = $target.closest('.js-bc-rules-toolbar');
+  //
+  //  this.$advanceRules.find('.js-bc-advance-rule').removeClass('active');
+  //
+  //  $target.addClass('active');
+  //
+  //  this.model.set({
+  //    groupId: $parent.data('id'),
+  //    groupName: $parent.data('title'),
+  //    playId: $target.data('id'),
+  //    playName: $target.data('title')
+  //  });
+  //
+  //  var idStr =this.$('.js-rule-title-hidden-temp').html();
+  //
+  //  this.$('.js-rule-title-clear').html('');
+  //  this.$(".js-rule-title-sub-"+idStr).html($target.data('title'));
+  //},
 
   betModeChangeHandler: function(e) {
     var $target = $(e.currentTarget);
