@@ -126,10 +126,9 @@ $header-margin-top: 6px;
     color: #333333;
     float: right;
     display: block;
-    margin-left: 20px;
     margin-top: 16px;
     font-weight: bold;
-    width: 138px;
+    width: 130px;
     height: 47px;
     line-height: 47px;
     text-align: center;
@@ -352,7 +351,6 @@ $header-margin-top: 6px;
 }
 
 .affiche-body-back{
-  border: 1px solid #cccccc;
   overflow:hidden;
   height: 500px
 }
@@ -387,7 +385,6 @@ $header-margin-top: 6px;
 
 .affiche-body-detail{
   float: right;
-  display: inline;
   width: 577px;
   height: 100%;
 
@@ -395,7 +392,8 @@ $header-margin-top: 6px;
     padding-left: 5px;
     font-weight: bold;
     height: 30px;
-    width: 572px;
+    width: 574px;
+    margin-left:-2px;
     line-height: 30px;
     color: white;
     background-image:-webkit-linear-gradient(90deg, #327fc3, #bb2929);
