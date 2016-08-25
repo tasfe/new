@@ -32,7 +32,7 @@ var FirstLoginUpdatePasswd = Base.ItemView.extend({
 
           Global.sync.setLogout();
         } else {
-          Global.ui.notification.show('修改失败！');
+          Global.ui.notification.show(data.msg);
         }
       })
       .always(function() {
@@ -70,22 +70,21 @@ var FirstLoginUpdatePasswd = Base.ItemView.extend({
       }
 
       $('.js-passwdSafetyTips span').removeClass('s3').removeClass('s2').removeClass('s1');
-      $('.js-passwdSafetyTips b').removeClass('s3').removeClass('s2').removeClass('s1');
+      $('.js-passwdSafetyTips p').removeClass('s3').removeClass('s2').removeClass('s1');
       if (num == 3) {
-        $('.js-passwdSafetyTips span').addClass('s3');
-        $('.js-passwdSafetyTips b').addClass('s3');
-        $('.js-passwdSafetyTips b').html('强');
+        $('.js-passwdSafetyTips span').eq(0).addClass('s1');
+        $('.js-passwdSafetyTips span').eq(1).addClass('s2');
+        $('.js-passwdSafetyTips span').eq(2).addClass('s3');
+        $('.js-passwdSafetyTips p').addClass('s3');
       }
       if (num == 2) {
-        $('.js-passwdSafetyTips span').eq(0).addClass('s2');
+        $('.js-passwdSafetyTips span').eq(0).addClass('s1');
+        $('.js-passwdSafetyTips p').addClass('s2');
         $('.js-passwdSafetyTips span').eq(1).addClass('s2');
-        $('.js-passwdSafetyTips b').addClass('s2');
-        $('.js-passwdSafetyTips b').html('中');
       }
       if (num == 1) {
         $('.js-passwdSafetyTips span').eq(0).addClass('s1');
-        $('.js-passwdSafetyTips b').addClass('s1');
-        $('.js-passwdSafetyTips b').html('弱');
+        $('.js-passwdSafetyTips p').addClass('s1');
       }
 
       num = 0;

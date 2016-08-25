@@ -216,7 +216,8 @@ $main-area-width: 870px;
       a {
         border-bottom-color: #fff;
         > div {
-          background-color: grey;
+          //background-color: grey;
+          background:rgba(0,0,0,0.65);
           color: white;
           //background-image:  url(~base/images/fh/bet/selected.png);
           width: 115px;
@@ -248,7 +249,8 @@ $main-area-width: 870px;
 }
 
 .bc-advance-rules {
-  background-color: grey;
+  //background-color: grey;
+  background:rgba(0,0,0,0.65);
   color: white;
   padding-top: 6px;
   float: left;
@@ -265,7 +267,7 @@ $main-area-width: 870px;
   .bc-advance-rule {
     min-width: 130px;
     //display: inline-block;
-    font-size: 14px;
+    font-size: 13px;
     padding: 5px;
   }
 

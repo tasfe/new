@@ -30,7 +30,9 @@ var butlerColPlan = Base.ItemView.extend({
         });
     },
 
+
     colplan:function () {
+
         var $dialog = Global.ui.dialog.show({
             title:'提示',
             size: 'modal-lg',

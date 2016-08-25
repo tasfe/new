@@ -28,7 +28,7 @@ $.widget('gl.verifyFundPwd', {
     body.push('</div>');
     body.push('<div class="control-group">');
     body.push('<div class="controls text-left">');
-    body.push('<button type="button" class="js-uc-cmValidatePayPwd btn btn-sun btn-liner width-250 ">下一步</button>');
+    body.push('<button type="button" class="js-uc-cmValidatePayPwd uc-cmValidatePayPwd btn-liner width-250 ">下一步</button>');
     body.push('</div>');
     body.push('</div>');
     body.push('</div>');

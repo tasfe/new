@@ -28,6 +28,9 @@
     font-size: 16px;
   }
 }
+.control-label{
+  width: 85px;
+}
 
 .as-loginLog {
   //padding: 16px 16px 0 19px;
@@ -77,7 +80,7 @@
   .step-inner-SQNotSet {
 
     position: relative;
-    margin-top: -13px;
+    margin-top: -20px;
   }
 
   .step-inner-setSQ-div {
@@ -154,13 +157,17 @@
   width: 350px;
   padding: 5px 10px;
   margin: 10px auto;
-  .control-label {
-    width: 85px;
 
-  }
   .controls {
     margin-left: 80px;
   }
+}
+
+.control-label {
+  text-align: right;
+  font-size: 14px;
+  width: 70px;
+
 }
 
 .as-fund-pwd-head{
@@ -420,4 +427,9 @@
   background: url("verify-email.png") no-repeat;
   width: 33px;
   height: 29px;
+}
+.uc-cmValidatePayPwd{
+  background-color: #cc0000;
+  border: 0px;
+  color: white;
 }

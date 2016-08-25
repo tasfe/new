@@ -48,8 +48,8 @@ var BettingCenterView = Base.ItemView.extend({
     'click .js-bc-mmc-result-mask': 'closeMaskHandler',
     //'click .js-bc-smmc-rule': 'checkSmmcJackpotRuleHandler'
 
-    'mouseover .js-bc-basic-rule': 'baseRuleChangeHandler',
-    'mouseout .js-bc-basic-rule': 'baseRuleChange1Handler',
+    //'mouseover .js-bc-basic-rule': 'baseRuleChangeHandler',
+    //'mouseout .js-bc-basic-rule': 'baseRuleChange1Handler',
     'mouseover .js-bc-advance-rules': 'baseRuleChangeMOHandler',
     'mouseout .js-bc-advance-rules': 'baseRuleChangeMO1Handler',
     'click .js-play1': 'play1',
@@ -741,6 +741,9 @@ var BettingCenterView = Base.ItemView.extend({
     var playValue = (idStr+1)*82 +6;//(idStr+1)*69 +30;
 
     this.$('.js-bc-advance-rules').css('left',playValue+'px');
+    this.$('.js-rule-title-hidden-temp').html(idStr);
+
+    this.$('.js-rule-title-clear').html('');
   },
 
   togglePlayModeHandler: function (e) {
@@ -772,6 +775,10 @@ var BettingCenterView = Base.ItemView.extend({
       playId: $target.data('id'),
       playName: $target.data('title')
     });
+    var idStr =this.$('.js-rule-title-hidden-temp').html();
+
+    this.$('.js-rule-title-clear').html('');
+    this.$(".js-rule-title-sub-"+idStr).html($target.data('title'));
   },
 
   betModeChangeHandler: function (e) {

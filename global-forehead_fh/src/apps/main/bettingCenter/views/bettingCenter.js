@@ -223,10 +223,10 @@ var BettingCenterView = Base.ItemView.extend({
     this.getTeamOnlineXhr().done(function (res) {
       var data = res && res.root || {};
       if (res && res.result === 0) {
-        $('.js-julien-data1').text( '团队余额：'+(data.balanceTotal / 10000).toFixed(2) );
-        $('.js-julien-data2').text( '今日注册：'+data.todayRegTotal);
-        $('.js-julien-data3').text( '当前在线：'+data.todayOnlineTotal);
-        $('.js-julien-data4').text( '今日返点：'+data.todayBonusTotal);
+        $('.js-julien-data11').text( '今日充值：'+(data.todayRechargeTotal/10000).toFixed(2) );
+        $('.js-julien-data21').text( '今日提现：'+(data.todayWithdrawTotal/10000).toFixed(2) );
+        $('.js-julien-data31').text( '今日投注：'+(data.todayBetTotal/10000).toFixed(2) );
+        $('.js-julien-data41').text( '今日盈亏：'+(data.todayProfitTotal/10000).toFixed(2) );
       }
     });
   },
@@ -944,6 +944,7 @@ var BettingCenterView = Base.ItemView.extend({
   },
 
   advanceRuleChangeHandler: function(e) {
+
     var $target = $(e.currentTarget);
     var $parent = $target.closest('.js-bc-rules-toolbar');
 
@@ -963,6 +964,27 @@ var BettingCenterView = Base.ItemView.extend({
     this.$('.js-rule-title-clear').html('');
     this.$(".js-rule-title-sub-"+idStr).html($target.data('title'));
   },
+
+  //advanceRuleDefaultChangeHandler: function(e) {
+  //  var $target = $(e.currentTarget);
+  //  var $parent = $target.closest('.js-bc-rules-toolbar');
+  //
+  //  this.$advanceRules.find('.js-bc-advance-rule').removeClass('active');
+  //
+  //  $target.addClass('active');
+  //
+  //  this.model.set({
+  //    groupId: $parent.data('id'),
+  //    groupName: $parent.data('title'),
+  //    playId: $target.data('id'),
+  //    playName: $target.data('title')
+  //  });
+  //
+  //  var idStr =this.$('.js-rule-title-hidden-temp').html();
+  //
+  //  this.$('.js-rule-title-clear').html('');
+  //  this.$(".js-rule-title-sub-"+idStr).html($target.data('title'));
+  //},
 
   betModeChangeHandler: function(e) {
     var $target = $(e.currentTarget);
