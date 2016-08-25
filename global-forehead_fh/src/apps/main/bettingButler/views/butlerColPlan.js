@@ -1,11 +1,12 @@
 "use strict";
- 
+var TicketSelectGroup = require('com/ticketSelectGroup');
 var butlerColPlan = Base.ItemView.extend({
     template: require('bettingButler/templates/myCollectedPlan.html'),
     dialog: _.template(require('bettingButler/templates/collectedDialog.html')),
     startOnLoading: true,
     events: {
-        'click .js-list-active': 'activeChangeHandler'
+        'click .js-list-active': 'activeChangeHandler',
+        'click .js-colplanplan': 'colplan'
     },
 
     getRuleXhr: function() {
@@ -17,9 +18,15 @@ var butlerColPlan = Base.ItemView.extend({
     onRender: function() {
         var self = this;
         self.loadingFinish();
+
+
+        //初始化彩种选择
+        new TicketSelectGroup({
+            el: this.$('.js-uc-ticket-select-group')
+        });
     },
 
-    showDialog:function () {
+    colplan:function () {
         var $dialog = Global.ui.dialog.show({
             title:'提示',
             size: 'modal-lg',
