@@ -15,10 +15,10 @@ var PeriodWayView = Base.ItemView.extend({
         'click .js-hidden-dialog':'changeHrefHandler',
         'click .js-generate-plan':'generatePlanHandler',
         'click .js-span-athena-radioq ':'radioActive',
-        'click .js-span-athena-Inp ':'InpActive'
+        'click .js-span-athena-Inp ':'InpActive',
+
 
     },
-
     InpActive:function (e) {
         var $target = $(e.currentTarget);
         $target.addClass('span-athena-Inp').siblings().removeClass('span-athena-Inp');
@@ -86,7 +86,6 @@ var PeriodWayView = Base.ItemView.extend({
                 format: 'YYYY-MM-DD'
             }
         }).render();
-
 
     },
     newPlan:function () {

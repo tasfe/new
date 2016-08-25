@@ -16,10 +16,20 @@ var overPlan = Base.ItemView.extend({
    startOnLoading: true,
 
    events: {
-       'click .js-list-active': 'activeChangeHandler'
+       'click .js-list-active': 'activeChangeHandler',
+       'click .js-new-plan-content': 'addPlan'
    },
-    
 
+    addPlan:function(){
+        $('.js-new-plan-content').click(function(){
+
+                $('.js-reward-grid').append('<tr><td>'+1+'</td><td>'+1+'</td><td>'+1+'</td><td>'+1+'</td><td>'+1+'</td><td>'+1+'</td><td>'+1+'</td><td>'+1+'</td></td><td class="js-delete-tr">'+'删除'+'</td></tr>');
+
+        });
+        $('.js-delete-tr').click(function(){
+            $(this).parent().remove();
+        });
+    },
    onRender: function() {
 
        var self = this;

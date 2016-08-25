@@ -6,9 +6,14 @@ var butlerColPlan = Base.ItemView.extend({
     startOnLoading: true,
     events: {
         'click .js-list-active': 'activeChangeHandler',
-        'click .js-colplanplan': 'colplan'
+        'click .js-colplanplan': 'colplan',
+        'click .js-selete-text-content': 'deleteColspan'
     },
-
+    deleteColspan:function(){
+        $('.js-selete-text-content').click(function(){
+                $(this).parent().remove();
+        })
+    },
     getRuleXhr: function() {
         return Global.sync.ajax({
             url: '/fund/redenvelope/info.json'
@@ -18,7 +23,6 @@ var butlerColPlan = Base.ItemView.extend({
     onRender: function() {
         var self = this;
         self.loadingFinish();
-
 
         //初始化彩种选择
         new TicketSelectGroup({

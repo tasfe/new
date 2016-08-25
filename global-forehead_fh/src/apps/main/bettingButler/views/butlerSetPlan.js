@@ -7,8 +7,6 @@ var butlerSetPlan = TabView.extend({
 
 
     className: ' bb-butler-view menu-bock-butler active-container-header-btn julien-bb-sp',
-
-
     initialize: function() {
         _(this.options).extend({
             tabs: [
