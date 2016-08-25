@@ -700,11 +700,13 @@ $float-height: 38px;
 }
 
 .ssc-style-select {
-  width: 100px; 
-  height: 100px; 
+  width: 100px;
+  height: 100px;
+  line-height: 100px;
   float: left;
   margin-left: 35px;
-  box-sizing: border-box;
+  border:4px solid #fff;
+  background-position: center center !important;
 }
 
 .ssc-style-select:hover{
