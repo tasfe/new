@@ -5,6 +5,9 @@
   height:80px;
   background:url(./Betting.png) no-repeat left;
 }
+.content-height-box{
+  height:300px;
+}
 .alert-text-select{
   width:97%;
   height:50px;
@@ -12,7 +15,7 @@
   font-size: 14px;
   line-height: 50px;
   margin-left:14px;
-  overflow: hidden;;
+  //overflow: hidden;;
   a{
     color:#ff6600;
     text-decoration: underline;
@@ -30,6 +33,7 @@
   height:29px;
   background: #ff6600;
   border-radius:0px;
+  margin-left: 10px;
 }
 .alert-text-container{
   width:97%;
@@ -81,15 +85,13 @@
     border-top:1px solid #ccc;
     //overflow-y: auto;
     border-left:1px solid #ccc;
-
-    //padding-right: 30px;
-    height: 800px;
+    height:600px;
 
     .active-container-line{
       background-color: #cccccc;
       position: absolute;
       width: 1px;
-      height: 590px;
+      height: 400px;
       left: 265px;
       margin: 5px 0px;
       z-index: 0;
@@ -213,7 +215,7 @@
   left:1px;
   top:80px;
   width:100%;
-  height:720px;
+  height:500x;
   background: rgba(0, 0, 0, 0.5);
   display:none;
 }
@@ -241,7 +243,7 @@
 }
 .text-content-span{
   width:105px;
-  margin-left:-30px;
+  margin-left:-20px;
   line-height: 50px;
   height:50px;
   float:left;
@@ -267,15 +269,15 @@
 .text-content-wd{
   float:left;
   width:100%;
-  height:300px;
-  overflow: scroll;
+  height:200px;
+  overflow-y: scroll;
 }
 .delete-pointer{
   cursor:pointer;
 }
 .text-content-wd-collection{
   float:left;
-  width:93%;
+  width:91%;
   //overflow: scroll;
 }
 .text-content-span-plan{
@@ -381,7 +383,7 @@
     }
 
     ul {
-      margin-left: 10px;
+      margin-left: 30px;
       border: 1px solid #cccccc;
       border-right: 0px;
       display: inline-block;
@@ -414,7 +416,7 @@
             font-family: '微软雅黑';
             color: #cc0000;
             top: -40px;
-            left: 10px;
+            left: 30px;
           }
 
           a {
@@ -441,7 +443,7 @@
   text-align: center;
   line-height: 31px;
   position:absolute;
-  left:1075px;
+  left:1062px;
   top:0px;
 }
 .alert-text-contemt{
@@ -454,13 +456,39 @@
   background-color: #cd9967;
   border: none;
 }
-.span-athena-radio{
-  background:url(./03.png) no-repeat center;
-  padding:10px 10px;
+
+.span-athena-radio-hiiHHHddHen{
+  background:url(./04.png) no-repeat left;
+  padding:10px 20px;
+  cursor:pointer;
+
+}
+.span-athena-radio-Inp{
+  background:url(./02.png) no-repeat left;
+  padding:10px 20px;
   cursor:pointer;
 }
-.span-athena-radio-hiiHHHddHen{
-  background:url(./04.png) no-repeat center;
-  padding:10px 10px;
-  cursor:pointer;
+.span-athena-Inp{
+  background:url(./01.png) no-repeat left;
+}
+.span-athena-radio{
+  background:url(./03.png) no-repeat left;
+}
+.alert-text-select-margin{
+  margin-top: 16px;
+}
+.continuity-Inp{
+  width:28px !important;
+  height:23px !important;
+}
+.stage-index{
+  width:80px !important;
+  height:28px !important;
+}
+.auto-stage{
+  padding-left: 60px;
+}
+.line-height-span{
+  padding-left:8px  !important;
+  line-height: 20px  !important;
 }
