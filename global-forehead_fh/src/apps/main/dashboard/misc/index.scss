@@ -704,7 +704,11 @@ $float-height: 38px;
   height: 100px; 
   float: left;
   margin-left: 35px;
-  
+  box-sizing: border-box;
+}
+
+.ssc-style-select:hover{
+  border:4px solid #fb3838;
 }
 
 .list-active-chase-number{

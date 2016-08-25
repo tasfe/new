@@ -42,6 +42,7 @@ var DashboardView = Base.ItemView.extend({
     'mousedown  .js-athena_st_09': 'tempClick',
     'mousedown  .js-athena_st_10': 'tempClick',
   },
+
   dynamicItemShowHandler:function (e) {
 
     this.$afficheIndex = $(e.currentTarget).data('bulletionid');
