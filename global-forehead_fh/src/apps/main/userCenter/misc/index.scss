@@ -748,14 +748,16 @@ img{
 
   .portlet-side-main{
     width: auto;
-
+    //height: 525px;
     .portlet-header{
       display: none;
     }
   }
 
   .help-inline{
-    color: #cc0000;
+    //color: #cc0000;
+    color: grey;
+    font-size: 12px;
   }
 
   .portlet{
@@ -826,7 +828,7 @@ img{
     font-family: '微软雅黑';
     .control-label{
       font-size: 14px;
-      width: 70px;
+      width: 75px;
       text-align: right;
     }
   }
@@ -1035,7 +1037,7 @@ img{
   //width: 100px;
   height: 30px;
   float: right;
-  margin-left: 40px;
+  //margin-left: 40px;
   border-left: 1px solid #ccc;
   padding-left: 10px;
 }
