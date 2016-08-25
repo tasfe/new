@@ -10,7 +10,7 @@ li {
 }
 
 body {
-  //background: url(./bg.png) no-repeat center top;
+  //background: url(img/bg.png) no-repeat center top;
 }
 
 .clear {
@@ -60,6 +60,7 @@ body {
 
 .sidebar-h .menu li {
   margin: 8px 0;
+  cursor: pointer;
 }
 
 .sidebar-h .menu li a {
@@ -72,7 +73,7 @@ body {
 
 .sidebar-h .menu li a:hover,
 .sidebar-h .menu li a.act {
-  background: url(./misc/9.png) no-repeat left center;
+  background: url(9.png) no-repeat left center;
 }
 
 .sidebar-h .menu li a font {
@@ -131,6 +132,10 @@ body {
 
 .help-question+.help-question {
   border-top: 1px solid #ccc;
+}
+
+.help-question:nth-child(odd) .help-question-list {
+  background: #f7f7f7;
 }
 
 .help-question .con-tl {

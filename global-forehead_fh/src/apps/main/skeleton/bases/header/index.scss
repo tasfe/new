@@ -108,6 +108,13 @@ $header-margin-top: 6px;
   img{
     float: left;
   }
+  li>img{
+    float:none;
+    width:28px;
+    height:13px;
+    vertical-align:6px;
+    display: inline-block;
+  }
 
   ul,li{
     padding: 0px;
@@ -178,9 +185,16 @@ $header-margin-top: 6px;
         width: 120px;
         li{
           float: left;
-          width: 100px;
+          width: 120px;
           height: 30px;
           line-height: 20px;
+          img{
+            float:none;
+            width:28px;
+            height:13px;
+            vertical-align:6px;
+            display: inline-block;
+          }
         }
       }
     }
