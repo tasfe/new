@@ -164,12 +164,17 @@
 }
 
 .control-label {
+   text-align: right;
+   font-size: 14px;
+   width: 70px;
+
+ }
+
+.control-label-chase {
   text-align: right;
   font-size: 14px;
-  width: 70px;
 
 }
-
 .as-fund-pwd-head{
   margin-bottom: 20px;
 }
