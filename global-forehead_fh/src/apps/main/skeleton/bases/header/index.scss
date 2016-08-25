@@ -98,6 +98,17 @@ $header-margin-top: 6px;
 //  height:80px;
 //  background:blue;
 //}
+.athena-asdf{
+  position: relative;
+  .b-arrows{
+    position: absolute;
+    display: inline-block;
+    top: 6px;
+    left: 880px;
+  }
+}
+
+
 .head{
   width: 1200px;
   height: 104px;
