@@ -1,5 +1,4 @@
 "use strict";
-
 var TabView = require('com/tabView');
 var Timeset = require('com/timeset_single');
 var TicketSelectGroup = require('com/ticketSelectGroup');
