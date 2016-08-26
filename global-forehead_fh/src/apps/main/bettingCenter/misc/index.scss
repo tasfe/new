@@ -804,6 +804,21 @@ $main-area-width: 870px;
     background-color: #eb4929;
   }
 
+  .bet-quick1{
+    width: 134px;
+    height: 40px;
+    line-height: 40px;
+    background-color: grey;
+    color: #fff;
+    text-align: center;
+    display: block;
+    float: right;
+    font-size: 18px;
+    font-family: '微软雅黑';
+    margin-top: 10px;
+    cursor: pointer;
+  }
+
   .bc-menu{
     background-color: #fff;
     height: 62px;
@@ -992,6 +1007,20 @@ $main-area-width: 870px;
   }
   .add-number:hover{
     background-color: #eb4929;
+  }
+
+  .add-number1{
+    width: 134px;
+    height: 40px;
+    line-height: 40px;
+    background-color: grey;
+    color: #fff;
+    text-align: center;
+    display: inline-block;
+    font-size: 18px;
+    margin-top: 10px;
+    cursor: pointer;
+    margin-left: 585px;
   }
 
   .commit-number {

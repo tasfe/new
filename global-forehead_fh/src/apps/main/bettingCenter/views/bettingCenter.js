@@ -696,6 +696,17 @@ var BettingCenterView = Base.ItemView.extend({
     this.$statisticsLottery.text(statisticsInfo.statistics);
     this.$statisticsMoney.text(statisticsInfo.prefabMoney);
     this.$statisticsRebateMoney.text(statisticsInfo.rebateMoney);
+    if(statisticsInfo.statistics>0) {
+      this.$('.js-bc-quick-bet1').hide();
+      this.$('.js-bc-btn-lottery-add1').hide();
+      this.$('.js-bc-quick-bet').show();
+      this.$('.js-bc-btn-lottery-add').show();
+    }else  {
+      this.$('.js-bc-quick-bet1').show();
+      this.$('.js-bc-btn-lottery-add1').show();
+      this.$('.js-bc-quick-bet').hide();
+      this.$('.js-bc-btn-lottery-add').hide();
+    }
   },
 
   renderMaxBonus: function(model, formatMaxBonus) {
