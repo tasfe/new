@@ -2,7 +2,6 @@
 var TabView = require('com/tabView');
 var BettingChoiceModel = require('bettingCenter/models/bettingChoice-mmc');
 var BettingRulesCollection = require('bettingCenter/collections/bettingRules');
-
 var PlayAreaSelectView = require('bettingCenter/views/bettingCenter-playArea-select');
 var PlayAreaInputView = require('bettingCenter/views/bettingCenter-playArea-input');
 var BettingRecordsView = require('bettingCenter/views/bettingCenter-records');
@@ -22,7 +21,6 @@ var overPlan = Base.ItemView.extend({
 
     addPlan:function(){
         $('.js-new-plan-content').click(function(){
-
                 $('.js-reward-grid').append('<tr><td>'+1+'</td><td>'+1+'</td><td>'+1+'</td><td>'+1+'</td><td>'+1+'</td><td>'+1+'</td><td>'+1+'</td><td>'+1+'</td></td><td class="js-delete-tr">'+'删除'+'</td></tr>');
 
         });
@@ -62,8 +60,6 @@ var overPlan = Base.ItemView.extend({
                }
            });
    },
-
-
 
    getEmptyHtml: function(emptyTip) {
        var html = [];

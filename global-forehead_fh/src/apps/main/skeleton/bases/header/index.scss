@@ -4,7 +4,18 @@
 "~base/styles/imports";
 
 $header-margin-top: 6px;
-
+.img-position{
+  background: url(./hot.png) no-repeat 75px 3px ;
+}
+.img-position-new{
+  background: url(./new.png) no-repeat 89px 3px ;
+}
+.img-position-hg{
+  background-position: 79px 3px;
+}
+.img-position-ss{
+  background-position: 50px 3px;
+}
 .main-display{
   width: 1200px;
   position: absolute;
@@ -138,18 +149,18 @@ $header-margin-top: 6px;
     float: right;
     display: block;
     margin-top: 16px;
-    font-weight: bold;
+    //font-weight: bold;
     width: 130px;
     height: 47px;
     line-height: 47px;
     text-align: center;
     > a{
-      font-size: 20px;
+      font-size: 14px;
       font-family: '幼圆';
       width: 99px;
       height: 47px;
       display: block;
-      color: #333;
+      color: #666;
     }
 
     &.sd{
@@ -243,10 +254,10 @@ $header-margin-top: 6px;
     display: inline-block;
     width:16px;
     height:16px;
+    background-color: #fff;
     border-radius: 50%;
+    background: url(images/cycle.png) no-repeat center !important;
     text-align: center;
-    background-color:#bb0101;
-    //line-height:-100px !important;
   }
 }
 
@@ -264,7 +275,7 @@ $header-margin-top: 6px;
     height:16px;
     border-radius: 50%;
     text-align: center;
-    background-color:#bb0101;
+    background: url(images/cycle.png) no-repeat center !important;
     //line-height:-100px !important;
   }
 }
