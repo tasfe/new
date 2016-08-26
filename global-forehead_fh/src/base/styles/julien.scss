@@ -729,3 +729,9 @@ body.footerShow{
 input:-webkit-autofill {
     -webkit-box-shadow: 0 0 0px 1000px white inset;
 }
+
+.hidden-js-main-display2{
+	.js-main-display2{
+		display: none;
+	}
+}

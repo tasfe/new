@@ -93,6 +93,13 @@ var EntryView = Base.ItemView.extend({
       $('.js-publicTeamData').addClass('hidden');
     }
 
+    if (strHash=='' || strHash.slice(1) == 'gc') {
+      $('body').addClass('hidden-js-main-display2');
+    }
+    else{
+      $('body').removeClass('hidden-js-main-display2');
+    }
+
     window.onhashchange = function () {
       var strHash = document.location.hash;
 
@@ -115,11 +122,11 @@ var EntryView = Base.ItemView.extend({
         $('.js-publicTeamData').addClass('hidden');
       }
 
-      if (strHash=='') {
-        $('.js-main-display2').addClass('hidden');
+      if (strHash=='' || strHash.slice(1) == 'gc') {
+        $('body').addClass('hidden-js-main-display2');
       }
       else{
-        $('.js-main-display2').removeClass('hidden');
+        $('body').removeClass('hidden-js-main-display2');
       }
 
       if ( strHash.slice(0,6) == '#bc/20' ) {

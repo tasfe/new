@@ -3,10 +3,6 @@
     <% _(ticketList).each(function(ticket) { %>
     <% if (ticket.list) { %>
     <div class="setting">
-      <!--<div class="setting-title">-->
-        <!--<span class="sfa sfa-setting-<%=ticket.icon %>"></span>-->
-        <!--<%=ticket.title %>-->
-      <!--</div>-->
       <div class="setting-group">
         <% _(ticket.list).each(function(subTickets) { %>
         <% var uniqueId = _.uniqueId('js') %>
