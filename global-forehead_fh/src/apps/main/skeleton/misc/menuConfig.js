@@ -310,27 +310,27 @@ var menuConfig = [
     iconType: 'sfa',
     sub: [
       {
-        id: 206,
+        id: 210,
         router: 'vip/info',
         name: '<a href="vip.html" target="_blank">VIP福利介绍</a>'
       },{
-        id: 207,
+        id: 211,
         router: 'vip/cash',
         name: 'VIP礼金'
       },{
-        id: 208,
+        id: 212,
         router: 'vip/prize',
         name: 'VIP加奖'
       },{
-        id: 209,
+        id: 213,
         router: 'vip/point',
         name: 'VIP积分'
       },{
-        id: 210,
+        id: 214,
         router: 'vip/level',
         name: 'VIP等级'
       },{
-        id: 211,
+        id: 215,
         router: 'vip/credit',
         name: 'VIP信誉基金'
       }
