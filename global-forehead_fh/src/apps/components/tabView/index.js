@@ -13,7 +13,6 @@ var TabView = Base.LayoutView.extend({
     });
 
     var template = this._tabTemplate;
-
     this.menushow = this.options.menushow;
     this._tabViews = [];
     this.tabs = this.tabs || this.options.tabs;

@@ -269,8 +269,11 @@ $main-area-width: 870px;
     //display: inline-block;
     font-size: 13px;
     padding: 5px;
-  }
 
+  }
+  .bc-advance-rule:hover{
+    text-decoration: underline;
+  }
 }
 
 .bc-play-brief {

@@ -59,10 +59,12 @@ body{
     color: #b5b3b3;
     font-size: 16px;
   }
-
+  .onfocus-Inp-active{
+    border-bottom:1px solid #993333;
+  }
   input.parsley-success{
     background-color:transparent !important;
-    border-color: #DFF0D8;
+    //border-color: #DFF0D8;
   }
 
   input:focus:invalid:focus{
@@ -80,6 +82,12 @@ body{
       left: 10px;
       top: 11px;
     }
+    i:hover{
+      background: url(images/user.png) no-repeat;
+    }
+    .i-user{
+      background: url(images/user.png) no-repeat;
+    }
   }
 
   .loginPwd{
@@ -92,6 +100,12 @@ body{
       background: url(images/01.png) no-repeat;
       left: 10px;
       top: 11px;
+    }
+    i:hover{
+      background: url(images/key.png) no-repeat;
+    }
+    .i-key{
+      background: url(images/key.png) no-repeat;
     }
   }
 
