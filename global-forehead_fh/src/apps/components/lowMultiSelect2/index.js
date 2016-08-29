@@ -156,7 +156,9 @@ var LowMultiSelect = Base.PrefabView.extend({
           if (data.parent.newMsgNum == 0) {
             self.$('.js-pf-select-superior big').addClass('hidden');
           }
-          self.$('.js-pf-select-superior big').text(data.parent.newMsgNum);
+          if (data.parent != null) {
+            self.$('.js-pf-select-superior big').text(data.parent.newMsgNum);
+          }
         }
 
         if(res.root.subList != null){

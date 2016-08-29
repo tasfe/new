@@ -6,9 +6,7 @@
 
 var BtnGroup = Base.PrefabView.extend({
   template: require('./index.html'),
-
   className: 'btn-group',
-
   events: function() {
     var events = {};
 
@@ -18,7 +16,6 @@ var BtnGroup = Base.PrefabView.extend({
   },
 
   initialize: function() {
-
     _.defaults(this.options, {
       inputName: 'dateOffset',
       btnGroup: [

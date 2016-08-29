@@ -54,7 +54,6 @@ var AgencyCenterController = RouterController.extend({
 
     this.getTeamOnlineXhr().done(function (res) {
       var data = res && res.root || {};
-      console.log(data.todayOnlineTotal);
       if (res && res.result === 0) {
         $('.js-julien-data1').text( (data.balanceTotal / 10000).toFixed(2) );
         $('.js-julien-data2').text( data.todayRegTotal);

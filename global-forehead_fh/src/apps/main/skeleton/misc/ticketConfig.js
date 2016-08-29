@@ -6,7 +6,7 @@ var defaultSelectDPC = '0';
 
 var newestConfig = {
   id: 'ne',
-  title: '亿贝最新',
+  title: '繁华最新',
   icon: 'ne',
   list: [
     {
@@ -27,14 +27,14 @@ var newestConfig = {
 
 var specialConfig = {
   id: 'sp',
-  title: '亿贝专享',
+  title: '繁华专享',
   icon: 'sp',
   list: [
     {
       id: 19,
       type: 'ssc',
       mark: 'ssc-ffc',
-      zhName: "亿贝秒秒彩",
+      zhName: "繁华秒秒彩",
       optional: true,
       desc: '全天24小时 即投即开',
       defaultSelectPlay: defaultSelectSSC,
@@ -45,8 +45,8 @@ var specialConfig = {
       id: 10,
       type: 'ssc',
       mark: 'ssc-ffc',
-      zhName: "亿贝分分彩",
-      quickShowName: "亿贝分分彩",
+      zhName: "繁华分分彩",
+      quickShowName: "繁华分分彩",
       optional: true,
       defaultSelectPlay: defaultSelectSSC,
       desc: '全天24小时 共1440期',
@@ -58,8 +58,8 @@ var specialConfig = {
       id: 13,
       type: 'ssc',
       mark: 'ssc-sfc',
-      zhName: "亿贝三分彩",
-      quickShowName: "亿贝三分彩",
+      zhName: "繁华三分彩",
+      quickShowName: "繁华三分彩",
       optional: true,
       isSuper: false,
       defaultSelectPlay: defaultSelectSSC,
@@ -70,8 +70,8 @@ var specialConfig = {
       id: 12,
       type: 'ssc',
       mark: 'ssc-wfc',
-      zhName: "亿贝五分彩",
-      quickShowName: "亿贝五分彩",
+      zhName: "繁华五分彩",
+      quickShowName: "繁华五分彩",
       optional: true,
       isSuper: false,
       defaultSelectPlay: defaultSelectSSC,
@@ -104,7 +104,7 @@ var specialConfig = {
       id: 16,
       type: '3d',
       mark: '3d-ffc',
-      zhName: "亿贝3D分分彩",
+      zhName: "繁华3D分分彩",
       optional: false,
       isSuper: false,
       desc: '全天24小时 共1440期',

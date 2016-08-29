@@ -50,7 +50,9 @@ var MessageMediatorModule = Base.Module.extend({
 
           var newsNum = 0;
 
-          newsNum += data.parent.newMsgNum;
+          if (data.parent != null) {
+            newsNum += data.parent.newMsgNum;
+          }
 
           var msgArry = [];
           var j = 0;
@@ -79,8 +81,10 @@ var MessageMediatorModule = Base.Module.extend({
           $('.js-gl-letter-unread').html('<span>'+newsNum+'</span>');
 
           if (sessionStorage.getItem('openMessage') == 1) {
-            $('.js-pf-select-superior big').text(data.parent.newMsgNum);
-
+            if (data.parent != null) {
+              $('.js-pf-select-superior big').text(data.parent.newMsgNum);
+            }
+            
             if ( $('.js-pf-select-superior big').text() == 0 ) {
               $('.js-pf-select-superior big').addClass('hidden');
             }
