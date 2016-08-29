@@ -708,7 +708,7 @@ img{
   height:650px;
   .controls > span{
     margin-top:0px;
-    font-size: 16px;
+    font-size: 12px;
     margin-left: 10px;
   }
 
@@ -1036,7 +1036,7 @@ img{
   //width: 100px;
   height: 30px;
   float: right;
-  //margin-left: 40px;
+  margin-left: 45px;
   border-left: 1px solid #ccc;
   padding-left: 10px;
 }
@@ -1268,4 +1268,17 @@ img{
 .ucbt-open-number{
   height: 50px;
   line-height: 50px;
+}
+
+.herry-addBankCard{
+  .modal-dialog{
+    overflow: visible;
+  }
+  .modal-body{
+    overflow: visible;
+    .uc-cbCardBindingForm{
+      margin: 0px;
+      padding-top: 40px;
+    }
+  }
 }
