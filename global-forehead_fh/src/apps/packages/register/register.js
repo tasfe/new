@@ -256,8 +256,8 @@ $.widget('gl.register', {
       }
     }).debounce(400);
 
-    $('.js-rp-loginPwd1').on('keypress', newLoginPassword);
-    $('.js-rp-loginPwd2').on('keypress', newLoginPassword2);
+    $('.js-rp-loginPwd1').on('keyup', newLoginPassword);
+    $('.js-rp-loginPwd2').on('keyup', newLoginPassword2);
 
     $('.js-rp-valCode').on('input', function() {
       if ($('.js-rp-valCode').val().length == 4) {
@@ -323,7 +323,7 @@ $.widget('gl.register', {
       }
     }).debounce(400);
 
-    $('.js-re-userName').on('keypress', verifyInputUserName);
+    $('.js-re-userName').on('keyup', verifyInputUserName);
   },
 
   refreshValCodeHandler: function(){

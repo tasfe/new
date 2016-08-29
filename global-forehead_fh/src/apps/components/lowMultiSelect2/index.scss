@@ -162,7 +162,6 @@
               padding-left: 26px;
             }
 
-
             b{
               font-weight: normal;
               display: inline-block;
@@ -179,6 +178,17 @@
             padding-top: 3px;
             padding-bottom: 3px;
             margin: 0px 9px;
+            i{
+              width: 0;
+              height: 0;
+              border-width: 4px;
+              border-style:  dashed dashed dashed solid;
+              border-color:  transparent transparent transparent #666666;
+              position: absolute;
+              top: 10px;
+              left: 25px;
+            }
+
           }
           a.online{
             color: #66cc00;
@@ -324,6 +334,7 @@
   font-family: '微软雅黑';
   font-size: 14px;
   border-bottom: 1px solid #e0e0e0;
+  overflow-y: auto;
 
   li{
     list-style: none;
