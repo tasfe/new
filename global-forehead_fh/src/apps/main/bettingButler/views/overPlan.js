@@ -9,11 +9,8 @@ var BettingRecordsView = require('bettingCenter/views/bettingCenter-records');
 var ticketConfig = require('skeleton/misc/ticketConfig');
 var betRulesConfig = require('bettingCenter/misc/betRulesConfig');
 var overPlan = Base.ItemView.extend({
-
    template: require('bettingButler/templates/overPlan.html'),
-
    startOnLoading: true,
-
    events: {
        'click .js-list-active': 'activeChangeHandler',
        'click .js-new-plan-content': 'addPlan'

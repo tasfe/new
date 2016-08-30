@@ -21,7 +21,7 @@ Base.Prefab.Timeset = Base.PrefabView.extend({
 
     _.defaults(this.options, {
       startTime: 'startTime',
-      startTimeHolder: '起始时间',
+      startTimeHolder: '2016-07-25 0:00:00',
       startDefaultDate: null,
       startOps: {},
       onStartTimeChange: this.onStartTimeChange,
@@ -38,7 +38,8 @@ Base.Prefab.Timeset = Base.PrefabView.extend({
     _.defaults(this.options.startOps, {
       format: 'YYYY-MM-DD H:mm:ss',
       useCurrent: false,
-      maxDate: this.options.endDate.toDate()
+      maxDate: this.options.endDate.toDate(),
+      //maxView:7,
     });
 
     _.defaults(this.options.endOps, {

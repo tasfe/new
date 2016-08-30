@@ -187,7 +187,6 @@ var AgencyCenterController = RouterController.extend({
     $('#main > .clearfix').addClass('ac-block');
   },
 
-
   teamDynamic: function() {
     this.changeMainReginView(new TeamDynamicView(), {
       main: {
