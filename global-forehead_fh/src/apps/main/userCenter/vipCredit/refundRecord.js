@@ -73,11 +73,11 @@ var RefundRecordView = SearchGrid.extend({
       endDefaultDate: this.options.reqData.endTime?this.options.reqData.endTime:_(moment().endOf('day')).toTime(),
       endOps:{
         viewMode: 'years',
-        format: 'YYYY-MM-DD'
+        format: 'YYYY-MM-DD H:mm:ss'
       },
       startOps:{
         viewMode: 'years',
-        format: 'YYYY-MM-DD'
+        format: 'YYYY-MM-DD H:mm:ss'
       }
     }).render();
     if(this.options.reqData.username){
