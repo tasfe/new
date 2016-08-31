@@ -101,16 +101,7 @@ var PeriodWayView = Base.ItemView.extend({
         $dialog.on('hidden.modal', function () {
             $(this).remove();
         });
-
     }
-    
-    
-    
-    
-    
-    
-    
-    
 });
 
 module.exports = PeriodWayView;
