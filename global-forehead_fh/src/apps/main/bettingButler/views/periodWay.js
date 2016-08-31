@@ -101,6 +101,14 @@ var PeriodWayView = Base.ItemView.extend({
         $dialog.on('hidden.modal', function () {
             $(this).remove();
         });
+
+        new Timeset({
+            el: $('.js-pf-timeset3'),
+            startTime: 'regTimeStart',
+            startOps: {
+                format: 'YYYY-MM-DD'
+            }
+        }).render();
     }
 });
 
