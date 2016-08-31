@@ -83,7 +83,6 @@ $.widget('gl.register', {
   registerSubmit: function (e) {
     var self = this;
     var $target = $(e.currentTarget);
-
     var iIs = 0;
     var str= $('.js-rp-loginPwd1').val();
     var str2= $('.js-rp-loginPwd2').val();

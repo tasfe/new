@@ -1,5 +1,4 @@
 "use strict";
-
 require('./misc/index.scss');
 var RouterController = require('skeleton/controllers/router');
 var ButlerSetPlan = require('bettingButler/views/butlerSetPlan');

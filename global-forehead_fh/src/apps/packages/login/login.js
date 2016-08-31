@@ -69,10 +69,8 @@ $.widget('gl.login', {
     var showIndex = 0;
 
     _(servers).each(function(serverInfo, index) {
-      
       var isCurrent = window.location.href.indexOf(serverInfo.server) > -1;
       //var isCurrent = 'http://www.tlf9.com'.indexOf(serverInfo.server) > -1;
-
       var html = '<li>' +
         '<a href="' + serverInfo.server + '">' +
         '<div class="connect-server">' +

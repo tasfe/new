@@ -102,15 +102,14 @@ var PeriodWayView = Base.ItemView.extend({
             $(this).remove();
         });
 
+        new Timeset({
+            el: $('.js-pf-timeset3'),
+            startTime: 'regTimeStart',
+            startOps: {
+                format: 'YYYY-MM-DD'
+            }
+        }).render();
     }
-    
-    
-    
-    
-    
-    
-    
-    
 });
 
 module.exports = PeriodWayView;
