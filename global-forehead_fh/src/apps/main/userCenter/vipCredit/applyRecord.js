@@ -58,11 +58,11 @@ var ApplyRecordView = SearchGrid.extend({
       endDefaultDate: this.options.endTime?this.options.endTime:_(moment().endOf('day')).toTime(),
       endOps:{
         viewMode: 'years',
-        format: 'YYYY-MM-DD'
+        format: 'YYYY-MM-DD H:mm:ss'
       },
       startOps:{
         viewMode: 'years',
-        format: 'YYYY-MM-DD'
+        format: 'YYYY-MM-DD H:mm:ss'
       }
     }).render();
 
