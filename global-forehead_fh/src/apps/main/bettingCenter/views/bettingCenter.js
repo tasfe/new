@@ -70,7 +70,50 @@ var BettingCenterView = Base.ItemView.extend({
     'mouseout  .js-bc-chase': 'btnPressup2',
     'mouseout  .js-bc-quick-bet': 'btnPressup1',
     'mouseout  .js-bc-btn-lottery-confirm': 'btnPressup1',
+    'click .js-cang02':'cangHandler'
   },
+
+  cangHandler: function() {
+    var self = this;
+
+    var previewList1 = this.model.get('previewList');
+
+    var previewList = _(previewList1).reduce(function(list, item) {
+
+      list.push({
+        betNum: item.bettingNumber,
+        playId: item.playId,
+        betMultiple: item.multiple,
+        moneyMethod: item.unit,
+        //0 高奖金 1 有返点
+        betMethod: item.betMethod
+      });
+
+      return list;
+    }, []);
+
+
+    return Global.sync.ajax({
+      url: '/ticket/betManager/newscheme.json',
+      tradition: true,
+      data: {
+        bet: previewList
+      }
+    })
+      .done(function(res) {
+        //if (res && res.result === 0) {
+        //  self.emptyPrevBetting();
+        //}
+        if (res && res.result === 0) {
+          Global.ui.notification.show('收藏成功！', {
+            type: 'success'
+          });
+        } else {
+          Global.ui.notification.show('收藏失败！错误原因：' + res.msg || '');
+        }
+      });
+  },
+
 
   getTeamOnlineXhr: function() {
     var timestamp = Date.parse(new Date());
@@ -752,6 +795,14 @@ var BettingCenterView = Base.ItemView.extend({
     this.$totalLottery.text(totalInfo.totalLottery);
     this.$totalMoney.text(_(totalInfo.totalMoney).convert2yuan());
     this.$totalRebateMoney.text(_(totalInfo.totalRebateMoney).convert2yuan());
+
+    if(totalInfo.totalLottery>0) {
+      $('.js-cang01').hide();
+      $('.js-cang02').show();
+    }else {
+      $('.js-cang02').hide();
+      $('.js-cang01').show();
+    }
   },
 
   getBonusMode: function(bonus, unit, userRebate, betMethod) {
