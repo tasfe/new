@@ -69,10 +69,8 @@ $.widget('gl.login', {
     var showIndex = 0;
 
     _(servers).each(function(serverInfo, index) {
-      
       var isCurrent = window.location.href.indexOf(serverInfo.server) > -1;
       //var isCurrent = 'http://www.tlf9.com'.indexOf(serverInfo.server) > -1;
-
       var html = '<li>' +
         '<a href="' + serverInfo.server + '">' +
         '<div class="connect-server">' +
@@ -120,10 +118,45 @@ $.widget('gl.login', {
       'click .js-login-login-btn': 'valCodeHandler',//校验用户名
       'click .js-login-valImg': 'refreshValCodeHandler',//刷新验证码
       'click input[type!=hidden]': 'resetInputHandler',
-      'click .js-showConnectTest': 'showConnectTest'
+      'click .js-showConnectTest': 'showConnectTest',
+      'focus  .js-onfocus-Inp-01': 'focusInpu',
+      'blur  .js-onfocus-Inp-01': 'blurInpu',
+      'focus  .js-onfocus-Inp-02': 'focusInpuOne',
+      'blur  .js-onfocus-Inp-02': 'blurInpuOne',
     });
   },
-
+  focusInpu:function(){
+    //alert(1);
+    $('.js-onfocus-Inp-01').focus(function(){
+      $(this).addClass('onfocus-Inp-active');
+      $('.js-i-user').addClass('i-user');
+      //$('.js-i-key').addClass('i-key');
+    })
+  },
+  blurInpu:function(){
+    //alert(1);
+    $('.js-onfocus-Inp-01').blur(function(){
+      $(this).removeClass('onfocus-Inp-active');
+      $('.js-i-user').removeClass('i-user');
+      //$('.js-i-key').addClass('i-key');
+    })
+  },
+  focusInpuOne:function(){
+    //alert(1);
+    $('.js-onfocus-Inp-02').focus(function(){
+      $(this).addClass('onfocus-Inp-active');
+      $('.js-i-key').addClass('i-key');
+      //$('.js-i-key').addClass('i-key');
+    })
+  },
+  blurInpuOne:function(){
+    //alert(1);
+    $('.js-onfocus-Inp-02').blur(function(){
+      $(this).removeClass('onfocus-Inp-active');
+      $('.js-i-key').removeClass('i-key');
+      //$('.js-i-key').addClass('i-key');
+    })
+  },
   _onPageLoaded: function() {
     $(window).load(function() {
       $('body').removeClass('overflow-hidden');

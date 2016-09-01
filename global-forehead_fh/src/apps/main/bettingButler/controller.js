@@ -1,12 +1,9 @@
 "use strict";
-
 require('./misc/index.scss');
-
 var RouterController = require('skeleton/controllers/router');
 var ButlerSetPlan = require('bettingButler/views/butlerSetPlan');
 var ButlerRunPlan = require('bettingButler/views/butlerRunPlan');
 var ButlerColPlan = require('bettingButler/views/butlerColPlan');
-
 var bettingButlerController = RouterController.extend({
 
   butlerSetPlan: function() {

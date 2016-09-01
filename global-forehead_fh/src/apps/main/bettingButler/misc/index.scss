@@ -5,6 +5,9 @@
   height:80px;
   background:url(./Betting.png) no-repeat left;
 }
+.content-height-box{
+  height:300px;
+}
 .alert-text-select{
   width:97%;
   height:50px;
@@ -12,7 +15,7 @@
   font-size: 14px;
   line-height: 50px;
   margin-left:14px;
-  overflow: hidden;;
+  //overflow: hidden;;
   a{
     color:#ff6600;
     text-decoration: underline;
@@ -30,6 +33,7 @@
   height:29px;
   background: #ff6600;
   border-radius:0px;
+  margin-left: 10px;
 }
 .alert-text-container{
   width:97%;
@@ -81,15 +85,13 @@
     border-top:1px solid #ccc;
     //overflow-y: auto;
     border-left:1px solid #ccc;
-
-    //padding-right: 30px;
-    height: 800px;
+    height:600px;
 
     .active-container-line{
       background-color: #cccccc;
       position: absolute;
       width: 1px;
-      height: 590px;
+      height: 400px;
       left: 265px;
       margin: 5px 0px;
       z-index: 0;
@@ -107,42 +109,42 @@
         width: 120px;
         padding-left: 10px;
       }
-      .active-badge-comming{
-        background-color: #fd9900;
-        float: right;
-        width: 80px;
-        height: 30px;
-        line-height: 30px;
-        font-weight: bolder;
-        font-size: 15px;
-        color: white;
-        text-align: center;
-
-      }
-      .active-badge-running{
-        background-color: #ce0201;
-        float: right;
-        width: 80px;
-        height: 30px;
-        line-height: 30px;
-        font-weight: bolder;
-        font-size: 15px;
-        color: white;
-        text-align: center;
-
-      }
-      .active-badge-over{
-        background-color: #cccccc;
-        float: right;
-        width: 80px;
-        height: 30px;
-        line-height: 30px;
-        font-weight: bolder;
-        font-size: 15px;
-        color: white;
-        text-align: center;
-
-      }
+      //.active-badge-comming{
+      //  background-color: #fd9900;
+      //  float: right;
+      //  width: 80px;
+      //  height: 30px;
+      //  line-height: 30px;
+      //  font-weight: bolder;
+      //  font-size: 15px;
+      //  color: white;
+      //  text-align: center;
+      //
+      //}
+      //.active-badge-running{
+      //  background-color: #ce0201;
+      //  float: right;
+      //  width: 80px;
+      //  height: 30px;
+      //  line-height: 30px;
+      //  font-weight: bolder;
+      //  font-size: 15px;
+      //  color: white;
+      //  text-align: center;
+      //
+      //}
+      //.active-badge-over{
+      //  background-color: #cccccc;
+      //  float: right;
+      //  width: 80px;
+      //  height: 30px;
+      //  line-height: 30px;
+      //  font-weight: bolder;
+      //  font-size: 15px;
+      //  color: white;
+      //  text-align: center;
+      //
+      //}
       .active-round-dot{
         margin: 20px 30px 0px 30px;
         width: 10px;
@@ -213,7 +215,7 @@
   left:1px;
   top:80px;
   width:100%;
-  height:720px;
+  height:500x;
   background: rgba(0, 0, 0, 0.5);
   display:none;
 }
@@ -229,8 +231,8 @@
   height:40px;
   color:#000;
   font-size: 14px;
-  line-height: 50px;
-  margin-left:14px;
+  line-height:36px;
+  margin-left:8px;
 
 }
 .btn-athena{
@@ -241,7 +243,7 @@
 }
 .text-content-span{
   width:105px;
-  margin-left:-30px;
+  margin-left:-20px;
   line-height: 50px;
   height:50px;
   float:left;
@@ -249,7 +251,7 @@
 }
 .alert-hidden{
   overflow: hidden;
-  margin-top: 10px;
+  margin-top:0px;
   height:170px;
 }
 .alert-scroll{
@@ -267,16 +269,15 @@
 .text-content-wd{
   float:left;
   width:100%;
-  height:300px;
-  overflow: scroll;
-
+  height:200px;
+  overflow-y: scroll;
 }
 .delete-pointer{
   cursor:pointer;
 }
 .text-content-wd-collection{
   float:left;
-  width:93%;
+  width:91%;
   //overflow: scroll;
 }
 .text-content-span-plan{
@@ -334,8 +335,14 @@
   line-height:280px;
   background: url(./waring.png) no-repeat center !important;
 }
+.text-contentalign-right{
+  height:140px;
+  line-height:10px;
+  background: url(./23.png) no-repeat center !important;
+  line-height: 30px;
+}
 .margin-text{
-  margin-top: 50px;
+  margin-top: 20px;
 }
 .perirod-btn {
   margin-left:240px;
@@ -360,69 +367,134 @@
 }
 .new-width-overplan{
   width:100%;
+
 }
 
-.bb-block{
-  background:url(./Betting.png) no-repeat left top;
+
+.bb-block {
+  background: url(./Betting.png) no-repeat left top;
   padding-top: 60px;
   margin-top: -10px;
 
-  .active-container-header-btn{
-      border: 0px;
+  .active-container-header-btn {
+    border: 0px;
   }
 
-  .julien-bb-sp{
+  .julien-bb-sp {
     margin-top: 50px;
     position: relative;
 
-    .nav-tabs-border-content{
+    .nav-tabs-border-content {
       border-bottom: 0px;
     }
 
-    ul{
-      margin-left: 10px;
+    ul.nav-tabs-border {
+      margin-left: 30px;
       border: 1px solid #cccccc;
       border-right: 0px;
       display: inline-block;
 
-      li{
-        .tips{
+      li {
+        .tips {
           display: none;
         }
 
-        a{
+        a {
           border: 0px;
           border-right: 1px solid #cccccc;
           padding: 4px 4px;
           color: #666666;
           font-size: 14px;
           background: #fefefe;
-          background-image:-webkit-linear-gradient( #fff, #eaeaea);
-          background-image:linear-gradient( #fff, #eaeaea);
+          background-image: -webkit-linear-gradient(#fff, #eaeaea);
+          background-image: linear-gradient(#fff, #eaeaea);
 
-          &:after{
-            display:none;
+          &:after {
+            display: none;
           }
         }
 
-        &.active{
-          .tips{
+        &.active {
+          .tips {
             display: block;
             position: absolute;
             font-size: 14px;
             font-family: '微软雅黑';
             color: #cc0000;
             top: -40px;
-            left: 10px;
+            left: 30px;
           }
 
-          a{
+          a {
             background-color: #e0e0e0;
-            background-image:none;
+            background-image: none;
             border-bottom: 1px solid #cccccc;
           }
         }
       }
-    } 
+    }
   }
+
+  .no-tips-julien{
+    margin-top: 20px;
+  }
+}
+
+
+.new-plan-content{
+  width:105px;
+  height:31px;
+  background-color:#ff6600;
+  color:#fff;
+  text-align: center;
+  line-height: 31px;
+  position:absolute;
+  left:1062px;
+  top:0px;
+}
+.alert-text-contemt{
+  width:600px !important;
+}
+.input-left{
+  margin-left: -15px;
+}
+.btn-color-delete {
+  background-color: #cd9967;
+  border: none;
+}
+
+.span-athena-radio-hiiHHHddHen{
+  background:url(./04.png) no-repeat left;
+  padding:10px 20px;
+  cursor:pointer;
+
+}
+.span-athena-radio-Inp{
+  background:url(./02.png) no-repeat left;
+  padding:10px 20px;
+  cursor:pointer;
+}
+.span-athena-Inp{
+  background:url(./01.png) no-repeat left;
+}
+.span-athena-radio{
+  background:url(./03.png) no-repeat left;
+}
+.alert-text-select-margin{
+  margin-top: 16px;
+}
+.continuity-Inp{
+  width:28px !important;
+  height:23px !important;
+}
+.stage-index{
+  width:80px !important;
+  height:28px !important;
+}
+.auto-stage{
+  padding-left: 60px;
+}
+.line-height-span{
+  padding-left:8px  !important;
+  line-height: 20px  !important;
 }

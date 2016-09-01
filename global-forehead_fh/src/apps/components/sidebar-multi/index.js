@@ -22,7 +22,6 @@ var MultiSidebarView = Base.ItemView.extend({
 
   onRender: function() {
     this.$multiMain = this.$('.js-com-multi-main');
-
     this.$multiMain.slimScroll({
       height: this.options.height,
       alwaysVisible: true

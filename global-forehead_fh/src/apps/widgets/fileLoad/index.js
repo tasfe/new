@@ -5,7 +5,7 @@ require('../upload/index');
 $.widget('gl.fileLoad', {
 
   template: '' +
-  '<button class="btn <%=btnClass %> fileinput-button">' +
+  '<button class=" <%=btnClass %> fileinput-button">' +
   '<i class="sfa vertical-middle"></i> ' +
   '<span><%=title %></span>' +
   '<input class="js-wt-fileLoad-btn" accept="<%=accept %>" type="file" name="files[]" multiple />' +
@@ -14,7 +14,7 @@ $.widget('gl.fileLoad', {
 
   options: {
     title: '读取文件',
-    btnClass: 'btn-sun-imp',
+    btnClass: 'btn-sun-imp1',
     paramName: 'txtFile',
     accept: '*/*',
     url: '/info/txt/dotxt.json',

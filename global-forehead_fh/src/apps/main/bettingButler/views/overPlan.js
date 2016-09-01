@@ -2,7 +2,6 @@
 var TabView = require('com/tabView');
 var BettingChoiceModel = require('bettingCenter/models/bettingChoice-mmc');
 var BettingRulesCollection = require('bettingCenter/collections/bettingRules');
-
 var PlayAreaSelectView = require('bettingCenter/views/bettingCenter-playArea-select');
 var PlayAreaInputView = require('bettingCenter/views/bettingCenter-playArea-input');
 var BettingRecordsView = require('bettingCenter/views/bettingCenter-records');
@@ -10,16 +9,22 @@ var BettingRecordsView = require('bettingCenter/views/bettingCenter-records');
 var ticketConfig = require('skeleton/misc/ticketConfig');
 var betRulesConfig = require('bettingCenter/misc/betRulesConfig');
 var overPlan = Base.ItemView.extend({
-
    template: require('bettingButler/templates/overPlan.html'),
-
    startOnLoading: true,
-
    events: {
-       'click .js-list-active': 'activeChangeHandler'
+       'click .js-list-active': 'activeChangeHandler',
+       'click .js-new-plan-content': 'addPlan'
    },
-    
 
+    addPlan:function(){
+        $('.js-new-plan-content').click(function(){
+                $('.js-reward-grid').append('<tr><td>'+1+'</td><td>'+1+'</td><td>'+1+'</td><td>'+1+'</td><td>'+1+'</td><td>'+1+'</td><td>'+1+'</td><td>'+1+'</td></td><td class="js-delete-tr">'+'删除'+'</td></tr>');
+
+        });
+        $('.js-delete-tr').click(function(){
+            $(this).parent().remove();
+        });
+    },
    onRender: function() {
 
        var self = this;
@@ -52,8 +57,6 @@ var overPlan = Base.ItemView.extend({
                }
            });
    },
-
-
 
    getEmptyHtml: function(emptyTip) {
        var html = [];

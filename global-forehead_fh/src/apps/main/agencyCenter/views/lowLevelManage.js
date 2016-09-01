@@ -136,7 +136,6 @@ var LowLevelManageView = SearchGrid.extend({
     }).render();
 
     SearchGrid.prototype.onRender.apply(this, arguments);
-
     this.$('.js-ac-uDays').popover({
       trigger: 'hover',
       html: true,

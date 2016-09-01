@@ -27,7 +27,6 @@ var LowLevelDetailView = Base.ItemView.extend({
   onRender: function() {
     var userName = _.getUrlParam('name');
     this.$_parentEl.find('.js-ac-detailUserName').html(userName);
-
     this.$personalBalance = this.$('.js-ac-personalBalance');
     this.$groupBalance = this.$('.js-ac-groupBalance');
     this.$unActiveNum = this.$('.js-ac-unActiveNum');
@@ -36,7 +35,6 @@ var LowLevelDetailView = Base.ItemView.extend({
 
     //综合详情
     this._initCompDetail();
-
     //奖金详情：创建一个view,并添加在指定位置，传递指定参数
     this.$('.js-ac-priceDetail').html(new PriceDetailsView({
       userId: this.options.userId,

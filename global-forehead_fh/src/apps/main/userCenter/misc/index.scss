@@ -706,7 +706,8 @@ img{
   font-family: '微软雅黑';
   padding-bottom: 20px;
   margin-bottom: 20px;
-
+  //background-color: red;
+  height:600px;
   .controls > span{
     margin-top:0px;
     font-size: 16px;
@@ -748,14 +749,16 @@ img{
 
   .portlet-side-main{
     width: auto;
-
+    //height: 525px;
     .portlet-header{
       display: none;
     }
   }
 
   .help-inline{
-    color: #cc0000;
+    //color: #cc0000;
+    color: grey;
+    font-size: 12px;
   }
 
   .portlet{
@@ -826,7 +829,7 @@ img{
     font-family: '微软雅黑';
     .control-label{
       font-size: 14px;
-      width: 70px;
+      width: 75px;
       text-align: right;
     }
   }
@@ -1035,7 +1038,7 @@ img{
   //width: 100px;
   height: 30px;
   float: right;
-  margin-left: 40px;
+  //margin-left: 40px;
   border-left: 1px solid #ccc;
   padding-left: 10px;
 }
@@ -1155,8 +1158,12 @@ img{
   height:28px;
   background:#f4f4f4;
   border:1px solid #c4c4c4;
-
 }
+
+.cell-left-10{
+  margin-left: -10px;
+}
+
 .toggle-athena{
   background-color: #e0e0e0;
   outline: none;
