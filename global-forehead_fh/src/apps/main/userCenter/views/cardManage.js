@@ -265,7 +265,7 @@ var CardManageView = Base.ItemView.extend({
       title: '绑定银行卡',
       body: '<div class="js-uc-cm-bindContainer uc-cm-bindContainer"></div>',
       bodyClass: 'no-padding uc-cm-bindDialog',
-      size: 'modal-lg'
+      size: 'modal-lg herry-addBankCard'
       //size: 'modal-md2'
     });
 
