@@ -734,6 +734,7 @@ $.widget('gl.resetPassword', {
       type: 'POST',
       url: '/acct/usermsg/sendEmail.json',
       data: {
+        type: 0,
         userName: $('.panel02 div span').html()
       }
     });
