@@ -267,7 +267,9 @@ var findPwdView = Base.ItemView.extend({
 
     Global.sync.ajax({
           url: '/acct/usermsg/sendEmailToken.json',
-          data:{sendType:'1'}
+          data:{
+            sendType: 0
+          }
         })
         .always(function() {
           //恢复确认按钮的状态

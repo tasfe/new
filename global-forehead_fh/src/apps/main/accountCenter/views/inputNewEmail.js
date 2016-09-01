@@ -70,7 +70,9 @@ var inputNewEmail = Base.ItemView.extend({
         $target.button('loading');
         Global.sync.ajax({
                 url: '/acct/usermsg/sendEmailToken.json',
-                data:{sendType:1}
+                data:{
+                    sendType:2
+                }
             })
             .always(function() {
                 $target.button('reset');

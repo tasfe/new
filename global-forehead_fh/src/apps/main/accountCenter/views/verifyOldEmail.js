@@ -29,7 +29,9 @@ var verifyOldEmail = Base.ItemView.extend({
         $target.button('loading');
         Global.sync.ajax({
                 url: '/acct/usermsg/sendEmailToken.json',
-                data:{sendType:1}
+                data:{
+                    sendType:1
+                }
             })
             .always(function() {
                 $target.button('reset');

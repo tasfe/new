@@ -52,14 +52,14 @@ var VipCashView = SearchGrid.extend({
       el: this.$('.js-pf-timeset'),
       startDefaultDate: this.options.startTime?this.options.startTime:_(moment().startOf('day')).toDate(),
       endDefaultDate: this.options.endTime?this.options.endTime:_(moment().endOf('day')).toDate(),
-      //endOps:{
-      //  viewMode: 'years',
-      //  format: 'YYYY-MM-DD'
-      //},
-      //startOps:{
-      //  viewMode: 'years',
-      //  format: 'YYYY-MM-DD'
-      //}
+      endOps:{
+        viewMode: 'years',
+        format: 'YYYY-MM-DD'
+      },
+      startOps:{
+        viewMode: 'years',
+        format: 'YYYY-MM-DD'
+      }
     }).render();
     this.$('.js-pf-search-grid').addClass('gauge');
     SearchGrid.prototype.onRender.apply(this, arguments);
