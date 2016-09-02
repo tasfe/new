@@ -4,9 +4,9 @@ var SearchGrid = require('com/searchGrid');
 
 var Timeset = require('com/timeset');
 
-var SalaryManageView = SearchGrid.extend({
+var SalaryManageLowLeveView = SearchGrid.extend({
 
-  template: require('agencyCenter/templates/salaryManage.html'),
+  template: require('agencyCenter/templates/salaryManageLowLevel.html'),
 
   className: 'lowLevelManage-view salary-view',
 
@@ -52,7 +52,7 @@ var SalaryManageView = SearchGrid.extend({
       ],
       tip: 'juliencs',
       gridOps: {
-        emptyTip: '没有工资'
+        emptyTip: '没有信息'
       },
       ajaxOps: {
         url: '/info/agentWages/list.json'
@@ -197,4 +197,4 @@ var SalaryManageView = SearchGrid.extend({
   }
 });
 
-module.exports = SalaryManageView;
+module.exports = SalaryManageLowLeveView;

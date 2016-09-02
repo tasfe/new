@@ -142,6 +142,24 @@ var OpenAccountManageView = Base.ItemView.extend({
             }
           }
         }
+        else if (str.length > 20) {
+          $('.js-julien-left dl').eq(2).addClass('wrong');
+          $('.js-julien-left dl').eq(2).removeClass('correct');
+          $('.js-julien-left dl .messageBox span').eq(1).html('20字符内');
+
+          if (str2 != '') {
+            if (str != str2) {
+              $('.js-julien-left dl').eq(3).addClass('wrong');
+              $('.js-julien-left dl').eq(3).removeClass('correct');
+              $('.js-julien-left dl .messageBox span').eq(2).html('不相同');
+            }
+            else{
+              $('.js-julien-left dl').eq(3).addClass('correct');
+              $('.js-julien-left dl').eq(3).removeClass('wrong');
+              $('.js-julien-left dl .messageBox span').eq(2).html('');
+            }
+          }
+        }
         else{
           $('.js-julien-left dl').eq(2).addClass('correct');
           $('.js-julien-left dl').eq(2).removeClass('wrong');
@@ -283,7 +301,7 @@ var OpenAccountManageView = Base.ItemView.extend({
       $('.js-julien-left dl .messageBox span').eq(1).html('不能为空');
       iIs = 1;
     }
-    else if (strPassword.length < 6) {
+    else if (strPassword.length < 6 || strPassword.length > 20) {
       iIs = 1;
     }
     else{

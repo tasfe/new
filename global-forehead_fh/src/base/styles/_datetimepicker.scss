@@ -76,7 +76,8 @@ $datePickerBtnColor: $main-color;
     }
   }
   .list-unstyled {
-    margin: 0;
+    margin: 0 !important;
+    float: none !important;
   }
   a[data-action] {
     padding: 6px 0;

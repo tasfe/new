@@ -4,9 +4,9 @@ var SearchGrid = require('com/searchGrid');
 
 var Timeset = require('com/timeset');
 
-var SalaryManageView = SearchGrid.extend({
+var SalaryManageLowLeveView2 = SearchGrid.extend({
 
-  template: require('agencyCenter/templates/salaryManage.html'),
+  template: require('agencyCenter/templates/salaryManageLowLevel2.html'),
 
   className: 'lowLevelManage-view salary-view',
 
@@ -14,7 +14,6 @@ var SalaryManageView = SearchGrid.extend({
 
   events: {
     'click .js-get-salary': 'getSalary',
-    'click .js-selectDateGetList': 'dateSelectHandler',
     'click .js-add-salary-user': 'addSalaryUserHandler',
     'click .js-select-submit': 'selectListHandler'
   },
@@ -52,7 +51,7 @@ var SalaryManageView = SearchGrid.extend({
       ],
       tip: 'juliencs',
       gridOps: {
-        emptyTip: '没有工资'
+        emptyTip: '没有信息'
       },
       ajaxOps: {
         url: '/info/agentWages/list.json'
@@ -74,29 +73,6 @@ var SalaryManageView = SearchGrid.extend({
     $(document).addSalaryUser();
   },
 
-  dateSelectHandler:function (e) {
-    this.$('.js-selectDateGetList').removeClass('sd');
-    $(e.currentTarget).addClass('sd');
-
-    var recIndex = $(e.currentTarget).data('id');
-    var strToday = _(moment().add('days')).toDate();
-    this.$('.js-pf-end-time').val( strToday );
-
-    if (recIndex===1){
-      this.$('.js-pf-start-time').val( strToday );
-    }else if (recIndex===2){
-      this.$('.js-pf-start-time').val( _(moment().add('days',-3)).toDate() );
-    }else if (recIndex===3){
-      this.$('.js-pf-start-time').val( _(moment().add('days',-7)).toDate() );
-    }
-    else if (recIndex===4) {
-      this.$('.js-pf-start-time').val( strToday.slice(0,8) + '01' );
-    }
-
-    this.clickType = 1;
-    this.$('.js-select-submit').click();
-    this.clickType = 0;
-  },
 
   getSalary: function () {
     this.doRebateXhr()
@@ -197,4 +173,4 @@ var SalaryManageView = SearchGrid.extend({
   }
 });
 
-module.exports = SalaryManageView;
+module.exports = SalaryManageLowLeveView2;

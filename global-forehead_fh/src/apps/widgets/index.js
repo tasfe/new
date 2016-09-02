@@ -15,3 +15,4 @@ require('./editIcons');
 require('./rebate');
 require('./quota');
 require('./transfer');
+require('./addSalaryUser');

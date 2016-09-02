@@ -1,5 +1,5 @@
 body{
-	background: url('~base/images/fh/bg.png') no-repeat #f8f8f8;
+	background: url('~base/images/fh/bg.jpg') no-repeat #f8f8f8;
 	font-family: '微软雅黑';
 }
 
@@ -667,6 +667,7 @@ textarea{
 	border: 0px;
 	color: #fff;
 	margin-left: 10px;
+	cursor: pointer;
 }
 
 dl,dt,dd{
@@ -733,5 +734,123 @@ input:-webkit-autofill {
 .hidden-js-main-display2{
 	.js-main-display2{
 		display: none;
+	}
+}
+
+.julien-selectBtnList{
+	display: inline-block;
+	border: 1px solid #cccccc;
+	border-right: 0px;
+
+	&:after{
+		content: '';
+		clear: both;
+		display: block;
+	}
+
+	li{
+		display: inline-block;
+		float: left;
+		color: #666666;
+		border-right: 1px solid #cccccc;
+		padding: 3px 8px;
+		background: #fefefe;
+		background-image: -webkit-linear-gradient(#fff, #eaeaea);
+		background-image: linear-gradient(#fff, #eaeaea);
+		cursor: pointer;
+
+		&.sd,&:hover{
+			background-image:none;
+			background-color:#e0e0e0;
+		}
+	}
+}
+
+.julien-salaryUser-dialog{
+	.title{
+		font-size: 14px;
+		color: #999999;
+
+		span{
+			margin: 0px 10px 0px 15px;
+		}
+
+		input{
+			background-color: #f6f6f6;
+		}
+	}
+
+	.julien-salaryUser-list{
+		margin-top: 20px;
+		font-size: 14px;
+		color: #444444;
+		border: 1px solid #ccc;
+		border-bottom: 0px;
+		border-right: 0px;
+		margin-right: 30px;
+
+		ul{
+			text-align: center;
+			border-bottom: 1px solid #ccc;
+			background-color: #fff;
+			position: relative;
+
+			&.listTitle{
+				background-color: #f2f2f2;
+
+				li{
+					height: 38px;
+					line-height: 38px;
+				}
+			}
+
+			&:after{
+				content: '';
+				clear: both;
+				display: block;
+			}
+
+			li{
+				width: 36%;
+				float: left;
+				border-right: 1px solid #ccc;
+				height: 40px;
+				line-height: 40px;
+
+				select{
+					width: 60px;
+					background-color: #f6f6f6;
+					line-height: 18px;
+				}
+
+				input{
+					width: 70px;
+				}
+
+				&:last-child{
+					float:right;
+
+					i{
+						position: absolute;
+						right: -28px;
+						top: 7px;
+						font-style: inherit;
+					    display: inline-block;
+					    padding: 5px 8px;
+					    background-color: #cc0000;
+					    line-height: 16px;
+					    font-size: 16px;
+					    font-weight: bold;
+					    color: #fff;
+					    font-family: cursive;
+					    cursor: pointer;
+					}
+				}
+
+				&.widthP25{
+					width: 27%;
+				}
+			}
+		}
 	}
 }
