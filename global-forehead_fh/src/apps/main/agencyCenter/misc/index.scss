@@ -640,10 +640,12 @@
       >div{
         float: right;
         width: 75px;
-        padding-left: 20px;
+        padding-left: 10px;
         border-left: 1px solid #cccccc;
+        text-align: right;
 
         button{
+          margin: 0px;
           width: 62px;
           height: 30px;
           background-color: #ff6600;
@@ -684,6 +686,10 @@
 
   dl.width165{
     width: 165px;
+  }
+
+  dl.width255{
+    width: 255px;
   }
 
   dl.width285{
@@ -1055,12 +1061,12 @@
     padding: 0px 5px;
   }
 
+  dl.width128{
+    width: 128px;
+  }
+
   dl.width150{
     width: 150px;
-
-    dt{
-      margin-right: 0px;
-    }
   }
 
   dl.width185{
@@ -1084,5 +1090,36 @@
 .ac-cs-view{
   .julien-search-condition-table{
     margin-left: 20px;
+  }
+}
+
+.julien-ac-salary-my{
+  position: relative;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: -5px;
+  height: 5px;
+
+  .add-salary-user{
+    font-size: 14px;
+    color: #fff;
+    font-family: '微软雅黑';
+    background-color: #cd9967;
+    padding:5px 8px;
+    position: absolute;
+    right: 0px;
+    top: -45px;
+    cursor: pointer;
+  }
+}
+.julien-search-condition-table{
+  .row1{
+    ul{
+      margin: 2px 10px 0px -10px;
+      float: left;
+    }
+  }
+
+  select{
+    height: 30px;
   }
 }

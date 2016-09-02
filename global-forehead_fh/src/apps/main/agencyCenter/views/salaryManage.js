@@ -3,7 +3,8 @@
 var TabView = require('com/tabView');
 
 var SalaryManageMyView = require('agencyCenter/views/salaryManage-my');
-var OpenAccountManageAutoView = require('agencyCenter/views/openAccountManage-auto');
+var SalaryManageLowLevelView = require('agencyCenter/views/salaryManage-lowLevel');
+var SalaryManageLowLevelView2 = require('agencyCenter/views/salaryManage-lowLevel2');
 
 var OnlineRechargeView = TabView.extend({
 
@@ -28,15 +29,15 @@ var OnlineRechargeView = TabView.extend({
        },
        {
          label: '下级签约日工资',
-         name: 'auto',
-         id: 'jsAcAutoAccount',
-         view: OpenAccountManageAutoView
+         name: 'lS1',
+         id: 'jsSalaryManageLowLevelView',
+         view: SalaryManageLowLevelView
        },
        {
          label: '下级签约管理',
-         name: 'auto',
-         id: 'jsAcAutoAccount',
-         view: OpenAccountManageAutoView
+         name: 'lS2',
+         id: 'jsSalaryManageLowLevelView2',
+         view: SalaryManageLowLevelView2
        }
      ]
    });

@@ -202,7 +202,7 @@ var SecurityQuestionView = Base.ItemView.extend({
         Global.ui.notification.show('密保问题保存成功', {
           type: 'success',
           event: function() {
-            Global.router.goTo('#');
+            Global.router.goTo('#as/sq');
           },
           btnContent: '确定'
         });

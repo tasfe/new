@@ -34,7 +34,6 @@ var ReportManageView = SearchGrid.extend({
   },
 
   toggleseachHandler:function () {
-
     if($('.js-toggle-seach').hasClass('on')) {
 
       $('.search-condition-table .row2').addClass('hidden');
