@@ -3,16 +3,16 @@
 
   <div class="col-sm-3">
     <div class="form-group">
-      <label class="control-label m-right-sm">总代用户名：
+      <label class="control-label m-right-sm">上级用户名：
       </label>
-      <input class="form-control" type="text" name="usernaem" placeholder="" >
+      <input class="form-control" type="text" name="usernaem" placeholder="" data-parsley-username >
     </div>
   </div>
   <div class="col-sm-3">
     <div class="form-group">
-      <label class="control-label m-right-sm">一代用户名：
+      <label class="control-label m-right-sm">下级用户名：
       </label>
-      <input class="form-control" type="text" name="subUsername" placeholder=""  >
+      <input class="form-control" type="text" name="subUsername" placeholder="" data-parsley-username >
     </div>
   </div>
 
@@ -39,10 +39,10 @@
 
 <div class="row m-bottom-sm">
   <!--<div class="col-sm-6">-->
-    <!--<div class="form-group">-->
-      <!--<label class="control-label m-right-sm">申请日期：</label>-->
-      <!--<span class="js-fc-ac-timeSet"></span>-->
-    <!--</div>-->
+  <!--<div class="form-group">-->
+  <!--<label class="control-label m-right-sm">申请日期：</label>-->
+  <!--<span class="js-fc-ac-timeSet"></span>-->
+  <!--</div>-->
   <!--</div>-->
 
   <div class="col-sm-3">
@@ -64,21 +64,21 @@
   <div class="col-lg-12 pull-left form-group">
     <%if(Global.authority.fc && Global.authority.fc.ac && Global.authority.fc.ac.process){%>
     <button class="js-fc-ac-deal btn btn-success pull-left btn-sm" type="button"><i
-      class="fa fa-check-circle m-right-xs"></i>通&nbsp;&nbsp;过
+            class="fa fa-check-circle m-right-xs"></i>通&nbsp;&nbsp;过
     </button>
     <%}%>
     <%if(Global.authority.fc && Global.authority.fc.ac && Global.authority.fc.ac.notProcess){%>
     <button class="js-fc-ac-notDeal btn btn-danger pull-left m-left-sm btn-sm" type="button"><i
-      class="fa fa-ban m-right-xs"></i>不通过
+            class="fa fa-ban m-right-xs"></i>不通过
     </button>
     <%}%>
   </div>
   <div class="col-lg-12 pull-right form-group">
     <button class="wm-search-confirm btn btn-purple pull-right btn-sm" type="submit"><i
-      class="fa fa-search m-right-xs"></i>搜&nbsp;&nbsp;索
+            class="fa fa-search m-right-xs"></i>搜&nbsp;&nbsp;索
     </button>
     <button class="wm-search-reset btn btn-wt-default-purple pull-right m-right-sm btn-sm" type="reset"><i
-      class="fa fa-repeat m-right-xs"></i>重&nbsp;&nbsp;置
+            class="fa fa-repeat m-right-xs"></i>重&nbsp;&nbsp;置
     </button>
 
   </div>

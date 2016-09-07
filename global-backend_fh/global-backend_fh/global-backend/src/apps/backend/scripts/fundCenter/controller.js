@@ -43,6 +43,8 @@ define(function (require, exports, module) {
 
   var DailyDividManagementView = require('fundCenter/views/bonus-DailyDividManagement');
 
+  var SalesAccountManagementView = require('fundCenter/views/bonus-salesAccountManagement');
+
   var FundCenterController = RouterController.extend({
 
     rechargeRecord: function () {
@@ -147,6 +149,10 @@ define(function (require, exports, module) {
 
     dailyDividManagement:function(){
       this.changeMainReginView(new DailyDividManagementView())
+    },
+
+    salesAccountManagement: function () {
+      this.changeMainReginView(new SalesAccountManagementView());
     }
   });
 

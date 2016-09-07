@@ -15,6 +15,7 @@ define(function (require, exports, module) {
   var RecycleUserListView = require('userCenter/views/abnormalUser-recycleUserList');//回收用户
   var ResetUserListView = require('userCenter/views/abnormalUser-resetUserList');//用户申诉
   var QuotaManageView = require('userCenter/views/quotaManage');
+  var DropUserListView = require('userCenter/views/abnormalUser-dropUserList');//降點用戶記錄
 
   var UserCenterController = RouterController.extend({
 
@@ -62,6 +63,9 @@ define(function (require, exports, module) {
     },
     quotaManage:function(){
       this.changeMainReginView(new QuotaManageView());
+    },
+    dropUserListView:function(){
+      this.changeMainReginView(new DropUserListView());
     }
   });
 

@@ -34,11 +34,11 @@ define(function (require, exports, module) {
             width: '15%'
           },
           {
-            name: '总代用户名',
+            name: '上级用户名',
             width: '14%'
           },
           {
-            name: '一代用户名',
+            name: '下级用户名',
             width: '14%'
           },
           {
@@ -123,7 +123,7 @@ define(function (require, exports, module) {
       var row = [];
       if(dividend.tradeNo){
         if(Global.authority.fc && Global.authority.fc.ad && Global.authority.fc.ad.page ) {
-        row.push('<button data-id="' + dividend.tradeNo + '" class="js-fc-fm-account btn btn-link">'+dividend.tradeNo+'</button>');
+          row.push('<button data-id="' + dividend.tradeNo + '" class="js-fc-fm-account btn btn-link">'+dividend.tradeNo+'</button>');
         }else{
           row.push(dividend.tradeNo);
         }

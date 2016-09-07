@@ -2,7 +2,7 @@ define(function (require, exports, module) {
 
   var QuotaManageLevelOneView = Base.ItemView.extend({
 
-    template: require('text!userCenter/templates/quotaManage-levelZero.html'),
+    template: require('text!userCenter/templates/quotaManage-openSet.html'),
 
 
     events: {
@@ -39,17 +39,24 @@ define(function (require, exports, module) {
       });
     },
     renderBaseInfo: function (root) {
-     if(root && root.level130 && _(root.level130).size()==6){
-       var quotaNumArr = _(root.level130).sort(function(item){
-        return -item.rebate;
-       });
-       this.$('.js-uc-qm-quotaZero').val( quotaNumArr[0].quotaNum);
-       this.$('.js-uc-qm-quotaOne').val( quotaNumArr[1].quotaNum);
-       this.$('.js-uc-qm-quotaTwo').val( quotaNumArr[2].quotaNum );
-       this.$('.js-uc-qm-quotaThree').val(  quotaNumArr[3].quotaNum );
-       this.$('.js-uc-qm-quotaFour').val(  quotaNumArr[4].quotaNum );
-       this.$('.js-uc-qm-quotaFive').val( quotaNumArr[5].quotaNum);
-     }
+      if(root.sub130Open){
+        self.$('.sub130Open').attr("checked", true);
+      }
+      if(root.sub129Open){
+        self.$('.sub129Open').attr("checked", true);
+      }
+      if(root.sub128Open){
+        self.$('.sub128Open').attr("checked", true);
+      }
+      if(root.sub127Open){
+        self.$('.sub127Open').attr("checked", true);
+      }
+      if(root.sub126Open){
+        self.$('.sub126Open').attr("checked", true);
+      }
+      if(root.sub125Open){
+        self.$('.sub125Open').attr("checked", true);
+      }
     },
 
     saveQuotaHandler: function (e) {
@@ -59,35 +66,17 @@ define(function (require, exports, module) {
       var $currContainer = this.$('.js-uc-qm-level-form');
       var clpValidate = $currContainer.parsley().validate();
       if (clpValidate) {
-        var quota = [
-          {
-            rebate: 13.0,
-            quotaNum: this.$('.js-uc-qm-quotaZero').val()
-          },
-          {
-            rebate: 12.9,
-            quotaNum: this.$('.js-uc-qm-quotaOne').val()
-          },
-          {
-            rebate: 12.8,
-            quotaNum: this.$('.js-uc-qm-quotaTwo').val()
-          },
-          {
-            rebate: 12.7,
-            quotaNum: this.$('.js-uc-qm-quotaThree').val()
-          },
-          {
-            rebate: 12.6,
-            quotaNum: this.$('.js-uc-qm-quotaFour').val()
-          },
-          {
-            rebate: 12.5,
-            quotaNum: this.$('.js-uc-qm-quotaFive').val()
-          }];
+        var open = '';
+
+        $("[name='checkbox']").each(function(){
+          if($(this).prop('checked') == true){
+            open = open + $(this).val()+",";
+          }
+        })
 
         var params = {
-          level: 0,
-          quota: quota
+          level: 100,
+          open: open.substring(0,open.length-1)
         };
 
         this._saveQuotaData(params)

@@ -96,15 +96,15 @@ define(function (require, exports, module) {
       });
 
       this.grid.addRows({
-        columnEls: [
-          '<strong>总计</strong>',
-          '',
-          _(gridData.betTotal).fixedConvert2yuan(),
-          _(gridData.profitTotal).convert2yuan(),
-          '',
-          _(gridData.dividTotal).convert2yuan()
-        ]
-      })
+          columnEls: [
+            '<strong>总计</strong>',
+            '',
+            _(gridData.betTotal).fixedConvert2yuan(),
+            _(gridData.profitTotal).convert2yuan(),
+            '',
+            _(gridData.dividTotal).convert2yuan()
+          ]
+        })
         .hideLoading();
 
       this.$('.js-pf-search-bar').addClass('hidden');

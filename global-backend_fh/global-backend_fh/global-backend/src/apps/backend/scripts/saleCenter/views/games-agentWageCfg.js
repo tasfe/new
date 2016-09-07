@@ -13,7 +13,7 @@ define(function (require, exports, module) {
 
     initialize: function () {
     },
-  //发送请求
+    //发送请求
     _getRedCfgData: function (params) {
       return Global.sync.ajax({
         url: '/intra/activitymanage/wagescfgdetail.json',
@@ -56,8 +56,9 @@ define(function (require, exports, module) {
     _getTable: function (tableInfo, classValue) {
       this.staticGrid =this.$('.' + classValue).staticGrid({
         colModel: [
-          {label: '团队投注额（日）≥', name: 'salesVolume', width: 100},
-          {label: '工资比例', name: 'wagesVal', width: 120}
+          {label: '团队日销量≥', name: 'salesVolume', width: 100},
+          {label: '活跃用户量≥', name: 'validUser', width: 120},
+          {label: '奖励比例', name: 'wagesVal', width: 120}
         ],
         emptyTip: false,
         row: tableInfo
@@ -69,15 +70,17 @@ define(function (require, exports, module) {
       return _(cfgs).chain().map(function (cfg, index) {
           if(cfg.wagesType=="percent"){
             return {
-              'salesVolume': '<div><input type="text" name="itemList[' + index + '].salesVolume" class="form-control" required style="width:150px;" value="' + _(cfg.salesVolume).formatDiv(10000) + '" data-parsley-range="[0, 99999999]" data-parsley-type="integer" required><label class="control-label m-right-sm" style="margin-left: 20px;">元</label></div>',
-              'wagesVal': '<select class="js-wc-data-type form-control" style="margin-right:20px;" name="itemList[' + index + '].wagesType" ><option value="percent" selected>百分比</option><option value="fix">固定金额</option></select><input type="text" name="itemList[' + index + '].wagesVal" class="js-wc-wageVal form-control" style="width:150px;" data-parsley-range="[0, 100]" data-parsley-twoDecimal required value="' + _(cfg.wagesVal).formatDiv(100) + '"><label class="js-sc-wc-unit control-label m-right-sm" style="margin-left: 20px;">%</label>'+
+              salesVolume: '<div><input type="text" name="itemList[' + index + '].salesVolume" class="form-control" required style="width:150px;" value="' + _(cfg.salesVolume).formatDiv(10000) + '" data-parsley-range="[0, 99999999]" data-parsley-type="integer" required><label class="control-label m-right-sm" style="margin-left: 20px;">元</label></div>',
+              validUser: '<input type="text" name="itemList[' + index + '].validUser" class="form-control" required style="width:150px;" value="' + (cfg.validUser || '') + '" data-parsley-range="[0, 1000]" data-parsley-type="integer" required>',
+              wagesVal: '<select class="js-wc-data-type form-control" style="margin-right:20px;" name="itemList[' + index + '].wagesType" ><option value="percent" selected>百分比</option><option value="fix">固定金额</option></select><input type="text" name="itemList[' + index + '].wagesVal" class="js-wc-wageVal form-control" style="width:150px;" data-parsley-range="[0, 100]" data-parsley-twoDecimal required value="' + _(cfg.wagesVal).formatDiv(100) + '"><label class="js-sc-wc-unit control-label m-right-sm" style="margin-left: 20px;">%</label>'+
               '<button class="js-wc-del btn btn-danger btn-sm pull-right"><i class="fa fa-minus"></i> </button>'
             }
           }
           if(cfg.wagesType=="fix"){
             return {
-              'salesVolume': '<div><input type="text" name="itemList[' + index + '].salesVolume" class="form-control" required style="width:150px;" value="' + _(cfg.salesVolume).formatDiv(10000) + '" data-parsley-range="[0, 99999999]" data-parsley-type="integer" required><label class="control-label m-right-sm" style="margin-left: 20px;">元</label></div>',
-              'wagesVal': '<select class="js-wc-data-type form-control" style="margin-right:20px;" name="itemList[' + index + '].wagesType"><option value="percent" >百分比</option><option value="fix" selected>固定金额</option></select><input type="text" name="itemList[' + index + '].wagesVal" class="js-wc-wageVal form-control" style="width:150px;" data-parsley-range="[0, 99999999]" data-parsley-type="integer" required value="' + _(cfg.wagesVal).formatDiv(10000) + '"><label class="js-sc-wc-unit control-label m-right-sm" style="margin-left: 20px;">元</label>'+
+              salesVolume: '<div><input type="text" name="itemList[' + index + '].salesVolume" class="form-control" required style="width:150px;" value="' + _(cfg.salesVolume).formatDiv(10000) + '" data-parsley-range="[0, 99999999]" data-parsley-type="integer" required><label class="control-label m-right-sm" style="margin-left: 20px;">元</label></div>',
+              validUser: '<input type="text" name="itemList[' + index + '].validUser" class="form-control" required style="width:150px;" value="' + (cfg.validUser || '') + '" data-parsley-range="[0, 1000]" data-parsley-type="integer" required>',
+              wagesVal: '<select class="js-wc-data-type form-control" style="margin-right:20px;" name="itemList[' + index + '].wagesType"><option value="percent" >百分比</option><option value="fix" selected>固定金额</option></select><input type="text" name="itemList[' + index + '].wagesVal" class="js-wc-wageVal form-control" style="width:150px;" data-parsley-range="[0, 99999999]" data-parsley-type="integer" required value="' + _(cfg.wagesVal).formatDiv(10000) + '"><label class="js-sc-wc-unit control-label m-right-sm" style="margin-left: 20px;">元</label>'+
               '<button class="js-wc-del btn btn-danger btn-sm pull-right"><i class="fa fa-minus"></i> </button>'
             }
           }
@@ -102,9 +105,9 @@ define(function (require, exports, module) {
       var clpValidate = $currContainer.parsley().validate();
       if (clpValidate) {
         Global.sync.ajax({
-          url: '/intra/activitymanage/savewagescfg.json',
-          data: _($currContainer.serializeArray()).serializeObject()
-        })
+            url: '/intra/activitymanage/savewagescfg.json',
+            data: _($currContainer.serializeArray()).serializeObject()
+          })
           .always(function () {
             $target.button('reset');
           })
@@ -127,8 +130,9 @@ define(function (require, exports, module) {
     },
     addHandler: function() {
       this.staticGrid.addRows([{
-        'salesVolume': '<div><input type="text" name="itemList[' + this.lastIndex + '].salesVolume" class="form-control" data-parsley-range="[0, 99999999]" data-parsley-type="integer" required style="width:150px;"><label class="control-label m-right-sm" style="margin-left: 20px;">元</label></div>',
-        'wagesVal': '<select class="js-wc-data-type form-control" style="margin-right:20px;" name="itemList[' + this.lastIndex + '].wagesType" ><option value="percent" selected>百分比</option><option value="fix">固定金额</option></select><input type="text" name="itemList[' + this.lastIndex + '].wagesVal" class="js-wc-wageVal form-control" style="width:150px;" data-parsley-range="[0, 100]" data-parsley-twoDecimal required><label class="js-sc-wc-unit control-label m-right-sm" style="margin-left: 20px;">%</label>'+
+        salesVolume: '<div><input type="text" name="itemList[' + this.lastIndex + '].salesVolume" class="form-control" data-parsley-range="[0, 99999999]" data-parsley-type="integer" required style="width:150px;"><label class="control-label m-right-sm" style="margin-left: 20px;">元</label></div>',
+        validUser: '<input type="text" name="itemList[' + this.lastIndex + '].validUser" class="form-control" required style="width:150px;" data-parsley-range="[0, 1000]" data-parsley-type="integer" required>',
+        wagesVal: '<select class="js-wc-data-type form-control" style="margin-right:20px;" name="itemList[' + this.lastIndex + '].wagesType" ><option value="percent" selected>百分比</option><option value="fix">固定金额</option></select><input type="text" name="itemList[' + this.lastIndex + '].wagesVal" class="js-wc-wageVal form-control" style="width:150px;" data-parsley-range="[0, 100]" data-parsley-twoDecimal required><label class="js-sc-wc-unit control-label m-right-sm" style="margin-left: 20px;">%</label>'+
         '<button class="js-wc-del btn btn-danger btn-sm pull-right"><i class="fa fa-minus"></i> </button>'
       }], {
         eq: -1

@@ -39,15 +39,18 @@ define(function (require, exports, module) {
             });
         },
         renderBaseInfo: function (root) {
-            if(root && root.level2 && _(root.level2).size()==3){
-                var quotaNumArr = _(root.level2).sort(function(item){
+            if(root && root.level129 && _(root.level129).size()==5){
+                var quotaNumArr = _(root.level129).sort(function(item){
                     return -item.rebate;
                 });
-                this.$('.js-uc-qm-quotaTwo').val( quotaNumArr[0].quotaNum );
-                this.$('.js-uc-qm-quotaThree').val(  quotaNumArr[1].quotaNum );
-                this.$('.js-uc-qm-quotaFour').val(  quotaNumArr[2].quotaNum );
+                this.$('.js-uc-qm-quotaOne').val( quotaNumArr[0].quotaNum);
+                this.$('.js-uc-qm-quotaTwo').val( quotaNumArr[1].quotaNum );
+                this.$('.js-uc-qm-quotaThree').val(  quotaNumArr[2].quotaNum );
+                this.$('.js-uc-qm-quotaFour').val(  quotaNumArr[3].quotaNum );
+                this.$('.js-uc-qm-quotaFive').val( quotaNumArr[4].quotaNum);
             }
         },
+
         saveQuotaHandler: function (e) {
             var self = this;
             var $target = $(e.currentTarget);
@@ -56,18 +59,25 @@ define(function (require, exports, module) {
             var clpValidate = $currContainer.parsley().validate();
             if (clpValidate) {
                 var quota = [
-
                     {
-                        rebate: 12.7,
+                        rebate: 12.9,
+                        quotaNum: this.$('.js-uc-qm-quotaOne').val()
+                    },
+                    {
+                        rebate: 12.8,
                         quotaNum: this.$('.js-uc-qm-quotaTwo').val()
                     },
                     {
-                        rebate: 12.6,
+                        rebate: 12.7,
                         quotaNum: this.$('.js-uc-qm-quotaThree').val()
                     },
                     {
-                        rebate: 12.5,
+                        rebate: 12.6,
                         quotaNum: this.$('.js-uc-qm-quotaFour').val()
+                    },
+                    {
+                        rebate: 12.5,
+                        quotaNum: this.$('.js-uc-qm-quotaFive').val()
                     }];
 
                 var params = {
@@ -79,13 +89,13 @@ define(function (require, exports, module) {
                   .always(function(){
                       $target.button('reset');
                   }).done(function (res) {
-                      if (res.result === 0) {
-                          Global.ui.notification.show('操作成功。');
-                      } else {
-                          Global.ui.notification.show('操作失败。');
-                      }
-                  }).fail(function () {
-                  });
+                    if (res.result === 0) {
+                        Global.ui.notification.show('操作成功。');
+                    } else {
+                        Global.ui.notification.show('操作失败。');
+                    }
+                }).fail(function () {
+                });
             }else{
                 $target.button('reset');
             }

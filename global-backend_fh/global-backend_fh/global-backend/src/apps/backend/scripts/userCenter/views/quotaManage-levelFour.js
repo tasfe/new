@@ -39,10 +39,17 @@ define(function (require, exports, module) {
             });
         },
         renderBaseInfo: function (root) {
-            if(root && root.level4 && _(root.level4).size()==1){
-                this.$('.js-uc-qm-quotaFour').val(  root.level4[0].quotaNum );
+            if(root && root.level128 && _(root.level128).size()==4){
+                var quotaNumArr = _(root.level128).sort(function(item){
+                    return -item.rebate;
+                });
+                this.$('.js-uc-qm-quotaTwo').val( quotaNumArr[0].quotaNum );
+                this.$('.js-uc-qm-quotaThree').val(  quotaNumArr[1].quotaNum );
+                this.$('.js-uc-qm-quotaFour').val(  quotaNumArr[2].quotaNum );
+                this.$('.js-uc-qm-quotaFive').val( quotaNumArr[3].quotaNum);
             }
         },
+
         saveQuotaHandler: function (e) {
             var self = this;
             var $target = $(e.currentTarget);
@@ -52,8 +59,20 @@ define(function (require, exports, module) {
             if (clpValidate) {
                 var quota = [
                     {
-                        rebate: 12.5,
+                        rebate: 12.8,
+                        quotaNum: this.$('.js-uc-qm-quotaTwo').val()
+                    },
+                    {
+                        rebate: 12.7,
+                        quotaNum: this.$('.js-uc-qm-quotaThree').val()
+                    },
+                    {
+                        rebate: 12.6,
                         quotaNum: this.$('.js-uc-qm-quotaFour').val()
+                    },
+                    {
+                        rebate: 12.5,
+                        quotaNum: this.$('.js-uc-qm-quotaFive').val()
                     }];
 
                 var params = {
@@ -65,13 +84,13 @@ define(function (require, exports, module) {
                   .always(function(){
                       $target.button('reset');
                   }).done(function (res) {
-                      if (res.result === 0) {
-                          Global.ui.notification.show('操作成功。');
-                      } else {
-                          Global.ui.notification.show('操作失败。');
-                      }
-                  }).fail(function () {
-                  });
+                    if (res.result === 0) {
+                        Global.ui.notification.show('操作成功。');
+                    } else {
+                        Global.ui.notification.show('操作失败。');
+                    }
+                }).fail(function () {
+                });
             }else{
                 $target.button('reset');
             }

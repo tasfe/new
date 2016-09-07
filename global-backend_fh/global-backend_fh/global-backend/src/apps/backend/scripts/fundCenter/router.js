@@ -28,6 +28,7 @@ define(function(require, exports, module) {
       'fc/fm': 'firstGenerationMan',
       'fc/su': 'signUserRecord',
       'fc/ac': 'auditRescindContract',
+      'fc/sm': 'salesAccountManagement',
 
       'fc/grc': 'redPacketRule',
       'fc/grr': 'redPacketList',

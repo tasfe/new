@@ -2,143 +2,100 @@
   <form class="js-fc-gs-form form-horizontal" action="javascript:void(0);">
     <div class="form-group ">
       <div class="col-sm-12">
-        <button class="btn btn-sm btn-primary  js-fc-gs-add1960BonusSet-btn ">增加1960分红段</button>
-        <span class="tip m-left-lg">提示：此处的日代表平均日量，新增的分红比例和日投注额要比之前的数值大。</span>
+        <button class="btn btn-sm btn-primary  js-fc-gs-addBonusSet-btn ">增加分红段</button>
+        <span class="tip m-left-lg">提示：新增的分红比例和月销量要比之前的数值大。</span>
       </div>
     </div>
-    <div class="js-fc-gs-1960container"></div>
+    <div class="js-fc-gs-container"></div>
 
-    <div class="form-group ">
-      <div class="col-sm-12">
-        <button class="btn btn-sm btn-primary  js-fc-gs-add1956BonusSet-btn ">增加1956分红段</button>
-        <span class="tip m-left-lg">提示：此处的日代表平均日量，新增的分红比例和日投注额要比之前的数值大。</span>
-      </div>
-    </div>
-    <div class="js-fc-gs-1956container"></div>
+    <div class="form-group form-inline ">
+      <div class="col-sm-12 col-sm-offset-1 form-group form-inline border-all padding-sm m-left-sm">
+        <label class="col-sm-2 control-label m-bottom-sm ">总代可分红范围：</label>
 
-
-
-    <div class="form-group ">
-      <div class="col-sm-12">
-        <label class=" control-label m-bottom-sm ">日分红设置：</label>
-      </div>
-    </div>
-
-    <div class="js-fc-gs-dailyBonuscontainer border-all">
-      <div class="form-group form-inline js-fc-gs-bonusSet ">
-      <div class="col-sm-12 form-group form-inline  padding-sm m-left-sm">
-        <label class="col-sm-2 control-label m-bottom-sm ">时间：</label>
-        <div class="col-sm-4 m-bottom-sm ">
+        <div class="col-sm-4 m-bottom-sm">
           <div class="form-group form-inline">
-            <div class="input-group">
-              <span class="js-fc-timeset inline-block"></span>
+            <div class="col-sm-5 input-group">
+              <input type="text" class="form-control js-fc-gs-rateRange-min input-sm" data-parsley-range="[0.01, 100]"
+                     data-parsley-twoDecimal required>
+
+              <div class="input-group-addon">%</div>
+            </div>
+            <div class="col-sm-1 input-group text-center"><label>-</label></div>
+            <div class="col-sm-5 input-group">
+              <input type="text" class="form-control js-fc-gs-rateRange-max input-sm" data-parsley-range="[0.01, 100]"
+                     data-parsley-twoDecimal required>
+
+              <div class="input-group-addon">%</div>
+            </div>
+
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+    <div class="form-group form-inline ">
+      <div class="col-sm-12 col-sm-offset-1 form-group form-inline border-all padding-sm m-left-sm">
+        <label class="col-sm-2 control-label m-bottom-sm ">13.0直属总代可签约名额：</label>
+
+        <div class="col-sm-2 m-bottom-sm ">
+          <div class="form-group form-inline">
+            <div class="col-sm-12 input-group">
+              <input type="text" class="form-control js-fc-gs-signNum" data-parsley-range="[1, 10000]"
+                     data-parsley-type="integer" required>
+
+              <div class="input-group-addon">个</div>
             </div>
           </div>
         </div>
 
-        <label class="col-sm-2 control-label m-bottom-sm ">用户类型：</label>
+        <label class="col-sm-2 control-label m-bottom-sm ">13.0平级总代可签约名额：</label>
+
+        <div class="col-sm-2 m-bottom-sm ">
+          <div class="form-group form-inline">
+            <div class="col-sm-12 input-group">
+              <input type="text" class="form-control js-fc-gs-signNum" data-parsley-range="[1, 10000]"
+                     data-parsley-type="integer" required>
+
+              <div class="input-group-addon">个</div>
+            </div>
+          </div>
+        </div>
+
+        <label class="col-sm-2 control-label m-bottom-sm ">12.8及以下代理可签约名额：</label>
+
+        <div class="col-sm-2 m-bottom-sm ">
+          <div class="form-group form-inline">
+            <div class="col-sm-12 input-group">
+              <input type="text" class="form-control js-fc-gs-signNum" data-parsley-range="[1, 10000]"
+                     data-parsley-type="integer" required>
+
+              <div class="input-group-addon">个</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="form-group form-inline ">
+      <div class="col-sm-12 col-sm-offset-1 form-group form-inline border-all padding-sm m-left-sm">
+        <label class="col-sm-2 control-label m-bottom-sm ">代理（包含总代）可签约用户返点≥：</label>
+
         <div class="col-sm-4 m-bottom-sm ">
           <div class="form-group form-inline">
             <div class="col-sm-12 input-group">
-              <input type="text" class="form-control js-fc-rebate"  required="">
+              <input type="text" class="form-control js-fc-gs-signRebate" data-parsley-range="[0, 100]"
+                     data-parsley-type-oneDecimal required>
+
+              <div class="input-group-addon">%</div>
             </div>
           </div>
         </div>
+        <div class="col-sm-6 m-bottom-sm "></div>
       </div>
-
-        <div class="col-sm-12 form-group form-inline  padding-sm m-left-sm">
-          <label class="col-sm-2 control-label m-bottom-sm ">团队亏损：</label>
-          <div class="col-sm-4 m-bottom-sm ">
-            <div class="form-group form-inline">
-              <div class="input-group">
-                <input type="text" class="form-control js-fc-profit" name="profit">
-                <div class="input-group-addon">元</div>
-              </div>
-            </div>
-          </div>
-
-          <label class="col-sm-2 control-label  ">亏损分红：</label>
-          <div class="col-sm-4 m-bottom-sm ">
-            <div class="form-group form-inline">
-              <div class="col-sm-12 input-group">
-                <input type="text" class="form-control js-fc-dividRate"  required="">
-                <div class="input-group-addon">%</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-        <div class="col-sm-12 form-group form-inline  padding-sm m-left-sm">
-          <label class="col-sm-2 control-label m-bottom-sm ">分红封顶：</label>
-          <div class="col-sm-4 m-bottom-sm ">
-            <div class="form-group form-inline">
-              <div class="input-group">
-                <input type="text" class="form-control js-fc-maxAmount" name="profit">
-                <div class="input-group-addon">元</div>
-              </div>
-            </div>
-          </div>
-        </div>
     </div>
-    </div>
-
-    <!--<div class="form-group form-inline ">-->
-      <!--<div class="col-sm-12 col-sm-offset-1 form-group form-inline border-all padding-sm m-left-sm">-->
-        <!--<label class="col-sm-2 control-label m-bottom-sm ">总代可分红范围：</label>-->
-
-        <!--<div class="col-sm-4 m-bottom-sm">-->
-          <!--<div class="form-group form-inline">-->
-            <!--<div class="col-sm-5 input-group">-->
-              <!--<input type="text" class="form-control js-fc-gs-rateRange-min input-sm" data-parsley-range="[0.01, 100]"-->
-                     <!--data-parsley-twoDecimal required>-->
-
-              <!--<div class="input-group-addon">%</div>-->
-            <!--</div>-->
-            <!--<div class="col-sm-1 input-group text-center"><label>-</label></div>-->
-            <!--<div class="col-sm-5 input-group">-->
-              <!--<input type="text" class="form-control js-fc-gs-rateRange-max input-sm" data-parsley-range="[0.01, 100]"-->
-                     <!--data-parsley-twoDecimal required>-->
-
-              <!--<div class="input-group-addon">%</div>-->
-            <!--</div>-->
-
-          <!--</div>-->
-        <!--</div>-->
-        <!--<label class="col-sm-2 control-label m-bottom-sm ">总代可签约名额：</label>-->
-
-        <!--<div class="col-sm-3 m-bottom-sm ">-->
-          <!--<div class="form-group form-inline">-->
-            <!--<div class="col-sm-12 input-group">-->
-              <!--<input type="text" class="form-control js-fc-gs-signNum" data-parsley-range="[1, 10000]"-->
-                     <!--data-parsley-type="integer" required>-->
-
-              <!--<div class="input-group-addon">个</div>-->
-            <!--</div>-->
-          <!--</div>-->
-        <!--</div>-->
-        <!--<div class="col-sm-1 m-bottom-sm "></div>-->
-
-      <!--</div>-->
-    <!--</div>-->
-
-    <!--<div class="form-group form-inline ">-->
-      <!--<div class="col-sm-12 col-sm-offset-1 form-group form-inline border-all padding-sm m-left-sm">-->
-        <!--<label class="col-sm-2 control-label m-bottom-sm ">总代可签约用户返点：</label>-->
-
-        <!--<div class="col-sm-4 m-bottom-sm ">-->
-          <!--<div class="form-group form-inline">-->
-            <!--<div class="col-sm-12 input-group">-->
-              <!--<input type="text" class="form-control js-fc-gs-signRebate" data-parsley-range="[0, 100]"-->
-                     <!--data-parsley-type-oneDecimal required>-->
-
-              <!--<div class="input-group-addon">%</div>-->
-            <!--</div>-->
-          <!--</div>-->
-        <!--</div>-->
-        <!--<div class="col-sm-6 m-bottom-sm "></div>-->
-      <!--</div>-->
-    <!--</div>-->
     <div class="form-group form-inline">
       <div class="col-sm-offset-2 col-sm-10 js-fc-gs-notice"></div>
     </div>

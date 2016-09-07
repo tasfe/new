@@ -24,11 +24,11 @@ define(function (require, exports, module) {
             width: '15%'
           },
           {
-            name: '总代用户名',
+            name: '上级用户名',
             width: '15%'
           },
           {
-            name: '一代用户名',
+            name: '下级用户名',
             width: '15%'
           },
           {
@@ -177,9 +177,9 @@ define(function (require, exports, module) {
         {
           title:  '查看',
           body: '<div class="js-fc-gm-Check-container margin-sm">' +
-                    '<div class="m-bottom-sm  margin-sm inline-block">签约失效日期：'+detail.cancelDate+
-                    '</div><div class="border-all margin-sm padding-sm">'+detail.remarks+'</div>'+
-                '</div>',
+          '<div class="m-bottom-sm  margin-sm inline-block">签约失效日期：'+detail.cancelDate+
+          '</div><div class="border-all margin-sm padding-sm">'+detail.remarks+'</div>'+
+          '</div>',
           footer: ''
         }
       );

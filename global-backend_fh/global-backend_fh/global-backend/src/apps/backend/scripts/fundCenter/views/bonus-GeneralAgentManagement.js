@@ -36,8 +36,8 @@ define(function (require, exports, module) {
             width: '10%'
           },
           {
-            name: '级别',
-            width: '7%'
+            name: '所属招商号',
+            width: '10%'
           },
           {
             name: '团队投注金额',
@@ -49,11 +49,11 @@ define(function (require, exports, module) {
           },
           {
             name: '分红比例',
-            width: '10%'
+            width: '5%'
           },
           {
             name: '分红金额',
-            width: '10%'
+            width: '5%'
           },
           {
             name: '状态',
@@ -142,13 +142,7 @@ define(function (require, exports, module) {
       }
       row.push(dividend.cycle);
       row.push(dividend.subUsername || '');
-      var level = '';
-      if(dividend.userRebate==='130'){
-        level = '1960(13.0)';
-      }else if(dividend.userRebate==='128'){
-        level = '1956(12.8)';
-      }
-      row.push(level);
+      row.push(dividend.username);
       row.push(_(dividend.betTotal).fixedConvert2yuan());
       row.push( _(dividend.profitTotal).convert2yuan());
       row.push(_(dividend.divid).formatDiv(100, {fixed: 0}));

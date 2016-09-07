@@ -2,53 +2,58 @@ define(function (require, exports, module) {
 
   require('prefab/views/searchGrid');
 
-
-  var DividendAuditView = require('fundCenter/views/bonus-AuditRescindContract-Audit');
+  var DividendAuditView = require('fundCenter/views/bonus-salesAccountManagement-Audit');
   var fundStatusConfig = require('fundCenter/misc/fundStateTDConfig');
 
-  var operateCheckView = Base.Prefab.SearchGrid.extend({
+  var SalesAccountManagementView = Base.Prefab.SearchGrid.extend({
 
-    template: require('text!fundCenter/templates/bonus-AuditRescindContract.html'),
+    template: require('text!fundCenter/templates/bonus-salesAccountManagement.html'),
     status_template: require('text!fundCenter/templates/fund-StatusTD-Temp.html'),
 
     events: {
-      'click .js-fc-ac-deal': 'dealWithdrawHandler',
-      'click .js-fc-ac-notDeal': 'notDealWithdrawHandler',
-      'click .js-fc-ac-log': 'checkRescindDetailHandler'
+      'click .js-fc-sm-deal': 'dealWithdrawHandler',
+      'click .js-fc-sm-notDeal': 'notDealWithdrawHandler',
+      'click .js-fc-gm-account':'userAccountHandler',
+      'change .js-fc-gm-dr': 'settleDateChangeHandler',
+      'click .js-fc-gm-log':'checkLogHandler'
     },
 
     initialize: function () {
       _(this.options).extend({
-        tableClass: '',
+        tableClass: '招商号分红管理',
         checkable: true,
         columns: [
           {
-            name: '签约时间',
+            name: '流水号',
             width: '15%'
           },
           {
-            name: '上级用户名',
+            name: '月份',
+            width: '15%'
+          },
+          {
+            name: '用户名',
             width: '10%'
           },
           {
-            name: '下级用户名',
+            name: '下级团队月度总盈亏',
+            width: '10%'
+          },
+          {
+            name: '下级直属号月度总分红',
+            width: '10%'
+          },
+          {
+            name: '招商号月度返点总额',
             width: '10%'
           },
           {
             name: '分红比例',
-            width: '10%'
+            width: '5%'
           },
           {
-            name: '协议内容',
-            width: '10%'
-          },
-          {
-            name: '申请原因',
-            width: '15%'
-          },
-          {
-            name: '签约预计失效时间',
-            width: '10%'
+            name: '分红金额',
+            width: '5%'
           },
           {
             name: '状态',
@@ -63,19 +68,19 @@ define(function (require, exports, module) {
           emptyTip: '无记录'
         },
         ajaxOps: {
-          url: '/intra/dividmng/cancellist.json'
+          url: '/intra/merchantdividmng/list.json'
         }
       });
     },
 
     getCheckUserListXhr: function(){
       return Global.sync.ajax({
-        url: '/intra/dividmng/canceloperator.json '
+        url: '/intra/merchantdividmng/genoperator.json'
       });
     },
-    dealRescindXhr: function(data){
+    dealDividendXhr: function(data){
       return Global.sync.ajax({
-        url: '/intra/dividmng/cancelapprove.json ',
+        url: '/intra/merchantdividmng/approve.json',
         data:data
       });
     },
@@ -91,11 +96,13 @@ define(function (require, exports, module) {
               text: user.username
             }
           });
-          self.renderSelect(optionData,self.$('.js-fc-ac-operatorId'))
+          self.renderSelect(optionData,self.$('.js-fc-sm-operatorId'))
         }else{
           Global.ui.notification.show('操作失败。');
         }
       });
+      this.generateSettlementOption(this.$('.js-fc-gm-dr'));
+      this.$('.js-fc-gm-dr').trigger('change');
       Base.Prefab.SearchGrid.prototype.onRender.apply(this, arguments);
     },
     renderSelect:function(data,$select){
@@ -107,11 +114,11 @@ define(function (require, exports, module) {
       $select.append(options.join(''));
     },
     renderGrid: function (gridData) {
-      var rowsData = _(gridData.cancelList).map(function (dividend, index) {
+      var rowsData = _(gridData.dividList).map(function (dividend, index) {
         return {
           columnEls: this.formatRowData(dividend, index),
           dataAttr: dividend,
-          needCheck: dividend.status===0
+          needCheck: dividend.status===3
         };
       }, this);
 
@@ -119,34 +126,42 @@ define(function (require, exports, module) {
         pageIndex: this.filterHelper.get('pageIndex'),
         initPagination: true
       });
-      this.bindPopoverHandler(gridData.cancelList);
-
       //加上统计行
       this.grid.hideLoading();
     },
-
     formatRowData: function(dividend){
       var row = [];
-      row.push(_(dividend.agreeDate).formatTime());
-      row.push(dividend.username);
-      row.push(dividend.subUsername);
-      row.push( _(dividend.divid).formatDiv(100,{fixed:2})+'%');
-      row.push('<a class="js-fc-su-agreement btn btn-link">点击查看</a>');
-      row.push(dividend.remark);
-      row.push(dividend.effectDate);
+      if(dividend.tradeNo){
+        if(Global.authority.fc && Global.authority.fc.ad && Global.authority.fc.ad.page ) {
+          row.push('<button data-id="' + dividend.tradeNo + '"  class="js-fc-sm-account btn btn-link">'+dividend.tradeNo+'</button>');
+        }else{
+          row.push(dividend.tradeNo);
+        }
+      }else{
+        row.push('');
+      }
+      row.push(dividend.month);
+      row.push(dividend.userName);
+      row.push(_(dividend.profitTotal).formatDiv(10000, {fixed: 4}));
+      row.push(_(dividend.dividTotal).formatDiv(10000, {fixed: 4}));
+      row.push(_(dividend.bonusTotal).formatDiv(10000, {fixed: 4}));
+      row.push(_(dividend.divid).formatDiv(100, {fixed: 2}));
+      row.push(_(dividend.dividAmount).convert2yuan());
+      //status:0 // 状态：0待发放，1已发放，2不发放，3未申请
       var status = '';
       switch(dividend.status){
-        case 0: status='待审核';break;
-        case 1: status='已通过';break;
-        case 2: status='不通过';break;
+        case 0: status='未申请';break;
+        case 1: status='已发放';break;
+        case 2: status='不发放';break;
+        case 3: status='待审核';break;
+        case 9: status='统计中';break;
       }
       row.push(_(this.status_template).template()({code:fundStatusConfig.getCodeByStatus(status),status:status}));
-      if(dividend.status===1 || dividend.status===2){
-        row.push( '<a class="js-fc-ac-log btn btn-link no-padding" >日志</a>');
+      if(dividend.status===2 || dividend.status===1){
+        row.push( '<a class="js-fc-gm-log btn btn-link no-padding" >日志</a>');
       }else{
         row.push( '');
       }
-      //不通过 -1全部，0待审核，1已通过，2不通过
 
       return row;
     },
@@ -160,49 +175,48 @@ define(function (require, exports, module) {
     },
     getCheckedData: function(){
       var checkedData = this.grid.getChk();
-      var cancelIdList = [];
+      var dividIdList = [];
       var usernameList = [];
 
       _(checkedData.$rows).each(function(row,index,$rows){
-        cancelIdList.push($(row).data('cancelid'));
-        usernameList.push($(row).data('subusername'));
+        dividIdList.push($(row).data('dividid'));
+        usernameList.push($(row).data('username'));
       });
       return {
-        cancelIdList: cancelIdList,
+        dividIdList: dividIdList,
         usernameList: usernameList
       }
     },
     //弹出处理窗口
     propDividendDealModel: function (type,data) {
       var self = this;
-      if(_(data.cancelIdList).size()===0){
+      if(_(data.dividIdList).size()===0){
         Global.ui.notification.show('请先选择需要处理的数据。');
         return false;
       }
       var $dialog = Global.ui.dialog.show(
         {
           title:  '提示',
-          body: '<div class="js-fc-ac-Check-container"></div>',
+          body: '<div class="js-fc-sm-Check-container"></div>',
           footer: ''
         }
       );
       _(data).extend({
         type: type
       });
-      var $checkDividendContainer = $dialog.find('.js-fc-ac-Check-container');
+      var $checkDividendContainer = $dialog.find('.js-fc-sm-Check-container');
       var dividendAuditView = new DividendAuditView(data);
       $checkDividendContainer.html(dividendAuditView.render().el);
 
       $dialog.on('hidden.bs.modal', function () {
         $(this).remove();
       });
-      var $notice = $dialog.find('.js-fc-ac-deal-notice');
+      var $notice = $dialog.find('.js-fc-sm-deal-notice');
       $dialog.off('click.saveInfo')
-        .on('click.saveInfo', '.js-fc-ac-audit-submit', function (ev) {
+        .on('click.saveInfo', '.js-fc-sm-audit-submit', function (ev) {
           var $target = $(ev.currentTarget);
           $target.button('loading');
-
-          var clpValidate = $dialog.find('.js-fc-ac-deal-form').parsley().validate();
+          var clpValidate = $dialog.find('.js-fc-sm-deal-form').parsley().validate();
           if (clpValidate) {
             //var type = $(ev.currentTarget).data('type');
             var status;
@@ -213,10 +227,10 @@ define(function (require, exports, module) {
             }
             var data2 = {
               status: status,
-              cancelId: data.cancelIdList.join(','),
-              remark: $dialog.find('.js-fc-ac-deal-remark').val()
+              dividId: data.dividIdList.join(','),
+              remark: $dialog.find('.js-fc-sm-deal-remark').val()
             };
-            self.dealRescindXhr(data2).always(function () {
+            self.dealDividendXhr(data2).always(function () {
               $target.button('reset');
             }).fail(function () {
 
@@ -235,53 +249,69 @@ define(function (require, exports, module) {
 
         });
     },
-    bindPopoverHandler: function(cancelList){
-      var self = this;
-      _(cancelList).each(function(agree,index){
-        var agreementLink = self.$('.js-fc-su-agreement');
-        if(_(agreementLink).size()>=index){
-          $(agreementLink[index]).popover({
-            title: '协议内容',
-            trigger: 'click',
-            html: true,
-            container: 'body',
-            content: '<div class="js-pf-popover"><span class="word-break">'+ agree.agreement +'</span></div>',
-            placement: 'right'
-          });
-        }
-      });
+    userAccountHandler:function(e){
+      var $target = $(e.currentTarget);
+      Global.appRouter.navigate(_('#fc/ad').addHrefArgs({
+        _t:_.now(),
+        tradeNo:$target.data('id')
+      }), {trigger: true, replace: false});
     },
-    checkRescindDetailHandler: function(e){
+
+    generateSettlementOption: function($target){
+      var now = moment().format('YYYY-MM-DD');
+      var size = 12;
+      var optionArr = [];
+      _(size).times(function(n){
+        var newData = moment(now).subtract(n,'month');
+        var newFirstDay = moment(newData).startOf('month');
+        var newMidEndDate = moment(newFirstDay).add(14,'day');
+        var newMidStartDate = moment(newFirstDay).add(15,'day');
+        var newEndDay = moment(newData).endOf('month');
+        var range1 = newMidStartDate.format('YYYY/MM/DD') + '-' + newEndDay.format('YYYY/MM/DD');
+        var range2 = newFirstDay.format('YYYY/MM/DD')+'-'+newMidEndDate.format('YYYY/MM/DD');
+        if((n===0 && moment(now).isAfter(newMidEndDate.format('YYYY-MM-DD')))|| n!==0) {
+          optionArr.push('<option value="'+range1+'">' + range1 + '</option>');
+        }
+        optionArr.push('<option value="'+range2+'">'+range2+'</option>');
+      });
+      $target.html(optionArr.join(''));
+    },
+    settleDateChangeHandler: function(e){
+      var dateArr = $(e.currentTarget).val().split('-');
+      if(_(dateArr).size()===2){
+        var start = moment(dateArr[0],'YYYY/MM/DD').format('YYYY-MM-DD');
+        var end = moment(dateArr[1],'YYYY/MM/DD').format('YYYY-MM-DD');
+        this.$('.js-fc-gm-sd').val(start);
+        this.$('.js-fc-gm-ed').val(end);
+      }else{
+        this.$('.js-fc-gm-sd').val('');
+        this.$('.js-fc-gm-ed').val('');
+      }
+    },
+    checkLogHandler: function(e){
       var self = this;
       var $target = $(e.currentTarget);
-      //var agreeId = $target.closest('tr').data('agreeid');
-      //this.getRescindDetailXhr({
-      //  agreeId: agreeId
-      //}).done(function(res){
-      //  if(res.result===0){
-      //    self.propupRescindDetail(res.root);
-      //  }else{
-      //    Global.ui.notification.show('操作失败。');
-      //  }
-      //});
-
-      var cancelDate = $target.closest('tr').data('operatetime');
+      var effectDate = $target.closest('tr').data('givetime');
       var operator = $target.closest('tr').data('operator');
-      var remarks = $target.closest('tr').data('rejectremark');
+      var remarks = $target.closest('tr').data('remarks');
       remarks = (_(remarks).isUndefined()||_(remarks).isNull())?'': remarks;
 
       self.propupRescindDetail({
-        cancelDate:cancelDate,
+        effectDate:effectDate,
         operator:operator,
         remarks:remarks
       });
+
     },
     propupRescindDetail: function(detail){
+      //cancelDate:121313131, // 解约时间
+      //  remark:"",		// 解约原因
+      //  operator:""		// 操作人
       var $dialog = Global.ui.dialog.show(
         {
           title:  '查看',
           body: '<div class="js-fc-gm-Check-container margin-sm">' +
-          '<div class="margin-sm inline-block">解约时间：'+_(detail.cancelDate).formatTime()+
+          '<div class="margin-sm inline-block">操作时间：'+_(detail.effectDate).formatTime()+
           '</div><div class="margin-sm m-left-lg inline-block">'+detail.operator+'</div>'+
           ( (detail.remarks==='')? '':( '<div class="border-all margin-sm padding-sm">'+detail.remarks+'</div>'))+
           '</div>',
@@ -295,5 +325,5 @@ define(function (require, exports, module) {
 
   });
 
-  module.exports = operateCheckView;
+  module.exports = SalesAccountManagementView;
 });

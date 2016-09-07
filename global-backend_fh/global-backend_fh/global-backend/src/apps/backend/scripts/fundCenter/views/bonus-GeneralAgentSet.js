@@ -6,8 +6,7 @@ define(function (require, exports, module) {
     amountAndRate_tpl: require('text!fundCenter/templates/bonus-GeneralAgentSet-AmountAndRateTpl.html'),
 
     events: {
-      'click .js-fc-gs-add1960BonusSet-btn': 'add1960BonusSetHandler',
-      'click .js-fc-gs-add1956BonusSet-btn': 'add1956BonusSetHandler',
+      'click .js-fc-gs-addBonusSet-btn': 'addBonusSetHandler',
       'click .js-fc-gs-del': 'delBonusSetHandler',
       'click .js-fc-gs-submit': 'saveBonusSetHandler',
       'click .js-fc-gs-cancel': 'cancelHandler'
@@ -30,66 +29,44 @@ define(function (require, exports, module) {
     },
     onRender: function () {
       var self = this;
-      //初始化时间选择
-      this.timeset = new Global.Prefab.Timeset({
-        el: this.$('.js-fc-timeset'),
-        startTime: 'fromTime',
-        endTime: 'endTime',
-        showToday: true
-      }).render();
-
-      this.$1960container = this.$('.js-fc-gs-1960container');
-      this.$1956container = this.$('.js-fc-gs-1956container');
-      //this.$bonusRateMin = this.$('.js-fc-gs-rateRange-min');
-      //this.$bonusRateMax = this.$('.js-fc-gs-rateRange-max');
-      //this.$signNum = this.$('.js-fc-gs-signNum');
-      //this.$signRebate = this.$('.js-fc-gs-signRebate');
+      this.$container = this.$('.js-fc-gs-container');
+      this.$bonusRateMin = this.$('.js-fc-gs-rateRange-min');
+      this.$bonusRateMax = this.$('.js-fc-gs-rateRange-max');
+      this.$signNum = this.$('.js-fc-gs-signNum');
+      this.$signRebate = this.$('.js-fc-gs-signRebate');
 
       this.findBonusSetXhr()
         .fail(function(){
         }).done(function(res){
-          if(res.result===0){
-            self.$('.js-start-time').val(_(res.root.dailyCfg.fromTime).toTime());
-            self.$('.js-end-time').val(_(res.root.dailyCfg.endTime).toTime());
-            self.$('.js-fc-rebate').val(_(res.root.dailyCfg.rebate).formatDiv(10));
-            self.$('.js-fc-profit').val(_(res.root.dailyCfg.profitAmount).formatDiv(10000));
-            self.$('.js-fc-dividRate').val(_(res.root.dailyCfg.dividRate).formatDiv(10000));
-            self.$('.js-fc-maxAmount').val(_(res.root.dailyCfg.maxAmount).formatDiv(10000));
-
-            self.generateBonusSetTr(_(_(res.root.dividBetCfgMap).pick('130')).values()||[],self.$1960container);
-            self.generateBonusSetTr(_(_(res.root.dividBetCfgMap).pick('128')).values()||[],self.$1956container);
-            //self.fillBaseInfo(res.root);
-          }else{
-            this.insertNotice('处理信息获取失败'+res.msg);
-          }
-        });
+        if(res.result===0){
+          self.generateBonusSetTr(res.root.dividBetCfgList);
+          self.fillBaseInfo(res.root);
+        }else{
+          this.insertNotice('处理信息获取失败'+res.msg);
+        }
+      });
     },
     fillBaseInfo: function(root){
       this.$bonusRateMin.val(_(root.subDividMin).formatDiv(100));
       this.$bonusRateMax.val(_(root.subDividMax).formatDiv(100));
-      this.$signNum.val(root.quotaLimit);
+      $(this.$signNum[0]).val(root.quotaLimit0);
+      $(this.$signNum[1]).val(root.quotaLimit1);
+      $(this.$signNum[2]).val(root.quotaLimit2);
       this.$signRebate.val(_(root.rebateLimit).formatDiv(10));
     },
 
-    generateBonusSetTr: function(bonusSetLists,$container){
+    generateBonusSetTr: function(bonusSetLists){
       var self = this;
-      if(bonusSetLists.length>0){
-        _(bonusSetLists[0]).each(function(item){
-          $container.append(_(self.amountAndRate_tpl).template()({
-            amount: _(item.betTotal).fixedConvert2yuan(),
-            rate: _(item.divid).formatDiv(100)
-          }));
-        });
-      }
+      _(bonusSetLists).each(function(item){
+        self.$container.append(_(self.amountAndRate_tpl).template()({
+          amount: _(item.betTotal).fixedConvert2yuan(),
+          rate: _(item.divid).formatDiv(100)
+        }));
+      });
+
     },
-    add1960BonusSetHandler: function () {
-      this.$1960container.append(_(this.amountAndRate_tpl).template()({
-        amount: '',
-        rate: ''
-      }));
-    },
-    add1956BonusSetHandler: function () {
-      this.$1956container.append(_(this.amountAndRate_tpl).template()({
+    addBonusSetHandler: function () {
+      this.$container.append(_(this.amountAndRate_tpl).template()({
         amount: '',
         rate: ''
       }));
@@ -103,30 +80,22 @@ define(function (require, exports, module) {
       var $form = this.$('.js-fc-gs-form');
       var clpValidate = $form.parsley().validate();
       if (clpValidate) {
-        var divid1960Conf = this.getSetInfoArrFromContainer(this.$1960container,130);
-        var divid1956Conf = this.getSetInfoArrFromContainer(this.$1956container,128);
-        if(!this.checkDividConf(divid1960Conf)){
+        var dividConf = this.getSetInfoArrFromContainer();
+        if(!this.checkDividConf(dividConf)){
           $target.button('reset');
-          this.insertNotice('新增的1960分红比例和月销量要比之前的数值大。');
-          return ;
-        }else{
-          this.$('.js-fc-gs-notice').html('');
-        }
-        if(!this.checkDividConf(divid1956Conf)){
-          $target.button('reset');
-          this.insertNotice('新增的1956分红比例和月销量要比之前的数值大。');
+          this.insertNotice('新增的分红比例和月销量要比之前的数值大。');
           return ;
         }else{
           this.$('.js-fc-gs-notice').html('');
         }
         var data = {
-          dividConf: _(divid1960Conf).union(divid1956Conf),
-          'dailyCfg.fromTime':this.$('.js-start-time').val(),
-          'dailyCfg.endTime':this.$('.js-end-time').val(),
-          'dailyCfg.rebate':this.$('.js-fc-rebate').val(),
-          'dailyCfg.profit':this.$('.js-fc-profit').val(),
-          'dailyCfg.dividRate':this.$('.js-fc-dividRate').val(),
-          'dailyCfg.maxAmount':this.$('.js-fc-maxAmount').val()
+          dividConf: dividConf,
+          dividMin: this.$bonusRateMin.val(),
+          dividMax: this.$bonusRateMax.val(),
+          quotaLimit0: $(this.$signNum[0]).val(),
+          quotaLimit1: $(this.$signNum[1]).val(),
+          quotaLimit2: $(this.$signNum[2]).val(),
+          rebateLimit: this.$signRebate.val()
         };
         this.saveBonusSetXhr(data).always(function(){
           $target.button('reset');
@@ -155,14 +124,13 @@ define(function (require, exports, module) {
         return  $(item).val();
       });
     },
-    getSetInfoArrFromContainer: function ($container,rebate) {
-      var rebateList = $container.find('.js-fc-gs-dividendRate');
-      var betAmountList = $container.find('.js-fc-gs-betAmount');
+    getSetInfoArrFromContainer: function () {
+      var rebateList = this.$container.find('.js-fc-gs-dividendRate');
+      var betAmountList = this.$container.find('.js-fc-gs-betAmount');
       return _(rebateList).map(function (item,index) {
         return  {
           betTotal: $(betAmountList[index]).val(),
-          divid:  $(item).val(),
-          rebate: rebate
+          divid:  $(item).val()
         };
       });
     },

@@ -20,10 +20,6 @@ define(function (require, exports, module) {
                         width: '6%'
                     },
                     {
-                        name: '返点等级',
-                        width: '6%'
-                    },
-                    {
                         name: '消费金额',
                         width: '6%'
                     }
@@ -33,11 +29,11 @@ define(function (require, exports, module) {
                         width: '6%'
                     },
                     {
-                        name: '日工资比例',
+                        name: '获得工资',
                         width: '6%'
                     },
                     {
-                        name: '获得工资',
+                        name: '活跃用户',
                         width: '6%'
                     },
                     {
@@ -73,24 +69,19 @@ define(function (require, exports, module) {
             }, this);
 
             this.grid.refreshRowData(rowsData, gridData.rowCount, {
-                pageIndex: this.filterHelper.get('pageIndex'),
-                initPagination: true
-            })
+                  pageIndex: this.filterHelper.get('pageIndex'),
+                  initPagination: true
+              })
               .hideLoading();
         },
         formatRowData: function (rowInfo) {
             var row = [];
             row.push(_(rowInfo.wagesDate).toTime());
             row.push(rowInfo.userName);
-            row.push(_(rowInfo.userRebate).formatDiv(10, {fixed: 1})+'%');
             row.push(_(rowInfo.betTotal).formatDiv(10000, {fixed: 4}));
             row.push(_(rowInfo.profitTotal).formatDiv(10000, {fixed: 4}));
-            if(rowInfo.proportion==0){
-            row.push("--");
-            }else{
-                row.push(_(rowInfo.proportion).formatDiv(100, {fixed: 1})+'%');
-            }
             row.push(_(rowInfo.wageAmount).formatDiv(10000, {fixed: 4}));
+            row.push(rowInfo.validUser);
             if(rowInfo.getStatus==0){
                 row.push("未领取");
             }

@@ -2,7 +2,7 @@ define(function (require, exports, module) {
 
   var QuotaManageLevelOneView = Base.ItemView.extend({
 
-    template: require('text!userCenter/templates/quotaManage-levelZero.html'),
+    template: require('text!userCenter/templates/quotaManage-levelFive.html'),
 
 
     events: {
@@ -39,17 +39,14 @@ define(function (require, exports, module) {
       });
     },
     renderBaseInfo: function (root) {
-     if(root && root.level130 && _(root.level130).size()==6){
-       var quotaNumArr = _(root.level130).sort(function(item){
-        return -item.rebate;
-       });
-       this.$('.js-uc-qm-quotaZero').val( quotaNumArr[0].quotaNum);
-       this.$('.js-uc-qm-quotaOne').val( quotaNumArr[1].quotaNum);
-       this.$('.js-uc-qm-quotaTwo').val( quotaNumArr[2].quotaNum );
-       this.$('.js-uc-qm-quotaThree').val(  quotaNumArr[3].quotaNum );
-       this.$('.js-uc-qm-quotaFour').val(  quotaNumArr[4].quotaNum );
-       this.$('.js-uc-qm-quotaFive').val( quotaNumArr[5].quotaNum);
-     }
+      if(root && root.sub128 && _(root.sub128).size()==3){
+        var quotaNumArr = _(root.sub128).sort(function(item){
+          return -item.rebate;
+        });
+        this.$('.js-uc-qm-quotaThree').val(  quotaNumArr[0].quotaNum );
+        this.$('.js-uc-qm-quotaFour').val(  quotaNumArr[1].quotaNum );
+        this.$('.js-uc-qm-quotaFive').val( quotaNumArr[2].quotaNum);
+      }
     },
 
     saveQuotaHandler: function (e) {
@@ -60,18 +57,6 @@ define(function (require, exports, module) {
       var clpValidate = $currContainer.parsley().validate();
       if (clpValidate) {
         var quota = [
-          {
-            rebate: 13.0,
-            quotaNum: this.$('.js-uc-qm-quotaZero').val()
-          },
-          {
-            rebate: 12.9,
-            quotaNum: this.$('.js-uc-qm-quotaOne').val()
-          },
-          {
-            rebate: 12.8,
-            quotaNum: this.$('.js-uc-qm-quotaTwo').val()
-          },
           {
             rebate: 12.7,
             quotaNum: this.$('.js-uc-qm-quotaThree').val()
@@ -86,7 +71,7 @@ define(function (require, exports, module) {
           }];
 
         var params = {
-          level: 0,
+          level: 5,
           quota: quota
         };
 
