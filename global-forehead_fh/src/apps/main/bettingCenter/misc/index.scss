@@ -56,8 +56,12 @@
 $main-area-width: 870px;
 
 .bc-main-area {
-  width: $main-area-width;
   border: 1px solid #ccc;
+  margin-top: 10px;
+  border-radius: 8px;
+  height: 552px;
+  overflow: hidden;
+  background:url(julien/bottombg.jpg) no-repeat left bottom;
 }
 
 .bc-play-super,.bc-play-optional{
@@ -182,7 +186,10 @@ $main-area-width: 870px;
 }
 .bc-playArea-items {
   .tab-border {
-    margin-top: 8px;
+    margin-top: 2px;
+    border: 1px solid #ccc;
+    height: 31px;
+    border-radius: 31px;
   }
   //.tab-border1 {
   //  margin-top: 8px;
@@ -190,6 +197,12 @@ $main-area-width: 870px;
   //}
   .js-bc-select-op {
     background-color: $deep-gray-color;
+  }
+
+  .tab-circle{
+    .tab-group{
+      margin-left: 86px;
+    }
   }
 }
 
@@ -203,6 +216,13 @@ $main-area-width: 870px;
       border-bottom: transparent;
       padding-top: 0;
       padding-bottom: 0;
+
+      &:hover{
+         > div {
+          margin-top: -3px;
+        }
+      }
+
       > div {
         padding-top: 8px;
         padding-bottom: 8px;
@@ -213,26 +233,40 @@ $main-area-width: 870px;
       margin-left: -1px;
     }
     .active {
+      
       a {
         border-bottom-color: #fff;
+        background-image:-webkit-linear-gradient(180deg, #eb3939, #a83d6b);
+        background-image:linear-gradient(180deg,#eb3939,#a83d6b);
+        
+
         > div {
           //background-color: grey;
-          background:rgba(0,0,0,0.65);
           color: white;
           //background-image:  url(~base/images/fh/bet/selected.png);
-          width: 115px;
-          height: 49px;
+          
+        }
+
+        &:hover{
+           > div {
+            margin-top: 0px;
+          }
+        }
+
+        &:after{
+          display: none;
         }
       }
     }
   }
   &.nav-tabs-border > li > a {
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    margin-top: 10px;
     > div {
-      height: 49px;
-      width: 83px;
-      //width: 71px;
-      padding-left: 0;
-      padding-right: 0;
+      height: 34px;
+      line-height: 34px;
+      padding: 0px 20px;
       text-align: center;
     }
   }
@@ -240,12 +274,18 @@ $main-area-width: 870px;
     font-size: 12px;
   }
 }
-
+.js-rule-title-hidden-temp {
+  display: none;
+}
 .bc-play-section {
   border-bottom: 1px solid #cccccc;
-  height: 38px;
-  line-height: 38px;
   background-color: #f8f8f8;
+  margin-top:-10px;
+  background-image:-webkit-linear-gradient(180deg, #ffffff, #eeeeee);
+  background-image:linear-gradient(180deg,#ffffff,#eeeeee);
+  padding-bottom: 10px;
+  position: relative;
+  height: 96px;
 }
 
 .bc-advance-rules {
@@ -254,7 +294,7 @@ $main-area-width: 870px;
   color: white;
   padding-top: 6px;
   float: left;
-  z-index: 999;
+  z-index: 99;
   margin-top: -13px;
   position: absolute;
   font-size: 15px;
@@ -278,11 +318,13 @@ $main-area-width: 870px;
 
 .bc-play-brief {
   padding-left: 12px;
-  color: $light-dark-color-2;
+  bottom: 0px;
+  height: 18px;
+  position: relative;
 }
 
 .bc-play-tip {
-  margin-right: 20px;
+  margin-right: 16px;
 }
 
 .bc-play-example {
@@ -292,12 +334,96 @@ $main-area-width: 870px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  vertical-align: bottom;
 }
 
 .bc-select-item {
   margin-bottom: 6px;
 }
+
+.bc-play-area{
+  .btn-dragon{
+    margin-right: 100px !important;
+    margin-left: 30px !important;
+    > span{
+      width: 160px !important;
+      height: 160px !important;
+      border: 0px !important;
+      background:url(~base/images/julien/btn-dragon.jpg) no-repeat !important;
+      position: relative;
+      margin-top: -34px;
+
+      &:hover{
+        opacity: 0.8;
+      }
+
+      span{
+        position: absolute;
+        bottom: -34px;
+        color: #333333;
+        font-size: 24px;
+        left: 66px;
+      }
+
+      &.active{
+        background:url(~base/images/julien/btn-dragon.jpg) no-repeat 0px -160px !important;
+        opacity: 0.8;
+      }
+    }
+  }
+  .btn-tiger{
+    margin-right: 100px !important;
+    > span{
+      width: 160px !important;
+      height: 160px !important;
+      border: 0px !important;
+      background:url(~base/images/julien/btn-tiger.jpg) no-repeat !important;
+      position: relative;
+      margin-top: -34px;
+
+      &:hover{
+        opacity: 0.8;
+      }
+
+      span{
+        position: absolute;
+        bottom: -34px;
+        color: #333333;
+        font-size: 24px;
+        left: 66px;
+      }
+
+      &.active{
+        background:url(~base/images/julien/btn-tiger.jpg) no-repeat 0px -160px !important;
+      }
+    }
+  }
+  .btn-draw{
+    > span{
+      width: 160px !important;
+      height: 160px !important;
+      border: 0px !important;
+      background:url(~base/images/julien/btn-draw.jpg) no-repeat !important;
+      position: relative;
+      margin-top: -34px;
+
+      &:hover{
+        opacity: 0.8;
+      }
+      span{
+        position: absolute;
+        bottom: -34px;
+        color: #333333;
+        font-size: 24px;
+        left: 66px;
+      }
+
+      &.active{
+        background:url(~base/images/julien/btn-draw.jpg) no-repeat 0px -160px !important;
+      }
+    }
+  }
+}
+
 .bc-yirou {
   font-size: 12px;
   text-align: center;
@@ -410,10 +536,13 @@ $main-area-width: 870px;
 }
 
 .bc-input-area {
-  width: 646px;
-  height: 310px;
-  border-right: 1px solid $gray-color;
+  width: 709px;
+  height: 226px;
+  border: 1px solid #cccccc;
   float: left;
+  border-radius: 5px;
+  margin-left: 33px;
+  margin-top: 43px;
 }
 
 .bc-textarea-main {
@@ -425,6 +554,7 @@ $main-area-width: 870px;
 
   &.bc-textarea-optional {
     height: 275px;
+
   }
 }
 
@@ -734,6 +864,31 @@ $main-area-width: 870px;
     float: left;
     margin-top: 24px;
 
+    .julien-trendBtn{
+      font-size: 12px;
+      color: #666666;
+      float: right;
+      display: block;
+      padding: 3px 14px;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 30px;
+      font-weight: normal;
+      margin-right: 15px;
+      cursor: pointer;
+      position: relative;
+
+      .tendency{
+        display: none;
+      }
+
+      &:hover{
+        .tendency{
+          display: block;
+        }
+      }
+    }
+
     .title{
       color: #333333;
       font-size: 18px;
@@ -791,8 +946,8 @@ $main-area-width: 870px;
 
   .bet-quick{
     width: 134px;
-    height: 40px;
-    line-height: 40px;
+    height: 32px;
+    line-height: 32px;
     background-color: #cc0000;
     color: #fff;
     text-align: center;
@@ -802,6 +957,21 @@ $main-area-width: 870px;
     font-family: '微软雅黑';
     margin-top: 10px;
     cursor: pointer;
+    border: 1px solid #ba4587;
+    border-radius: 32px;
+    background-image:-webkit-linear-gradient(180deg, #ef66ab, #cd338a);
+    background-image:linear-gradient(180deg,#ef66ab,#cd338a);
+
+    i{
+      display: inline-block;
+      margin-right: 5px;
+    }
+
+    &:hover{
+background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
+    background-image:linear-gradient(180deg,#cd338a,#ef66ab);
+    }
+
   }
   .bet-quick:hover{
     background-color: #eb4929;
@@ -809,10 +979,10 @@ $main-area-width: 870px;
 
   .bet-quick1{
     width: 134px;
-    height: 40px;
-    line-height: 40px;
-    background-color: grey;
-    color: #fff;
+    height: 32px;
+    line-height: 32px;
+    background-color: #f3f3f3;
+    color: #999999;
     text-align: center;
     display: block;
     float: right;
@@ -820,42 +990,50 @@ $main-area-width: 870px;
     font-family: '微软雅黑';
     margin-top: 10px;
     cursor: pointer;
+    border: 1px solid #d7d7d7;
+    border-radius: 32px;
+
+    i{
+      display: inline-block;
+      margin-right: 5px;
+    }
   }
 
   .bc-menu{
     background-color: #fff;
-    height: 62px;
-    overflow: hidden;
-    border-bottom: 1px solid #cccccc;
+    height: auto;
+    position: relative;
 
     .bc-toggle{
-      width: 85px;
-      height: 62px;
-      background-color: #f2f2f2;
-      float: left;
+      width: 100px;
+      height: 26px;
+      position: absolute;
+      top: 10px;
+      right: 10px;
 
       span{
-        display: block;
-        height: 30px;
-        text-align: center;
-        border-right: 1px solid #cccccc;
-        border-bottom: 1px solid #cccccc;
-        color: #999999;
+        background-color: #e67eb2;
         font-size: 14px;
-        line-height: 30px;
+        color: #fff;
+        width: 100px;
+        height: 26px;
+        line-height: 26px;
+        display: block;
+        text-align: center;
+        border-radius: 26px;
         cursor: pointer;
 
-        &.sd{
-          border-left: 4px solid #2a7bc1;
-          border-right: 4px solid #fff;
-          background-color: #fff;
-          color: #333333;
-          line-height: 31px;
-          height: 31px;
+        i{
+          width: 16px;
+          height: 14px;
+          background: url(julien/1.png) no-repeat;
+          display: inline-block;
+          margin-right: 3px;
+          margin-bottom: -2px;
         }
 
-        &:last-child{
-          border-bottom: 0px;
+        &.sd{
+          background-color: #cc6699;
         }
       }
     }
@@ -877,7 +1055,6 @@ $main-area-width: 870px;
       }
 
       li.active{
-        background-color: #666666;
 
         .bc-first-prize{
           color: #bdbdbd;
@@ -891,6 +1068,7 @@ $main-area-width: 870px;
   height: 335px;
   border-bottom: 1px solid #ccc;
   background-color: #fff;
+      overflow: hidden !important;
 
   .bc-select-item{
     .tab{
@@ -919,13 +1097,14 @@ $main-area-width: 870px;
 }
 
 .bc-statics-area {
-  background-color: #f2f2f2;
+  margin-top: 5px;
   height: 58px;
   line-height: 58px;
   color: #333333;
   font-size: 14px;
   font-family: '微软雅黑';
   padding: 0 15px;
+      margin-left: 50px;
 
   .tab-group{
     .tab{
@@ -1083,47 +1262,6 @@ $main-area-width: 870px;
     border: 1px solid #ccc;
   }
 
-  .topTips{
-    background-color: #666666;
-    color: #fff;
-    font-size: 14px;
-    height: 55px;
-    padding-top: 14px;
-    padding-left: 12px;
-
-    span{
-      display: block;
-      width: 148px;
-      height: 22px;
-      float: left;
-      text-align: left;
-    }
-  }
-
-  .bet-act-available {
-    font-size: 14px;
-    background-color: #5c5c5c;
-    color: #fff;
-    height: 42px;
-    line-height: 42px;
-    padding: 0px 15px;
-
-    span{
-      float: left;
-    }
-    a{
-      color: #ffff00;
-      text-decoration: underline;
-      float: right;
-    }
-
-    &:after{
-      content: '';
-      clear: both;
-      display: block;
-    }
-  }
-
   .bet-summary {
     background-color: #f2f2f2;
     height: 57px;
@@ -1134,31 +1272,7 @@ $main-area-width: 870px;
     border-top: 0px;
   }
 
-  .btn.active::after{
-    height: 0px;
-  }
-
-  .btn.active{
-    border: 0px;
-    color: #333333;
-    background-color: #fff;
-  }
-  .btn{
-    border-bottom: 1px solid #ccc;
-    background-color: #f2f2f2;
-    color: #999999;
-    &:first-child{
-      border-right: 1px solid #ccc;
-    }
-  }
-
-  .btn-group-justified{
-    border:0px;
-    margin-bottom: 5px;
-  }
 }
-
-
 
 .betting-button-clear {
     background-image:  url(~base/images/fh/nav/bet-clear-num.png);
@@ -1177,8 +1291,6 @@ $main-area-width: 870px;
   width: 140px;
   height: 40px;
 }
-
-
 
 .chase-confirm{
   background-image:  url(~base/images/fh/bet/chase-confirm.png);
@@ -1216,7 +1328,8 @@ $main-area-width: 870px;
 }
 
 .btn-pressdown-color2 {
-  background-color: #bc7048 !important;
+      background-color: #cc6699;
+    color: #fff  !important;
 }
 
 .cang01{
@@ -1237,4 +1350,839 @@ $main-area-width: 870px;
   position: absolute;
   margin-left: 920px;
   margin-top: -173px;
+}
+
+.bc-left{
+  width: 880px;
+  float: left;
+
+  .banner{
+    height: 108px;
+    border: 1px solid #b63c60;
+    border-radius: 8px;
+    background: url(julien/bannerbg.jpg) no-repeat top right #fff;
+    color: #666666;
+    font-size: 14px;
+
+    .bc-banner{
+      width: 120px;
+      height: 94px;
+      display: block;
+      margin: 10px 40px 0 26px;
+      position: relative;
+      float: left;
+
+      &:after{
+        border-right:1px solid #ccc;
+        height: 62px;
+        position: absolute;
+        right: 0px;
+        top: 15px;
+        display: block;
+        content: '';
+      }
+    }
+
+    .bc-result{
+      width: 324px;
+      float: left;
+      padding-top: 15px;
+
+      .title{
+        margin-bottom: 11px;
+        padding-right: 37px;
+
+        span{
+          display: inline-block;
+          margin: 0px 5px;
+          color: #333333;
+        }
+
+        a{
+          font-weight: normal;
+          padding: 1px 12px;
+          display: inline-block;
+          border: 1px solid #ccc;
+          border-radius: 15px;
+          float: right;
+          font-size: 12px;
+
+          &:hover{
+            background-color:#bf5985;
+            color: #fff;
+            cursor: pointer;
+          }
+        }
+      }
+
+      .text-circle{
+        background: url(julien/numbg2.jpg) no-repeat;
+        background-size: cover;
+        font-family: 'Arial';
+        border: 0px;
+        color: #fff;
+        font-size: 24px;
+        line-height: 30px;
+        border-radius: 0px;
+        width: 52px;
+        height: 52px;
+        line-height: 46px;
+        margin-right: 7px;
+      }
+    }
+
+    .bc-time{
+      width: 275px;
+      float: left;
+      padding-top: 15px;
+
+      p{
+        margin-bottom: 15px;
+
+        span{
+          color: #333333;
+          display: inline-block;
+          margin-right: 10px;
+        }
+      }
+
+      .countdown-block{
+        div{
+          width: 60px;
+          height: 40px;
+          background: url(julien/numbg.jpg) no-repeat;
+          float: left;
+          margin-right: 10px;
+          font-family: 'Arial';
+          font-size: 30px;
+          color: #fff;
+          text-align: center;
+
+          span{
+            width: 30px;
+            float: left;
+            margin-top: 5px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.bc-right{
+  float: right;
+  width: 300px;
+  position: relative;
+
+  .rightBlock1{
+    position: absolute;
+    width: 290px;
+    height: 98px;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 5px;
+    text-align: center;
+
+    .showList{
+      height: 94px;
+      overflow: hidden;
+    }
+
+    .showListBtn{
+      position: relative;
+
+      > i{
+        cursor: pointer;
+        color: #ccc;
+        position: absolute;
+        bottom: -10px;
+
+        &:hover{
+          color:#cc3333;
+        }
+      }
+    }
+
+    ul{
+      line-height: 24px;
+      height: 24px;
+      color: #333333;
+
+      &.title{
+        border-bottom: 1px solid #ccc;
+        height: 20px;
+        line-height: 20px;
+      }
+
+      li{
+        width: 42%;
+        float: left;
+        text-align: center;
+
+        span{
+          display: inline-block;
+          padding: 1px 4px;
+          border-radius: 15px;
+          line-height: 12px;
+          margin-right: 3px;
+
+          &.r{
+            background-color: #cc3333;
+            color: #fff;
+          }
+        }
+
+        &:last-child{
+          width: 16%;
+        }
+      }
+    }
+  }
+
+  .rightBlock2{
+    margin-top: 120px;
+    width: 290px;
+    height: 89px;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 5px;
+    text-align: center;
+    color: #333333;
+
+    .topTips{
+      height: 38px;
+      padding: 5px 5px 10px 5px;
+      border-bottom: 1px solid #ccc;
+
+      span{
+        display: block;
+        width: 140px;
+        height: 20px;
+        float: left;
+        text-align: left;
+      }
+    }
+
+    .bet-act-available{
+      text-align: left;
+      line-height: 40px;
+
+      i{
+        color: #cc6699;
+        display: inline-block;
+        margin: 0px 5px 0px 5px;
+      }
+
+      a{
+        padding: 4px 10px;
+        border: 1px solid #ccc;
+        border-radius: 15px;
+        float: right;
+        line-height: 12px;
+        margin-top: 10px;
+
+        &:hover{
+              background-color: #cc6699;
+    color: #fff;
+        }
+      }
+    }
+  }
+
+  .rightBlock3{
+    margin-top: 10px;
+    width: 300px;
+    height: 426px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 8px 0px;
+    text-align: center;
+    color: #333333;
+
+    .bc-title{
+      height: 34px;
+      line-height: 34px;
+      padding: 0px 8px;
+      border-bottom: 2px solid #a83d6b;
+      font-size: 14px;
+
+      a{
+        display: block;
+        float: left;
+        height: 34px;
+        width: 142px;
+        color: #666666;
+
+        i{
+          display: inline-block;
+          margin-right: 10px;
+          font-size: 16px;
+        }
+
+        &:hover{
+          margin-top: -2px;
+        }
+
+        &.active{
+          background-color: #ec3838;
+          background-image:-webkit-linear-gradient(180deg, #ec3838, #a83d6b);
+          background-image:linear-gradient(180deg,#ec3838,#a83d6b);
+          color: #fff;
+          border-top-left-radius: 3px;
+          border-top-right-radius: 3px;
+          margin-top: 0px !important;
+        }
+      }
+    }
+
+    .order-list{
+      height: 230px;
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+
+    .btnList{
+      margin: 15px 0px 10px 2px;
+
+      span,a{
+        display: inline-block;
+        height: 29px;
+        line-height: 29px;
+        width: 91px;
+        text-align: center;
+        border: 2px solid #ccc;
+        border-radius: 29px;
+        color: #666666;
+        cursor: pointer;
+        font-size: 14px;
+
+        &:hover{
+          background-color:#e67eb2;
+          color: #fff;
+          border: 2px solid #e67eb2;
+        }
+
+        &.no{
+          background-color: #f3f3f3;
+          color: #999999;
+        }
+      }
+    }
+
+    .order-bottom{
+      height: 43px;
+      line-height: 43px;
+      background-color: #fefefe;
+      background-image:-webkit-linear-gradient(180deg, #fefefe, #eeeeee);
+      background-image:linear-gradient(180deg,#fefefe,#eeeeee);
+      border-bottom: 1px solid #cccccc;
+      border-top: 2px solid #a83d6b;
+      position: relative;
+      font-size: 14px;
+      color: #666666;
+
+      span{
+        display: inline-block;
+        margin: 0px 3px;
+        color: #e22919;
+      }
+
+      .collect{
+        width: 31px;
+        height: 33px;
+        display: block;
+        float: left;
+        background:url(julien/collect.png) no-repeat;
+        position: absolute;
+        left: 5px;
+        top: 5px;
+        cursor: pointer;
+
+      }
+    }
+
+    .commit-number{
+      width: 286px;
+      padding-left: 10px;
+      height: 54px;
+      line-height: 48px;
+      font-size: 20px;
+      color: #fff;
+      background:url(julien/confirmBtnBg.jpg) no-repeat;
+      display: block;
+      clear: both;
+      margin-left: 2px;
+      cursor: pointer;
+
+      &:hover{
+         background:url(julien/confirmBtnBg.jpg) no-repeat 0px -54px;
+      }
+    }
+  }
+}
+
+.js-bc-advance-rules{
+  display: block !important;
+  height: auto !important;
+  padding-top: 10px;
+
+}
+
+.bc-main-area{
+  .nav-tabs{
+    border-bottom: 2px solid #a83d6b;
+  }
+}
+
+.bc-advance-rules-container{
+
+}
+
+.js-bc-rules-toolbar{
+  line-height: 30px;
+  .tab-title{
+    display: inline-block;
+    margin-left: 20px;
+    margin-right: 10px;
+  }
+  .tab-group{
+    display: inline-block;
+    label{
+      display: inline-block;
+      padding: 0px 10px;
+      border: 1px solid #ccc;
+      background-color: #fff;
+      border-radius: 30px;
+
+      &.active{
+        background-color: #cc6699;
+        color: #fff !important;
+        border: 1px solid #cc6699;
+      }
+
+      &:hover{
+        border: 1px solid #cc6699;
+        color: #cc6699;
+      }
+    }
+  }
+}
+
+.js-bc-basic-rules{
+  .js-bc-basic-rules{
+    padding-left: 10px;
+  }
+}
+
+.js-rule-title-clear{
+  display: none;
+}
+
+.rightMenu{
+  display: none;
+}
+
+.js-bc-play-example{
+  margin-top: 3px;
+  margin-left: 8px;
+  color: #666666;
+
+  i{
+    color: #cc6699;
+    font-size: 14px;
+    display: inline-block;
+    margin-right: 5px;
+  }
+}
+
+.js-bc-play-tip{
+  text-decoration: none;
+  float: right;
+  margin-top: 1px;
+  display: inline-block;
+  padding: 0px 10px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  border-radius: 30px;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+
+  .js-infor-tip{
+    display: none;
+  }
+
+  &:hover{
+    background-color: #cc6699;
+    border: 1px solid #cc6699;
+    color: #fff;
+    span{
+      display: none;
+    }
+
+    .js-infor-tip{
+      display: block;
+    }
+  }
+}
+
+.js-bc-select-item-title{
+  position: relative;
+  margin-right: 10px;
+  div{
+    font-size: 14px !important;
+    color: #ffffff !important;
+    background: url(../misc/julien/content-titlebg.jpg);
+    width: 78px;
+    height: 29px;
+    line-height: 29px !important;
+    margin-top: 8px;
+  }
+
+
+}
+
+.tab-toolbar.tab-circle .tab{
+  height: 36px;
+  width: 36px;
+  line-height: 36px;
+  font-size: 20px;
+  color: #666666;
+  border-radius: 0px;
+  background:url(../misc/julien/btn2.png) no-repeat;
+  background-size: cover;
+  border: 0px;
+
+  &:hover{
+    font-size:22px;
+  }
+
+  &.active{
+    background:url(../misc/julien/btn.png) no-repeat;
+    border-radius: 0px;
+    color: #fff;
+    border: 0px;
+    background-size: cover;
+  }
+}
+
+.js-be-playArea-items-toolbar{
+  width: 660px;
+}
+
+.tab-toolbar.tab-border .tab{
+  border: 0px;
+  color: #666666;
+  margin-top: 3px;
+  border-radius: 20px;
+
+  &:hover{
+    background:#e67eb2 !important;
+  }
+}
+
+.bc-playArea-items .tab-border{
+  padding-right: 5px;
+  padding-left: 3px;
+}
+
+.js-bc-play-area{
+  .m-left-md{
+    margin-left: 10px !important;
+  }
+}
+
+.js-bc-select-op{
+  &:hover{
+    background: #e67eb2 !important;
+  }
+}
+
+.tab-toolbar.tab-border .tab{
+  border-radius: 3px;
+}
+.tab-toolbar.tab-border .tab.active{
+  background: #e67eb2;
+  border-radius: 3px;
+}
+
+.js-bc-quick-bet1{
+
+}
+
+.bc-statics-area .bc-multi-range span{
+  background:none;
+  border-radius: 3px;
+}
+
+.bc-statics-area .bc-multi-range span .fa{
+  color: #ccc;
+}
+.js-bc-multi-range{
+  border-radius: 3px;
+}
+
+.js-wt-number{
+  background-color: #f6f6f6 !important;
+}
+
+.adsf1{
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.add-number{
+  border:1px solid #cd338a !important;
+  background-image:-webkit-linear-gradient(180deg, #ef66ab, #cd338a);
+  background-image:linear-gradient(180deg,#ef66ab,#cd338a);
+  color: #fff !important;
+
+  &:hover{
+    background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
+    background-image:linear-gradient(180deg,#cd338a,#ef66ab);
+  }
+}
+
+.add-number1{
+  color: #999999 !important;
+  background-color: #f3f3f3 !important;
+  border: 1px solid #ccc !important;
+}
+.js-bc-lottery-preview{
+  table{
+    tr{
+      padding: 0px 10px;
+    }
+  }
+}
+
+.tab-toolbar.tab-circle .active{
+  div{
+    background-position: 0px -29px;
+  }
+}
+
+.js-bc-lottery-preview{
+  .table thead th{
+    background: #f6f6f6;
+    border-bottom: #cccccc 1px solid;
+  }
+}
+
+.js-bc-lottery-preview-del{
+  color: #ccc;
+  cursor: pointer;
+}
+.js-bc-lottery-preview{
+  .js-wt-tbody{
+    font-size: 12px;
+  }
+}
+
+.js-bc-lottery-preview{
+  .slimScrollDiv{
+    overflow: inherit !important;
+  }
+  .js-wt-body-main{
+    overflow: inherit !important;
+  }
+}
+
+.dsaj{
+  height: 24px;
+  border-radius: 3px;
+  width: 100px;
+  padding-right: 0px;
+  font-size: 12px;
+
+  -webkit-appearance: menulist;
+}
+
+.bc-result-container2{
+  line-height: 20px;
+    width: 200px;
+    display: inline-block;
+  position: relative;
+  margin-left: 10px;
+
+    input{
+          display: inline-block;
+      width: 62px;
+        height: 14px;
+        border-radius: 3px;
+        padding-right: 20px;
+    }
+
+    span{
+      position: absolute;
+      right: 56px;
+      color: #999999;
+      top: 3px;
+    }
+}
+.js-bc-betting-records{
+  .table thead th{
+    background: #f6f6f6;
+    border-bottom: #cccccc 1px solid;
+  }
+}
+
+.order-list{
+ .js-wt-tbody{
+  font-size: 12px;
+  span{
+    display: inline-block;
+    border: 1px solid #ccc;
+    color: #999999;
+    margin-left: 5px;
+    padding: 0px 5px;
+    border-radius: 3px;
+
+    &:hover{
+      background-color: #e67eb2;
+      color: #fff;
+      border: 1px solid #e67eb2;
+      cursor: pointer;
+    }
+    
+  }
+  span.text-pink{
+      border: 0px;
+      cursor: inherit;
+
+      &:hover{
+        background:none;
+      }
+    }
+
+  
+ }
+ .slimScrollDiv table td{
+  padding: 4px 0px;
+ }
+}
+
+.btn-dragon{
+    position: absolute;
+   left: 100px;
+   top: 100px
+  }
+.btn-draw{
+  position: absolute;
+   right: 30px;
+    top: 100px
+}
+
+  .btn-tiger{
+    position: absolute;
+     
+     right: 200px;
+     top: 100px
+  }
+
+.bc-left{
+  .bc-time{
+    position: relative;
+    .d1{
+      font-size: 30px;
+      color: #333333;
+      position: absolute;
+          left: 62px;
+    top: 48px;
+    }
+    .d2{
+      font-size: 30px;
+      color: #333333;
+          left: 132px;
+      top: 48px;
+       position: absolute;
+    }
+  }
+}
+
+.pk10{
+  .bc-left .banner .bc-result .text-circle{
+    width: 30px;
+    height: 30px;
+    line-height: 28px;
+    font-size: 14px;
+    margin-bottom: 2px;
+  }
+  .bc-last-results{
+    margin-top: -5px;
+  }
+}
+
+.x5{
+      margin-left: 90px;
+}
+
+.js-bc-btn-lottery-add{
+  i{
+    margin-right: 2px;
+  }
+}
+
+.bc-input-opration-container-div-julien{
+  .btn-sun-imp1{
+    width: 97px;
+    height: 24px;
+    border: 1px solid #bb5283;
+    background-image:-webkit-linear-gradient(180deg, #cb6598, #b74e7e);
+    background-image:linear-gradient(180deg,#cb6598,#b74e7e);
+    margin-bottom: 10px;
+    font-size: 12px;
+    border-radius: 3px;
+    text-align: left;
+
+    &:hover{
+      background-image:-webkit-linear-gradient(180deg, #b74e7e, #cb6598);
+      background-image:linear-gradient(180deg,#b74e7e,#cb6598);
+    }
+
+    i{
+      margin-left: 5px;
+      width: 12px;
+    }
+  }
+
+  .btn-sun-imp{
+    width: 97px;
+    height: 24px;
+    border: 1px solid #cbcbcb;
+    background-image:-webkit-linear-gradient(180deg, #f5f5f5, #e6e6e6);
+    background-image:linear-gradient(180deg,#f5f5f5,#e6e6e6);
+    margin-bottom: 10px;
+    font-size: 12px;
+    border-radius: 3px;
+    color: #666666;
+    text-align: left;
+
+    &:hover{
+      background-image:-webkit-linear-gradient(180deg, #e6e6e6, #f5f5f5);
+      background-image:linear-gradient(180deg,#e6e6e6,#f5f5f5);
+    }
+
+    i{
+      margin-left: 5px;
+      width: 12px;
+      display: inline-block;
+      text-align: center;
+    }
+  }
+}
+
+.js-bc-lottery-preview{
+  i{
+    cursor: pointer;
+
+    &:hover{
+      color: #cc6699;
+    }
+  }
 }

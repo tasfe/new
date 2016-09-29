@@ -1,7 +1,8 @@
 <div class="menuTips">
-  <a href="#" class="m1">品牌介绍</a>
+  <a href="investment2.html" class="m1">品牌介绍</a>
   <a href="#" class="m2">最新优惠</a>
-  <a href="#" class="m3">客户端下载</a>
+  <a href="download.html" class="m3">客户端下载</a>
+  <a href="javascript:void(0);" class="m4" onclick="newwin = window.open('http://szzero.livechatvalue.com/chat/chatClient/chatbox.jsp?companyID=445558&configID=47545&jid=9132657534','service','width=800,height=680');newwin.moveTo(100,50);">在线客服</a>
 </div>
 <div class="loginWindow">
   <form id="loginForm" class="js-login-form login-form" action="javascript:void(0);">
@@ -22,6 +23,11 @@
       <li class="login-error-message parsley-required"></li>
     </ul>
     <div class="widget">
+      <span>
+        <input type="checkbox" name="iCheck" id="rem" value="1"> 
+        <label for="rem">记住密码</label>
+      </span>
+      
       <a href="resetPassword.html">忘记密码</a>
     </div>
     <div class="login-btn">
@@ -29,9 +35,12 @@
     </div>
   </form>
   <div class="tips">
-    已为您检测到更优的访问路线，是否 <span class="js-showConnectTest">点击切换</span>
+    已为您检测到更优的访问路线，是否 <a href="changeUrl.html">点击切换</a>
   </div>
   <div class="js-connectTest connect-test hidden">
     <ul class="js-connect-test"></ul>
   </div>
+</div>
+<div>
+  <canvas id="sakura"></canvas>
 </div>

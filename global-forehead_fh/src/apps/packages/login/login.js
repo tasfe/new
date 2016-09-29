@@ -3,6 +3,7 @@ var footer = require('com/footer');
 var servers = require('skeleton/misc/servers');
 
 require('./../misc/common-init.js');
+require('./../../../base/minimal/grey.css');
 require('./login.scss');
 
 var connectIcon = require('./connect-icon.png');
@@ -62,6 +63,19 @@ $.widget('gl.login', {
     this._bindEvent();
 
     this._connectTest();
+
+    $('input').iCheck({
+      checkboxClass: 'icheckbox_minimal-grey',
+      radioClass: 'iradio_minimal-grey',
+      increaseArea: '20%' // optional
+    });
+
+
+    if (localStorage.getItem("account") != null && localStorage.getItem("password") != null) {
+      $('.js-onfocus-Inp-01').val(localStorage.getItem("account"));
+      $('.js-onfocus-Inp-02').val(localStorage.getItem("password"));
+      $('#rem').iCheck('check');
+    }
   },
 
   _connectTest: function() {
@@ -208,6 +222,14 @@ $.widget('gl.login', {
         self.$submit.button('reset');
       })
       .done(function(data, status, xhr) {
+        if ($("input[name='iCheck']:checked").val() == 1) {
+          localStorage.setItem("account", $('.js-onfocus-Inp-01').val());
+          localStorage.setItem("password", $('.js-onfocus-Inp-02').val());
+        }
+        else{
+          localStorage.clear();
+        }
+
         sessionStorage.status = 0;
         if (data.result === 0) {
           self.resetInput = false;
@@ -282,6 +304,7 @@ $.widget('gl.login', {
   },
   //
   valCodeHandler: function () {
+
     var self = this;
     if(self.$valRegion.hasClass('hidden')){
       self.loginHandler();

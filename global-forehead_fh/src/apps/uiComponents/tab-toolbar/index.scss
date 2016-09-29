@@ -126,6 +126,7 @@ $tab-toolbar-circle-colors: (
       &.active {
         color: darkred;
         //background: linear-gradient(to bottom, #fdbe29, #e3a511);
+        font-size: 20px !important;
         border: 1px solid white;
         background-image: url('~base/images/fh/bet/num-red.png');
       }
@@ -167,4 +168,44 @@ $tab-toolbar-circle-colors: (
       }
     }
   }
+}
+
+.bc-playArea-items .tab-border{
+  span.js-bc-select-op{
+    &:hover{
+      border: 1px solid #e67eb2 !important;
+      color: #e67eb2;
+      height: 22px;
+      width: 22px;
+      line-height: 22px;
+      background-color: #fff !important;
+    }
+  }
+}
+.bc-result-container3 {
+  .tab-toolbar.tab-border .tab{
+    line-height: 26px;
+    &:hover{
+      border: 1px solid #e67eb2 !important;
+      color: #e67eb2;
+      height: 24px;
+      width: 24px;
+      line-height: 24px;
+      background-color: #fff !important;
+    }
+  }
+
+  .tab-toolbar.tab-border .tab.active{
+    line-height: 26px;
+    &:hover{
+      border: 0px !important;
+      color: #fff;
+      height: 26px;
+      width: 26px;
+      line-height: 26px;
+      background-color: #e67eb2 !important;
+    }
+  }
+
+
 }

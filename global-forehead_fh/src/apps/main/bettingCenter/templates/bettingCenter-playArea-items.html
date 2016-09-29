@@ -11,9 +11,9 @@
   <% } %>
     <div class="tab-group">
       <% _(row.items).each(function(item) { %>
-      <div class="tab-wrapper bc-select-item">
+      <div class="tab-wrapper bc-select-item <% if(item == '龙'){ %>btn-dragon<% } %><% if(item == '虎'){ %>btn-tiger<% } %><% if(item == '和'){ %>btn-draw<% } %>">
         <span class="js-bc-select-item cbutton cbutton--effect-novak <%=limit %> tab" <%=limitProps %> data-num="<%=item %>">
-          <%=item %>
+          <span><%=item %></span>
         </span>
         <!--<div class="bc-yirou">8</div>-->
       </div>

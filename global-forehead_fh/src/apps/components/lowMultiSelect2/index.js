@@ -71,8 +71,6 @@ var LowMultiSelect = Base.PrefabView.extend({
       $('.js-wt-title').addClass('sd');
       $('.js-wt-title-close').removeClass('hidden');
     }
-
-    this.renderSelectedUsers();
   },
 
   getSearchXhr: function(data) {
@@ -221,8 +219,6 @@ var LowMultiSelect = Base.PrefabView.extend({
     var find = _(this.selectedUsers).findWhere(user);
     if (!find) {
       this.selectedUsers.push(user);
-
-      this.renderSelectedUsers();
     }
 
   },
@@ -245,21 +241,7 @@ var LowMultiSelect = Base.PrefabView.extend({
         $('.julien-low-multi-selected h3').removeClass('hidden');
         $('.low-multi-select .subordinate').removeClass('subordinate-sd');
       }
-      this.renderSelectedUsers();
     }
-  },
-
-  renderSelectedUsers: function() {
-
-    if(_(this.selectedUsers).size()<1){
-      this.$selectedContainer.html('');
-    }else{
-      this.$selectedContainer.html(_(this.selectedUsers).map(function(user) {
-        return '<li data-id="' + user.id + '"><b></b><span class="js-pf-selected-user" >' + user.name + '</span><i class="js-pf-close-user" ></i></li>';
-      }));
-    }
-
-    $('.js-single-to-user').change();
   },
 
   //event handlers
@@ -319,8 +301,6 @@ var LowMultiSelect = Base.PrefabView.extend({
     this.selectedUsers = _(this.selectedUsers).without(_(this.selectedUsers).findWhere({
       id: $target.parent().data('id')
     }));
-
-    this.renderSelectedUsers();
 
     if ($target.parent().children('span').text() == '我的上级') {
       $('.js-pf-select-superior').removeClass('pf-select-superior-sd');

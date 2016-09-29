@@ -70,7 +70,54 @@ var BettingCenterView = Base.ItemView.extend({
     'mouseout  .js-bc-chase': 'btnPressup2',
     'mouseout  .js-bc-quick-bet': 'btnPressup1',
     'mouseout  .js-bc-btn-lottery-confirm': 'btnPressup1',
-    'click .js-cang02':'cangHandler'
+    'click .js-cang02':'cangHandler',
+    'click .js-openBlock1':'openBlock1',
+
+    'mouseenter .js-rightBlock1': 'sadf1dfsv',
+    'mouseleave .js-rightBlock1': 'sadf1dfsv2',
+    'change .dsaj':'dsaj',
+
+  },
+
+  dsaj: function (e) {
+    if ($('.dsaj').val() == 2) {
+      $('.bc-result-container2').removeClass('hidden');
+      $('.bc-result-container3').addClass('hidden');
+    }
+    else{
+      $('.bc-result-container2').addClass('hidden');
+      $('.bc-result-container3').removeClass('hidden');
+      
+    }
+  },
+
+  sadf1dfsv: function () {
+      $('.rightBlock1').animate({height:'265px'}, 100);
+      $('.js-showList').animate({height:'261px'}, 100,function () {
+        $('.js-openBlock1').removeClass('icon-angle-down').addClass('icon-angle-up');
+      });
+  },
+
+ sadf1dfsv2: function () {
+    $('.rightBlock1').animate({height:'98px'}, 100);
+    $('.js-showList').animate({height:'94px'}, 100,function () {
+      $('.js-openBlock1').addClass('icon-angle-down').removeClass('icon-angle-up');
+    });
+  },
+
+  openBlock1: function () {
+    if ( $('.js-rightBlock1').height() == 265 ) {
+      $('.rightBlock1').animate({height:'98px'}, 600);
+      $('.js-showList').animate({height:'94px'}, 600,function () {
+        $('.js-openBlock1').addClass('icon-angle-down').removeClass('icon-angle-up');
+      });
+    }
+    else{
+      $('.rightBlock1').animate({height:'265px'}, 600);
+      $('.js-showList').animate({height:'261px'}, 600,function () {
+        $('.js-openBlock1').removeClass('icon-angle-down').addClass('icon-angle-up');
+      });
+    }
   },
 
   cangHandler: function() {
@@ -180,8 +227,8 @@ var BettingCenterView = Base.ItemView.extend({
   },
 
   play1:function () {
-    $('.js-play1').addClass('sd');
-    $('.js-play2').removeClass('sd');
+    $('.js-play2').removeClass('hidden');
+    $('.js-play1').addClass('hidden');
     $('.js-bc-basic-rules').addClass('hidden');
     $('.js-bc-optional-rules').removeClass('hidden');
     $('.js-bc-optional-rules ul').removeClass('hidden');
@@ -190,8 +237,8 @@ var BettingCenterView = Base.ItemView.extend({
   },
 
   play2:function () {
-    $('.js-play2').addClass('sd');
-    $('.js-play1').removeClass('sd');
+    $('.js-play1').removeClass('hidden');
+    $('.js-play2').addClass('hidden');
     $('.js-bc-basic-rules').removeClass('hidden');
     $('.js-bc-optional-rules').addClass('hidden');
     $('.js-bc-optional-rules ul').addClass('hidden');
@@ -272,6 +319,8 @@ var BettingCenterView = Base.ItemView.extend({
         $('.js-julien-data41').text( '今日盈亏：'+(data.todayProfitTotal/10000).toFixed(2) );
       }
     });
+
+
   },
 
 
@@ -415,6 +464,7 @@ var BettingCenterView = Base.ItemView.extend({
     this.$playTip = this.$('.js-bc-play-tip');
     this.$playExample = this.$('.js-bc-play-example');
     this.$playBetMode = this.$('.js-bc-bet-mode');
+    this.$playExample2 = this.$('.js-infor-tip');
 
     //playArea
     this.$playArea = this.$('.js-bc-play-area');
@@ -451,10 +501,12 @@ var BettingCenterView = Base.ItemView.extend({
     this.lotteryPreview = this.$lotteryPreview.staticGrid({
       tableClass: 'table table-dashed',
       colModel: [
-        //{label: '玩法/投注内容  ', name: 'title', key: true, width: '43%'},
-        {label: '玩法/投注内容  ', name: 'title', key: true, width: '55%'},
+        {label: '', name: 'no', key: true, width: '10px'},
+        {label: '玩法/投注内容', name: 'title', key: true, width: '160px'},
         //{label: '奖金模式', name: 'bonusMode', width: '20%'},
-        {label: '注数/倍数/模式', name: 'mode', width: '45%'}
+        {label: '注数', name: 'mode', width: '60px'},
+        {label: '投注金额', name: 'mode2', width: '20%'},
+        {label: '<i class="icon-trash"></i>', name: 'mode3', width: '10%'},
         //{label: '注数/倍数/模式', name: 'mode', width: '20%'}
         //{label: '投注金额', name: 'bettingMoney', width: '17%'}
       ],
@@ -655,19 +707,20 @@ var BettingCenterView = Base.ItemView.extend({
   },
 
   renderPlayInfo: function(playInfo) {
-    this.$playExample.text('玩法说明：' + playInfo.playExample).attr('title', playInfo.playExample);
 
+    this.$playExample.html('<i class="icon-question-sign"></i>玩法说明：' + playInfo.playExample).attr('title', playInfo.playExample);
+    this.$playExample2.html( playInfo.playDes.replace(/\|/g, '<br />').replace(/\[max\]/g,_(playInfo.betMethodMax).chain().formatDiv(10000).floor(4).value()).replace(/\[min\]/g,_(playInfo.betMethodMin).chain().formatDiv(10000).floor(4).value()) );
     if (this.$playTip.data('popover')) {
       this.$playTip.popover('destroy');
     }
 
-    this.$playTip.popover({
-      trigger: 'hover',
-      container: this.$el,
-      html: true,
-      content: playInfo.playDes.replace(/\|/g, '<br />').replace(/\[max\]/g,_(playInfo.betMethodMax).chain().formatDiv(10000).floor(4).value()).replace(/\[min\]/g,_(playInfo.betMethodMin).chain().formatDiv(10000).floor(4).value()),
-      placement: 'bottom'
-    });
+  //  this.$playTip.popover({
+   //   trigger: 'hover',
+    //  container: this.$el,
+    //  html: true,
+    //  content: playInfo.playDes.replace(/\|/g, '<br />').replace(/\[max\]/g,_(playInfo.betMethodMax).chain().formatDiv(10000).floor(4).value()).replace(/\[min\]/g,_(playInfo.betMethodMin).chain().formatDiv(10000).floor(4).value()),
+  //    placement: 'bottom'
+  //  });
 
     this.renderPlayBetMode();
     //初始化奖金
@@ -823,20 +876,21 @@ var BettingCenterView = Base.ItemView.extend({
         var title = '<span class="text-hot">【超级3000_' + previewInfo.levelName + '_' + previewInfo.playName + '】 ';
         var sf = true;
       }else{
-        var title = '【' + previewInfo.levelName + '_' + previewInfo.playName + '】 ';
+        var title = '[' + previewInfo.levelName + '_' + previewInfo.playName + '] ';
         var sf = false;
       }
-      if (previewInfo.formatBettingNumber.length > 20) {
+      if (previewInfo.formatBettingNumber.length > 7) {
         title += '<a href="javascript:void(0)" class="js-bc-betting-preview-detail btn-link">' +
-          previewInfo.formatBettingNumber.slice(0, 20) + '...</a></span>';
+          previewInfo.formatBettingNumber.slice(0, 7) + '...</a></span>';
       } else {
         title += previewInfo.formatBettingNumber + '</span>';
       }
       return {
         title: title,
         bonusMode: this.getBonusMode(previewInfo.maxBonus, previewInfo.unit, previewInfo.userRebate, previewInfo.betMethod),
-        mode: previewInfo.statistics + '注 / ' + previewInfo.multiple + '倍 / <span class="text-hot">' + _(previewInfo.prefabMoney).convert2yuan() + '</span>元' +
-        '<div class="js-bc-lottery-preview-del   icon-block   ' + (sf ? 'sfClass' : '') +'"></div>'
+        mode: previewInfo.statistics + '注',
+        mode2: _(previewInfo.prefabMoney).convert2yuan() + '</span>元',
+        mode3: '<div class="js-bc-lottery-preview-del  icon-remove-sign"></div>'
       };
 
     }, this);
@@ -1201,6 +1255,7 @@ var BettingCenterView = Base.ItemView.extend({
 
     var confirm = $(document).confirm({
       title: '确认投注',
+      id: 'adsf123',
       content: this.confirmTpl({
         ticketInfo: this.options.ticketInfo,
         ticketName: this.options.ticketName,
@@ -1210,6 +1265,7 @@ var BettingCenterView = Base.ItemView.extend({
       }),
       //size: 'modal-md',
       agreeCallback: function() {
+
         $target.button('loading');
 
         self.model.saveBettingXhr(planId)
@@ -1280,13 +1336,13 @@ var BettingCenterView = Base.ItemView.extend({
       this.bettingRecords = this.$bettingRecords.staticGrid({
         tableClass: this.tableClass,
         colModel: [
-          {label: '期号', name: 'ticketPlanId', width: '40%',formatter: function(val, index, bet) {
+          {label: '期号', name: 'ticketPlanId', width: '28%',formatter: function(val, index, bet) {
             return '<a class="router btn-link" href="#uc/br/detail/' + bet.ticketTradeNo + '">' + val.substring(4) + '</a>';
           }},
-          {label: '投注金额', name: 'betTotalMoney', width: '32%', formatter: function(val) {
+          {label: '投注金额', name: 'betTotalMoney', width: '20%', formatter: function(val) {
             return _(val).fixedConvert2yuan();
           }},
-          {label: '状态', name: 'prizeTotalMoney', width: '28%', formatter: function(val, index, bet) {
+          {label: '状态', name: 'prizeTotalMoney', width: '16%', formatter: function(val, index, bet) {
             //0:未中奖，1：已中奖，2：用户撤单，3：系统撤单,ticketResult,prizeTotalMoney
             return _.checkBettingStatus({
               betStatus: bet.ticketBetStatus,
@@ -1297,7 +1353,11 @@ var BettingCenterView = Base.ItemView.extend({
               prizeTotalMoney: bet.prizeTotalMoney,
               betTime: bet.betTime,
               prizeClass: 'text-pink'
-            });
+            }) ;
+          }},
+          {label: '操作', name: 'prizeTotalMoney', width: '36%', formatter: function(val, index, bet) {
+            //0:未中奖，1：已中奖，2：用户撤单，3：系统撤单,ticketResult,prizeTotalMoney
+            return '<span>撤单</span><span>再投一注</span>';
           }}
           //{label: '是否追号', name: 'chaseId', width: '10%', formatter: function(val) {
           //  return val ? '是' : '否';
@@ -1306,7 +1366,7 @@ var BettingCenterView = Base.ItemView.extend({
         emptyTip: '无投注记录',
         url: '/ticket/bethistory/userbethistory.json',
         abort: false,
-        showHeader: false,
+        showHeader: true,
         height: this.height,
         data: {
           pageSize: 30,

@@ -17,6 +17,7 @@ dl,dt,dd{
 
 .menuTips{
   font-size: 16px;
+  font-family: '微软雅黑';
   position: absolute;
   top: 39px;
   left: 1200px;
@@ -24,7 +25,7 @@ dl,dt,dd{
   a{
     display: block;
     width: 99px;
-    height: 33px;
+    height:26px;
     line-height: 30px;
     float: left;
     margin-right: 20px;
@@ -33,14 +34,33 @@ dl,dt,dd{
   }
 
   a.m1{
-    background: url(~base/images/julien/04.png) no-repeat 5px 3px;
+    background: url(~base/images/julien/04.png) no-repeat top left;
   }
   a.m2{
-    background: url(~base/images/julien/05.png) no-repeat 5px 3px;
+    background: url(~base/images/julien/05.png) no-repeat top left;
   }
   a.m3{
-    background: url(~base/images/julien/03.png) no-repeat 5px 3px;
+    background: url(~base/images/julien/03.png) no-repeat top left;
     width: 114px;
+    position: relative;
+    &:hover{
+      span{
+        display:block;
+      }
+    }
+
+    span{
+      position: absolute;
+      width: 150px;
+      left: -20px;
+      top: 0px;
+      padding-top: 40px;
+      display: none;
+    }
+  }
+  a:hover{
+    color:#c5222e;
+   background-position: left -26px;
   }
 }
 

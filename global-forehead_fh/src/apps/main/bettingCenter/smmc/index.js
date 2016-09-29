@@ -557,7 +557,6 @@ var BettingCenterView = Base.ItemView.extend({
       this.$playArea.removeClass('middle')
   }
 
-    //console.log(this.model.pick('ticketId', 'levelId', 'groupId', 'playId'));
   },
 
   renderSelectStatisticsInfo: function () {
@@ -700,18 +699,9 @@ var BettingCenterView = Base.ItemView.extend({
     clearInterval(this.noticeInterval);
     this.BeenDistoryed = true;
     _(this.TimeOutArr).each(function (item, index) {
-      console.log('distroy timeout:index=' + index + ',item=' + item);
       clearTimeout(item);
     })
   },
-
-  //event handlers
-
-  //openVideoHandler: function(e) {
-  //  var $target = $(e.currentTarget);
-  //
-  //  $target.attr('href', this.infoModel.getVideoUrl() || 'javascript:void(0)');
-  //},
 
   baseRuleChange1Handler: function(e) {
     this.$('.js-bc-advance-rules').hide();

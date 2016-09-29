@@ -12,6 +12,7 @@ var DownloadView = Base.ItemView.extend({
     require.ensure(['./index.scss'], function(require) {
       require('./index.scss');
       $('body').removeClass('hidden');
+      $('.wm-loader-wrapper').addClass('hidden');
     });
   }
 });

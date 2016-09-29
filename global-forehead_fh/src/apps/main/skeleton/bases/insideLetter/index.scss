@@ -7,7 +7,13 @@
 }
 
 .nc-ilSend-container {
-
+  .julien-single-content{
+    border: 1px solid #ccc;
+    width: 685px;
+    height: 375px;
+    background-color: #fff;
+  }
+  
   .letter-type-btn {
     width: 65px;
     height: 20px;
@@ -57,23 +63,55 @@
       top: 20px;
       font-size: 15px;
     }
-
-
   }
 }
 
 
 .julien-send-info{
-  margin-left: 8px;
   width: 679px;
   height: 55px;
   line-height: 55px;
-  background-image:-webkit-linear-gradient(180deg, #fff, #cccccc);
-  background-image:linear-gradient(180deg,#fff,#cccccc);
   font-family: '微软雅黑';
   position: absolute;
   bottom: 10px;
   z-index: 3;
+
+  .tips{
+    width: 200px;
+    float: right;
+    text-align: right;
+    color: #cc0000;
+    margin-top: 5px;
+    span{
+     color: #cc0000; 
+    }
+    > span{
+      margin-top: -5px;
+    }
+  }
+
+  .julienSendbtn1{
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    margin-right: 10px;
+    font-size: 16px;
+    color: #fff;
+    text-align: center;
+    background-color: #cc0000;
+    cursor: pointer;
+  }
+
+  .julienSendbtn2{
+    width: 98px;
+    height: 28px;
+    line-height: 28px;
+    color: #666666;
+    font-size: 16px;
+    border:1px solid #ccc;
+    text-align: center;
+    cursor: pointer;
+  }
 
   i{
     width: 30px;
@@ -214,7 +252,7 @@
       }
 
       &.me{
-        span{
+        >span{
           background-color: #99cc33;
           border: 0px;
         }
@@ -227,7 +265,7 @@
         float: right;
         position: relative;
 
-        span{
+        >span{
           background-color: #fff;
         }
 

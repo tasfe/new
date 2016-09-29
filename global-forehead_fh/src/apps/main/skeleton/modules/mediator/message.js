@@ -63,8 +63,7 @@ var MessageMediatorModule = Base.Module.extend({
               msgArry[j] = data.subList[i].newMsgNum;
             }
           }
-
-          $('.js-wt-title')
+          
 
           var num = 0;
           for (var i = $('.js-wt-title').length - 1; i >= 0; i--) {

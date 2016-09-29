@@ -53,7 +53,7 @@
   }
 }
 .carousel-control:hover{
-  background-color:#fff !important;
+  background-color:none !important;
   text-decoration: none;
   opacity:0.5;
   width:75px;
@@ -63,11 +63,10 @@
 }
 .carousel-control {
   position: absolute;
-  top: 50%;
-  left: -50px;
-  width: 100px;
-  height: 100px;
-  margin-top: -50px;
+  top: 0px;
+  left: 0px;
+  width: 300px;
+  height: 446px;
   font-size: 60px;
   font-weight: 100;
   line-height: 100px;
@@ -84,7 +83,7 @@
   }
 
   &.right {
-    right: -50px;
+    right: 0px;
     left: auto;
   }
   //&:hover {
