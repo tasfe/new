@@ -1,0 +1,70 @@
+@import "variable.css";
+
+.toolbar {
+  .menu-holder {
+    position: relative;
+  }
+
+  .menu {
+    display: none;
+    position: absolute;
+    top: .25rem;
+    right: -.1rem;
+    border: 1px solid var(--mid-gray);
+    background: var(--white);
+    width: 1.2rem;
+  }
+
+  .menu-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  .menu-item {
+    width: 100%;
+    color: black;
+    padding: .07rem;
+    margin: .05rem 0;
+    position: relative;
+  }
+
+  .icon {
+    position: absolute;
+    top: .13rem;
+    left: .1rem;
+  }
+
+  .switcher {
+    border: 1px solid var(--orange);
+    font-size: .1rem;
+    height: .21rem;
+    display: inline-block;
+    line-height: .2rem;
+    border-radius: .1rem;
+
+    .mode {
+      display: inline-block;
+      width: .2rem;
+      height: .2rem;
+      margin-left: .08rem;
+    }
+
+    .mode:first-child {
+      margin-left: 0;
+    }
+
+    .mode.active {
+      background: var(--orange);
+      color: #fff;
+      border-radius: 50%;
+    }
+  }
+
+  .content {
+    border-top: 1px solid var(--border-grey);
+    margin-top: .1rem;
+  }
+}

@@ -1,0 +1,32 @@
+@import 'variable.css';
+
+.help-block {
+    display: flex;
+    padding: 0.05rem 0.1rem;
+    color: var(--white);
+    background: var(--orange);
+    font-size: 0.1rem;
+
+.help-img {
+    flex: 1;
+
+    img {
+        width: 80%;
+    }
+}
+    .help-text {
+        flex: 7;
+    }
+}
+
+.co-commission {
+    background: var(--white);
+}
+.text-danger {
+    color: var(--danger);
+}
+
+.commission-intro {
+    color: var(--white);
+}
+

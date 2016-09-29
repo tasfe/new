@@ -1,0 +1,236 @@
+@import 'variable.css';
+@import 'components/Button/Button.css';
+
+form {
+  background: var(--white);
+}
+.iForm-list {
+  margin: .15rem 0;
+  input,
+  .fakeInput {
+    width: 65%;
+    //float: right;
+    //text-align: right;
+    height: .14rem;
+    line-height: .14rem;
+    font-size: var(--font-size-lv12);
+    background: transparent;
+    margin-left: .1rem;
+  }
+  select {
+    position: absolute;
+    width:100%;
+    line-height: .14rem;
+    opacity: 0;
+  }
+  .tip-info-container {
+    color: var(--tip-color);
+    font-size: var(--font-size-lv08)
+  }
+  .error-message-container {
+    margin-top: .05rem;
+    padding-left: .05rem;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1);
+    background: var(--alert-bg);
+    color: var(--alert-color);
+  }
+}
+
+.iForm-list-inner span.iForm-inner-span{
+  float: right;
+}
+.iForm-list input.text-color-red{
+  color: #f00;
+}
+.iForm-controls {
+  overflow: hidden;
+  margin-bottom: .1rem;
+}
+
+
+.fc-re-bankList {
+  border:0px  solid #d4d4d4;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 0;
+  margin: .35rem auto 0 auto;
+  text-align: left;
+  width: 100%;
+  white-space: nowrap;
+
+  td {
+    /* border:1px solid #d4d4d4*/
+    /*width: 25%;*/
+    span {
+      display: block;
+      line-height: .3rem;
+      margin-left: 0;
+      padding-left: .25rem;
+      border: 1px solid #d4d4d4;
+      border-radius: 0.1rem;
+    }
+  }
+
+  .fc-re-bank {
+    cursor: pointer;
+    padding: 0.02rem;
+  }
+
+  td.active span{
+    background-color: var(--gold);
+  }
+
+}
+.fc-re-quickAmount {
+  list-style-type: none;
+  margin-left: .5rem;
+  margin-bottom: 0.2rem;
+  li{
+    text-align: center;
+    margin-right: .1rem;
+    display:inline-block;
+    border: 1px solid #3a969c;
+    border-radius: 1rem;
+    width:auto;
+    cursor: pointer;
+    /*min-width: 0.15rem;*/
+    /*max-width: 0.2rem;*/
+    white-space: nowrap;
+    background-color: #6db7bb;
+    color: #fff;
+    padding: 0.03rem 0.1rem;
+  }
+  li:focus {
+    background-color: var(--sunshine);
+  }
+  li:hover {
+    background-color: var(--sunshine);
+  }
+}
+
+
+.f-recharge-tab{
+
+  .tabs-content  {
+  position: relative;;
+  height: auto;
+  padding-top: 0;
+  min-height: 0rem !important;
+  }
+}
+
+.f-recharge-absolute-div {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  margin-left: -0.7rem;
+
+}
+
+.f-recharge-setNotice-span {
+  width: 1rem;
+  display: inline-block;
+  margin: 0.1rem 0;
+}
+
+.f-recharge-setNotice-a {
+  background: var(--sunshine);
+  color: var(--coffee);
+  width: .6rem;
+  height: .2rem;
+  padding: 0.05rem;
+}
+
+.fc-re-bank-zhongguo {
+  background: url('/images/bank/zhongguo.png') no-repeat;
+  background-size: 25%;
+  background-position-x: 0.03rem;
+  background-position-y: center;
+}
+.fc-re-bank-gongshang {
+  background: url('/images/bank/gongshang.png') no-repeat;
+  background-size: 25%;
+  background-position-x: 0.03rem;
+  background-position-y: center;
+}
+.fc-re-bank-nongye {
+  background: url('/images/bank/nongye.png') no-repeat;
+  background-size: 25%;
+  background-position-x: 0.03rem;
+  background-position-y: center;
+}
+.fc-re-bank-jianshe {
+  background: url('/images/bank/jianshe.png') no-repeat;
+  background-size: 25%;
+  background-position-x: 0.03rem;
+  background-position-y: center;
+}
+
+.fc-re-bank-jiaotong {
+  background: url('/images/bank/jiaotong.png') no-repeat;
+  background-size: 25%;
+  background-position-x: 0.03rem;
+  background-position-y: center;
+}
+.fc-re-bank-minsheng {
+  background: url('/images/bank/minsheng.png') no-repeat;
+  background-size: 25%;
+  background-position-x: 0.03rem;
+  background-position-y: center;
+}
+.fc-re-bank-guangfa {
+  background: url('/images/bank/guangfa.png') no-repeat;
+  background-size: 25%;
+  background-position-x: 0.03rem;
+  background-position-y: center;
+}
+.fc-re-bank-guangda {
+  background: url('/images/bank/guangda.png') no-repeat ;
+  background-size: 25%;
+  background-position-x: 0.03rem;
+  background-position-y: center;
+}
+
+.fc-re-bank-pufa {
+  background: url('/images/bank/pufa.png') no-repeat;
+  background-size: 25%;
+  background-position-x: 0.03rem;
+  background-position-y: center;
+}
+.fc-re-bank-zhaoshang {
+  background: url('/images/bank/zhaoshang.png') no-repeat;
+  background-size: 25%;
+  background-position-x: 0.03rem;
+  background-position-y: center;
+}
+.fc-re-bank-pingan {
+  background: url('/images/bank/pingan.png') no-repeat;
+  background-size: 25%;
+  background-position-x: 0.03rem;
+  background-position-y: center;
+}
+.fc-re-bank-xingye {
+  background: url('/images/bank/xingye.png') no-repeat;
+  background-size: 25%;
+  background-position-x: 0.03rem;
+  background-position-y: center;
+}
+.fc-re-bank-zhongxin {
+  background: url('/images/bank/zhongxin.png') no-repeat;
+  background-size: 25%;
+  background-position-x: 0.03rem;
+  background-position-y: center;
+}
+.fc-re-bank-youzheng {
+  background: url('/images/bank/youzheng.png') no-repeat;
+  background-size: 25%;
+  background-position-x: 0.03rem;
+  background-position-y: center;
+}
+.fc-re-bank-huaxia {
+  background: url('/images/bank/huaxia.png') no-repeat;
+  background-size: 25%;
+  background-position-x: 0.03rem;
+  background-position-y: center;
+}

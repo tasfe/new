@@ -1,0 +1,12 @@
+@import 'variable.css';
+
+.help-bd{
+  font-weight: bold;
+  margin-top: .06rem;
+}
+.text-bold-important{
+  color: var(--danger);
+}
+.quickimg img{
+  width: 100%;
+}

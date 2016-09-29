@@ -1,0 +1,10 @@
+@import 'variable.css';
+
+.rm-team {
+    background: var(--white);
+
+    .table caption {
+        background: var(--orange);
+        color: var(--white);
+    }
+}

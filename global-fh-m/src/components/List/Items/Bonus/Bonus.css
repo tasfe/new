@@ -1,0 +1,58 @@
+@import 'variable.css';
+
+.bonus-item {
+    font-size: 0.1rem;
+    padding: 0 0.2rem 0 0.2rem;
+    border-bottom: 1px solid #ccc;
+}
+.bonus-item .bonus-title {
+    font-size: 0.12rem;
+    padding: 20px 0;
+    overflow: hidden;
+    span{
+        float: left;
+    }
+}
+
+.bonus-info {
+  font-size: 0.1rem;
+  overflow: hidden;
+}
+.bonus-info .bonus-info-title {
+    color: #bbbbbb;
+    float: left;
+}
+
+.bonus-info-min {
+    color: #FF6700;
+    float: left;
+}
+
+.bonus-info-max {
+    color: #d21e1e;
+    float: left;
+}
+.bonus-info:last-child{
+    padding-bottom: 20px;
+}
+.bonus-badge {
+    color: #fff;
+    text-align: center;
+    background-color: #FF6700;
+    height: 0.5rem;
+    width: 0.5rem;
+    border-radius: 50%;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    font-size: 0.15rem;
+    margin-top: -0.25rem;
+
+    > span {
+        position: relative;
+    }
+    .bonus-num {
+        margin-top: 25px;
+        font-size: 0.12rem;
+    }
+}

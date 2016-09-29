@@ -1,0 +1,114 @@
+@import 'variable.css';
+
+.table{
+  font-size: .1rem;
+  width: 100%;
+  border-spacing: 0;
+  border-collapse: collapse;
+  background: var(--white);
+
+  .data-row {
+    border-top: 1px solid #cdcdcd;
+  }
+
+  caption {
+    text-align: left;
+    padding: .05rem .1rem;
+    border-bottom: 1px solid #cdcdcd;
+  }
+}
+.table th,.table td{
+  padding-top: .1rem;
+  padding-bottom: .1rem;
+  word-break: break-all;
+}
+.text-align-left th,.text-align-left td{
+  text-align: left;
+}
+.text-align-center th,.text-align-center td{
+  text-align: center;
+}
+.text-align-right th,.text-align-right td{
+  text-align: right;
+}
+.table-bordered th,.table-bordered td{
+  border: 1px solid #cdcdcd;
+}
+.table-hover tr:hover td{
+  background: #f5f5f5;
+}
+.command-row td{
+  padding: 0;
+  width: 100%;
+  div {
+    padding: .1rem;
+    text-align: right;
+    line-height: 0.1rem;
+  }
+}
+
+.command-row button,.command-row a{
+  background: transparent;
+  margin-left: .14rem;
+  font-size: var(--font-size-lv12);
+  color: var(--coffee);
+}
+.table-filter-area {
+  transition: all .3s;
+  position: fixed;
+  bottom: .25rem;
+  width: 100%;
+  right: 0;
+  .form-container {
+    display: none;
+  }
+
+  &.show {
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+    left: 0;
+    bottom: 0rem;
+    background: var(--white);
+
+    .toggle-btn {
+      top: -.3rem;
+      z-index: 1;
+      .fa-filter {
+        display: none;
+      }
+      .fa-times {
+        display: block;
+      }
+    }
+    .form-container {
+      display: block;
+      margin-top: 0.15rem;
+    }
+  }
+
+  .toggle-btn {
+    position: absolute;
+    padding: .1rem;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 10px, rgba(0, 0, 0, 0.3) 0px 3px 10px;
+    border-radius: 50%;
+    background: var(--crimson);
+    width: .4rem;
+    text-align: center;
+    height: .4rem;
+    right: .1rem;
+    bottom: .1rem;
+    color: var(--white);
+
+    .fa-times {
+      display: none;
+    }
+  }
+
+  .table-filter-control {
+    font-size: .1rem;
+    background: none;
+    padding: .1rem;
+  }
+}
+.bet-redcl{
+  color: var(--danger);
+}

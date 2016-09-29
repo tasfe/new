@@ -1,0 +1,6 @@
+@import 'variable.css';
+
+.llm-lowLevelManage {
+    background: var(--white);
+
+}

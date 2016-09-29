@@ -1,0 +1,47 @@
+@import 'variable.css';
+body {
+  background: var(--garybg-color);
+}
+.act-form li.act-li{
+  padding: 0;
+}
+.act-form-lo{
+  padding: .1rem;
+}
+.act-li a{
+  color: var(--maintext-color);
+  -webkit-tap-highlight-color:transparent;
+}
+.act-li a:hover, .act-li a:focus {
+    text-decoration: none;
+}
+.act-text-lv10{
+  font-size: var(--font-size-lv10);
+  float: left;
+}
+.act-text-lv12{
+  font-size: var(--font-size-lv12);
+  float: left;
+}
+.act-form li .act-form-lo.act-overdue{
+  color: #ccc;
+  a{
+    color: #ccc;
+  }
+  .arrow:after{
+    display: none;
+  }
+}
+
+.ad-badge-over,.ad-badge{
+  font-size: var(--font-size-lv10);
+  position: absolute;
+  right: .1rem;
+  bottom: .1rem;
+}
+.help-block {
+  padding: 0.8px 1.6px;
+  padding: 0.05rem 0.1rem;
+  color: var(--white);
+  background: var(--orange);
+}

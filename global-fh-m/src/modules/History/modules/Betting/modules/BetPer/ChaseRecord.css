@@ -1,0 +1,20 @@
+@import 'variable.css';
+
+.BetRecord-list{
+  padding: 0 .1rem;
+  .BetRecord-item{
+    overflow:hidden;
+  }
+}
+
+.BetRecord-item{
+  display: block;
+  /*&:after{*/
+    /*content: '';*/
+    /*padding: 1px;*/
+  /*}*/
+  /*&:before{*/
+    /*content: '';*/
+    /*padding: 1px;*/
+  /*}*/
+}

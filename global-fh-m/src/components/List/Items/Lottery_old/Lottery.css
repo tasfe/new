@@ -1,0 +1,103 @@
+@import 'variable.css';
+
+body {
+  background: var(--garybg-color);
+}
+.lottery-list{
+  padding: .1rem .04rem;
+  background: #FFFDEB;
+
+  li .lottery-title {
+    background-color: transparent;
+    color: #766638;
+    font-size: 0.12rem;
+  }
+}
+.lottery-item {
+  .sub-list-item {
+    width: 50%;
+    display: inline-block;
+    margin-bottom: .05rem;
+    vertical-align: top;
+
+    img {
+      vertical-align: middle;
+
+      width: 100%;
+      /*max-height: .4rem;*/
+    }
+
+    &:nth-child(2n + 1) {
+      padding-right: .01rem;
+    }
+
+    &:nth-child(2n) {
+      padding-left: .01rem;
+    }
+  }
+}
+.Lottery-img{
+  width: 40%;
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: top;
+}
+.lottery-item {
+  overflow: hidden;
+  border-radius: 0.05rem;
+  a {
+    display: block;
+    background:var(--white);
+    padding: .05rem;
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
+  }
+  &.sub-list-item {
+    a {
+      padding: .1rem;
+      box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+      border-radius: 0.05rem;
+      border: 1px solid var(--border-yellow);
+
+      &:active {
+        transform: scale(.98);
+      }
+    }
+  }
+  .item-badge {
+    transform: rotate(-45deg);
+    position: absolute;
+    color: #fff;
+    text-align: center;
+    width: 0.8rem;
+    left: -0.34rem;
+    top: -0.05rem;
+    font-size: 0.09rem;
+    padding: 0.1rem 0 0.02rem 0;
+  }
+  .badge-hot {
+    background-color: #fe6760;
+  }
+  .badge-sunshine {
+    background-color: #ffba00;
+  }
+
+  .title {
+    font-size: 0.12rem;
+    color: #4e4e4e;
+  }
+}
+.right{
+  display: inline-block;
+  padding-left: .05rem;
+  width: 60%;
+
+  .info {
+    font-size: .09rem;
+    /*height: .26rem;*/
+    width: 100%;
+    overflow: hidden;
+    color: #8D8D8D;
+  }
+}

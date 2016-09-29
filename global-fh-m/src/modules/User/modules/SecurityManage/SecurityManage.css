@@ -1,0 +1,68 @@
+@import 'variable.css';
+@import 'components/Alert/Alert.css';
+
+.help-block {
+    padding: 0.8px 1.6px;
+    padding: 0.05rem 0.1rem;
+    color: var(--white);
+    background: var(--orange);
+}
+
+.row .ui-input{
+  font-size: var(--font-size-lv12);
+  width: 70%;
+  height: .14rem;
+  line-height: .14rem;
+  display: inline-block;
+  vertical-align: middle;
+}
+.row-outer{
+  padding: .05rem .1rem;
+}
+.row{
+  overflow: hidden;
+  font-size: var(--font-size-lv12);
+  background: var(--white);
+  border: 1px solid #d9d6c5;
+  padding: .06rem .1rem;
+  line-height: 0;
+}
+.btn-row{
+  padding: .1rem;
+  margin-bottom: .1rem;
+}
+.panelcon{
+  margin-bottom: .1rem;
+}
+.error-message-container {
+    margin: .05rem .1rem 0;
+    padding: 0 .05rem;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1);
+    background: var(--alert-bg);
+    color: var(--alert-color);
+}
+.resetpwd-title {
+    display: inline-block;
+    color: #424244;
+    font-size: 0.12rem;
+}
+
+.resetpwd-title-bar {
+    margin-top: 0.1rem;
+    margin-bottom: 0.1rem;
+}
+
+.step2-q-num{
+  height: .14rem;
+  line-height: .14rem;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.setSuc{
+  text-align: center;
+  font-size: var(--font-size-lv14);
+  color: #424244;
+  margin: .4rem 0;
+}

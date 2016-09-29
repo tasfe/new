@@ -1,0 +1,21 @@
+@import 'variable.css';
+.help-block {
+    padding: 0.8px 1.6px;
+    padding: 0.05rem 0.1rem;
+    color: var(--white);
+    background: var(--orange);
+}
+.notice-config-form{
+  .togglebutton label{
+    font-size: var(--font-size-lv12);
+    width: 100%;
+    display: block;
+    text-align: right;
+  }
+  span{
+    float: left;
+  }
+  span.toggle{
+    float: none;
+  }
+}

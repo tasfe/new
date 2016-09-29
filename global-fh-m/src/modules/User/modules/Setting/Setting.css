@@ -1,0 +1,108 @@
+@import 'variable.css';
+
+.user-set-con{
+  ul{
+    background: var(--white);
+    padding: 0 .1rem;
+    margin: 0 0 .2rem;
+    li{
+      border-top: 1px solid #ccc;
+      &:first-child{
+        border-top: none;
+      }
+      a{
+        display: block;
+        color: #172434;
+        font-size: var(--font-size-lv12);
+        position: relative;
+        padding: .1rem 0 .1rem .3rem;
+        .can-update{
+          position: absolute;
+          right: .2rem;
+          top: 50%;
+          height: .2rem;
+          line-height: .2rem;
+          margin-top: -.1rem;
+          color: #999999;
+          font-size: var(--font-size-lv10);
+        }
+        &:before{
+          display:block;
+          content: '';
+          width: .2rem;
+          height: .2rem;
+          position: absolute;
+          left: .02rem;
+          top: 50%;
+          margin-top: -.1rem;
+        }
+        &:after{
+          display: block;
+          content: '';
+          width: .06rem;
+          height: .06rem;
+          position: absolute;
+          right: .1rem;
+          top: 50%;
+          margin-top: -.03rem;
+          border-top: 2px solid #798fab;
+          border-right: 2px solid #798fab;
+          -webkit-transform: rotate(45deg);
+          -moz-transform: rotate(45deg);
+          -ms-transform: rotate(45deg);
+          -o-transform: rotate(45deg);
+          transform: rotate(45deg);
+        }
+        &.set-notice{
+          &:after{
+            display: none;
+          }
+          .toggle{
+            float: right;
+          }
+        }
+
+        &.change-psd-login:before{
+          background: url(/images/set/icon1.png) center no-repeat;
+          background-size: 100%;
+        }
+        &.change-psd-fund:before{
+          background: url(/images/set/icon2.png) center no-repeat;
+          background-size: 100%;
+        }
+        &.change-sq-quest:before{
+          background: url(/images/set/icon3.png) center no-repeat;
+          background-size: 100%;
+        }
+        &.bind-card:before{
+          background: url(/images/set/icon4.png) center no-repeat;
+          background-size: 100%;
+        }
+        &.open-acc:before{
+          background: url(/images/set/icon5.png) center no-repeat;
+          background-size: 100%;
+        }
+        &.online-service:before{
+          background: url(/images/set/icon6.png) center no-repeat;
+          background-size: 100%;
+        }
+        &.set-notice:before{
+          background: url(/images/set/icon7.png) center no-repeat;
+          background-size: 100%;
+        }
+        &.update:before{
+          background: url(/images/set/icon8.png) center no-repeat;
+          background-size: 100%;
+        }
+
+      }
+    }
+  }
+  .user-logout{
+    text-align: center;
+    padding: .1rem 0 .2rem;
+    .btn{
+      text-transform: none;
+    }
+  }
+}

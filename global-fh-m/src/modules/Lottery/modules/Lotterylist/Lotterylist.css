@@ -1,0 +1,110 @@
+@import 'variable.css';
+
+.preview-list-page {
+  .lotlist-con {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: .3rem .1rem .9rem;
+    .iForm-list {
+      margin: 0 0 .2rem 0;
+    }
+
+    .lotlist-con-li {
+      background: none;
+      border-bottom: 1px dashed var(--border-grey);
+      padding: .1rem;
+      &:first-child; {
+        border-top: none;
+      }
+
+      .iForm-list-inner {
+        background: none;
+        border: none;
+      }
+    }
+  }
+
+  .control-area {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    line-height: .3rem;
+    text-align: center;
+
+    > div {
+      border-bottom: 1px solid var(--border-grey);
+    }
+  }
+
+  .empty {
+    margin: 0 .1rem;
+    border-top: 1px solid var(--border-grey);
+  }
+
+  .chase {
+    background: var(--white);
+    display: flex;
+
+    > div {
+      flex: 1;
+    }
+
+    .chase__number {
+      flex: 2;
+    }
+  }
+
+  .chase__flag .checkbox {
+    line-height: .18rem;
+  }
+
+  .chase__button {
+    height: .24rem;
+    line-height: 0;
+  }
+
+  .summary {
+    background: var(--white);
+    display: flex;
+  }
+
+  .summary__text {
+    flex: 8;
+    text-align: left;
+    padding-left: .1rem;
+  }
+
+  .summary__button {
+    flex: 2;
+    background: var(--sunshine)
+  }
+}
+
+.lotlist-con-item {
+  overflow: hidden;
+  padding-right: .3rem;
+
+  .iForm-list-inner {
+    //height: .2rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    border: none;
+    background: transparent;
+    padding: 0;
+  }
+}
+.lotlist-con-del{
+  position: absolute;
+  right: .1rem;
+  top: 50%;
+  margin-top: -.16rem;
+  color: var(--gray-light);
+  font-size: var(--font-size-lv16);
+  padding:.05rem .1rem;
+  border-left: 1px solid var(--border-grey);
+}

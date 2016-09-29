@@ -1,0 +1,44 @@
+@import 'variable.css';
+body {
+  background: var(--garybg-color);
+}
+.act-li a{
+  color: var(--maintext-color);
+  -webkit-tap-highlight-color:transparent;
+}
+.act-li a:hover, .act-li a:focus {
+    text-decoration: none;
+}
+.act-li h4{
+  font-weight: normal;
+  font-size: var(--font-size-lv14);
+}
+.act-text-lv10{
+  font-size: var(--font-size-lv10);
+  float: left;
+  height:.12rem; 
+  width:100%; 
+  overflow:hidden;
+}
+.act-text-lv12{
+  font-size: var(--font-size-lv12);
+  float: left;
+}
+li.act-overdue{
+  background: #e4e3e3;
+}
+
+.toolbar-middleBtn {
+  padding: 0.04rem 0.15rem;
+  border: 1px solid #fff;
+  color: #fff;
+}
+.toolbar-middleBtn.active {
+  background: #616161;
+}
+
+.dynamic-list {
+  .iForm-list li {
+    padding: 0;
+  }
+}

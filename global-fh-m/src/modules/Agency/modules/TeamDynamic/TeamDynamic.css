@@ -1,0 +1,16 @@
+@import 'variable.css';
+
+.td-teamDynamic {
+    margin-top: 0.1rem;
+    .paper {
+        margin: 2% 1%;
+        padding:0;
+    }
+    /*.tabs-header {*/
+        /*position: relative;*/
+    /*}*/
+
+    .tabs-content {
+        margin-top: 0;
+    }
+}

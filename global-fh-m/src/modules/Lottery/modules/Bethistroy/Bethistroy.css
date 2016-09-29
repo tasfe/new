@@ -1,0 +1,14 @@
+@import 'variable.css';
+
+.iForm-list-inner span.bh-span{
+  display: inline-block;
+  line-height: .2rem;
+  height: .2rem;
+  vertical-align: middle;
+  color: var(--maintext-color);
+  width: 33%;
+}
+.bet-redcl{
+  color: var(--danger);
+  font-style: normal;
+}

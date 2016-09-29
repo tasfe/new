@@ -1,0 +1,148 @@
+@import 'variable.css';
+
+.btn {
+  text-decoration: none;
+  text-align: center;
+  letter-spacing: .5px;
+  transition: .2s ease-out;
+  cursor: pointer;
+  border: none;
+  display: inline-block;
+  height: 0.3rem;
+  line-height: 0.1rem;
+  outline: 0;
+  padding: 0.1rem;
+  font-size: 0.1rem;
+  text-transform: uppercase;
+  vertical-align: middle;
+  -webkit-tap-highlight-color: transparent;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+  background-image: none;
+  border-radius: .2rem;
+}
+
+.btn-large {
+  width: 100%;
+}
+.btn-middle {
+  width: 50%;
+}
+
+.btn-sunshine {
+  background-color: var(--sunshine);
+  color: var(--coffee);
+  &:hover {
+    background-color: color(var(--sunshine) lightness(+10%));
+  }
+  &:active, &:hover, &:focus {
+    color: var(--coffee);
+  }
+}
+
+.btn-red {
+  color: var(--white);
+  background-image: linear-gradient(to bottom, #c11e1e, #ac1818);
+  border-radius: .2rem;
+}
+
+.btn-orange {
+  color: var(--white);
+  background-color: var(--orange);
+  border-radius: .2rem;
+}
+
+.btn-black {
+  color: var(--white);
+  background-image: linear-gradient(to bottom, #3e3e3e, #010101);
+}
+
+.btn-flat {
+  background-color: transparent;
+  color: var(--coffee);
+  box-shadow: none;
+  &:hover {
+    box-shadow: none;
+  }
+  &:active, &:hover, &:focus {
+    color: var(--coffee);
+  }
+}
+
+.btn-filter-o {
+  color: var(--orange);
+  font-size: 0.12rem;
+  width: 20%;
+  margin: auto 0.2rem;
+}
+.btn-filter-r {
+  color: var(--crimson);
+  font-size: 0.12rem;
+  width: 20%;
+  margin: auto 0.2rem;
+}
+
+a, a:active, a:hover, a:focus {
+  outline: 0;
+  text-decoration: none;
+  /* color: var(--coffee); */
+}
+
+.waves-effect {
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  overflow: hidden;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  vertical-align: middle;
+  z-index: 1;
+  will-change: opacity, transform;
+  transition: all .3s ease-out;
+}
+
+.waves-effect .ripple {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  opacity:0;
+  border-radius: 100%;
+  -webkit-animation: ripple 0.6s;
+  animation: ripple 0.6s;
+}
+
+.waves-effect.waves-light .ripple{
+  background: var(--white);
+}
+
+.waves-effect.waves-dark .ripple{
+  background: var(--gray-light);
+}
+
+@-webkit-keyframes ripple {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 0.2;
+  }
+  100% {
+    -webkit-transform: scale(40);
+    transform: scale(40);
+    opacity: 0;
+  }
+}
+
+@keyframes ripple {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 0.2;
+  }
+  100% {
+    -webkit-transform: scale(40);
+    transform: scale(40);
+    opacity: 0;
+  }
+}

@@ -1,0 +1,14 @@
+@import 'variable.css';
+
+.oa-openAccount {
+    form {
+        input {
+            text-align: left;
+        }
+    }
+
+    .button {
+        background: var(--sunshine);
+        color: var(--coffee);
+    }
+}

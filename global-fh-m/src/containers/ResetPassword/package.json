@@ -1,0 +1,4 @@
+{
+  "name": "ResetPassword",
+  "main": "./ResetPassword.jsx"
+}

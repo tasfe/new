@@ -1,0 +1,98 @@
+@import 'variable.css';
+@import 'components/Button/Button.css';
+
+body {
+  background: var(--garybg-color);
+}
+.iForm-list-inner span.add-icon{
+  margin-right: .04rem;
+  color: #91979d;
+  font-size: var(--font-size-lv14);
+}
+
+.bankcard-list li{
+  margin: .1rem;
+  position: relative;
+  overflow: hidden;
+}
+.bankcard-info{
+  /*position: absolute;*/
+  /*left: .1rem;*/
+  /*top: .1rem; */
+  background-color: var(--white);
+  border-radius: 0.1rem;
+  padding: 0.1rem;
+  border: 1px solid #BBBBBB;
+  box-shadow: 0 2px 3px 0 rgba(0,0,0,.25);
+}
+.bankcard-img img{
+  width: 100%;
+  overflow: hidden;
+}
+.bankcard-logo{
+  float: left;
+  width: 30%;
+}
+.bankcard-txt{
+  margin-left: .1rem;
+  float: left;
+}
+.bankcard-txt-lv10{
+  font-size: var(--font-size-lv10);
+}
+.bankcard-txt-lv12{
+  font-size: var(--font-size-lv12);
+}
+.bankcard-txt-lv14{
+  font-size: var(--font-size-lv14);
+  /* margin-top: .1rem; */
+}
+.remove-bc{
+  position: absolute;
+  right: .1rem;
+  bottom: .1rem;
+  color: var(--magenta);
+  padding: .2rem 0 0 .2rem;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color:transparent;
+}
+
+.hidden{
+  display: none;
+}
+
+.locked{
+  background-color: darkgray;
+}
+
+.help-block {
+  display: flex;
+  padding: 0.05rem 0.1rem;
+  color: var(--white);
+  background: var(--orange);
+  font-size: 0.1rem;
+
+  .help-img {
+    flex: 1;
+    padding: 0.2rem 0;
+    img {
+      width: 80%;
+    }
+  }
+  .help-text {
+    flex: 7;
+  }
+}
+
+.addCard-tip {
+  color: var(--tip-color);
+  margin: 0 0.1rem 0.1rem 0.1rem;
+}
+
+.addCard-list.iForm-list {
+  margin: 0.1rem 0 0 0;
+  li{
+    border:none;
+    padding: .1rem;
+  }
+}

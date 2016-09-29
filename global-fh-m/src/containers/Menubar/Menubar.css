@@ -1,0 +1,63 @@
+@import 'variable.css';
+
+.menu-bar{
+  overflow: hidden;
+  background: #f8f8f8!important;
+  border-top: 1px solid #b2b2b2;
+  padding: 0!important;
+
+  .menu-item{
+    width: 20%;
+    height: 100%;
+    display: inline-block;
+    color: #6c6c6c;
+    text-align: center;
+    span{
+      display: block;
+      width: .18rem;
+      height: .18rem;
+      margin: auto;
+      margin-top: .02rem;
+    }
+    p{
+      margin-top: .02rem;
+      font-size: var(--font-size-lv08);
+    }
+  }
+  .m_icon1{
+    background: url(/images/m_icon1.png) center no-repeat;
+    background-size: 100%;
+  }
+  .m_icon2{
+    background: url(/images/m_icon2.png) center no-repeat;
+    background-size: 100%;
+  }
+  .m_icon3{
+    background: url(/images/m_icon3.png) center no-repeat;
+    background-size: 100%;
+  }
+  .m_icon4{
+    background: url(/images/m_icon4.png) center no-repeat;
+    background-size: 100%;
+  }
+  .m_icon5{
+    background: url(/images/m_icon5.png) center no-repeat;
+    background-size: 100%;
+  }
+  .notice-tips{
+    display: none;
+    position: absolute;
+    width: 0.15rem;
+    height: 0.15rem;
+    left: 50%;
+    margin-left: .04rem;
+    top: .05rem;
+    background: var(--danger);
+    border-radius: 50%;
+    color: #fff;
+    font-size: .08rem;
+    line-height: .15rem;
+    box-shadow: 0 0px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+}

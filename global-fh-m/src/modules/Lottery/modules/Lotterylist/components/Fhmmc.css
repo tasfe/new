@@ -1,0 +1,48 @@
+@import 'variable.css';
+
+.fh-mmc{
+  .mmc-content{
+    position: relative;
+    margin-top: -.1rem;
+    margin-bottom: .15rem;
+    width: 90%;
+  }
+  .mmc-num-box{
+    background:url(/images/mmc/num_box.png) center no-repeat;
+    background-size: 100% 100%;
+    width: 100%;
+    height: 1rem;
+    overflow:hidden;
+    text-align:center;
+    padding: 0 .2rem;
+  }
+  .mmc-num{
+    background:#fff url(/images/mmc/num_1.png) center -0.06rem repeat-y;
+    background-size: 70%;
+    width:16%;
+    float:left;
+    height: .56rem;
+    margin: .2rem 2% 0;
+    &:first-child{
+      border-top-left-radius: .08rem;
+      border-bottom-left-radius: .08rem;
+    }
+    &:last-child{
+      border-top-right-radius: .08rem;
+      border-bottom-right-radius: .08rem;
+    }
+  }
+  .mmc-bc-start{
+    background:url(/images/mmc/mmc_drawbar_up.png) 0px 0px no-repeat;
+    background-size: 100% 100%;
+    width:.2rem;
+    height:.9rem;
+    position:absolute;
+    right: -.2rem;
+    top: .1rem;
+    &.active{
+      background:url(/images/mmc/mmc_drawbar_down.png) 0px 0px no-repeat;
+      background-size: 100% 100%;
+    }
+  }
+}

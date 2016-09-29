@@ -1,0 +1,80 @@
+@import 'variable.css';
+
+.alert-overlay {
+  z-index: 1000;
+  display: block;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.alert-overlay.hidden {
+    z-index: -1;
+    opacity: 0;
+    visibility: hidden;
+}
+.alert {
+  text-align: center;
+  z-index: 1001;
+  border-radius: .04rem;
+  overflow: auto;
+  transition: opacity 0.3s, transform 0.5s;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 70%;
+  transform: translate(-50%, -50%);
+  max-height: 80%;
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14),
+              0 1px 18px 0 rgba(0, 0, 0, 0.12),
+              0 3px 5px -1px rgba(0, 0, 0, 0.4);
+}
+.alert.hidden {
+  display: block;
+  opacity: 0;
+  z-index: -1;
+  transform: translate(-50%, -100%);
+  transition: opacity 0.3s, transform 0.5s, z-index 0s 0.4s;
+}
+.alert-title{
+  font-size: var(--font-size-lv12);
+  padding: 0.1rem;
+  margin: .05rem;
+  border-bottom: 1px solid var(--fair-gray);
+}
+.alert-content{
+ padding: 0.1rem .1rem .2rem;
+ font-size: var(--font-size-lv12);
+}
+.alert-content .link {
+  text-decoration: underline;
+  color: var(--main-red);
+}
+.alert-footer{
+  text-align: center;
+ padding: 0.1rem;
+}
+.alert-button{
+  color: var(--white);
+  border: none;
+  border-radius: .2rem;
+  text-transform: uppercase;
+  padding: .04rem;
+  font-size: var(--font-size-lv10);
+  text-align: center;
+  margin: .02rem;
+  width: 40%;
+  background-image: linear-gradient(to bottom, #c11e1e, #ac1818);
+}
+.alert-confirm, .alert-close{
+  color: var(--white);
+}
+
+.alert-button.alert-cancel {
+  background-image: linear-gradient(to bottom, #3e3e3e, #010101);
+}

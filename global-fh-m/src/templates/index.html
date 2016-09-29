@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta name="viewport" content="" />
+    <meta charset="utf-8">
+    <title>繁华娱乐</title>
+    <link rel="stylesheet" href="style.default.css">
+    <link rel="stylesheet" href="css/tiny-slider.css">
+    <link rel="stylesheet" href="css/jquery.mmenu.all.css">
+    <link rel="stylesheet" href="css/ripples.min.css">
+    <link rel="stylesheet" href="css/datetimepicker.css">
+
+    <style>
+      .loading-overlay {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        z-index: 1000;
+        visibility: hidden;
+        transition: opacity 0.15s, visibility 0s 0.15s;
+      }
+      .loading-overlay.show {
+        visibility: visible;
+      }
+      .loading-overlay.show::after,
+      .loading-overlay.show::before {
+        content: '';
+        position: absolute;
+        width: .1rem;
+        height: .1rem;
+        top: 50%;
+        left: 50%;
+        margin: -10px 0 0 -10px;
+        border-radius: 50%;
+        -webkit-transition: opacity 0.15s, visibility 0s 0.15s;
+        transition: opacity 0.15s, visibility 0s 0.15s;
+      }
+
+      .loading-overlay.show::after {
+        background: #6cc88a;
+        -webkit-transform: translateX(-20px);
+        transform: translateX(-20px);
+        -webkit-animation: moveRight 0.6s linear infinite alternate;
+        animation: moveRight 0.6s linear infinite alternate;
+      }
+
+      .loading-overlay.show::before {
+        background: #4fc3f7;
+        -webkit-transform: translateX(20px);
+        transform: translateX(20px);
+        -webkit-animation: moveLeft 0.6s linear infinite alternate;
+        animation: moveLeft 0.6s linear infinite alternate;
+      }
+
+      @-webkit-keyframes moveRight {
+        to { -webkit-transform: translateX(20px); }
+      }
+
+      @keyframes moveRight {
+        to { transform: translateX(20px); }
+      }
+
+      @-webkit-keyframes moveLeft {
+        to { -webkit-transform: translateX(-20px); }
+      }
+
+      @keyframes moveLeft {
+        to { transform: translateX(-20px); }
+      }
+    </style>
+    <script>
+      document.documentElement.style.fontSize = 100 * innerWidth / 320 + 'px'
+      addEventListener('load', function() {
+        setTimeout(function(){
+          document.documentElement.style.fontSize = 100 * innerWidth / 320 + 'px' 
+          window.unit = 100 * innerWidth / 320;
+          var e = document.createEvent('Event');
+          e.initEvent('adjustReady', true, true);
+          window.dispatchEvent(e);
+        }, 480);
+      })
+    </script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <div class="loading-overlay show"></div>
+    <script>
+      var viewport = document.querySelector("meta[name=viewport]");
+//      window.alert(window.devicePixelRatio + ',' + window.innerWidth + ',' + window.innerHeight);
+//      window.alert(navigator.userAgent.toLowerCase());
+      if(isQQ()){
+        viewport.setAttribute('content', '');
+      }else{
+        viewport.setAttribute('content', 'user-scalable=no');
+      }
+      if(isMI()) {
+        viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, target-densitydpi=device-dpi, minimum-scale=1.0, maximum-scale=1.0');
+      }
+      if(isUC()) {
+        window.alert('繁华娱乐在UC浏览器下运行会出现兼容性问题，为了不影响您的使用，请更换浏览器');
+      }
+      function isQQ(){
+        var ua = navigator.userAgent.toLowerCase();
+        if(ua.match(/mqqbrowser/i)=="mqqbrowser") {
+          return true;
+        } else {
+          return false;
+        }
+      }
+      function isMI(){
+        var ua = navigator.userAgent.toLowerCase();
+        if(ua.match(/mi/i)=="mi") {
+          return true;
+        } else {
+          return false;
+        }
+      }
+      function isUC(){
+        var ua = navigator.userAgent.toLowerCase();
+        if(ua.match(/ucbrowser/i)=="ucbrowser") {
+          return true;
+        } else {
+          return false;
+        }
+      }
+    </script>
+  </body>
+</html>

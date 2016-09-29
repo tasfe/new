@@ -1,0 +1,136 @@
+@import 'variable.css';
+.slider {
+  min-height: 1.5rem;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    display: block;
+    margin: 0;
+  }
+}
+.home-gc{
+  padding: .1rem;
+  display: block;
+  height: 1.2rem;
+  img {
+    width: 100%;
+  }
+}
+
+.hot-ticket{
+  margin: .2rem .1rem .1rem;
+}
+.title-lf{
+  color: #6e6848;
+  font-size: .14rem;
+  span{
+    display: inline-block;
+    height: .2rem;
+    line-height: .2rem;
+    vertical-align: top;
+  }
+  .hot-t-icon{
+    background: url(/images/hot-icon.png) left center no-repeat;
+    background-size: 100%;
+    width: .14rem;
+    margin-right: .04rem;
+  }
+}
+.hot-t-title{
+  position: relative;
+  margin-bottom: .05rem;
+}
+.title-rt{
+  position: absolute;
+  right: 0;
+  top: 0;
+  line-height: .2rem;
+  color: #FCA311;
+}
+.hot-t-con{
+  background: #fff;
+  border: 1px solid #d9d6c5;
+  border-radius: .05rem;
+  overflow: hidden;
+}
+.lottery-list{
+  margin-bottom: -2px;
+}
+.lottery-item {
+  display: inline-block;
+  vertical-align: top;
+  width: 33.333333%;
+  text-align: center;
+  position: relative;
+  a {
+    display: block;
+    padding: .1rem 0;
+    position: relative;
+    overflow: hidden;
+    border-right: 1px solid #d2d2d2;
+    border-bottom: 1px solid #d2d2d2;
+    z-index: 1;
+  }
+  &:first-child{
+    a{
+      border-radius: .05rem;
+    }
+  }
+  &:nth-child(3n){
+    a{
+      border-right: none;
+    }
+  }
+  .lottery-img{
+    background:url(/images/ticket-cd.png) center no-repeat;
+    background-size: 100%;
+    height: 0.8rem;
+    width: .8rem;
+    position: relative;
+    margin: auto;
+    .alert-circle{
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+    .alert-sec-circle {
+      stroke-dashoffset: 0;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      transition: stroke-dashoffset 1s linear;
+    }
+    img{
+      height: .4rem;
+      margin-top: .2rem;
+    }
+  }
+  .item-badge {
+    transform: rotate(-45deg);
+    position: absolute;
+    color: #fff;
+    text-align: center;
+    width: 0.8rem;
+    left: -0.34rem;
+    top: -0.06rem;
+    font-size: 0.09rem;
+    padding: 0.1rem 0 0.02rem 0;
+  }
+  .badge-hot {
+    background-color: #ba0000;
+  }
+  .badge-sunshine {
+    background-color: #ffba00;
+  }
+  .lottery-t{
+    color: #666;
+    font-size: var(--font-size-lv12);
+    margin-top: .04rem;
+  }
+  .lottery-cd{
+    color: #333;
+    font-size: var(--font-size-lv12);
+  }
+}

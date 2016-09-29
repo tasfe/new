@@ -1,0 +1,112 @@
+@import 'variable.css';
+.lottery-list{
+    padding: .1rem .1rem 0;
+}
+.lottery-item {
+    font-size: var(--font-size-lv10);
+    padding: 0.1rem;
+    margin-bottom: .1rem;
+    border: 1px solid var(--border-yellow);
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+    border-radius: 0.05rem;
+    background:var(--white);
+    position: relative;
+}
+.btn.lottery-bet-btn{
+    position: absolute;
+    right: .1rem;
+    top: .14rem;
+    height: auto;
+    padding: .08rem 0.2rem;
+}
+.lottery-pic {
+    display: inline-block;
+    width: 25%;
+    vertical-align: top;
+    padding-top: .12rem;
+    img {
+        width: 90%;
+    }
+
+}
+
+.lottery-openContent {
+    display: inline-block;
+    width: 75%;
+    vertical-align: middle;
+}
+.lottery-open-more{
+    border-top: 1px dashed #ccc;
+    color: var(--maintext-color);
+    padding: .06rem 0;
+}
+.lottery-title {
+    font-size: var(--font-size-lv12);
+    margin-bottom: 0.02rem;
+    color: var(--maintext-color);
+}
+.lottery-open-outer{
+    .lottery-open-more:first-child{
+        border: none;
+        .lottery-plan-more {
+            display: block;
+            margin: 0;
+            font-size: var(--font-size-lv10);
+            color: var(--maintext-color);
+        }
+        .lottery-result-more {
+            margin-top: 0.02rem;
+            .lottery-result-openNum {
+                text-align: center;
+                display: inline-block;
+                width: 0.2rem;
+                height: 0.2rem;
+                line-height: 0.2rem;
+                background-color: #fd8901;
+                color: #fff;
+                border-radius: 50%;
+                margin: 0 .06rem 0 0;
+                margin-bottom: 0.04rem;
+                //box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+            }
+        }
+    }
+}
+
+.link-mark {
+    display: inline-block;
+    width: 4%;
+    vertical-align: middle;
+}
+.link-mark::before {
+    content: '';
+    border: 3px solid rgba(0,0,0,.3);
+    display: inline-block;
+    margin: auto;
+    position: relative;
+    -webkit-transform: rotate(135deg);
+    transform: rotate(135deg);
+    width: 0.1rem;
+    height: 0.1rem;
+    border-right: none;
+    border-bottom: none;
+    right: 0px;
+}
+.lottery-item a{
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-tap-highlight-color: transparent;
+}
+.lottery-plan-more{
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 .1rem 0 0;
+}
+.lottery-result-more{
+    display: inline-block;
+    vertical-align: middle;
+    .lottery-result-openNum {
+        text-align: center;
+        display: inline-block;
+        margin: 0 .08rem 0 0;
+    }
+}
