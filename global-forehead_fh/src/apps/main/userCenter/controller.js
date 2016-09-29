@@ -172,6 +172,7 @@ var UserCenterController = RouterController.extend({
 
   cardManage: function() {
     //判断是否设置资金密码
+
     var self  = this;
     this.checkPayPwdXhr()
         .always(function(){
