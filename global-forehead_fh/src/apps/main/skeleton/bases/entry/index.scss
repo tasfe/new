@@ -205,7 +205,7 @@ $quickEntryPaddingX: 5px !default;
     width: 65px;
     height: 60px;
 
-    background-image: url('~base/images/act/icon_01.png');
+    background-image: url('~base/images/act/btn_01.png');
     background-repeat: no-repeat;
     font-size: 40px;
     cursor: pointer;
@@ -263,23 +263,7 @@ $quickEntryPaddingX: 5px !default;
     cursor: pointer;
   }
 
-  .quick-mmc {
 
-    position: fixed;
-    left: 51%;
-    margin-left: 500px;
-    transition: background-image 0.4s ease-in-out;
-
-    top: 15%;
-
-    width: 85px;
-    height: 300px;
-
-    background-image: url('~base/images/act/mmc.png');
-    background-repeat: no-repeat;
-    font-size: 40px;
-    cursor: pointer;
-  }
 }
 
 .gl-ticket-smmc-title{
