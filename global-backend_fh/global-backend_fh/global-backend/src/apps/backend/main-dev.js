@@ -18,7 +18,8 @@ require.config({
     'saleCenter': './scripts/saleCenter',
     'messageCenter': './scripts/messageCenter',
     'userCenter': './scripts/userCenter',
-    'com':'./scripts/components'
+    'com':'./scripts/components',
+    'agGame':'./scripts/agGame'
   },
   shim: {
   },

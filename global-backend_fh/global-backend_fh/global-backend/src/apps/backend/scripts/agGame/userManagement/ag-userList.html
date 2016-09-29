@@ -1,0 +1,42 @@
+<div class="row m-bottom-sm">
+  <div class="col-sm-3">
+    <div class="form-group">
+      <label class="control-label m-right-sm">用户名：</label>
+      <select class="form-control" name="userType">
+        <option value="1">彩票账户</option>
+        <option value="2">AG账户</option>
+      </select>
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="form-group">
+      <label class="control-label m-right-sm">用户名</label>
+      <input class="js-ag-ul-name form-control" type="text" name="userName" data-parsley-username >
+    </div>
+  </div>
+  <div class="col-sm-6 ">
+    <div class="form-group">
+      <label class="control-label m-right-sm">注册时间：</label>
+      <span class="js-ag-ul-timeset"></span>
+    </div>
+  </div>
+</div>
+<div class="row m-bottom-sm">
+  <div class="col-sm-3">
+    <div class="form-group">
+      <label class="control-label m-right-sm">不活跃天数≥：</label>
+      <input class="js-ul-uday form-control" type="text" name="uDay" data-parsley-type="integer" data-parsley-range="[1,10000]" >
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-12 pull-right form-group">
+    <button class="ul-search-confirm btn btn-purple pull-right btn-sm" type="submit"><i
+            class="fa fa-search m-right-xs"></i>搜&nbsp;&nbsp;索
+    </button>
+    <button class="fu-search-reset btn btn-wt-default-purple pull-right m-right-sm btn-sm" type="reset"><i
+            class="fa fa-repeat m-right-xs"></i>重&nbsp;&nbsp;置
+    </button>
+  </div>
+</div>

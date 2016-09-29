@@ -1,0 +1,91 @@
+<div class="row m-bottom-sm">
+  <div class="col-sm-2">
+    <div class="form-group">
+      <label class="control-label m-right-sm">订单编号：</label>
+      <input type="text" name="billNo" class="form-control" data-parsley-zhAndLetNumMaxLen='100'  data-parsley-someSpecialChar>
+    </div>
+  </div>
+  <div class="col-sm-2">
+    <div class="form-group">
+      <label class="control-label m-right-sm">AG用户名：</label>
+      <input type="text" name="player" class="form-control"  >
+    </div>
+  </div>
+  <div class="col-sm-2">
+    <div class="form-group">
+      <label class="control-label m-right-sm">平台类型：</label>
+      <select name="platformType" class="form-control">
+        <option value="">全部</option>
+        <option value="">AG国际厅</option>
+      </select>
+    </div>
+  </div>
+  <div class="col-sm-2">
+    <div class="form-group">
+      <label class="control-label m-right-sm">游戏类型：</label>
+      <select name="platformType" class="form-control">
+        <option value="">全部</option>
+        <option value="">百家乐</option>
+      </select>
+    </div>
+  </div>
+  <div class="col-sm-2">
+    <div class="form-group">
+      <label class="control-label m-right-sm">局号：</label>
+      <input type="text" name="gameCode" class="form-control"  >
+    </div>
+  </div>
+  <div class="col-sm-2">
+    <div class="form-group">
+      <label class="control-label m-right-sm">桌号：</label>
+      <input type="text" name="tableCode" class="form-control"  >
+    </div>
+  </div>
+</div>
+
+
+<div class="row m-bottom-sm">
+  <div class="col-sm-4">
+    <div class="form-group">
+      <label class="ac-tm-data-label control-label">快捷查询</label>
+      <div class="form-inline">
+        <span class="js-ag-btnGroup ac-btnGroup inline-block m-right-sm"></span>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="form-group">
+      <label class="control-label">投注日期</label>
+      <span class="js-ag-bet-timeset inline-block"></span>
+    </div>
+  </div>
+  <div class="col-sm-2">
+  </div>
+  <div class="col-sm-2">
+    <div class="form-group">
+      <label class="control-label m-right-sm">每页展示：</label>
+      <select class="form-control" name="pageSize">
+        <option value="20">20条</option>
+        <option value="50">50条</option>
+        <option value="100">100条</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+<div class="clearfix">
+  <div class="pull-right form-group">
+    <button class="wm-search-confirm btn btn-purple pull-right btn-sm" type="submit"><i
+      class="fa fa-search m-right-xs"></i>搜&nbsp;&nbsp;索
+    </button>
+    <button class="wm-search-reset btn btn-wt-default-purple pull-right m-right-sm btn-sm" type="reset"><i
+      class="fa fa-repeat m-right-xs"></i>重&nbsp;&nbsp;置
+    </button>
+  </div>
+  <div class="pull-left">
+    <a class="js-ag-bet-export btn btn-success" href="javascript:void(0)">报表下载</a>
+  </div>
+</div>
+
+
+

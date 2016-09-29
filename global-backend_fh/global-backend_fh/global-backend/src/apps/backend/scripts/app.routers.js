@@ -10,6 +10,7 @@ define(function(require, exports, module) {
   var userCenterRouter = require('userCenter/router');
   var dataCenterRouter = require('dataCenter/router');
   var vipCenterRouter = require('vipCenter/router');
+  var agGameRouter = require('agGame/router');
 
 
   exports.install = function() {
@@ -23,5 +24,6 @@ define(function(require, exports, module) {
     userCenterRouter.install();
     dataCenterRouter.install();
     vipCenterRouter.install();
+    agGameRouter.install();
   };
 });

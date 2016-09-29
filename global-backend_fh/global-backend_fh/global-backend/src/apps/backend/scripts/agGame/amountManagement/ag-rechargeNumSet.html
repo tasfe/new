@@ -1,0 +1,24 @@
+<div class="panel padding-md">
+  <form class="js-ag-recharge-num-form form-horizontal" action="javascript:void(0)">
+
+    <div class="form-group form-inline">
+      <label class="col-sm-2 control-label">彩票转入AG设置：</label>
+      <div class="col-sm-10">
+        <input type="text" class="js-ag-ticketTransferTimes input-medium form-control" name="ticketNum" data-parsley-range="[0, 10000]" data-parsley-type="integer" required>
+      </div>
+    </div>
+    <div class="form-group form-inline">
+      <label class="col-sm-2 control-label">AG转入彩票设置：</label>
+      <div class="col-sm-10">
+        <input type="text" class="js-ag-agTransferTimes input-medium form-control" name="agNum" data-parsley-range="[0, 10000]" data-parsley-type="integer" required>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="js-ag-recharge-num-btn-submit btn btn-primary" data-loading-text="发送中">发送</button>
+        <button type="button" class="js-ag-recharge-num-btn-cancel btn btn-default">取消</button>
+      </div>
+    </div>
+  </form>
+</div>

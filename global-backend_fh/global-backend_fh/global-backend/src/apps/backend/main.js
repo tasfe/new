@@ -19,7 +19,8 @@ require.config({
     'messageCenter': './scripts/messageCenter',
     'userCenter': './scripts/userCenter',
     'com':'./scripts/components',
-    'vipCenter': './scripts/vipCenter'
+    'vipCenter': './scripts/vipCenter',
+    'agGame':'./scripts/agGame'
   },
   shim: {
   },
