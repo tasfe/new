@@ -6,17 +6,16 @@ $package-main-width: 768px;
 //new
 $new-main-dark-color: #057c86 !default;
 $new-main-deep-color: #16a4aa !default;
-//$dark-color: #2c2c2c !default;
-$dark-color: #333333 !default;
+$dark-color: #202020 !default;
 $light-dark-color: #4e4e4e !default;
 $light-dark-color-2: #7e7e7e !default;
 $inverse-color: #666666 !default;
 
 $light-color: #f0efee !default;
 $white-color: #ffffff !default;
-$gray-color: #c2c2c2 !default;
 $deep-gray-color: #e4e4e4 !default;
-$footer-gray: #999999 !default;
+$gray-color: #999999 !default;
+$footer-gray: $gray-color;
 
 $new-hot-color: #fe6760 !default;
 $pink-color: #f59192 !default;
@@ -109,6 +108,7 @@ $font-colors: (
   primary: $font-primary,
   pleasant: $color-pleasant,
   light: $light-color,
+  gray: $gray-color,
   inverse: $light-color,
   dark: $dark-color,
   passion: $font-passion,
