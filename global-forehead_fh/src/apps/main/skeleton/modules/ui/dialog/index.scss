@@ -224,15 +224,17 @@
 }
 
 .modal-header {
-  color: white;
-  //background-color: $light-dark-color;
-  background-image:-webkit-linear-gradient(90deg, #327fc3, #bb2929);
-  background-image:linear-gradient(90deg,#327fc3,#bb2929);
+  color: $new-black-color;
+  background-color: $white-color;
+  //background-image:-webkit-linear-gradient(90deg, #327fc3, #bb2929);
+  //background-image:linear-gradient(90deg,#327fc3,#bb2929);
+
   padding: 7px;
+  border-radius: 5px 5px 0px 0px;
 
   .close {
-    width: 28px;
-    height: 28px;
+    width: 20px;
+    height: 20px;
     margin-right: 2px;
   }
   h4 {
@@ -296,6 +298,7 @@
   outline: 0;
   width: 17px;
   height: 17px;
+  opacity: 0.4;
   //background: url('close_btn.png') no-repeat;
   &:hover, &:focus {
     //color: #000000;
@@ -303,7 +306,7 @@
     cursor: pointer;
     outline: 0;
 
-    opacity: 0.4;
+    opacity: 1;
   }
 }
 

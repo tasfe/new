@@ -10,6 +10,8 @@ var WithdrawView = require('fundCenter/views/withdraw');
 
 var InsideLetterView2 = require('skeleton/bases/insideLetter2');
 
+var NoticeBoardView = require('dynamicCenter/views/noticeBoardFH');
+
 var HeaderView = Base.ItemView.extend({
 
   template: require('./index.html'),
@@ -226,43 +228,44 @@ var HeaderView = Base.ItemView.extend({
   },
 
   afficShowHandler: function() {
+    this.renderBulletin();
 
-    var self = this;
-    var html = '<div class="affiche-body-back">'+
-        '<div class="affiche-body-leftBody">' +
-        '<div class="affiche-body-lefthead">公告列表</div>'+
-        '<div class="js-affiche-list affiche-body-list"></div>'+
-        '</div>' +
-        '<div class="affiche-body-detail">' +
-        '<div class="affiche-body-righthead">平台公告<span class="affiche-body-close sfa sfa-dialog-close close js-no-lock" data-dismiss="modal"></span></div>' +
-        // '<div  class="affiche-body-righthead">平台公告<button type="button" class="affiche-body-close pull-right" data-dismiss="modal">x</button></div>' +
-        '<div class="js-affiche-detail affiche-detail-content"></div>'+
-        '</div>'+
-        '</div>';
-
-    var $dialog = Global.ui.dialog.show({
-      size: 'modal-lg',
-      body: html,
-      bodyClass: 'ac-affiche-dialog'
-    });
-
-    $dialog.find('.ac-affiche-dialog').removeClass('modal-body');
-    this.$grid = $dialog.find('.js-affiche-list');
-    this.$gridDetail = $dialog.find('.js-affiche-detail');
-    
-    $dialog.on('hidden.modal', function () {
-      $(this).remove();
-    });
-    
-    self.startLoadAfficheList();
-    
-    $dialog.find('.js-affiche-list').on('click','.js-board-Affiche',function (e) {
-      var $target = $(e.currentTarget);
-      $dialog.find('.affiche-list-active').removeClass('affiche-list-active');
-      $target.addClass('affiche-list-active');
-      var afficheId = $target.data('affiche');
-      self.startLoadAfficheDetail(afficheId);
-    });
+    //var self = this;
+    //var html = '<div class="affiche-body-back">'+
+    //    '<div class="affiche-body-leftBody">' +
+    //    '<div class="affiche-body-lefthead">公告列表</div>'+
+    //    '<div class="js-affiche-list affiche-body-list"></div>'+
+    //    '</div>' +
+    //    '<div class="affiche-body-detail">' +
+    //    '<div class="affiche-body-righthead">平台公告<span class="affiche-body-close sfa sfa-dialog-close close js-no-lock" data-dismiss="modal"></span></div>' +
+    //    // '<div  class="affiche-body-righthead">平台公告<button type="button" class="affiche-body-close pull-right" data-dismiss="modal">x</button></div>' +
+    //    '<div class="js-affiche-detail affiche-detail-content"></div>'+
+    //    '</div>'+
+    //    '</div>';
+    //
+    //var $dialog = Global.ui.dialog.show({
+    //  size: 'modal-lg',
+    //  body: html,
+    //  bodyClass: 'ac-affiche-dialog'
+    //});
+    //
+    //$dialog.find('.ac-affiche-dialog').removeClass('modal-body');
+    //this.$grid = $dialog.find('.js-affiche-list');
+    //this.$gridDetail = $dialog.find('.js-affiche-detail');
+    //
+    //$dialog.on('hidden.modal', function () {
+    //  $(this).remove();
+    //});
+    //
+    //self.startLoadAfficheList();
+    //
+    //$dialog.find('.js-affiche-list').on('click','.js-board-Affiche',function (e) {
+    //  var $target = $(e.currentTarget);
+    //  $dialog.find('.affiche-list-active').removeClass('affiche-list-active');
+    //  $target.addClass('affiche-list-active');
+    //  var afficheId = $target.data('affiche');
+    //  self.startLoadAfficheDetail(afficheId);
+    //});
     
   },
 
@@ -460,6 +463,11 @@ var HeaderView = Base.ItemView.extend({
         $('.drop-menu .g span').css('left',w2);
       }, 20);
     }, 1000);
+
+    if(!Global.cookieCache.get('hasLoadBulletin')){
+      Global.cookieCache.set('hasLoadBulletin', true);
+      this.renderBulletin();
+    }
     
   },
   //newPlan:function () {
@@ -677,7 +685,33 @@ var HeaderView = Base.ItemView.extend({
 
   closeWithdrawDialog: function() {
     this.$dialogWd.modal('hide');
-  }
+  },
+
+  renderBulletin: function(bulletinId) {
+    var noticeBoardView;
+
+    var $dialog = Global.ui.dialog.show({
+      title: '平台公告',
+      size: 'modal-lg',
+      body: '<div class="js-head-bulletin-container"></div>',
+      bodyClass: 'no-padding',
+      footer: ''
+    });
+
+    var $bulletinContainer = $dialog.find('.js-head-bulletin-container');
+
+    $dialog.on('hidden.modal', function() {
+      $(this).remove();
+      noticeBoardView.destroy();
+    });
+
+    noticeBoardView = new NoticeBoardView({
+      el: $bulletinContainer,
+      reqData: {
+        bulletinId: bulletinId
+      }
+    }).render();
+  },
 
 });
 
