@@ -44,10 +44,6 @@ var EntryView = Base.ItemView.extend({
         }
       });
 
-    _.bindAll(this, 'renderUpdateUnread');
-
-    this.subscribe('message', 'message:updating', this.renderUpdateUnread);
-
     sessionStorage.setItem('openMessage', 0);
   },
   
@@ -358,11 +354,6 @@ var EntryView = Base.ItemView.extend({
   },
 
   //common APIs
-
-  renderUpdateUnread: function(model) {
-    var unRead = model.getUnreadCount();
-    this.$unRead.html('<span>'+unRead > 99 ? 99 : unRead+'</span>');
-  },
 
   update: function(viewInfo) {
     var router = viewInfo.router === '#' ? '' : viewInfo.router;

@@ -119,44 +119,6 @@ var HeaderView = Base.ItemView.extend({
 
   afficShowHandler: function() {
     this.renderBulletin();
-
-    //var self = this;
-    //var html = '<div class="affiche-body-back">'+
-    //    '<div class="affiche-body-leftBody">' +
-    //    '<div class="affiche-body-lefthead">公告列表</div>'+
-    //    '<div class="js-affiche-list affiche-body-list"></div>'+
-    //    '</div>' +
-    //    '<div class="affiche-body-detail">' +
-    //    '<div class="affiche-body-righthead">平台公告<span class="affiche-body-close sfa sfa-dialog-close close js-no-lock" data-dismiss="modal"></span></div>' +
-    //    // '<div  class="affiche-body-righthead">平台公告<button type="button" class="affiche-body-close pull-right" data-dismiss="modal">x</button></div>' +
-    //    '<div class="js-affiche-detail affiche-detail-content"></div>'+
-    //    '</div>'+
-    //    '</div>';
-    //
-    //var $dialog = Global.ui.dialog.show({
-    //  size: 'modal-lg',
-    //  body: html,
-    //  bodyClass: 'ac-affiche-dialog'
-    //});
-    //
-    //$dialog.find('.ac-affiche-dialog').removeClass('modal-body');
-    //this.$grid = $dialog.find('.js-affiche-list');
-    //this.$gridDetail = $dialog.find('.js-affiche-detail');
-    //
-    //$dialog.on('hidden.modal', function () {
-    //  $(this).remove();
-    //});
-    //
-    //self.startLoadAfficheList();
-    //
-    //$dialog.find('.js-affiche-list').on('click','.js-board-Affiche',function (e) {
-    //  var $target = $(e.currentTarget);
-    //  $dialog.find('.affiche-list-active').removeClass('affiche-list-active');
-    //  $target.addClass('affiche-list-active');
-    //  var afficheId = $target.data('affiche');
-    //  self.startLoadAfficheDetail(afficheId);
-    //});
-    
   },
 
   startLoadAfficheDetail:function (afficheId) {
@@ -292,9 +254,14 @@ var HeaderView = Base.ItemView.extend({
     this.$dividend = this.$('.js-gl-dividend');
     this.$rush = this.$('.js-gl-rush');
     this.$noticeList = this.$('.js-h-notice-inner');
+    this.$letterUnread = this.$('.js-h-letter-unread');
 
     this.subscribe('acct', 'acct:updating', function() {
       self.renderAcctInfo();
+    });
+
+    this.subscribe('message', 'message:updating', function(model) {
+      self.renderUpdateUnread(model);
     });
 
     this.$('.js-gl-head-acct-menu').dropMenu();
@@ -359,6 +326,12 @@ var HeaderView = Base.ItemView.extend({
             }).join('')+'</marquee>');
         }
       });
+  },
+
+  renderUpdateUnread: function(model) {
+    var unRead = model.getUnreadCount();
+    unRead = unRead > 99 ? 99 : unRead;
+    this.$letterUnread.html(unRead).toggleClass('h-no-letter', !unRead);
   },
 
   renderAcctInfo: function() {

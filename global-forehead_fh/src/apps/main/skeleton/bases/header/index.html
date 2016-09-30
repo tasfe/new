@@ -1,5 +1,5 @@
 <div class="float-menu">
-  <div class="main-display text-light">
+  <div class="main-display text-gray">
     <div class="main-display-inner clearfix">
       <div class="pull-left">
         <div class="js-gl-head-main-menu inline-block pull-left h-notice">
@@ -9,57 +9,56 @@
           </div>
         </div>
       </div>
-      <div class="pull-right">
-        <div class="js-gl-head-money-menu">
-          <ul class="h-right-menu drop-menu drop-chunk">
-            <li class="drop-item">
-              <a href="javascript:void(0)">
-                您好，<span  class="js-gl-hd-nickName "></span>
+      <div class="h-right-menu pull-right">
+        <div class="js-gl-head-acct-menu pull-left">
+          <ul class="drop-menu drop-chunk">
+            <li>
+              <a href="javascript:void(0)" class="p-LR-sm text-gray">
+                您好，<span class="js-gl-hd-nickName "></span>
+                <span class="v-middle sfa sfa-arrow"></span>
               </a>
-              <div class="drop-item-inner">
-                <div>
-                  <a href="#uc/br">游戏记录</a>
-                  <a href="#uc/pm">个人中心</a>
-                  <a href="#ac/llm">团队中心</a>
+              <ul class="drop-submenu text-center">
+                <li><a href="#uc/br" class="router">游戏记录</a></li>
+                <li><a href="#uc/pm" class="router">个人中心</a></li>
+                <li><a href="#ac/llm" class="router">团队中心</a></li>
+                <li>
                   <a class="js-gl-hd-logout" href="javascript:void(0)">
-                    <span class="sfa sfa-h-logout v-bottom"></span>
+                    <span class="sfa sfa-h-logout v-middle"></span>
                     退出
                   </a>
-                </div>
-              </div>
-              <p class="js-p"></p>
+                </li>
+              </ul>
             </li>
-            <li class="h-inner-letter">
-              <div class="js-message-small btn-insideLetter">
-                <span class="sfa sfa-h-letter"></span>
-                <span class="js-gl-letter-unread gl-letter">0</span>
-              </div>
-              <p></p>
-            </li>
-            <li class="drop-item drop-item-2">
-             <div>
-               <span>总余额：</span><span class="js-gl-hd-balance text-orogin">0</span><span>元</span>
-               <span class="js-gl-hd-refresh gl-hd-refresh fa fa-repeat cursor-pointer "></span>
-               <span class="js-h-security sfa sfa-h-security-off v-middle cursor-pointer"></span>
-              </div>
-              <div class="drop-item-inner">
-                <div>
-                  <a href="#uc/tr"> AG余额：
-                  <span class="js-gl-hd-balance"></span>
-                  </a>
-                  <a  href="#uc/ad">彩票余额:
-                  <span class="js-gl-hd-balance"></span>
-                </a>
-                </div>
-              </div>
-              <!--<a style=color:#8a8a8a;" class="inline-block">-->
-                <!--AG余额&nbsp;&nbsp;:<span style="padding:0px 5px;" class="js-gl-ag-balance text-orogin"></span>-->
-                <!--<span  class="js-gl-hd-refresh gl-hd-refresh fa fa-repeat cursor-pointer  "></span>-->
-              <!--</a>-->
-            </li>
-            <li><a  style="color:#c00; font-size: 14px;" class="js-fc-re cursor-pointer  cursor-pointer  athena-line  " >充值</a></li>
-            <li><a  style="color:#999; font-size: 14px;" class="js-fc-wd cursor-pointer  cursor-pointer athena-line ">提现</a></li>
           </ul>
+        </div>
+        <div class="pull-left">
+          <div class="js-message-small btn-insideLetter p-LR-sm">
+            <span class="sfa sfa-h-letter"></span>
+            <span class="js-h-letter-unread h-letter h-no-letter">0</span>
+          </div>
+        </div>
+        <div class="js-gl-head-money-menu pull-left m-right-xs">
+          <ul class=" drop-menu drop-chunk">
+            <li>
+              <a href="javascript:void(0)" class="h-money p-LR-sm text-gray">
+                <span>总余额：</span><span class="js-gl-hd-balance text-orogin">0</span><span>元</span>
+                <span class="js-gl-hd-refresh gl-hd-refresh sfa sfa-refresh v-middle cursor-pointer m-LR-xs"></span>
+                <span class="js-h-security sfa sfa-h-security-off v-middle cursor-pointer"></span>
+              </a>
+              <ul class="drop-submenu">
+                <li>
+                  <a href="#uc/tr" class="router p-left-sm"> AG余额：<span class="js-gl-hd-balance"></span></a>
+                </li>
+                <li>
+                  <a href="#uc/ad" class="router p-left-sm">彩票余额：<span class="js-gl-hd-balance"></span></a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="pull-left">
+          <a class="js-fc-re h-recharge cursor-pointer text-gray">充值</a>
+          <a class="js-fc-wd h-withdraw cursor-pointer text-gray">提现</a>
         </div>
 
       </div>
@@ -76,8 +75,9 @@
 
 <div class="head js-head">
   <a href="#"><img src="~base/images/fh/logo.png"></a>
-  
-  <span data-index="6" onclick="newwin = window.open('http://szzero.livechatvalue.com/chat/chatClient/chatbox.jsp?companyID=44555811&configID=47545&jid=9132657534','service','width=800,height=680');newwin.moveTo(100,50);">
+
+  <span data-index="6"
+        onclick="newwin = window.open('http://szzero.livechatvalue.com/chat/chatClient/chatbox.jsp?companyID=44555811&configID=47545&jid=9132657534','service','width=800,height=680');newwin.moveTo(100,50);">
     <i class="icon-headphones"></i>
     在线客服
   </span>
@@ -87,42 +87,42 @@
     <li data-id="2">
       <a href="#bc/1">彩票游戏</a>
       <div>
-          <i></i>
-          <dl>
-            <dt><span>时时彩</span></dt>
-            <dd><a href="#bc/1">重庆时时彩<b>N</b></a></dd>
-            <dd><a href="#bc/21">韩国1.5分彩<b>N</b></a></dd>
-            <dd><a href="#bc/8">天津时时彩</a></dd>
-            <dd><a href="#bc/9">黑龙江时时彩</a></dd>
-            <dd><a href="#">台湾5分彩</a></dd>
-            <dd><a href="#">加拿大3.5分彩</a></dd>
-            <dd><a href="#bc/3">新疆时时彩</a></dd>
-          </dl>
-          <dl>
-            <dt><span>繁华彩</span></dt>
-            <dd><a href="#bc/19">繁华秒秒彩</a></dd>
-            <dd><a href="#bc/10">繁华分分彩</a></dd>
-            <dd><a href="#bc/13">繁华三分彩</a></dd>
-            <dd><a href="#bc/12">繁华五分彩</a></dd>
-          </dl>
-          <dl>
-            <dt><span>11选5</span></dt>
-            <dd><a href="#bc/5">山东11选5</a></dd>
-            <dd><a href="#bc/4">广东11选5</a></dd>
-            <dd><a href="#bc/11">江西11选5</a></dd>
-            <dd><a href="#bc/14">11选5分分彩<b>N</b></a></dd>
-          </dl>
-          <dl class="last">
-            <dt><span>低频</span></dt>
-            <dd><a href="#bc/6">3D</a></dd>
-            <dd><a href="#bc/7">P3/P5</a></dd>
-            <dd><a href="#bc/16">3D分分彩<b>N</b></a></dd>
-          </dl>
-          <dl>
-            <dt><span>快乐彩</span></dt>
-            <dd><a href="#bc/18">北京PK拾</a></dd>
-          </dl>
-        </div>
+        <i></i>
+        <dl>
+          <dt><span>时时彩</span></dt>
+          <dd><a href="#bc/1">重庆时时彩<b>N</b></a></dd>
+          <dd><a href="#bc/21">韩国1.5分彩<b>N</b></a></dd>
+          <dd><a href="#bc/8">天津时时彩</a></dd>
+          <dd><a href="#bc/9">黑龙江时时彩</a></dd>
+          <dd><a href="#">台湾5分彩</a></dd>
+          <dd><a href="#">加拿大3.5分彩</a></dd>
+          <dd><a href="#bc/3">新疆时时彩</a></dd>
+        </dl>
+        <dl>
+          <dt><span>繁华彩</span></dt>
+          <dd><a href="#bc/19">繁华秒秒彩</a></dd>
+          <dd><a href="#bc/10">繁华分分彩</a></dd>
+          <dd><a href="#bc/13">繁华三分彩</a></dd>
+          <dd><a href="#bc/12">繁华五分彩</a></dd>
+        </dl>
+        <dl>
+          <dt><span>11选5</span></dt>
+          <dd><a href="#bc/5">山东11选5</a></dd>
+          <dd><a href="#bc/4">广东11选5</a></dd>
+          <dd><a href="#bc/11">江西11选5</a></dd>
+          <dd><a href="#bc/14">11选5分分彩<b>N</b></a></dd>
+        </dl>
+        <dl class="last">
+          <dt><span>低频</span></dt>
+          <dd><a href="#bc/6">3D</a></dd>
+          <dd><a href="#bc/7">P3/P5</a></dd>
+          <dd><a href="#bc/16">3D分分彩<b>N</b></a></dd>
+        </dl>
+        <dl>
+          <dt><span>快乐彩</span></dt>
+          <dd><a href="#bc/18">北京PK拾</a></dd>
+        </dl>
+      </div>
     </li>
     <li data-id="3">
       <a href="#gc">真人娱乐</a>
@@ -134,7 +134,7 @@
       <a href="javascript:void(0)">平台公告</a>
     </li>
   </ul>
-  
+
 </div>
 <div class="js-publicTeamData publicTeamData hidden ">
   <span class="js-julien-data1 julien-data1">0</span>
@@ -180,7 +180,7 @@
       <span class="line2">问题<br>反馈</span>
     </a>
   </div>
-  <a href="javascript:void(0);" class="js-rightMenuBtn" >
+  <a href="javascript:void(0);" class="js-rightMenuBtn">
     <i class="icon-chevron-up"></i>
     <i class="icon-chevron-down hidden"></i>
     <span>收起</span>
