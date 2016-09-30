@@ -32,7 +32,8 @@ var NoticeBoardView = Base.ItemView.extend({
     } else {
       return Global.sync.ajax({
         url: '/info/activitylist/getbulletinlist.json',
-        data: data
+        data: data,
+        abort: false
       });
     }
 

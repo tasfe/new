@@ -186,7 +186,7 @@
     .head-bulletin-list-footer{
       height: 40px;
       font-size: 0px;
-      .pn-op{
+      .pn-ops{
         width: 78px;
         height: 24px;
         font-size: 14px;
@@ -199,6 +199,7 @@
         margin: 8px 0 8px 0;
       }
       .pn-next{
+        border: 1px solid #ccc;
         border-radius:0 12px 12px 0;
         margin: 8px 0 8px 0;
       }
