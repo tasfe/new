@@ -221,38 +221,6 @@ body {
   }
 }
 
-.demo-server {
-  bottom: 241px;
-  width: 42px;
-  height: 37px;
-  background-image: url(~base/images/demo.png);
-
-  &:hover {
-    background-image: url(~base/images/demo2.png);
-  }
-}
-
-.customer-service {
-  bottom: 165px;
-  width: 64px;
-  height: 64px;
-  background-image: url(~base/images/contact_service.png);
-
-  &:hover {
-    background-image: url(~base/images/contact_service1.png);
-  }
-}
-
-.upgrade-intro {
-  bottom: 202px;
-  width: 42px;
-  height: 38px;
-  background-image: url(~base/images/upgrade.png);
-
-  &:hover {
-    background-image: url(~base/images/upgrade2.png);
-  }
-}
 
 .customer-service, .upgrade-intro, .demo-server {
   position: fixed;
