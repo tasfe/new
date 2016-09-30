@@ -1,0 +1,10 @@
+<li class="js-header-bulletin-item header-bulletin-item color-<%=_.random(0, 5) %> "  data-id="<%=bulletinId%>">
+  <div class="heder-bulletin-item-line">
+    <div class="js-header-bulletin-list-read-flag header-bulletin-list-read-flag header-bulletin-list-read-flag-<%=read%>  pull-right" ><%=read?'已读':'未读' %></div>
+    <div class="js-header-bulletin-list-title header-bulletin-list-title header-bulletin-list-title-<%=read%> ellipsis pull-left"><%=title %></div>
+  </div>
+  <div class="heder-bulletin-item-line heder-bulletin-item-line1">
+    <div class="header-bulletin-list-date dynamic-day pull-right"><%=date %></div>
+    <div class="header-bulletin-list-content ellipsis pull-left"><%=desc %> </div>
+  </div>
+</li>
