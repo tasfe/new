@@ -77,9 +77,9 @@ var NoticeBoardView = Base.ItemView.extend({
           var data = res.root;
           self.$pageIndex.val(data.pageIndex);
           if(data.pageIndex===0){
-            self.$prevPage.addClass('trun-page-disabled');
+            self.$prevPage.removeClass('active');
           }else{
-            self.$prevPage.removeClass('trun-page-disabled');
+            self.$prevPage.addClass('active');
           }
           self.$rowCount.val(res.root.rowCount);
           self.$prevPage.toggleClass('disabled', data.pageIndex < 1);
@@ -88,9 +88,9 @@ var NoticeBoardView = Base.ItemView.extend({
           var rowCount = Number(res.root.rowCount);
           if (_(pageSize).isNumber() && _(pageSize).isFinite() && _(rowCount).isNumber() && _(rowCount).isFinite()) {
             if (data.pageIndex >= Math.ceil(rowCount / pageSize) - 1) {
-              self.$nextPage.addClass('trun-page-disabled');
+              self.$nextPage.removeClass('active');
             } else {
-              self.$nextPage.removeClass('trun-page-disabled');
+              self.$nextPage.addClass('active');
             }
           }
 
@@ -106,7 +106,7 @@ var NoticeBoardView = Base.ItemView.extend({
 
   generateDynamicList: function(data) {
     this.$dynamicList.html(_(data.buList).map(function(item) {
-      var date = moment(item.time).format('MM-DD');
+      var date = moment(item.time).format('YYYY-MM-DD');
 
       return this.dynamicTpl({
         date: date,
@@ -154,6 +154,8 @@ var NoticeBoardView = Base.ItemView.extend({
   },
   checkNoticeDetailHandler: function(e, opt){
     var $target = $(e.currentTarget);
+    $target.toggleClass('active');
+    $target.siblings().removeClass('active');
     var $title = $target.find('.js-header-bulletin-list-title');
     var $flag = $target.find('.js-header-bulletin-list-read-flag');
 

@@ -691,9 +691,10 @@ var HeaderView = Base.ItemView.extend({
 
     var $dialog = Global.ui.dialog.show({
       title: '平台公告',
-      size: 'modal-lg',
+      size: '',
       body: '<div class="js-head-bulletin-container"></div>',
       bodyClass: 'no-padding',
+      modalClass: 'header-bulletin-dialog',
       footer: ''
     });
 
