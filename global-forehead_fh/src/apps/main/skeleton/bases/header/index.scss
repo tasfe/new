@@ -3,23 +3,6 @@
 @import
 "~base/styles/imports";
 
-$header-margin-top: 6px;
-.img-position{
-  background: url(./hot.png) no-repeat 75px 3px ;
-}
-.img-position-new{
-  background: url(./new.png) no-repeat 89px 3px ;
-}
-.img-position-hg{
-  background-position: 79px 3px;
-}
-.img-position-ss{
-  background-position: 50px 3px;
-}
-.main-display{
-  width: 1200px;
-  position: absolute;
-}
 .header {
   .float-menu{
     position: fixed;
@@ -35,68 +18,9 @@ $header-margin-top: 6px;
     }
   }
 
-  .top-in-block {
-    display: inline-block;
-    padding-top: $header-margin-top + 12px;
-    padding-right: 9px;
-    vertical-align: top;
-    float: left;
-    position: relative;
-  }
-
-  .top-b-right {
-    &:after {
-      height: 10px;
-      content: '';
-      border-right: 1px solid $font-light;
-      right: 0;
-      position: absolute;
-      top: 20px;
-    }
-  }
-
-  .user-block {
-    display: block;
-    float: left;
-    margin-right: 20px;
-    outline: 0;
-    padding: 9px 0;
-    position: relative;
-  }
-
-
-  .top-letter-notice {
-    position: absolute;
-    bottom: -5px;
-    left: 12px;
-    border-radius: 10px;
-    display: inline-block;
-    background-color: red;
-    height: 14px;
-    line-height: 14px;
-    font-size: 12px;
-    width: 14px;
-    text-align: center;
-  }
-
-  .h-hd-nickName {
+  .h-info {
     .fa {
       vertical-align: top;
-      //margin-top: 3px;
-    }
-  }
-
-  .gl-hd-money.top-in-block {
-    .gl-hd-refresh {
-      cursor: pointer;
-    }
-  }
-
-  .drop-submenu {
-    a {
-      padding: 0px 0;
-      text-align: center;
-
     }
   }
 
@@ -106,10 +30,6 @@ $header-margin-top: 6px;
     height: 20px;
     text-align: center;
   }
-
-}
-.headh{
-  overflow: hidden;
 }
 .head{
   width: 1200px;
@@ -295,10 +215,8 @@ $header-margin-top: 6px;
 }
 .athena-three{
   background: url(images/athena-three.png) no-repeat center right !important;
-
-  
 }
-.ddd3{
+.h-inner-letter{
   position: relative;
   p{
     position: absolute;
@@ -809,13 +727,6 @@ $header-margin-top: 6px;
 
 .base-bcType-body{
   background-color: darkcyan;
-}
-
-.fc-wd-bg{
-  background: url("fc-wd-bg.png");
-  background-color: #fff;
-  color: #562e0f;
-  padding: 15px;
 }
 
 .publicTeamData{

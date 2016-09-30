@@ -20,10 +20,8 @@ var HeaderView = Base.ItemView.extend({
   AfficheTpl:_.template(require('dynamicCenter/templates/noticeDetail.html')),
   dialog: _.template(require('skeleton/bases/header/indexmostDialog.html')),
   events: {
-    //'click .js-gl-hd-notice-container': 'toggleNoticeHandler',
     'click .js-gl-h-ticket-main': 'clickEmptyTicketMainHandler',
     'click .js-gl-hd-refresh': 'refreshHandler',
-    //'click .js-fc-re': 'rechargeHandler',
     'click .js-fc-wd': 'withdrawHandler',
     'click .js-gl-hd-logout': 'logoutHandler',
     'mouseover .js-bc-lottery-list': 'lotteryListHandler',
@@ -32,62 +30,16 @@ var HeaderView = Base.ItemView.extend({
 
     'click .js-letterList-titleLine': 'bindMessageUserList',
 
-    'mouseover .js-gl-letter-unread': 'letterRed',
-    'mouseout .js-gl-letter-unread': 'letterBlack',
     'mouseover  .js-athena-three': 'MyAccount',
     'mouseout  .js-athena-three': 'MyAccountOut',
     'click  .js-athena-eyes-account': 'MyAccountEyes',
-    'mouseover  .js-gl-letter-unread-span': 'MessageSpan',
     'click  .js-message-small': 'MostSpan',
-    'click  .js-detail': 'MostDetail',
-    'click  .js-rightMenuBtn': 'rightMenuTrigger',
-    'click  .js-cBtn': 'cBtn',
     'click  .js-headinfoclose': 'headinfoclose'
     
   },
 
   headinfoclose: function () {
-    if($('.js-gl-head-main-menu').hasClass('gl-head-main-menuClose'))
-    {
-      $('.js-gl-head-main-menu').removeClass('gl-head-main-menuClose')
-    }
-    else{
-      $('.js-gl-head-main-menu').addClass('gl-head-main-menuClose')
-    }
-  },
-
-  cBtn: function (e) {
-    if ( this.$('.js-cBtn i').hasClass('icon-chevron-up') ) {
-      this.$('.js-cBtn i').removeClass('icon-chevron-up').addClass('icon-chevron-down');
-      this.$('.js-cBtn i').addClass('cBtn2');
-      this.$('.js-head').addClass('headh');
-      $('.js-head').animate({height: '20px'}, 600);
-    }
-    else{
-      this.$('.js-cBtn i').addClass('icon-chevron-up').removeClass('icon-chevron-down');
-      this.$('.js-cBtn i').removeClass('cBtn2');
-      this.$('.js-head').removeClass('headh');
-      $('.js-head').animate({height: '104px'}, 600);
-    }
-  },
-
-  rightMenuTrigger: function (e) {
-    if ( $('.js-rightMenuHeight').height() == 0 ) {
-      $('.js-rightMenuHeight').animate({height:188},600,function () {
-        $('.js-rightMenuBtn i').eq(1).addClass('hidden');
-        $('.js-rightMenuBtn i').eq(0).removeClass('hidden');
-        $('.js-rightMenuBtn span').eq(1).addClass('hidden');
-        $('.js-rightMenuBtn span').eq(0).removeClass('hidden');
-      });
-    }
-    else{
-      $('.js-rightMenuHeight').animate({height:0},600,function () {
-        $('.js-rightMenuBtn i').eq(0).addClass('hidden');
-        $('.js-rightMenuBtn i').eq(1).removeClass('hidden');
-        $('.js-rightMenuBtn span').eq(0).addClass('hidden');
-        $('.js-rightMenuBtn span').eq(1).removeClass('hidden');
-      });
-    }
+    this.$('.js-gl-head-main-menu').toggleClass('gl-head-main-menuClose');
   },
 
   bindMessageUserList: function (e) {
@@ -120,10 +72,6 @@ var HeaderView = Base.ItemView.extend({
     }
   },
 
-  MostDetail:function(){
-    
-  },
-
   MostSpan:function () {
     var self = this;
     var $dialog = Global.ui.dialog.show({
@@ -146,11 +94,6 @@ var HeaderView = Base.ItemView.extend({
       $('.js-menuspan-two').removeClass('menuspan');
     })
   },
-  MessageSpan:function(){
-      if($('.js-gl-letter-unread-span').html()==0){
-        alert(1);
-      }
-  },
   MyAccountEyes:function(){
     //alert(1);
     if( $('.js-athena-eyes-account').hasClass('athena-eyes')){
@@ -166,19 +109,6 @@ var HeaderView = Base.ItemView.extend({
   },
   MyAccount:function(){
     $('.js-athena-three').removeClass('athena-three').addClass('athena-three-up');
-  },
-  letterRed:function(e){
-    $('.js-gl-letter-unread').removeClass('athena-message');
-    $('.js-gl-letter-unread').addClass('athena-message1');
-  },
-
-  letterBlack:function(e){
-    $('.js-gl-letter-unread').removeClass('athena-message1');
-    $('.js-gl-letter-unread').addClass('athena-message');
-      //alert($('.js-gl-letter-unread-span').html());
-    if($('.js-gl-letter-unread-span').html()==undefined){
-          //alert(1);
-    }
   },
 
   tempMouseover:function(e){
@@ -551,27 +481,6 @@ var HeaderView = Base.ItemView.extend({
       return false;
     }
   },
-
-  //toggleNoticeHandler: function(e) {
-  //  var self = this;
-  //  var $target = $(e.currentTarget);
-  //
-  //  if (!$target.data('popover')) {
-  //    var $html = $('<div class="width-md">');
-  //    this.newsBarView = new NewsBarView();
-  //    $target.popover({
-  //      content: $html,
-  //      placement: 'bottom',
-  //      html: true
-  //    }).popover('show');
-  //
-  //    $html.html(this.newsBarView.render().$el);
-  //
-  //  }
-  //  $target.off('hide').on('hide', function() {
-  //    self.newsBarView.hidden();
-  //  });
-  //},
 
   refreshHandler: function(e) {
     var $target = $(e.currentTarget);
