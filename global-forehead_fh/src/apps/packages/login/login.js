@@ -229,6 +229,7 @@ $.widget('gl.login', {
         else{
           localStorage.clear();
         }
+        Global.cookieCache.set('hasLoadBulletin', false);
 
         sessionStorage.status = 0;
         if (data.result === 0) {
