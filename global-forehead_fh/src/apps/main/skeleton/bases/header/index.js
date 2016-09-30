@@ -21,7 +21,6 @@ var HeaderView = Base.ItemView.extend({
   itemTpl:_.template(require('dynamicCenter/templates/noticeBoard-item.html')),
   AfficheTpl:_.template(require('dynamicCenter/templates/noticeDetail.html')),
   dialog: _.template(require('skeleton/bases/header/indexmostDialog.html')),
-  dialog1: _.template(require('skeleton/bases/header/detailsDialog.html')),
   events: {
     //'click .js-gl-hd-notice-container': 'toggleNoticeHandler',
     'click .js-gl-h-ticket-main': 'clickEmptyTicketMainHandler',

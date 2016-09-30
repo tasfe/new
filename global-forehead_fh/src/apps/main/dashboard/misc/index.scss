@@ -309,49 +309,6 @@ $float-height: 38px;
   //}
 }
 
-.upgrade-intro {
-  bottom: $float-bottom + $float-height;
-  width: 42px;
-  height: $float-height;
-  background-image: url(~base/images/upgrade.png);
-
-  &:hover {
-    background-image: url(~base/images/upgrade2.png);
-  }
-}
-
-.history-record {
-  bottom: $float-bottom + $float-height * 2;
-  width: 42px;
-  height: $float-height;
-  background-image: url(~base/images/hrecord.png);
-
-  &:hover {
-    background-image: url(~base/images/hrecord2.png);
-  }
-}
-
-.customer-service, .upgrade-intro, .history-record {
-  position: absolute;
-  left: 50%;
-  margin-left: 442px;
-  transition: background-image 0.4s ease-in-out;
-}
-
-@media (max-height: 930px) {
-  $float-bottom: $float-bottom - 91px;
-  .customer-service {
-    bottom: $float-bottom;
-  }
-  .upgrade-intro {
-    bottom: $float-bottom + $float-height;
-  }
-
-  .history-record {
-    bottom: $float-bottom + $float-height * 2;
-  }
-}
-
 .web-logo {
   background: url(~base/images/fh/logo.png);
   width: 200px;
