@@ -21,6 +21,8 @@ var HeaderView = Base.ItemView.extend({
   itemTpl:_.template(require('dynamicCenter/templates/noticeBoard-item.html')),
   AfficheTpl:_.template(require('dynamicCenter/templates/noticeDetail.html')),
   dialog: _.template(require('skeleton/bases/header/indexmostDialog.html')),
+  noticeItemTpl: _(require('./notice-item-header.html')).template(),
+
   events: {
     'click .js-gl-h-ticket-main': 'clickEmptyTicketMainHandler',
     'click .js-gl-hd-refresh': 'refreshHandler',
@@ -32,16 +34,22 @@ var HeaderView = Base.ItemView.extend({
 
     'click .js-letterList-titleLine': 'bindMessageUserList',
 
-    'mouseover  .js-athena-three': 'MyAccount',
-    'mouseout  .js-athena-three': 'MyAccountOut',
-    'click  .js-athena-eyes-account': 'MyAccountEyes',
+    'click  .js-h-security': 'accountSecurityHandler',
     'click  .js-message-small': 'MostSpan',
-    'click  .js-headinfoclose': 'headinfoclose'
-    
+    'click  .js-head-info-close': 'headInfoCloseHandler',
+
+    'click .js-header-notice-item': 'showNoticeDialogHandler',
+    'click .js-cBtn': 'cBtn'
   },
 
-  headinfoclose: function () {
-    this.$('.js-gl-head-main-menu').toggleClass('gl-head-main-menuClose');
+  getNoticeInfoXhr: function() {
+    return Global.sync.ajax({
+      url: '/info/activitylist/getbroadcastlist.json'
+    });
+  },
+
+  headInfoCloseHandler: function () {
+    this.$('.js-gl-head-main-menu').toggleClass('h-head-info-hide');
   },
 
   bindMessageUserList: function (e) {
@@ -96,64 +104,17 @@ var HeaderView = Base.ItemView.extend({
       $('.js-menuspan-two').removeClass('menuspan');
     })
   },
-  MyAccountEyes:function(){
-    //alert(1);
-    if( $('.js-athena-eyes-account').hasClass('athena-eyes')){
-      $('.js-athena-eyes-account').removeClass('athena-eyes').addClass('athena-eyes-off');
-      $('.js-gl-hd-balance').html('******');
-    }else{
-      $('.js-athena-eyes-account').removeClass('athena-eyes-off').addClass('athena-eyes');
-      $('.js-gl-hd-balance').html('1114.7');
-    }
-  },
-  MyAccountOut:function(){
-    $('.js-athena-three').removeClass('athena-three-up').addClass('athena-three')
-  },
-  MyAccount:function(){
-    $('.js-athena-three').removeClass('athena-three').addClass('athena-three-up');
-  },
 
-  tempMouseover:function(e){
-    //this.clearClick();
+  accountSecurityHandler:function(e) {
     var $target = $(e.currentTarget);
-    var index = $target.data('index');
-    var self = this;
-    if(index==1) {
-        if(! self.$('.js-athena_st_01').hasClass('athnea-st_03')) {
-          self.$('.js-athena_st_01').removeClass('athnea-st_01').removeClass('athnea-st_02').removeClass('athnea-st_03');
-          self.$('.js-athena_st_01').addClass('athnea-st_02');
-        }
-    };
-    if(index==2) {
-      if(! self.$('.js-athena_st_02').hasClass('athnea-cp_03')) {
-        self.$('.js-athena_st_02').removeClass('athnea-cp_01').removeClass('athnea-cp_02').removeClass('athnea-cp_03');
-        self.$('.js-athena_st_02').addClass('athnea-cp_02');
-      }
-    };
-    if(index==3) {
-      if(! self.$('.js-athena_st_03').hasClass('athnea-zr_03')) {
-        self.$('.js-athena_st_03').removeClass('athnea-zr_01').removeClass('athnea-zr_02').removeClass('athnea-zr_03');
-        self.$('.js-athena_st_03').addClass('athnea-zr_02');
-      }
-    };
-    if(index==4) {
-      if(! self.$('.js-athena_st_04').hasClass('athnea-yh_03')) {
-        self.$('.js-athena_st_04').removeClass('athnea-yh_01').removeClass('athnea-yh_02').removeClass('athnea-yh_03');
-        self.$('.js-athena_st_04').addClass('athnea-yh_02');
-      }
-    };
-    if(index==5) {
-      if(! self.$('.js-athena_st_05').hasClass('athnea-gg_03')) {
-        self.$('.js-athena_st_05').removeClass('athnea-gg_01').removeClass('athnea-gg_02').removeClass('athnea-gg_03');
-        self.$('.js-athena_st_05').addClass('athnea-gg_02');
-      }
-    };
-    if(index==6) {
-      if(! self.$('.js-athena_st_06').hasClass('athnea-zx_03')) {
-        self.$('.js-athena_st_06').removeClass('athnea-zx_01').removeClass('athnea-zx_02').removeClass('athnea-zx_03');
-        self.$('.js-athena_st_06').addClass('athnea-zx_02');
-      }
-    };
+    if($target.hasClass('sfa-h-security-off')){
+      this.$('.js-h-security').removeClass('sfa-h-security-off').addClass('sfa-h-security');
+      this.$('.js-gl-hd-balance').text('******');
+    }else{
+      var acctInfo = Global.memoryCache.get('acctInfo');
+      this.$('.js-h-security').removeClass('sfa-h-security').addClass('sfa-h-security-off');
+      this.$('.js-gl-hd-balance').text(acctInfo.fBalance);
+    }
   },
 
   afficShowHandler: function() {
@@ -312,7 +273,7 @@ var HeaderView = Base.ItemView.extend({
       url: '/fund/moneypd/checkpaypwd.json'
     });
   },
-  getInfoXhr: function() {
+  getWithDrawInfoXhr: function() {
     return Global.sync.ajax({
       url: '/fund/withdraw/info.json'
     });
@@ -330,6 +291,7 @@ var HeaderView = Base.ItemView.extend({
     this.$ticketDropdown = this.$('.js-gl-h-ticket-dropdown');
     this.$dividend = this.$('.js-gl-dividend');
     this.$rush = this.$('.js-gl-rush');
+    this.$noticeList = this.$('.js-h-notice-inner');
 
     this.subscribe('acct', 'acct:updating', function() {
       self.renderAcctInfo();
@@ -338,7 +300,6 @@ var HeaderView = Base.ItemView.extend({
     this.$('.js-gl-head-acct-menu').dropMenu();
     this.$('.js-gl-head-main-menu').dropMenu();
     this.$('.js-gl-head-money-menu').dropMenu();
-    this.$('.js-athena-three').removeClass('athena-three').addClass('athena-three-up');
 
     var acctInfo = Global.memoryCache.get('acctInfo');
     this.$('.js-vipFlag').html('V'+acctInfo.memberLevel);
@@ -362,7 +323,6 @@ var HeaderView = Base.ItemView.extend({
       self.$('.js-athena_st_02').addClass('athnea-cp_03');
 
     });
-    //this.initMenuList();
     this.getTeamOnlineXhr().done(function (res) {
       var data = res && res.root || {};
       if (res && res.result === 0) {
@@ -373,25 +333,10 @@ var HeaderView = Base.ItemView.extend({
       }
     });
 
-    var w = 0;
-    var w2 = 0;
-    setTimeout(function(){
-      w = $('.drop-menu .g span').width();
-      w2 = w;
-
-      $('.js-p').width($('.js-athena-three').width() + 23);
-
-      setInterval(function() {
-        if(w2 + w <= 0){
-          w2 = w;
-        }
-        else{
-          w2 -= 1;
-        }
-        
-        $('.drop-menu .g span').css('left',w2);
-      }, 20);
-    }, 1000);
+    this.renderNotice();
+    setInterval(function() {
+      self.renderNotice();
+    }, 60000);
 
     if(!Global.cookieCache.get('hasLoadBulletin')){
       Global.cookieCache.set('hasLoadBulletin', true);
@@ -399,67 +344,21 @@ var HeaderView = Base.ItemView.extend({
     }
     
   },
-  //newPlan:function () {
-  //
-  //  var self = this;
-  //
-  //  var $dialog = Global.ui.dialog.show({
-  //    title:'提示',
-  //    size: 'modal-lg',
-  //    body: '<div  style="background-color: #fff;" class="js-pw-container"></div>',
-  //    bodyClass: 'ac-periodWay-dialog'
-  //  });
-  initMenuList: function() {
+
+  renderNotice: function() {
     var self = this;
-    this.$('.js-athena_st_01').mouseover(function(){
-      self.$('.js-athena_st_01').removeClass('athnea-st_01').removeClass('athnea-st_02').removeClass('athnea-st_03');
-      $('.js-athena_st_01').addClass('athnea-st_02');
-    });
-    this.$('.js-athena_st_01').mouseout(function(){
-      self.$('.js-athena_st_01').removeClass('athnea-st_01').removeClass('athnea-st_02').removeClass('athnea-st_03');
-      $('.js-athena_st_01').addClass('athnea-st_01');
-    });
+    this.getNoticeInfoXhr()
+      .done(function(res) {
+        var data;
+        if (res.result === 0) {
+          data = res.root || [];
 
-    this.$('.js-athena_st_02').mouseover(function(){
-      self.$('.js-athena_st_02').removeClass('athnea-cp_01').removeClass('athnea-cp_02').removeClass('athnea-cp_03');
-      $('.js-athena_st_02').addClass('athnea-cp_02');
-    });
-    this.$('.js-athena_st_02').mouseout(function(){
-      self.$('.js-athena_st_02').removeClass('athnea-cp_01').removeClass('athnea-cp_02').removeClass('athnea-cp_03');
-      $('.js-athena_st_02').addClass('athnea-cp_01');
-    });
-
-
-    this.$('.js-athena_st_03').mouseover(function(){
-      self.$('.js-athena_st_03').removeClass('athnea-zr_01').removeClass('athnea-zr_02').removeClass('athnea-zr_03');
-      $('.js-athena_st_03').addClass('athnea-zr_02');
-    });
-    this.$('.js-athena_st_03').mouseout(function(){
-      self.$('.js-athena_st_03').removeClass('athnea-zr_01').removeClass('athnea-zr_02').removeClass('athnea-zr_03');
-      $('.js-athena_st_03').addClass('athnea-zr_01');
-    });
-    //优惠活动
-    this.$('.js-athena_st_04').mouseover(function(){
-      self.$('.js-athena_st_04').removeClass('athnea-yh_01').removeClass('athnea-yh_02').removeClass('athnea-yh_03');
-      $('.js-athena_st_03').addClass('athnea-yh_02');
-    });
-    this.$('.js-athena_st_04').mouseout(function(){
-      self.$('.js-athena_st_04').removeClass('athnea-yh_01').removeClass('athnea-yh_02').removeClass('athnea-yh_03');
-      $('.js-athena_st_04').addClass('athnea-yh_01');
-    });
-    //平台公告
-    this.$('.js-athena_st_05').mouseover(function(){
-      self.$('.js-athena_st_05').removeClass('athnea-gg_01').removeClass('athnea-gg_02').removeClass('athnea-gg_03');
-      $('.js-athena_st_03').addClass('athnea-gg_02');
-    });
-    this.$('.js-athena_st_05').mouseout(function(){
-      self.$('.js-athena_st_05').removeClass('athnea-gg_01').removeClass('athnea-gg_02').removeClass('athnea-gg_03');
-      $('.js-athena_st_05').addClass('athnea-gg_01');
-    });
-    this.$('.js-athena_st_06').mouseout(function(){
-      self.$('.js-athena_st_06').removeClass('athnea-zx_01').removeClass('athnea-zx_02').removeClass('athnea-zx_03');
-      $('.js-athena_st_06').addClass('athnea-zx_01');
-    });
+          self.$noticeList.html('<marquee  behavior="scroll" id="scrollText" onmouseover="scrollText.stop();"' +
+            ' onmouseout="scrollText.start();" scrollAmount="2" direction="left">'+_(data).map(function(info) {
+              return self.noticeItemTpl(info);
+            }).join('')+'</marquee>');
+        }
+      });
   },
 
   renderAcctInfo: function() {
@@ -533,7 +432,7 @@ var HeaderView = Base.ItemView.extend({
       return false;
     }
 
-    this.getInfoXhr()
+    this.getWithDrawInfoXhr()
         .always(function() {
           //self.loadingFinish();
         })
@@ -591,10 +490,6 @@ var HeaderView = Base.ItemView.extend({
 
   },
 
-  closeWithdrawDialog: function() {
-    this.$dialogWd.modal('hide');
-  },
-
   renderBulletin: function(bulletinId) {
     var noticeBoardView;
 
@@ -621,6 +516,28 @@ var HeaderView = Base.ItemView.extend({
     }).render();
   },
 
+  showNoticeDialogHandler: function(e){
+    //var noticeBoardView;
+    var bulletinId = $(e.currentTarget).data('id');
+    if (bulletinId != 0) {
+      this.renderBulletin(bulletinId);
+    }
+  },
+
+  cBtn: function (e) {
+    if ( this.$('.js-cBtn i').hasClass('icon-chevron-up') ) {
+      this.$('.js-cBtn i').removeClass('icon-chevron-up').addClass('icon-chevron-down');
+      this.$('.js-cBtn i').addClass('cBtn2');
+      this.$('.js-head').addClass('headh');
+      $('.js-head').animate({height: '20px'}, 600);
+    }
+    else{
+      this.$('.js-cBtn i').addClass('icon-chevron-up').removeClass('icon-chevron-down');
+      this.$('.js-cBtn i').removeClass('cBtn2');
+      this.$('.js-head').removeClass('headh');
+      $('.js-head').animate({height: '104px'}, 600);
+    }
+  }
 });
 
 module.exports = HeaderView;
