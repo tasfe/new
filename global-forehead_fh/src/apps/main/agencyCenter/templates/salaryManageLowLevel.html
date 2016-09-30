@@ -1,20 +1,5 @@
-<div class="julien-ac-salary-my">
-  <span class="js-add-salary-user add-salary-user">签约日工资用户</span>
-</div>
-<div class="search-condition-table julien-search-condition-table">
-  <div class="row1">
-    <dl class="width255">
-      <dt>日期</dt>
-      <dd>
-        <span class="js-pf-timeset"></span>
-      </dd>
-    </dl>
-    <ul class="julien-selectBtnList">
-      <li class="js-selectDateGetList" data-id='1'>今天</li>
-      <li class="js-selectDateGetList" data-id='2'>三天</li>
-      <li class="js-selectDateGetList" data-id='3'>七天</li>
-      <li class="js-selectDateGetList" data-id='4'>本月</li>
-    </ul>
+<div class="search-condition-table-julien row1only">
+  <div class="control-group row1 search-condition-layout">
     <dl class="width128">
       <dt>状态</dt>
       <dd>
@@ -25,16 +10,32 @@
         </select>
       </dd>
     </dl>
-    <dl class="width155">
+    <dl class="width150">
       <dt>用户名</dt>
       <dd><input type="text" name="userName" data-parsley-username=""></dd>
     </dl>
-    <dl class="width150">
+    <dl class="width140">
       <dt>返点</dt>
       <dd><input type="text" name=""></dd>
     </dl>
-    <div>
-      <button type="submit" class="js-select-submit">搜索</button>
-    </div>
+    <dl class="width487">
+      <dt>投注时间</dt>
+      <dd>
+        <button class="js-selectDateGetList" data-id="1">今天</button>
+        <button class="js-selectDateGetList" data-id="2">三天</button>
+        <button class="js-selectDateGetList" data-id="3">七天</button>
+        <button class="js-selectDateGetList" data-id="4">本月</button>
+      </dd>
+      <dd>
+        <span class="js-pf-timeset"></span>
+      </dd>
+    </dl>
+    <span class="js-add-salary-user add-salary-user">
+      <i class="icon-plus-sign"></i>
+      签约日工资用户
+    </span>
+  </div>
+  <div class="row3">
+    <button type="submit" class="js-select-submit">搜索</button>
   </div>
 </div>

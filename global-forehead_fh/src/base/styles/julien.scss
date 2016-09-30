@@ -1,7 +1,7 @@
 body{
 	background: url('~base/images/fh/bg.jpg') no-repeat #fff;
 	font-family: '微软雅黑';
-	
+
 }
 
 .wm-loader-wrapper{
@@ -14,7 +14,7 @@ body{
 		height:100%;
 		background-position: center center;
 	}
-} 
+}
 
 .table{
 	font-size: 14px;
@@ -55,11 +55,13 @@ textarea{
 	border-top: 0px;
 }
 .modal-lg-julien{
-	width: 1020px !important;
-	margin-left: -510px !important;
-	font-size: 14px;
+	width: 876px !important;
+	margin-left: -438px !important;
+	font-size: 12px;
 	font-family: '微软雅黑';
-	background: url(~base/images/julien/modal-lg-julien-bg.jpg) no-repeat bottom #fff;
+	background-color: #fff;
+	border: 1px solid #484848;
+	border-radius: 5px;
 
 	.athena-quota{
 		border:1px solid #e4393c;
@@ -67,6 +69,7 @@ textarea{
 
 	.modal-body{
 		background: none;
+		padding: 8px;
 
 		p{
 			color: #cc0000;
@@ -231,12 +234,12 @@ textarea{
 		button{
 			font-size: 16px;
 			margin-top: 15px;
-      background-color: #cc0000;
-      padding: 5px 8px;
-      border-radius: 3px;
-      color: #fff;
-      border: 0px;
-      border-radius: 0px;
+			background-color: #cc0000;
+			padding: 5px 8px;
+			border-radius: 3px;
+			color: #fff;
+			border: 0px;
+			border-radius: 0px;
 		}
 	}
 }
@@ -248,58 +251,58 @@ textarea{
 	}
 
 	.correct{
-    i{
-      position: absolute;
-      top: 7px;
-      display: inline-block;
-      width: 16px;
-      height: 16px;
-      background: url(~base/images/julien/07.png) no-repeat;
-    }
-  }
+		i{
+			position: absolute;
+			top: 7px;
+			display: inline-block;
+			width: 16px;
+			height: 16px;
+			background: url(~base/images/julien/07.png) no-repeat;
+		}
+	}
 
-  .messageBox{
-    position: absolute;
-    top: 2px;
-    display: none;
+	.messageBox{
+		position: absolute;
+		top: 2px;
+		display: none;
 
-    b{
-      float: left;
-      display: block;
-      width: 0;
-      height: 0;
-      border-width: 5px;
-      border-style: dashed solid dashed dashed;
-      border-color: transparent #999999 transparent transparent;
-      margin-top: 8px;
-    }
+		b{
+			float: left;
+			display: block;
+			width: 0;
+			height: 0;
+			border-width: 5px;
+			border-style: dashed solid dashed dashed;
+			border-color: transparent #999999 transparent transparent;
+			margin-top: 8px;
+		}
 
-    span{
-      float: left;
-      display: block;
-      height: 26px;
-      background-color: #999999;
-      line-height: 26px;
-      padding: 0px 8px;
-      border-radius: 3px;
-      color: #fff;
-    }
-  }
+		span{
+			float: left;
+			display: block;
+			height: 26px;
+			background-color: #999999;
+			line-height: 26px;
+			padding: 0px 8px;
+			border-radius: 3px;
+			color: #fff;
+		}
+	}
 
-  .wrong{
-    i{
-      position: absolute;
-      top: 7px;
-      display: inline-block;
-      width: 16px;
-      height: 16px;
-      background: url(~base/images/julien/07.png) no-repeat 0 -16px;
-    }
+	.wrong{
+		i{
+			position: absolute;
+			top: 7px;
+			display: inline-block;
+			width: 16px;
+			height: 16px;
+			background: url(~base/images/julien/07.png) no-repeat 0 -16px;
+		}
 
-    .messageBox{
-      display: block;
-    }
-  }
+		.messageBox{
+			display: block;
+		}
+	}
 }
 
 .slimScrollDiv{
@@ -425,17 +428,17 @@ textarea{
 .julien-table-title{
 	tr{
 		height: 38px;
-	    background-color: #f2f2f2;
-	    line-height: 38px;
-	    color: #999999;
-	    font-family: '\5FAE\8F6F\96C5\9ED1';
-	    font-size: 14px;
+		background-color: #f2f2f2;
+		line-height: 38px;
+		color: #999999;
+		font-family: '\5FAE\8F6F\96C5\9ED1';
+		font-size: 14px;
 
-	    th{
-	    	vertical-align: middle;
+		th{
+			vertical-align: middle;
 			background: none;
 			font-weight: normal;
-	    }
+		}
 	}
 }
 .julien-table-tbody{
@@ -492,7 +495,7 @@ textarea{
 			.messageBox{
 				left: 305px;
 			}
-			
+
 		}
 	}
 
@@ -522,18 +525,18 @@ textarea{
 	>table{
 		tr{
 			height: 38px;
-		    background-color: #f2f2f2;
-		    line-height: 38px;
-		    color: #999999;
-		    font-family: '\5FAE\8F6F\96C5\9ED1';
-		    font-size: 14px;
+			background-color: #f2f2f2;
+			line-height: 38px;
+			color: #999999;
+			font-family: '\5FAE\8F6F\96C5\9ED1';
+			font-size: 14px;
 
 
-		    th{
-		    	vertical-align: middle;
+			th{
+				vertical-align: middle;
 				background: none;
 				font-weight: normal;
-		    }
+			}
 		}
 	}
 }
@@ -626,7 +629,7 @@ textarea{
 		background-color: #edb5d9;
 		color: #fff;
 	}
-	
+
 }
 
 .lowLevelManage-view{
@@ -643,8 +646,8 @@ textarea{
 .slimScrollDiv{
 	table{
 		td{
-			padding-top: 8px;
-			padding-bottom: 8px;
+			padding-top: 0px;
+			padding-bottom: 0px;
 		}
 	}
 }
@@ -657,10 +660,25 @@ textarea{
 	height:26px;
 }
 .julien-button{
-	background-color: #cc0000;
-	padding: 7px 19px;
-	border: 0px;
+	border: 1px solid #bb346e;
+	border-radius: 3px;
 	color: #fff;
+	width: auto;
+	padding: 5px 10px;
+	border-radius: 3px;
+	font-size: 12px;
+	outline: 0 none;
+	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+	background-image:-webkit-linear-gradient(180deg, #db5790, #c04b7f);
+	background-image:linear-gradient(180deg,#db5790,#c04b7f);
+
+	&:hover{
+		color: #fff;
+		border: 1px solid #ce6399;
+		background-color: #ce6399;
+		background-image:-webkit-linear-gradient(180deg, #c04b7f, #db5790);
+		background-image:linear-gradient(180deg,#c04b7f,#db5790);
+	}
 }
 .julien-button2{
 	background-color: #cc0000;
@@ -675,12 +693,27 @@ textarea{
 }
 
 .julien-close-btn{
-	background-color: #cc9966;
-	padding: 7px 19px;
-	border: 0px;
+	height: 24px;
+	line-height: 24px;
+	font-size: 12px;
 	color: #fff;
-	margin-left: 10px;
+	display: inline-block;
+	background-image: -webkit-linear-gradient(180deg, #ec1b42, #be3259);
+	background-image: linear-gradient(180deg, #ec1b42, #be3259);
 	cursor: pointer;
+	text-align: center;
+	border-radius: 3px;
+	padding: 2px 10px;
+
+	&:hover{
+		background-image: -webkit-linear-gradient(180deg, #be3259, #ec1b42);
+		background-image: linear-gradient(180deg, #be3259, #ec1b42);
+	}
+
+	i{
+		display: inline-block;
+		margin-right: 3px;
+	}
 }
 
 dl,dt,dd{
@@ -699,7 +732,7 @@ dl,dt,dd{
 
 .julien-table-content{
 	border-left: 1px solid #ccc;
-	
+
 	td{
 		border-right: 1px solid #ccc;
 		border-bottom: 1px solid #ccc;
@@ -741,7 +774,7 @@ body.footerShow{
 }
 
 input:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0px 1000px white inset;
+	-webkit-box-shadow: 0 0 0px 1000px white inset;
 }
 
 .hidden-js-main-display2{
@@ -782,25 +815,25 @@ input:-webkit-autofill {
 .julien-salaryUser-dialog{
 	.title{
 		font-size: 14px;
-		color: #999999;
+		color: #666;
 
 		span{
 			margin: 0px 10px 0px 15px;
 		}
 
 		input{
-			background-color: #f6f6f6;
+			background-color: #fff;
+			border-radius: 3px;
 		}
 	}
 
 	.julien-salaryUser-list{
-		margin-top: 20px;
-		font-size: 14px;
+		margin-top: 10px;
+		font-size: 12px;
 		color: #444444;
 		border: 1px solid #ccc;
 		border-bottom: 0px;
 		border-right: 0px;
-		margin-right: 30px;
 
 		ul{
 			text-align: center;
@@ -812,8 +845,8 @@ input:-webkit-autofill {
 				background-color: #f2f2f2;
 
 				li{
-					height: 38px;
-					line-height: 38px;
+					height: 28px;
+					line-height: 28px;
 				}
 			}
 
@@ -824,7 +857,7 @@ input:-webkit-autofill {
 			}
 
 			li{
-				width: 36%;
+				width: 30%;
 				float: left;
 				border-right: 1px solid #ccc;
 				height: 40px;
@@ -834,10 +867,14 @@ input:-webkit-autofill {
 					width: 60px;
 					background-color: #f6f6f6;
 					line-height: 18px;
+					padding: 1px 5px;
 				}
 
 				input{
 					width: 70px;
+					border-radius: 3px;
+					background-color: #fff;
+					padding: 1px 5px;
 				}
 
 				&:last-child{
@@ -848,20 +885,23 @@ input:-webkit-autofill {
 						right: -28px;
 						top: 7px;
 						font-style: inherit;
-					    display: inline-block;
-					    padding: 5px 8px;
-					    background-color: #cc0000;
-					    line-height: 16px;
-					    font-size: 16px;
-					    font-weight: bold;
-					    color: #fff;
-					    font-family: cursive;
-					    cursor: pointer;
+						display: inline-block;
+						padding: 5px 8px;
+						background-color: #cc0000;
+						line-height: 16px;
+						font-size: 16px;
+						font-weight: bold;
+						color: #fff;
+						font-family: cursive;
+						cursor: pointer;
 					}
 				}
 
 				&.widthP25{
-					width: 27%;
+					width: 25%;
+				}
+				&.widthP14{
+					width: 14%;
 				}
 			}
 		}
@@ -927,4 +967,9 @@ span{
 	&.face18{
 		background: url(~base/images/face/18.png) no-repeat;
 	}
+}
+
+.table-foot-tips{
+	font-size: 12px;
+	line-height: 40px;
 }

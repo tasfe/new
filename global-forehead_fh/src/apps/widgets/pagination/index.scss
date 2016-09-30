@@ -6,15 +6,15 @@
 $pg-filter: 5px !default;
 
 $pg-item: (
-  color: $font-color,
-  bg-color: linear-gradient(to bottom, #ffc233, #f2a701),
-  hover-color: $font-color,
-  bg-hover-color: linear-gradient(to bottom, #ffc233, #f2a701),
-  active-color: $font-default,
-  bg-active-color: $color-pleasant,
-  disabled-color: #666666,
-  disabled-bg: linear-gradient(to bottom, #f0f0f0, #e0e0e0),
-  disabled-border: $gray-color
+        color: $font-color,
+        bg-color: linear-gradient(to bottom, #ffc233, #f2a701),
+        hover-color: $font-color,
+        bg-hover-color: linear-gradient(to bottom, #ffc233, #f2a701),
+        active-color: $font-default,
+        bg-active-color: $color-pleasant,
+        disabled-color: #666666,
+        disabled-bg: linear-gradient(to bottom, #f0f0f0, #e0e0e0),
+        disabled-border: $gray-color
 );
 
 .pagination {
@@ -77,49 +77,66 @@ $pg-item: (
     }
   }
   .pagination-curt-page {
-    height: 26px;
-    line-height: 26px;
-    background-color: #fff;
-    width: 29px;
+    height: 24px;
+    line-height: 24px;
+    background-color: #f8f8f8;
+    width: 34px;
     text-align: center;
-    color: #d41f18;
+    color: #cc6698;
     padding: 0px;
+    border-radius: 3px;
   }
 
   .pagination-go-to {
-    border: 1px solid #cac9c7;
+    border: 1px solid #ba537e;
     width: 46px;
-    height: 27px;
+    height: 24px;
+    line-height: 18px;
     background-color: #d21e1d;
     color: #fff;
-    font-size: 14px;
+    font-size: 12px;
     font-family: '微软雅黑';
     padding: 0px;
-    margin-right: 10px;
+    border-radius: 3px;
+
+    background-color: #ca6496;
+    background-image:-webkit-linear-gradient(180deg, #ca6496, #b54d7e);
+    background-image:linear-gradient(180deg, #ca6496, #b54d7e);
+
+    &:hover{
+      background-color: #b54d7e;
+      background-image:-webkit-linear-gradient(180deg, #b54d7e, #ca6496);
+      background-image:linear-gradient(180deg, #b54d7e, #ca6496);
+    }
   }
 }
 
 .pagination ul > li > span{
-  height: 27px;
-  width: 27px;
-  line-height: 26px;
+  height: 24px;
+  line-height: 24px;
   background: #fff;
-  border: 1px solid #c9c9c9;
+  border: 1px solid #ccc;
   font-size: 12px;
   font-family: 'Arial';
-  padding: 0px;
+  padding: 0px 10px;
   display: inline-block;
   cursor: pointer;
   text-align: center;
-  color: #42424e;
+  color: #666;
+  border-radius: 3px;
+
+  &:hover{
+    border: 1px solid #cc6698;
+    color: #cc6698;
+  }
 }
 
 .pagination ul > .active > span{
-  height: 27px;
-  width: 27px;
-  line-height: 26px;
-  background: #d91d1c;
-  border: 1px solid #c9c9c9;
+  height: 24px;
+  width: 24px;
+  line-height: 24px;
+  background: #cc6698;
+  border: 1px solid #cc6698;
   font-size: 12px;
   font-family: 'Arial';
   padding: 0px;
@@ -133,16 +150,26 @@ $pg-item: (
 }
 
 .pagination ul > .disabled > span{
-  height: 26px;
-  width: 38px;
-  line-height: 26px;
-  background: #eeefea;
-  border: 1px solid #c9c9c9;
+  height: 24px;
+  width: 54px;
+  line-height: 24px;
+  background: #fff;
+  border: 1px solid #ccc;
   font-size: 10px;
   font-family: 'Arial';
   padding: 0px;
   display: inline-block;
   cursor: pointer;
   text-align: center;
-  color: #656269;
+  color: #ccc;
+  border-radius: 3px;
+  cursor: default;
+  &:hover{
+    background:none;
+    color: #ccc;
+  }
+}
+
+.wt-pagination{
+  margin-top: 15px;
 }

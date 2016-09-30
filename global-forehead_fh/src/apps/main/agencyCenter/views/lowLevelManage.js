@@ -223,7 +223,7 @@ var LowLevelManageView = SearchGrid.extend({
       cell.push('<a href="javascript:void(0);"  class="js-ac-llm-cp btn btn-link" data-subacctid="' + rowInfo.userId + '" data-username="' + rowInfo.userName + '">转账</a>');
     }
     if (rowInfo.direct && !this.isSub()) {
-      cell.push('<a href="javascript:void(0);" class="js-gl-letter btn btn-link text-sunshine"' +
+      cell.push('<a href="javascript:void(0);" class="js-gl-letter btn btn-link"' +
           ' data-user-id="' + rowInfo.userId + '" data-name="' + rowInfo.userName + '">消息</a>');
     }
 

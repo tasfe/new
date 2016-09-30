@@ -14,7 +14,7 @@ $.widget('gl.addSalaryUser', {
     var body = [];
     body.push('<form class="js-ac-signed-common-form ac-signed-form form-horizontal" action="javascript:void(0);" novalidate="">');
     body.push('<div class="julien-salaryUser-dialog">');
-    body.push('<div class="title js-salaryUser-title" data-id="' + this.options.userId + '"><span class="js-add-row julien-close-btn no-margin">增加日薪标准段</span><span>待签约下级</span><input type="text" class="js-userName"></div>');
+    body.push('<div class="title js-salaryUser-title" data-id="' + this.options.userId + '"><span class="js-add-row julien-close-btn no-margin"><i class="icon-plus-sign"></i>增加日薪标准段</span><span>待签约下级</span><input type="text" class="js-userName"></div>');
     body.push('<div class="js-ac-salaryUser-container julien-salaryUser-list"></div>');
     body.push('<div class="row-btn "><button type="button" class="js-ac-submitQuota julien-button julien-button-margin" data-loading-text="保存中">保存修改</button></div>');
     body.push('<div class="row-btn"><span class="row-span"></span></span></div>');
@@ -36,12 +36,12 @@ $.widget('gl.addSalaryUser', {
 
     this.bindTable();
 
-    var strList = '<ul class="listTitle"><li class="widthP25">日薪日量要求</li><li>是否需要亏损</li><li>日薪标准</li></ul>';
+    var strList = '<ul class="listTitle"><li class="widthP25">日薪日量要求</li><li>是否需要亏损</li><li>日薪标准</li><li class="widthP14">操作</li></ul>';
 
     var strRow = '<ul><li class="widthP25">≥ <input type="text" class="js-ac-sm-sign-saleAmount ac-sm-sign-saleAmount" data-parsley-range="[0, 100000000]" data-parsley-threedecimal="" value="0" required=""> 元/日</li>';
-    strRow += '<li class="widthB30"><select class="js-ac-sm-sign-select ac-sm-sign-select  m-right-sm" name="needLoss" value="0"><option value="1">是</option><option value="0" selected="">否</option></select>';
+    strRow += '<li><select class="js-ac-sm-sign-select ac-sm-sign-select  m-right-sm" name="needLoss" value="0"><option value="1">是</option><option value="0" selected="">否</option></select>';
     strRow += '<div class="js-ac-sm-sign-tag1 margin-right-sm inline-block hidden">≥<input type="text" class="js-ac-sm-sign-lossLimit ac-sm-sign-lossLimit m-left-sm m-right-sm" data-parsley-range="[0, 100000000]" name="lossLimit" data-parsley-integer="" value="0" required="" data-parsley-type="integer">元</div></li>'
-    strRow += '<li><input type="text" class="js-ac-sm-sign-salary ac-sm-sign-salary  m-right-sm" name="salaryAmount" value="0" required="" data-parsley-range="[0, 100000000]" data-parsley-type="integer">元<i class="js-delete-row">X</i></li></ul>';
+    strRow += '<li><input type="text" class="js-ac-sm-sign-salary ac-sm-sign-salary  m-right-sm" name="salaryAmount" value="0" required="" data-parsley-range="[0, 100000000]" data-parsley-type="integer">元</li><li class="widthP14"><span class="js-delete-row">删除</span></li></ul>';
     $('.js-ac-salaryUser-container').html(strList);
 
     $('.js-add-row').on('click',function () {
@@ -75,8 +75,8 @@ $.widget('gl.addSalaryUser', {
 
         var strTableTitle = '<table class="table table-bordered table-no-lr table-center no-margin julien-table-title"><colgroup><col width="22%"><col width="26%"><col width="26%"><col width="26%"></colgroup>';
         strTableTitle += '<thead><tr><th>账号层级</th><th>我的剩余配额</th><th>转移数量</th><th>' + self.options.title + '的剩余配额</th></tr></thead></table>';
-      //console.log(res.root.userQuota);
-      var strTableTtbody='<table class="table table-bordered table-no-lr table-center no-margin julien-table-tbody"><colgroup><col width="22%"><col width="26%"><col width="26%"><col width="26%"></colgroup>';
+        //console.log(res.root.userQuota);
+        var strTableTtbody='<table class="table table-bordered table-no-lr table-center no-margin julien-table-tbody"><colgroup><col width="22%"><col width="26%"><col width="26%"><col width="26%"></colgroup>';
         var arr= new Array();
 
         $.each(res.root.subUserQuota,function(i,list){
@@ -94,18 +94,18 @@ $.widget('gl.addSalaryUser', {
           }
           strTableTtbody+= '<tr><td>'+list.rebate /10+'</td><td class="js-athena-val">'+ list.quota+'<span ></span></td><td class="athena-num">' + strInput + '</td><td>' + q + '<span></span></td></tr>';
         });
-        
+
         $('.js-ac-quota-container').html(strTableTitle+strTableTtbody);
 
         $('.js-quota-rebate-01').on('input',function(){
           console.log($(this).data('size'));
           //判断是不是数字
           if($(this).val()>=$(this).data('size')){
-              $(this).val($(this).data('size'));
+            $(this).val($(this).data('size'));
           }
           var vals=$(this).val();
           if(!isNaN(vals)==false){
-              $(this).val('0');
+            $(this).val('0');
           }
 
           $(this).parent().prev().children().html("-"+$(this).val());
@@ -115,19 +115,19 @@ $.widget('gl.addSalaryUser', {
       }
 
       $('.js-ac-submitQuota').on('click',function(){
-          if($('.js-quota-rebate-01').val()==''){
-              $('.js-quota-rebate-01').addClass('athena-quota');
-          }
-          else{
-            self.setQuota().done(function(res) {
-              if (res && res.result === 0) {
-                self.$dialog.modal('hide');
-                Global.ui.notification.show('成功');
-              } else {
-                Global.ui.notification.show(res.msg);
-              }
-            });
-          }
+        if($('.js-quota-rebate-01').val()==''){
+          $('.js-quota-rebate-01').addClass('athena-quota');
+        }
+        else{
+          self.setQuota().done(function(res) {
+            if (res && res.result === 0) {
+              self.$dialog.modal('hide');
+              Global.ui.notification.show('成功');
+            } else {
+              Global.ui.notification.show(res.msg);
+            }
+          });
+        }
       })
     });
 

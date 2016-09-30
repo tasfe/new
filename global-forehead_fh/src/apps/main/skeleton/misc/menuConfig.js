@@ -60,7 +60,7 @@ var menuConfig = [
     },
     {
         router: 'ac',
-        name: '代理中心',
+        name: '团队中心',
         first: 'ac/llm',
         titleClass: 'bg-sunshine',
         backStyle: 'text-sunshine',
@@ -74,21 +74,32 @@ var menuConfig = [
             },
             {
                 id: 131,
+                router: 'ac/br',
+                name: '团队游戏'
+            },
+            {
+                id: 132,
                 router: 'ac/oam',
                 name: '开户管理'
             },
             {
-                id: 132,
+                id: 133,
                 router: 'ac/td',
                 name: '团队动态'
             },
             {
-                id: 133,
-                router: 'ac/cs',
-                name: '佣金管理'
-            },
-            {
                 id: 134,
+                router: 'ac/ad',
+                name: '团队账变'
+            },
+
+            //    {
+            //       id: 133,
+            //      router: 'ac/cs',
+            //      name: '佣金管理'
+            //    },
+            {
+                id: 135,
                 router: 'ac/salary',
                 name: '日工资管理'
             },
@@ -98,7 +109,7 @@ var menuConfig = [
             //      name: '报表查询'
             //  },
             {
-                id: 135,
+                id: 136,
                 router: 'ac/dm',
                 name: '分红管理',
                 needAuth: true
@@ -115,7 +126,7 @@ var menuConfig = [
                 needAuth: true
             },
             {
-                id: 136,
+                id: 138,
                 router: 'ac/rp',
                 name: '红包查询',
                 needAuth: true

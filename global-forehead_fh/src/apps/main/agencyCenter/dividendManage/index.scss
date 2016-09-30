@@ -535,7 +535,6 @@
 }
 
 .ac-signed-form{
-  margin: 10px;
   .julien-row{
     margin-bottom: 10px;
     font-size: 14px;
@@ -593,5 +592,20 @@
         line-height: 30px;
       }
     }
+  }
+}
+
+.js-delete-row{
+  text-decoration: underline;
+  cursor: pointer;
+
+  &:hover{
+    color:#ce6399;
+  }
+}
+
+.ac-block{
+  .slimScrollDiv table td{
+    padding: 5px 0px;
   }
 }

@@ -1,0 +1,50 @@
+<div class="search-condition-table m-LR-smd">
+
+  <div class="control-group row1 search-condition-layout">
+
+    <label class="control-label">账号：</label>
+    <input type="text" name="username" class="input3 margin-add">
+
+    <label class="control-label">查询范围：</label>
+    <select name="subUser" class=" select1">
+      <option value="0">个人</option>
+      <option value="1">团队</option>
+    </select>
+
+    <label class="control-label">投注时间：</label>
+    <button class="js-excess-cell br-excess-cell toggle-athena" data-index="1">今天</button>
+    <button class="js-excess-cell br-excess-cell cell-left-10" data-index="2">三天</button>
+    <button class="js-excess-cell br-excess-cell cell-left-10" data-index="3">七天</button>
+    <span class="js-pf-timeset input-date"></span>
+
+    <div class="pull-right uc-search-buttondiv">
+      <button type="submit" class="btn uc-search-button">搜索</button>
+    </div>
+
+  </div>
+
+
+  <div class="control-group row2 hidden search-condition-layout">
+
+    <label>交易流水号:</label>
+    <input type="text" name="tradeNo" class="input3 margin-add" data-parsley-maxlength="30">
+
+    <label>提现状态:</label>
+    <select name="status"  style="width:70px" >
+      <option value="-1">全部</option>
+      <option value="0">处理中</option>
+      <option value="1">成功</option>
+      <option value="2">失败</option>
+    </select>
+
+  </div>
+
+
+  <!--分割线操作-->
+  <div class="hidden-seach-ucenter">
+    <hr>
+    <span class="js-toggle-seach"></span>
+  </div>
+
+
+</div>
