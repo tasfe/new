@@ -97,7 +97,7 @@
 .header-board {
   width: 1016px;
   height: 565px;
-  font-size: 17px;
+  font-size: 13px;
 
   .header-bulletin-list-continer{
     width: 290px;
@@ -116,12 +116,12 @@
       border: 1px solid #ccc;
       border-top:  0;
       border-radius: 0 0 5px 5px;
-
       .header-bulletin-list{
         li{
+          position: relative;
           border-bottom: 1px solid #ccc;
           height: 35px;
-          padding: 0px 8px 0px 15px;
+          padding: 0px 8px 0px 14px;
           display: block;
           cursor: pointer;
           font-size: 12px;
@@ -168,6 +168,17 @@
               color: #fff;
             }
           }
+          &:after{
+            content: '';
+            width: 7px;
+            height: 7px;
+            display: block;
+            position: absolute;
+            right: -4px;
+            background: #ca6898;
+            top: 16px;
+            transform: rotate(45deg);
+          }
         }
       }
 
@@ -185,7 +196,7 @@
         border: 1px solid #ccc;
         border-right: 0;
         border-radius: 12px 0 0 12px;
-        margin: 8px 0 8px 24px;
+        margin: 8px 0 8px 0;
       }
       .pn-next{
         border-radius:0 12px 12px 0;

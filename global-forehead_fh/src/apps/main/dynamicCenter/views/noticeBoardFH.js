@@ -51,7 +51,7 @@ var NoticeBoardView = Base.ItemView.extend({
     this.$DetailContainer = this.$('.js-head-bulletin-content');
 
     var data = {
-      pageSize: 7,
+      pageSize: 12,
       pageIndex: 0
     };
     this.bulletinId = this.options.reqData.bulletinId;
