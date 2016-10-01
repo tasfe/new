@@ -30,10 +30,6 @@ var BettingCenterView = Base.ItemView.extend({
   events: {
     'click .js-bc-video': 'openVideoHandler',
     'click .js-bc-basic-rule': 'baseRuleChangeHandler',
-    //'mouseover .js-bc-basic-rule': 'baseRuleChangeHandler',
-    //'mouseout .js-bc-basic-rule': 'baseRuleChange1Handler',
-    'mouseover .js-bc-advance-rules': 'baseRuleChangeMOHandler',
-    'mouseout .js-bc-advance-rules': 'baseRuleChangeMO1Handler',
     'click .js-bc-play-toggle': 'togglePlayModeHandler',
     'click .js-bc-advance-rule': 'advanceRuleChangeHandler',
     'change .js-bc-bet-mode': 'betModeChangeHandler',
@@ -48,9 +44,6 @@ var BettingCenterView = Base.ItemView.extend({
     'click .js-bc-nav-index':'severalHaddler',
     'click .js-bc-quick-bet': 'quickBetHandler',
     'change .js-bc-type-select':'typeChangeHandler',
-
-    'click .js-play1': 'play1',
-    'click .js-play2': 'play2',
 
     'click .js-cang02':'cangHandler',
 
@@ -139,26 +132,6 @@ var BettingCenterView = Base.ItemView.extend({
         'endTime': now
       }
     });
-  },
-
-  play1:function () {
-    $('.js-play2').removeClass('hidden');
-    $('.js-play1').addClass('hidden');
-    $('.js-bc-basic-rules').addClass('hidden');
-    $('.js-bc-optional-rules').removeClass('hidden');
-    $('.js-bc-optional-rules ul').removeClass('hidden');
-
-    $('.js-rule-title-clear').html('');
-  },
-
-  play2:function () {
-    $('.js-play1').removeClass('hidden');
-    $('.js-play2').addClass('hidden');
-    $('.js-bc-basic-rules').removeClass('hidden');
-    $('.js-bc-optional-rules').addClass('hidden');
-    $('.js-bc-optional-rules ul').addClass('hidden');
-
-   $('.js-rule-title-clear').html('');
   },
 
   serializeData: function() {
@@ -316,7 +289,7 @@ var BettingCenterView = Base.ItemView.extend({
         //{label: '奖金模式', name: 'bonusMode', width: '20%'},
         {label: '注数', name: 'mode', width: '60px'},
         {label: '投注金额', name: 'mode2', width: '20%'},
-        {label: '<i class="icon-trash"></i>', name: 'mode3', width: '10%'},
+        {label: '<i class="icon-trash"></i>', name: 'mode3', width: '10%'}
         //{label: '注数/倍数/模式', name: 'mode', width: '20%'}
         //{label: '投注金额', name: 'bettingMoney', width: '17%'}
       ],
@@ -522,13 +495,13 @@ var BettingCenterView = Base.ItemView.extend({
       this.$playTip.popover('destroy');
     }
 
-  //  this.$playTip.popover({
+   // this.$playTip.popover({
    //   trigger: 'hover',
-    //  container: this.$el,
-    //  html: true,
-    //  content: playInfo.playDes.replace(/\|/g, '<br />').replace(/\[max\]/g,_(playInfo.betMethodMax).chain().formatDiv(10000).floor(4).value()).replace(/\[min\]/g,_(playInfo.betMethodMin).chain().formatDiv(10000).floor(4).value()),
-  //    placement: 'bottom'
-  //  });
+   //   container: this.$el,
+   //   html: true,
+   //   content: playInfo.playDes.replace(/\|/g, '<br />').replace(/\[max\]/g,_(playInfo.betMethodMax).chain().formatDiv(10000).floor(4).value()).replace(/\[min\]/g,_(playInfo.betMethodMin).chain().formatDiv(10000).floor(4).value()),
+   //   placement: 'top'
+   // });
 
     this.renderPlayBetMode();
     //初始化奖金
@@ -824,43 +797,29 @@ var BettingCenterView = Base.ItemView.extend({
   },
 
 
-  baseRuleChange1Handler: function(e) {
-    this.$('.js-bc-advance-rules').hide();
-  },
-
-  baseRuleChangeMOHandler: function(e) {
-    this.$('.js-bc-advance-rules').show();
-  },
-  baseRuleChangeMO1Handler: function(e) {
-    this.$('.js-bc-advance-rules').hide();
-  },
-
   togglePlayModeHandler: function(e) {
     var $target = $(e.currentTarget);
     var type = $target.data('type');
-    $target.addClass('active').siblings().removeClass('active');
+    $target.addClass('hidden').siblings().removeClass('hidden');
     if (type === 'normal') {
       this.$basicRules.find('.js-bc-basic-rule').eq(0).trigger('click');
       this.$basicRules.removeClass('hidden');
       this.$superRules.addClass('hidden');
       this.$optionalRules.addClass('hidden');
-      this.$basicRules.parents('.bc-main-area').removeClass('sfa-superbg');
       $('.bc-curt-plan-main').addClass('bg-deep-gray');
       this.$lastResults.find('.text-circle:lt(3)').removeClass('text-circle-red');
-    } else if (type === 'super') {
-      this.$superRules.find('.js-bc-basic-rule').eq(0).trigger('click');
-      this.$basicRules.addClass('hidden');
-      this.$optionalRules.addClass('hidden');
-      this.$superRules.removeClass('hidden');
-      this.$basicRules.parents('.bc-main-area').addClass('sfa-superbg');
-      $('.bc-curt-plan-main').removeClass('bg-deep-gray');
-      this.$lastResults.find('.text-circle:lt(3)').addClass('text-circle-red');
+    // } else if (type === 'super') {
+    //   this.$superRules.find('.js-bc-basic-rule').eq(0).trigger('click');
+    //   this.$basicRules.addClass('hidden');
+    //   this.$optionalRules.addClass('hidden');
+    //   this.$superRules.removeClass('hidden');
+    //   $('.bc-curt-plan-main').removeClass('bg-deep-gray');
+    //   this.$lastResults.find('.text-circle:lt(3)').addClass('text-circle-red');
     } else {
       this.$optionalRules.find('.js-bc-basic-rule').eq(0).trigger('click');
       this.$basicRules.addClass('hidden');
       this.$superRules.addClass('hidden');
       this.$optionalRules.removeClass('hidden');
-      this.$basicRules.parents('.bc-main-area').removeClass('sfa-superbg');
       $('.bc-curt-plan-main').addClass('bg-deep-gray');
       this.$lastResults.find('.text-circle:lt(3)').removeClass('text-circle-red');
     }
