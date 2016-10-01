@@ -189,7 +189,8 @@ var BettingCenterPlayAreaView = Base.ItemView.extend({
       this.calculateCoefficient();
     }
 
-    this.statisticsLottery();
+    //导致重复计算
+    // this.statisticsLottery();
   },
 
   updateRowTitle: function($target) {

@@ -12,8 +12,6 @@ var ticketConfig = require('skeleton/misc/ticketConfig');
 var betRulesConfig = require('bettingCenter/misc/betRulesConfig');
 var IDsSuper3 = require('bettingCenter/misc/super3k/IDsOfSuper3k');
 
-var QuickBetView = require('bettingCenter/views/bettingCenter-quickBet');
-
 var Countdown = require('com/countdown');
 
 
@@ -49,45 +47,29 @@ var BettingCenterView = Base.ItemView.extend({
     'click .js-bc-records-tab': 'toggleTabHandler',
     'click .js-bc-nav-index':'severalHaddler',
     'click .js-bc-quick-bet': 'quickBetHandler',
+    'change .js-bc-type-select':'typeChangeHandler',
+
     'click .js-play1': 'play1',
     'click .js-play2': 'play2',
 
-    'mouseover .js-bc-video-main': 'divShow01',
-    'mouseout .js-bc-video-main': 'divShow02',
-    'mouseover .js-bc-video-main2': 'divShow03',
-    'mouseout .js-bc-video-main2': 'divShow04',
-    'mouseover .js-bc-video-main3': 'divShow05',
-    'mouseout .js-bc-video-main3': 'divShow06',
-
-    'mousedown  .js-tzgj': 'btnPressdown2',
-    'mousedown  .js-bc-btn-lottery-add': 'btnPressdown2',
-    'mousedown  .js-bc-chase': 'btnPressdown2',
-    'mousedown  .js-bc-quick-bet': 'btnPressdown1',
-    'mousedown  .js-bc-btn-lottery-confirm': 'btnPressdown1',
-
-    'mouseout  .js-tzgj': 'btnPressup2',
-    'mouseout  .js-bc-btn-lottery-add': 'btnPressup2',
-    'mouseout  .js-bc-chase': 'btnPressup2',
-    'mouseout  .js-bc-quick-bet': 'btnPressup1',
-    'mouseout  .js-bc-btn-lottery-confirm': 'btnPressup1',
     'click .js-cang02':'cangHandler',
-    'click .js-openBlock1':'openBlock1',
 
     'mouseenter .js-rightBlock1': 'sadf1dfsv',
     'mouseleave .js-rightBlock1': 'sadf1dfsv2',
-    'change .dsaj':'dsaj',
 
   },
 
-  dsaj: function (e) {
-    if ($('.dsaj').val() == 2) {
-      $('.bc-result-container2').removeClass('hidden');
-      $('.bc-result-container3').addClass('hidden');
-    }
-    else{
-      $('.bc-result-container2').addClass('hidden');
-      $('.bc-result-container3').removeClass('hidden');
-      
+  typeChangeHandler: function (e) {
+    var $target = $(e.currentTarget);
+
+    switch (Number($target.val())) {
+      case 2:
+        $('.bc-result-container2').removeClass('hidden');
+        $('.bc-result-container3').addClass('hidden');
+        break;
+      default:
+        $('.bc-result-container2').addClass('hidden');
+        $('.bc-result-container3').removeClass('hidden');
     }
   },
 
@@ -103,21 +85,6 @@ var BettingCenterView = Base.ItemView.extend({
     $('.js-showList').animate({height:'94px'}, 100,function () {
       $('.js-openBlock1').addClass('icon-angle-down').removeClass('icon-angle-up');
     });
-  },
-
-  openBlock1: function () {
-    if ( $('.js-rightBlock1').height() == 265 ) {
-      $('.rightBlock1').animate({height:'98px'}, 600);
-      $('.js-showList').animate({height:'94px'}, 600,function () {
-        $('.js-openBlock1').addClass('icon-angle-down').removeClass('icon-angle-up');
-      });
-    }
-    else{
-      $('.rightBlock1').animate({height:'265px'}, 600);
-      $('.js-showList').animate({height:'261px'}, 600,function () {
-        $('.js-openBlock1').removeClass('icon-angle-down').addClass('icon-angle-up');
-      });
-    }
   },
 
   cangHandler: function() {
@@ -172,58 +139,6 @@ var BettingCenterView = Base.ItemView.extend({
         'endTime': now
       }
     });
-  },
-
-  btnPressup1:function (e) {
-    var $target = $(e.currentTarget);
-    $target.removeClass('btn-pressdown-color1');
-  },
-
-  btnPressup2:function (e) {
-    var $target = $(e.currentTarget);
-    $target.removeClass('btn-pressdown-color2');
-  },
-
-
-  btnPressdown2:function (e) {
-    var $target = $(e.currentTarget);
-    $target.addClass('btn-pressdown-color2');
-  },
-
-  btnPressdown1:function (e) {
-    var $target = $(e.currentTarget);
-    $target.addClass('btn-pressdown-color1');
-
-  },
-
-  divShow01:function () {
-    $('.js-bc-video-2').show();
-    $('.js-bc-video-1').hide();
-  },
-
-  divShow02:function () {
-    $('.js-bc-video-1').show();
-    $('.js-bc-video-2').hide();
-  },
-
-  divShow03:function () {
-    $('.js-bc-video-4').show();
-    $('.js-bc-video-3').hide();
-  },
-
-  divShow04:function () {
-    $('.js-bc-video-3').show();
-    $('.js-bc-video-4').hide();
-  },
-
-  divShow05:function () {
-    $('.js-bc-video-6').show();
-    $('.js-bc-video-5').hide();
-  },
-
-  divShow06:function () {
-    $('.js-bc-video-5').show();
-    $('.js-bc-video-6').hide();
   },
 
   play1:function () {
@@ -323,111 +238,6 @@ var BettingCenterView = Base.ItemView.extend({
 
   },
 
-
-
-  quickBetHandler: function(e) {
-
-    //----
-    var bettingInfo = this.currentPlayAreaView.getBetting();
-    var result = this.model.addPrevBetNew({
-      lotteryList: bettingInfo.rowsResult,
-      selectOptionals: bettingInfo.selectOptionals,
-      format: bettingInfo.format,
-      type: 'select'
-    });
-
-    if (result) {
-
-    } else {
-      Global.ui.notification.show('号码选择不完整，请重新选择！');
-      return;
-    }
-    //--
-
-    var self = this;
-
-    var quickBetView = new QuickBetView({parentView: self});
-
-    var $dialogRe = Global.ui.dialog.show({
-      id: _.now(),
-      title: '快速投注',
-      size: 'modal-lg',
-      body: '<div class="js-fc-quick-container"></div>'
-    });
-
-    $dialogRe.find('.js-fc-quick-container').html(quickBetView.onRender());
-
-
-    $dialogRe.on('click', '.js-bc-quick-btn-bet', function(e) {
-
-
-        var quickAmount = $('.js-bc-quick-value').val();
-
-        var zhushu = $('.js-bc-statistics-lottery').html();
-        var beishu  = parseFloat(quickAmount)/(zhushu * 2  ) ;
-
-        var rate  = $('.js-bc-monetary-unit').eq(0).data('rate');
-
-        if(beishu>=1) {
-          beishu = parseInt(beishu);
-          $('.js-wt-number').val(beishu);
-          rate  = $('.js-bc-monetary-unit').eq(0).data('rate');
-          $('.js-bc-monetary-unit').eq(0).addClass('active').siblings().removeClass('active');
-        }
-
-        if(1>beishu && beishu>0.09) {
-          beishu = parseInt(beishu*10);
-          $('.js-wt-number').val(beishu);
-          rate  = $('.js-bc-monetary-unit').eq(1).data('rate');
-          $('.js-bc-monetary-unit').eq(1).addClass('active').siblings().removeClass('active');
-        }
-
-        if(0.1>beishu && beishu>0.009) {
-
-          beishu = parseInt(beishu*100);
-          $('.js-wt-number').val(beishu);
-          rate  = $('.js-bc-monetary-unit').eq(2).data('rate');
-          $('.js-bc-monetary-unit').eq(2).addClass('active').siblings().removeClass('active');
-        }
-        self.model.set('multiple',beishu);
-        self.model.set('unit', rate);
-
-        self.lotteryAddHandler(e);
-
-        $dialogRe.hide();
-         $('.modal-backdrop').removeClass('modal-backdrop');
-    });
-
-
-    $dialogRe.on('click', '.js-bc-quick-btn', function(e) {
-
-      var $target = $(e.currentTarget);
-      var quickAmount = $target.data('affiche');
-
-      $('.js-bc-quick-btn').removeClass('bet-quick-select');
-      $target.addClass('bet-quick-select');
-
-      $('.js-bc-quick-value').val(quickAmount);
-
-      $('.js-bet-div0-02').show();
-      $('.js-bet-div0-01').hide();
-
-     });
-
-    $dialogRe.on('click', '.js-bet-div0-02', function(e) {
-
-      $('.js-bet-div0-02').hide();
-      $('.js-bet-div0-01').show();
-      $('.js-bc-quick-value').val('');
-      $('.js-bc-quick-btn').removeClass('bet-quick-select');
-      $('.js-bet-div0-01').addClass('bet-quick-select');
-
-
-    });
-  },
-
-
-
   getNewPlan: function() {
     this.infoModel.fetch({
       abort: false,
@@ -515,8 +325,6 @@ var BettingCenterView = Base.ItemView.extend({
       startOnLoading: false,
       emptyTip: ''
     }).staticGrid('instance');
-
-    this.renderDrawRecords();
 
     var sign = Global.localCache.get('ticketList.' + this.options.ticketId);
 
@@ -792,17 +600,12 @@ var BettingCenterView = Base.ItemView.extend({
     this.$statisticsLottery.text(statisticsInfo.statistics);
     this.$statisticsMoney.text(statisticsInfo.prefabMoney);
     this.$statisticsRebateMoney.text(statisticsInfo.rebateMoney);
-    if(statisticsInfo.statistics>0) {
-      this.$('.js-bc-quick-bet1').hide();
-      this.$('.js-bc-btn-lottery-add1').hide();
-      this.$('.js-bc-quick-bet').show();
-      this.$('.js-bc-btn-lottery-add').show();
-    }else  {
-      this.$('.js-bc-quick-bet1').show();
-      this.$('.js-bc-btn-lottery-add1').show();
-      this.$('.js-bc-quick-bet').hide();
-      this.$('.js-bc-btn-lottery-add').hide();
-    }
+
+    //切换投注按钮显示模式
+    this.$('.js-bc-quick-bet1').toggleClass('hidden', !!statisticsInfo.statistics);
+    this.$('.js-bc-btn-lottery-add1').toggleClass('hidden', !!statisticsInfo.statistics);
+    this.$('.js-bc-quick-bet').toggleClass('hidden', !statisticsInfo.statistics);
+    this.$('.js-bc-btn-lottery-add').toggleClass('hidden', !statisticsInfo.statistics);
   },
 
   renderMaxBonus: function(model, formatMaxBonus) {
@@ -987,6 +790,10 @@ var BettingCenterView = Base.ItemView.extend({
   },
 
   //event handlers
+
+  quickBetHandler: function() {
+    //TODO
+  },
 
   openVideoHandler: function(e) {
     var $target = $(e.currentTarget);
@@ -1245,13 +1052,13 @@ var BettingCenterView = Base.ItemView.extend({
       Global.ui.notification.show('账号余额不足，请先<a href="javascript:void(0);" class="btn-link btn-link-pleasant js-fc-re"  data-dismiss="modal">充值</a>。');
       return false;
     }
-    info.previewList.map(function(item){
-      if(!(IDsSuper3.getArr().indexOf(parseInt(item.playId.toString().slice(0,3))) === -1)){
-        item.levelName = '超级3000_' + item.levelName;
-      }else{
-        item.levelName = item.levelName;
-      }
-    });
+    // info.previewList.map(function(item){
+    //   if(!(IDsSuper3.getArr().indexOf(parseInt(item.playId.toString().slice(0,3))) === -1)){
+    //     item.levelName = '超级3000_' + item.levelName;
+    //   }else{
+    //     item.levelName = item.levelName;
+    //   }
+    // });
 
     var confirm = $(document).confirm({
       title: '确认投注',
@@ -1315,19 +1122,19 @@ var BettingCenterView = Base.ItemView.extend({
 
   //common APIs
   update: function() {
-    if (this.options.type1 === 'draw') {
-      this.renderDrawRecords();
-      this.$bettingRecords.addClass('hidden');
-      this.$drawRecords.addClass('hidden');
-      this.$('.js-bc-lottery-preview').removeClass('hidden');
-
-    } else {
-      this.renderBettingRecords();
-      this.$bettingRecords.removeClass('hidden');
-      this.$drawRecords.addClass('hidden');
-      this.$('.js-bc-lottery-preview').addClass('hidden');
-
-    }
+    // if (this.options.type1 === 'draw') {
+    //   this.renderDrawRecords();
+    //   this.$bettingRecords.addClass('hidden');
+    //   this.$drawRecords.addClass('hidden');
+    //   this.$('.js-bc-lottery-preview').removeClass('hidden');
+    //
+    // } else {
+    //   this.renderBettingRecords();
+    //   this.$bettingRecords.removeClass('hidden');
+    //   this.$drawRecords.addClass('hidden');
+    //   this.$('.js-bc-lottery-preview').addClass('hidden');
+    //
+    // }
   },
 
   renderBettingRecords: function() {
@@ -1377,10 +1184,8 @@ var BettingCenterView = Base.ItemView.extend({
     } else {
       this.bettingRecords.update();
     }
-  },
-
-  renderDrawRecords: function() {
   }
+
 });
 
 module.exports = BettingCenterView;
