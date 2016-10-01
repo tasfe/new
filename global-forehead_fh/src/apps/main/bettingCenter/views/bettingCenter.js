@@ -49,15 +49,16 @@ var BettingCenterView = Base.ItemView.extend({
     'click .js-bc-records-tab': 'toggleTabHandler',
     'click .js-bc-nav-index':'severalHaddler',
     'click .js-bc-quick-bet': 'quickBetHandler',
+
     'click .js-play1': 'play1',
     'click .js-play2': 'play2',
 
-    'mouseover .js-bc-video-main': 'divShow01',
-    'mouseout .js-bc-video-main': 'divShow02',
-    'mouseover .js-bc-video-main2': 'divShow03',
-    'mouseout .js-bc-video-main2': 'divShow04',
-    'mouseover .js-bc-video-main3': 'divShow05',
-    'mouseout .js-bc-video-main3': 'divShow06',
+    // 'mouseover .js-bc-video-main': 'divShow01',
+    // 'mouseout .js-bc-video-main': 'divShow02',
+    // 'mouseover .js-bc-video-main2': 'divShow03',
+    // 'mouseout .js-bc-video-main2': 'divShow04',
+    // 'mouseover .js-bc-video-main3': 'divShow05',
+    // 'mouseout .js-bc-video-main3': 'divShow06',
 
     'mousedown  .js-tzgj': 'btnPressdown2',
     'mousedown  .js-bc-btn-lottery-add': 'btnPressdown2',
@@ -196,35 +197,35 @@ var BettingCenterView = Base.ItemView.extend({
 
   },
 
-  divShow01:function () {
-    $('.js-bc-video-2').show();
-    $('.js-bc-video-1').hide();
-  },
-
-  divShow02:function () {
-    $('.js-bc-video-1').show();
-    $('.js-bc-video-2').hide();
-  },
-
-  divShow03:function () {
-    $('.js-bc-video-4').show();
-    $('.js-bc-video-3').hide();
-  },
-
-  divShow04:function () {
-    $('.js-bc-video-3').show();
-    $('.js-bc-video-4').hide();
-  },
-
-  divShow05:function () {
-    $('.js-bc-video-6').show();
-    $('.js-bc-video-5').hide();
-  },
-
-  divShow06:function () {
-    $('.js-bc-video-5').show();
-    $('.js-bc-video-6').hide();
-  },
+  // divShow01:function () {
+  //   $('.js-bc-video-2').show();
+  //   $('.js-bc-video-1').hide();
+  // },
+  //
+  // divShow02:function () {
+  //   $('.js-bc-video-1').show();
+  //   $('.js-bc-video-2').hide();
+  // },
+  //
+  // divShow03:function () {
+  //   $('.js-bc-video-4').show();
+  //   $('.js-bc-video-3').hide();
+  // },
+  //
+  // divShow04:function () {
+  //   $('.js-bc-video-3').show();
+  //   $('.js-bc-video-4').hide();
+  // },
+  //
+  // divShow05:function () {
+  //   $('.js-bc-video-6').show();
+  //   $('.js-bc-video-5').hide();
+  // },
+  //
+  // divShow06:function () {
+  //   $('.js-bc-video-5').show();
+  //   $('.js-bc-video-6').hide();
+  // },
 
   play1:function () {
     $('.js-play2').removeClass('hidden');
