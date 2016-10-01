@@ -58,7 +58,7 @@
     <td rowspan="2" colspan="<%=count %>">开奖号码</td>
     <%_(positions).each(function(po, index) { %>
     <%_(num).each(function(num) { %>
-    <td><%=num %></td>
+    <td class="col<%=index%>"><%=num %></td>
     <% });%>
     <% }); %>
     <% if (isSuper) { %>
