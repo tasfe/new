@@ -33,6 +33,7 @@ $.widget('gl.trend', {
 
     this.$btnGroup = this.element.find('.js-plan-select');
     this.$planTable = this.element.find('.js-plan-table');
+    this.$pageToggle = this.element.find('.js-toggle-btn-group');
 
     var btnConfig = [
       {
@@ -75,13 +76,15 @@ $.widget('gl.trend', {
     }
 
 
-  /*  if(this.ticketId == 18) {
+    if(this.ticketId == 18) {
       this.$pageToggle.removeClass('hidden');
     }
     // 北京pk10分页展示
-    this.$pageToggle.find('.js-toggle-page1').bind('click', function() {
+    this.$pageToggle.find('.js-toggle-page1').unbind('click').bind('click', function() {
       $(this).addClass('active');
       $(this).siblings().removeClass('active');
+      //$('tr:gt(0)>td:gt(6)').css('display', 'none');
+      //$('tr:gt(0)>td:gt(1):lt(7)').css('display', 'table-cell');
       $('.col0').css('display', 'table-cell');
       $('.col1').css('display', 'table-cell');
       $('.col2').css('display', 'table-cell');
@@ -94,9 +97,11 @@ $.widget('gl.trend', {
       $('.col9').css('display', 'none');
       self.draw(0);
     });
-    this.$pageToggle.find('.js-toggle-page2').bind('click', function() {
+    this.$pageToggle.find('.js-toggle-page2').unbind('click').bind('click', function() {
       $(this).addClass('active');
       $(this).siblings().removeClass('active');
+      //$('tr:gt(0)>td:gt(1):lt(7)').css('display', 'none');
+      //$('tr:gt(0)>td:gt(6)').css('display', 'table-cell');
       $('.col0').css('display', 'none');
       $('.col1').css('display', 'none');
       $('.col2').css('display', 'none');
@@ -108,11 +113,11 @@ $.widget('gl.trend', {
       $('.col8').css('display', 'table-cell');
       $('.col9').css('display', 'table-cell');
       self.draw(60);
-    });*/
+    });
 
   },
 
-  draw: function() {
+  draw: function(offset) {
     var self = this;
     var $body = $('body');
 
@@ -121,21 +126,51 @@ $.widget('gl.trend', {
       this.element.find('.history_code').css('width', this.element.find("#chartsTable").width());
     }
 
-    var colors = ['#FFAAAA', '#B9B9FF', '#FFAAAA', '#B9B9FF', '#FFAAAA'];
+    var colors = ['#FFAAAA', '#B9B9FF', '#FFAAAA', '#B9B9FF', '#FFAAAA', '#B9B9FF', '#FFAAAA', '#B9B9FF', '#FFAAAA', '#B9B9FF'];
     var num = this.ticketInfo.num.length;
 
     $body.find('canvas').remove();
     Draw.Chart.init();
     Draw.DrawLine.bind("chartsTable","has_line");
 
-    _(self.ticketInfo.count).times(function(index) {
-      Draw.DrawLine.color(colors[index]);
-      if(self.ticketId===19 || self.ticketId===20){//MMC不显示期号
-        Draw.DrawLine.add((parseInt(index) * num + 5 + 0), 2, num, 0);
-      }else{
-        Draw.DrawLine.add((parseInt(index) * num + 5 + 1), 2, num, 0);
+    //_(self.ticketInfo.count).times(function(index) {
+    //  Draw.DrawLine.color(colors[index]);
+    //  if(self.ticketId===19 || self.ticketId===20){//MMC不显示期号
+    //    Draw.DrawLine.add((parseInt(index) * num + 5 + 0), 2, num, 0);
+    //  }else{
+    //    Draw.DrawLine.add((parseInt(index) * num + 5 + 1), 2, num, 0);
+    //  }
+    //});
+
+    if (self.ticketInfo.id == 18) {
+      if (offset) {
+        _(self.ticketInfo.count).times(function(index) {
+          Draw.DrawLine.color(colors[index]);
+          Draw.DrawLine.add((parseInt(index) * num + offset + 1), 2, num, 0);
+        });
+      } else {
+        _(self.ticketInfo.count).times(function(index) {
+          Draw.DrawLine.color(colors[index]);
+          Draw.DrawLine.add((parseInt(index) * num + 10 + 1), 2, num, 0);
+        });
       }
-    });
+    } else if (self.ticketInfo.id == 19){
+      _(self.ticketInfo.count).times(function(index) {
+        Draw.DrawLine.color(colors[index]);
+        Draw.DrawLine.add((parseInt(index) * num + 5 + 0), 2, num, 0);
+      });
+
+    } else if (self.ticketInfo.id == 6 || self.ticketInfo.id == 16 || self.ticketInfo.id == 17) {
+      _(self.ticketInfo.count).times(function(index) {
+        Draw.DrawLine.color(colors[index]);
+        Draw.DrawLine.add((parseInt(index) * num + 3 + 1), 2, num, 0);
+      });
+    } else {
+      _(self.ticketInfo.count).times(function(index) {
+        Draw.DrawLine.color(colors[index]);
+        Draw.DrawLine.add((parseInt(index) * num + 5 + 1), 2, num, 0);
+      });
+    }
 
     Draw.DrawLine.draw(Draw.Chart.ini.default_has_line);
   },

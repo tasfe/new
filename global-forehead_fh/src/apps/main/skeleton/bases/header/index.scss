@@ -564,11 +564,19 @@
     position: absolute;
     top: 8px;
   }
+  &:hover {
+    color:#f6a00c !important;
+    text-decoration: underline;
+  }
 }
 .h-withdraw {
   display: inline-block;
   padding-left: 8px;
   float: left;
+  &:hover {
+    color:#f6a00c !important;
+    text-decoration: underline;
+  }
 }
 
 .h-head-info-hide {

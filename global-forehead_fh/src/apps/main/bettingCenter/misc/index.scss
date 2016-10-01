@@ -67,11 +67,6 @@ $main-area-width: 870px;
 .bc-play-super,.bc-play-optional{
   display:block;
 }
-.rule-hide-optional.rule-hide-super{
-  .bc-play-toggle{
-    display:none!important;
-  }
-}
 .rule-hide-optional {
   .bc-play-optional {
     display: none;
@@ -90,100 +85,6 @@ $main-area-width: 870px;
   font-weight: bold;
 }
 
-.bc-play-toggle {
-  position:absolute;
-  width: 90px;
-  //right:0;
-  top:161px;
-  display:none;
-  .bc-play-toggle-item {
-    line-height: 33px;
-    height: 33px;
-    background: white;
-    padding-left: 10px;
-    color: grey;
-    font-size: 14px;
-    cursor: pointer;
-    &.active {
-      background: white;
-      color: black;
-
-      .sfa-bc-play-normal {
-        @include sprite($sfa-bc-play-normal-active);
-      }
-      .sfa-bc-play-optional {
-        @include sprite($sfa-bc-play-optional-active);
-      }
-      .sfa-bc-play-super{
-        @include sprite($sfa-bc-play-super-active);
-      }
-    }
-    .bc-play-toggle-item-tip{
-      width: 220px;
-      height: 61px;
-      background: url(super3kTip.png) no-repeat;
-      position: absolute;
-      top: -5px;
-      left: 136px;
-    }
-
-    .bc-play-toggle-item-mmc-tip1{
-      width: 71px;
-      height: 230px;
-      background: url(super3kTip1.gif) no-repeat;
-      position: absolute;
-      top: 5px;
-      left: 147px;
-    }
-
-    .bc-play-toggle-item-mmc-tip2{
-      width: 110px;
-      height: 330px;
-      background: url(bannerAd.png) no-repeat;
-      position: absolute;
-      top: 5px;
-      left: 147px;
-    }
-  }
-}
-.bc-play-toggle-hasSuper{
-  .bc-play-toggle-item {
-    line-height: 32px;
-    height: 32px;
-  }
-}
-.sfa-superbg{
-  background:url(superbg2.jpg) 0 0 no-repeat;
-  .bc-advance-rule.active{
-    color:#ffb300;
-  }
-  .nav-tabs > li.active > a {
-    background-color: transparent;
-  }
-  .bc-rule-container.nav-tabs-border .active a > div {
-    background-color: transparent;
-  }
-
-  .tab-toolbar.tab-circle .tab {
-    border: 1px solid #666;
-    font-size:16px;
-    color:#666;
-    &.active {
-      color: #fff;
-      background: linear-gradient(to bottom, #ef392e, #e2021a);
-      border: 1px solid #e61c29;
-    }
-  }
-  .bc-playArea-items .js-bc-select-op {
-    background-color: #fff;
-    color:#666;
-  }
-  .tab-toolbar.tab-border .js-bc-select-op.tab:hover{
-    color: #fff;
-    background: linear-gradient(to bottom, #ef392e, #e2021a);
-    border: 1px solid #e61c29;
-  }
-}
 .bc-playArea-items {
   .tab-border {
     margin-top: 2px;
@@ -939,11 +840,6 @@ $main-area-width: 870px;
     clear: both;
   }
 
-  .bc-result-container{
-    width: 600px;
-    float: left;
-  }
-
   .bet-quick{
     width: 134px;
     height: 32px;
@@ -1011,7 +907,7 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
       top: 10px;
       right: 10px;
 
-      span{
+      .bc-play-toggle {
         background-color: #e67eb2;
         font-size: 14px;
         color: #fff;
@@ -1023,17 +919,8 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
         border-radius: 26px;
         cursor: pointer;
 
-        i{
-          width: 16px;
-          height: 14px;
-          background: url(julien/1.png) no-repeat;
-          display: inline-block;
-          margin-right: 3px;
-          margin-bottom: -2px;
-        }
-
-        &.sd{
-          background-color: #cc6699;
+        &.normal {
+          background-color: #d06196;
         }
       }
     }
@@ -1124,7 +1011,6 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
 
   .bc-multi-range{
     height: 26px;
-    margin-right: 5px;
 
     span{
       width: 26px;
@@ -1600,14 +1486,14 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
     border: 1px solid #ccc;
     background-color: #fff;
     border-radius: 8px;
-    padding: 8px 0px;
+    padding: 8px 0;
     text-align: center;
     color: #333333;
 
     .bc-title{
       height: 34px;
       line-height: 34px;
-      padding: 0px 8px;
+      padding: 0 8px;
       border-bottom: 2px solid #a83d6b;
       font-size: 14px;
 
@@ -1931,11 +1817,6 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
   background-color: #f6f6f6 !important;
 }
 
-.adsf1{
-  display: inline-block;
-  margin-right: 10px;
-}
-
 .add-number{
   border:1px solid #cd338a !important;
   background-image:-webkit-linear-gradient(180deg, #ef66ab, #cd338a);
@@ -1993,14 +1874,14 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
   }
 }
 
-.dsaj{
+.bc-type-select{
   height: 24px;
   border-radius: 3px;
   width: 100px;
-  padding-right: 0px;
+  padding-right: 0;
   font-size: 12px;
 
-  -webkit-appearance: menulist;
+  appearance: menulist;
 }
 
 .bc-result-container2{

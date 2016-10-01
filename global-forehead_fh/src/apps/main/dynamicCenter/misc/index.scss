@@ -191,6 +191,10 @@
         height: 24px;
         font-size: 14px;
         background-color: #fff;
+        color: #c2c2c2;
+        &:focus{
+          outline: none;
+        }
       }
       .pn-prev{
         border: 1px solid #ccc;
@@ -204,11 +208,12 @@
         margin: 8px 0 8px 0;
       }
       button.active{
-        color: #c2c2c2;
+        color: #000;
         &:hover{
           background: linear-gradient(to bottom ,#cb3333, #9b3333);
           color: #fff;
         }
+
       }
     }
 

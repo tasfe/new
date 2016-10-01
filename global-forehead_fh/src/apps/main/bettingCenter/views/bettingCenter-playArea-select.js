@@ -189,6 +189,7 @@ var BettingCenterPlayAreaView = Base.ItemView.extend({
       this.calculateCoefficient();
     }
 
+    //导致重复计算
     this.statisticsLottery();
   },
 

@@ -6,6 +6,8 @@ var BettingChoiceModel = Model.extend({
 
   url: '/ticket/bet/bet.json',
 
+  unitPrice: 2,
+
   defaults: {
     //groupId: 1,
     //groupName: '',
@@ -20,16 +22,18 @@ var BettingChoiceModel = Model.extend({
     statistics: 0,
     userRebate: 0,
     previewList: [],
-    totalInfo: {}
+    totalInfo: {},
+    customizeMoney: 0,
+    betWay: 1 //投注方式 普通1/自定义投注2
     //ticketId:
   },
 
-  saveBettingXhr: function(planId) {
+  saveBettingXhr: function(planId, previewList) {
     var self = this;
 
-    var params = this.pick('playId', 'multiple', 'userRebate', 'previewList');
+    var params = this.pick('playId', 'multiple', 'userRebate');
 
-    var previewList = _(params.previewList).reduce(function(list, item) {
+    var previewList = _(previewList).reduce(function(list, item) {
 
       list.push({
         betNum: item.bettingNumber,
@@ -59,7 +63,7 @@ var BettingChoiceModel = Model.extend({
   },
 
   initialize: function() {
-    this.on('change:multiple change:statistics change:userRebate change:betMethod', this.calculateByPrefab);
+    this.on('change:multiple change:statistics change:userRebate change:betMethod change:customizeMoney change:betWay', this.calculateByPrefab);
     this.on('change:maxBonus change:multiple change:unit', this.calculateMaxBonus);
     this.on('change:maxMultiple change:unit', function() {
       var info = this.pick('maxMultiple', 'unit');
@@ -75,11 +79,27 @@ var BettingChoiceModel = Model.extend({
   },
 
   calculateByPrefab: function() {
-    var info = this.pick('statistics', 'betMethod', 'multiple', 'userRebate');
+    //普通投注模式走普通计算路线，自定义路线根据给的投注金额计算出使用的金钱模式betMethod和倍数，不使用普通模式玩家选择的倍数和金钱模式
+    var statistics = this.get('statistics');
+    if (statistics) {
+      if (this.get('betWay') === 1) {
+        this._calculateNormalMode();
+      } else {
+        this._calculateCustomMode();
+      }
+    } else {
+      this.set({
+        prefabMoney: 0,
+        rebateMoney: 0
+      });
+    }
+  },
 
-    if (info.statistics && info.multiple) {
-    //if (info.statistics && info.multiple && info.userRebate) {
-      var prefabMoney = _(info.statistics).chain().mul(info.multiple).mul(2).mul(this.get('unit')).value();
+  _calculateNormalMode: function() {
+    var info = this.pick('statistics', 'betMethod', 'unit', 'multiple', 'userRebate');
+
+    if (info.multiple) {
+      var prefabMoney = _(info.statistics).chain().mul(info.multiple).mul(this.unitPrice).mul(info.unit).value();
 
       this.set({
         prefabMoney: prefabMoney,
@@ -90,6 +110,48 @@ var BettingChoiceModel = Model.extend({
         prefabMoney: 0,
         rebateMoney: 0
       });
+    }
+  },
+
+  _calculateCustomMode: function() {
+    var info = this.pick('statistics', 'betMethod', 'userRebate', 'customizeMoney', 'maxMultiple');
+
+    //从元开始往厘计算
+    var unit = 10000;
+    var perPrice = info.statistics * this.unitPrice;
+
+    var prefab = _calculate(info.customizeMoney, perPrice, unit);
+
+    if (prefab.multiple) {
+      var prefabMoney = _(info.statistics).chain().mul(prefab.multiple).mul(this.unitPrice).mul(prefab.unit).value();
+
+      this.set({
+        customiseUnit: prefab.unit,
+        customiseMultiple: prefab.multiple,
+        prefabMoney: prefabMoney,
+        rebateMoney: info.betMethod === 1 ? _(prefabMoney).chain().mul(info.userRebate).div(1000).value() : 0
+      });
+    } else {
+      this.set({
+        customiseUnit: 0,
+        customiseMultiple: 0,
+        prefabMoney: 0,
+        rebateMoney: 0
+      });
+    }
+
+    function _calculate(customizeMoney, perPrice, unit) {
+      var multiple = Math.floor(customizeMoney / perPrice);
+      if (multiple === 0 && unit > 10) {
+        return _calculate(customizeMoney, perPrice / 10, unit / 10);
+      }
+
+      multiple = multiple > info.maxMultiple ? info.maxMultiple : multiple;
+
+      return {
+        multiple: multiple,
+        unit: unit
+      };
     }
   },
 
@@ -181,7 +243,7 @@ var BettingChoiceModel = Model.extend({
     return newNum;
   },
 
-  _addBets: function(bettingList, options) {
+  _generateBets: function(bettingList, options, previewList) {
     var selectInfo = this.pick(
       'levelName',
       'playId',
@@ -197,15 +259,20 @@ var BettingChoiceModel = Model.extend({
       'formatMaxMultiple',
       'maxMultiple',
       'rebateMoney',
-      'formatMaxBonus'
+      'formatMaxBonus',
+      'betWay'
     );
 
-    var previewList = this.get('previewList');
     var items = [];
     var sameBets = [];
 
     options = _(options || {}).defaults({
     });
+
+    if (selectInfo.betWay === 2) {
+      selectInfo.unit = this.get('customiseUnit');
+      selectInfo.multiple = this.get('customiseMultiple');
+    }
 
     _(bettingList).each(function(bettingInfo) {
       var sameBet;
@@ -253,24 +320,26 @@ var BettingChoiceModel = Model.extend({
       //}
 
       //判断是否有相同的投注,几个方面比较playId,unit,betMethod,bettingNumber
-      sameBet = _(previewList).findWhere({
-        playId: item.playId,
-        unit: item.unit,
-        betMethod: item.betMethod,
-        bettingNumber: item.bettingNumber
-      });
+      if (previewList) {
+        sameBet = _(previewList).findWhere({
+          playId: item.playId,
+          unit: item.unit,
+          betMethod: item.betMethod,
+          bettingNumber: item.bettingNumber
+        });
 
-      if (sameBet) {
-        sameBet.multiple = _(sameBet.multiple).add(item.multiple);
-        //if (sameBet.multiple > sameBet.maxMultiple) {
-        //  sameBet.multiple = sameBet.maxMultiple;
-        //}
-        item = sameBet;
+        if (sameBet) {
+          sameBet.multiple = _(sameBet.multiple).add(item.multiple);
+          //if (sameBet.multiple > sameBet.maxMultiple) {
+          //  sameBet.multiple = sameBet.maxMultiple;
+          //}
+          item = sameBet;
+        }
+
       }
+        //计算prefabMoney 和 rebateMoney
 
-      //计算prefabMoney 和 rebateMoney
-
-      item.prefabMoney = _(2).chain()
+      item.prefabMoney = _(this.unitPrice).chain()
         .mul(item.multiple).mul(item.statistics).mul(item.unit).value();
 
       //rebateMoney: info.betMethod === 1 ? _(prefabMoney).chain().mul(info.userRebate).div(1000).value() : 0
@@ -284,13 +353,25 @@ var BettingChoiceModel = Model.extend({
       }
     }, this);
 
-    previewList = items.concat(previewList);
+    return {
+      items: items,
+      sameBets: sameBets
+    };
+  },
+
+  _addBets: function(bettingList, options) {
+
+    var previewList = this.get('previewList');
+
+    var generatedBets = this._generateBets(bettingList, options, previewList);
+
+    previewList = generatedBets.items.concat(previewList);
 
     this.set('previewList', previewList);
 
     this.trigger('change:previewList', this);
 
-    return sameBets;
+    return generatedBets.sameBets;
   },
 
   addAutoBets: function(bettingList) {
@@ -309,16 +390,22 @@ var BettingChoiceModel = Model.extend({
     }
   },
 
-  addPrevBetNew: function(bettingInfo, options) {
+  quickBet: function(bettingInfo, options) {
     var selectInfo = this.pick(
       'statistics'
     );
 
-    if (selectInfo.statistics) {
-      return true;
-    } else {
-      return false;
-    }
+    var generatedBets = this._generateBets([bettingInfo], _(options || {}).extend(selectInfo));
+
+    return {
+      previewList: generatedBets.items,
+      totalInfo: {
+        totalLottery: generatedBets.items[0].statistics,
+        totalMoney: generatedBets.items[0].prefabMoney,
+        totalRebateMoney: generatedBets.items[0].rebateMoney
+      }
+    };
+    // return this._addBets([bettingInfo], _(options || {}).extend(selectInfo));
   },
 
   emptyPrevBetting: function() {
