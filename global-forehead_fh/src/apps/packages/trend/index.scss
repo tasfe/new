@@ -96,7 +96,7 @@
     width: 26px;
   }
   .th td {
-    background-color: #ffba00;
+    background-color: #d55c9f;
     font-weight: bold;
     color: #FFF;
   }
@@ -153,4 +153,54 @@
   width: 20px;
   height: 20px;
   background: url(2.jpg) no-repeat;
+}
+
+.trend-plan-btn-group{
+  .btn.btn-silent{
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+  }
+  .btn.btn-silent.active, .btn.btn-silent:active{
+    background-color: #c05182 !important;
+    color: #fff;
+  }
+}
+
+.trend-checkbox{
+  margin: -3px 3px 0 0 !important;
+  background-color: #fff !important;
+}
+
+.trend-toggle-btn-group{
+  font-size: 0;
+
+  .trend-po{
+    border: 1px solid #ccc;
+    font-size: 12px;
+    color: #666;
+    height: 24px;
+    width: 118px;
+    line-height: 12px;
+    padding: 4px;
+    background: linear-gradient(to bottom, #fefefe,#e4e4e4);
+  }
+  .trend-po1{
+    border-right: 0;
+    border-radius: 12px 0 0 12px;
+  }
+  .trend-po2{
+    border-radius:  0 12px 12px  0;
+  }
+  .btn.active, .btn:active{
+    background: #c05182 !important;
+    color: #fff;
+  }
+}
+.col5,.col6,.col7,.col8,.col9{
+  display: none;
+}
+
+.trend-icon{
+  margin-right: 10px;
+  margin-bottom: -8px;
 }

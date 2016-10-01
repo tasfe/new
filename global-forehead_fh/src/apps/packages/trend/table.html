@@ -2,18 +2,18 @@
   <tr class="th">
     <td rowspan="2">期号</td>
     <td rowspan="2" colspan="<%=count %>">开奖号码</td>
-    <%_(positions).each(function(position) { %>
-    <td colspan="<%=num.length%>"><%=position %></td>
+    <%_(positions).each(function(position, index) { %>
+    <td colspan="<%=num.length%>" class="col<%=index%>"><%=position %></td>
     <% }); %>
     <% if (isSuper) { %>
-      <td rowspan="2">超级3000</td>
+    <td rowspan="2">超级3000</td>
     <% } %>
-    
+
   </tr>
   <tr class="th">
-    <%_(positions).each(function() { %>
+    <%_(positions).each(function(po,index) { %>
     <%_(num).each(function(num) { %>
-    <td class="wdh"><%=num %></td>
+    <td class="wdh col<%=index%>"><%=num %></td>
     <% });%>
     <% }); %>
   </tr>
@@ -30,7 +30,7 @@
     <%_(positions).each(function(position, index) { %>
     <% var currentNum = Number(openedNums[index]); %>
     <%_(num).each(function(num) { %>
-    <td class="<% if (num === currentNum) { %>charball<% } else { %>wdh<% } %> td<%=(index % 2) %>" align="center" width="28">
+    <td class="<% if (num === currentNum) { %>charball<% } else { %>wdh<% } %> td<%=(index % 2) %> col<%=index%>" align="center" width="28">
       <% if (num === currentNum) { %>
       <div class="ball0<%=(index % 2 + 1) %>"><%=num %></div>
       <% } else { %>
@@ -40,15 +40,15 @@
     <% });%>
     <% }); %>
     <% if (isSuper) { %>
-    <% 
-      var isSuperOk = true;
-      if((openedNums[0] == openedNums[1] && openedNums[1] == openedNums[2] && openedNums[0] == openedNums[2]) || (openedNums[0] != openedNums[1] && openedNums[0] != openedNums[2] && openedNums[1] != openedNums[2])){
-        isSuperOk = false;
-      }else{
-        isSuperOk = true;
-      }
-     %>
-      <td><span class="sfa <% if (isSuperOk) { %>super3k-ok<% } else { %>super3k-no<% } %>"></span></td>
+    <%
+    var isSuperOk = true;
+    if((openedNums[0] == openedNums[1] && openedNums[1] == openedNums[2] && openedNums[0] == openedNums[2]) || (openedNums[0] != openedNums[1] && openedNums[0] != openedNums[2] && openedNums[1] != openedNums[2])){
+    isSuperOk = false;
+    }else{
+    isSuperOk = true;
+    }
+    %>
+    <td><span class="sfa <% if (isSuperOk) { %>super3k-ok<% } else { %>super3k-no<% } %>"></span></td>
     <% } %>
   </tr>
   <% }); %>
@@ -56,18 +56,18 @@
   <tr class=th>
     <td rowspan="2">期号</td>
     <td rowspan="2" colspan="<%=count %>">开奖号码</td>
-    <%_(positions).each(function() { %>
+    <%_(positions).each(function(po, index) { %>
     <%_(num).each(function(num) { %>
     <td><%=num %></td>
     <% });%>
     <% }); %>
     <% if (isSuper) { %>
-      <td rowspan="2">超级3000</td>
+    <td rowspan="2">超级3000</td>
     <% } %>
   </tr>
   <tr class=th>
-    <%_(positions).each(function(position) { %>
-    <td colspan="<%=num.length%>"><%=position %></td>
+    <%_(positions).each(function(position, index) { %>
+    <td colspan="<%=num.length%>" class="col<%=index%>"><%=position %></td>
     <% }); %>
   </tr>
 </table>
