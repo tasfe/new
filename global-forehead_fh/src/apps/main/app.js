@@ -174,7 +174,7 @@ function _bindRechargeHandler() {
 function _bindServiceHandler() {
   $(document).off('click.service').on('click.service', '.js-gl-service', function(e) {
      var newwin = window.open(
-       'http://szzero.livechatvalue.com/chat/chatClient/chatbox.jsp?companyID=445558&configID=47545&jid=9132657534',
+       'http://szzero.livechatvalue.com/chat/chatClient/chatbox.jsp?companyID=44555811&configID=47545&jid=9132657534',
        'service',
        'width=800,height=680'
      );

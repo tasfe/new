@@ -12,7 +12,7 @@ body{
   font-family: '微软雅黑';
   position: absolute;
   top: 39px;
-  left: 1200px;
+  left: 1100px;
 
   a{
     display: block;
@@ -34,6 +34,24 @@ body{
   a.m3{
     background: url(~base/images/julien/03.png) no-repeat top left;
     width: 114px;
+    position: relative;
+    &:hover{
+      span{
+        display:block;
+      }
+    }
+
+    span{
+      position: absolute;
+      width: 150px;
+      left: -20px;
+      top: 0px;
+      padding-top: 40px;
+      display: none;
+    }
+  }
+  a.m4{
+    background: url(~base/images/julien/32.png) no-repeat top left;
   }
   a:hover{
     color:#c5222e;
@@ -49,16 +67,6 @@ body{
   font-size: 14px;
   position: absolute;
 
-  input{
-    width: 280px;
-    height: 33px;
-    padding-left: 40px;
-    border: 0px;
-    border-bottom: 1px solid #999999;
-    margin-bottom: 10px;
-    color: #b5b3b3;
-    font-size: 16px;
-  }
   .onfocus-Inp-active{
     border-bottom:1px solid #993333;
   }
@@ -88,10 +96,32 @@ body{
     .i-user{
       background: url(images/user.png) no-repeat;
     }
+
+    input{
+      width: 280px;
+      height: 33px;
+      padding-left: 40px;
+      border: 0px;
+      border-bottom: 1px solid #999999;
+      margin-bottom: 10px;
+      color: #b5b3b3;
+      font-size: 16px;
+    }
   }
 
   .loginPwd{
     position: relative;
+
+    input{
+      width: 280px;
+      height: 33px;
+      padding-left: 40px;
+      border: 0px;
+      border-bottom: 1px solid #999999;
+      margin-bottom: 10px;
+      color: #b5b3b3;
+      font-size: 16px;
+    }
 
     i{
       position: absolute;
@@ -116,17 +146,42 @@ body{
 
     a{
       float: right;
-      color: #d3423f;
+      color: #666666;
       text-decoration: underline;
+
+      &:hover{
+        color: #cc3333;
+      }
     }
     span{
       float: left;
       display: block;
-      color: #999999;
       width: 97px;
-      text-align: right;
-      background: url(images/06.png) no-repeat 12px 6px;
       cursor: pointer;
+      padding-left: 10px;
+      color: #999;
+
+
+      div{
+        margin-top: -3px;
+      }
+
+      label{
+        display: inline-block;
+        font-size: 14px;
+      }
+      input{
+        
+        background: #fff;
+        border: 1px solid #cccccc;
+      }
+
+      &:hover{
+        color: #333333;
+        input{
+          border: 1px solid #333333;
+        }
+      }
     }
 
     &:after{
@@ -172,7 +227,7 @@ body{
     text-align: center;
     margin-top: 27px;
 
-    span{
+    a{
       color: #d3423f;
       text-decoration: underline;
       cursor: pointer;

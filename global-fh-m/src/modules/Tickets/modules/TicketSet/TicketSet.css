@@ -1,0 +1,31 @@
+@import 'variable.css';
+
+.ticket-config-form{
+  .iForm-controls{
+    display: none;
+  }
+  .iForm-list{
+    padding: 0 .1rem;
+    margin-top: 0;
+  }
+  .iForm-list li{
+    padding: .1rem 0;
+    border-bottom: 1px dashed #ccc;
+  }
+  .checkbox{
+    label{
+      display: block;
+      input:disabled + .checkbox-material{
+        opacity: .6;
+      }
+    }
+    .checkbox-text{
+      margin-left: .1rem;
+      font-size: var(--font-size-lv12);
+    }
+  }
+  .checkbox-material{
+    float: right;
+    margin-right: .1rem;
+  }
+}

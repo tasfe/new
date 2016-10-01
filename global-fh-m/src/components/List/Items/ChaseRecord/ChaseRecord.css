@@ -1,0 +1,85 @@
+@import 'variable.css';
+
+.bet-item{
+  width: 100%;
+  position:relative;
+    .bet-item-date{
+      position: absolute;
+      height: 100%;
+      width: .3rem;
+      text-align: center;
+      background-color: #e5e5e5;
+      font-size: var(--font-size-lv12);
+      margin-top: .06rem;
+    }
+
+    .bet-item-detail{
+      position: relative;
+      padding-left: .4rem;
+    }
+}
+
+.bet-item-detail-a{
+  position: relative;
+  display: block;
+  border-bottom: 1px solid #ccc;
+  padding: .05rem 0;
+  color: #6a6a6a;
+  .bet-item-left{
+    display: inline-block;
+    width: 70%;
+    vertical-align: middle;
+  }
+  .bet-item-right{
+    display: inline-block;
+    width: 30%;
+    vertical-align: middle;
+    text-align: right;
+  }
+}
+
+.bet-item-left-1{
+  font-size: var(--font-size-lv14);
+}
+
+.bet-item-left-2{
+  font-size: var(--font-size-lv12);
+  .bet-item-amount{
+    display: inline-block;
+    width: .8rem;
+  }
+  .bet-item-plan{
+    display: inline-block;
+  }
+}
+.bet-item-status{
+  font-size: var(--font-size-lv14);
+  display: block;
+  .bet-prize{
+    color: #d22927;
+  }
+  .bet-waite{
+    color: #ddb25f;
+  }
+
+}
+
+.chase-item-periods{
+  color: #ddb25f;
+}
+
+.bet-item-detail-list{
+
+}
+
+.bet-item-detail-list-item{
+  display: block;
+  /*&:after{
+     content: '';
+     padding: 1px;
+   }
+  &:before{
+     content: '';
+     padding: 1px;
+   }*/
+}

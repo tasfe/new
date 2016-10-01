@@ -1,0 +1,13 @@
+@import 'variable.css';
+.notice-det-tt{
+  text-align: center;
+  margin-top: .1rem;
+  font-size: var(--font-size-lv12);
+}
+.text-align-rt{
+  text-align: right;
+}
+.text-align-ct{
+  text-align: center;
+  margin:.06rem 0 .1rem;
+}

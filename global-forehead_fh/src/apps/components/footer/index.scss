@@ -2,141 +2,83 @@
 
 @import
 "~base/styles/imports";
-.download-common1{
-   width:80px;
-   height:30px;
-   line-height:80px;
-   display: inline-block;
-   margin-top:10px;
-   color:#666;
-   font-size: 16px;
-   margin-left:50px!important;
- }
-.download-common2{
-  width:80px;
-  height:30px;
-  line-height:80px;
-  display: inline-block;
-  margin-top:10px;
-  color:#666;
-  font-size: 16px;
-  margin-left:50px!important;
-}
-.download-common3{
-  width:80px;
-  height:30px;
-  line-height:80px;
-  display: inline-block;
-  margin-top:10px;
-  color:#666;
-  font-size: 16px;
-  margin-left:50px!important;
-}
-.download_client{
-    background: url(../../../base/images/fh/download_client.png) no-repeat top;
-
-}
-
-.help_center{
-  background: url(../../../base/images/fh/help_center.png) no-repeat top;
-
-}
-.brand_info{
-  background: url(../../../base/images/fh/brand_info.png) no-repeat top;
-
-}
-.download-common1:hover{
-    color:#900;
-    background: url(../../../base/images/fh/download_client1.png) no-repeat top;
-}
-.download-common2:hover{
-  color:#900;
-  background: url(../../../base/images/fh/help_center1.png) no-repeat top;
-}
-
-.download-common3:hover{
-  color:#900;
-  background: url(../../../base/images/fh/brand_info1.png) no-repeat top;
-}
-
 .footer {
-  clear: both;
-
+  .footer-main {
+    background: #242424;
+    padding: 10px 0;
+    font-size: $font-sm;
+    text-align: center;
+  }
   .footer-inner {
     background: #1b2121;
-    height: 30px;
     text-align: center;
-    line-height: 30px;
-    color: #7c7d7d;
+    padding: 12px 0;
+    color: $footer-gray;
   }
-  .footer-lists {
-    text-align: center;
-  }
+
   .footer-list {
     display: inline-block;
-    width: 75px;
-    a {
-      color: $font-inverse;
+    margin-right: 70px;
+  }
+  .footer-item {
+    display: inline-block;
+    width: 100px;
+    text-align: center;
+    color: $footer-gray;
+
+    .sfa {
+      display: block;
+      margin: 0 auto 5px;
     }
-  }
-  .footer-icons {
-    margin-bottom: 10px;
-    .footer-list {
-      width: 90px;
-    }
-  }
+    &:hover {
+      color: #f44343;
 
-  .popover {
-    top: -86px!important;
-  }
-
-  .popover .popover-content {
-    background-color: #343434;
-    border-radius: 6px;
-
-    .footer-popover {
-      width: 97px;
-      height: 97px;
-      color: $color-sunshine;
-
-      h5 {
-        font-size: 18px;
-        font-weight: normal;
-        margin: 35px 10px;
+      .sfa-f-link-test {
+        @include sprite($sfa-f-link-test-a);
+      }
+      .sfa-f-feedback {
+        @include sprite($sfa-f-feedback-a);
+      }
+      .sfa-f-help {
+        @include sprite($sfa-f-help-a);
+      }
+      .sfa-f-phone {
+        @include sprite($sfa-f-phone-a);
+      }
+      .sfa-f-intro {
+        @include sprite($sfa-f-intro-a);
       }
     }
   }
 
-  .popover.top .arrow {
-    border-top-color: #343434;
+  .footer-certificate {
+    display: inline-block;
+    color: $footer-gray;
+    margin-right: 70px;
+    .footer-cert-text {
+      display: inline-block;
+      width: 40px;
+      vertical-align: top;
+    }
   }
 
-  .popover.top .arrow:after {
-    border-top-color: #343434;
-  }
-
-
-}
-
-@media (min-height: 930px) {
-  .footer {
-    display: block;
-  }
-}
-
-.footer-banner{
-  height: 70px;
-  background-color: #ffffff;
-
-  .vessel{
-    width: 1200px;
-    margin: 0px auto;
-    height: 68px;
-    background: url(~base/images/julien/flootbanner.jpg) no-repeat;
-    text-align: center;
-
-    img{
-      margin: 10px 32px;
+  .footer-code {
+    display: inline-block;
+    color: $footer-gray;
+    vertical-align: top;
+    text-align: left;
+    .footer-qrcode {
+      margin-right: 10px;
+      height: 50px;
+      width: 50px;
+    }
+    .footer-qr-title {
+      font-size: 13px;
+      color: #bcbcbc;
+      line-height: 30px;
+    }
+    .footer-qr-content {
+      font-size: $font-xs;
     }
   }
 }

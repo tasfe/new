@@ -1,0 +1,85 @@
+@import 'variable.css';
+
+.iForm-list-inner .openh-winnum{
+  display: block;
+  line-height: .2rem;
+  height: .2rem;
+  float: none;
+  color: var(--maintext-color);
+  margin-bottom: .02rem;
+}
+
+.lotlist-con{
+  .iForm-list{
+    padding: 0 .1rem;
+    margin-top: 0;
+  }
+  .list-item {
+    border-bottom: 1px dashed #ccc;
+    padding: .1rem 0 0;
+    .iForm-list-inner{
+      background: transparent;
+      border: none;
+    }
+    ul{
+      margin-bottom: .04rem;
+      display: inline-block;
+      vertical-align: middle;
+      font-size: 0;
+      line-height: 0;
+    }
+    li.number {
+      text-align: center;
+      display: inline-block;
+      vertical-align: middle;
+      width: 0.2rem;
+      height: 0.2rem;
+      line-height: .2rem;
+      background-color: transparent;
+      color: var(--maintext-color);
+      margin: 0 .1rem .02rem 0;
+      padding: 0;
+      border: none;
+      font-size: var(--font-size-lv12);
+    }
+    &:first-child{
+      li.number {
+        background-color: #fd8901;
+        color: var(--white);
+        border-radius: 50%;
+      }
+    }
+  }
+}
+.lotlist-top{
+  background: #494947;
+  padding: .1rem;
+}
+.lotlist-top-img{
+  height: .6rem;
+  width: .6rem;
+  margin: auto;
+  border-radius: 50%;
+  border: .04rem solid #d2d2d2;
+  background: var(--white);
+  overflow: hidden;
+  text-align: center;
+  img{
+    height: .4rem;
+    margin-top: .07rem;
+  }
+}
+.lotlist-cd{
+  text-align: center;
+  .bet-counting-down{
+    color: var(--white);
+    font-size: var(--font-size-lv16);
+  }
+}
+.lotlist-btn-con{
+  text-align: center;
+  .btn.lottery-bet-btn{
+      height: auto;
+      padding: .06rem 0.36rem;
+  }
+}

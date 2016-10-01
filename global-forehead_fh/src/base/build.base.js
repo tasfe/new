@@ -42,6 +42,8 @@ require('./scripts/spinner');
 $.widget.bridge('uiButton', $.ui.button);
 
 require('./scripts/bootstrap');
+require('./scripts/jquery.mousewheel.min');
+require('./scripts/icheck.min');
 
 window.moment = require('moment');
 window.moment.locale('zh-cn');

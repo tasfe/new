@@ -1,0 +1,7 @@
+@import 'variable.css';
+
+.pm-form{
+  .iForm-controls{
+    display: none;
+  }
+}

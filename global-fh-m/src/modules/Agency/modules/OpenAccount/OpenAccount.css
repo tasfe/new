@@ -1,0 +1,9 @@
+@import 'variable.css';
+
+.oa-openAccount {
+
+    .button {
+        background: var(--sunshine);
+        color: var(--coffee);
+    }
+}

@@ -1,0 +1,30 @@
+@import 'variable.css';
+
+.number-range {
+  display: inline-block;
+
+  .minus,
+  .plus{
+    font-size: var(--font-size-lv10);
+    border: 1px solid var(--border-grey);
+    height: 0.2rem;
+    line-height: .12rem;
+    padding: .04rem;
+    width: 0.2rem;
+    display: inline-block;
+    border-radius: .1rem;
+    vertical-align: middle;
+  }
+
+  .input{
+    width: .4rem;
+    border: 1px solid #cdcdcd;
+    background: transparent;
+    text-align: center;
+    font-size: var(--font-size-lv10);
+    height: 0.2rem;
+    border-radius: .1rem;
+    margin: 0 .05rem;
+    padding: 0 .05rem;
+  }
+}

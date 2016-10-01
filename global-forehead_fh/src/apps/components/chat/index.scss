@@ -2,7 +2,11 @@
 @import "~base/styles/imports";
 
 .chat {
-
+  &:after{
+    clear:both;
+    content: '';
+    display: block;
+  }
   //chat
   $chat: (
     header-color: $font-passion,

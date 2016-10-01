@@ -1,0 +1,28 @@
+@import 'variable.css';
+
+.listItem-title {
+  font-size: 0.12rem;
+  float: left;
+}
+
+.listItem-amount {
+  float: right;
+  font-size: 0.1rem;
+}
+.listItem-amount span {
+  color: var(--danger);
+}
+.link-textarea {
+  width:100%;
+  font-size: 0.05rem;
+  min-height: 0.4rem;
+  background: #E4E4E4;
+  padding: 0.05rem 0.1rem;
+  word-break: break-all;
+}
+.listItem-btn-group {
+  width: 60%;
+}
+.listItem-btn-group button {
+  width: 40%;
+}

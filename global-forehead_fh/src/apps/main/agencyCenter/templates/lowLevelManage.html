@@ -1,57 +1,43 @@
-<div class="search-condition-table">
-  <div class="row1">
-    <dl class="width150">
-      <dt>账号</dt>
-      <dd><input type="text" name="userName" data-parsley-username></dd>
-    </dl>
-    <dl class="width165">
-      <dt>是否在线</dt>
-      <dd>
-        <select name="online">
-          <option value="0">显示全部</option>
-          <option value="1">在线</option>
-        </select>
-      </dd>
-    </dl>
-    <dl class="width285">
-      <dt>注册时间</dt>
-      <dd>
-        <span class="js-pf-timeset"></span>
-      </dd>
-    </dl>
-    <dl>
-      <dt>个人余额</dt>
-      <dd>
-         <input type="text" name="balanceStart" data-parsley-type="integer" data-parsley-range="[0,1000000000]">
-         -
-         <input type="text" name="balanceEnd" data-parsley-type="integer" data-parsley-range="[0,1000000000]">
-      </dd>
-    </dl>
-    <div>
-      <button type="submit">搜索</button>
+<div class="select-block">
+  <div class="search-condition-table">
+    <div class="row1">
+      <dl class="width150">
+        <dt>账号</dt>
+        <dd><input type="text" name="userName" data-parsley-username></dd>
+      </dl>
+      <dl class="width165">
+        <dt>是否在线</dt>
+        <dd>
+          <select name="online">
+            <option value="0">显示全部</option>
+            <option value="1">在线</option>
+          </select>
+        </dd>
+      </dl>
+      <dl class="width285">
+        <dt>注册时间</dt>
+        <dd>
+          <span class="js-pf-timeset"></span>
+        </dd>
+      </dl>
+      <dl>
+        <dt>个人余额</dt>
+        <dd>
+           <input type="text" name="balanceStart" data-parsley-type="integer" data-parsley-range="[0,1000000000]">
+           -
+           <input type="text" name="balanceEnd" data-parsley-type="integer" data-parsley-range="[0,1000000000]">
+        </dd>
+      </dl>
+      <span class="js-userManage userManage">
+        <i class="icon-plus-sign"></i>
+        开户管理
+      </span>
+    </div>
+    <div class="row2">
+      <button type="submit">
+        <i class="icon-search"></i>
+        搜索
+      </button>
     </div>
   </div>
-  <div class="row2" style="display: none;">
-    <dl class="width150">
-      <dt>返点</dt>
-      <dd><input type="text" name="rebate"></dd>
-    </dl>
-    <dl class="ac-unActive-day-label">
-      <dt>不活跃天数≤</dt>
-      <dd>
-        <input type="text" name="unActiveDays" data-parsley-type="integer" data-parsley-range="[0,10000]">
-      </dd>
-    </dl>
-    <dl class="width315">
-      <dt>最后在线时间</dt>
-      <dd>
-        <span class="js-last-timeset"></span>
-      </dd>
-    </dl>
-  </div>
 </div>
-<div class="hidden-seach">
-  <hr>
-  <span class="js-toggle-seach"></span>
-</div>
-<h3 class="tips">注意: 投注记录只保留最近30天。</h3>

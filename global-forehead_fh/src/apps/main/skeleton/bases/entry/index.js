@@ -44,10 +44,6 @@ var EntryView = Base.ItemView.extend({
         }
       });
 
-    _.bindAll(this, 'renderUpdateUnread');
-
-    this.subscribe('message', 'message:updating', this.renderUpdateUnread);
-
     sessionStorage.setItem('openMessage', 0);
   },
   
@@ -63,9 +59,24 @@ var EntryView = Base.ItemView.extend({
     this.firstLoginUpdatePasswd = new FirstLoginUpdatePasswd();
     this.firstLoginUpdatePasswd.checkState();
 
+    document.onkeydown = function(e) {  
+    //捕捉回车事件  
+    var ev = (typeof event!= 'undefined') ? window.event : e;  
+        if(ev.keyCode == 13) {
+
+          if ($('#adsf123').html() != undefined) {
+            $('.confirm-agree').click();
+          }
+        }  
+    }  
+
     var strHash = document.location.hash;
     if (strHash=='') {
       $('.head > ul > li').eq(6).addClass('sd');
+      $('.js-rightMenu').addClass('hidden');
+    }
+    else{
+      $('.js-rightMenu').removeClass('hidden');
     }
     if ( strHash.slice(0,6) == '#bc/20' ) {
       $('body').addClass('mmc');
@@ -73,8 +84,15 @@ var EntryView = Base.ItemView.extend({
     else{
       $('body').removeClass('mmc');
     }
-
+    
     var strType = strHash.slice(0,3);
+    if ( strHash.slice(0,6) == '#bc/18' ) {
+      $('body').addClass('pk10');
+    }
+    else{
+      $('body').removeClass('pk10');
+    }
+
     if (strType == '#ac' || strType == '#uc') {
       if ( strType == '#uc' ) {
         var strType2 = strHash.slice(4);
@@ -102,6 +120,49 @@ var EntryView = Base.ItemView.extend({
 
     window.onhashchange = function () {
       var strHash = document.location.hash;
+
+      if ( strHash.slice(0,6) == '#bc/18' ) {
+        $('body').addClass('pk10');
+      }
+      else{
+        $('body').removeClass('pk10');
+      }
+
+      if (strHash=='') {
+        $('.js-rightMenu').addClass('hidden');
+      }
+      else{
+        $('.js-rightMenu').removeClass('hidden');
+      }
+
+      if ( strHash.slice(0,3) == '#bc' ) {
+        $('.js-menuLeft2').removeClass('hidden');
+        $('.js-menuLeftBtn').removeClass('hidden');
+        if( $(window).width() < 1574 ){
+          var w = $(window).width() / 2 - 600;
+          if (w < 0) {
+            w = 0;
+          }
+          else{
+            w -= 18;
+          }
+          w *= -1;
+          $('.js-menuLeft').css('left',w);
+        }
+      }
+      else{
+        $('.js-menuLeft2').addClass('hidden').removeClass('menuLeftOpen');
+        $('.js-menuLeftBtn').addClass('hidden').removeClass('menuLeftBtnShow');
+      }
+
+      if(sessionStorage.getItem('opacity') == 1){
+        sessionStorage.setItem('opacity',0);
+      }
+      else{
+        sessionStorage.setItem('opacity',1);
+        $('.global-main').css('opacity',0);
+        $('.global-main').animate({opacity: 1}, 1000);
+      }
 
       var strType = strHash.slice(0,3);
       if (strType == '#ac' || strType == '#uc') {
@@ -143,6 +204,26 @@ var EntryView = Base.ItemView.extend({
         $('body').addClass('footerShow');
       }
     };
+
+
+    var w = 0;
+    var w2 = 0;
+    var w3 = 1130;
+    setTimeout(function(){
+      w = $('.db-slogan .g2 a').width();
+      w2 = w;
+
+      self.timer22 = setInterval(function() {
+        if(w2 + w <= 0){
+          w2 = w3;
+        }
+        else{
+          w2 -= 1;
+        }
+        
+        $('.db-slogan .g2 a').css('left',w2);
+      }, 20);
+    }, 1000);
   },
 
   renderSetting: function() {
@@ -273,11 +354,6 @@ var EntryView = Base.ItemView.extend({
   },
 
   //common APIs
-
-  renderUpdateUnread: function(model) {
-    var unRead = model.getUnreadCount();
-    this.$unRead.html('<span>'+unRead > 99 ? 99 : unRead+'</span>');
-  },
 
   update: function(viewInfo) {
     var router = viewInfo.router === '#' ? '' : viewInfo.router;

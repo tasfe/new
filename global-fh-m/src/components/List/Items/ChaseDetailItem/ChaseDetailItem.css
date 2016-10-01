@@ -1,0 +1,47 @@
+@import 'variable.css';
+
+
+.chase-detail-item-a{
+  position: relative;
+  display: block;
+  border-bottom: 1px solid #ccc;
+  padding: .05rem 0.05rem;
+  color: #6a6a6a;
+
+}
+.chase-detail-item-left{
+  display: inline-block;
+  width: 40%;
+  vertical-align: middle;
+}
+.chase-detail-item-right{
+  display: inline-block;
+  width: 60%;
+  vertical-align: middle;
+  text-align: right;
+}
+
+.chase-detail-item-left-1{
+  font-size: var(--font-size-lv14);
+}
+
+.chase-detail-item-left-2{
+  font-size: var(--font-size-lv12);
+}
+
+.chase-detail-item-status{
+  font-size: var(--font-size-lv16);
+  display: block;
+  .chase-detail-item-prize{
+    color: #d22927;
+  }
+
+}
+
+
+
+
+
+.chase-detail-item-prize{
+
+}

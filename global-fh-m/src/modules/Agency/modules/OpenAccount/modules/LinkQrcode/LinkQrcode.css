@@ -1,0 +1,18 @@
+@import 'variable.css';
+.qrcode-container {
+  padding: 0.1rem;
+}
+
+.link-textarea {
+  width:100%;
+  font-size: 0.06rem;
+  min-height: 0.4rem;
+  background: #E4E4E4;
+  padding: 0.05rem 0.1rem;
+  word-break: break-all;
+}
+
+#qrcode {
+  margin: 0.3rem auto;
+  text-align: center;
+}

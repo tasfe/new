@@ -1,0 +1,9 @@
+@import 'variable.css';
+.aboutus{
+  margin-top: .1rem ;
+  position: absolute;
+
+  p{
+    text-indent: .2rem;
+  }
+}

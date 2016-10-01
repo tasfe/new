@@ -1,0 +1,19 @@
+@import 'variable.css';
+
+.profile-form {
+  .iForm-list {
+    margin-top: 0;
+
+    li {
+      border: 0;
+      background: transparent;
+    }
+  }
+}
+.iForm-list{
+  margin: .1rem 0;
+}
+
+.input-title {
+  margin: 0.08rem 0.1rem;
+}

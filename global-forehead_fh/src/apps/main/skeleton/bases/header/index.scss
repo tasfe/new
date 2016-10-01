@@ -3,96 +3,24 @@
 @import
 "~base/styles/imports";
 
-$header-margin-top: 6px;
-.img-position{
-  background: url(./hot.png) no-repeat 75px 3px ;
-}
-.img-position-new{
-  background: url(./new.png) no-repeat 89px 3px ;
-}
-.img-position-hg{
-  background-position: 79px 3px;
-}
-.img-position-ss{
-  background-position: 50px 3px;
-}
-.main-display{
-  width: 1200px;
-  position: absolute;
-}
 .header {
   .float-menu{
     position: fixed;
-    background-color: black;
-    height: 30px;
+    background-color: #0e0e0e;
+    height: 32px;
     left: 0;
     right: 0;
     top: 0;
     z-index: 100;
-  }
 
-  .top-in-block {
-    display: inline-block;
-    padding-top: $header-margin-top + 12px;
-    padding-right: 9px;
-    vertical-align: top;
-    float: left;
-    position: relative;
-  }
-
-  .top-b-right {
-    &:after {
-      height: 10px;
-      content: '';
-      border-right: 1px solid $font-light;
-      right: 0;
-      position: absolute;
-      top: 20px;
+    .main-display-inner{
+      top: 0px !important;
     }
   }
 
-  .user-block {
-    display: block;
-    float: left;
-    margin-right: 20px;
-    outline: 0;
-    padding: 9px 0;
-    position: relative;
-  }
-
-
-  .top-letter-notice {
-    position: absolute;
-    bottom: -5px;
-    left: 12px;
-    border-radius: 10px;
-    display: inline-block;
-    background-color: red;
-    height: 14px;
-    line-height: 14px;
-    font-size: 12px;
-    width: 14px;
-    text-align: center;
-  }
-
-  .h-hd-nickName {
+  .h-info {
     .fa {
       vertical-align: top;
-      //margin-top: 3px;
-    }
-  }
-
-  .gl-hd-money.top-in-block {
-    .gl-hd-refresh {
-      cursor: pointer;
-    }
-  }
-
-  .drop-submenu {
-    a {
-      padding: 5px 0;
-      text-align: center;
-
     }
   }
 
@@ -103,266 +31,207 @@ $header-margin-top: 6px;
     text-align: center;
   }
 
-}
-//.athena_incon-mailbox{
-//  width:50px;
-//  height:80px;
-//  background:blue;
-//}
-.athena-asdf{
-  position: relative;
-  .b-arrows{
-    position: absolute;
-    display: inline-block;
-    top: 6px;
-    left: 875px;
+  .h-right-menu {
+    line-height: 30px;
   }
 }
-
 
 .head{
   width: 1200px;
   height: 104px;
-  margin: 30px auto 0 auto;
-  padding-top: 12px;
+  margin: 30px auto 0px auto;
+  padding-top: 20px;
+  position: relative;
 
-
-  img{
+  > img{
     float: left;
   }
-  li>img{
-    float:none;
-    width:28px;
-    height:13px;
-    vertical-align:6px;
-    display: inline-block;
+
+  > strong{
+    display: block;
+    width: 123px;
+    height: 47px;
+    background: url(images/julien/title-bg.png) no-repeat 0 -56px;
+    position: absolute;
+    top: 40px;
+    z-index: -1;
+    left: 500px;
   }
 
-  ul,li{
-    padding: 0px;
-    margin:0px;
-    list-style: none;
-  }
-
-  >ul >li{
-    color: #333333;
+  > span{
     float: right;
     display: block;
-    margin-top: 16px;
-    //font-weight: bold;
-    width: 130px;
-    height: 47px;
-    line-height: 47px;
-    text-align: center;
-    > a{
-      font-size: 14px;
-      font-family: '幼圆';
-      width: 99px;
-      height: 47px;
-      display: block;
-      color: #666;
-    }
+    width: 77px;
+    padding-left: 39px;
+    height: 30px;
+    line-height: 30px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    color: #333333;
+    background-color: #fff;
+    border-radius: 30px;
+    position: relative;
+    cursor: pointer;
+    margin-top: 20px;
 
-    &.sd{
-      //background: url(~base/images/julien/selected.png) no-repeat;
-      > a{
-        color: #fff;
-      }
+    i{
+      font-size: 20px;
+      margin-bottom: -3px;
+      position: absolute;
+      top:6px;
+      left: 14px;
     }
 
     &:hover{
-      div{
-        display: block;
-      }
+      background-color: #cd338a ;
+      color: #fff;
+      border: 1px solid #cd338a ;
     }
+  }
 
-    div{
-      background-color: darkcyan;
-      position: fixed;
-      height: 189px;
-      background: url(~base/images/julien/logo-nav-list.png) no-repeat center 10px;
-      z-index: 99;
-      width: 100%;
-      left: 0px;
-      min-width: 1200px;
-      top: 105px;
+  ul{
+    float: right;
+    width: 560px;
+    padding-left: 20px;
+    color: #333333;
+    margin-top: 20px;
+
+    li{
+      padding-right: 30px;
+      padding-left: 10px;
+      height: 38px;
+      line-height: 32px;
+      text-align: center;
       display: inline-block;
-      padding: 10px;
-      font-size: 14px;
-      display:none;
+      font-size: 18px;
+      position: relative;
 
-      .base-bcType-head{
+      &:first-child{
+        padding-right: 50px;
+      }
 
-        li{
-          width: 15px;
-          height: auto;
+      &.sd{
+        >a{
+          color: #fff;
         }
       }
 
-      ul{
-        margin-left:auto;
-        margin-right: auto;
-        display: inline-block;
-        width: 120px;
-        li{
-          float: left;
-          width: 120px;
-          height: 30px;
-          line-height: 20px;
-          img{
-            float:none;
-            width:28px;
-            height:13px;
-            vertical-align:6px;
-            display: inline-block;
+      &:hover{
+        div{
+          display: block;
+        }
+      }
+
+      div{
+        display: none;
+        position: absolute;
+        width: 362px;
+        height: 303px;
+        border: 1px solid #999999;
+        border-radius: 5px;
+        z-index: 999;
+        background-color: #ffffff;
+        padding: 0px 8px 5px 8px;
+        text-align: left;
+        left: -150px;
+
+        > i{
+          width: 0;
+          height: 0;
+          border-width: 6px;
+          border-style: dashed dashed solid dashed;
+          border-color: transparent transparent #999999 transparent;
+          position: absolute;
+          left: 180px;
+          top: -12px;
+        }
+
+        dl{
+          display: block;
+
+          dt{
+            display: block;
+            font-size: 14px;
+            color: #fff;
+            border-bottom: 1px solid #ccc;
+            margin-top: 4px;
+
+            span{
+              display: block;
+              margin-left: -8px;
+              width: 79px;
+              padding-right: 20px;
+              height: 28px;
+              line-height: 28px;
+              text-align: center;
+              background: url(images/julien/title-bg.png) no-repeat;
+            }
+          }
+
+          &:hover{
+            dt{
+              span{
+                background: url(images/julien/title-bg.png) no-repeat 0 -28px;
+              }
+            }
+          }
+
+          dd{
+            font-size: 12px;
+            float: left;
+            margin-right: 5px;
+            margin-top: 3px;
+
+            b{
+              font-size: 10px;
+              display: inline-block;
+              padding: 0px 3px;
+              background-color: #f1a14a;
+              color: #fff;
+              border-radius: 3px;
+              margin-left: 2px;
+              line-height: 14px;
+            }
+
+            a{
+              display: inline-block;
+              padding: 0px 8px;
+              border-radius: 20px;
+
+              &:hover{
+                color: #fff;
+                background-color: #c3395e;
+              }
+            }
+          }
+
+          &:after{
+            display: block;
+            clear: both;
+            content: '';
           }
         }
       }
     }
-
-
-  }
-
-
-  span{
-    //background: url(~base/images/julien/onlineService.png) no-repeat;
-    width: 161px;
-    height: 37px;
-    display: block;
-    float: right;
-    margin-left: 45px;
-    cursor: pointer;
-    margin-top: 20px;
-  }
-
-}
-.cursor-pointer:hover{
-  color:red !important;
-}
-.athena-three{
-  background: url(images/athena-three.png) no-repeat right !important;
-}
-.athena-message{
-  background: url(images/athena-message.png) no-repeat left !important;
-  width:45px;
-  height:17px;
-  margin-left:10px;
-  margin-top: -2px !important;
-
-  span{
-    margin-left:20px;
-    display: inline-block;
-    width:16px;
-    height:16px;
-    background-color: #fff;
-    border-radius: 50%;
-    background: url(images/cycle.png) no-repeat center !important;
-    text-align: center;
   }
 }
 
-.athena-message1{
-  background: url(images/athena-message1.png) no-repeat left !important;
-  width:45px;
-  height:17px;
-  margin-left:10px;
-  margin-top: -2px !important;
-
-  span{
-    margin-left:20px;
-    display: inline-block;
-    width:16px;
-    height:16px;
-    border-radius: 50%;
-    text-align: center;
-    background: url(images/cycle.png) no-repeat center !important;
-    //line-height:-100px !important;
+.display_ul{
+  display: block;
+}
+.h-letter{
+  display: inline-block;
+  width:14px;
+  height:14px;
+  line-height: 13px;
+  border-radius: 50%;
+  background: $color-hot;
+  color: $light-color;
+  text-align: center;
+  &.h-no-letter {
+    background: #333333;
+    color: $gray-color;
   }
-}
-.athena-line{
-  //background: url(images/athena-line.png) no-repeat right !important;
-  //background-color: red;
-}
-
-.athena-line:hover{
-  color:#f90 !important;
-}
-.athena-line1:hover{
-  color:red !important;
-}
-.athnea-cp_01{
-  background: url(images/cp_01.png) no-repeat center;
-}
-.athnea-cp_02{
-  background: url(images/cp_02.png) no-repeat center;
-}
-.athnea-cp_03{
-  background: url(images/cp_03.png) no-repeat center;
-}
-.athnea-gg_01{
-  background: url(images/gg_01.png) no-repeat center;
-}
-.athnea-gg_02{
-  background: url(images/gg_02.png) no-repeat center;
-}
-.athnea-gg_03{
-  background: url(images/gg_03.png) no-repeat center;
-}
-.athnea-st_01{
-  background: url(images/st_01.png) no-repeat center;
-}
-.athnea-st_02{
-  background: url(images/st_02.png) no-repeat center;
-}
-.athnea-st_03{
-  background: url(images/st_03.png) no-repeat center;
-}
-.athnea-zr_01{
-  background: url(images/zr_01.png) no-repeat center;
-}
-.athnea-zr_02{
-  background: url(images/zr_02.png) no-repeat center;
-}
-.athnea-zr_03{
-  background: url(images/zr_03.png) no-repeat center;
-}
-.athnea-yh_01{
-  background: url(images/yh_01.png) no-repeat center;
-}
-.athnea-yh_02{
-  background: url(images/yh_02.png) no-repeat center;
-}
-.athnea-yh_03{
-  background: url(images/yh_03.png) no-repeat center;
-}
-
-.athnea-zx_01{
-  background: url(images/online_01.png) no-repeat center;
-}
-.athnea-zx_02{
-  background: url(images/online_02.png) no-repeat center;
-}
-.athnea-zx_03{
-  background: url(images/online_03.png) no-repeat center;
-}
-.athena-asdf{
-
-  //background:url(athena-img-fc-wd.png) no-repeat 0 21px;
-  //position:relative;
-  //span{
-  //  position:absolute;
-  //  left:516px;
-  //  top:20px;
-  //  background:url(hot.png) no-repeat !important;
-  //}
-  ul{
-    li:hover a{
-      color:#c00;
-      text-decoration:underline;
-
-    }
-  }
-
 }
 
 .ac-affiche-dialog{
@@ -387,7 +256,7 @@ $header-margin-top: 6px;
   .affiche-body-lefthead{
     padding-left: 5px;
     height: 30px;
-    width: 240px;
+    width: 220px !important;
     line-height: 30px;
     color: black;
     font-weight: bold;
@@ -440,11 +309,49 @@ $header-margin-top: 6px;
     position: relative;
   }
 }
+.menuspan{
+  display:none;
+}
+.message-small-most{
+  display: inline-block;
+ text-decoration: underline;
+  width:40px;
+  height:15px;
+  line-height:15px;
+  margin-left:86px;
+}
+.message-small-tip{
+  display: inline-block;
+  background: #e54a1b;
+  width:23px;
+  height:15px;
+  line-height:15px;
+  margin-left:10px;
+}
+.main-display {
+  width: $body-width;
+  margin: 0 auto;
+  position: relative;
 
+  .main-display-inner {
+    margin-left: $wrapper-margin-left;
+    margin-right: $wrapper-margin-right;
+    position: relative;
+    top:-12px !important;
+  }
+}
+.athena-fresh{
+  background: url("images/fresh.png") no-repeat 5px 8px !important ;
+  display: inline-block;
+  width:20px;
+  height:20px;
+}
+.athena-line{
+  background: url("images/athena-line.png") no-repeat 45px 5px !important ;
+}
 .home-head-badge{
   display: inline-flex;
   background-color: red;
-  border-radius: 9px;
   color: #ffffff;
   text-align: center;
   line-height: 18px;
@@ -455,19 +362,11 @@ $header-margin-top: 6px;
 
 .text-orogin{
   color: #df8602;
-  font-size: 14px;
 }
 
 
 .base-bcType-body{
   background-color: darkcyan;
-}
-
-.fc-wd-bg{
-  background: url("fc-wd-bg.png");
-  background-color: #fff;
-  color: #562e0f;
-  padding: 15px;
 }
 
 .publicTeamData{
@@ -484,7 +383,6 @@ $header-margin-top: 6px;
       color: #236892;
       left: 335px;
       top: 15px;
-      //font-size: 30px;
     }
 
     &.julien-data2{
@@ -503,6 +401,251 @@ $header-margin-top: 6px;
       color: #925316;
       left: 1041px;
       top: 15px;
+    }
+  }
+}
+.athena-mosttip{
+  padding: 0px;
+  margin: 0px;
+  li{
+    list-style: none;
+    height:20px;
+    border-bottom:1px solid #ccc;
+    line-height:30px;
+    padding: 5px;
+    margin-left: 12px;
+  }
+  li:hover{
+
+    background: #eee;
+  }
+  a{
+      background: url("images/three_first.png") no-repeat -3px 11px !important ;
+      display: inline-block;
+      padding-left: 5px;
+      color:#999;
+  }
+  a:hover{
+      color:#e56a28;
+    text-decoration: underline;
+    background: url("images/three_second.png") no-repeat -3px 11px !important ;
+  }
+  span{
+      display: inline-block;
+      float:right;
+      width:130px;
+      height:30px;
+      line-height: 30px !important;
+  }
+}
+.tipDiv{
+  height:50px;
+  line-height:50px;
+  text-align: right;
+  color:#666;
+}
+.message_A{
+  position: absolute;
+  top:11px;
+  left:704px;
+  color:#fff;
+  text-decoration: underline;
+}
+.message_A:hover{
+  color:#fff !important;
+}
+
+.rightMenu{
+  position: fixed;
+  top: 300px;
+  right: 0px;
+  z-index: 990;
+
+  .rightMenuHeight{
+    height: 188px;
+    overflow: hidden;
+  }
+
+  a{
+    display: block;
+    height: 46px;
+    width: 46px;
+    text-align: center;
+    line-height: 46px;
+    margin-bottom: 1px;
+    color: #fff;
+    background-color: #993333;
+    font-size: 20px;
+
+    .font24{
+      font-size: 24px;
+    }
+
+    .mrF3{
+      margin-right: -3px;
+    }
+
+    span{
+      display: none;
+      font-size: 14px;
+
+      &.line2{
+        line-height: 18px;
+        padding-top: 6px;
+      }
+    }
+
+    &:last-child{
+      font-size: 16px;
+    }
+
+    &:hover{
+      background-color: #ba824a;
+      i{
+        display: none;
+      }
+      span{
+        display: block;
+      }
+    }
+  }
+}
+
+.h-notice {
+  i{
+    display: block;
+    float: left;
+    margin-top: 8px;
+  }
+  .h-notice-queue{
+    display: block;
+    float: left;
+    width: 500px;
+    overflow: hidden;
+    position: relative;
+    height: 30px;
+    line-height: 30px;
+    cursor: default;
+
+    li {
+      list-style: none;
+      text-align: left;
+      display: inline-block;
+    }
+  }
+  .h-notice-item {
+    color: $color-hot;
+    font-size: $font-xs;
+    &.h-notice-item-1 {
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  }
+}
+.h-money {
+  border-radius: 30px;
+  line-height: 25px;
+  margin-bottom: 4px;
+  background: $dark-color;
+}
+
+.h-recharge {
+  display: inline-block;
+  padding-right: 8px;
+  position: relative;
+  float: left;
+  &:after {
+    content: "";
+    right: 0;
+    display: block;
+    height: 15px;
+    width: 1px;
+    background: $gray-color;
+    position: absolute;
+    top: 8px;
+  }
+}
+.h-withdraw {
+  display: inline-block;
+  padding-left: 8px;
+  float: left;
+}
+
+.h-head-info-hide {
+  .sfa-h-vol {
+    @include sprite($sfa-h-mute);
+  }
+  .h-notice-queue {
+    display: none;
+  }
+}
+
+.athena-Allaccount{
+  position: absolute;
+  display: block;
+      top: -18px;
+
+  span{
+    float: left;
+    margin-top: 3px;
+
+  }
+}
+
+.bc-result-container3 {
+  .tab-toolbar{
+    margin-top: -5px !important;
+  }
+}
+
+.js-bc-multi-range{
+  margin-top: -3px;
+}
+
+.dsaj{
+  margin-top: -2px;
+}
+
+.btndiv{
+  width: 1200px;
+  position: relative;
+  margin: 0px auto;
+
+  .cBtn{
+    width: 18px;
+    height: 18px;
+    padding: 6px;
+    border: 1px solid #d5d5d5;
+    background-color: #fff;
+    border-radius: 15px;
+    float: right;
+    right: -50px;
+    top: 41px;
+    cursor: pointer;
+    position: absolute;
+
+    div{
+      height: 18px;
+      width: 18px;
+      background-color: #cccccc;
+      color: #fff;
+      line-height: 13px;
+      text-align: center;
+      border-radius: 9px;
+      font-size: 10px;
+    }
+
+    &:hover{
+      border-color: #e67eb2;
+      div{
+        background-color: #e67eb2;
+      }
+    }
+  }
+
+  .cBtn2{
+    div{
+      line-height: 17px;
     }
   }
 }

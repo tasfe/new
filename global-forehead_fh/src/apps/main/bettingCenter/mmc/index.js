@@ -26,8 +26,8 @@ var BettingCenterView = Base.ItemView.extend({
     'click .js-bc-basic-rule': 'baseRuleChangeHandler',
     //'mouseover .js-bc-basic-rule': 'baseRuleChangeHandler',
     //'mouseout .js-bc-basic-rule': 'baseRuleChange1Handler',
-    'mouseover .js-bc-advance-rules': 'baseRuleChangeMOHandler',
-    'mouseout .js-bc-advance-rules': 'baseRuleChangeMO1Handler',
+//    'mouseover .js-bc-advance-rules': 'baseRuleChangeMOHandler',
+//    'mouseout .js-bc-advance-rules': 'baseRuleChangeMO1Handler',
     'click .js-bc-play-toggle': 'togglePlayModeHandler',
     'click .js-bc-advance-rule': 'advanceRuleChangeHandler',
     'change .js-bc-bet-mode': 'betModeChangeHandler',
@@ -450,8 +450,6 @@ var BettingCenterView = Base.ItemView.extend({
     } else {
       this.$playArea.removeClass('middle')
     }
-
-    //console.log(this.model.pick('ticketId', 'levelId', 'groupId', 'playId'));
   },
 
   renderSelectStatisticsInfo: function() {
@@ -605,7 +603,6 @@ var BettingCenterView = Base.ItemView.extend({
   //},
 
   baseRuleChangeHandler: function(e) {
-    this.$('.js-bc-advance-rules').show();
 
     var $target = $(e.currentTarget);
     $target.addClass('active').siblings().removeClass('active');
@@ -618,8 +615,6 @@ var BettingCenterView = Base.ItemView.extend({
     var idStr =  ''+$target.data('index');
     idStr = parseInt(idStr);
     var playValue = (idStr+1)*99-14;
-
-    this.$('.js-bc-advance-rules').css('left',playValue+'px');
 
     this.$('.js-rule-title-hidden-temp').html(idStr);
 
@@ -736,19 +731,6 @@ var BettingCenterView = Base.ItemView.extend({
       this.lotteryConfirmHandler();
     }
   },
-
-
-  baseRuleChange1Handler: function(e) {
-    this.$('.js-bc-advance-rules').hide();
-  },
-
-  baseRuleChangeMOHandler: function(e) {
-    this.$('.js-bc-advance-rules').show();
-  },
-  baseRuleChangeMO1Handler: function(e) {
-    this.$('.js-bc-advance-rules').hide();
-  },
-
 
   //波动拉杆,或者点击按钮
   lotteryConfirmHandler: function(e) {

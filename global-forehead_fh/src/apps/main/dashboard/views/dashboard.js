@@ -436,11 +436,12 @@ var DashboardView = Base.ItemView.extend({
     var self = this;
     this.getRankListXhr()
       .done(function(res) {
+        console.log(res);
         if (res.result === 0) {
           var htmStr= "";
           _(res.root).each(function(info) {
             //alert()
-            htmStr += "恭喜"+info.userName+"在"+info.ticketName+"，喜中"+info.bonus/10000+"元<br>";
+            htmStr += '<p>恭喜'+info.userName.slice(0,6)+'在'+info.ticketName+'中'+info.bonus/10000+'元<span>10分钟前</span></p>';
           });
           self.$('.js-rank-list').html(htmStr);
         }

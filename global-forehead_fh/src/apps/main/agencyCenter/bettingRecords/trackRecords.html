@@ -1,0 +1,54 @@
+<div class="search-condition-table-julien">
+  <div class="control-group row1 search-condition-layout">
+    <select name="subUser" class="select1 hidden ">
+      <option value="0">个人</option>
+      <option value="1" selected="true">团队</option>
+    </select>
+    <dl class="width150">
+      <dt>账号</dt>
+      <dd>
+        <input type="text" name="username" class="input3 margin-add">
+      </dd>
+    </dl>
+    <dl class="width165">
+      <dt>订单编号</dt>
+      <dd>
+        <input type="text" name="tradeNo" class="input3 margin-add" data-parsley-maxlength="30">
+      </dd>
+    </dl>
+    <dl class="width442">
+      <dt>投注时间</dt>
+      <dd>
+        <button class="js-excess-cell" data-index="1">今天</button>
+        <button class="js-excess-cell" data-index="2">三天</button>
+        <button class="js-excess-cell" data-index="3">七天</button>
+      </dd>
+      <dd>
+        <span class="js-pf-timeset"></span>
+      </dd>
+    </dl>
+    <dl class="width165">
+      <dt>彩种名称</dt>
+      <dd>
+        <select class="js-pf-select-ticket-list select2" name="ticketId" data-parsley-numAndMidLine></select>
+      </dd>
+    </dl>
+  </div>
+  <div class="row1 control-group">
+    <dl class="width150">
+      <dt>期号</dt>
+      <dd>
+        <input type="text" name="ticketPlanId" class="input3 margin-add" data-parsley-maxlength="30">
+      </dd>
+    </dl>
+    <dl class="width165">
+      <dt>订单状态</dt>
+      <dd>
+        <select name="chaseStatus" class="select1"></select>
+      </dd>
+    </dl>
+  </div>
+  <div class="row3">
+    <button type="submit" class="btn uc-search-button">搜索</button>
+  </div>
+</div>

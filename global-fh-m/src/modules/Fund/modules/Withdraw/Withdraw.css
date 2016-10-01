@@ -1,0 +1,33 @@
+@import 'variable.css';
+@import 'components/Button/Button.css';
+
+.info-block {
+    padding: 0.1rem;
+    color: var(--white);
+    background: #5c5b56;
+    line-height: 0.2rem;
+}
+.withdraw-balance {
+    color: var(--sunshine);
+}
+
+.withdraw-container {
+    text-align: center;
+    padding: 0.2rem;
+}
+.inline-block {
+    display: inline-block;
+    width: 49%;
+}
+a.toolbar-rightBtn {
+    color: var(--white);
+}
+/*.withdraw-remainTimes span {*/
+    /*color: var(--danger);*/
+/*}*/
+
+.withdraw-remainTimes {
+    padding: 0.1rem;
+    background: var(--orange);
+    color: var(--white);
+}

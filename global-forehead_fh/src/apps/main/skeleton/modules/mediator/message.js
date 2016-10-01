@@ -63,8 +63,7 @@ var MessageMediatorModule = Base.Module.extend({
               msgArry[j] = data.subList[i].newMsgNum;
             }
           }
-
-          $('.js-wt-title')
+          
 
           var num = 0;
           for (var i = $('.js-wt-title').length - 1; i >= 0; i--) {
@@ -78,7 +77,7 @@ var MessageMediatorModule = Base.Module.extend({
             }
           }
           
-          $('.js-gl-letter-unread').html('<span>'+newsNum+'</span>');
+          // $('.js-gl-letter-unread').html('<span>'+newsNum+'</span>');
 
           if (sessionStorage.getItem('openMessage') == 1) {
             if (data.parent != null) {

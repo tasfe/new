@@ -1,0 +1,71 @@
+@import 'variable.css';
+.dtail-redcl{
+  color: var(--danger);
+}
+.bet-detail-form > li > div{
+  display: inline-block;
+  width: 70%;
+  font-size: var(--font-size-lv12);
+  vertical-align: top;
+
+  li.number {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 3.2px;
+    line-height: .2rem;
+    margin-left: 1.6px;
+    margin-left: .1rem;
+    height: 3.2px;
+    height: .2rem;
+    width: 3.2px;
+    width: .2rem;
+    border: 1px solid #5eaffa;
+    border-radius: 50%;
+    padding: 0;
+    text-align: center;
+  }
+}
+.bet-detail-form > li > div:first-child{
+  width: 30%;
+}
+.checkchase{
+  margin: .1rem;
+  font-size: var(--font-size-lv12);
+}
+.checkchase.hidden{
+  display: none;
+}
+
+.chase-detail-icon{
+  width: .65rem;
+}
+.chase-detail-row1{
+  padding-bottom: .02rem;
+  margin-bottom: .02rem;
+  border-bottom: 1px solid rgba(0,0,0,.3);
+}
+.chase-detail-name{
+  display: inline-block;
+  font-size: .17rem;
+  padding-right: .1rem;
+}
+
+.chase-detail-period{
+  display: inline-block;
+  padding-right: .1rem;
+}
+
+.chase-detail-status{
+  display: inline-block;
+}
+
+.chase-detail-check{
+  background: url(/images/chase-detail-check.png) ;
+  width: 1.1rem;
+  height: .3rem;
+  line-height: .3rem;
+  padding-left: .1rem;
+  color: #fff;
+  font-size:  var(--font-size-lv14);;
+
+}

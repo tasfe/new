@@ -1,0 +1,28 @@
+@import 'variable.css';
+
+.pm-form{
+  .iForm-controls{
+    display: none;
+  }
+}
+
+.help-block {
+    padding: 0.05rem 0.1rem;
+    color: var(--white);
+    background: var(--orange);
+    font-size: 0.1rem;
+
+    .help-img {
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: .05rem;
+        img {
+            width: .2rem;
+        }
+    }
+    .help-text {
+        display: inline-block;
+        vertical-align: middle;
+        width: 86%;
+    }
+}

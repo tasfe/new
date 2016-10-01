@@ -1,0 +1,37 @@
+@import 'variable.css';
+body {
+  background: var(--garybg-color);
+}
+li.sysno-li{
+  font-size: var(--font-size-lv12);
+}
+.text-align-rt{
+  font-size: var(--font-size-lv10);
+  margin-top: .02rem;
+  height:.12rem; 
+  width:100%; 
+  overflow:hidden;
+}
+.sysno-li a{
+  display: inline;
+  color: var(--maintext-color);
+  text-decoration: underline;
+}
+.setnotice{
+  overflow: hidden;
+  margin:.04rem 0 0;
+  a{
+    font-size: var(--font-size-lv18);
+    padding:0 .1rem ;
+    display: block;
+    float: right;
+  }
+}
+.sysno-fl{
+  overflow: hidden;
+
+  p{
+    float: left;
+  }
+
+}

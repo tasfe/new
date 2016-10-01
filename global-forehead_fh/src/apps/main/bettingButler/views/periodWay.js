@@ -33,45 +33,6 @@ var PeriodWayView = Base.ItemView.extend({
     initialize: function () {
     },
 
-    /*
-
-    changeHrefHandler: function(e) {
-        $('.js-hidden-dialog').click(function(){
-            $('.js-alert-background-dialog').hide(1000);
-        })
-    },
-
-
-    deletecontent:function(){
-        $('.js-selete-text-content').click(function(){
-            $(this).parent().remove();
-        })
-    },
-
-    newPlan:function(){
-        console.log($('.js-pf-timeset').val())
-        $('.js-plan-time').html($('.js-pf-timeset').val());
-        $('.js-cycle-btn').click(function(){
-            $('.js-alert-new ').removeClass('active-display');
-
-            // alert(1);
-        });
-        //新建计划的内容.active-display
-        $('.js-newplan').click(function(){
-            $('.js-alert-background-dialog').hide(1000);
-            $('.js-hidden').click(function(){
-                $('.js-alert-new ').removeClass('active-display');
-            })
-        })
-    },
-    getRuleXhr: function() {
-        return Global.sync.ajax({
-            url: '/fund/redenvelope/info.json'
-        });
-    },
-
-    */
-
     onRender: function() {
 
         //初始化彩种选择

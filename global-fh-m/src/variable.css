@@ -1,0 +1,83 @@
+:root {
+  /*
+   * Colors
+   * ======================================================================== */
+
+  --white:                 #fff;
+  --gray-darker:           color(black lightness(+13.5%)); /* #222 */
+  --gray-dark:             color(black lightness(+25%));   /* #404040 */
+  --gray:                  color(black lightness(+33.5%)); /* #555 */
+  --gray-light:            color(black lightness(+46.7%)); /* #777 */
+  --gray-lighter:          color(black lightness(+93.5%)); /* #eee */
+  --main-color:            #333333;
+  --sunshine:              #ffba00;
+  --alert-bg:              #f2dede;
+  --alert-color:           #a94442;
+  --alert-border:          #ebccd1;
+  /*--tip-color:             #aaa;*/
+  --garybg-color:          #efeff4;
+  --maintext-color:        #6c6c6c;
+
+  --border-grey:           #eaeaea;
+  --tip-color:             #bbbbbb;
+
+  --yb-dark-gray:          #4e4e4e;
+
+  --fair-gray:             #eee;
+  --light-gray:            #ddd;
+  --mid-gray:              #aaa;
+  --dark-gray:             #4e4e4e;
+  --coffee:                #562e0f;
+  --orange:                #FF6700;
+  --danger:                #d9534f;
+  --eggshell:              #fffced;
+  --border-yellow:         #D8CEA5;
+  --border-magenta:        #90284C;
+  --crimson:               #d21e1e;
+  --magenta:               #ad315c;
+  --dark-magenta:          #9b2c52;
+  --light-red:             #e66a68;
+  --gold:                  #F0E68C;
+  --main-red:              #c11e1e;
+
+  /*
+   * Typography
+   * ======================================================================== */
+
+  --font-family-base:      -apple-system-font, "Microsoft YaHei", Helvetica, Arial, sans-serif;
+
+  /*
+   * Layout
+   * ======================================================================== */
+
+  --max-content-width:     1000px;
+
+  /*
+   * Media queries breakpoints
+   * ======================================================================== */
+
+  --screen-xs-min:         480px;  /* Extra small screen / phone */
+  --screen-sm-min:         768px;  /* Small screen / tablet */
+  --screen-md-min:         992px;  /* Medium screen / desktop */
+  --screen-lg-min:         1200px; /* Large screen / wide desktop */
+
+  /*
+   * Animations
+   * ======================================================================== */
+
+  --animation-swift-out:   .45s cubic-bezier(0.3, 1, 0.4, 1) 0s;
+
+  /*
+   * font-size
+   * ======================================================================== */
+
+  --font-size-lv08:        .08rem;
+  --font-size-lv10:        .10rem;
+  --font-size-lv11:        .11rem;
+  --font-size-lv12:        .12rem;
+  --font-size-lv14:        .14rem;
+  --font-size-lv16:        .16rem;
+  --font-size-lv18:        .18rem;
+  --font-size-lv20:        .20rem;
+}
+

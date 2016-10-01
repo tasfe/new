@@ -1,171 +1,218 @@
-<div class="nav-title">
-  <div class="bc-banner sfa-d-<%=ticketInfo.id %>-<%=ticketInfo.info.mark %> "></div>
-  <div class="leftBlock">
-    <div class="title">
-      截止投注 <span class="js-bc-planId">第20160722-047期</span>
+<div class="bc-left">
+  <div class="banner">
+    <div class="bc-banner sfa-d-<%=ticketInfo.id %>-<%=ticketInfo.info.mark %> "></div>
+    <div class="bc-time">
+      <p><span class="js-bc-planId"></span> 截止投注</p>
+      <div class="js-bc-countdown countdown-block"></div>
+      <span class="d1">:</span>
+      <span class="d2">:</span>
     </div>
-    <div class="js-bc-countdown countdown-block"></div>
-  </div>
-  <div class="centerBlock">
-    <div class="title">
-      开奖号码 :  <span class="js-bc-last-planId">第20160722-047期</span>
-    </div>
-    <div class="js-bc-last-plan-results bc-last-results">
-      <span class="text-circle">-</span>
-      <span class="text-circle">-</span>
-      <span class="text-circle">-</span>
-      <span class="text-circle">-</span>
-      <span class="text-circle">-</span>
-    </div>
-    <div class="js-bc-sale-stop bc-last-results hidden">
-      <span class="text-circle">暂</span>
-      <span class="text-circle">停</span>
-      <span class="text-circle">销</span>
-      <span class="text-circle">售</span>
-  </div>
-</div>
-<div class="rightBlock">
-
-
-  <a class="js-bc-video-main js-bc-video" href="javascript:void(0)" target="_blank">
-    <div class="js-bc-video-1">
-    <span><img src="~base/images/julien/18.png" alt=""></span>
-    视频开奖
-    </div>
-    <div class="js-bc-video-2" style="display: none">
-      <span><img src="~base/images/julien/29.png" alt=""></span>
-      <font color="#900">视频开奖</font>
-    </div>
-    </a>
-
-
-  <a class="js-bc-video-main2" href="trend.html?ticketId=<%=ticketInfo.info.id %>" target="_blank">
-    <div class="js-bc-video-3">
-    <span><img src="~base/images/julien/19.png" alt=""></span>
-      走势图
-    </div>
-      <div class="js-bc-video-4" style="display: none">
-        <span><img src="~base/images/julien/30.png" alt=""></span>
-        <font color="#900">走势图</font>
-     </div>
-    </a>
-
-    <a class="js-bc-video-main3" href="#hc?page=<%=ticketInfo.id %>">
-      <div class="js-bc-video-5">
-      <span><img src="~base/images/julien/20.png" alt=""></span>
-      玩法介绍
-    </div>
-      <div class="js-bc-video-6" style="display: none">
-        <span><img src="~base/images/julien/31.png" alt=""></span>
-        <font color="#900">玩法介绍</font>
+    <div class="bc-result">
+      <div class="title">
+        <span class="js-bc-last-planId">第20160722-047期</span>
+        开奖号码
+         <a class="js-bc-video-main2" href="trend.html?ticketId=<%=ticketInfo.info.id %>" target="_blank">综合走势</a>
       </div>
-    </a>
-  </div>
-</div>
-
-<div class="bc-side-area text-center pull-right clear-both">
-  <div class="topTips">
-    <span class="js-julien-data11"></span>
-    <span class="js-julien-data21"></span>
-    <span class="js-julien-data31"></span>
-    <span class="js-julien-data41"></span>
-  </div>
-  <div class="bet-act-available">
-    <a href="#ab/1">活动详情</a>
-  </div>
-
-  <div class="js-bc-records bc-records clear-both">
-    <div class="btn-group btn-group-justified">
-      <a href="javascript:void(0)" class="js-bc-records-tab btn btn-opacity active" data-type="draw">采购篮</a>
-      <a href="javascript:void(0);" class="js-bc-records-tab btn btn-opacity" data-type="betting">近期投注</a>
-    </div>
-    <div class="js-bc-betting-records hidden" style="height: 280px; width: 305px; overflow:auto"></div>
-    <div class="js-bc-draw-records hidden"></div>
-    <div class="js-bc-lottery-preview"  style="margin-top:-5px"></div>
-  </div>
-  <div class="bet-summary">
-    <span>
-      <span>总计</span>
-      <span class="js-bc-total-lottery text-hot">0</span>
-      <span>注</span>
-    </span>
-    <span>
-      <span>总共</span>
-      <span class="js-bc-total-money text-hot">0</span>
-      <span>元</span>
-    </span>
-  </div>
-</div>
-
-<div class="bc-main-area pull-left">
-  <div class="js-bc-rules bc-menu">
-    <div class="bc-toggle">
-      <span class="js-play1">任选玩法</span>
-      <span class="js-play2 sd">常规玩法</span>
-    </div>
-    <div class="js-bc-basic-rules bc-basic-rules"></div>
-    <div class="js-bc-optional-rules bc-basic-rules hidden"></div>
-    <div class="js-bc-advance-rules bc-advance-rules"></div>
-    <div class="js-rule-title-hidden-temp "></div>
-  </div>
-  <div class="bc-play-section">
-    <div class="bc-play-brief">
-      <div class="overflow-hidden">
-
-        <span class="js-bc-play-example bc-play-example" ></span>
-
-        <span class="text-hot" style="margin-left:-20px">
-          奖金模式：<span class="js-bc-bet-mode">1950</span>
-        </span>
-        &nbsp;&nbsp;
-        <a class="js-bc-play-tip bc-play-tip btn-link" href="javascript:void(0)">
-          <span class="sfa sfa-bc-play-brief vertical-middle bet-case"> </span>
-        </a>
-
+      <div class="js-bc-last-plan-results bc-last-results">
+        <span class="text-circle">-</span>
+        <span class="text-circle">-</span>
+        <span class="text-circle">-</span>
+        <span class="text-circle">-</span>
+        <span class="text-circle">-</span>
+      </div>
+      <div class="js-bc-sale-stop bc-last-results hidden">
+        <span class="text-circle">暂</span>
+        <span class="text-circle">停</span>
+        <span class="text-circle">销</span>
+        <span class="text-circle">售</span>
       </div>
     </div>
   </div>
-  <div class="bc-play-container" style="overflow:auto">
-    <div class="js-bc-play-area bc-play-area">
-      <div class="gl-loading">
-        <%=Global.ui.loader.get() %>
+  <div class="bc-main-area">
+    <div class="js-bc-rules bc-menu">
+      <div class="bc-toggle">
+        <span class="js-play2 sd hidden"><i></i>任选玩法</span>
+        <span class="js-play1"><i></i>任选玩法</span>
       </div>
+      <div class="js-bc-basic-rules bc-basic-rules"></div>
+      <div class="js-bc-optional-rules bc-basic-rules hidden"></div>
+      <div class="js-rule-title-hidden-temp "></div>
     </div>
-  </div>
+    <div class="bc-play-section">
+      <div class="js-bc-advance-rules"></div>
+      <div class="bc-play-brief">
+        <div class="overflow-hidden">
 
-  <div class="bc-statics-area">
-    <div class="bc-result-container">
-      <span>您选择了：</span>
-      <span class="js-bc-statistics-lottery">0</span>
-      <span>注</span>
-      <div class="tab-toolbar tab-border inline-block m-left-md no-margin vertical-middle clearfix">
-        <div class="tab-group no-margin">
-          <span class="js-bc-monetary-unit tab m-right-sm active" data-rate="10000">元</span>
-          <span class="js-bc-monetary-unit tab m-right-sm" data-rate="1000">角</span>
-          <span class="js-bc-monetary-unit tab m-right-sm" data-rate="100">分</span>
-         <!-- <span class="js-bc-monetary-unit tab m-right-sm" data-rate="10">厘</span>-->
+          <span class="js-bc-play-example bc-play-example" ></span>
+
+          <a class="js-bc-play-tip bc-play-tip btn-link" href="javascript:void(0)">
+            <span>中奖举例</span>
+            <span class="js-infor-tip"></span>
+          </a>
+          <span style="float:right; color:#cc0000; margin-top:2px; margin-right:100px;">
+            奖金模式：<span class="js-bc-bet-mode">1950</span>
+          </span>
+          &nbsp;&nbsp;
+         
         </div>
       </div>
-      <div class="js-bc-multi-range bc-multi-range inline-block vertical-middle num-range"></div>
-      倍
-      <span class="price">共<span class="js-bc-statistics-money">0</span>元</span>
+    </div>
+    <div class="bc-play-container" style="overflow:auto">
+      <div class="js-bc-play-area bc-play-area">
+        <div class="gl-loading">
+          <%=Global.ui.loader.get() %>
+        </div>
+      </div>
     </div>
 
-    <span class="js-bc-quick-bet bet-quick" style="display: none">快速投注</span>
-    <span class="js-bc-quick-bet1 bet-quick1"  >快速投注</span>
+    <div class="bc-statics-area">
 
+      <div class="bc-result-container">
+        <select class="dsaj">
+        <option value="1" selected="true">普通投注</option>
+        <option value="2">自定义投注</option>
+      </select>
+      <span class="bc-result-container2 hidden ">
+        投注金额 
+        <input type="text" name="">
+        <span>元</span>
+      </span>
+      <span class="bc-result-container3 ">
+        <div class="tab-toolbar tab-border inline-block m-left-md no-margin vertical-middle clearfix">
+          <div class="tab-group no-margin">
+            <span class="js-bc-monetary-unit tab m-right-sm active" data-rate="10000">元</span>
+            <span class="js-bc-monetary-unit tab m-right-sm" data-rate="1000">角</span>
+            <span class="js-bc-monetary-unit tab m-right-sm" data-rate="100">分</span>
+            <span class="js-bc-monetary-unit tab m-right-sm" data-rate="10">厘</span>
+          </div>
+        </div>
+        <div class="js-bc-multi-range bc-multi-range inline-block vertical-middle num-range"></div>
+        倍
+        <span class="adsf1">共<span class="js-bc-statistics-money">0</span>元</span>
+        <span>您选择了：</span>
+        <span class="js-bc-statistics-lottery">0</span>
+        <span>注</span>
+      </div>
+
+      <span class="js-bc-quick-bet bet-quick" style="display: none"><i class="icon-ok-sign"></i>快速投注</span>
+      <span class="js-bc-quick-bet1 bet-quick1"  ><i class="icon-ok-sign"></i>快速投注</span>
+</span>
+    </div>
+  </div>
+</div>
+<div class="bc-right">
+  <div class="js-rightBlock1 rightBlock1">
+    <div class="js-showList showList">
+      <ul class="title">
+        <li class="c1">期号</li>
+        <li class="c2">开奖号码</li>
+        <li class="c3">形态</li>
+      </ul>
+      <ul>
+        <li class="c1">第20160915-028期</li>
+        <li class="c2"><span class="r">1</span><span class="r">1</span><span  class="r">1</span><span>1</span><span>1</span></li>
+        <li class="c3">组三</li>
+      </ul>
+      <ul>
+        <li class="c1">第20160915-028期</li>
+        <li class="c2"><span class="r">1</span><span class="r">1</span><span  class="r">1</span><span>1</span><span>1</span></li>
+        <li class="c3">组三</li>
+      </ul>
+      <ul>
+        <li class="c1">第20160915-028期</li>
+        <li class="c2"><span class="r">1</span><span class="r">1</span><span  class="r">1</span><span>1</span><span>1</span></li>
+        <li class="c3">组三</li>
+      </ul>
+      <ul>
+        <li class="c1">第20160915-028期</li>
+        <li class="c2"><span class="r">1</span><span class="r">1</span><span  class="r">1</span><span>1</span><span>1</span></li>
+        <li class="c3">组三</li>
+      </ul>
+      <ul>
+        <li class="c1">第20160915-028期</li>
+        <li class="c2"><span class="r">1</span><span class="r">1</span><span  class="r">1</span><span>1</span><span>1</span></li>
+        <li class="c3">组三</li>
+      </ul>
+      <ul>
+        <li class="c1">第20160915-028期</li>
+        <li class="c2"><span class="r">1</span><span class="r">1</span><span  class="r">1</span><span>1</span><span>1</span></li>
+        <li class="c3">组三</li>
+      </ul>
+      <ul>
+        <li class="c1">第20160915-028期</li>
+        <li class="c2"><span class="r">1</span><span class="r">1</span><span  class="r">1</span><span>1</span><span>1</span></li>
+        <li class="c3">组三</li>
+      </ul>
+       <ul>
+        <li class="c1">第20160915-028期</li>
+        <li class="c2"><span class="r">1</span><span class="r">1</span><span  class="r">1</span><span>1</span><span>1</span></li>
+        <li class="c3">组三</li>
+      </ul>
+      <ul>
+        <li class="c1">第20160915-028期</li>
+        <li class="c2"><span class="r">1</span><span class="r">1</span><span  class="r">1</span><span>1</span><span>1</span></li>
+        <li class="c3">组三</li>
+      </ul>
+      <ul>
+        <li class="c1">第20160915-028期</li>
+        <li class="c2"><span class="r">1</span><span class="r">1</span><span  class="r">1</span><span>1</span><span>1</span></li>
+        <li class="c3">组三</li>
+      </ul>
+    </div>
+    <div class="showListBtn">
+      <i class="icon-angle-down js-openBlock1"></i>
+    </div>
+  </div>
+  <div class="rightBlock2">
+    <div class="topTips">
+      <span class="js-julien-data11"></span>
+      <span class="js-julien-data21"></span>
+      <span class="js-julien-data31"></span>
+      <span class="js-julien-data41"></span>
+    </div>
+    <div class="bet-act-available">
+      <i class="icon-star"></i>
+      <span>可参加活动：1个</span>
+      <a href="#ab/1">活动详情</a>
+    </div>
+  </div>
+  <div class="rightBlock3 js-bc-records">
+    <div class="bc-title">
+      <a href="javascript:void(0)" class="js-bc-records-tab active" data-type="draw">
+        <i class="icon-shopping-cart"></i>号码篮
+      </a>
+      <a href="javascript:void(0);" class="js-bc-records-tab" data-type="betting">
+        <i class="icon-check"></i>近期投注
+      </a>
+    </div>
+    <div class="order-list">
+      <div class="js-bc-betting-records hidden"></div>
+      <div class="js-bc-draw-records hidden"></div>
+      <div class="js-bc-lottery-preview"></div>
+    </div>
+    <div class="order-bottom">
+      <span class="js-collect collect" ></span>
+      <div>
+        总计<span class="js-bc-total-lottery">0</span>注,
+        总共<span class="js-bc-total-money">0</span>元
+      </div>
+    </div>
+    <div class="btnList">
+      <span class="js-bc-btn-lottery-add add-number"  style="display: none"><i class="icon-plus-sign"></i>添加号码</span>
+      <span class="js-bc-btn-lottery-add1  add-number1 "  style="display:inline-block" > <i class="icon-plus-sign"></i>
+        添加号码</span>
+      <a href="#bb/sp" >
+        <i class="icon-group"></i>
+        投注管家
+      </a>
+      <span class="js-bc-chase">
+        <i class="icon-tags"></i>
+        追号
+      </span>
+    </div>
+    <span class="js-bc-btn-lottery-confirm commit-number">确认投注</span>
   </div>
 </div>
 
-<div class="pull-bottom">
-  <a href="#bb/sp">投注管家</a>
-
-  <span class="js-bc-btn-lottery-add add-number"  style="display: none">添加号码</span>
-  <span class="js-bc-btn-lottery-add1  add-number1 "  style="display:inline-block" >添加号码</span>
-
-  <span class="js-bc-btn-lottery-confirm commit-number">确认投注</span>
-  <span class="js-bc-chase chase-number">追号</span>
-</div>
-
-<div class="js-cang01 cang01" ></div>
-<a href="javascript:null;" ><div class="js-cang02 cang02" style="display: none" ></div></a>
+<div class="js-cang01" ></div>
+<a href="javascript:null;" ><div class="js-cang02" style="display: none" ></div></a>

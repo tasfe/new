@@ -33,22 +33,55 @@ $main-top: 110px !default;
     width: 1200px !important;
   }
   
-  height: 580px;
+  height: 446px;
   img {
-    height: 580px;
+    height: 446px;
   }
 }
 
 .db-slogan {
-
-  background: url(~base/images/julien/11.png) no-repeat  5px 14px;
-
+  position: relative;
   height: 40px;
   line-height: 40px;
-  margin: 10px 0 20px 0;
-  padding-left:40px;
+  margin: 10px 0 10px 0;
+  padding-left:45px;
   overflow: hidden;
-  border-bottom: 1px solid #e4e4e4;
+  border: 2px solid #ab3d69;
+  border-radius: 40px;
+
+  .g2{
+    width: 1130px;
+    position: relative;
+    height: 40px;
+    overflow: hidden;
+
+    a{
+      position: absolute;
+      font-size: 14px;
+      color: #666666;
+      left: 1130px;
+      white-space: nowrap;
+    }
+  }
+
+  >span{
+    position: absolute;
+    left: 8px;
+    top: 5px;
+    display: block;
+    width: 28px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    border-radius: 14px;
+    color: #fff;
+    font-size: 16px;
+
+    background-color: #ea3e40;
+    background-image:-webkit-linear-gradient(180deg, #ea3e40, #ad3d68);
+    background-image:linear-gradient(180deg,#ea3e40,#ad3d68);
+  }
+  
 
   ul,li{
     list-style: none;
@@ -57,31 +90,16 @@ $main-top: 110px !default;
   ul{
     width: 1100px;
     float: left;
+    margin-right: 25px;
   }
 
   a{
     font-size: 14px;
     font-family: '微软雅黑';
     color: #666666;
-  }
 
-  > div{
-    width: 10px;
-    float: right;
-    margin-top: 8px;
-
-    span{
-      display: block;
-      width: 9px;
-      height: 9px;
-      background: url(~base/images/julien/12.png) no-repeat;
-      margin-bottom: 5px;
-      cursor: pointer;
-
-      &:last-child{
-        background-position:bottom;
-      }
-
+    &:hover{
+      color:#c00;
     }
   }
 }
@@ -291,49 +309,6 @@ $float-height: 38px;
   //}
 }
 
-.upgrade-intro {
-  bottom: $float-bottom + $float-height;
-  width: 42px;
-  height: $float-height;
-  background-image: url(~base/images/upgrade.png);
-
-  &:hover {
-    background-image: url(~base/images/upgrade2.png);
-  }
-}
-
-.history-record {
-  bottom: $float-bottom + $float-height * 2;
-  width: 42px;
-  height: $float-height;
-  background-image: url(~base/images/hrecord.png);
-
-  &:hover {
-    background-image: url(~base/images/hrecord2.png);
-  }
-}
-
-.customer-service, .upgrade-intro, .history-record {
-  position: absolute;
-  left: 50%;
-  margin-left: 442px;
-  transition: background-image 0.4s ease-in-out;
-}
-
-@media (max-height: 930px) {
-  $float-bottom: $float-bottom - 91px;
-  .customer-service {
-    bottom: $float-bottom;
-  }
-  .upgrade-intro {
-    bottom: $float-bottom + $float-height;
-  }
-
-  .history-record {
-    bottom: $float-bottom + $float-height * 2;
-  }
-}
-
 .web-logo {
   background: url(~base/images/fh/logo.png);
   width: 200px;
@@ -477,16 +452,27 @@ $float-height: 38px;
 }
 
 .db-carousel{
-  .left{
-    width: 40px;
-    height: 80px;
-    background: url(~base/images/julien/bannerBtn.png) no-repeat 0px -80px;
+  background: none;
+  a.left{
+    width: 150px;
+    height: 446px;
+    opacity: 0;
+
+    &:hover{
+       opacity: 0.4;
+       background: url(~base/images/julien/bannerBtn.png) no-repeat center;
+    }
   }
 
-  .right{
-    width: 40px;
-    height: 80px;
-    background: url(~base/images/julien/bannerBtn.png) no-repeat;
+  a.right{
+    width: 150px;
+    height: 446px;
+    background: url(~base/images/julien/bannerBtn2.png) no-repeat center;
+    opacity: 0;
+
+    &:hover{
+       opacity: 0.4;
+    }
   }
 }
 
@@ -694,9 +680,7 @@ $float-height: 38px;
         }
       }
     }
-
   }
-
 }
 
 .ssc-style-select {
@@ -724,4 +708,320 @@ $float-height: 38px;
   width: 720px;
   height: 310px;
   margin-left: 50px;
+}
+
+.js-db-dynamic-list{
+  cursor: pointer;
+}
+
+.index-content{
+  &:after{
+    content:'';
+    clear: both;
+    display: block;
+  }
+
+  .index-left{
+    width: 880px;
+    height: 365px;
+    float: left;
+    background: url(~base/images/julien/indexleftbg.png) no-repeat;
+    position: relative;
+
+
+    >span{
+      position: absolute;
+      cursor: pointer;
+      display: block;
+      opacity: 0;
+
+      &:hover{
+        opacity: 1;
+      }
+
+      &.il1{
+        width: 170px;
+        height: 189px;
+        background-color: #fff;
+        top: 20px;
+        left: 30px;
+
+        a{
+          height: 30px;
+          line-height: 30px;
+          color: #333333;
+          border-bottom: 1px solid #ccc;
+          display: block;
+          text-align: left;
+
+          &:hover{
+            color:#c00;
+          }
+
+          span{
+            display: inline-block;
+            float: right;
+            color: #999999;
+          }
+
+          b{
+            font-size: 10px;
+            display: inline-block;
+            padding: 0px 3px;
+            background-color: #f1a14a;
+            color: #fff;
+            border-radius: 3px;
+            margin-left: 3px;
+            font-weight: normal;
+            height: 12px;
+            width: 12px;
+            background: url(~base/images/julien/34.png) no-repeat bottom;
+            margin-bottom: -2px;
+          }
+
+          &.bcBtn{
+            width: 132px;
+            height: 35px;
+            line-height: 35px;
+            border-radius: 18px;
+            font-size: 18px;
+            color: #fff;
+            background-color: #eb1c3e;
+            background-image:-webkit-linear-gradient(180deg, #eb1c3e, #be2a2a);
+            background-image:linear-gradient(180deg,#eb1c3e,#c0315c);
+            border:0px;
+            text-align: center;
+            margin: 10px auto 0px auto;
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+            border: 1px solid #b2497c;
+
+            &:hover{
+              background-color: #be2a2a;
+              background-image:-webkit-linear-gradient(180deg, #be2a2a, #eb1c3e);
+              background-image:linear-gradient(180deg,#be2a2a,#eb1c3e);
+            }
+          }
+        }
+      }
+      &.il2{
+        width: 170px;
+        height: 189px;
+        top: 20px;
+        left: 250px;
+        background: url(~base/images/julien/35.png) no-repeat center 20px #fff;
+
+        div{
+          font-size: 18px;
+          color: #333333;
+          margin-top: 90px;
+        }
+
+        a{
+          display: block;
+
+          &.bcBtn{
+            width: 132px;
+            height: 35px;
+            line-height: 35px;
+            border-radius: 18px;
+            font-size: 18px;
+            color: #fff;
+            background-color: #eb1c3e;
+            background-image:-webkit-linear-gradient(180deg, #eb1c3e, #be2a2a);
+            background-image:linear-gradient(180deg,#eb1c3e,#c0315c);
+            border:0px;
+            text-align: center;
+            margin: 20px auto 0px auto;
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+            border: 1px solid #b2497c;
+
+            &:hover{
+              background-color: #be2a2a;
+              background-image:-webkit-linear-gradient(180deg, #be2a2a, #eb1c3e);
+              background-image:linear-gradient(180deg,#be2a2a,#eb1c3e);
+            }
+          }
+        }
+      }
+
+      &.il3{
+        width: 170px;
+        height: 189px;
+        top: 20px;
+        left: 470px;
+        background: url(~base/images/julien/wait.png) no-repeat center 20px #fff;
+      }
+
+      &.il4{
+        width: 170px;
+        height: 189px;
+        top: 20px;
+        left: 690px;
+        background: url(~base/images/julien/wait.png) no-repeat center 20px #fff;
+      }
+
+      &.il5{
+        width: 180px;
+        top: 270px;
+        left: 15px;
+        height: 60px;
+        &:hover{
+          >div{
+            display: block;
+          }
+        }
+
+        >div{
+          border: 2px solid #bf6d8f;
+          box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+          padding: 5px;
+          position: absolute;
+          top: -170px;
+          left:2px;
+          background-color: #fff;
+          display: none;
+
+          p{
+            margin-top: 5px;
+            margin-bottom: 5px;
+            color: #333333;
+            font-size: 14px;
+          }
+        }
+      }
+
+      &.il6{
+        width: 180px;
+        top: 270px;
+        left: 265px;
+        height: 60px;
+        &:hover{
+          >div{
+            display: block;
+          }
+        }
+
+        >div{
+          border: 2px solid #bf6d8f;
+          box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+          padding: 5px;
+          position: absolute;
+          top: -170px;
+          left:0px;
+          background-color: #fff;
+          display: none;
+
+          p{
+            margin-top: 5px;
+            margin-bottom: 5px;
+            color: #333333;
+            font-size: 14px;
+          }
+        }
+      }
+
+      &.il7{
+        width: 180px;
+        top: 270px;
+        left: 490px;
+        height: 60px;
+        &:hover{
+          >div{
+            display: block;
+          }
+        }
+
+        >div{
+          border: 2px solid #bf6d8f;
+          box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+          padding: 5px;
+          position: absolute;
+          top: -170px;
+          left:0px;
+          background-color: #fff;
+          display: none;
+
+          p{
+            margin-top: 5px;
+            margin-bottom: 5px;
+            color: #333333;
+            font-size: 14px;
+          }
+        }
+      }
+
+      &.il8{
+        width: 180px;
+        top: 270px;
+        left: 685px;
+        height: 60px;
+        &:hover{
+          >div{
+            display: block;
+          }
+        }
+
+        >div{
+          border: 2px solid #bf6d8f;
+          box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+          padding: 5px;
+          position: absolute;
+          top: -170px;
+          left:0px;
+          background-color: #fff;
+          display: none;
+
+          p{
+            margin-top: 5px;
+            margin-bottom: 5px;
+            color: #333333;
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+
+  .index-right{
+    width: 310px;
+    height: 365px;
+    float: right;
+    background: url(~base/images/julien/indexrightbg.png) no-repeat;
+
+    div{
+      margin-top: 40px;
+      text-align: left;
+      padding: 0px 12px 0px 14px;
+      line-height: 25px;
+      height: 200px;
+      overflow: hidden;
+    }
+
+    a{
+      width: 228px;
+      display: block;
+      height: 36px;
+      line-height: 36px;
+      font-size: 16px;
+      color: #333333;
+      margin: 45px auto 0px auto;
+      border: 2px solid #cccccc;
+      border-radius: 18px;
+      background: url(~base/images/julien/33.png) no-repeat left bottom;
+
+      &:hover{
+        border: 2px solid #bf6d8f;
+      }
+    }
+
+    p{
+      margin-bottom: 0px;
+
+      span{
+        color: #999999;
+        display: inline-block;
+        float: right;
+      }
+    }
+  }
 }

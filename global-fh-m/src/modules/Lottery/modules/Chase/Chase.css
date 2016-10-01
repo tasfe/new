@@ -1,0 +1,113 @@
+@import 'variable.css';
+
+.chase-page {
+  height: 100%;
+  background: var(--eggshell);
+  position: relative;
+}
+
+.chase-page__header {
+  background: #fff;
+  padding: .1rem;
+  margin-bottom: .1rem;
+  border-bottom: 1px solid var(--border-grey);
+}
+
+.chase-page__header .checkbox {
+  margin: 0;
+}
+
+.chase-page__footer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  text-align: center;
+  background: var(--main-red);
+  color: var(--white);
+  line-height: .3rem;
+}
+
+.chase-page__card {
+  margin: 0 .1rem;
+  border: 1px solid var(--border-grey);
+  background: var(--white);
+  border-radius: .05rem;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, .1);
+}
+
+.chase-page__card-title {
+  margin: .1rem .1rem .02rem;
+}
+
+.card__item {
+  margin: 0 .01rem;
+  padding: .05rem;
+  border-top: 1px solid var(--border-grey)
+}
+
+.card__item-inner {
+  display: inline-block;
+  vertical-align: middle;
+  width: 50%;
+}
+
+.card__item-right {
+  text-align: right;
+}
+
+.card__item-tip {
+  color: var(--tip-color);
+  font-size: var(--font-size-lv08);
+}
+
+.card__item-content .radio {
+  display: inline-block;
+}
+
+.card__item-content input[type=text] {
+  height: .2rem;
+  border: 1px solid var(--border-grey);
+  width: .2rem;
+  margin: 0 .02rem;
+  font-size: .1rem;
+  padding-left: .01rem;
+}
+
+.card__item-inner .readonly {
+  font-size: .1rem;
+  text-align: right;
+}
+
+.chase-page__card--margin-top {
+  margin-top: .1rem;
+}
+
+.chase-confirm-table .table thead td {
+  font-size: .08rem;
+}
+
+.chase-confirm-table .table td {
+  padding: .05rem 0;
+}
+
+.chase-bar {
+  display: flex;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  line-height: .3rem;
+  background: var(--white);
+}
+
+.chase-summary-text {
+  flex: 8;
+  padding-left: .1rem;
+}
+
+.chase-button {
+  flex: 2;
+  background: var(--sunshine);
+  text-align: center;
+}

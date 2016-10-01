@@ -129,7 +129,7 @@
     font-family: '微软雅黑';
     font-size: 14px;
 
-    .tree-view {
+    .tree-view2 {
       height: 345px;
       overflow-y: auto;
       ul{
@@ -286,7 +286,7 @@
     overflow: auto;
   }
 
-  .tree-view {
+  .tree-view2 {
     >ul li a {
       color: $dark-color;
     }
@@ -321,7 +321,7 @@
 
   .nc-ilSend-sendTo-content{
     height: auto;
-    margin-top: 86px;
+    margin-top: 15px;
   }
 }
 

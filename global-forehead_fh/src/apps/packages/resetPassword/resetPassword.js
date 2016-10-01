@@ -1,10 +1,6 @@
 require('./resetPassword.scss');
 require('./../misc/common-init.js');
 
-var footer = require('../../components/footer');
-
-var Encryption =  require('com/encryption');
-
 $.widget('gl.resetPassword', {
 
   template: require('./resetPassword.html'),
@@ -27,6 +23,20 @@ $.widget('gl.resetPassword', {
     this.panel01Verify();
     this.safetyTipsBind();
     this.verifyQesBind();
+
+    var self = this;
+    $inp = $('input'); 
+    $inp.keypress(function (e) {
+        var key = e.which;
+        if (key == 13) {
+          if ( !$('.panel01').hasClass('hidden') ) {
+            self.verifyUNHandler();
+          }
+          else if (!$('.js-moneyPasswdTips').hasClass('hidden')) {
+            self.verifyFPHandler();
+          }
+        }
+    });
   },
 
   _bindEvent: function () {
@@ -442,9 +452,9 @@ $.widget('gl.resetPassword', {
     }
   },
 
-  verifyFPHandler: function (e) {
+  verifyFPHandler: function () {
     var self = this;
-    var $target = $(e.currentTarget);
+    var $target = $('.js-rp-verifyFPBtn');
     var type = $target.data('type');
 
     if(this.$valMoneyPasswd.val().length < 6){
@@ -583,7 +593,7 @@ $.widget('gl.resetPassword', {
 
   verifyUNHandler: function(e){
     var self = this;
-    var $target = $(e.currentTarget);
+    var $target = $('.js-rp-verifyUNBtn');
 
     var iIs = 0;
 
@@ -639,6 +649,7 @@ $.widget('gl.resetPassword', {
             $('.safety-email button').removeClass('hidden');
             $('.emailFind h1').html('登录密码找回邮件已发送至您的邮箱：' + res.root.email);
           }
+          $('.js-panel02-black').focus();
         } else {
           Global.ui.notification.show('用户名验证失败');
         }

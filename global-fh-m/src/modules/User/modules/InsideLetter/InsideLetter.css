@@ -1,0 +1,12 @@
+@import 'variable.css';
+
+.toolbar-middleBtn {
+  padding: 0.04rem 0.15rem;
+  border: 1px solid #fff;
+  color: #fff;
+}
+
+.toolbar-middleBtn.active {
+  background: #616161;
+}
+

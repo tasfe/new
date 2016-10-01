@@ -74,10 +74,6 @@ var InsideLetterView = Base.ItemView.extend({
     this.singleChat = new Chat();
     this.$singleChat.html(this.singleChat.render().el);
 
-    $('.js-single-to-user').change(function(){
-      self.showCurrentSingleChat();
-    });
-
     if (this.options.reqData && this.options.reqData.userId) {
       this.singleSelect.selectUser(this.options.reqData.userId, this.options.reqData.name);
     }
@@ -102,18 +98,9 @@ var InsideLetterView = Base.ItemView.extend({
     }
 
     $('.js-selected-container li').removeClass('sd');
-    $('.js-selected-container li').removeClass('sd2');
     for (var i = $('.js-selected-container li').length - 1; i >= 0; i--) {
       if( $('.js-selected-container li').eq(i).data('id') == userId ){
         $('.js-selected-container li').eq(i).addClass('sd');
-      }
-    }
-
-    $('.js-pf-jstree li a').removeClass('sd2');
-    $('.js-pf-jstree li a').removeClass('sd3');
-    for (var i = $('.js-pf-jstree li a').length - 1; i >= 0; i--) {
-      if( $('.js-pf-jstree li a').eq(i).data('no') == userId ){
-        $('.js-pf-jstree li a').eq(i).addClass('sd3');
       }
     }
 
@@ -223,16 +210,6 @@ var InsideLetterView = Base.ItemView.extend({
     }
   },
 
-  showCurrentSingleChat: function() {
-    var self = this;
-
-    window.clearInterval(this.currentChatTimer);
-    this.pullChat();
-
-    this.currentChatTimer = window.setInterval(function() {
-      self.pullChat();
-    }, 3000);
-  },
 
   showCurrentMultiChat: function(partners) {
     this.$multiToUser.val(_(partners).pluck('id').join(','));

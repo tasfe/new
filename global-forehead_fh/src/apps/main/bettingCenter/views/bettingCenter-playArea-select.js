@@ -146,6 +146,7 @@ var BettingCenterPlayAreaView = Base.ItemView.extend({
     var $target = $(e.currentTarget);
     var $parent = $target.closest('.js-bc-playArea-items');
     this._selectNumber($target, $parent);
+    
   },
 
   _selectNumbers: function($targets, $parent) {

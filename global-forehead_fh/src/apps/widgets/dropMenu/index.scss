@@ -4,36 +4,31 @@
 "~base/styles/imports";
 
 $dropMenu: (
-  hover-bg-color: #3d3d3d,
-  sub-hover-bg-color: $color-sunshine
+  hover-bg-color: #2c2c2c,
+  sub-hover-bg-color: #69384c,
+  sub-hover-color: #cccccc
 );
 
 .drop-menu {
+  display: table;
   list-style: none;
   padding: 0;
-  margin-top: 1px;
   > li {
     display: inline-block;
     position: relative;
     z-index: 100;
     &:hover, &:focus {
       > a {
-        //background: map_get($dropMenu, hover-bg-color);
+        background: map_get($dropMenu, hover-bg-color);
         color: $color-sunshine;
-        //outline: none;
+        outline: none;
       }
     }
-    //&:hover .drop-submenu {
-    //  top: 100%;
-    //  left: auto;
-    //}
   }
   a {
     color: $light-color;
     display: block;
-    padding: 18px 10px;
     text-decoration: none;
-    line-height:17px;
     transition: all .2s linear;
     //&:hover, &:focus {
     //  background: map_get($dropMenu, hover-bg-color);
@@ -45,7 +40,7 @@ $dropMenu: (
     .drop-submenu {
       a {
         &:hover {
-          color: map_get($dropMenu, sub-hover-bg-color);
+          color: map_get($dropMenu, sub-hover-color);
           text-decoration: underline;
         }
       }
@@ -57,7 +52,7 @@ $dropMenu: (
       a {
         &:hover {
           background: map_get($dropMenu, sub-hover-bg-color);
-          color: $dark-color;
+          color: map_get($dropMenu, sub-hover-color);
         }
       }
     }
@@ -68,12 +63,11 @@ $dropMenu: (
   background: map_get($dropMenu, hover-bg-color);
   left: -9999px;
   position: absolute;
-  margin-top: -13.6px;
+  top: -9999px;
   width: 100%;
   list-style: none;
   padding: 0;
   a {
-    padding: 5px 10px 5px 24px;
     color: #a79b8b;
   }
 }

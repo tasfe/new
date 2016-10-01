@@ -1,0 +1,18 @@
+@import 'variable.css';
+.pagination {
+  margin: .1rem;
+  text-align: center;
+
+  .page-btn, .page-num {
+    padding: .05rem .15rem;
+  }
+
+  .page-btn {
+    color: var(--mid-gray);
+    border: 1px solid var(--mid-gray);
+    background: var(--fair-gray);
+  }
+  .page-num {
+    color: var(--dark-gray);
+  }
+}

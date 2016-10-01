@@ -1,0 +1,77 @@
+@import 'variable.css';
+
+.betting-userInfo {
+  color: white;
+  text-align: center;
+  background: #191211;
+  height: 0.9rem;
+  padding: 0.15rem;
+}
+
+.betting-userInfo-img {
+  float: left;
+  height: .6rem;
+  width: 30%;
+}
+.betting-userInfo-img-head {
+  border-radius: 50%;
+  width: 0.6rem;
+  display: inline-block;
+  float: left;
+}
+.betting-userInfo-img-vip {
+  border-radius: 50%;
+  width: 0.16rem;
+  height: 0.16rem;
+  display: inline-block;
+  margin: 0 0 0 -0.2rem;
+  background-color: #fbd853;
+  color: red;
+  font-size: .1rem;
+  /*font-size: 12px;*/
+
+}
+
+.betting-userInfo-right {
+  float: right;
+  width: 70%;
+}
+
+.betting-userInfo-row1{
+  padding-top: 0.1rem;
+  height: .3rem;
+}
+.betting-userInfo-uName{
+  color: #fff;
+  text-decoration: underline;
+}
+.betting-userInfo-row2{
+  padding-top: 0.1rem;
+  height: .3rem;
+}
+
+.betting-userInfo-money-detail{
+  color: #fff;
+}
+
+.betting-userInfo-userName {
+  margin-bottom: 0.06rem;
+  font-size: 0.12rem;
+}
+
+.betting-userInfo-userName a {
+  color: white;
+  text-decoration: underline;
+  margin: 0 0.01rem;
+}
+
+.betting-userInfo-balance-text {
+  color: #eecf2a;
+  margin-top: 5px;
+}
+
+.letter{
+  background: url(/images/letter.png) no-repeat;
+  width: 0.16rem;
+  height: 0.1rem;
+}

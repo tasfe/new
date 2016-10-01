@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0, maximum-scale=1, minimum-scale=1">
+    <meta charset="utf-8">
+    <title>繁华娱乐</title>
+
+    <style>
+      .charge-text {
+        width:  100%;
+        text-align: center;
+        margin-top: 35px;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 13px;
+      }
+      .font-sm {
+        font-size: 14px;
+      }
+      .font-md {
+        font-size: 16px;
+      }
+    </style>
+    <script>
+    </script>
+  </head>
+  <body>
+    <div id="app">
+      <div class="charge-img"></div>
+      <div class="charge-text"></div>
+    </div>
+    <script src="js/jquery-2.2.1.min.js"></script>
+    <script>
+
+      function getQuery(name, target) {
+        target = target || window.location.href
+        var matcher = target.match(new RegExp('[\?\&]' + name + '=([^\&\?\#]+)'))
+        return matcher ? matcher[1] : ''
+      }
+
+      var type = getQuery('type');
+      var content = '<span class="font-md">充值成功，请返回平台查看充值结果！</span>';
+      if(type==='1'){
+        content = '<span class="font-md">充值异常！</span><br/><span class="font-sm">因为网络延迟以及第三方支付系统的延迟有可能导致您的到账较慢，</span><br/><span class="font-sm">请耐心等待。</span>';
+      }
+      $('.charge-text').html(content);
+    </script>
+  </body>
+</html>

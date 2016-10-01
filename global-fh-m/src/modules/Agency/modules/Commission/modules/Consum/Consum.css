@@ -1,0 +1,12 @@
+@import 'variable.css';
+
+.rm-personal {
+    background: var(--white);
+
+    .table caption {
+        background: var(--orange);
+        color: var(--white);
+    }
+}
+
+

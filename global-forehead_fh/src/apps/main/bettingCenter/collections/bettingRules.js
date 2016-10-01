@@ -83,7 +83,6 @@ var BettingRulesCollection = Collection.extend({
     });
   },
 
-
   getPlayInfo: function(groupId, playId) {
     var groupInfo = _(this.currentLevel).findWhere({
       playGroupId: groupId

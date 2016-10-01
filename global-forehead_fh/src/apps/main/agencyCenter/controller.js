@@ -40,6 +40,9 @@ var LowLevelUserManageView =  require('agencyCenter/views/index');
 
 var SalaryView = require('agencyCenter/views/salaryManage');
 
+var BettingRecordView = require('agencyCenter/bettingRecords');
+var MoneyDetailsView = require('agencyCenter/moneyChange');
+
 var AgencyCenterController = RouterController.extend({
 
   lowLevelManage: function() {
@@ -61,6 +64,26 @@ var AgencyCenterController = RouterController.extend({
         $('.js-julien-data4').text( data.todayBonusTotal);
       }
     });
+  },
+
+  accountDetails2: function() {
+    this.changeMainReginView(new MoneyDetailsView(), {
+      main: {
+        title: '账户明细'
+      },
+      sidebar: Global.ui.menu.get(['ac'])
+    });
+    $('#main > .clearfix').addClass('ac-block');
+  },
+
+  bettingRecords2: function() {
+    this.changeMainReginView(new BettingRecordView(), {
+      main: {
+        title: '投注记录'
+      },
+      sidebar: Global.ui.menu.get(['ac'])
+    });
+    $('#main > .clearfix').addClass('ac-block');
   },
 
   getTeamOnlineXhr: function() {

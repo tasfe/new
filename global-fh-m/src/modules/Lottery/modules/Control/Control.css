@@ -1,0 +1,48 @@
+@import 'variable.css';
+
+.control{
+  margin-bottom: .2rem;
+  .checkbox label{
+    position: relative;
+    z-index: 2;
+  }
+}
+
+
+.control-info{
+  padding: .2rem .1rem;
+  font-size: var(--font-size-lv12);
+  position: relative;
+  z-index: 2;
+
+  p{
+    display: inline-block;
+    margin-right: .2rem;
+    position: relative;
+
+    .red-txt{
+      color: var(--danger);
+    }
+  }
+}
+.control-check{
+  margin-bottom: .1rem;
+}
+.control-check .checkbox-text {
+  position: absolute;
+  display: inline-block;
+  width: 1.5rem;
+  color: var(--dark-gray);
+}
+.control-form {
+
+  .btn{
+    height: .24rem;
+    line-height: .24rem;
+    padding: 0 .1rem;
+  }
+
+  .iForm-controls{
+    text-align: right;
+  }
+}

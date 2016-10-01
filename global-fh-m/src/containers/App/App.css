@@ -1,0 +1,83 @@
+@import 'variable.css';
+@import 'components/Alert/Alert.css';
+
+
+.toolbar,
+.menu-bar {
+  /*background: var(--main-color);*/
+  background: var(--yb-dark-gray);
+  position: absolute;
+  z-index: 3;
+  left: 0;
+  right: 0;
+  height: .35rem;
+  padding: .1rem;
+}
+.toolbar {
+  top: 0;
+  text-align: center;
+  color: #fff;
+
+  button {
+    font-size: .1rem;
+    background: none;
+    top: 0.1rem;
+  }
+
+  .page-title {
+    color: var(--white);
+  }
+}
+
+.menu-bar {
+  bottom: 0;
+}
+
+.main {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--eggshell);
+  padding: .35rem 0;
+}
+
+.relative-main-container {
+  position: relative;
+  height: 100%;
+  overflow-y: auto;
+  /*background: var(--white);*/
+}
+
+.iForm-list{
+  margin: .16rem 0 .1rem;
+}
+.iForm-list li{
+  //border-bottom: 1px solid #cdcdcd;
+  //background: #fff;
+  padding: 0 .1rem .1rem;
+  position: relative;
+}
+.iForm-list li:first-child{
+  //border-top:1px solid #cdcdcd;
+}
+.iForm-list-inner{
+  font-size: var(--font-size-lv12);
+  display: block;
+  font-weight: normal;
+  margin:0;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid #d9d6c5;
+  padding: .06rem .1rem;
+}
+.iForm-list-inner span{
+  height: .14rem;
+  line-height: .14rem;
+  //float: left;
+}
+.btn-back i {
+  font-size: 0.2rem;
+  margin-top: -0.02rem;
+}

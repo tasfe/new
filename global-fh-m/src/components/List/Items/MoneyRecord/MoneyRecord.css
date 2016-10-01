@@ -1,0 +1,60 @@
+@import 'variable.css';
+
+.money-item{
+  padding: .1rem 0;
+  >div{
+     display: inline-block;
+   }
+}
+
+.money-item-left{
+  width: 10%;
+  text-align: left;
+  vertical-align: middle;
+  padding: 0;
+}
+
+.money-item-mid{
+  width: 50%;
+  text-align: left;
+  font-size: .14rem;
+  line-height: .2rem;
+  padding: 0 .1rem;
+  vertical-align: middle;
+}
+
+
+.money-item-right{
+  width: 40%;
+  text-align: right;
+  font-size: .16rem;
+  vertical-align: middle;
+}
+.money-item-mid-1,.money-item-mid-2{
+  line-height: .2rem;
+}
+
+.money-item-icon{
+  width: .25rem;
+  height: .25rem;
+}
+.money-item-icon-bet{
+  background: url(/images/md-bet.png) no-repeat;
+}
+
+.money-item-icon-prize{
+  background: url(/images/md-prize.png) no-repeat;
+}
+
+.money-item-icon-recharge{
+  background: url(/images/md-recharge.png) no-repeat;
+}
+
+
+.money-item-icon-withdraw{
+  background: url(/images/md-withdraw.png) no-repeat;
+}
+
+.money-item-icon-transfer{
+  background: url(/images/md-transfer.png) no-repeat;
+}

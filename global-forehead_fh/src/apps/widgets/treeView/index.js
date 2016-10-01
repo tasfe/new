@@ -1,7 +1,7 @@
 $.widget('gl.treeView', {
 
   template: '' +
-    '<div class="tree-view font-16 clearfix"></div>',
+    '<div class="tree-view2 font-16 clearfix"></div>',
 
   options: {
     namespace: 'treeView',
@@ -44,12 +44,12 @@ $.widget('gl.treeView', {
   insertNode: function(data, target, position) {
     var $target;
     if (_.isNumber(target)) {
-      $target = this.element.find('.tree-view li').eq(target);
+      $target = this.element.find('.tree-view2 li').eq(target);
 
     } else if (_.isObject(target)) {
       $target = $(target).closest('li').find('.subtree');
     } else {
-      $target = this.element.find('.tree-view ul');
+      $target = this.element.find('.tree-view2 ul');
     }
 
     position = position || 'html'; // ['before' | 'after' | 'prepend' | 'append']
@@ -74,7 +74,7 @@ $.widget('gl.treeView', {
       if ($target.length) {
         $target[position](nodeHtml);
       } else {
-        this.element.find('.tree-view ul').prepend(nodeHtml);
+        this.element.find('.tree-view2 ul').prepend(nodeHtml);
       }
 
       this._updateLastItemClass($target);
@@ -147,7 +147,7 @@ $.widget('gl.treeView', {
     
 
     var liOpenTagHtml = '<li class="' + openable + isLastLink + '">' +
-      '<a href="javascript:void 0;" data-data=\'' + (JSON.stringify(data) || '{}') + '\' data-no="' + value + '" data-headId="' + headId + '" data-name="' + text + '" class="js-wt-title ' + onlineCss + '">' + '<i></i>' +
+      '<a href="javascript:void 0;" data-data=\'' + (JSON.stringify(data) || '{}') + '\' data-no="' + value + '" data-headId="' + headId + '" data-name="' + text + '" class="js-wt-title ' + onlineCss + '">' +
       checkboxHtml + icon + extraContent + '<span>' + text + '</span>' + strNewMsgNum + '</a>' + strStrong + '</li>';
 
     return liOpenTagHtml;

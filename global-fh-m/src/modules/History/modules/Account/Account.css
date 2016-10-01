@@ -1,0 +1,33 @@
+@import 'variable.css';
+
+.account-detail{
+  background-color: #191312;
+  padding: 0 .2rem;
+
+}
+.account-detail-item{
+  display: inline-block;
+  width: 50%;
+  height: .5rem;
+  color: #fff;
+  font-size: .12rem;
+}
+.account-detail-item1{
+
+
+  border-right: 1px solid #484340;
+  border-bottom: 1px solid #484340;
+}
+.account-detail-item2{
+  border-bottom: 1px solid #484340;
+}
+.account-detail-item3{
+  border-right: 1px solid #484340;
+}
+.account-detail-item-desc{
+  padding: .1rem .15rem;
+}
+
+.account-detail-amount{
+  color: #ca3331;
+}
