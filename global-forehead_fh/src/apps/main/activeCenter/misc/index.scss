@@ -6,151 +6,79 @@
 
 .main-active-container{
     width: 100%;
-    .active-container-header{
-        width: 100%;
-        height: 50px;
-        ul{
-            height: 40px;
-            border-bottom: 2px solid #a60000;
-            padding-bottom: 1px;
-            font-size: 16px;
-        }
-        li{
-            border-left: 1px solid #cccccc;
-            border-right: 1px solid #cccccc;
-            border-top: 1px solid #cccccc;
-            width: 140px;
-            list-style: none;
-            margin-bottom: 2px;
-            height: 40px;
-            line-height: 40px;
-            background-color: #fff;
-            text-align: center;
-            float: left;
-            margin-right: 5px;
-            color: #000;
-        }
-        .list-active{
-            color: #fff;
-            background: url(~base/images/julien/btn-bg01.jpg) no-repeat;
-        }
-
-    }
-    .active-context{
-        margin-top: -10px;
-        padding-top: 20px;
-        background-color: white;
-        width: 100%;
-        overflow-y: auto;
-        border: 1px solid #ccc;
-        padding-bottom: 30px;
-        height: 800px;
-
-        .active-container-line{
-            background-color: #cccccc;
-            position: absolute;
-            width: 1px;
-            height: 590px;
-            left: 265px;
-            margin: 5px 0px;
-            z-index: 0;
-        }
-        .active-list{
-            width: 100%;
-            padding-bottom: 20px;
-            display: inline-flex;
-            position: relative;
-            .active-left-title{
-                text-align: right;
-                line-height: 30px;
-                font-size: 14px;
-                color: #333333;
-                width: 120px;
-                padding-left: 10px;
-            }
-            .active-badge-comming{
-                background-color: #f90;
-                float: right;
-                width: 50px;
-                height: 22px;
-                line-height: 22px;
-                //font-weight: bolder;
-                font-size: 14px;
-                color: white;
-                text-align: center;
-
-            }
-            .active-badge-running{
-                background-color: #c00;
-                float: right;
-                width: 50px;
-                height: 22px;
-                line-height: 22px;
-                //font-weight: bolder;
-                font-size: 14px;
-                color: white;
-                text-align: center;
-
-            }
-            .active-badge-over{
-                background-color: #ccc;
-                float: right;
-                width: 50px;
-                height: 22px;
-                line-height: 22px;
-                font-size: 14px;
-                color: white;
-                text-align: center;
-
-            }
-            .round-dot-comming{
-                background-color: #f90;
-                margin: 20px 30px 0px 30px;
-                width: 10px;
-                height: 10px;
-                border-radius: 35px;
-                z-index: 2;
-            }
-            .round-dot-running{
-                background-color: #c00;
-                margin: 20px 30px 0px 30px;
-                width: 10px;
-                height: 10px;
-                border-radius: 35px;
-                z-index: 2;
-            }
-            .round-dot-over{
-                background-color: #ccc;
-                margin: 20px 30px 0px 30px;
-                width: 10px;
-                height: 10px;
-                border-radius: 35px;
-                z-index: 2;
-            }
-            .active-round-line{
-                position: absolute;
-                height: 100%;
-                width: 2px;
-                border-left: 2px solid rgb(204, 204, 204);
-                left: 164px;
-            }
-            .active-right-content{
-                border: 1px solid lightgrey;
-                width: 965px;
-                height: 200px;
-                overflow: hidden;
-                .active-right-image{
-                    width: 100%;
-                }
-                .active-right-time{
-                    border-top: 1px solid lightgrey;
-                    line-height: 30px;
-                    height: 30px;
-                    width: 100%;
-                }
+    .at-activity-main{
+        margin-top: 30px;
+        width:1200px;
+        height: 160px;
+        .ac-activity-banner{
+            width:1160px;
+            height: 160px;
+            border:solid 1px #cccfcf;
+            border-radius:4px;
+            margin-left: 15px;
+            .ac-activity-image{
+                width:615px;
+                height: 138px;
+                margin-top: 10px;
+                margin-left: 10px;
+                float: left;
             }
         }
-
+        .ac-activity-word{
+            width:525px;
+            height: 138px;
+            overflow: hidden;
+            margin-top: 10px;
+            .ac-activity-title{
+                margin-left: 10px;
+                font-size: 18px;
+                display:inline-block;
+                line-height: 28px;
+                float: left;
+            }
+            .ac-activity-status-running{
+                background-color: #C7343A;
+                display: inline-block;
+                color: #ffffff;
+                margin-left: 10px;
+                font-size: 12px;
+                border: solid 1px #C7343A;
+                border-radius: 8px;
+                height: 24px;
+                line-height: 24px;
+                padding: 0 10px;
+            }
+            .ac-activity-status-coming{
+                background-color: #FB6834;
+                display: inline-block;
+                color: #ffffff;
+                margin-left: 10px;
+                font-size: 12px;
+                border: solid 1px #FB6834;
+                border-radius: 8px;
+                height: 24px;
+                line-height: 24px;
+                padding: 0 10px;
+            }
+            .ac-activity-status-end{
+                background-color: #CDCDCD;
+                display: inline-block;
+                color: #ffffff;
+                margin-left: 10px;
+                font-size: 12px;
+                border: solid 1px #CDCDCD;
+                border-radius: 8px;
+                height: 24px;
+                line-height: 24px;
+                padding: 0 10px;
+            }
+            .ac-activity-des{
+                margin-left: 10px;
+            }
+            .ac-activity-time{
+                margin-top:5px;
+            }
+        }
     }
 
 }

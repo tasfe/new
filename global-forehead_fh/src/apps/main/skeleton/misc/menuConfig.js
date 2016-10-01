@@ -221,35 +221,36 @@ var menuConfig = [
     //  name: '平台动态',
     //  icon: 'notice'
     //},
+
     {
-        router: 'aa',
-        name: '消息中心',
-        titleClass: 'bg-blue',
-        backStyle: 'text-blue',
+        router: 'at',
+        name: '活动中心',
+        first: 'at/tb',
+        titleClass: 'bg-sunshine',
+        backStyle: 'text-sunshine',
         iconType: 'sfa',
         icon: 'activity',
         sub: [
             {
                 id: 190,
-                router: 'nc/pn',
-                name: '系统通知'
+                router: 'at/tb',
+                name: '全部活动'
             },
             {
                 id: 191,
-                router: 'nc/nb',
-                name: '平台动态'
+                router: 'at/ag',
+                name: '代理活动'
             },
             {
                 id: 192,
-                router: 'aa',
-                name: '活动'
-            }
-            //{
-            //  id: 193,
-            //  router: 'hc',
-            //  name: '帮助中心'
-            //}
-        ]
+                router: 'at/ti',
+                name: '彩票活动'
+            },
+            {
+                id: 193,
+                router: 'at/ol',
+                name: '真人娱乐'
+            }]
     },
     {
         router: 'hc',
