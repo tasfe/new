@@ -30,7 +30,7 @@
   </div>
   <div class="bc-main-area">
     <div class="js-bc-rules bc-menu">
-      <div class="bc-toggle">
+      <div class="js-bc-toggle bc-toggle hidden">
         <span class="js-bc-play-toggle bc-play-toggle" data-type="special">
           <span class="sfa sfa-bc-play-optional v-middle"></span> 任选玩法
         </span>
@@ -40,7 +40,7 @@
       </div>
       <div class="js-bc-basic-rules bc-basic-rules"></div>
       <div class="js-bc-optional-rules bc-basic-rules hidden"></div>
-      <div class="js-rule-title-hidden-temp "></div>
+      <div class="js-rule-title-hidden-temp"></div>
     </div>
     <div class="bc-play-section">
       <div class="js-bc-advance-rules"></div>
@@ -56,8 +56,6 @@
           <span style="float:right; color:#cc0000; margin-top:2px; margin-right:100px;">
             奖金模式：<span class="js-bc-bet-mode">1950</span>
           </span>
-          &nbsp;&nbsp;
-
         </div>
       </div>
     </div>
@@ -70,15 +68,14 @@
     </div>
 
     <div class="bc-statics-area">
-
-      <div class="bc-result-container">
+      <span class="bc-result-container">
         <select class="js-bc-type-select bc-type-select">
           <option value="1">普通投注</option>
           <option value="2">自定义投注</option>
         </select>
         <span class="bc-result-container2 hidden ">
-        投注金额 
-        <input type="text" name="">
+        投注金额
+        <input name="customizeMoney" type="text" class="js-gl-monitor js-bc-customize-money" data-monitor-type="number" data-monitor-range="[1, 9999]" value="0">
         <span>元</span>
       </span>
         <span class="bc-result-container3 ">
@@ -92,13 +89,15 @@
         </div>
         <div class="js-bc-multi-range bc-multi-range inline-block vertical-middle num-range"></div>
         倍
-        <span class="adsf1">共<span class="js-bc-statistics-money">0</span>元</span>
+          <span class="font-xs">
         <span>您选择了：</span>
         <span class="js-bc-statistics-lottery">0</span>
         <span>注</span>
-      </div>
-      <span class="js-bc-quick-bet bet-quick hidden"><i class="icon-ok-sign"></i>快速投注</span>
-      <span class="js-bc-quick-bet1 bet-quick1"><i class="icon-ok-sign"></i>快速投注</span>
+          </span>
+        <span class="">共<span class="js-bc-statistics-money">0</span>元</span>
+      </span>
+      <span class="js-bc-quick-bet bet-quick hidden"><i class="icon-ok-sign"></i>直接投注</span>
+      <span class="js-bc-quick-bet1 bet-quick1"><i class="icon-ok-sign"></i>直接投注</span>
     </div>
   </div>
 </div>

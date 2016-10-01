@@ -840,11 +840,6 @@ $main-area-width: 870px;
     clear: both;
   }
 
-  .bc-result-container{
-    width: 600px;
-    float: left;
-  }
-
   .bet-quick{
     width: 134px;
     height: 32px;
@@ -1016,7 +1011,6 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
 
   .bc-multi-range{
     height: 26px;
-    margin-right: 5px;
 
     span{
       width: 26px;
@@ -1821,11 +1815,6 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
 
 .js-wt-number{
   background-color: #f6f6f6 !important;
-}
-
-.adsf1{
-  display: inline-block;
-  margin-right: 10px;
 }
 
 .add-number{
