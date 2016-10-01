@@ -3,15 +3,18 @@
     <table width=100% id="tm" border=0 cellpadding=0 cellspacing=0>
       <tr>
         <td width="200">
-          <strong><%=zhName %>：走势图</strong>
+          <span class="sfa sfa-trend trend-icon"></span><strong><%=zhName %>：走势图</strong>
         </td>
-
+        <td class="js-toggle-btn-group trend-toggle-btn-group hidden" width="300">
+          <button class="js-toggle-page1 btn trend-po trend-po1 active">第一名~第五名</button>
+          <button class="js-toggle-page2 btn trend-po trend-po2 ">第六名~第十名</button>
+        </td>
         <td align=left>
           <form class="js-plan-search no-margin" action="javascript:void(0)">
             <label for="has_line" class="inline-block">
-              <input type="checkbox" name="checkbox2" value="checkbox" id="has_line"/>显示折线
+              <input type="checkbox" name="checkbox2" value="checkbox" id="has_line" class="trend-checkbox"/>显示折线
             </label>
-            <span class="js-plan-select"></span>
+            <span class="js-plan-select trend-plan-btn-group"></span>
           </form>
         </td>
       </tr>

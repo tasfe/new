@@ -2,6 +2,7 @@
 
 var sscPositions = ['万位', '千位', '百位', '十位', '个位'];
 var sscOneDay = 120;
+var PK10Positions = ['第一名', '第二名', '第三名', '第四名', '第五名', '第六名', '第七名', '第八名', '第九名', '第十名'];
 
 var sscConfig = [
   {
@@ -19,6 +20,14 @@ var sscConfig = [
     positions: sscPositions,
     oneDay: -1,
     zhName: "秒秒彩"
+  },
+  {
+    id: 18,
+    count: 10,
+    num: _.range(1, 11),
+    positions: PK10Positions,
+    oneDay: -1,
+    zhName: "北京PK10"
   },
   {
     id: 10,
