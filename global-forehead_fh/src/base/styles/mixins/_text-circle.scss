@@ -1,6 +1,5 @@
-@mixin text-circle-size($class, $sizeProps) {
+@mixin text-circle-size($class, $sizeProp) {
 
-  $sizeProp: map_get($sizeProps, $class);
   $size: map_get($sizeProp, width);
   $font-size: map_get($sizeProp, font-size);
 
@@ -10,6 +9,18 @@
   height: $size;
   line-height: $size;
   font-size: $font-size;
+}
+
+@mixin text-circle-sizes($styles) {
+  @each $class, $props in $styles {
+    @if ($class == default) {
+      @include text-circle-size($class, $props);
+    } @else {
+      &.text-circle-#{$class} {
+        @include text-circle-size($class, $props);
+      }
+    }
+  }
 }
 
 @mixin text-circle-color($class, $colorProp) {

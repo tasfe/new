@@ -40,6 +40,8 @@ var BettingRecordsView = Base.ItemView.extend({
   },
 
   _renderSSCLotteryRecord: function () {
+    var self = this;
+
     return {
       tableClass: this.tableClass,
       colModel: [
@@ -49,15 +51,20 @@ var BettingRecordsView = Base.ItemView.extend({
         {label: '开奖号码', name: 'ticketOpenNum', width: '35%', formatter: function(val) {
           var html = ['<div class="open-nums">'];
           var numList = val.split(',');
-          _(numList).each(function(num) {
-            html.push('<span class="key-num">' + num + '</span>');
-            // html.push('<span>' + num + '</span>');
+          _(numList).each(function(num, index) {
+            if (self.playRule && self.playRule.formType && self.playRule.keyPosition[index]) {
+              html.push('<span class="key-num">' + num + '</span>');
+            } else {
+              html.push('<span>' + num + '</span>');
+            }
           });
           html.push('</div>');
 
           return html.join('');
         }},
-        {label: '形态', name: 'type', width: '20%'}
+        {label: '形态', name: 'ticketOpenNum', width: '20%', formatter: function(val) {
+          return self.getFormType(val, self.playRule && self.playRule.keyPosition, self.playRule && self.playRule.formType);
+        }}
         //{label: '开奖号', name: 'ticketOpenNum', width: '24%'},
         //{label: '前三', name: 'qianSan', width: '17%'},
         //{label: '后三', name: 'houSan', width: '17%', formatter: function (val) {
@@ -125,6 +132,94 @@ var BettingRecordsView = Base.ItemView.extend({
 
   update: function() {
      this.renderDrawRecords();
+  },
+
+  updateByPlayRule: function(playRule) {
+    this.playRule = playRule;
+
+    this.drawRecords.reformat();
+  },
+
+  //取得形态
+  getFormType: function(nums, keyPosition, type) {
+    var formType;
+    var numList = nums.split(',');
+    switch (type) {
+      case 'GROUP':
+        formType = this.getFormGroup(numList, keyPosition);
+        break;
+      case 'PAIR':
+        formType = this.getFormPair(numList, keyPosition);
+        break;
+      case 'DRAGON':
+        formType = this.getFormDragon(numList, keyPosition);
+        break;
+      default:
+        formType = '';
+        break;
+    }
+
+    return formType;
+  },
+
+  getFormGroup: function(numList, keyPosition) {
+    var formType = '';
+
+    var tempList = _(numList).chain().filter(function(val, index) {
+      return keyPosition[index];
+    }).union().value('');
+    switch (tempList.length) {
+      case 1:
+        formType = '豹子';
+        break;
+      case 2:
+        formType = '组三';
+        break;
+      case 3:
+        formType = '组六';
+        break;
+      default:
+        break;
+    }
+
+    return formType;
+  },
+
+  getFormPair: function(numList, keyPosition) {
+    var formType = '';
+
+    var tempList = _(numList).chain().filter(function(val, index) {
+      return keyPosition[index];
+    }).union().value('');
+    switch (tempList.length) {
+      case 1:
+        formType = '对子';
+        break;
+      case 2:
+        formType = '单号';
+        break;
+      default:
+        break;
+    }
+
+    return formType;
+  },
+
+  getFormDragon: function(numList, keyPosition) {
+    var formType = '';
+
+    var tempList = _(numList).filter(function(val, index) {
+      return keyPosition[index];
+    });
+    if (tempList[0] > tempList[1]) {
+      formType = '<div class="text-circle text-circle-xs text-circle-hot">龙</div>';
+    } else if (tempList[0] < tempList[1]) {
+      formType = '<div class="text-circle text-circle-xs text-circle-sky">虎</div>';
+    } else {
+      formType = '<div class="text-circle text-circle-xs text-circle-peaceful">和</div>';
+    }
+
+    return formType;
   }
 });
 
