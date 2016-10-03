@@ -9,7 +9,7 @@ var BettingRecordsView = Base.ItemView.extend({
   events: {
   },
 
-  height: 340,
+  height: 240,
 
   tableClass: 'table table-center',
 

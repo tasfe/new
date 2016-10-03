@@ -356,10 +356,11 @@ $radios: (
 //popover
 $popovers: (
   default: (
-    title-color: $light-color,
-    title-bg-color: $color-sunshine,
-    content-color: $font-color,
-    content-bg-color: $white-color
+    title-color: $dark-color,
+    title-bg-color: $white-color,
+    content-color: $light-dark-color,
+    content-bg-color: $white-color,
+    arrow-color: #c86597
   )
 );
 
