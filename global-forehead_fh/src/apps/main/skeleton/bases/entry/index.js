@@ -209,19 +209,29 @@ var EntryView = Base.ItemView.extend({
     var w = 0;
     var w2 = 0;
     var w3 = 1130;
+    var next=0;
+    // var childLength=$('.db-slogan .g2').find("a").length();
     setTimeout(function(){
-      w = $('.db-slogan .g2 a').width();
+      w = $('.db-slogan .g2 .on').width();
       w2 = w;
 
       self.timer22 = setInterval(function() {
         if(w2 + w <= 0){
+          next+=1;
+          $('.db-slogan .g2 a').css('left',"1130px");
+          $('.db-slogan .g2 a').removeClass("on");
+          $('.db-slogan .g2 a:eq('+next+')').addClass("on");
+          if(next == 4){
+            next=-1;
+          }
+
           w2 = w3;
         }
         else{
           w2 -= 1;
         }
         
-        $('.db-slogan .g2 a').css('left',w2);
+        $('.db-slogan .g2 .on').css('left',w2);
       }, 20);
     }, 1000);
   },

@@ -1,0 +1,8 @@
+<span>
+      <i class="icon-bullhorn"></i>
+    </span>
+<div class="g2">
+    <% _(data.buList).each(function(item, index) {    %>
+        <a href="#" class="js-g2-a <% if (index === 0) { %> on <% } %>" data-bulletionId="<%=item.bulletionId %>"><%=item.title%></a>
+    <% }) %>
+</div>
