@@ -1,6 +1,6 @@
 "use strict";
 
-var TabView = require('com/tabChaseView');
+var TabView = require('com/tabView');
 
 var ChaseNormalView = require('bettingCenter/views/bettingCenter-chase-normal');
 var ChaseProfitView = require('bettingCenter/views/bettingCenter-chase-profit');
@@ -11,7 +11,7 @@ var BettingChaseView = TabView.extend({
   events: {},
 
   options: {
-    tabClass: 'nav-tabs nav-tabs-border'
+    tabClass: 'nav-tabs nav-tabs-special'
   },
 
   initialize: function () {

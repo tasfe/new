@@ -41,7 +41,7 @@ var BettingRecordsView = Base.ItemView.extend({
            // return '<a class="router btn-link" href="#uc/br/detail/' + bet.ticketTradeNo + '">' + val.substring(4) + '</a>';
            return '<a class="router btn-link">' + val.substring(4) + '</a>';
          }},
-         {label: '投注金额', name: 'betTotalMoney', width: '22%', formatter: function(val) {
+         {label: '投注金额', name: 'betTotalMoney', width: '20%', formatter: function(val) {
            return _(val).fixedConvert2yuan();
          }},
          {label: '状态', name: 'prizeTotalMoney', width: '20%', formatter: function(val, index, bet) {
@@ -57,7 +57,7 @@ var BettingRecordsView = Base.ItemView.extend({
              prizeClass: 'text-pink'
            });
          }},
-         {label: '', name: 'betTotalMoney', width: '40%', formatter: function(val, index, bet) {
+         {label: '', name: 'betTotalMoney', width: '38%', formatter: function(val, index, bet) {
            var html = [];
 
            html.push('<button class="js-bc-betting-again btn btn-xs btn-pure" data-loading-text="再投一注">再投一注</button>');

@@ -221,7 +221,7 @@ var BettingCenterView = Base.ItemView.extend({
         //{label: '奖金模式', name: 'bonusMode', width: '20%'},
         {label: '注数', name: 'mode', width: '60px'},
         {label: '投注金额', name: 'mode2', width: '20%'},
-        {label: '<i class="icon-trash"></i>', name: 'mode3', width: '10%'}
+        {label: '<i class="fa fa-trash"></i>', name: 'mode3', width: '10%'}
         //{label: '注数/倍数/模式', name: 'mode', width: '20%'}
         //{label: '投注金额', name: 'bettingMoney', width: '17%'}
       ],
@@ -433,7 +433,7 @@ var BettingCenterView = Base.ItemView.extend({
 
   renderPlayInfo: function(playInfo) {
 
-    this.$playExample.html('<i class="icon-question-sign"></i>玩法说明：' + playInfo.playExample).attr('title', playInfo.playExample);
+    this.$playExample.html('<i class="fa fa-question-sign"></i>玩法说明：' + playInfo.playExample).attr('title', playInfo.playExample);
     this.$playExample2.html( playInfo.playDes.replace(/\|/g, '<br />').replace(/\[max\]/g,_(playInfo.betMethodMax).chain().formatDiv(10000).floor(4).value()).replace(/\[min\]/g,_(playInfo.betMethodMin).chain().formatDiv(10000).floor(4).value()) );
     if (this.$playTip.data('popover')) {
       this.$playTip.popover('destroy');
@@ -625,7 +625,7 @@ var BettingCenterView = Base.ItemView.extend({
         bonusMode: this.getBonusMode(previewInfo.maxBonus, previewInfo.unit, previewInfo.userRebate, previewInfo.betMethod),
         mode: previewInfo.statistics + '注',
         mode2: _(previewInfo.prefabMoney).convert2yuan() + '</span>元',
-        mode3: '<div class="js-bc-lottery-preview-del  icon-remove-sign"></div>'
+        mode3: '<div class="js-bc-lottery-preview-del  fa fa-remove-sign"></div>'
       };
 
     }, this);
@@ -816,8 +816,6 @@ var BettingCenterView = Base.ItemView.extend({
   //    playName: $target.data('title')
   //  });
   //
-  //  var idStr =this.$('.js-rule-title-hidden-temp').html();
-  //
   //  this.$('.js-rule-title-clear').html('');
   //  this.$(".js-rule-title-sub-"+idStr).html($target.data('title'));
   //},
@@ -903,7 +901,7 @@ var BettingCenterView = Base.ItemView.extend({
     var $dialog = Global.ui.dialog.show({
       title: '追号',
       size: 'modal-lg-julien',
-      body: '<div class="js-bc-chase-container menu-bock-chase" style="padding-left: 30px; padding-right: 30px;"></div>',
+      body: '<div class="js-bc-chase-container"></div>',
       bodyClass: 'p-top-xs no-p-left no-p-right no-p-bottom',
       footer: ''
     });

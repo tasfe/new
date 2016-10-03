@@ -42,7 +42,7 @@ var DialogModule = Base.Module.extend({
         html.push('<div class="modal-header-left">消息管理</div>');
       }
       html.push('<div class="modal-header">');
-      html.push('<i class="fa fa-times-circle close js-no-lock  icon-remove-sign"  aria-hidden="true" data-dismiss="modal">');
+      html.push('<i class="fa fa-times-circle close js-no-lock  fa-remove"  aria-hidden="true" data-dismiss="modal">');
       //html.push('<span aria-hidden="true">&times;</span>');
       html.push('</i>');
       html.push('<h4 class="modal-title" id="' + id + 'Label">' +
