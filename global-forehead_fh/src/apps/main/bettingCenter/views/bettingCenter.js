@@ -139,8 +139,6 @@ var BettingCenterView = Base.ItemView.extend({
         $('.js-julien-data41').text( '今日盈亏：'+(data.todayProfitTotal/10000).toFixed(2) );
       }
     });
-
-
   },
 
   getNewPlan: function() {

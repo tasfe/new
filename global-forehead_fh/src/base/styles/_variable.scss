@@ -14,7 +14,7 @@ $inverse-color: #666666 !default;
 $light-color: #f0efee !default;
 $white-color: #ffffff !default;
 $deep-gray-color: #e4e4e4 !default;
-$gray-color: #999999 !default;
+$gray-color: #cecece !default;
 $footer-gray: $gray-color;
 
 $new-hot-color: #fe6760 !default;
@@ -456,19 +456,19 @@ $btns: (
     )
   ),
   pure: (
-    color: $dark-color,
+    color: $gray-color,
     bg-color: $white-color,
     border-color: $gray-color,
     hover: (
-      color: $dark-color,
+      color: $gray-color,
       bg-color: $white-color
     ),
     focus: (
-      color: $dark-color,
+      color: $gray-color,
       bg-color: $white-color
     ),
     active: (
-      color: $dark-color,
+      color: $gray-color,
       bg-color: $white-color
     )
   ),

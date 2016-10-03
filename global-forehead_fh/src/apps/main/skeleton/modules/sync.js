@@ -63,7 +63,8 @@ var SyncModule = Base.Module.extend({
 
       if ((_.isEmpty(ajaxOptions.data) || _.isObject(ajaxOptions.data)) && _.isEmpty(ajaxOptions.files)) {
         ajaxOptions.data = _.extend({
-          token: Global.cookieCache.get('token')
+          token: Global.cookieCache.get('token'),
+          device: 0 // 设备：0PC，1Android，2IOS，3H5
         }, ajaxOptions.data);
       } else {
         ajaxOptions.url += '?token=' + Global.cookieCache.get('token') || '';
