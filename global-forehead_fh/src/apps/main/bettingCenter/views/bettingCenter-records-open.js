@@ -4,7 +4,7 @@ var ticketConfig = require('skeleton/misc/ticketConfig');
 
 var BettingRecordsView = Base.ItemView.extend({
 
-  template: require('bettingCenter/templates/bettingCenter-records-open.html'),
+  template: '',
 
   events: {
   },
