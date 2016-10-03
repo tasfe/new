@@ -221,7 +221,6 @@ var EntryView = Base.ItemView.extend({
           $('.db-slogan .g2 a').css('left',"1130px");
           $('.db-slogan .g2 a').removeClass("on");
           $('.db-slogan .g2 a:eq('+next+')').addClass("on");
-          console.log("next is :"+next);
           if(next == 4){
             next=-1;
           }
