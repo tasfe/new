@@ -4,49 +4,95 @@
 
     <ul class="js-fc-re-tabs view-tabs nav nav-tabs nav-tabs-special nav-tabs-border fc-re-nav-manual-tabs"></ul>
 
-    <div class="js-fc-caption  fc-re-div2"></div>
+    <div class="js-fc-form-area">
+      <div class="js-fc-caption  fc-re-div2"></div>
 
-    <div class="js-div-all fc-re-div3">
-        <table class="js-fc-re-bankList fc-re-bankList"></table>
-    </div>
+      <div class="js-div-all fc-re-div3">
+          <table class="js-fc-re-bankList fc-re-bankList"></table>
+      </div>
 
-    <div  class="fc-re-amount-container-super">
-      <div class="fc-re-amount-container">
-        <div class="control-group">
-          <label class="control-label">充值金额：</label>
-          <div class="controls">
-        <span class="input-append">
-          <input type="text" name="amount" class="js-fc-re-amount" autocomplete="off" required
-                 data-parsley-type="integer">
-          <span class="add-on">元</span>
-        </span>
-            <span class="js-fc-re-amountLimit-tip"></span>
+      <div  class="fc-re-amount-container-super">
+        <div class="fc-re-amount-container">
+          <div class="control-group">
+            <label class="control-label">充值金额：</label>
+            <div class="controls">
+          <span class="input-append">
+            <input type="text" name="amount" class="js-fc-re-amount" autocomplete="off" required
+                   data-parsley-type="integer">
+            <span class="add-on">元</span>
+          </span>
+              <span class="js-fc-re-amountLimit-tip"></span>
+            </div>
           </div>
-        </div>
 
-        <div class="control-group js-fare-alert hidden">
-          <label class="control-label">手续费金额：</label>
-          <div class="controls js-fare-result rc-input-result ">
+          <div class="control-group js-fare-alert hidden">
+            <label class="control-label">手续费金额：</label>
+            <div class="controls js-fare-result rc-input-result ">
+            </div>
           </div>
-        </div>
-        <div class="control-group js-fare-alert hidden">
-          <label class="control-label">到账金额：</label>
-          <div class="controls js-jine-result rc-input-result ">
+          <div class="control-group js-fare-alert hidden">
+            <label class="control-label">到账金额：</label>
+            <div class="controls js-jine-result rc-input-result ">
+            </div>
           </div>
-        </div>
 
-        <div class="control-group">
-          <div class="controls">
-            <ul class="js-fc-re-quickAmounts fc-re-quickAmount"></ul>
+          <div class="control-group">
+            <div class="controls">
+              <ul class="js-fc-re-quickAmounts fc-re-quickAmount"></ul>
+            </div>
           </div>
+
+
         </div>
-
-
+      </div>
+      <div class=" text-center">
+          <button type="button" class="js-fc-re-commit btn btn-pink fc-re-commit">去支付</button>
       </div>
     </div>
-    <div class=" text-center">
-        <button type="button" class="js-fc-re-commit btn fc-re-commit">去支付</button>
+
+    <div class="js-fc-tip-area tip-area" style="display: none">
+      <div class="fc-re-div2">
+        <p class="fc-re-tip-title">
+          充值方式：<span class="js-fc-re-title-type"></span>
+          <span class="m-left-lg">
+            充值金额：<span class="js-fc-re-title-amount text-hot"></span>元
+          </span>
+        </p>
+      </div>
+
+      <div class="fc-re-tip-left">
+        <span class="fc-re-tip-type">充值遇到问题</span>
+        <div>
+          <a class="btn btn-link js-gl-service fc-rc-link fc-rc-link-service" data-dismiss="modal">
+            <div class="fc-re-tip-icon"><span class="sfa sfa-re-tip-service"></span></div>
+            联系客服
+          </a>
+          <a href="#hc?page=recharge-flow" class="btn btn-link m-left-lg fc-rc-link fc-rc-link-help js-dismiss">
+            <div class="fc-re-tip-icon"><span class="sfa sfa-re-tip-help"></span></div>
+            前去帮助中心
+          </a>
+        </div>
+
+      </div>
+      <div class="fc-re-tip-right">
+        <span class="fc-re-tip-type">充值已完成</span>
+        <div>
+          <a class="btn btn-link fc-rc-link fc-rc-link-recharge js-recharge-again">
+            <div class="fc-re-tip-icon"><span class="sfa sfa-re-tip-goon"></span></div>
+            继续充值
+          </a>
+          <a href="#uc/rr" class="btn btn-link m-left-lg fc-rc-link fc-rc-link-result js-dismiss">
+            <div class="fc-re-tip-icon"><span class="sfa sfa-re-tip-result"></span></div>
+            查看充值结果
+          </a>
+        </div>
+      </div>
+      <div class="fc-re-tip-btn-container text-center">
+        <button class="btn btn-pink  js-recharge-again fc-re-tip-goon">继续充值</button>
+        <button class="btn btn-cancel fc-re-tip-cancel" data-dismiss="modal">取消</button>
+      </div>
     </div>
+
     <input type="hidden" name="token" value="<%=Global.memoryCache.get('acctInfo').token %>">
     <input type="hidden" name="paymentType">
     <input type="hidden" name="paymentId">
@@ -56,44 +102,4 @@
   </form>
 </div>
 
-<div class="tip-area" style="display: none">
-  <div class="row p-bottom-md fc-rc-b-bottom p-top-sm">
-    <p class="font-lg">
-      充值方式：<span class="recharge-type"></span>
-  <span class="m-left-lg">
-    充值金额：<span class="recharge-amount text-hot"></span>元
-  </span>
-    </p>
-  </div>
-  <div class="row p-bottom-md p-top-md fc-rc-b-bottom">
-    <p class="font-lg">充值遇到问题</p>
-    <div>
-      <a class="btn btn-link js-gl-service fc-rc-link" data-dismiss="modal">
-        <span class="sfa sfa-custom-service"></span>
-        联系客服
-      </a>
-      <a href="#hc?page=recharge-flow" class="btn btn-link m-left-lg fc-rc-link js-dismiss">
-        <span class="sfa sfa-help"></span>
-        前去帮助中心
-      </a>
-    </div>
 
-  </div>
-  <div class="row p-top-md fc-rc-b-bottom p-bottom-lg">
-    <p class="font-lg">充值已完成</p>
-    <div>
-      <a class="btn btn-link fc-rc-link js-recharge-again">
-        <span class="sfa sfa-bank-card"></span>
-        继续充值
-      </a>
-      <a href="#uc/rr" class="btn btn-link m-left-lg fc-rc-link js-dismiss">
-        <span class="sfa sfa-angle-right-outline"></span>
-        查看充值结果
-      </a>
-    </div>
-  </div>
-  <div class="text-center p-top-md">
-    <button class="btn btn-hot btn-lg p-LR-lg js-recharge-again">继续充值</button>
-    <button class="btn btn-lg p-LR-lg" data-dismiss="modal">取消</button>
-  </div>
-</div>

@@ -238,9 +238,9 @@ var RechargeView = TabView.extend({
       var amount = this.$('.js-fc-re-amount').val();
       paymentInfo = quickPayConfig.get(this.paymentInfo.paymentType);
 
-      this.$('.recharge-type').html(paymentInfo.zhName);
-      this.$('.recharge-amount').html(amount);
-      this.$('.fc-recharge, .tip-area').slideToggle();
+      this.$('.js-fc-re-title-type').html(paymentInfo.zhName);
+      this.$('.js-fc-re-title-amount').html(amount);
+      this.$('.js-fc-form-area, .js-fc-tip-area').slideToggle();
 
       // this.$('.js-fc-re-modal').closest('.modal').modal('hide');
       //

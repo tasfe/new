@@ -199,8 +199,8 @@
 }
 
 .tip-area{
-  border-top: 1px solid #ccc;
-  padding-top: 15px;
+  //border-top: 1px solid #ccc;
+  //padding-top: 15px;
 }
 
 .fc-re-nav-tab-a {
@@ -284,17 +284,11 @@
 }
 
 .fc-re-commit{
-  background-color: #c56192;
+  background: linear-gradient(to bottom,#cd6498,#b54e7e);
   width:80px;
   height: 26px;
   border-radius: 5px;
   margin: 16px 0 0 ;
-  button{
-    &:hover{
-      background: #c56192 !important;
-    }
-  }
-
 }
 
 .fc-re-bankList {
@@ -357,9 +351,11 @@
     border-radius: 4px;
     width:auto;
     cursor: pointer;
-
-    min-width: 25px;
-    max-width: 30px;
+    height: 24px;
+    line-height: 24px;
+    padding: 0 10px;
+    //min-width: 25px;
+    //max-width: 30px;
     white-space: nowrap;
   }
   li:focus {
@@ -617,4 +613,105 @@
 .mt-transfor-input{
   width: 180px;
   height: 30px;
+}
+
+.fc-re-tip-title{
+  font-size: 16px;
+  text-align: center;
+  margin: 14px ;
+}
+.fc-re-tip-left{
+  float: left;
+  width: 424px;
+  height: 253px;
+  border-right: 1px solid #ccc;
+  text-align: center;
+  margin-top: 52px;
+  margin-bottom: 7px;
+  a{
+
+  }
+}
+
+.fc-re-tip-type{
+  font-size: 16px;
+  height: 22px;
+  line-height: 22px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 0 10px;
+  display: inline-block;
+  margin: 10px 0 38px 0;
+}
+.fc-re-tip-right{
+  width: 423px;
+  height: 253px;
+  display: inline-block;
+  text-align: center;
+  margin-top: 52px;
+  margin-bottom: 7px;
+}
+
+.fc-rc-link{
+  width: 147px;
+  height: 117px;
+  color: #fff !important;
+  text-decoration: none;
+  border-radius: 5px;
+  .fc-re-tip-icon{
+    text-align: center;
+    margin: 29px 0 24px;
+  }
+
+}
+
+.fc-rc-link-service{
+  background-color: #bf6e8f;
+  &:focus,&:hover,&:active{
+    background-color:#bf6e8f;
+  }
+}
+
+.fc-rc-link-help{
+  background-color: #5993b6;
+  &:focus,&:hover,&:active{
+    background-color:#5993b6;
+  }
+}
+
+.fc-rc-link-recharge{
+  background-color: #82ab7c;
+  &:focus,&:hover,&:active{
+    background-color:#82ab7c;
+  }
+}
+
+.fc-rc-link-result{
+  background-color: #a471bb;
+  &:focus,&:hover,&:active{
+    background-color:#a471bb;
+  }
+}
+
+.fc-re-tip-btn-container{
+  padding-top: 16px;
+  border-top: 1px solid #ccc;
+  height: 10px;
+  button{
+    width: 80px;
+    height: 24px;
+    line-height:24px;
+    padding: 0 5px !important;
+    background: #fff;
+    color: #000;
+    border: 1px solid #ccc;
+  }
+  .fc-re-tip-goon{
+    color: #fff;
+    background: linear-gradient(to bottom,#cd6498,#b54e7e);
+  }
+  .fc-re-tip-cancel{
+    color: #000;
+    background: #fff;
+  }
 }
