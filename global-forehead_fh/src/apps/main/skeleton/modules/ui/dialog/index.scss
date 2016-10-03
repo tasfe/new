@@ -41,7 +41,7 @@
     top: -25%;
     transition: opacity 0.3s linear, top 0.3s ease-out;
     &.in {
-      top: 184px;
+      top: 200px;
     }
 
     &.ten {
@@ -92,10 +92,8 @@
   //border: 1px solid $new-main-dark-color;
   overflow: hidden;
  
-  font-family: '微软雅黑';
-
   label{
-    font-size: 14px;
+    font-size: $font-xs;
   }
 
   input{

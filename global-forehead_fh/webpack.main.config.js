@@ -60,11 +60,11 @@ module.exports = {
       entry: ['./src/apps/packages/charge/index.js'],
       //hot: true
     },
-    '4.base': {
+    '2.base': {
       entry: ['./src/base/build.base.js'],
       //hot: true
     },
-    '2.vendor': {
+    '4.vendor': {
       entry: ['./src/vendor/build.core.js']
     }
   },
@@ -76,77 +76,77 @@ module.exports = {
     index: {
       title: '繁华娱乐在线娱乐',
       template: './entry/index.html',
-      chunks: ['common.1', '2.vendor', '4.base', '1.main']
+      chunks: ['common.1', '4.vendor', '2.base', '1.main']
     },
     login: {
       title: '繁华娱乐在线娱乐',
       template: './entry/package.html',
-      chunks: ['common.1', '2.vendor', '4.base', '1.login']
+      chunks: ['common.1', '4.vendor', '2.base', '1.login']
     },
     emailverify: {
       title: '繁华娱乐在线娱乐',
       template: './entry/package.html',
-      chunks: ['common.1', '2.vendor', '4.base', '1.emailverify']
+      chunks: ['common.1', '4.vendor', '2.base', '1.emailverify']
     },
     register: {
       title: '繁华娱乐在线娱乐',
       template: './entry/package.html',
-      chunks: ['common.1', '2.vendor', '4.base', '1.register']
+      chunks: ['common.1', '4.vendor', '2.base', '1.register']
     },
     trend: {
       title: '繁华娱乐在线娱乐',
       template: './entry/package.html',
-      chunks: ['common.1', '2.vendor', '4.base', '1.trend']
+      chunks: ['common.1', '4.vendor', '2.base', '1.trend']
     },
     gengxin: {
       title: '繁华娱乐在线娱乐',
       template: './entry/package.html',
-      chunks: ['common.1', '2.vendor', '4.base',  '1.gengxin']
+      chunks: ['common.1', '4.vendor', '2.base',  '1.gengxin']
     },
     charge: {
       title: '充值结果',
       template: './entry/package.html',
-      chunks: ['common.1', '2.vendor', '4.base', '1.charge']
+      chunks: ['common.1', '4.vendor', '2.base', '1.charge']
     },
     client: {
       title: '繁华娱乐在线娱乐',
       template: './entry/package.html',
-      chunks: ['common.1', '2.vendor', '4.base', '1.client','1.download']
+      chunks: ['common.1', '4.vendor', '2.base', '1.client','1.download']
     },
     download: {
       title: '繁华娱乐在线娱乐',
       template: './entry/package.html',
-      chunks: ['common.1', '2.vendor', '4.base','1.download']
+      chunks: ['common.1', '4.vendor', '2.base','1.download']
     },
     //super3000: {
     //    title: '繁华娱乐在线娱乐',
     //    template: './entry/package.html',
-    //    chunks: ['common.1', '2.vendor', '4.base','1.super3000']
+    //    chunks: ['common.1', '4.vendor', '2.base','1.super3000']
     //  },
     //vip: {
     //  title: '繁华娱乐在线娱乐',
     //  template: './entry/package.html',
-    //  chunks: ['common.1', '2.vendor', '4.base','1.vip']
+    //  chunks: ['common.1', '4.vendor', '2.base','1.vip']
     //},
     //mmc: {
     //  title: '繁华娱乐在线娱乐',
     //  template: './entry/package.html',
-    //  chunks: ['common.1', '2.vendor', '4.base','1.mmc']
+    //  chunks: ['common.1', '4.vendor', '2.base','1.mmc']
     //},
     resetPassword: {
       title: '繁华娱乐在线娱乐',
       template: './entry/package.html',
-      chunks: ['common.1', '2.vendor', '4.base', '1.resetPassword']
+      chunks: ['common.1', '4.vendor', '2.base', '1.resetPassword']
     },
     updateUserInfo: {
       title: '繁华娱乐在线娱乐',
       template: './entry/package.html',
-      chunks: ['common.1', '2.vendor', '4.base', '1.updateUserInfo']
+      chunks: ['common.1', '4.vendor', '2.base', '1.updateUserInfo']
     },
     404: {
       title: '繁华娱乐在线娱乐',
       template: './entry/package.html',
-      chunks: ['common.1', '4.base', '1.404']
+      chunks: ['common.1', '2.base', '1.404']
     }
   },
   output: {

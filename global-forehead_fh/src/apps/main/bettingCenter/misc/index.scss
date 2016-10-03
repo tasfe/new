@@ -594,22 +594,23 @@ $main-area-width: 870px;
 }
 
 .number-div-style {
-  height: 23px;
+  height: 24px;
   width: 42px;
-  border:1px solid #a1a1a1;
-  font-size: 13px;
+  border:1px solid $gray-color;
   text-align:center;
   display: inline-block;
-  margin-right: -4px;
+  cursor: pointer;
+  border-radius: $globalBtnRadius;
+  vertical-align: middle;
+
+  //&.seq-div {
+  //  background-color: lightgrey;
+  //}
 }
 
 .control-inlin-num {
   display: inline-block;
   margin-right: 9px;
-}
-
-.seq-div {
-  background-color: lightgrey;
 }
 
 .control-inlin-quick {

@@ -65,9 +65,9 @@ button, input, select, textarea {
   vertical-align: middle;
 }
 
-//input, select {
-//  border-radius: $globalInputRadius;
-//}
+input, select {
+  border-radius: $globalInputRadius;
+}
 
 button, input {
   *overflow: visible;
@@ -307,7 +307,8 @@ label, input, button, select, textarea {
 
 label {
   display: block;
-  margin-bottom: 5px;
+  vertical-align: bottom;
+  margin-bottom: 4px;
 }
 
 select, textarea {
@@ -332,7 +333,7 @@ ul {
 
 select {
   width: 175px;
-  height: 28px;
+  height: 26px;
   line-height: 15px;
   outline: 0;
   /* In IE7, the height of the select element cannot be changed by height, only font-size */
