@@ -37,7 +37,6 @@ var BettingRecordsView = Base.ItemView.extend({
      this.bettingRecords = this.$el.staticGrid({
        tableClass: 'table',
        colModel: [
-         {label: '', name: 'no', key: true, width: '10px'},
          {label: '期号', name: 'ticketPlanId', width: '22%',formatter: function(val, index, bet) {
            // return '<a class="router btn-link" href="#uc/br/detail/' + bet.ticketTradeNo + '">' + val.substring(4) + '</a>';
            return '<a class="router btn-link">' + val.substring(4) + '</a>';
@@ -69,9 +68,6 @@ var BettingRecordsView = Base.ItemView.extend({
 
            return html.join(' ');
          }}
-         //{label: '是否追号', name: 'chaseId', width: '10%', formatter: function(val) {
-         //  return val ? '是' : '否';
-         //}}
        ],
        emptyTip: '无投注记录',
        url: '/ticket/bethistory/userbethistory.json',

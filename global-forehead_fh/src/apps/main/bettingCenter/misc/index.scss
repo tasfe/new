@@ -1845,6 +1845,10 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
     tr{
       padding: 0 10px;
     }
+
+    th:first-child, td:first-child {
+      padding-left: 5px;
+    }
   }
   .table {
     thead {
@@ -1872,15 +1876,6 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
 .js-bc-lottery-preview{
   .js-wt-tbody{
     font-size: 12px;
-  }
-}
-
-.js-bc-lottery-preview{
-  .slimScrollDiv{
-    overflow: inherit !important;
-  }
-  .js-wt-body-main{
-    overflow: inherit !important;
   }
 }
 
@@ -1942,19 +1937,6 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
     }
     
   }
-  span.text-pink{
-      border: 0px;
-      cursor: inherit;
-
-      &:hover{
-        background:none;
-      }
-    }
-
-  
- }
- .slimScrollDiv table td{
-  padding: 4px 0px;
  }
 }
 

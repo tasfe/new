@@ -214,7 +214,6 @@ var BettingCenterView = Base.ItemView.extend({
     this.lotteryPreview = this.$lotteryPreview.staticGrid({
       tableClass: 'table',
       colModel: [
-        {label: '', name: 'no', key: true, width: '10px'},
         {label: '玩法/投注内容', name: 'title', key: true, width: '160px'},
         //{label: '奖金模式', name: 'bonusMode', width: '20%'},
         {label: '注数', name: 'mode', width: '60px'},
@@ -637,7 +636,7 @@ var BettingCenterView = Base.ItemView.extend({
       var betNumber = previewList[index].bettingNumber;
       var is11X5 = (self.options.ticketInfo.title.indexOf('11选5') !== -1);
       betNumber = is11X5 ? betNumber : betNumber.replace(/ /g,'');
-      $('.sfClass').css('background-color','#ffb300');
+
       if ($detail.length) {
         $detail.popover({
           title: '详细号码',
@@ -645,7 +644,7 @@ var BettingCenterView = Base.ItemView.extend({
           html: true,
           container: this.$el,
           content: '<div class="js-pf-popover">'+betNumber+ '</div>',
-          placement: 'right'
+          placement: 'bottom'
         });
       }
     });
