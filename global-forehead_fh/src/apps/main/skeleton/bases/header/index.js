@@ -499,8 +499,8 @@ var HeaderView = Base.ItemView.extend({
   },
 
   cBtn: function (e) {
-    if ( this.$('.js-cBtn i').hasClass('icon-chevron-up') ) {
-      this.$('.js-cBtn i').removeClass('icon-chevron-up').addClass('icon-chevron-down');
+    if ( this.$('.js-cBtn i').hasClass('fa-chevron-up') ) {
+      this.$('.js-cBtn i').removeClass('fa-chevron-up').addClass('fa-chevron-down');
       this.$('.js-cBtn i').addClass('cBtn2');
       this.$('.js-head').addClass('headh');
       $(".js-head").css({overflow:'hidden'});
@@ -508,7 +508,7 @@ var HeaderView = Base.ItemView.extend({
 
     }
     else{
-      this.$('.js-cBtn i').addClass('icon-chevron-up').removeClass('icon-chevron-down');
+      this.$('.js-cBtn i').addClass('fa-chevron-up').removeClass('fa-chevron-down');
       this.$('.js-cBtn i').removeClass('cBtn2');
       this.$('.js-head').removeClass('headh');
       $(".js-head").css({overflow:''});

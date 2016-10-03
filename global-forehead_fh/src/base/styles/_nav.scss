@@ -108,8 +108,8 @@
       > a {
         color: $font-color-coffee;
         line-height: 20px;
-        padding-top: 8px;
-        padding-bottom: 8px;
+        padding-top: 3px;
+        padding-bottom: 3px;
       }
     }
     .active > li > a {
@@ -164,6 +164,30 @@
     }
   }
 
+  &.nav-tabs-special {
+    padding-left: 18px;
+    border-bottom: 0;
+    font-size: 12px;
+    margin-bottom: 0;
+    li{
+      margin-right: 2px;
+      a{
+        border: 1px solid $gray-color;
+        border-radius: 5px 5px 0 0;
+      }
+    }
+    li {
+      &:hover, &.active {
+        color: $hot-color;
+        a {
+          border: 1px solid $gray-color;
+          border-bottom: 1px solid #ececec;
+          color: $hot-color;
+        }
+      }
+    }
+  }
+
   @include nav-tabs($navTabs);
 }
 
@@ -189,25 +213,15 @@
   > li {
     > a {
       border: 1px solid #ddd;
-      -webkit-border-radius: 0;
-      -moz-border-radius: 0;
       border-radius: 0;
     }
     &:first-child > a {
-      -webkit-border-top-right-radius: 4px;
       border-top-right-radius: 4px;
-      -webkit-border-top-left-radius: 4px;
       border-top-left-radius: 4px;
-      -moz-border-radius-topright: 4px;
-      -moz-border-radius-topleft: 4px;
     }
     &:last-child > a {
-      -webkit-border-bottom-right-radius: 4px;
       border-bottom-right-radius: 4px;
-      -webkit-border-bottom-left-radius: 4px;
       border-bottom-left-radius: 4px;
-      -moz-border-radius-bottomright: 4px;
-      -moz-border-radius-bottomleft: 4px;
     }
     > a {
       &:hover, &:focus {
@@ -293,27 +307,3 @@
   }
 }
 
-
-.nav-tabs-special {
-  padding-left: 10px;
-  border-bottom: 0;
-  font-size: 12px;
-  margin-bottom: 0;
-  li{
-    margin-right: 2px;
-    //border-bottom: 1px solid #ccc;
-    a{
-      border: 1px solid #ccc !important;
-      //border-bottom: 1px solid #ccc;
-      border-radius: 5px 5px 0 0;
-    }
-  }
-  li.active{
-    color: #c6352f;
-    a{
-      border: 1px solid #ccc !important;
-      border-bottom: 1px solid #ececec !important;
-      color: #c6352f;
-    }
-  }
-}

@@ -14,7 +14,7 @@ $.widget('gl.addSalaryUser', {
     var body = [];
     body.push('<form class="js-ac-signed-common-form ac-signed-form form-horizontal" action="javascript:void(0);" novalidate="">');
     body.push('<div class="julien-salaryUser-dialog">');
-    body.push('<div class="title js-salaryUser-title" data-id="' + this.options.userId + '"><span class="js-add-row julien-close-btn no-margin"><i class="icon-plus-sign"></i>增加日薪标准段</span><span>待签约下级</span><input type="text" class="js-userName"></div>');
+    body.push('<div class="title js-salaryUser-title" data-id="' + this.options.userId + '"><span class="js-add-row julien-close-btn no-margin"><i class="fa fa-plus-circle"></i>增加日薪标准段</span><span>待签约下级</span><input type="text" class="js-userName"></div>');
     body.push('<div class="js-ac-salaryUser-container julien-salaryUser-list"></div>');
     body.push('<div class="row-btn "><button type="button" class="js-ac-submitQuota julien-button julien-button-margin" data-loading-text="保存中">保存修改</button></div>');
     body.push('<div class="row-btn"><span class="row-span"></span></span></div>');
