@@ -1360,7 +1360,7 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
   width: 300px;
   position: relative;
 
-  .rightBlock1{
+  .bc-records-open-container {
     position: absolute;
     width: 290px;
     height: 98px;
@@ -1370,10 +1370,24 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
     border-radius: 8px;
     padding: 5px;
     text-align: center;
+    transition: height 0.2s ease;
 
-    .showList{
+    .showList {
       height: 94px;
       overflow: hidden;
+    }
+
+    &:hover {
+      height: 265px;
+
+      .showList {
+        height: 261px;
+        transition: height 0.2s ease;
+      }
+
+      .icon-angle-down {
+        transform: rotate(180deg);
+      }
     }
 
     .showListBtn{

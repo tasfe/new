@@ -5,8 +5,11 @@ var BettingInfoModel = require('bettingCenter/models/bettingInfo');
 var BettingRulesCollection = require('bettingCenter/collections/bettingRules');
 var PlayAreaSelectView = require('bettingCenter/views/bettingCenter-playArea-select');
 var PlayAreaInputView = require('bettingCenter/views/bettingCenter-playArea-input');
-var BettingRecordsView = require('bettingCenter/views/bettingCenter-records');
 var BettingChaseView = require('bettingCenter/views/bettingCenter-chase');
+
+var RecordsOpenView = require('bettingCenter/views/bettingCenter-records-open');
+var RecordsRecentView = require('bettingCenter/views/bettingCenter-records-recent');
+
 
 var ticketConfig = require('skeleton/misc/ticketConfig');
 var betRulesConfig = require('bettingCenter/misc/betRulesConfig');
@@ -46,9 +49,7 @@ var BettingCenterView = Base.ItemView.extend({
 
 
     //需要重构的代码
-    'click .js-cang02':'cangHandler',
-    'mouseenter .js-rightBlock1': 'sadf1dfsv',
-    'mouseleave .js-rightBlock1': 'sadf1dfsv2'
+    'click .js-cang02':'cangHandler'
   },
 
   getTeamOnlineXhr: function() {
@@ -126,7 +127,8 @@ var BettingCenterView = Base.ItemView.extend({
     //快捷入口
 
     this.on('entry:show router:back', function() {
-      this.bettingRecordsView.update();
+      this.recordsOpenView.update();
+      this.recordsRecentView.update();
     });
 
     this.getTeamOnlineXhr().done(function (res) {
@@ -155,7 +157,6 @@ var BettingCenterView = Base.ItemView.extend({
   onRender: function() {
 
     this.$bettingRecords = this.$('.js-bc-betting-records');
-    this.$drawRecords = this.$('.js-bc-draw-records');
 
     this.$countdown = this.$('.js-bc-countdown');
     this.$planId = this.$('.js-bc-planId');
@@ -200,7 +201,8 @@ var BettingCenterView = Base.ItemView.extend({
     this.$totalMoney = this.$('.js-bc-total-money');
     this.$totalRebateMoney = this.$('.js-bc-total-rebateMoney');
 
-    this.$recordsContainer = this.$('.js-bc-records');
+    this.$recordsRecentContainer = this.$('.js-bc-records-recent');
+    this.$recordsOpenContainer = this.$('.js-bc-records-open');
 
 
     //======
@@ -229,6 +231,16 @@ var BettingCenterView = Base.ItemView.extend({
       startOnLoading: false,
       emptyTip: ''
     }).staticGrid('instance');
+
+    this.recordsOpenView = new RecordsOpenView({
+      el: this.$recordsOpenContainer,
+      ticketId: this.options.ticketId
+    }).render();
+
+    this.recordsRecentView = new RecordsRecentView({
+      el: this.$recordsRecentContainer,
+      ticketId: this.options.ticketId
+    }).render();
 
     var sign = Global.localCache.get('ticketList.' + this.options.ticketId);
 
@@ -314,8 +326,8 @@ var BettingCenterView = Base.ItemView.extend({
       return '<span class="text-circle">' + num + '</span>';
     }));
 
-    // this.bettingRecordsView.update();
-    // this.update();
+    this.recordsOpenView.update();
+    this.recordsRecentView.update();
   },
 
   renderBasicInfo: function(model) {
@@ -859,6 +871,7 @@ var BettingCenterView = Base.ItemView.extend({
   },
 
   quickBetHandler: function(e) {
+    var self = this;
     var $target = $(e.currentTarget);
 
     var bettingInfo;
@@ -871,7 +884,9 @@ var BettingCenterView = Base.ItemView.extend({
 
     var info = this.model.quickBet(bettingInfo);
 
-    this.bettingConfirm(info.totalInfo, info.previewList, $target);
+    this.bettingConfirm(info.totalInfo, info.previewList, $target, function() {
+      self.currentPlayAreaView.empty();
+    });
   },
 
   lotteryClearHandler: function() {
@@ -934,7 +949,8 @@ var BettingCenterView = Base.ItemView.extend({
 
     chaseView.on('submit:complete', function() {
       self.model.emptyPrevBetting();
-      self.update();
+
+      self.recordsRecentView.update();
       $dialog.modal('hide');
     });
   },
@@ -1005,7 +1021,7 @@ var BettingCenterView = Base.ItemView.extend({
           })
           .done(function(res) {
             if (res && res.result === 0) {
-              // self.bettingRecordsView.update();
+              self.recordsRecentView.update();
               if (callback) {
                 callback();
               }
@@ -1041,59 +1057,10 @@ var BettingCenterView = Base.ItemView.extend({
 
     this.options.type1 = $target.data('type');
 
-    this.update();
+    // this.update();
   },
 
   //common APIs
-
-  renderBettingRecords: function() {
-    var self = this;
-    if (!this.bettingRecords) {
-      this.bettingRecords = this.$bettingRecords.staticGrid({
-        tableClass: this.tableClass,
-        colModel: [
-          {label: '期号', name: 'ticketPlanId', width: '28%',formatter: function(val, index, bet) {
-            return '<a class="router btn-link" href="#uc/br/detail/' + bet.ticketTradeNo + '">' + val.substring(4) + '</a>';
-          }},
-          {label: '投注金额', name: 'betTotalMoney', width: '20%', formatter: function(val) {
-            return _(val).fixedConvert2yuan();
-          }},
-          {label: '状态', name: 'prizeTotalMoney', width: '16%', formatter: function(val, index, bet) {
-            //0:未中奖，1：已中奖，2：用户撤单，3：系统撤单,ticketResult,prizeTotalMoney
-            return _.checkBettingStatus({
-              betStatus: bet.ticketBetStatus,
-              hasException: bet.hasException,
-              openNumbers: bet.ticketResult,
-              openStatus: bet.ticketOpenStatus,
-              prizing: bet.prizing,
-              prizeTotalMoney: bet.prizeTotalMoney,
-              betTime: bet.betTime,
-              prizeClass: 'text-pink'
-            }) ;
-          }},
-          {label: '操作', name: 'prizeTotalMoney', width: '36%', formatter: function(val, index, bet) {
-            //0:未中奖，1：已中奖，2：用户撤单，3：系统撤单,ticketResult,prizeTotalMoney
-            return '<span>撤单</span><span>再投一注</span>';
-          }}
-          //{label: '是否追号', name: 'chaseId', width: '10%', formatter: function(val) {
-          //  return val ? '是' : '否';
-          //}}
-        ],
-        emptyTip: '无投注记录',
-        url: '/ticket/bethistory/userbethistory.json',
-        abort: false,
-        showHeader: true,
-        height: this.height,
-        data: {
-          pageSize: 30,
-          ticketId: this.options.ticketId
-        },
-        dataProp: 'root.betList'
-      }).staticGrid('instance');
-    } else {
-      this.bettingRecords.update();
-    }
-  },
 
   typeChangeHandler: function (e) {
     var $target = $(e.currentTarget);
@@ -1107,20 +1074,6 @@ var BettingCenterView = Base.ItemView.extend({
   syncCustomizeMoneyHandler: function(e) {
     this.model.set({
       customizeMoney: Number($(e.currentTarget).val())
-    });
-  },
-
-  sadf1dfsv: function () {
-    $('.rightBlock1').animate({height:'265px'}, 100);
-    $('.js-showList').animate({height:'261px'}, 100,function () {
-      $('.js-openBlock1').removeClass('icon-angle-down').addClass('icon-angle-up');
-    });
-  },
-
-  sadf1dfsv2: function () {
-    $('.rightBlock1').animate({height:'98px'}, 100);
-    $('.js-showList').animate({height:'94px'}, 100,function () {
-      $('.js-openBlock1').addClass('icon-angle-down').removeClass('icon-angle-up');
     });
   },
 
