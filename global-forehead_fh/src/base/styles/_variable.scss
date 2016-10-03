@@ -19,7 +19,9 @@ $footer-gray: $gray-color;
 
 $new-hot-color: #fe6760 !default;
 $pink-color: #f59192 !default;
-$blue-color: #5eaffa !default;
+$blue-color: #2e98cb !default;
+$green-color: #57b051 !default;
+$hot-color: #c93339 !default;
 
 $blue-new-color: #05c2bb !default;
 
@@ -354,10 +356,11 @@ $radios: (
 //popover
 $popovers: (
   default: (
-    title-color: $light-color,
-    title-bg-color: $color-sunshine,
-    content-color: $font-color,
-    content-bg-color: $white-color
+    title-color: $dark-color,
+    title-bg-color: $white-color,
+    content-color: $light-dark-color,
+    content-bg-color: $white-color,
+    arrow-color: #c86597
   )
 );
 
@@ -617,10 +620,26 @@ $text-circle-colors: (
   pleasant: (
     color: $dark-color,
     background: $color-pleasant
+  ),
+  sky: (
+    color: $white-color,
+    background: $blue-color
+  ),
+  hot: (
+    color: $white-color,
+    background: $hot-color
+  ),
+  peaceful: (
+    color: $white-color,
+    background: $green-color
   )
 );
 
 $text-circle-sizes: (
+  xs: (
+    width: 18px,
+    font-size: $font-xs
+  ),
   sm: (
     width: 28px,
     font-size: $font-jb

@@ -105,8 +105,11 @@ var BettingCenterView = Base.ItemView.extend({
     });
 
     this.listenTo(this.model, 'change:playId', function(model, playId) {
-      this.renderPlayArea();
+      var playRule = betRulesConfig.get(this.model.pick('playId'));
+
+      this.renderPlayArea(playRule);
       this.renderPlayInfo(this.rulesCollection.getPlayInfo(model.get('groupId'), playId));
+      this.recordsOpenView.updateByPlayRule(playRule);
 
       this.model.set({
         statistics: 0
@@ -483,8 +486,7 @@ var BettingCenterView = Base.ItemView.extend({
     }
   },
 
-  renderPlayArea: function(groupId, playId) {
-    var playRule = betRulesConfig.get(this.model.pick('playId'));
+  renderPlayArea: function(playRule) {
 
     if (this.currentPlayAreaView) {
       this.currentPlayAreaView.destroy();
@@ -772,13 +774,6 @@ var BettingCenterView = Base.ItemView.extend({
       this.$optionalRules.addClass('hidden');
       $('.bc-curt-plan-main').addClass('bg-deep-gray');
       this.$lastResults.find('.text-circle:lt(3)').removeClass('text-circle-red');
-    // } else if (type === 'super') {
-    //   this.$superRules.find('.js-bc-basic-rule').eq(0).trigger('click');
-    //   this.$basicRules.addClass('hidden');
-    //   this.$optionalRules.addClass('hidden');
-    //   this.$superRules.removeClass('hidden');
-    //   $('.bc-curt-plan-main').removeClass('bg-deep-gray');
-    //   this.$lastResults.find('.text-circle:lt(3)').addClass('text-circle-red');
     } else {
       this.$optionalRules.find('.js-bc-basic-rule').eq(0).trigger('click');
       this.$basicRules.addClass('hidden');
@@ -804,11 +799,6 @@ var BettingCenterView = Base.ItemView.extend({
       playId: $target.data('id'),
       playName: $target.data('title')
     });
-
-    var idStr =this.$('.js-rule-title-hidden-temp').html();
-
-    this.$('.js-rule-title-clear').html('');
-    this.$(".js-rule-title-sub-"+idStr).html($target.data('title'));
   },
 
   //advanceRuleDefaultChangeHandler: function(e) {

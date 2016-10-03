@@ -235,6 +235,16 @@ $main-area-width: 870px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  margin-top: 3px;
+  margin-left: 8px;
+  color: $inverse-color;
+
+  i{
+    color: #cc6699;
+    font-size: 14px;
+    display: inline-block;
+    margin-right: 5px;
+  }
 }
 
 .bc-select-item {
@@ -324,17 +334,6 @@ $main-area-width: 870px;
     }
   }
 }
-
-.bc-yirou {
-  font-size: 12px;
-  text-align: center;
-  color: $light-dark-color-2;
-}
-
-//.bc-plan-id {
-//  color: $font-passion;
-//  font-weight: bold;
-//}
 
 .bc-bet-mode {
   width: 120px;
@@ -1670,41 +1669,23 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
   }
 }
 
-.js-rule-title-clear{
-  display: none;
-}
-
 .rightMenu{
   display: none;
 }
 
-.js-bc-play-example{
-  margin-top: 3px;
-  margin-left: 8px;
-  color: #666666;
-
-  i{
-    color: #cc6699;
-    font-size: 14px;
-    display: inline-block;
-    margin-right: 5px;
-  }
-}
-
-.js-bc-play-tip{
+.bc-play-tip{
   text-decoration: none;
   float: right;
-  margin-top: 1px;
   display: inline-block;
-  padding: 0px 10px;
+  padding: 0 10px;
   border: 1px solid #ccc;
   background-color: #fff;
   border-radius: 30px;
   position: absolute;
-  right: 0px;
-  top: 0px;
+  right: 0;
+  top: 0;
 
-  .js-infor-tip{
+  .infor-tip{
     display: none;
   }
 
@@ -1716,7 +1697,7 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
       display: none;
     }
 
-    .js-infor-tip{
+    .infor-tip{
       display: block;
     }
   }

@@ -88,13 +88,14 @@ $.widget('gl.staticGrid', {
       })
       .done(function(res) {
         if (res && res.result === 0) {
-          self.renderRow(_(self.options.dataProp.split('.')).reduce(function(res, prop) {
+          self.currentData = _(self.options.dataProp.split('.')).reduce(function(res, prop) {
             var data = res[prop];
             if (!data) {
               data = [];
             }
             return data;
-          }, res));
+          }, res);
+          self.renderRow(self.currentData);
           self.element.trigger('update:done', res.root, res);
         } else {
           self.renderFail();
@@ -265,6 +266,12 @@ $.widget('gl.staticGrid', {
     }
 
     return $rows;
+  },
+
+  reformat: function() {
+    if (this.currentData) {
+      this.renderRow(this.currentData);
+    }
   },
 
   renderEmpty: function() {
