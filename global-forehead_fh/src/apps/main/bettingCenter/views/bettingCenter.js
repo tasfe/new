@@ -71,7 +71,6 @@ var BettingCenterView = Base.ItemView.extend({
   },
 
   initialize: function() {
-    this.options.type1 = 'draw';
     this.options.ticketInfo = ticketConfig.getComplete(this.options.ticketId);
 
     this.model = new BettingChoiceModel();
@@ -193,16 +192,16 @@ var BettingCenterView = Base.ItemView.extend({
     this.$statisticsRebateMoney = this.$('.js-bt-statistics-rebateMoney');
     this.$statisticsBonus = this.$('.js-bc-statistics-bonus');
 
-    //betting preview
-    this.$lotteryPreview = this.$('.js-bc-lottery-preview');
-
     //total
     this.$totalLottery = this.$('.js-bc-total-lottery');
     this.$totalMoney = this.$('.js-bc-total-money');
     this.$totalRebateMoney = this.$('.js-bc-total-rebateMoney');
 
-    this.$recordsRecentContainer = this.$('.js-bc-records-recent');
     this.$recordsOpenContainer = this.$('.js-bc-records-open');
+
+    //betting preview
+    this.$lotteryPreview = this.$('.js-bc-lottery-preview');
+    this.$recordsRecentContainer = this.$('.js-bc-records-recent');
 
 
     //======
@@ -215,7 +214,7 @@ var BettingCenterView = Base.ItemView.extend({
     this.renderCountdown();
 
     this.lotteryPreview = this.$lotteryPreview.staticGrid({
-      tableClass: 'table table-dashed',
+      tableClass: 'table',
       colModel: [
         {label: '', name: 'no', key: true, width: '10px'},
         {label: '玩法/投注内容', name: 'title', key: true, width: '160px'},
@@ -227,7 +226,7 @@ var BettingCenterView = Base.ItemView.extend({
         //{label: '投注金额', name: 'bettingMoney', width: '17%'}
       ],
       showHeader: true,
-      height: 310,
+      height: 200,
       startOnLoading: false,
       emptyTip: ''
     }).staticGrid('instance');
@@ -1051,13 +1050,12 @@ var BettingCenterView = Base.ItemView.extend({
   },
 
   toggleTabHandler: function(e) {
-
     var $target = $(e.currentTarget);
+    var flag = $target.data('type') === 'recent';
     $target.addClass('active').siblings().removeClass('active');
 
-    this.options.type1 = $target.data('type');
-
-    // this.update();
+    this.$recordsRecentContainer.toggleClass('hidden', !flag);
+    this.$lotteryPreview.toggleClass('hidden', flag);
   },
 
   //common APIs

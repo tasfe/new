@@ -63,7 +63,7 @@ $brand-info: #eae8e6 !default;
 $color-bright-red: #e82e20 !default;
 
 //global-props
-$globalBtnRadius: 6px;
+$globalBtnRadius: 2px;
 $globalInputRadius: 0;
 
 //font-size
@@ -457,19 +457,19 @@ $btns: (
   ),
   pure: (
     color: $dark-color,
-    bg-color: $light-color,
+    bg-color: $white-color,
     border-color: $gray-color,
     hover: (
       color: $dark-color,
-      bg-color: $light-color
+      bg-color: $white-color
     ),
     focus: (
       color: $dark-color,
-      bg-color: $light-color
+      bg-color: $white-color
     ),
     active: (
       color: $dark-color,
-      bg-color: $light-color
+      bg-color: $white-color
     )
   ),
   b-white: (

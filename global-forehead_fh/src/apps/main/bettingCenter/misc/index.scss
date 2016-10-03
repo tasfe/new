@@ -1537,12 +1537,6 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
       }
     }
 
-    .order-list{
-      height: 230px;
-      overflow-y: auto;
-      overflow-x: hidden;
-    }
-
     .btnList{
       margin: 15px 0px 10px 2px;
 
@@ -1845,10 +1839,22 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
   background-color: #f3f3f3 !important;
   border: 1px solid #ccc !important;
 }
-.js-bc-lottery-preview{
+
+.order-list {
   table{
     tr{
-      padding: 0px 10px;
+      padding: 0 10px;
+    }
+  }
+  .table {
+    thead {
+      th{
+        background: #f6f6f6;
+        border-bottom: 1px solid #cccccc;
+      }
+    }
+    td {
+      padding: 6px 3px;
     }
   }
 }
@@ -1856,13 +1862,6 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
 .tab-toolbar.tab-circle .active{
   div{
     background-position: 0px -29px;
-  }
-}
-
-.js-bc-lottery-preview{
-  .table thead th{
-    background: #f6f6f6;
-    border-bottom: #cccccc 1px solid;
   }
 }
 
