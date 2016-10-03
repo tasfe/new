@@ -191,7 +191,7 @@ $.widget('gl.trend', {
           }
           self.$planTable.html(temp({
             positions: self.ticketInfo.positions,
-            isSuper: self.ticketInfo.isSuper,
+            isSuper: false && self.ticketInfo.isSuper,
             num: self.ticketInfo.num,
             count: self.ticketInfo.count,
             list: list
