@@ -1405,37 +1405,34 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
       }
     }
 
-    ul{
-      line-height: 24px;
-      height: 24px;
-      color: #333333;
-
-      &.title{
-        border-bottom: 1px solid #ccc;
-        height: 20px;
-        line-height: 20px;
+    .table {
+      thead {
+        th {
+          padding: 0 2px;
+          background: transparent;
+          border-bottom: 1px solid #cccccc;
+          font-size: 12px;
+        }
+      }
+      tbody {
+        td {
+          font-size: 12px;
+          padding: 2px 0;
+        }
       }
 
-      li{
-        width: 42%;
-        float: left;
-        text-align: center;
-
-        span{
+      .open-nums {
+        span {
           display: inline-block;
           padding: 1px 4px;
           border-radius: 15px;
           line-height: 12px;
           margin-right: 3px;
 
-          &.r{
+          &.key-num {
             background-color: #cc3333;
             color: #fff;
           }
-        }
-
-        &:last-child{
-          width: 16%;
         }
       }
     }
