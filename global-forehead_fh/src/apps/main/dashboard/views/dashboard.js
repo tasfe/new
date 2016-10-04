@@ -449,10 +449,26 @@ var DashboardView = Base.ItemView.extend({
             var timeInfo = _.compareTime(info.curTime, info.prizeTime);
             htmStr += '<p>恭喜'+info.userName.slice(0,6)+'在'+info.ticketName+'中'+info.bonus/10000+'元<span>'+timeInfo.data+timeInfo.unit+'前</span></p>';
           });
-          self.$('.js-rank-list marquee').append(htmStr);
+          self.$('.js-rank-list div').append(htmStr);
+          console.log("length:"+$('.js-rank-list div').children().length);
+
+          clearInterval(self.marqueeTimer);
+          var marquee = document.getElementById('marquee');
+          var offset=0;
+          var scrollheight =marquee.offsetHeight;
+          var firstNode = marquee.children[0].cloneNode(true);
+          marquee.appendChild(firstNode);//还有这里
+          self.marqueeTimer=setInterval(function(){
+            if(offset == scrollheight){
+              offset = 0;
+            }
+            marquee.style.marginTop = "-"+offset+"px";
+            offset += 1;
+          },50);
+
           setTimeout(function() {
             self.renderRankList();
-          }, 60000);
+          }, 10000);
         }
       });
   },
