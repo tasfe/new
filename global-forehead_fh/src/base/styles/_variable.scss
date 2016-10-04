@@ -65,6 +65,9 @@ $brand-info: #eae8e6 !default;
 
 $color-bright-red: #e82e20 !default;
 
+//linear color
+$white-linear-color: linear-gradient(to bottom, #fefefe, #f5f5f5) !default;
+
 //global-props
 $globalBtnRadius: 3px;
 $globalInputRadius: 3px;
@@ -352,17 +355,21 @@ $btns: (
     color: $dark-color,
     bg-color: $white-color,
     border-color: $gray-color,
+    linear-color: $white-linear-color,
     hover: (
       color: $dark-color,
-      bg-color: $white-color
+      bg-color: $white-color,
+      linear-color: $white-linear-color
     ),
     focus: (
       color: $dark-color,
-      bg-color: $white-color
+      bg-color: $white-color,
+      linear-color: $white-linear-color
     ),
     active: (
       color: $dark-color,
-      bg-color: $white-color
+      bg-color: $white-color,
+      linear-color: $white-linear-color
     )
   ),
   hot: (
@@ -637,7 +644,7 @@ $navTabs: (
     color: $font-color-coffee,
     bg-color: #f7f7f7,
     active-color: $hot-color,
-    active-bg-color: linear-gradient(to bottom, #fefefe, #f5f5f5)
+    active-bg-color: $white-linear-color
   ),
   hot: (
     border-color: #a83d6b,

@@ -203,7 +203,7 @@ var BettingCenterChaseProfitView = Base.ItemView.extend({
         }}
       ],
       startOnLoading: false,
-      height: 165
+      height: 175
     }).staticGrid('instance');
   },
 

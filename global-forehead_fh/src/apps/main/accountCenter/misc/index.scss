@@ -105,30 +105,6 @@
   margin: 0 auto;
 }
 
-.control-confirm {
-  .btn {
-    width: 214px;
-    height: 32px;
-    //font-size: 14px;
-  }
-  .btn-right {
-    margin-left: 13px;
-  }
-}
-
-.control-confirm-special {
-  margin-top: 10px;
-
-  .btn-left{
-    width: 100px;
-    height: 30px;
-  }
-  .btn-right {
-    margin-left: 4px !important;
-    color: $main-color;
-  }
-}
-
 .security-question {
   .control-confirm {
     margin-top: 20px;
