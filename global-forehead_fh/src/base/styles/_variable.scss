@@ -9,7 +9,8 @@ $new-main-deep-color: #16a4aa !default;
 $dark-color: #202020 !default;
 $light-dark-color: #4e4e4e !default;
 $light-dark-color-2: #7e7e7e !default;
-$inverse-color: #666666 !default;
+$color-amber: #666666 !default;
+$color-light-amber: #999999 !default;
 
 $light-color: #f2f2f2 !default;
 $white-color: #ffffff !default;
@@ -92,11 +93,9 @@ $font-sizes: (
 
 //font-color
 $font-default: $dark-color;
-$font-dark: #2a2a2a !default;
+$font-amber: $color-amber;
 $font-mute: #ededed !default;
 $font-primary: $font-color;
-$font-light: $light-color;
-$font-light-primary: $main-pale-color;
 $font-info: $main-color;
 $font-success: #2baab1 !default;
 $font-danger: #e8675d !default;
@@ -108,19 +107,17 @@ $font-passion: #fbd663 !default;
 
 $font-colors: (
   default: $dark-color,
+  amber: $font-amber,
   primary: $font-primary,
   pleasant: $color-pleasant,
-  light: $light-color,
   gray: $gray-color,
   inverse: $light-color,
-  dark: $dark-color,
   passion: $font-passion,
   cool: $new-main-deep-color,
   sunshine: $color-sunshine,
   sun: $color-sunshine,
   hot: $color-hot,
   pink: $pink-color,
-  black: $new-black-color,
   blue: $blue-color,
 
   important: $font-light-pleasant,
@@ -132,7 +129,7 @@ $font-colors: (
 );
 
 $bg-mute: $font-mute;
-$bg-mute-font-color: $inverse-color;
+$bg-mute-font-color: $color-amber;
 
 $bg-info: $font-info;
 $bg-info-font-color: $font-default;
@@ -219,7 +216,7 @@ $squares: (
 );
 
 $input-widths: (
-  xs: 50px,
+  xs: 60px,
   sm: 90px,
   md: 134px,
   lg: 210px,
@@ -234,7 +231,7 @@ $inputs: (
     border-color: $gray-color
   ),
   inverse: (
-    color: $inverse-color,
+    color: $color-amber,
     bg-color: transparent,
     border-color: $inverse-border-color
   ),
@@ -254,7 +251,7 @@ $select: (
   ),
   inverse: (
     border-color: $light-color,
-    color: $inverse-color,
+    color: $color-amber,
     background: url(~base/images/select-caret-black.png) no-repeat scroll 97% center transparent
   ),
   black: (
@@ -268,7 +265,7 @@ $disabled: (
   default: (
     color: $font-color-coffee,
     border-color: #b4b4b4,
-    bg-color: $deep-gray-color
+    bg-color: $light-color
   ),
   inverse: (
     bg-color: $input-disable-color
@@ -296,7 +293,7 @@ $basics: (
     input: map_get($inputs, inverse),
     disabled: map_get($disabled, inverse),
     bg-color: #ffffff,
-    color: $inverse-color
+    color: $color-amber
   ),
   inverse: (
     select: map_get($select, inverse),
@@ -318,24 +315,18 @@ $basics: (
 $checkboxes: (
   default: (
     bg-color: $light-color,
-    active-bg-color: $color-sunshine,
+    active-bg-color: $pink-color,
     linear-color: linear-gradient(to bottom, #c00, #c00),
     hook-color: $light-color,
     border-color: #929092
   )
-//  inverse: (
-//    bg-color: $font-color,
-//    active-bg-color: $main-color,
-//    hook-color: $font-color,
-//    border-color: #929092
-//  )
 );
 
 //radio
 $radios: (
   default: (
     bg-color: $light-color,
-    wrapper-color: $color-sunshine,
+    wrapper-color: $pink-color,
     inner-color: linear-gradient(to bottom, #ffcc53, #ffb70d)
   ),
   blue: (
@@ -343,15 +334,6 @@ $radios: (
     wrapper-color: $blue-color,
     inner-color: $blue-color
   ),
-  //inverse: (
-  //  bg-color: $font-color,
-  //  wrapper-color: $inverse-color,
-  //  inner-color: $inverse-color,
-  //
-  //  disabled-bg-color: #70999e,
-  //  disabled-wrapper-color: #989898,
-  //  disabled-inner-color: #989898
-  //)
 );
 
 //popover
