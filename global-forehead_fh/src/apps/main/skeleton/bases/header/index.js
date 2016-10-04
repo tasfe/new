@@ -26,7 +26,7 @@ var HeaderView = Base.ItemView.extend({
   events: {
     'click .js-gl-h-ticket-main': 'clickEmptyTicketMainHandler',
     'click .js-gl-hd-refresh': 'refreshHandler',
-    'click .js-fc-wd': 'withdrawHandler',
+    //'click .js-fc-wd': 'withdrawHandler',
     'click .js-gl-hd-logout': 'logoutHandler',
     'mouseover .js-bc-lottery-list': 'lotteryListHandler',
     'mouseout .js-bet-lottery-menu': 'outlotteryListHandler',
@@ -312,6 +312,7 @@ var HeaderView = Base.ItemView.extend({
     var self = this;
     this.getNoticeInfoXhr()
       .done(function(res) {
+        console.log("renderNotice res:"+JSON.stringify(res));
         var data;
         if (res.result === 0) {
           data = res.root || [];
