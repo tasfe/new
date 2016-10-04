@@ -14,12 +14,14 @@ $inverse-color: #666666 !default;
 $light-color: #f0efee !default;
 $white-color: #ffffff !default;
 $deep-gray-color: #e4e4e4 !default;
-$gray-color: #999999 !default;
+$gray-color: #cccccc !default;
 $footer-gray: $gray-color;
 
 $new-hot-color: #fe6760 !default;
 $pink-color: #f59192 !default;
-$blue-color: #5eaffa !default;
+$blue-color: #2e98cb !default;
+$green-color: #57b051 !default;
+$hot-color: #c93339 !default;
 
 $blue-new-color: #05c2bb !default;
 
@@ -63,8 +65,9 @@ $brand-info: #eae8e6 !default;
 $color-bright-red: #e82e20 !default;
 
 //global-props
-$globalBtnRadius: 6px;
-$globalInputRadius: 0;
+$globalBtnRadius: 3px;
+$globalInputRadius: 3px;
+$globalBoxRadius: 5px;
 
 //font-size
 $font-xs: 12px !default;
@@ -354,10 +357,11 @@ $radios: (
 //popover
 $popovers: (
   default: (
-    title-color: $light-color,
-    title-bg-color: $color-sunshine,
-    content-color: $font-color,
-    content-bg-color: $white-color
+    title-color: $dark-color,
+    title-bg-color: $white-color,
+    content-color: $light-dark-color,
+    content-bg-color: $white-color,
+    arrow-color: #c86597
   )
 );
 
@@ -456,20 +460,20 @@ $btns: (
     )
   ),
   pure: (
-    color: $dark-color,
-    bg-color: $light-color,
+    color: $gray-color,
+    bg-color: $white-color,
     border-color: $gray-color,
     hover: (
-      color: $dark-color,
-      bg-color: $light-color
+      color: $gray-color,
+      bg-color: $white-color
     ),
     focus: (
-      color: $dark-color,
-      bg-color: $light-color
+      color: $gray-color,
+      bg-color: $white-color
     ),
     active: (
-      color: $dark-color,
-      bg-color: $light-color
+      color: $gray-color,
+      bg-color: $white-color
     )
   ),
   b-white: (
@@ -617,10 +621,26 @@ $text-circle-colors: (
   pleasant: (
     color: $dark-color,
     background: $color-pleasant
+  ),
+  sky: (
+    color: $white-color,
+    background: $blue-color
+  ),
+  hot: (
+    color: $white-color,
+    background: $hot-color
+  ),
+  peaceful: (
+    color: $white-color,
+    background: $green-color
   )
 );
 
 $text-circle-sizes: (
+  xs: (
+    width: 18px,
+    font-size: $font-xs
+  ),
   sm: (
     width: 28px,
     font-size: $font-jb
@@ -636,17 +656,17 @@ $navTabs: (
   default: (
     border-color: $color-sunshine,
     color: $font-color-coffee,
-    bg-color: $white-color,
-    active-color: $dark-color,
-    active-bg-color: $color-sunshine
+    bg-color: #f7f7f7,
+    active-color: $hot-color,
+    active-bg-color: linear-gradient(to bottom, #fefefe, #f5f5f5)
   ),
-  inverse: (
-    border-color: $main-deep-color,
-    color: $font-color-coffee,
-    bg-color: transparent,
-    active-color: $font-color,
-    active-bg-color: $main-deep-color
-  )
+  hot: (
+    border-color: #a83d6b,
+    color: $font-color,
+    bg-color: $white-color,
+    active-color: $white-color,
+    active-bg-color: linear-gradient(180deg, #eb3939, #a83d6b)
+  ),
 );
 
 $tab-circle-sizes: (

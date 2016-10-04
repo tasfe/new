@@ -8,20 +8,15 @@
 
   border-bottom: 1px solid $borderColor;
 
-  //padding-left: 8rem;
-
   > {
     li {
       > a {
         color: $color;
-        //background-color: $bgColor;
-
         border: 1px solid transparent;
+        background-color: $bgColor;
 
         &:hover, &:focus {
-          //color: $hoverColor;
           background-color: transparent;
-          //background-color: $main-color;
         }
       }
 
@@ -29,15 +24,11 @@
         color: $activeColor;
         border: 1px solid $borderColor;
         border-bottom-color: transparent;
-
-        background-color: $bgColor;
+        background: $activeBgColor;
 
         &:hover, &:focus {
           color: $activeColor;
-          background-color: $bgColor;
-        }
-        &:after {
-          background-color: $activeBgColor;
+          background: $activeBgColor;
         }
       }
     }

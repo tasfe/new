@@ -13,6 +13,8 @@ var DashboardView = Base.ItemView.extend({
 
   bannerTpl: _(require('dashboard/templates/banner.html')).template(),
 
+  rollTpl: _(require('dashboard/templates/dashboard-roll.html')).template(),
+
   dynamicTpl: _(require('dashboard/templates/dashboard-dynamic.html')).template(),
 
   itemTpl:_.template(require('dynamicCenter/templates/noticeBoard-item.html')),
@@ -25,6 +27,7 @@ var DashboardView = Base.ItemView.extend({
     'click .js-db-ticket-bread-item': 'ticketBreadHandler',
     'click .js-db-ticket-scroll': 'ticketScrollHandler',
     'click .js-dynamic-itemShow': 'dynamicItemShowHandler',
+    'click .js-g2-a': 'dynamicItemShowHandler',
     'click .js-lottery': 'lottertyEnterHandler',
     'click .js-comingsoon': 'comeingsoonHandler',
     'mouseover .js-athena_st_07': 'tempMouseover',
@@ -125,8 +128,7 @@ var DashboardView = Base.ItemView.extend({
         'pageIndex': 0
       }
     }).always(function(){
-          //开始加载
-
+          //开始加
         })
         .done(function(res) {
           var data = res.root || {};
@@ -375,6 +377,7 @@ var DashboardView = Base.ItemView.extend({
 
     this.$ticketMain = this.$('.js-db-ticketList');
     this.$dynamicList = this.$('.js-db-dynamic-list');
+    this.$rolllist = this.$(".db-slogan");
     this.$navigationLiList = this.$('.js-db-mb-na');
     this.$imgList = this.$('.js-db-mb-item');
     this.$pageSize = this.$('.js-db-pageSize');
@@ -415,6 +418,7 @@ var DashboardView = Base.ItemView.extend({
       .done(function(res) {
         if (res.result === 0) {
           self.generateDynamicList(res.root);
+          self.generateRollList(res.root);//添加首页滚动公告信息
           self.$pageIndex.val(data.pageIndex);
           self.$rowCount.val(res.root.rowCount);
           //self.$prevPage.toggleClass('disabled', data.pageIndex < 1);
@@ -609,6 +613,56 @@ var DashboardView = Base.ItemView.extend({
       }
     })
 
+  },
+  //首页滚动公告信息
+  generateRollList:function(data){
+    var self = this;
+    this.$rolllist.html(this.rollTpl({
+          data: data
+        })
+    );
+    self.rollSetInterval();
+
+    var w = 0;
+    var w2 = 0;
+    var w3 = 1130;
+    var next=0;
+    var childLength = this.$('.db-slogan .g2').children().length;
+    this.$rollListItem = this.$('.db-slogan .g2 a');
+    this.$currentRollingItem = this.$('.db-slogan .g2 .on');
+    w = this.$currentRollingItem.width();
+    w2 = w;
+
+    self.timer22 = setInterval(function() {
+      if(w2 + w <= 0){
+        next += 1;
+        self.$rollListItem.css('left',"1130px");
+        self.$rollListItem.removeClass("on");
+        self.$rollListItem.eq(next).addClass("on");
+        self.$currentRollingItem=self.$rollListItem.eq(next);
+        if(next == childLength-1){
+          next=-1;
+        }
+
+        w2 = w3;
+      }
+      else{
+        w2 -= 1;
+      }
+
+      self.$currentRollingItem.css('left',w2);
+    }, 20);
+  },
+  //定时获取公告数据 5分钟
+  rollSetInterval:function(){
+    var self = this;
+    var data = {
+      pageSize: 5,
+      pageIndex: 0
+    };
+    var rollTime=setInterval(function(){
+      self.renderDynamicList(data);
+    },300000);
   }
 });
 

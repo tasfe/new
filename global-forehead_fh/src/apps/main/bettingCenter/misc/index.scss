@@ -108,8 +108,6 @@ $main-area-width: 870px;
 }
 
 .bc-rule-container {
-  //padding: 0 135px 0 0;
-  //margin: -1px 0 0 92px;
 
   &.nav-tabs-border {
     a {
@@ -130,9 +128,6 @@ $main-area-width: 870px;
       }
     }
 
-    li {
-      margin-left: -1px;
-    }
     .active {
       
       a {
@@ -141,12 +136,6 @@ $main-area-width: 870px;
         background-image:linear-gradient(180deg,#eb3939,#a83d6b);
         
 
-        > div {
-          //background-color: grey;
-          color: white;
-          //background-image:  url(~base/images/fh/bet/selected.png);
-          
-        }
 
         &:hover{
            > div {
@@ -165,24 +154,18 @@ $main-area-width: 870px;
     border-top-left-radius: 5px;
     margin-top: 10px;
     > div {
-      height: 34px;
       line-height: 34px;
-      padding: 0px 20px;
-      text-align: center;
+      padding: 0 20px;
     }
   }
   .bc-first-prize {
     font-size: 12px;
   }
 }
-.js-rule-title-hidden-temp {
-  display: none;
-}
 .bc-play-section {
   border-bottom: 1px solid #cccccc;
   background-color: #f8f8f8;
   margin-top:-10px;
-  background-image:-webkit-linear-gradient(180deg, #ffffff, #eeeeee);
   background-image:linear-gradient(180deg,#ffffff,#eeeeee);
   padding-bottom: 10px;
   position: relative;
@@ -235,6 +218,16 @@ $main-area-width: 870px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  margin-top: 3px;
+  margin-left: 8px;
+  color: $inverse-color;
+
+  i{
+    color: #cc6699;
+    font-size: 14px;
+    display: inline-block;
+    margin-right: 5px;
+  }
 }
 
 .bc-select-item {
@@ -324,17 +317,6 @@ $main-area-width: 870px;
     }
   }
 }
-
-.bc-yirou {
-  font-size: 12px;
-  text-align: center;
-  color: $light-dark-color-2;
-}
-
-//.bc-plan-id {
-//  color: $font-passion;
-//  font-weight: bold;
-//}
 
 .bc-bet-mode {
   width: 120px;
@@ -612,22 +594,23 @@ $main-area-width: 870px;
 }
 
 .number-div-style {
-  height: 23px;
+  height: 24px;
   width: 42px;
-  border:1px solid #a1a1a1;
-  font-size: 13px;
+  border:1px solid $gray-color;
   text-align:center;
   display: inline-block;
-  margin-right: -4px;
+  cursor: pointer;
+  border-radius: $globalBtnRadius;
+  vertical-align: middle;
+
+  //&.seq-div {
+  //  background-color: lightgrey;
+  //}
 }
 
 .control-inlin-num {
   display: inline-block;
   margin-right: 9px;
-}
-
-.seq-div {
-  background-color: lightgrey;
 }
 
 .control-inlin-quick {
@@ -1360,7 +1343,7 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
   width: 300px;
   position: relative;
 
-  .rightBlock1{
+  .bc-records-open-container {
     position: absolute;
     width: 290px;
     height: 98px;
@@ -1370,10 +1353,24 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
     border-radius: 8px;
     padding: 5px;
     text-align: center;
+    transition: height 0.2s ease;
 
-    .showList{
+    .showList {
       height: 94px;
       overflow: hidden;
+    }
+
+    &:hover {
+      height: 265px;
+
+      .showList {
+        height: 261px;
+        transition: height 0.2s ease;
+      }
+
+      .fa-angle-down {
+        transform: rotate(180deg);
+      }
     }
 
     .showListBtn{
@@ -1391,37 +1388,34 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
       }
     }
 
-    ul{
-      line-height: 24px;
-      height: 24px;
-      color: #333333;
-
-      &.title{
-        border-bottom: 1px solid #ccc;
-        height: 20px;
-        line-height: 20px;
+    .table {
+      thead {
+        th {
+          padding: 0 2px;
+          background: transparent;
+          border-bottom: 1px solid #cccccc;
+          font-size: 12px;
+        }
+      }
+      tbody {
+        td {
+          font-size: 12px;
+          padding: 2px 0;
+        }
       }
 
-      li{
-        width: 42%;
-        float: left;
-        text-align: center;
-
-        span{
+      .open-nums {
+        span {
           display: inline-block;
           padding: 1px 4px;
           border-radius: 15px;
           line-height: 12px;
           margin-right: 3px;
 
-          &.r{
+          &.key-num {
             background-color: #cc3333;
             color: #fff;
           }
-        }
-
-        &:last-child{
-          width: 16%;
         }
       }
     }
@@ -1526,12 +1520,6 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
       }
     }
 
-    .order-list{
-      height: 230px;
-      overflow-y: auto;
-      overflow-x: hidden;
-    }
-
     .btnList{
       margin: 15px 0px 10px 2px;
 
@@ -1541,7 +1529,7 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
         line-height: 29px;
         width: 91px;
         text-align: center;
-        border: 2px solid #ccc;
+        border: 2px solid $gray-color;
         border-radius: 29px;
         color: #666666;
         cursor: pointer;
@@ -1659,47 +1647,23 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
   }
 }
 
-.js-bc-basic-rules{
-  .js-bc-basic-rules{
-    padding-left: 10px;
-  }
-}
-
-.js-rule-title-clear{
-  display: none;
-}
-
 .rightMenu{
   display: none;
 }
 
-.js-bc-play-example{
-  margin-top: 3px;
-  margin-left: 8px;
-  color: #666666;
-
-  i{
-    color: #cc6699;
-    font-size: 14px;
-    display: inline-block;
-    margin-right: 5px;
-  }
-}
-
-.js-bc-play-tip{
+.bc-play-tip{
   text-decoration: none;
   float: right;
-  margin-top: 1px;
   display: inline-block;
-  padding: 0px 10px;
+  padding: 0 10px;
   border: 1px solid #ccc;
   background-color: #fff;
   border-radius: 30px;
   position: absolute;
-  right: 0px;
-  top: 0px;
+  right: 0;
+  top: 0;
 
-  .js-infor-tip{
+  .infor-tip{
     display: none;
   }
 
@@ -1711,7 +1675,7 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
       display: none;
     }
 
-    .js-infor-tip{
+    .infor-tip{
       display: block;
     }
   }
@@ -1834,10 +1798,26 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
   background-color: #f3f3f3 !important;
   border: 1px solid #ccc !important;
 }
-.js-bc-lottery-preview{
+
+.order-list {
   table{
     tr{
-      padding: 0px 10px;
+      padding: 0 10px;
+    }
+
+    th:first-child, td:first-child {
+      padding-left: 5px;
+    }
+  }
+  .table {
+    thead {
+      th{
+        background: #f6f6f6;
+        border-bottom: 1px solid #cccccc;
+      }
+    }
+    td {
+      padding: 6px 3px;
     }
   }
 }
@@ -1848,13 +1828,6 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
   }
 }
 
-.js-bc-lottery-preview{
-  .table thead th{
-    background: #f6f6f6;
-    border-bottom: #cccccc 1px solid;
-  }
-}
-
 .js-bc-lottery-preview-del{
   color: #ccc;
   cursor: pointer;
@@ -1862,15 +1835,6 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
 .js-bc-lottery-preview{
   .js-wt-tbody{
     font-size: 12px;
-  }
-}
-
-.js-bc-lottery-preview{
-  .slimScrollDiv{
-    overflow: inherit !important;
-  }
-  .js-wt-body-main{
-    overflow: inherit !important;
   }
 }
 
@@ -1932,19 +1896,6 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
     }
     
   }
-  span.text-pink{
-      border: 0px;
-      cursor: inherit;
-
-      &:hover{
-        background:none;
-      }
-    }
-
-  
- }
- .slimScrollDiv table td{
-  padding: 4px 0px;
  }
 }
 

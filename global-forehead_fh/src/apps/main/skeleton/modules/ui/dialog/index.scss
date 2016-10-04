@@ -92,10 +92,8 @@
   //border: 1px solid $new-main-dark-color;
   overflow: hidden;
  
-  font-family: '微软雅黑';
-
   label{
-    font-size: 14px;
+    font-size: $font-xs;
   }
 
   input{
@@ -323,4 +321,15 @@ button.close {
   width: 1016px;
   height: 565px;
   margin-left: -508px;
+}
+
+.fc-re-modal{
+  width: 876px;
+  height: 496px;
+  margin-left: -438px;
+  //border: 1px solid #484848;
+  //border-radius: 5px;
+  .modal-body{
+    padding: 0 10px 17px; ;
+  }
 }

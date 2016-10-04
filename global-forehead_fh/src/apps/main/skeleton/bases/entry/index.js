@@ -204,26 +204,6 @@ var EntryView = Base.ItemView.extend({
         $('body').addClass('footerShow');
       }
     };
-
-
-    var w = 0;
-    var w2 = 0;
-    var w3 = 1130;
-    setTimeout(function(){
-      w = $('.db-slogan .g2 a').width();
-      w2 = w;
-
-      self.timer22 = setInterval(function() {
-        if(w2 + w <= 0){
-          w2 = w3;
-        }
-        else{
-          w2 -= 1;
-        }
-        
-        $('.db-slogan .g2 a').css('left',w2);
-      }, 20);
-    }, 1000);
   },
 
   renderSetting: function() {

@@ -71,8 +71,7 @@ var BettingChoiceModel = Model.extend({
         url: self.freeUrl,
         data: {
           freeId: freeId,
-          method: moneyMethod,// 游戏模式：10000元，1000角，100分，10厘
-          device: 0 // 设备：0PC，1Android，2IOS，3H5
+          method: moneyMethod// 游戏模式：10000元，1000角，100分，10厘
         }
       })
       .done(function(res) {

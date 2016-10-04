@@ -78,35 +78,35 @@ var banks = [
     zhName: '平安银行',
     pic: require('./pingan.png'),
     logo: require('./../../fundCenter/misc/pinganL.png'),
-    className: 'fc-re-bank-pingan'
+    className: ''// 'fc-re-bank-pingan'
   },
   {
     id: 12,
     zhName: '兴业银行',
     pic: require('./xingye.png'),
     logo: require('./xingyeL.png'),
-    className: 'fc-re-bank-xingye'
+    className:  ''//'fc-re-bank-xingye'
   },
   {
     id: 13,
     zhName: '中信银行',
     pic: require('./zhongxin.png'),
     logo: require('./zhongxinL.png'),
-    className: 'fc-re-bank-zhongxin'
+    className:  ''//'fc-re-bank-zhongxin'
   },
   {
     id: 14,
     zhName: '邮政银行',
     pic: require('./youzheng.png'),
     logo: require('./../../fundCenter/misc/youzhengL.png'),
-    className: 'fc-re-bank-youzheng'
+    className: ''// 'fc-re-bank-youzheng'
   },
   {
     id: 15,
     zhName: '华夏银行',
     pic: require('./huaxia.png'),
     logo: require('./../../fundCenter/misc/huaxiaL.png'),
-    className: 'fc-re-bank-huaxia'
+    className:  ''//'fc-re-bank-huaxia'
   }
 ];
 

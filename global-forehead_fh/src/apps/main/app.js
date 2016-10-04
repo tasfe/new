@@ -128,7 +128,8 @@ function _bindRechargeHandler() {
               var $dialogRe = Global.ui.dialog.show({
                 id: _.now(),
                 title: '充值',
-                size: 'modal-lg',
+                size: ' ',
+                modalClass: 'fc-re-modal',
                 bodyClass: 'js-fc-re-modal',
                 body: '<div class="js-fc-re-container"></div>'
               });

@@ -69,6 +69,11 @@
   display: inline-block;
 }
 
+.fc-wd-bg{
+  background: #fff;
+  padding: 10px;
+}
+
 .fc-cardList {
   margin-top: 5px;
   position: relative;
@@ -192,15 +197,17 @@
 }
 
 //fc
-.fc-re-nav-manual-tabs {
-  padding-left: 0 !important;
-  margin-bottom: 0 ;
-  li{
-      a{
-        border-right: 1px solid #d4d4d4
-      }
-  }
+
+.fc-recharge{
+  border-top: 1px solid #ccc;
+  padding-top: 15px;
 }
+
+.tip-area{
+  //border-top: 1px solid #ccc;
+  //padding-top: 15px;
+}
+
 .fc-re-nav-tab-a {
  // border-right: 1px solid #d4d4d4 !important;
 }
@@ -256,51 +263,92 @@
   color: #a4a4a4;
 }
 
-.fc-re-div1 {
-  border: 1px solid #d4d4d4;
-  border-bottom: 0;
-}
+
 .fc-re-div2 {
-  border: 1px solid #d4d4d4;
-  border-top: 0;
-  padding-top: 47px;
+  border: 1px solid #ccc;
+  padding: 4px ;
+  border-radius: 3px;
+}
+.fc-re-div3{
+  border-bottom: 1px solid #ccc;
+  padding: 15px 5px;
+}
+
+.fc-re-amount-container-super{
+  padding: 10px 0 10px 200px;
+  display: table;
+  width: 656px;
+  border-bottom: 1px solid #ccc;
+}
+.fc-re-amount-container{
+
+  display: table-cell;
+  vertical-align: middle;
+  //text-align: center;
+  width: 100%;
+  height: 120px;
+}
+
+.fc-re-commit{
+  background: linear-gradient(to bottom,#cd6498,#b54e7e);
+  width:80px;
+  height: 26px;
+  border-radius: 5px;
+  margin: 16px 0 0 ;
 }
 
 .fc-re-bankList {
-  border:1px  solid #d4d4d4;
-  border-left: 0;
-  border-right: 0;
-  border-bottom: 0;
+  border: 0;
   text-align: left;
   width: 100%;
 
-  line-height: 46px;
+  //line-height: 46px;
   white-space: nowrap;
   td {
    // border:1px solid #d4d4d4;
     width: 25%;
     height: 46px;
-    span {
+    .fc-bank-name {
       display: block;
-      line-height: 30px;
-      margin-left: 10px;
+      width: 90px;
+      height: 38px;
+      line-height: 38px;
+      margin-left: 18px;
       padding-left: 50px;
     }
   }
   .fc-re-bank {
     cursor: pointer;
-    border:1px solid #d4d4d4;
+    border:2px solid #d4d4d4;
+    border-radius: 19px;
+    width: 156px;
+    height: 36px;
+    margin: 0 5px 12px;
+    position: relative;
+    .bank-select{
+      position: absolute;
+      right: 1px;
+      top: -4px;
+      display: none;
+      //background-color: white;
+      color: #cd3330;
+      font-size: 20px;
+    }
+
   }
 
-  td.active{
+  .fc-re-bank.active{
     //background-color: $color-sunshine;
-    background: url("rc-bank-selected.png");
+    //background: url("rc-bank-selected.png");
+    border: 2px solid #cc3531;
+    .bank-select{
+      display: block;
+    }
   }
 
 }
 .fc-re-quickAmount {
   list-style-type: none;
-  margin-left: 217px;
   li{
     text-align: center;
     margin-right: 5px;
@@ -309,9 +357,11 @@
     border-radius: 4px;
     width:auto;
     cursor: pointer;
-
-    min-width: 25px;
-    max-width: 30px;
+    height: 24px;
+    line-height: 24px;
+    padding: 0 10px;
+    //min-width: 25px;
+    //max-width: 30px;
     white-space: nowrap;
   }
   li:focus {
@@ -323,57 +373,53 @@
 }
 
 .fc-re-bank-zhongguo {
-  background: url('zhongguoL.png') no-repeat;
+  background: url('zhongguo.jpg') no-repeat;
 }
 .fc-re-bank-gongshang {
-  background: url('gongshangL.png') no-repeat;
+  background: url('gongshang.jpg') no-repeat;
 }
 .fc-re-bank-nongye {
-  background: url('nongyeL.png') no-repeat;
+  background: url('nongye.jpg') no-repeat;
 }
 .fc-re-bank-jianshe {
-   background: url('jiansheL.png') no-repeat;
+   background: url('jianshe.jpg') no-repeat;
 }
 
 .fc-re-bank-jiaotong {
-  background: url('jiaotongL.png') no-repeat;
+  background: url('jiaotong.jpg') no-repeat;
 }
 .fc-re-bank-minsheng {
-  background: url('minshengL.png') no-repeat;
+  background: url('minsheng.jpg') no-repeat;
 }
 .fc-re-bank-guangfa {
-  background: url('guangfaL.png') no-repeat;
+  background: url('guangfa.jpg') no-repeat;
 }
 .fc-re-bank-guangda {
-  background: url('guangdaL.png') no-repeat;
+  background: url('guangda.jpg') no-repeat;
 }
 
 .fc-re-bank-pufa {
-  background: url('pufaL.png') no-repeat;
+  background: url('pufa.jpg') no-repeat;
 }
 .fc-re-bank-zhaoshang {
-  background: url('zhaoshangL.png') no-repeat;
+  background: url('zhaoshang.jpg') no-repeat;
 }
-.fc-re-bank-pingan {
-  background: url('pinganL.png') no-repeat;
-}
-.fc-re-bank-xingye {
-  background: url('xingyeL.png') no-repeat;
-}
-.fc-re-bank-zhongxin {
-  background: url('zhongxinL.png') no-repeat;
-}
-.fc-re-bank-youzheng {
-  background: url('youzhengL.png') no-repeat;
-}
-.fc-re-bank-huaxia {
-  background: url('huaxiaL.png') no-repeat;
-}
+//.fc-re-bank-pingan {
+//  background: url('pingan.jpg') no-repeat;
+//}
+//.fc-re-bank-xingye {
+//  background: url('xingye.jpg') no-repeat;
+//}
+//.fc-re-bank-zhongxin {
+//  background: url('zhongxin.jpg') no-repeat;
+//}
+//.fc-re-bank-youzheng {
+//  background: url('youzheng.jpg') no-repeat;
+//}
+//.fc-re-bank-huaxia {
+//  background: url('huaxia.jpg') no-repeat;
+//}
 
-.fc-re-commit {
-  width: 250px;
-  background-color: $color-bright-red;
-}
 .fc-re-resultShow {
   margin: 10px 20px;
 }
@@ -473,8 +519,7 @@
 .fc-wd-div1 {
   margin-right: auto;
   margin-left: auto;
-  height: 100px;
-
+  padding-left: 200px;
 }
 
 .fc-wd-div2{
@@ -536,9 +581,6 @@
   height: 1px;
 }
 
-.fc-next-button{
-  margin-top: 50px;
-}
 
 .fc-wd-bankList {
   width: 250px;
@@ -546,7 +588,8 @@
 }
 
 .fc-wd-amount {
-  width: 236px;
+  display: inline-block;
+  width: 238px;
   height: 30px;
 }
 
@@ -573,4 +616,105 @@
 .mt-transfor-input{
   width: 180px;
   height: 30px;
+}
+
+.fc-re-tip-title{
+  font-size: 16px;
+  text-align: center;
+  margin: 14px ;
+}
+.fc-re-tip-left{
+  float: left;
+  width: 424px;
+  height: 253px;
+  border-right: 1px solid #ccc;
+  text-align: center;
+  margin-top: 52px;
+  margin-bottom: 7px;
+  a{
+
+  }
+}
+
+.fc-re-tip-type{
+  font-size: 16px;
+  height: 22px;
+  line-height: 22px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 0 10px;
+  display: inline-block;
+  margin: 10px 0 38px 0;
+}
+.fc-re-tip-right{
+  width: 423px;
+  height: 253px;
+  display: inline-block;
+  text-align: center;
+  margin-top: 52px;
+  margin-bottom: 7px;
+}
+
+.fc-rc-link{
+  width: 147px;
+  height: 117px;
+  color: #fff !important;
+  text-decoration: none;
+  border-radius: 5px;
+  .fc-re-tip-icon{
+    text-align: center;
+    margin: 29px 0 24px;
+  }
+
+}
+
+.fc-rc-link-service{
+  background-color: #bf6e8f;
+  &:focus,&:hover,&:active{
+    background-color:#bf6e8f;
+  }
+}
+
+.fc-rc-link-help{
+  background-color: #5993b6;
+  &:focus,&:hover,&:active{
+    background-color:#5993b6;
+  }
+}
+
+.fc-rc-link-recharge{
+  background-color: #82ab7c;
+  &:focus,&:hover,&:active{
+    background-color:#82ab7c;
+  }
+}
+
+.fc-rc-link-result{
+  background-color: #a471bb;
+  &:focus,&:hover,&:active{
+    background-color:#a471bb;
+  }
+}
+
+.fc-re-tip-btn-container{
+  padding-top: 16px;
+  border-top: 1px solid #ccc;
+  height: 10px;
+  button{
+    width: 80px;
+    height: 24px;
+    line-height:24px;
+    padding: 0 5px !important;
+    background: #fff;
+    color: #000;
+    border: 1px solid #ccc;
+  }
+  .fc-re-tip-goon{
+    color: #fff;
+    background: linear-gradient(to bottom,#cd6498,#b54e7e);
+  }
+  .fc-re-tip-cancel{
+    color: #000;
+    background: #fff;
+  }
 }

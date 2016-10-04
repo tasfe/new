@@ -30,7 +30,7 @@ var BettingDetailView = Base.ItemView.extend({
     });
   },
 
-  cancelBettingXhl: function(data){
+  cancelBettingXhr: function(data){
     return Global.sync.ajax({
       url: '/ticket/bet/cancel.json',
       data: data
@@ -42,7 +42,7 @@ var BettingDetailView = Base.ItemView.extend({
     var $target = $(e.currentTarget);
     $target.button('loading');
     var data = {betId:this.$('#jsTicketBetId').val()};
-    this.cancelBettingXhl(data)
+    this.cancelBettingXhr(data)
       .always(function(){
         $target.button('reset');
       })

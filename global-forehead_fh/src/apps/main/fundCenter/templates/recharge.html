@@ -1,66 +1,105 @@
-<form class="js-fc-re-form form-inline  row" action="/fund/recharge/dopaymentrecharge" method="post" target="_blank">
-  <div class=" m-left-md m-right-md">
-    <div class="fc-re-div1">
-      <ul class="js-fc-re-tabs view-tabs nav nav-tabs nav-tabs-border fc-re-nav-manual-tabs"></ul>
-    </div>
+<div class="fc-recharge">
+  <form class="js-fc-re-form form-inline form-horizontal " action="/fund/recharge/dopaymentrecharge"
+        method="post" target="_blank">
 
+    <ul class="js-fc-re-tabs view-tabs nav nav-tabs nav-tabs-special nav-tabs-border fc-re-nav-manual-tabs"></ul>
 
-    <div class="js-div-transaction fc-re-div2"  >
-    </div>
+    <div class="js-fc-form-area">
+      <div class="js-fc-caption  fc-re-div2"></div>
 
-
-    <div class="js-div-all fc-re-div2">
-      <div class=" m-bottom-lg">
-        <table class="js-fc-re-bankList fc-re-bankList"></table>
+      <div class="js-div-all fc-re-div3">
+          <table class="js-fc-re-bankList fc-re-bankList"></table>
       </div>
 
-
-      <div class="js-paypal text-center m-bottom-md" style="display: none">
-        <div class="inline-block fc-re-amount-div">
-          <div class="fc-wechat">
-            <span class="fc-re-amount-label">支付宝昵称</span>
-            <input type="text" name="paypalName" class="js-paypalName fc-re-amount" autocomplete="off" >
+      <div  class="fc-re-amount-container-super">
+        <div class="fc-re-amount-container">
+          <div class="control-group">
+            <label class="control-label">充值金额：</label>
+            <div class="controls">
+              <span class="input-append">
+                <input type="text" name="amount" class="js-fc-re-amount" autocomplete="off" required
+                       data-parsley-type="integer">
+                <span class="add-on">元</span>
+              </span>
+              <span class="js-fc-re-amountLimit-tip"></span>
+            </div>
           </div>
-        </div>
-        <span>(注意是 "昵称",不是 "支付宝账号"哦)</span>
-      </div>
 
-
-      <div class="js-wechat text-center m-bottom-md" style="display: none">
-        <div class="inline-block fc-re-amount-div">
-          <div class="fc-wechat">
-            <span class="fc-re-amount-label">微信名字</span>
-            <input type="text" name="wechatName" class="js-wechatName fc-re-amount" autocomplete="off" >
+          <div class="control-group js-fare-alert hidden">
+            <label class="control-label">手续费金额：</label>
+            <div class="controls js-fare-result rc-input-result ">
+            </div>
           </div>
+          <div class="control-group js-fare-alert hidden">
+            <label class="control-label">到账金额：</label>
+            <div class="controls js-jine-result rc-input-result ">
+            </div>
+          </div>
+
+          <div class="control-group">
+            <div class="controls">
+              <ul class="js-fc-re-quickAmounts fc-re-quickAmount"></ul>
+            </div>
+          </div>
+
+
         </div>
-        <span>(注意是 "名字",不是 "微信号"哦)</span>
       </div>
-
-
-      <div class="text-center m-bottom-md">
-        <div class="inline-block fc-re-amount-div">
-          <span class="fc-re-amount-label">充值金额</span>
-          <input type="text" name="amount" class="js-fc-re-amount fc-re-amount" autocomplete="off" required data-parsley-type="integer">
-        </div>
-        元   <span class="js-info-quickAmounts" ></span>
-      </div>
-
-
-
-      <div class=" m-bottom-md">
-        <ul class="js-fc-re-quickAmounts fc-re-quickAmount"></ul>
+      <div class=" text-center">
+          <button type="button" class="js-fc-re-commit btn btn-pink fc-re-commit">去支付</button>
       </div>
     </div>
-  </div>
-  <div class="text-center m-top-lg m-bottom-lg">
-    <button type="button" class="js-fc-re-commit btn btn-pleasure btn-liner fc-re-commit">去支付</button>
-  </div>
-  <input type="hidden" name="token" value="<%=Global.memoryCache.get('acctInfo').token %>">
-  <input type="hidden" name="paymentType" class="js-paymentType">
-  <input type="hidden" name="paymentId" class="js-paymentId">
-  <input type="hidden" name="bankId">
-  <input type="hidden" name="bankCode">
-  <input type="hidden" name="device" value="0">
-  <input type="hidden" name="transNo" class="js-transNo">
 
-</form>
+    <div class="js-fc-tip-area tip-area" style="display: none">
+      <div class="fc-re-div2">
+        <p class="fc-re-tip-title">
+          充值方式：<span class="js-fc-re-title-type"></span>
+          <span class="m-left-lg">
+            充值金额：<span class="js-fc-re-title-amount text-hot"></span>元
+          </span>
+        </p>
+      </div>
+
+      <div class="fc-re-tip-left">
+        <span class="fc-re-tip-type">充值遇到问题</span>
+        <div>
+          <a class="btn btn-link js-gl-service fc-rc-link fc-rc-link-service" data-dismiss="modal">
+            <div class="fc-re-tip-icon"><span class="sfa sfa-re-tip-service"></span></div>
+            联系客服
+          </a>
+          <a href="#hc?page=recharge-flow" class="btn btn-link m-left-lg fc-rc-link fc-rc-link-help js-dismiss">
+            <div class="fc-re-tip-icon"><span class="sfa sfa-re-tip-help"></span></div>
+            前去帮助中心
+          </a>
+        </div>
+
+      </div>
+      <div class="fc-re-tip-right">
+        <span class="fc-re-tip-type">充值已完成</span>
+        <div>
+          <a class="btn btn-link fc-rc-link fc-rc-link-recharge js-recharge-again">
+            <div class="fc-re-tip-icon"><span class="sfa sfa-re-tip-goon"></span></div>
+            继续充值
+          </a>
+          <a href="#uc/rr" class="btn btn-link m-left-lg fc-rc-link fc-rc-link-result js-dismiss">
+            <div class="fc-re-tip-icon"><span class="sfa sfa-re-tip-result"></span></div>
+            查看充值结果
+          </a>
+        </div>
+      </div>
+      <div class="fc-re-tip-btn-container text-center">
+        <button class="btn btn-pink  js-recharge-again fc-re-tip-goon">继续充值</button>
+        <button class="btn btn-cancel fc-re-tip-cancel" data-dismiss="modal">取消</button>
+      </div>
+    </div>
+
+    <input type="hidden" name="token" value="<%=Global.memoryCache.get('acctInfo').token %>">
+    <input type="hidden" name="paymentType">
+    <input type="hidden" name="paymentId">
+    <input type="hidden" name="bankId">
+    <input type="hidden" name="bankCode">
+    <input type="hidden" name="device" value="0">
+  </form>
+</div>
+
+

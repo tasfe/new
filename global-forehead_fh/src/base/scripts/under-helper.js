@@ -138,6 +138,41 @@ _.mixin({
     return timestamp ? moment(timestamp).format(format || 'YYYY-MM-DD') : timestamp;
   },
 
+  compareTime: function(timestamp, relTimestamp) {
+    var a = moment(timestamp);
+    var b = moment(relTimestamp);
+    var diff = a.diff(b, 'seconds');
+
+    diff = a.diff(b, 'minutes');
+    if (diff < 59) {
+      return {
+        data: diff + 1,
+        unit: '分'
+      };
+    }
+
+    diff = a.diff(b, 'hours');
+    if (diff < 24) {
+      return {
+        data: diff,
+        unit: '小时'
+      };
+    }
+
+    diff = a.diff(b, 'days');
+    if (diff < 30) {
+      return {
+        data: diff,
+        unit: '天'
+      };
+    }
+
+    return {
+      data: _(a).toTime(),
+      unit: ''
+    };
+  },
+
   //格式化时间
   formatTime: function(timestamp, format) {
     return timestamp ? moment(timestamp).format(format || 'YYYY-MM-DD H:mm:ss') : timestamp;

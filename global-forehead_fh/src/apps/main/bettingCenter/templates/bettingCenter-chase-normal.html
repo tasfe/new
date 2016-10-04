@@ -1,55 +1,56 @@
-<div class="portlet-filter">
-  <form class="js-bc-chase-normal-table form-inline m-bottom-lg" action="javascript:void(0)">
-    <div class="">
+<div class="portlet m-LR-sm">
+  <div class="portlet-header">
+    <form class="js-bc-chase-normal-table form-inline m-bottom-lg" action="javascript:void(0)">
+      <div class="">
+        <div class="control-inlin-num">
+          <label class="control-label-chase">起始期号</label>
+          <select class="js-bc-chase-normal-planId bc-chase-normal-planId" name="startPlanId"></select>
+        </div>
+
+        <div class="control-inlin-num">
+          <label class="control-label-chase">连续追号</label>
+          <div class="js-number-seq number-div-style" data-numSeq="5" data-value="5">5期</div>
+          <div class="js-number-seq number-div-style" data-numSeq="10" data-value="10">10期</div>
+          <div class="js-number-seq number-div-style" data-numSeq="15" data-value="15">15期</div>
+          <div class="js-number-seq number-div-style" data-numSeq="20" data-value="20">20期</div>
+        </div>
+        <div class="control-inlin-num">
+          <label class="control-label-chase">追</label>
+          <input name="chasePlans" type="text" class="js-bc-chase-chasePlans js-gl-monitor bc-monitor"
+                 data-monitor-type="number" value="5" />
+          <label class="control-label-chase help-inline">期（包含当前期最多可追<span class="js-bc-chase-left-plans">-</span>期）</label>
+        </div>
+      </div>
       <br>
-      <div class="control-inlin-num">
-        <label class="control-label-chase">起始期号</label>
-        <select class="js-bc-chase-normal-planId bc-chase-normal-planId" name="startPlanId"></select>
-      </div>
+      <div class="control-group no-margin">
+        <div class="control-inline">
+          <label class="control-label-chase">起始倍数</label>
+          <input name="startMultiple" type="text" class="js-bc-start-multiple bc-monitor"
+                 data-monitor-type="number" value="1" />
+        </div>
+        <div class="control-inline">
+          <label class="control-label-chase">隔</label>
+          <input name="gaps" type="text" class="js-bc-gaps js-gl-monitor bc-monitor"
+                 data-monitor-type="number" data-monitor-range="[1, 99999]" value="1" />
+          <label class="control-label-chase">期</label>
+        </div>
 
-      <div class="control-inlin-num">
-        <label class="control-label-chase">连续追号</label>
-        <div class="js-number-seq number-div-style" data-numSeq="5" data-value="5">5期</div>
-        <div class="js-number-seq number-div-style" data-numSeq="10" data-value="10">10期</div>
-        <div class="js-number-seq number-div-style" data-numSeq="15" data-value="15">15期</div>
-        <div class="js-number-seq number-div-style" data-numSeq="20" data-value="20">20期</div>
-      </div>
-      <div class="control-inlin-num">
-        <label class="control-label-chase">追</label>
-        <input name="chasePlans" type="text" class="js-bc-chase-chasePlans js-gl-monitor bc-monitor"
-          data-monitor-type="number" value="5" />
-        <label class="control-label-chase">期（包含当前期最多可追<span class="js-bc-chase-left-plans">-</span>期）</label>
-      </div>
-    </div>
-    <br>
-    <div class="control-group no-margin">
-      <div class="control-inline">
-        <label class="control-label-chase">起始倍数</label>
-        <input name="startMultiple" type="text" class="js-bc-start-multiple bc-monitor"
-          data-monitor-type="number" value="1" />
-      </div>
-      <div class="control-inline">
-        <label class="control-label-chase">隔</label>
-        <input name="gaps" type="text" class="js-bc-gaps js-gl-monitor bc-monitor"
-          data-monitor-type="number" data-monitor-range="[1, 99999]" value="1" />
-        <label class="control-label-chase">期</label>
-      </div>
+        <div class="control-inline">
+          <label class="control-label-chase">倍数X</label>
+          <input name="incMultiple" type="text" class="js-bc-inc-multiple js-gl-monitor bc-monitor"
+                 data-monitor-type="number" data-monitor-range="[1, 99999]" value="1" />
 
-      <div class="control-inline">
-        <label class="control-label-chase">倍数X</label>
-        <input name="incMultiple" type="text" class="js-bc-inc-multiple js-gl-monitor bc-monitor"
-          data-monitor-type="number" data-monitor-range="[1, 99999]" value="1" />
+        </div>
 
+        <!--  <button type="button" class="js-bc-chase-create btn btn-sun btn-linear pull-right" data-loading-text="生成中">
+            <span class="sfa sfa-btn-create vertical-top"></span>
+            生成追号
+          </button>-->
+
+        <div class="js-bc-chase-create chase-num"></div>
       </div>
-
-    <!--  <button type="button" class="js-bc-chase-create btn btn-sun btn-linear pull-right" data-loading-text="生成中">
-        <span class="sfa sfa-btn-create vertical-top"></span>
-        生成追号
-      </button>-->
-
-      <div class="js-bc-chase-create chase-num" > </div>
-
-    </div>
-  </form>
-  <div class="js-bc-chase-normal-container" style="margin-top:-20px !important;"></div>
+    </form>
+  </div>
 </div>
+
+<div class="js-bc-chase-normal-container"></div>

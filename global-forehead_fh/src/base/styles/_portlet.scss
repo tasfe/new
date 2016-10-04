@@ -1,10 +1,11 @@
 .portlet {
   //margin-bottom: 20px;
-  //border: 1px solid $gray-color;
+  border: 1px solid $gray-color;
+  border-radius: $globalBoxRadius;
 
   .portlet-header {
     padding: 5px 9px 5px 15px;
-    line-height: 30px;
+    line-height: 26px;
   }
 
   .portlet-title {
