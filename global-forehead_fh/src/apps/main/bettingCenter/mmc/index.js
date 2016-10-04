@@ -141,6 +141,7 @@ var BettingCenterView = Base.ItemView.extend({
     this.$playToggle = this.$('.js-bc-play-toggle');
     this.$basicRules = this.$('.js-bc-basic-rules');
     this.$optionalRules = this.$('.js-bc-optional-rules');
+    this.$superRules = this.$('.js-bc-super-rules');
     this.$advanceRules = this.$('.js-bc-advance-rules');
 
     //playInfo
@@ -624,15 +625,21 @@ var BettingCenterView = Base.ItemView.extend({
   togglePlayModeHandler: function(e) {
     var $target = $(e.currentTarget);
     var type = $target.data('type');
-    $target.addClass('active').siblings().removeClass('active');
+    $target.addClass('hidden').siblings().removeClass('hidden');
     if (type === 'normal') {
       this.$basicRules.find('.js-bc-basic-rule').eq(0).trigger('click');
       this.$basicRules.removeClass('hidden');
+      this.$superRules.addClass('hidden');
       this.$optionalRules.addClass('hidden');
+      $('.bc-curt-plan-main').addClass('bg-deep-gray');
+      //this.$lastResults.find('.text-circle:lt(3)').removeClass('text-circle-red');
     } else {
       this.$optionalRules.find('.js-bc-basic-rule').eq(0).trigger('click');
       this.$basicRules.addClass('hidden');
+      this.$superRules.addClass('hidden');
       this.$optionalRules.removeClass('hidden');
+      $('.bc-curt-plan-main').addClass('bg-deep-gray');
+      //this.$lastResults.find('.text-circle:lt(3)').removeClass('text-circle-red');
     }
   },
 

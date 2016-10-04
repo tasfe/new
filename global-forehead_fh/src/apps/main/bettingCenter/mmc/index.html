@@ -53,29 +53,32 @@
 
   <div class="js-bc-main-area bc-main-area ">
     <div class="js-bc-rules bc-menu">
-      <div class="bc-toggle">
-        <span class="js-play1">任选玩法</span>
-        <span class="js-play2 sd">常规玩法</span>
+      <div class="js-bc-toggle bc-toggle ">
+        <span class="js-bc-play-toggle bc-play-toggle" data-type="special">
+          <span class="sfa sfa-bc-play-optional v-middle"></span> 任选玩法
+        </span>
+        <span class="js-bc-play-toggle bc-play-toggle normal hidden" data-type="normal">
+          <span class="sfa sfa-bc-play-optional v-middle"></span> 任选玩法
+        </span>
       </div>
       <div class="js-bc-basic-rules bc-basic-rules"></div>
       <div class="js-bc-optional-rules bc-basic-rules hidden"></div>
-      <div class="js-bc-advance-rules bc-advance-rules"></div>
-      <div class="js-rule-title-hidden-temp "></div>
+      <div class="js-rule-title-hidden-temp hidden"></div>
     </div>
-    <div class="bc-example-container">
+    <div class="bc-play-section">
+      <div class="js-bc-advance-rules"></div>
       <div class="bc-play-brief">
-        <div class="pull-left">中奖示例：</div>
-        <div class="overflow-hidden ">
-          <span class="js-bc-play-example bc-play-example"></span>
-          <!--<div>-->
-          <a class="js-bc-play-tip bc-play-tip btn btn-sm bc-example-button" href="javascript:void(0)">
-            <!--<span class="sfa sfa-bc-play-brief vertical-middle"></span>-->
-            玩法说明
+        <div class="overflow-hidden">
+
+          <span class="js-bc-play-example bc-play-example pull-left"></span>
+
+          <a class="js-bc-play-tip bc-play-tip btn-link" href="javascript:void(0)">
+            <span>中奖举例</span>
+            <span class="js-infor-tip infor-tip"></span>
           </a>
-          <!--<span class="text-hot">
-            奖金模式：<span class="js-bc-bet-mode"></span>
-          </span>-->
-          <!--</div>-->
+          <span class="bc-play-prize-modal pull-left">
+            奖金模式：<span class="js-bc-bet-mode">1950</span>
+          </span>
         </div>
       </div>
     </div>
@@ -110,13 +113,11 @@
           <span class="price">共<span class="js-bc-statistics-money">0</span>元</span>
         </div>
       </div>
-    </div>
-    <div class="bc-lottery-add">
-      <div class="bc-lottery-add-btn-div">
+      <div class="bc-lottery-add">
         <button class="js-bc-btn-lottery-add btn bc-mmc-btn-lottery-add btn-linear">
-          <span class="sfa   vertical-top m-right-sm"></span>
+          <i class="fa fa-angle-down" aria-hidden="true"></i>
           添&nbsp;&nbsp;加
-          <span class="sfa   vertical-top m-left-sm"></span>
+          <i class="fa fa-angle-down" aria-hidden="true"></i>
         </button>
         <div class="js-bc-mmc-lottery-time-show bc-mmc-lottery-time-show">
 
@@ -124,7 +125,6 @@
       </div>
     </div>
   </div>
-
 
   <div class="bc-mmc-selected-area clearfix">
 
