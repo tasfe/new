@@ -6,6 +6,7 @@ var DesktopNewsView = require('skeleton/bases/desktopNews');
 var InsideLetterView = require('skeleton/bases/insideLetter');
 var EntryView = require('skeleton/bases/entry');
 var FooterView = require('com/footer');
+var NoticeBoardView = require('dynamicCenter/views/noticeBoardFH');
 
 var RainActivity = require('com/rainActivity');
 var DriftActivity = require('com/driftActivity');
@@ -52,6 +53,7 @@ App.addInitializer(function(options) {
 
   Backbone.history.start();
 
+  _bindNoticeHandler();
   _bindLetterHandler();
   _bindRechargeHandler();
   _bindServiceHandler();
@@ -70,6 +72,36 @@ App.addInitializer(function(options) {
 //      }
 //    });
 //}
+
+function _bindNoticeHandler() {
+  $(document).off('click.notice').on('click.notice', '.js-gl-notice', function(e) {
+    var noticeBoardView;
+
+    var $dialog = Global.ui.dialog.show({
+      title: '平台公告',
+      size: '',
+      body: '<div class="js-head-bulletin-container"></div>',
+      bodyClass: 'no-padding',
+      modalClass: 'header-bulletin-dialog',
+      footer: ''
+    });
+
+    var $bulletinContainer = $dialog.find('.js-head-bulletin-container');
+
+    $dialog.on('hidden.modal', function() {
+      $(this).remove();
+      noticeBoardView.destroy();
+    });
+
+    noticeBoardView = new NoticeBoardView({
+      el: $bulletinContainer,
+      reqData: {
+       bulletinId: $(e.currentTarget).data('bulletin-id')
+      }
+    }).render();
+  });
+}
+
 
 function _bindLetterHandler() {
   $(document).off('click.letter').on('click.letter', '.js-gl-letter', function(e) {

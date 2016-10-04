@@ -18,8 +18,8 @@ $.widget('gl.dropMenu', {
 
   _bindEvents: function() {
     this._on({
-      'mouseover .drop-menu > li': 'hoverHandler',
-      'mouseout .drop-menu > li': 'outHandler',
+      // 'mouseover .drop-menu > li': 'hoverHandler',
+      // 'mouseout .drop-menu > li': 'outHandler',
       'click .drop-submenu > li > a': 'itemClickHandler'
     });
   },

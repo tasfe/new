@@ -30,7 +30,7 @@ var HeaderView = Base.ItemView.extend({
     'click .js-gl-hd-logout': 'logoutHandler',
     'mouseover .js-bc-lottery-list': 'lotteryListHandler',
     'mouseout .js-bet-lottery-menu': 'outlotteryListHandler',
-    'click .js-affiche-show': 'afficShowHandler',
+    // 'click .js-affiche-show': 'afficShowHandler',
 
     'click .js-letterList-titleLine': 'bindMessageUserList',
 
@@ -115,10 +115,6 @@ var HeaderView = Base.ItemView.extend({
       this.$('.js-h-security').removeClass('sfa-h-security').addClass('sfa-h-security-off');
       this.$('.js-gl-hd-balance').text(acctInfo.fBalance);
     }
-  },
-
-  afficShowHandler: function() {
-    this.renderBulletin();
   },
 
   startLoadAfficheDetail:function (afficheId) {
