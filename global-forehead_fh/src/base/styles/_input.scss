@@ -4,7 +4,7 @@
   input {
     display: block !important;
     width: 176px;
-    padding-right: 25px;
+    padding-right: 20px;
     height: 100%;
     box-sizing: border-box;
   }
@@ -14,7 +14,7 @@
     position: absolute;
     top: 2px;
     right: 7px;
-    font-size: 15px;
-    line-height: 22px;
+    line-height: 24px;
+    color: $color-light-amber;
   }
 }

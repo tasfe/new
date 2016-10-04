@@ -73,10 +73,12 @@
           <option value="1">普通投注</option>
           <option value="2">自定义投注</option>
         </select>
-        <span class="bc-result-container2 hidden ">
+        <span class="bc-result-container2 m-left-md hidden">
         投注金额
-        <input name="customizeMoney" type="text" class="js-gl-monitor js-bc-customize-money" data-monitor-type="number" data-monitor-range="[1, 9999]" value="0">
-        <span>元</span>
+          <span class="input-append inline-block">
+            <input name="customizeMoney" type="text" class="js-gl-monitor js-bc-customize-money input-xs" data-monitor-type="number" data-monitor-range="[1, 9999]" value="0">
+            <span class="add-on">元</span>
+          </span>
       </span>
         <span class="bc-result-container3 ">
         <div class="tab-toolbar tab-border inline-block m-left-md no-margin vertical-middle clearfix">
@@ -112,15 +114,17 @@
   </div>
   <div class="rightBlock2">
     <div class="topTips">
-      <span class="js-julien-data11"></span>
-      <span class="js-julien-data21"></span>
-      <span class="js-julien-data31"></span>
-      <span class="js-julien-data41"></span>
+      <div class="topTip">今日充值：<span class="js-bc-today-recharge">0</span></div>
+      <div class="topTip">今日提现：<span class="js-bc-today-withdraw">0</span></div>
+      <div class="topTip">今日投注：<span class="js-bc-today-betting">0</span></div>
+      <div class="topTip">今日盈亏：<span class="js-bc-today-profit">0</span></div>
     </div>
     <div class="bet-act-available">
       <i class="fa fa-star"></i>
-      <span>可参加活动：1个</span>
-      <a href="#at/tb">活动详情</a>
+      <span>
+        可参加活动：<span class="js-bc-current-activities">0</span>个
+      </span>
+      <a class="js-bc-activity-entry router" href="#at/tb">活动详情</a>
     </div>
   </div>
   <div class="rightBlock3 js-bc-records">

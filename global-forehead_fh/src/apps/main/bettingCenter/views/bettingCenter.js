@@ -52,15 +52,9 @@ var BettingCenterView = Base.ItemView.extend({
     'click .js-cang02':'cangHandler'
   },
 
-  getTeamOnlineXhr: function() {
-    var timestamp = Date.parse(new Date());
-    var now = _(timestamp).toDate();
+  getPersonalInfoXhr: function() {
     return Global.sync.ajax({
-      url: '/info/teamreport/subuserstat.json',
-      data: {
-        'startTime': now,
-        'endTime': now
-      }
+      url: '/info/teamreport/stat.json'
     });
   },
 
@@ -132,16 +126,6 @@ var BettingCenterView = Base.ItemView.extend({
       this.recordsOpenView.update();
       this.recordsRecentView.update();
     });
-
-    this.getTeamOnlineXhr().done(function (res) {
-      var data = res && res.root || {};
-      if (res && res.result === 0) {
-        $('.js-julien-data11').text( '今日充值：'+(data.todayRechargeTotal/10000).toFixed(2) );
-        $('.js-julien-data21').text( '今日提现：'+(data.todayWithdrawTotal/10000).toFixed(2) );
-        $('.js-julien-data31').text( '今日投注：'+(data.todayBetTotal/10000).toFixed(2) );
-        $('.js-julien-data41').text( '今日盈亏：'+(data.todayProfitTotal/10000).toFixed(2) );
-      }
-    });
   },
 
   getNewPlan: function() {
@@ -207,6 +191,13 @@ var BettingCenterView = Base.ItemView.extend({
     this.$btnConfirm = this.$('.js-bc-btn-lottery-confirm');
     this.$btnChase = this.$('.js-bc-chase');
 
+    this.$todayRecharge = this.$('.js-bc-today-recharge');
+    this.$todayWithdraw = this.$('.js-bc-today-withdraw');
+    this.$todayBetting = this.$('.js-bc-today-betting');
+    this.$todayProfit = this.$('.js-bc-today-profit');
+    this.$curtActivities = this.$('.js-bc-current-activities');
+    this.$activityEntry = this.$('.js-bc-activity-entry');
+
     this.initNumRange();
 
     this.renderCountdown();
@@ -237,6 +228,8 @@ var BettingCenterView = Base.ItemView.extend({
       el: this.$recordsRecentContainer,
       ticketId: this.options.ticketId
     }).render();
+
+    this.renderPersonalInfo();
 
     var sign = Global.localCache.get('ticketList.' + this.options.ticketId);
 
@@ -349,6 +342,21 @@ var BettingCenterView = Base.ItemView.extend({
 
   renderVideo: function() {
     this.$videoMain.toggleClass('hidden', !this.infoModel.getVideoUrl());
+  },
+
+  renderPersonalInfo: function() {
+    var self = this;
+    this.getPersonalInfoXhr().done(function (res) {
+      var data = res && res.root || {};
+      if (res && res.result === 0) {
+        self.$todayRecharge.text(_(data.recharge).convert2yuan());
+        self.$todayWithdraw.text(_(data.withdraw).convert2yuan());
+        self.$todayBetting.text(_(data.bet).convert2yuan() );
+        self.$todayProfit.text(_(data.profit).convert2yuan() );
+        self.$curtActivities.text(data.activity);
+        self.$activityEntry.toggleClass('hidden', !data.activity);
+      }
+    });
   },
 
   renderBasicRules: function() {

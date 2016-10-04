@@ -1,7 +1,7 @@
 <div class="portlet m-LR-sm">
-  <div class="portlet-header">
+  <div class="portlet-header text-amber">
     <form class="js-bc-chase-normal-table form-inline no-margin" action="javascript:void(0)">
-      <div class="portlet-header-main">
+      <div class="portlet-header-block">
         <div class="control-group">
           <div class="control-inline">
             <label class="control-label-chase">起始期号</label>
@@ -42,6 +42,7 @@
                    data-monitor-type="number" data-monitor-range="[1, 99999]" value="1"/>
           </div>
           <div class="control-inline">
+            <% obj.id = _.uniqueId() %>
             <label>
               <span class="custom-checkbox">
                 <input type="checkbox" id="<%=obj.id %>" class="js-bc-chase-suspend" checked/>

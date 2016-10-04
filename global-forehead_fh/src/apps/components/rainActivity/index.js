@@ -6,7 +6,7 @@ var redbags;
 
 var RainActivity = Base.ItemView.extend({
   template: '<div class="modal-backdrop fade in"></div><div class="js-rain rain"></div>' +
-  '<i class="js-rain-close rain-close text-light fa fa-times-circle"></i>',
+  '<i class="js-rain-close rain-close fa fa-times-circle"></i>',
 
   className: '',
 
