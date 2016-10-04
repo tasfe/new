@@ -1749,57 +1749,6 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
   }
 }
 
-.bc-result-container2{
-  line-height: 20px;
-    width: 200px;
-    display: inline-block;
-  position: relative;
-  margin-left: 10px;
-
-    input{
-          display: inline-block;
-      width: 62px;
-        height: 14px;
-        border-radius: 3px;
-        padding-right: 20px;
-    }
-
-    span{
-      position: absolute;
-      right: 56px;
-      color: #999999;
-      top: 3px;
-    }
-}
-.js-bc-betting-records{
-  .table thead th{
-    background: #f6f6f6;
-    border-bottom: #cccccc 1px solid;
-  }
-}
-
-.order-list{
- .js-wt-tbody{
-  font-size: 12px;
-  span{
-    display: inline-block;
-    border: 1px solid #ccc;
-    color: #999999;
-    margin-left: 5px;
-    padding: 0px 5px;
-    border-radius: 3px;
-
-    &:hover{
-      background-color: #e67eb2;
-      color: #fff;
-      border: 1px solid #e67eb2;
-      cursor: pointer;
-    }
-    
-  }
- }
-}
-
 .btn-dragon{
     position: absolute;
    left: 100px;
