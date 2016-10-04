@@ -23,9 +23,8 @@ table {
 .table {
   width: 100%;
   margin-bottom: 20px;
-  font-size: 12px;
   th, td {
-    padding: 5px 3px;
+    padding: 2px 3px;
     line-height: 20px;
     text-align: left;
     vertical-align: top;
@@ -34,12 +33,12 @@ table {
     border-top: $table-border-color;
   }
   th {
-    font-size: 13px;
-    font-weight: bold;
+    //font-size: 13px;
+    font-weight: normal;
   }
   thead th {
     vertical-align: bottom;
-    background: $deep-gray-color;
+    background: $light-color;
 
     .table-sort {
       color: #a1a1a1;

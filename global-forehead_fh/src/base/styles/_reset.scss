@@ -300,7 +300,6 @@ legend {
 }
 
 label, input, button, select, textarea {
-  font-size: 14px;
   font-weight: normal;
   line-height: 20px;
 }
@@ -313,11 +312,11 @@ label {
 
 select, textarea {
   display: inline-block;
-  height: 20px;
+  height: 18px;
+  line-height: 18px;
   padding: 3px 6px;
   //margin-bottom: 10px;
   //font-size: 14px;
-  line-height: 20px;
   color: $font-color;
   vertical-align: middle;
 }
@@ -403,7 +402,7 @@ input {
   &[type="text"], &[type="password"], &[type="datetime"], &[type="datetime-local"], &[type="date"], &[type="month"], &[type="time"], &[type="week"], &[type="number"], &[type="email"], &[type="url"], &[type="search"], &[type="tel"], &[type="color"] {
     display: inline-block;
     height: 18px;
-    padding: 4px 6px;
+    padding: 3px 6px;
     margin-bottom: 0;
     font-size: 12px;
     line-height: 15px;

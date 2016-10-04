@@ -86,37 +86,39 @@ var BettingCenterChaseNormalView = Base.ItemView.extend({
     //   min: 1
     // });
 
-    function overMax(e, data) {
-      var $target = $(e.target);
+    function overMax(val) {
+      var $target = this.element;
       if (!Math.floor($target.val())) {
         $target.val(1);
       } else {
         $target.val(Math.floor($target.val()));
       }
 
-      if ((data.value || Number(e.target.value)) > self.options.maxMultiple) {
+      if ((val || Number($target.val())) > self.options.maxMultiple) {
         Global.ui.notification.show(
           '您填写的倍数已超出平台限定的单注中奖限额<span class="text-pleasant">' +
           _(self.options.limitMoney).convert2yuan() + '</span>元，' +
           '已为您计算出本次最多可填写倍数为：<span class="text-pleasant">' + self.options.maxMultiple + '</span>倍'
         );
 
-        e.target.value = self.options.maxMultiple;
+        $target.val(self.options.maxMultiple);
       }
     }
 
-    this.$startMultiple.spinner({
+    this.$startMultiple.numRange({
       min: 1,
-      change: overMax,
-      stop: overMax
+      onChange: overMax
+      // stop: overMax
     });
 
-    this.$gaps.spinner({
-      min: 1
+    this.$gaps.numRange({
+      min: 1,
+      max: 100
     });
 
-    this.$incMultiple.spinner({
-      min: 1
+    this.$incMultiple.numRange({
+      min: 1,
+      max: 99999
     });
 
     this.initStaticInfo();
@@ -153,7 +155,7 @@ var BettingCenterChaseNormalView = Base.ItemView.extend({
     }
 
     this.$leftPlans.html(plans.length);
-    this.$chasePlans.spinner('setRange', 1, plans.length);
+    this.$chasePlans.numRange('setRange', 1, plans.length);
 
     if (!isInDate && currentPlanId) {
       this.chaseCreateHandler();
@@ -166,7 +168,7 @@ var BettingCenterChaseNormalView = Base.ItemView.extend({
     var self = this;
 
     this.staticGrid = this.$chaseContainer.staticGrid({
-      tableClass: 'table table-bordered table-center no-margin background-color-white',
+      tableClass: 'table table-bordered table-center no-margin',
       colModel: [
         {label: '序号', name: 'index', width: '15%', formatter: function(val, index) {
           return index + 1;
@@ -190,7 +192,7 @@ var BettingCenterChaseNormalView = Base.ItemView.extend({
         }}
       ],
       startOnLoading: false,
-      height: 210
+      height: 185
 
     }).staticGrid('instance');
   },

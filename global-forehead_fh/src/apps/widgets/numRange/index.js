@@ -10,7 +10,7 @@ $.widget('gl.numRange', {
     namespace: 'numRange',
     name: 'num',
     min: 1,
-    max: 100,
+    // max: 100,
     onChange: _.noop,
     onOverMax: _.noop
   },
@@ -73,7 +73,7 @@ $.widget('gl.numRange', {
     this.options.max = max;
 
     this.numChange(Number(this.$number.val()) || 0);
-    this.options.onChange(Number(this.$number.val()));
+    this.options.onChange.call(this, Number(this.$number.val()));
   },
 
   //event handlers
@@ -81,7 +81,7 @@ $.widget('gl.numRange', {
   numberInputHandler: function(e) {
     this.numChange(Math.floor(this.$number.val()) || 0);
 
-    this.options.onChange(Number(this.$number.val()));
+    this.options.onChange.call(this, Number(this.$number.val()));
   },
 
   btnDownHandler: function(e) {
@@ -100,7 +100,7 @@ $.widget('gl.numRange', {
     $(document).on('mouseup', function() {
       clearTimeout(timeout);
       clearInterval(timer);
-      self.options.onChange(self.$number.val());
+      self.options.onChange.call(self, Number(self.$number.val()));
     });
   }
 });

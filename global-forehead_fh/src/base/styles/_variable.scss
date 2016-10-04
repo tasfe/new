@@ -11,14 +11,14 @@ $light-dark-color: #4e4e4e !default;
 $light-dark-color-2: #7e7e7e !default;
 $inverse-color: #666666 !default;
 
-$light-color: #f0efee !default;
+$light-color: #f2f2f2 !default;
 $white-color: #ffffff !default;
 $deep-gray-color: #e4e4e4 !default;
 $gray-color: #cccccc !default;
 $footer-gray: $gray-color;
 
 $new-hot-color: #fe6760 !default;
-$pink-color: #f59192 !default;
+$pink-color: #ca6396 !default;
 $blue-color: #2e98cb !default;
 $green-color: #57b051 !default;
 $hot-color: #c93339 !default;
@@ -229,7 +229,7 @@ $input-widths: (
 //input
 $inputs: (
   default: (
-    color: $light-color,
+    color: $dark-color,
     bg-color: transparent,
     border-color: $gray-color
   ),
@@ -367,20 +367,20 @@ $popovers: (
 
 $btns: (
   default: (
-    color: $white-color,
-    bg-color: $color-pleasant,
-    border-color: $color-pleasant,
+    color: $dark-color,
+    bg-color: $white-color,
+    border-color: $gray-color,
     hover: (
-      color: $white-color,
-      bg-color: $color-pleasant
+      color: $dark-color,
+      bg-color: $white-color
     ),
     focus: (
-      color: $white-color,
-      bg-color: $color-pleasant
+      color: $dark-color,
+      bg-color: $white-color
     ),
     active: (
-      color: $white-color,
-      bg-color: $color-pleasant
+      color: $dark-color,
+      bg-color: $white-color
     )
   ),
   hot: (
@@ -404,25 +404,22 @@ $btns: (
       linear-color: linear-gradient(to bottom, #ed584d, #bb261b),
     )
   ),
-  sun: (
-    color: $dark-color,
-    bg-color: $color-sunshine,
-    linear-color: linear-gradient(to bottom, #ffbb1a, #e6a101),
-    border-color: $color-sunshine,
+  pink: (
+    color: $white-color,
+    bg-color: $pink-color,
+    border-color: #bb5283,
+    linear-color: linear-gradient(to bottom, $white-color, #CA6496 5%, #b64d7e),
     hover: (
-      color: $dark-color,
-      bg-color: $color-sunshine,
-      linear-color: linear-gradient(to bottom, #ffbb1a, #e6a101)
+      color: $white-color,
+      bg-color: $pink-color
     ),
     focus: (
-      color: $dark-color,
-      bg-color: $color-sunshine,
-      linear-color: linear-gradient(to bottom, #ffbb1a, #e6a101)
+      color: $white-color,
+      bg-color: $pink-color
     ),
     active: (
-      color: $dark-color,
-      bg-color: $color-sunshine,
-      linear-color: linear-gradient(to bottom, #ffbb1a, #e6a101)
+      color: $white-color,
+      bg-color: $pink-color
     )
   ),
   dark: (

@@ -1,17 +1,16 @@
 .custom-checkbox {
-  vertical-align: middle;
   display: inline-block;
   width: 14px;
-  height: 22px;
+  height: 14px;
   position: relative;
   margin-right: 5px;
-  top: 1px;
+  top: 4px;
 
   label {
     cursor: pointer;
     position: absolute;
-    width: 12px;
-    height: 12px;
+    width: 14px;
+    height: 14px;
     padding-left: 0;
     margin-top: 0;
     top: 0;

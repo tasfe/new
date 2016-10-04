@@ -89,17 +89,7 @@
 
 .modal-dialog {
   width: 100%;
-  //border: 1px solid $new-main-dark-color;
   overflow: hidden;
- 
-  label{
-    font-size: $font-xs;
-  }
-
-  input{
-    background-color: #f7f7f7;
-    border: 1px solid #cccccc;
-  }
 }
 
 @for $i from 1 through 12 {
