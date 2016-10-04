@@ -155,9 +155,6 @@ var BettingCenterView = Base.ItemView.extend({
   },
 
   onRender: function() {
-
-    this.$bettingRecords = this.$('.js-bc-betting-records');
-
     this.$countdown = this.$('.js-bc-countdown');
     this.$planId = this.$('.js-bc-planId');
     this.$planIdStop = this.$('.js-bc-planId-stop');
@@ -221,7 +218,7 @@ var BettingCenterView = Base.ItemView.extend({
         //{label: '奖金模式', name: 'bonusMode', width: '20%'},
         {label: '注数', name: 'mode', width: '60px'},
         {label: '投注金额', name: 'mode2', width: '20%'},
-        {label: '<i class="fa fa-trash"></i>', name: 'mode3', width: '10%'}
+        {label: '<i class="js-bc-lottery-clear fa fa-trash"></i>', name: 'mode3', width: '10%'}
         //{label: '注数/倍数/模式', name: 'mode', width: '20%'}
         //{label: '投注金额', name: 'bettingMoney', width: '17%'}
       ],
@@ -625,7 +622,7 @@ var BettingCenterView = Base.ItemView.extend({
         bonusMode: this.getBonusMode(previewInfo.maxBonus, previewInfo.unit, previewInfo.userRebate, previewInfo.betMethod),
         mode: previewInfo.statistics + '注',
         mode2: _(previewInfo.prefabMoney).convert2yuan() + '</span>元',
-        mode3: '<div class="js-bc-lottery-preview-del  fa fa-remove-sign"></div>'
+        mode3: '<div class="js-bc-lottery-preview-del fa fa-times-circle cursor-pointer text-gray"></div>'
       };
 
     }, this);
@@ -900,7 +897,7 @@ var BettingCenterView = Base.ItemView.extend({
     var chaseView;
     var $dialog = Global.ui.dialog.show({
       title: '追号',
-      size: 'modal-lg-julien',
+      size: 'modal-lg',
       body: '<div class="js-bc-chase-container"></div>',
       bodyClass: 'p-top-xs no-p-left no-p-right no-p-bottom',
       footer: ''

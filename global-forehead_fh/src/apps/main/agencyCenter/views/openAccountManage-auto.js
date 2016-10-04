@@ -212,7 +212,7 @@ var OpenAccountManageView = Base.ItemView.extend({
     var rebateData =  row.row;
     var $dialog = Global.ui.dialog.show({
       title: '链接开户设置',
-      size: 'modal-lg-julien',
+      size: 'modal-lg',
       body: strTips +
       '<form class="js-ac-oam-au-form" >' +
       '<div class="js-ac-link-edit-div play-table"></div>' +

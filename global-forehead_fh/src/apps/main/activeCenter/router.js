@@ -7,6 +7,7 @@ exports.install = function() {
     'at/tb': 'activityCenter',
     'at/ag': 'agencyActivity',
     'at/ti': 'ticketActivity',
-    'at/ol':'onlineGameActivity'
+    'at/ol':'onlineGameActivity',
+    'at/tb/:activity': 'openActivityDetail'
   });
 };

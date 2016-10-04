@@ -22,7 +22,7 @@ $.widget('gl.quota', {
     this.$dialog = Global.ui.dialog.show({
       id: this.uuid,
       title: '转给' + this.options.title + '配额',
-      size: 'modal-lg-julien',
+      size: 'modal-lg',
       body: body.join('')
     });
     this.$validateError = this.$dialog.find('.js-uc-cmValPayPwdNotice');

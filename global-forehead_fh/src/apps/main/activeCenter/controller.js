@@ -6,6 +6,7 @@ var RouterController = require('skeleton/controllers/router');
 
 var ActivityCenterView = require('activeCenter/views/activityCenter');
 
+var OpenActivityDetailView = require('activeCenter/views/activityCenter');
 
 var ActiveCenterController = RouterController.extend({
   activityCenter: function() {
@@ -39,6 +40,14 @@ var ActiveCenterController = RouterController.extend({
       sidebar: Global.ui.menu.get(['at'])
     });
     $('#main > .clearfix').addClass('ac-block');
+  },
+  openActivityDetail: function(ticket) {
+    this.changeSubReginView(new OpenActivityDetailView({
+      triggerTab: ticket,
+      activityId: _.getUrlParam('activityId')
+    }), {
+      parentRouter: 'at/tb'
+    });
   }
 });
 

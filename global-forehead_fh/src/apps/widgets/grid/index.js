@@ -60,6 +60,7 @@ $.widget('gl.grid', {
       'footerClass',
       'columnDefinitions',
       'hasBorder',
+      'checkableWidth',
       'showHead',
       'divStyle'
     )));

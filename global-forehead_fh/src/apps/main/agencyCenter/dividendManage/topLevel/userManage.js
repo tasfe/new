@@ -62,7 +62,7 @@ var UserManageView = SearchGrid.extend({
     var $dialog = Global.ui.dialog.show({
       title: '签约日志',
       body: '<div class="js-select-log-html margin20-0"></div>',
-      size: 'modal-lg-julien',
+      size: 'modal-lg',
       footer: ''
     });
 
@@ -139,7 +139,7 @@ var UserManageView = SearchGrid.extend({
     var $dialog = Global.ui.dialog.show({
       title: '协议内容',
       body: strContent,
-      size: 'modal-lg-julien',
+      size: 'modal-lg',
       footer: ''
     });
   },

@@ -6,15 +6,21 @@
 .num-range {
   display: inline-block;
   border: 1px solid $gray-color;
+  border-radius: $globalBtnRadius;
 
   > {
     .num-range-left {
       font-size: 12px;
       float: left;
-      padding: 0 6px;
       border-right: 1px solid $gray-color;
-      background: linear-gradient(to bottom, #c00, #c00);
+      background: $white-color;
       cursor: pointer;
+
+      width: 26px;
+      height: 26px;
+      line-height: 26px;
+      text-align: center;
+      position: relative;
 
       &.disabled {
         cursor: default;
@@ -24,8 +30,8 @@
     }
     .num-range-center {
       float: left;
-      height: 22px;
-      line-height: 22px;
+      height: 26px;
+      line-height: 26px;
       width: 32px;
       border: none;
       //padding: 1px;
@@ -40,10 +46,15 @@
     .num-range-right {
       font-size: 12px;
       float: left;
-      padding: 0 6px;
       border-left: 1px solid $gray-color;
       cursor: pointer;
-      background: linear-gradient(to bottom, #c00, #c00);
+      background: $white-color;
+
+      width: 26px;
+      height: 26px;
+      line-height: 26px;
+      text-align: center;
+      position: relative;
 
       &.disabled {
         cursor: default;

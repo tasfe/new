@@ -24,7 +24,7 @@ $.widget('gl.addSalaryUser', {
     this.$dialog = Global.ui.dialog.show({
       id: this.uuid,
       title: this.options.title,
-      size: 'modal-lg-julien',
+      size: 'modal-lg',
       body: body.join('')
     });
 

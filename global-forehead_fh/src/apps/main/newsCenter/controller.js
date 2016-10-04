@@ -19,7 +19,7 @@ var NewsCenterController = RouterController.extend({
       main: {
         title: '系统通知'
       },
-      sidebar: Global.ui.menu.get(['ac', 'uc', 'aa'])
+      sidebar: Global.ui.menu.get(['nc'])
     });
   },
 
