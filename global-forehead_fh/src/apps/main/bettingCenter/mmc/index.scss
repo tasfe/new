@@ -15,7 +15,7 @@
     width: 100%;
     left: 0;
     top: 0;
-    z-index: -1;
+    z-index: 0;
     background-color: #000000;
     background-image: url(mmc-bg.png);
     background-repeat: no-repeat;
@@ -156,15 +156,21 @@
 
 
   .bc-main-area {
-    background:url(./ticket_backgroud.png) -361px -382px no-repeat;
+    position: relative;
+    background:url(./mmc-middle-area.png) 12px 0  no-repeat;
     width: 100%;
-    border: 0px solid #c2c2c2;
-    min-height: 0px;
+    border: 0;
+    min-height: 0;
     overflow: hidden;
     margin-top: 0;
+    height: 588px;
     .bc-first-title {
-      height: 25px;
-      line-height: 25px;
+      height: 34px;
+      line-height: 34px;
+    }
+    .nav-tabs{
+      border-bottom: 2px solid #802420;
+      padding-left: 10px;
     }
   }
 
@@ -197,65 +203,71 @@
     }
   }*/
   .bc-menu{
-    background-color: #fff;
+    background-color: #313131 !important;
+    border-radius: 5px 5px 0 0;
     height: 62px;
     overflow: hidden;
-    border: 1px solid #cccccc;
-    width: 1140px;
-    margin-left: 30px;
-    margin-top: 10px;
-
-
-    .bc-toggle{
-      width: 85px;
-      height: 62px;
-      background-color: #f2f2f2;
-      float: left;
-
-      span{
-        display: block;
-        height: 30px;
-        text-align: center;
-        border-right: 1px solid #cccccc;
-        border-bottom: 1px solid #cccccc;
-        color: #999999;
-        font-size: 14px;
-        line-height: 30px;
-        cursor: pointer;
-
-        &.sd{
-          border-left: 4px solid #2a7bc1;
-          border-right: 4px solid #fff;
-          background-color: #fff;
-          color: #333333;
-          line-height: 31px;
-          height: 31px;
-        }
-
-        &:last-child{
-          border-bottom: 0px;
-        }
-      }
+    border: 0 solid #cccccc;
+    width: 1060px;
+    margin: 18px 26px 0;
+    .bc-play-toggle {
+      background-color: #696969 !important;
     }
+
+    //.bc-toggle{
+    //  width: 85px;
+    //  height: 62px;
+    //  background-color: #f2f2f2;
+    //  float: left;
+    //
+    //  span{
+    //    display: block;
+    //    height: 30px;
+    //    text-align: center;
+    //    border-right: 1px solid #cccccc;
+    //    border-bottom: 1px solid #cccccc;
+    //    color: #999999;
+    //    font-size: 14px;
+    //    line-height: 30px;
+    //    cursor: pointer;
+    //
+    //    &.sd{
+    //      border-left: 4px solid #2a7bc1;
+    //      border-right: 4px solid #fff;
+    //      background-color: #fff;
+    //      color: #333333;
+    //      line-height: 31px;
+    //      height: 31px;
+    //    }
+    //
+    //    &:last-child{
+    //      border-bottom: 0px;
+    //    }
+    //  }
+    //}
 
     .bc-basic-rules{
       a{
-        color: #333333;
-        font-size: 16px;
-        border:0px;
-
         .bc-first-prize{
           font-size: 14px;
           color: #999999;
         }
+      }
 
-        div{
-          width: 100px;
+      li{
+        a{
+          background-color: transparent;
+          color: #acacac;
+          height: 34px;
         }
       }
 
       li.active{
-        background-color: #666666;
+        //background-color: #666666;
+        a{
+          background:  linear-gradient(to bottom,#bf6f25,#812521);
+          border-bottom: 1px solid #812521;
+        }
 
         .bc-first-prize{
           color: #bdbdbd;
@@ -263,12 +275,32 @@
       }
     }
   }
+
   .bc-play-section {
-    border: 0px;
-    height: 88px;
+    border: 0;
+    height: 106px;
+    width: 1060px;
+    margin: 0 26px;
+    background: #313131 linear-gradient(to top, #313131, #313131) !important;
+    .tab-title{
+      color: #7b7b7b !important;
+    }
+    .tab-group{
+      label{
+        background-color: transparent ;
+        color: #b6b6b6;
+        &:hover{
+          border: 1px solid #bf6f25
+        }
+      }
+      label.active{
+        border: 1px solid #bf6f25;
+        background-color: #bf6f25;
+      }
+    }
   }
   .bc-advance-rules {
-    //background-color: grey;
+    background-color: #313131 !important;
     color: white;
     padding-top: 6px;
     float: left;
@@ -279,9 +311,11 @@
     margin-left: 30px;
 
     .bc-advance-rules-container {
+      background-color: #313131;
       padding-left: 12px;
       display: inline-block;
       vertical-align: text-top;
+
     }
     .bc-advance-rule {
       min-width: 130px;
@@ -295,39 +329,77 @@
   .bc-play-brief {
     padding-left: 25px;
     margin-top:10px;
-    color: #4e4e4e;;
-    .bc-play-example-button{
-      margin-right: 350px;
+    color: #4e4e4e;
+    .bc-play-example{
+      width: 770px;
     }
+    .bc-play-prize-modal{
+      color: #ddc94e;
+    }
+    .bc-play-tip{
+      height: 20px;
+      line-height: 20px;
+      border: 1px solid #391131;
+      color: #a6a6a6;
+      background-color: #444444;
+    }
+
   }
 
   .bc-mmc-play-container {
-    height: 320px;
-    border: 0px;
+    width: 1060px;
+    height: 309px;
+    margin: 0 26px;
+    border: 0;
+    background-color: #313131;
     .bc-mmc-play-area.loaded  {
-      height: 306px;
-      width: 1140px
-    ;
-      padding-top: 13px;
-      border: 1px solid #CCC;
-      margin-left: 30px;
+      height: 276px;
+      width: 1028px;
+      border-top: 1px solid #404040;
+      border-bottom: 1px solid #222;
+      padding: 16px;
+      position: relative;
+
       .bc-playArea-items {
         /*padding-left: 18px;*/
-        .bc-select-item{
-          margin-right: 16px;
-          .tab{
-            border: 1px solid #4e4e4e;
+        .tab-toolbar.tab-circle{
+          width: 818px ;
+          .tab-title{
+            div{
+              background: transparent;
+            }
           }
-          .active{
-            border: 1px solid #f0efee ;
+          .bc-select-item{
+            margin-right: 12px;
+            .tab{
+              color: #ddd;
+              background: url('bal.png') no-repeat;
+
+            }
+            .active{
+                background:url(bal1.png) no-repeat;
+                border-radius: 0px;
+                color: #fff;
+                border: 0px;
+                background-size: cover;
+            }
           }
         }
+
         .tab-toolbar {
           margin-bottom: 13px;
-          margin-right: 128px;
+        }
+        .tab-border{
+          border: 1px solid #606060;
+
         }
         .tab-toolbar .tab-group {
           margin-left: 78px;
+
+          .tab{
+            background-color: transparent;
+            color: #909090;
+          }
         }
 
       }
@@ -384,18 +456,17 @@
 
   .bc-mmc-statics-area {
     border: 0;
-    height: 58px;
+    height: 87px;
     line-height: 58px;
     color: #333333;
     font-size: 14px;
-    padding: 0 15px;
+    padding: 0 26px;
     .bc-result-container {
-      margin-left: 15px;
-      margin-bottom: 11px;
-      border: 1px solid #CCC;
-      background-color: #f2f2f2;
-      width: 1140px;
-      height: 55px;
+      background-color: #313131;
+      width: 1060px;
+      height: 66px;
+      border-radius: 0 0 5px 5px;
+
       .bc-result-span{
         margin-left: 20px;
       }
@@ -460,49 +531,41 @@
     }
   }
   .bc-lottery-add{
+    position: relative;
     text-align: center;
     width: 100%;
-    display: block;
     height: 50px;
-    .bc-lottery-add-btn-div{
-      margin: auto;
+    .bc-mmc-btn-lottery-add{
+      position: relative;
+      margin-top: -47px;
+      width: 224px;
+      height: 51px;
+      background: linear-gradient(to bottom , #868686,#3d3d3d) ;
+      font-size: 20px;
+      color: #fff;
+      border-radius: 25px;
+    }
+    .bc-mmc-lottery-time-show {
+      background-color: #f2f0f0;
+      color: #b51810;
+      position: absolute;
+      margin: -38px 0 0 0;
       width: 185px;
-      border: 3px solid #efefef;
       border-radius: 10px;
-      background-color: #efefef;
-      z-index: 1;
-      height: 32px;
-      .bc-mmc-btn-lottery-add{
-        position: relative;
-        margin-top: -6px;
-        width: 180px;
-        height: 40px;
-        border: 1px solid #b51810;
-        background-color: #cc0000;
-        margin-left: 0px;
-        font-size: 23px;
-      }
-
-      .bc-mmc-lottery-time-show {
-        background-color: #f2f0f0;
-        color: #b51810;
-        position: absolute;
-        margin: -38px 0 0 0;
-        width: 185px;
-        border-radius: 10px;
-        font-size: 14px;
-        font-weight: 500;
-        .bc-mmc-bet-times-num {
-          font-size: 16px;
-          font-weight: 600;
-        }
+      font-size: 14px;
+      font-weight: 500;
+      .bc-mmc-bet-times-num {
+        font-size: 16px;
+        font-weight: 600;
       }
     }
+
   }
   .bc-mmc-selected-area {
-    height: 220px;
+    height: 262px;
     width: 1112px;
-    background-color: #4f4f4f;
+    background: url('mmc-footer.png') no-repeat;
+    //background-color: #4f4f4f;
     border-bottom-left-radius : 12px;
     border-bottom-right-radius : 12px;
     color: #fff;
@@ -510,8 +573,8 @@
     .bc-lottery-preview {
       position: relative;
       background-color: #666666;
-      width: 1150px;
-      height: 115px;
+      width: 1058px;
+      height: 108px;
       margin: 27px auto 13px auto;
       border-right: 0;
       .bc-mmc-result-win{
