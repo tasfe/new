@@ -11,46 +11,42 @@ var PlatformNewsPlatformView = Base.ItemView.extend({
   events: {
     'mouseover .js-nc-setting-dialog': 'inSettingHandler',
     'mouseout .js-nc-setting-dialog': 'outSettingHandler',
-    'click .js-nc-setting-dialog': 'openSettingDialogHandler'
-    //'click .js-nc-read': 'readHandler',
-    //'click .js-nc-link': 'setReadHandler',
-    //'click .js-nc-del': 'deleteHandler'
+    'click .js-nc-setting-dialog': 'openSettingDialogHandler',
+    'click .js-nc-read': 'readHandler',
+    'click .js-nc-link': 'setReadHandler',
+    'click .js-nc-del': 'deleteHandler'
   },
 
-  //deleteXhr: function(data) {
-  //  return Global.sync.ajax({
-  //    url: '/acct/usernotice/getnoticelist.json',
-  //    tradition: true,
-  //    data: {
-  //      letterId: data
-  //    }
-  //  });
-  //},
+  deleteXhr: function(data) {
+    return Global.sync.ajax({
+      url: '/acct/usernotice/getnoticelist.json',
+      tradition: true,
+      data: {
+        letterId: data
+      }
+    });
+  },
 
   initialize: function () {
     _(this.options).extend({
       columns: [
-        //{
-        //  //name: '主题',
-        //  width: '7%'
-        //},
-        {
-          //name: '时间',
-          width: '70%'
-        },
         {
           //name: '主题',
-          width: '30%'
+          width: '900px;'
+        },
+        {
+          //name: '时间',
+          width: '120px;'
         }
       ],
-      height: 580,
+      height: 590,
       gridOps: {
         emptyTip: '没有消息'
       },
-      //tip: '<span class="m-right-sm"><span class="js-pf-select-all cursor-pointer">全选</span> | ' +
-      //'<span class="js-pf-inverse cursor-pointer">反选</span></span>' +
-      //'<div class="btn-group"><button class="js-nc-read btn btn-hollow">标记为已读</button></div>' +
-      //'<div class="btn-group"><button class="js-nc-del btn btn-hollow">删除选中</button></div>',
+      tip: '<div class="custom-checkbox checkbox-small"> <input type="checkbox" id="<%=chkAllId %>" class="js-wt-select-all"> <label for="<%=chkAllId %>"></label></div><span class="m-right-sm"><span class="js-pf-select-all cursor-pointer">全选</span> | ' +
+      '<span class="js-pf-inverse cursor-pointer">反选</span></span>' +
+      '<div class="btn-group"><button class="js-nc-read btn btn-hollow">标记已读</button></div>' +
+      '<div class="btn-group"><button class="js-nc-del btn btn-hollow">删除选中</button></div>',
       ajaxOps: {
         url: '/acct/usernotice/getnoticelist.json'
       }
@@ -71,16 +67,17 @@ var PlatformNewsPlatformView = Base.ItemView.extend({
     var self = this;
     $grid.grid({
       tableClass: 'table table-unbordered  no-margin' ,
-      height:580,
-      checkable: false,
-      //tip: this.options.tip,
+      height:420,
+      checkable: true,
+      checkableWidth: '40px',
+      tip: this.options.tip,
       columnDefinitions: this.options.columns,
       //tip: this.options.tip,
-      emptyTip: this.options.gridOps.emptyTip
-      //onPaginationChange: function(index) {
-      //  self.filterHelper.set('pageIndex', index);
-      //  self._getGridXhr();
-      //}
+      emptyTip: this.options.gridOps.emptyTip,
+      onPaginationChange: function(index) {
+        self.filterHelper.set('pageIndex', index);
+        self._getGridXhr();
+      }
     });
 
     this.grid = $grid.grid('instance');
@@ -109,7 +106,7 @@ var PlatformNewsPlatformView = Base.ItemView.extend({
     })
       .hideLoading();
 
-    this.grid.$pagination.addClass('hidden');
+    this.grid.$pagination.addClass('');
   },
 
   _getGridXhr: function() {
@@ -150,10 +147,20 @@ var PlatformNewsPlatformView = Base.ItemView.extend({
 
     switch (rowInfo.type) {
       case 0:
-        title.push(rowInfo.title);
+        if (rowInfo.isRead==0){
+          title.push('<i class="sfa sfa-mes-read font-md font-bold"></i><span class="np-message-des-read">'+rowInfo.title+'</span>');
+        }else{
+          title.push('<i class="sfa sfa-mes-unRead font-md font-bold"></i>'+rowInfo.title);
+        }
+
         break;
       case 2:
-        title.push(rowInfo.title + '<a href="#as/ll" class="js-nc-link router btn-link">操作日志</a>');
+          if (rowInfo.isRead==0){
+            title.push('<i class="sfa sfa-mes-read font-md font-bold"></i><span class="np-message-des-read">'+rowInfo.title+'</span><a href="#as/ll" class="js-nc-link message-log-read router btn-link">登录日志</a>');
+          }else{
+            title.push('<i class="sfa sfa-mes-unRead font-md font-bold"></i><span>'+rowInfo.title+'</span><a href="#as/ll" class="js-nc-link message-log-unRead router btn-link">登录日志</a>');
+          }
+
         break;
       default:
         title.push('<a href="nc/pn/detail/' + rowInfo.noticeId + '" class="js-nc-link router btn-link">' + rowInfo.title + '</a>');
@@ -161,66 +168,66 @@ var PlatformNewsPlatformView = Base.ItemView.extend({
 
     title.push('</span>');
 
-    //row.push('<span class="sfa sfa-news-letter' + (!rowInfo.isRead ? '-active' : '') + '"></span>');
+    /*row.push('<span class="sfa sfa-news-letter' + (!rowInfo.isRead ? '-active' : '') + '"></span>');*/
 
     row.push(title.join(''));
 
-    row.push('<span class="pull-right">' + _(rowInfo.time).toTime() + '</span>');
+    row.push('<span >' + _(rowInfo.time).toTime() + '</span>');
     return row;
   },
 
-  //_setRead: function(idList) {
-  //  var self = this;
-  //  var model = Global.data.get('newsModel');
-  //  var xhr = model.setReadNoticeXhr(idList);
-  //
-  //  if (xhr) {
-  //    xhr.done(function() {
-  //      self._getGridXhr();
-  //    });
-  //  }
-  //},
+  _setRead: function(idList) {
+    var self = this;
+    var model = Global.data.get('newsModel');
+    var xhr = model.setReadNoticeXhr(idList);
+
+    if (xhr) {
+     xhr.done(function() {
+       self._getGridXhr();
+      });
+    }
+  },
 
   //event handlers
 
-  //readHandler: function(e) {
-  //  var idList = this.grid.getChk().ids;
-  //
-  //  if (_.isEmpty(idList)) {
-  //    return false;
-  //  }
-  //
-  //  this._setRead(idList);
-  //},
+  readHandler: function(e) {
+    var idList = this.grid.getChk().ids;
 
-  //setReadHandler: function(e) {
-  //  var $target = $(e.currentTarget);
-  //
-  //  this._setRead([this.grid.getRowData($target).noticeId]);
-  //},
+    if (_.isEmpty(idList)) {
+      return false;
+    }
 
-  //deleteHandler: function(e) {
-  //  var self = this;
-  //  var idList = this.grid.getChk().ids;
-  //
-  //  if (_.isEmpty(idList)) {
-  //    return false;
-  //  }
-  //
-  //  var model = Global.data.get('newsModel');
-  //
-  //  $(document).confirm({
-  //    agreeCallback: function() {
-  //      var xhr = model.deleteNoticeXhr(idList);
-  //
-  //      if (xhr) {
-  //        xhr.done(function() {
-  //          self._getGridXhr();
-  //        });
-  //      }
-  //    }
-  //  });
-  //}
+    this._setRead(idList);
+  },
+
+  setReadHandler: function(e) {
+    var $target = $(e.currentTarget);
+
+    this._setRead([this.grid.getRowData($target).noticeId]);
+  },
+
+  deleteHandler: function(e) {
+    var self = this;
+    var idList = this.grid.getChk().ids;
+
+    if (_.isEmpty(idList)) {
+      return false;
+    }
+
+    var model = Global.data.get('newsModel');
+
+   $(document).confirm({
+      agreeCallback: function() {
+        var xhr = model.deleteNoticeXhr(idList);
+
+        if (xhr) {
+          xhr.done(function() {
+           self._getGridXhr();
+          });
+       }
+      }
+   });
+  },
   inSettingHandler: function(e) {
     var $target = $(e.currentTarget);
     $target.find('.js-setting-btn').addClass('fa-spin');

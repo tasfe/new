@@ -159,6 +159,22 @@ var menuConfig = [
             }
         ]
     },
+    {
+        router: 'nc',
+        name: '消息中心',
+        first: 'nc/pn',
+        titleClass: 'bg-sunshine',
+        backStyle: 'text-sunshine',
+        iconType: 'sfa',
+        icon: 'nes',
+        sub: [
+            {
+                id: 150,
+                router: 'nc/pn',
+                name: '系统通知'
+            }
+        ]
+    },
     //{
     //  router: 'fc',
     //  name: '资金管理',
