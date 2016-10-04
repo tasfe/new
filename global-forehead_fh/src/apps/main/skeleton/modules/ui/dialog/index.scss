@@ -53,26 +53,14 @@
 
 
   &.modal-notification {
-
     .modal-dialog {
-      //opacity: 0.85;
+    }
+    .modal-body {
+      padding: 24px 12px;
     }
 
     &.in {
-      top: 20%;
-    }
-  }
-
-  &.modal-notification-3sec {
-    &.in {
-      top: 20%;
-    }
-    .modal-dialog, .modal-body {
-      margin: 30px auto;
-      opacity: 0.9;
-      background-color: $background-dark;
-      color: $background-color;
-      border-radius: 5px;
+      top: 30%;
     }
   }
 
