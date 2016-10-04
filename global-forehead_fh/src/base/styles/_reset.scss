@@ -1,5 +1,4 @@
 body, html {
-  height: 100%;
   margin: 0;
   padding: 0;
 }
@@ -29,6 +28,7 @@ audio:not([controls]) {
 }
 
 html {
+  height: 100%;
   font-size: 75%;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;

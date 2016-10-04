@@ -375,7 +375,7 @@ var HeaderView = Base.ItemView.extend({
 
     $(document).confirm({
 
-      content: '<div class="m-top-md m-bottom-lg">确定要退出登录？</div>',
+      content: '<div class="m-TB-md">确定要退出登录？</div>',
       type: 'exit',
       agreeCallback: function() {
         Global.oauth.logout().done(function(data) {

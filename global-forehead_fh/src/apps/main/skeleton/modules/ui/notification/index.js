@@ -15,7 +15,7 @@ var NotificationModule = Base.Module.extend({
       type: 'info',
       size: 'modal-sm',
       id: 'notification',
-      modalClass: 'modal-notification-3sec',
+      modalClass: 'modal-notification',
       backdrop: true,
       event: _.noop
       //btnContent: '确认'
@@ -24,19 +24,7 @@ var NotificationModule = Base.Module.extend({
     var body = [];
     var timer = null;
 
-    //body.push('<div class="m-TB-md text-center"><span class="sfa sfa-dialog-' + options.type + '"></span></div>');
     body.push('<div class="text-center font-md">' + content + '</div>');
-
-    //var footer;
-    //if (options.type === 'success') {
-    //  footer = '<div class="m-TB-md text-center"><button type="button" class="js-pf-notification-btn btn btn-lg p-LR-lg" data-dismiss="modal">'+options.btnContent+'</button></div>';
-    //} else {
-    //  footer = '<div class="m-TB-md text-center"><button type="button" class="js-pf-notification-btn btn btn-lg btn-cool p-LR-lg" data-dismiss="modal">'+options.btnContent+'</button></div>';
-    //}
-
-    //body.push(footer);
-
-
 
     var $dialog = Global.ui.dialog.show(_({
       id: this.options.id,

@@ -8,6 +8,10 @@ var NoticeDetailView = require('dynamicCenter/views/noticeDetail');
 
 var DashboardController = RouterController.extend({
 
+  execute: function() {
+    debugger;
+  },
+
   dashboard: function() {
     Base.log('路由 -> 概览');
     this.changeMainReginView(new DashboardView());
