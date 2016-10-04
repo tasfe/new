@@ -51,8 +51,7 @@ var ActiveCenterView = Base.ItemView.extend({
       .done(function (res) {
         var data = res.root || {};
         if (res && res.result === 0) {
-          self.pagination.update(100, pageIndex);
-          // self.pagination.update(data.rowCount, pageIndex);
+          self.pagination.update(data.rowCount, pageIndex);
           self.renderActiveContex(data.activityList);
 
         } else {

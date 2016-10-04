@@ -354,14 +354,12 @@
   }
 }
 
+.no-shadow {
+  box-shadow: initial !important;
+}
+
 .sfa {
   display: inline-block;
 }
 
 @include sprites($spritesheet-sprites);
-
-//.rt-main {
-//  .view-tabs {
-//    margin: 15px 15px 5px;
-//  }
-//}

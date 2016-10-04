@@ -4,11 +4,15 @@
 
 .main-active-container {
   margin: 0 15px;
+  padding-top: 30px;
+  height: 600px;
   .at-activity-main {
-    margin-top: 30px;
+    margin-bottom: 30px;
     .ac-activity-banner {
       border: solid 1px #cccfcf;
       border-radius: 4px;
+      padding: 10px;
+
       .ac-activity-image {
         width: 615px;
         height: 138px;
@@ -68,7 +72,6 @@
     .ac-activity-word {
       height: 138px;
       overflow: hidden;
-      margin-top: 10px;
       .ac-activity-title {
         margin-left: 10px;
         font-size: 18px;

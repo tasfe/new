@@ -75,12 +75,12 @@ var RouterController = Base.Controller.extend({
       var ops = menuConfig.getCurrent();
 
       if (ops) {
-        config.main.type = 'side-main';
+        config.main.type = 'side-main no-shadow';
         config.main.title = config.main.title || ops.menu.name;
         config.main.headerClass = ops.menus.titleClass || 'bg-sunshine';
         config.main.noTitle = ops.menu.noTitle;
       } else {
-        config.main.type = 'side-main';
+        config.main.type = 'side-main no-shadow';
         config.main.headerClass = 'bg-sunshine';
       }
     }
