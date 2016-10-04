@@ -554,10 +554,6 @@
 }
 
 .menu-bock {
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  border-bottom: none;
   .sidebar-title {
     display: none;
   }
@@ -714,11 +710,8 @@
 .content-bock {
   background-color: #fff;
   border: 1px solid #ccc;
-  border-top: 0px;
-  font-family: '微软雅黑';
+  border-top: 0;
   padding-bottom: 20px;
-  margin-bottom: 20px;
-  /*height: 600px;*/
   .controls > span {
     margin-top: 0px;
     font-size: 12px;
@@ -771,20 +764,6 @@
     border: 0px;
   }
 
-  .btn-linear {
-    border-radius: 0px;
-    //background: #990000 !important;
-    background: #CC0002;
-    color: #fff;
-    font-size: 16px;
-    border: none;
-    outline: none;
-    margin-top: 10px;
-    &:hover {
-      color: #fff;
-    }
-  }
-  //
   .left-vip {
     margin-left: 400px !important;
   }
@@ -1368,14 +1347,6 @@
   margin-right: 16px;
 }
 
-.js-rt-main .pull-right {
-  clear: both;
-  padding: 10px 15px;
-  border: solid 1px #cccfcf;
-  margin: 0 10px 10px 10px;
-  border-radius: 8px;
-  background: linear-gradient(to bottom, #fff 0%, #f7f7f7 100%);
-}
 .as-alert-bar{
   background: linear-gradient(to bottom, #fff 0%, #f7f7f7 100%);
   padding: 10px 15px;

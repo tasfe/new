@@ -1,93 +1,91 @@
 @charset "UTF-8";
 
-@import
-"~base/styles/imports";
+@import "~base/styles/imports";
 
+.main-active-container {
+  margin: 0 15px;
+  padding-top: 30px;
+  height: 600px;
+  .at-activity-main {
+    margin-bottom: 30px;
+    .ac-activity-banner {
+      border: solid 1px #cccfcf;
+      border-radius: 4px;
+      padding: 10px;
 
-.main-active-container{
-    width: 100%;
-    .at-activity-main{
-        margin-top: 30px;
-        width:1200px;
-        height: 160px;
-        .ac-activity-banner{
-            width:1160px;
-            height: 160px;
-            border:solid 1px #cccfcf;
-            border-radius:4px;
-            margin-left: 15px;
-            .ac-activity-image{
-                width:615px;
-                height: 138px;
-                margin-top: 10px;
-                margin-left: 10px;
-                float: left;
-            }
+      .ac-activity-image {
+        width: 615px;
+        height: 138px;
+        float: left;
+      }
+
+      .activity-badge {
+        background-color: #c7343a;
+        display: inline-block;
+        color: $white-color;
+        margin-left: 10px;
+        font-size: 12px;
+        border: solid 1px #c7343a;
+        border-radius: 20px;
+        height: 24px;
+        line-height: 24px;
+        padding: 0 10px;
+      }
+
+      &.ac-activity-coming {
+        .activity-badge {
+          background-color: #fb6834;
+          border: 1px solid #fb6834;
         }
-        .ac-activity-word{
-            width:525px;
-            height: 138px;
-            overflow: hidden;
-            margin-top: 10px;
-            .ac-activity-title{
-                margin-left: 10px;
-                font-size: 18px;
-                display:inline-block;
-                line-height: 28px;
-                float: left;
-            }
-            .ac-activity-status-running{
-                background-color: #C7343A;
-                display: inline-block;
-                color: #ffffff;
-                margin-left: 10px;
-                font-size: 12px;
-                border: solid 1px #C7343A;
-                border-radius: 8px;
-                height: 24px;
-                line-height: 24px;
-                padding: 0 10px;
-            }
-            .ac-activity-status-coming{
-                background-color: #FB6834;
-                display: inline-block;
-                color: #ffffff;
-                margin-left: 10px;
-                font-size: 12px;
-                border: solid 1px #FB6834;
-                border-radius: 8px;
-                height: 24px;
-                line-height: 24px;
-                padding: 0 10px;
-            }
-            .ac-activity-status-end{
-                background-color: #CDCDCD;
-                display: inline-block;
-                color: #ffffff;
-                margin-left: 10px;
-                font-size: 12px;
-                border: solid 1px #CDCDCD;
-                border-radius: 8px;
-                height: 24px;
-                line-height: 24px;
-                padding: 0 10px;
-            }
-            .ac-activity-des{
-                margin-left: 10px;
-            }
-            .ac-activity-time{
-                margin-top:5px;
-            }
+        .ac-activity-word {
+          color: $color-amber;
         }
+      }
+
+      &.ac-activity-running {
+        .activity-badge {
+          background-color: $hot-color;
+          border: 1px solid $hot-color;
+        }
+        .ac-activity-word {
+          color: $color-amber;
+        }
+      }
+
+      &.ac-activity-end {
+        .activity-badge {
+          background-color: $gray-color;
+          border: 1px solid $gray-color;
+        }
+        .ac-activity-word {
+          color: #7f7f7f;
+        }
+        .ac-activity-des {
+          color: $gray-color;
+        }
+        .ac-activity-image {
+          filter: grayscale(100%);
+          filter: gray;
+        }
+      }
     }
-
+    .ac-activity-word {
+      height: 138px;
+      overflow: hidden;
+      .ac-activity-title {
+        margin-left: 10px;
+        font-size: 18px;
+        display: inline-block;
+        line-height: 28px;
+        float: left;
+      }
+      .ac-activity-des {
+        margin-left: 10px;
+      }
+      .ac-activity-time {
+        margin-top: 5px;
+      }
+    }
+  }
 }
-
-.num{
-    text-align: right;
-    font-size: 24px;
-    color: #ccc;
-    font-family: '微软雅黑';
-}
-
 

@@ -11,8 +11,7 @@ var ActiveCenterView = Base.ItemView.extend({
   },
 
 
-
-  onRender: function() {
+  onRender: function () {
 
     var self = this;
     this.$pagination = this.$('.js-aa-pagination');
@@ -22,34 +21,34 @@ var ActiveCenterView = Base.ItemView.extend({
 
 
     this.$pagination.pagination({
-     onPaginationChange: function(index) {
-       self.renderActiveGrid(index,self.$type);
-     }
+      onPaginationChange: function (index) {
+        self.renderActiveGrid(index, self.$type);
+      }
     });
     this.pagination = this.$pagination.pagination('instance');
 
-    this.renderActiveGrid(0,self.$type);
+    this.renderActiveGrid(0, self.$type);
 
   },
-  getActiveXhr: function(data) {
+  getActiveXhr: function (data) {
     return Global.sync.ajax({
       url: '/info/activitylist/getactivitylist.json',
       data: data
     });
   },
 
-  renderActiveGrid: function(pageIndex,type) {
+  renderActiveGrid: function (pageIndex, type) {
     var self = this;
     this.$activeContext.empty();
     this.getActiveXhr({
       pageSize: 3,
       pageIndex: pageIndex,
-      type:this.options.type
+      type: this.options.type
     })
-      .always(function() {
+      .always(function () {
         self.loadingFinish();
       })
-      .done(function(res) {
+      .done(function (res) {
         var data = res.root || {};
         if (res && res.result === 0) {
           self.pagination.update(data.rowCount, pageIndex);
@@ -61,7 +60,7 @@ var ActiveCenterView = Base.ItemView.extend({
       });
   },
 
-  renderActiveContex:function (activityList) {
+  renderActiveContex: function (activityList) {
 
     //$('#main').html(this.el);
 
@@ -71,109 +70,59 @@ var ActiveCenterView = Base.ItemView.extend({
       var index = 0;
       var html = [];
 
-      _(activityList).map(function(activity) {
+      _(activityList).map(function (activity) {
         var badgeClass = '';
         var badgeInner = '';
-        var dotClass = '';
         switch (activity.bannerStatus) {
-          case 1:
-            badgeInner = '待开始';
-            badgeClass = 'ac-activity-status-coming';
-            dotClass = 'round-dot-comming';
-            break;
           case 0:
             badgeInner = '进行中';
-            badgeClass = 'ac-activity-status-running';
-            dotClass = 'round-dot-running';
+            badgeClass = 'ac-activity-running';
+            break;
+          case 1:
+            badgeInner = '待开始';
+            badgeClass = 'ac-activity-coming';
             break;
           case 2:
             badgeInner = '已结束';
-            badgeClass = 'ac-activity-status-end';
-            dotClass = 'round-dot-over';
+            badgeClass = 'ac-activity-end';
             break;
           default:
             badgeInner = '待开始';
-            badgeClass = 'ac-activity-status-coming';
-            dotClass = 'round-dot-comming';
+            badgeClass = 'ac-activity-coming';
             break;
         }
-        var target = activity.bannerUrl||'javascript:void(0)';
-        var leftBanner='<a href='+target+' target="_blank">' +
-        '<img class="ac-activity-image" src='+activity.bannerPicUrl+'/>'+
-        '</a>';
-        var rightBanner='<div class="ac-activity-word"><div class="ac-activity-title">'+activity.activityTitle+'</div><div class="'+badgeClass+'">'+badgeInner+'</div>' +
-            '<div class="ac-activity-des"><div class="ac-activity-time">活动时间：'+_(activity.startTime).toTime('YYYY年MM月DD日')+'&nbsp;&nbsp;至&nbsp;&nbsp;'+_(activity.startTime).toTime('YYYY年MM月DD日')+'</div>' +
-            '<div class="ac-activity-time">活动介绍：'+(activity.des==null?'':activity.des)+'</div></div></div>';
-        var banner='<div class="at-activity-main"><div class="ac-activity-banner">'+leftBanner+rightBanner+'</div></div>';
+        var target = activity.bannerUrl || 'javascript:void(0)';
+        var leftBanner = '<a href=' + target + ' target="_blank">' +
+          '<img class="ac-activity-image" src=' + activity.bannerPicUrl + '/>' +
+          '</a>';
+        var rightBanner = '<div class="ac-activity-word"><div class="ac-activity-title">' + activity.activityTitle + '</div><div class="activity-badge">' + badgeInner + '</div>' +
+          '<div class="ac-activity-des"><div class="ac-activity-time">活动时间：' + _(activity.startTime).toTime('YYYY年MM月DD日') + '&nbsp;至&nbsp;' + _(activity.startTime).toTime('YYYY年MM月DD日') + '</div>' +
+          '<div class="ac-activity-time">活动介绍：' + (activity.des || '') + '</div></div></div>';
+        var banner = '<div class="at-activity-main"><div class="ac-activity-banner ' + badgeClass + '">' + leftBanner + rightBanner + '</div></div>';
 
-
-       /* index++;
-        var target = activity.bannerUrl||'javascript:void(0)';
-        var badgeClass = '';
-        var badgeInner = '';
-        var dotClass = '';
-        switch (activity.bannerStatus) {
-          case 1:
-            break;
-          case 0:
-            badgeInner = '进行中';
-            badgeClass = 'active-badge-running';
-            dotClass = 'round-dot-running';
-            break;
-          case 2:
-            badgeInner = '已结束';
-            badgeClass = 'active-badge-over';
-            dotClass = 'round-dot-over';
-            break;
-          default:
-            badgeInner = '待开始';
-            badgeClass = 'active-badge-comming';
-            dotClass = 'round-dot-comming';
-            break;
-        }
-
-        if (index < 10) {
-          index = '0' + index;
-        }
-
-        var html1 ='<div class="active-list">' +
-            '<div>' +
-            '<div class="num">'+index+'</div>'+
-            '<div class="active-left-title">'+activity.activityTitle+'</div>'+
-            '<div class='+badgeClass+'>'+badgeInner+'</div>'+
-            '</div>'+
-            '<div class='+dotClass+'></div>'+
-            '<div class="active-round-line"></div>'+
-            '<div class="active-right-content">' +
-            '<a href='+target+' target="_blank">' +
-            '<img class="active-right-image" src='+activity.bannerPicUrl+'/>'+
-            '<div class="active-right-time">【活动时间】'+_(activity.startTime).toDate()+'至'+_(activity.endTime).toDate()+'</div>'+
-            '</a>'+
-            '</div>'+
-            '</div>';*/
         html.push(banner);
       });
       this.$activeContext.html(html);
 
     }
   },
-  activityChangeHandler:function (e) {
+  activityChangeHandler: function (e) {
 
     this.$('.list-active').removeClass('list-active');
     var $target = $(e.currentTarget);
     $target.addClass('list-active');
 
-    var currentIndex = $target.data('index')-1;
+    var currentIndex = $target.data('index') - 1;
 
-    if (currentIndex<0){
-      this.renderActiveGrid(0,'');
+    if (currentIndex < 0) {
+      this.renderActiveGrid(0, '');
       this.$type = '';
-    }else {
-      this.renderActiveGrid(0,currentIndex);
+    } else {
+      this.renderActiveGrid(0, currentIndex);
       this.$type = currentIndex;
     }
   },
-  getEmptyHtml: function(emptyTip) {
+  getEmptyHtml: function (emptyTip) {
     var html = [];
     if (emptyTip) {
       html.push('<div class="js-wt-empty-container empty-container text-center">');
