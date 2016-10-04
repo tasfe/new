@@ -312,6 +312,7 @@ var HeaderView = Base.ItemView.extend({
     var self = this;
     this.getNoticeInfoXhr()
       .done(function(res) {
+        //console.log("renderNotice res:"+JSON.stringify(res));
         var data;
         if (res.result === 0) {
           data = res.root || [];
