@@ -32,7 +32,7 @@ var HeaderView = Base.ItemView.extend({
     'mouseout .js-bet-lottery-menu': 'outlotteryListHandler',
     // 'click .js-affiche-show': 'afficShowHandler',
 
-    'click .js-letterList-titleLine': 'bindMessageUserList',
+    //'click .js-letterList-titleLine': 'bindMessageUserList',
 
     'click  .js-h-security': 'accountSecurityHandler',
     /*'click  .js-message-small': 'MostSpan',*/

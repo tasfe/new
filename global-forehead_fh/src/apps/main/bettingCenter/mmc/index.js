@@ -148,6 +148,7 @@ var BettingCenterView = Base.ItemView.extend({
     this.$playTip = this.$('.js-bc-play-tip');
     this.$playExample = this.$('.js-bc-play-example');
     this.$playBetMode = this.$('.js-bc-bet-mode');
+    this.$playExample2 = this.$('.js-infor-tip');
 
     //playArea
     this.$playArea = this.$('.js-bc-play-area');
@@ -375,19 +376,25 @@ var BettingCenterView = Base.ItemView.extend({
   },
 
   renderPlayInfo: function(playInfo) {
-    this.$playExample.text(playInfo.playExample).attr('title', playInfo.playExample);
+    //this.$playExample.text(playInfo.playExample).attr('title', playInfo.playExample);
+    //
+    //if (this.$playTip.data('popover')) {
+    //  this.$playTip.popover('destroy');
+    //}
 
+    this.$playExample.html('<i class="fa fa-question-sign"></i>玩法说明：' + playInfo.playExample).attr('title', playInfo.playExample);
+    this.$playExample2.html( playInfo.playDes.replace(/\|/g, '<br />').replace(/\[max\]/g,_(playInfo.betMethodMax).chain().formatDiv(10000).floor(4).value()).replace(/\[min\]/g,_(playInfo.betMethodMin).chain().formatDiv(10000).floor(4).value()) );
     if (this.$playTip.data('popover')) {
       this.$playTip.popover('destroy');
     }
 
-    this.$playTip.popover({
-      trigger: 'hover',
-      container: this.$el,
-      html: true,
-      content: playInfo.playDes.replace(/\|/g, '<br />'),
-      placement: 'bottom'
-    });
+    //this.$playTip.popover({
+    //  trigger: 'hover',
+    //  container: this.$el,
+    //  html: true,
+    //  content: playInfo.playDes.replace(/\|/g, '<br />'),
+    //  placement: 'bottom'
+    //});
 
     this.renderPlayBetMode();
     //初始化奖金

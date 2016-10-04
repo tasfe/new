@@ -94,15 +94,13 @@
       <div class="bc-result-container">
 
         <div class="bc-result-span">
-          <span>您选择了：</span>
-          <span class="js-bc-statistics-lottery">0</span>
-          <span>注</span>
+
           <div class="tab-toolbar tab-border inline-block m-left-md no-margin vertical-middle clearfix">
-            <div class="  tab-group no-margin">
-              <span class="js-bc-monetary-unit tab m-right-sm active" data-rate="10000">元</span>
-              <span class="js-bc-monetary-unit tab m-right-sm" data-rate="1000">角</span>
-              <span class="js-bc-monetary-unit tab m-right-sm" data-rate="100">分</span>
-              <!--<span class="js-bc-monetary-unit tab m-right-sm" data-rate="10">厘</span>-->
+            <div class="  tab-group no-margin ">
+              <span class="js-bc-monetary-unit tab m-right-sm bc-mmc-unit active" data-rate="10000">元</span>
+              <span class="js-bc-monetary-unit tab m-right-sm bc-mmc-unit" data-rate="1000">角</span>
+              <span class="js-bc-monetary-unit tab m-right-sm bc-mmc-unit" data-rate="100">分</span>
+              <span class="js-bc-monetary-unit tab m-right-sm bc-mmc-unit" data-rate="10">厘</span>
 
             </div>
           </div>
@@ -110,7 +108,13 @@
           <input class="js-bc-multi-range" value="1" name="num" />
           <!--<div class="js-bc-multi-range bc-multi-range inline-block vertical-middle num-range"></div>-->
           倍
-          <span class="price">共<span class="js-bc-statistics-money">0</span>元</span>
+
+          <div class="bc-mmc-total">
+            <span>您选择了：</span>
+            <span class="js-bc-statistics-lottery">0</span>
+            <span>注</span>
+            <span class="bc-mmc-price">共<span class="js-bc-statistics-money">0</span>元</span>
+          </div>
         </div>
       </div>
       <div class="bc-lottery-add">
@@ -128,13 +132,13 @@
 
   <div class="bc-mmc-selected-area clearfix">
 
-    <div class="bc-lottery-preview" style="overflow:auto">
+    <div class="bc-lottery-preview">
       <!--<div class="js-bc-mmc-result-win bc-mmc-result-win hidden"></div>
       <div class="js-bc-mmc-result-mask bc-mmc-result-total hidden">
         <div class="js-bc-mmc-result-total bc-mmc-result-win-total"></div>
       </div>-->
-      <div class="bc-mmc-link-bet-record "><a class="btn btn-link" href="#uc/br">查看投注记录</a></div>
-      <div class="js-bc-lottery-preview"></div>
+      <div class="bc-mmc-link-bet-record "><a class="btn btn-link" href="#uc/br">查</br>看</br>投</br>注</br>记</br>录</a></div>
+      <div class="js-bc-lottery-preview bc-mmc-lottery-preview"></div>
       <div class="js-bc-lottery-currResult-preview hidden"></div>
       <div class="js-bc-lottery-totalResult-preview hidden"></div>
     </div>
@@ -182,9 +186,8 @@
       </div>
       <div class="bc-mmc-lottery-confirm-div1">
         <div class="bc-mmc-lottery-confirm-div2">
-          <button class="js-bc-btn-lottery-confirm btn bc-mmc-lottery-confirm  btn-linear " data-loading-text="开奖中"
+          <button class="js-bc-btn-lottery-confirm btn bc-mmc-lottery-confirm  btn-linear " data-loading-text=""
                   data-status="1">
-            马上开奖
           </button>
         </div>
       </div>

@@ -335,6 +335,8 @@
     }
     .bc-play-prize-modal{
       color: #ddc94e;
+      line-height: 20px;
+      height: 20px;
     }
     .bc-play-tip{
       height: 20px;
@@ -383,6 +385,21 @@
                 border: 0px;
                 background-size: cover;
             }
+          }
+          .btn-dragon{
+            position: relative !important;
+            top: 0;
+            left: 0;
+          }
+          .btn-tiger{
+            position: relative !important;
+            top: 0;
+            left: 0;
+          }
+          .btn-draw{
+            position: relative !important;
+            top: 0;
+            left: 0;
           }
         }
 
@@ -467,8 +484,18 @@
       height: 66px;
       border-radius: 0 0 5px 5px;
 
+
       .bc-result-span{
         margin-left: 20px;
+        color: #909090;
+        .bc-mmc-total{
+          float: right;
+          margin-right: 20px;
+          .bc-mmc-price{
+            margin-left: 20px;
+            color: #ddc94e;
+          }
+        }
       }
     }
     .bc-result-bet-model {
@@ -488,10 +515,20 @@
       .tab{
         width: 26px;
         height: 26px;
-        color: #666666;
-        border: 1px solid #cccccc;
-        background-color: #fff;
+        color: #909090;
+        border: 1px solid #606060;
+        background-color: transparent;
+        &.active{
+          background-color: #fff;
+          color: #000;
+        }
+        &:hover{
+          background-color: #fff !important;
+          color: #000 !important;
+        }
+
       }
+
     }
 
     .price{
@@ -502,12 +539,13 @@
     .bc-multi-range{
       height: 26px;
       margin-right: 5px;
+      border: 1px solid #606060;
 
       span{
         width: 26px;
         height: 26px;
         padding: 0px;
-        background-color: #fff;
+        background-color: #3c3c3c !important;
         text-align: center;
         position: relative;
 
@@ -519,14 +557,20 @@
           position: absolute;
           left: 8px;
           top: 8px;
-          color:#d8855a;
+          color:#999999;
         }
       }
       .num-range-center{
         width: 65px;
         height: 26px;
-        background-color: #fff;
+        background-color: #212121;
         color: #666;
+      }
+      .num-range-left{
+        border-right: 0;
+      }
+      .num-range-right{
+        border-left: 0;
       }
     }
   }
@@ -537,7 +581,7 @@
     height: 50px;
     .bc-mmc-btn-lottery-add{
       position: relative;
-      margin-top: -47px;
+      margin-top: -55px;
       width: 224px;
       height: 51px;
       background: linear-gradient(to bottom , #868686,#3d3d3d) ;
@@ -573,10 +617,11 @@
     .bc-lottery-preview {
       position: relative;
       background-color: #666666;
-      width: 1058px;
-      height: 108px;
-      margin: 27px auto 13px auto;
+      width: 1028px;
+      height: 115px;
+      margin: 25px 0 13px 26px;
       border-right: 0;
+      border-radius: 5px ;
       .bc-mmc-result-win{
         background: url('mmc_win_curr.png') no-repeat;
         position: absolute;
@@ -630,13 +675,20 @@
         }
       }
 
-
       .bc-mmc-link-bet-record {
         position: absolute;
-        right: 10px;
-        top : -28px;
+        right: -29px;
+        top : 5px;
+        width: 26px;
+        height: 95px;
+        background-color: #631b18;
         a {
-          color: #ededed;
+          text-decoration: none;
+          color: #c86e70;
+        }
+        .btn{
+          min-width: 0;
+          padding: 6px ;
         }
       }
       .bc-betting-preview-detail {
@@ -675,7 +727,6 @@
       }
     }
     .bc-mmc-brief-footer{
-      margin-top:30px;
     }
 
     .bc-mmc-continue-lottery-select {
@@ -773,19 +824,12 @@
         margin-bottom: 0px;
         margin-top:10px;
         .bc-mmc-lottery-confirm-div2{
-          margin: -22px auto;
-          width: 185px;
-          border: 3px solid #ff6600;
-          border-top: 0px;
-          border-radius: 10px;
-          background-color: #ff6600;
-          z-index: 1;
           .bc-mmc-lottery-confirm{
-            width: 173px;
-            height: 43px;
-            border: 1px solid #ff6600;
-            background-color: #ff6600;
-            margin-left: 0px;
+            background: url(start-mmc.png) no-repeat;
+            width: 226px;
+            height: 54px;
+            border-radius: 27px;
+            margin-top: -10px;
             color: #ffffff;
             font-size: 23px;
           }
