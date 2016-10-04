@@ -96,9 +96,9 @@ $.widget('gl.pagination', {
     html.push('<ul>');
 
     if (pageIndex > 0) {
-      html.push('<li class="pagination-pre disabled" data-pageIndex="prev"><span><<</span></li>');
+      html.push('<li class="pagination-pre" data-pageIndex="prev"><span>上一页</span></li>');
     } else {
-      html.push('<li class="pagination-pre disabled" data-pageIndex="prev"><span><<</span></li>');
+      html.push('<li class="pagination-pre disabled" data-pageIndex="prev"><span>上一页</span></li>');
     }
 
     //页号
@@ -111,9 +111,9 @@ $.widget('gl.pagination', {
     }
 
     if (pageIndex < totalPage - 1) {
-      html.push('<li class="pagination-next disabled" data-pageIndex="next" data-maxPageIndex="' + pageIndexs + '"><span>>></span></li>');
+      html.push('<li class="pagination-next" data-pageIndex="next" data-maxPageIndex="' + pageIndexs + '"><span>下一页</span></li>');
     } else {
-      html.push('<li class="pagination-next disabled" data-pageIndex="next" data-maxPageIndex="' + pageIndexs + '"><span>>></span></li>');
+      html.push('<li class="pagination-next disabled" data-pageIndex="next" data-maxPageIndex="' + pageIndexs + '"><span>下一页</span></li>');
     }
 
     html.push('</ul>');
@@ -122,7 +122,7 @@ $.widget('gl.pagination', {
     html.push('<input type="text" value="' + (pageIndex + 1) + '" data-cur-page="' + pageIndex + '" class="js-wt-grid-curt-page pagination-curt-page" />');
 
     html.push('</span><span> / <span class="total-page">' + totalPage + ' 页</span> ');
-    html.push('<button class="js-wt-grid-btn-go-to pagination-go-to">确定</button>');
+    html.push('<button class="js-wt-grid-btn-go-to btn btn-pink btn-linear btn-xs">确定</button>');
 
     html.push('</div>');
     html.push('</div>');

@@ -87,28 +87,28 @@ $pg-item: (
     border-radius: 3px;
   }
 
-  .pagination-go-to {
-    border: 1px solid #ba537e;
-    width: 46px;
-    height: 24px;
-    line-height: 18px;
-    background-color: #d21e1d;
-    color: #fff;
-    font-size: 12px;
-    font-family: '微软雅黑';
-    padding: 0px;
-    border-radius: 3px;
-
-    background-color: #ca6496;
-    background-image:-webkit-linear-gradient(180deg, #ca6496, #b54d7e);
-    background-image:linear-gradient(180deg, #ca6496, #b54d7e);
-
-    &:hover{
-      background-color: #b54d7e;
-      background-image:-webkit-linear-gradient(180deg, #b54d7e, #ca6496);
-      background-image:linear-gradient(180deg, #b54d7e, #ca6496);
-    }
-  }
+  //.pagination-go-to {
+  //  border: 1px solid #ba537e;
+  //  width: 46px;
+  //  height: 24px;
+  //  line-height: 18px;
+  //  background-color: #d21e1d;
+  //  color: #fff;
+  //  font-size: 12px;
+  //  font-family: '微软雅黑';
+  //  padding: 0px;
+  //  border-radius: 3px;
+  //
+  //  background-color: #ca6496;
+  //  background-image:-webkit-linear-gradient(180deg, #ca6496, #b54d7e);
+  //  background-image:linear-gradient(180deg, #ca6496, #b54d7e);
+  //
+  //  &:hover{
+  //    background-color: #b54d7e;
+  //    background-image:-webkit-linear-gradient(180deg, #b54d7e, #ca6496);
+  //    background-image:linear-gradient(180deg, #b54d7e, #ca6496);
+  //  }
+  //}
 }
 
 .pagination ul > li > span{

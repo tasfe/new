@@ -45,7 +45,6 @@
   margin-left:14px;
 }
 .main-active-container{
-  width: 100%;
   .active-container-header-betting{
     width:100%;
     height:120px !important;
@@ -80,11 +79,6 @@
   }
 
   .active-context{
-    /*padding-top: 20px;*/
-    background-color:#fff;
-    border-top:1px solid #ccc;
-    //overflow-y: auto;
-    border-left:1px solid #ccc;
     height:600px;
 
     .active-container-line{
