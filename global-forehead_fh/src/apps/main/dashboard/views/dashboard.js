@@ -27,7 +27,7 @@ var DashboardView = Base.ItemView.extend({
     'click .js-db-ticket-bread-item': 'ticketBreadHandler',
     'click .js-db-ticket-scroll': 'ticketScrollHandler',
     'click .js-dynamic-itemShow': 'dynamicItemShowHandler',
-    'click .js-g2-a': 'dynamicItemShowHandler',
+    // 'click .js-g2-a': 'afficShowHandler',
     'click .js-lottery': 'lottertyEnterHandler',
     'click .js-comingsoon': 'comeingsoonHandler',
     'mouseover .js-athena_st_07': 'tempMouseover',
@@ -406,6 +406,7 @@ var DashboardView = Base.ItemView.extend({
   renderMainBannerAD: function() {
     var self = this;
     this.getBannerADXhr().done(function(res) {
+      //console.log("renderMainBannerAD res"+JSON.stringify(res));
       if (res.result === 0) {
         self.generateBannerAD(res.root);
       }
@@ -417,6 +418,7 @@ var DashboardView = Base.ItemView.extend({
     this.getDynamicXhr(data)
       .done(function(res) {
         if (res.result === 0) {
+          //console.log("renderDynamicList res:" + res);
           self.generateDynamicList(res.root);
           self.generateRollList(res.root);//添加首页滚动公告信息
           self.$pageIndex.val(data.pageIndex);
@@ -440,14 +442,17 @@ var DashboardView = Base.ItemView.extend({
     var self = this;
     this.getRankListXhr()
       .done(function(res) {
-        console.log(res);
+       // console.log("renderRankList res"+res);
         if (res.result === 0) {
           var htmStr= "";
           _(res.root).each(function(info) {
-            //alert()
-            htmStr += '<p>恭喜'+info.userName.slice(0,6)+'在'+info.ticketName+'中'+info.bonus/10000+'元<span>10分钟前</span></p>';
+            var timeInfo = _.compareTime(info.curTime, info.prizeTime);
+            htmStr += '<p>恭喜'+info.userName.slice(0,6)+'在'+info.ticketName+'中'+info.bonus/10000+'元<span>'+timeInfo.data+timeInfo.unit+'前</span></p>';
           });
-          self.$('.js-rank-list').html(htmStr);
+          self.$('.js-rank-list marquee').append(htmStr);
+          setTimeout(function() {
+            self.renderRankList();
+          }, 60000);
         }
       });
   },
@@ -555,7 +560,8 @@ var DashboardView = Base.ItemView.extend({
     var liList = [];
 
     if (_(data).isEmpty()) {
-      data = bannerConfig;
+      //data = bannerConfig;
+      data = "";
     }
 
     //_(data).each(function(item, index) {
@@ -623,6 +629,7 @@ var DashboardView = Base.ItemView.extend({
     );
     self.rollSetInterval();
 
+    clearInterval(self.timer22);
     var w = 0;
     var w2 = 0;
     var w3 = 1130;
@@ -640,6 +647,7 @@ var DashboardView = Base.ItemView.extend({
         self.$rollListItem.removeClass("on");
         self.$rollListItem.eq(next).addClass("on");
         self.$currentRollingItem=self.$rollListItem.eq(next);
+       // console.log(next);
         if(next == childLength-1){
           next=-1;
         }
@@ -660,7 +668,8 @@ var DashboardView = Base.ItemView.extend({
       pageSize: 5,
       pageIndex: 0
     };
-    var rollTime=setInterval(function(){
+    clearInterval(self.rollTime);
+    self.rollTime=setInterval(function(){
       self.renderDynamicList(data);
     },300000);
   }
