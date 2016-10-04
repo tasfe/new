@@ -1,10 +1,13 @@
+$portlet-padding-bottom: 8px;
+
 .portlet {
-  //margin-bottom: 20px;
+  margin-bottom: 8px;
   border: 1px solid $gray-color;
   border-radius: $globalBoxRadius;
+  box-shadow: 0 1px 1px 0 rgba(5, 5, 5, 0.1);
 
   .portlet-header {
-    padding: 5px 9px 5px 15px;
+    padding: 6px $portlet-padding-bottom;
     line-height: 26px;
   }
 
@@ -29,6 +32,16 @@
       margin-top: -1px;
       font-size: $font-sm;
     }
+  }
+
+  .portlet-header-main {
+    border-bottom: 1px solid $light-color;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+  }
+  .portlet-header-btnGroup {
+    text-align: center;
+    margin-bottom: -$portlet-padding-bottom + 1px;
   }
 
   .portlet-body {

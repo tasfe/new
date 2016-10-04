@@ -35,7 +35,7 @@ var HeaderView = Base.ItemView.extend({
     'click .js-letterList-titleLine': 'bindMessageUserList',
 
     'click  .js-h-security': 'accountSecurityHandler',
-    'click  .js-message-small': 'MostSpan',
+    /*'click  .js-message-small': 'MostSpan',*/
     'click  .js-head-info-close': 'headInfoCloseHandler',
 
     'click .js-header-notice-item': 'showNoticeDialogHandler',

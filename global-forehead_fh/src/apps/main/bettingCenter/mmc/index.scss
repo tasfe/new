@@ -2,108 +2,35 @@
 
 @import
 "~base/styles/imports";
-.mmc-main-head-div{
-  height:83px;
-  .mmc-main-head-bg{
-    background:url(./mmc_main_head.png) top center no-repeat;
-    height: 90px;
-  }
 
-}
-
-//秒秒彩样式
-.bc-mmc-lose-model {
-  width: 1000px !important;
-  margin-left: -500px !important;
-  padding-top: 38px;
-  text-align: center;
-  .modal-body {
-    background-color: transparent;
-  }
-  .bc-mmc-result{
-    background: url('mmc_loser.png') top center repeat-y;
-    height: 430px;
-    margin-top: -200px;
-  }
-  .bc-mmc-result-choose{
-    height: 40px;
-    font-size: 14px;
-    .bc-mmc-result-bet-again{
-      width: 130px;
-      height: 43px;
-      border: 1px solid #ff6600;
-      background-color: #ff6600;
-      margin-left: 0px;
-      color: #ffffff;
-      font-size: 23px;
-    }
-    .bc-mmc-result-choose-again{
-      width: 130px;
-      height: 43px;
-      border: 1px solid #cb7d54;
-      background-color: #cb7d54;
-      margin-left: 0px;
-      color: #ffffff;
-      font-size: 23px;
-    }
-  }
-}
-.bc-mmc-win-model {
-  width: 1000px !important;
-  margin-left: -500px !important;
-  padding-top: 38px;
-  text-align: center;
-  .modal-body {
-    background-color: transparent;
-    margin-top: -200px;
-  }
-  .bc-mmc-result{
-    background: url('mmc_bet_win.png') top center repeat-y;
-    height: 430px;
-    .bc-mmc-win-result{
-      position: absolute;
-      right: 300px;
-      top: 392px;
-      color: #fff;
-      height: 32px;
-      width: 400px;
-      font-size: 23px;
-      .bc-mmc-total-text-italic {
-        font-size: 30px;
-        color: #ffff00;
-      }
-    }
-  }
-  .bc-mmc-result-choose{
-    height: 40px;
-    font-size: 14px;
-    .bc-mmc-result-bet-again{
-      width: 130px;
-      height: 43px;
-      border: 1px solid #ff6600;
-      background-color: #ff6600;
-      margin-left: 0px;
-      color: #ffffff;
-      font-size: 23px;
-    }
-    .bc-mmc-result-choose-again{
-      width: 130px;
-      height: 43px;
-      border: 1px solid #cb7d54;
-      background-color: #cb7d54;
-      margin-left: 0px;
-      color: #ffffff;
-      font-size: 23px;
-    }
-  }
-}
 .bc-mmc-div{
-  background-color: #efefef;
-  height:215px;
+  //background-color: #efefef;
+  width:1112px;
+  margin: -135px 44px 0;
+  height:1053px;
+
+  .bc-mmc-bg-area{
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    background-color: #000000;
+    background-image: url(mmc-bg.png);
+    background-repeat: no-repeat;
+    background-position: center 0px;
+  }
+
+  .bc-head-area{
+    width: 1112px;
+    position: relative;
+  }
   .mmc-main-bg{
-    background:url(./mmc_box_head.png) top center no-repeat;
-    height:205px;
-    width: 1200px;
+    background:url(./mmc-box-head.png) top center no-repeat;
+    height:255px;
+    width: 1215px;
+    margin-left: -103px;
   }
 
   .mmc-main{
@@ -112,30 +39,30 @@
     position:relative;
     margin:5px 0 0 0;
   }
-  .mmc-num-mask{
-    background:url(./num_mask.png) 0px 0px no-repeat;
-    height:184px;
-    width:740px;
-    position:absolute;
-    left:50%;
-    top:40px;
-    margin-left:-370px;
-    z-index:9;
-  }
-  .mmc-num-box-div{
-    background:url(./num_box.gif)no-repeat;
-    height: 148px;
-    width: 570px;
-    position:absolute;
-    left: 194px;
-    top: 21px;
-  }
+  //.mmc-num-mask{
+  //  background:url(./num_mask.png) 0px 0px no-repeat;
+  //  height:184px;
+  //  width:740px;
+  //  position:absolute;
+  //  left:50%;
+  //  top:40px;
+  //  margin-left:-370px;
+  //  z-index:9;
+  //}
+  //.mmc-num-box-div{
+  //  background:url(./num_box.gif)no-repeat;
+  //  height: 148px;
+  //  width: 570px;
+  //  position:absolute;
+  //  left: 194px;
+  //  top: 21px;
+  //}
   .mmc-num-box{
     height: 110px;
     width: 580px;
     position: absolute;
-    left: 182px;
-    top: 38px;
+    left: 330px;
+    top: 105px;
     z-index:1;
     overflow:hidden;
     text-align:center;
@@ -148,10 +75,10 @@
     margin: 0px 0 0px 58px;
   }
   .mmc-num-stop{
-    width:38px;
-    height:100px;
+    width:50px;
+    height:111px;
     float:left;
-    margin: 20px 0 -6px 44px;
+    margin: 23px 0 0px 57px;
     color: #c21d15;
     font-size: 42px;
     font-weight: bold;
@@ -170,10 +97,10 @@
   .bc-mmc-open-history {
     overflow: hidden;
     position: absolute;
-    left: 860px;
-    top: 32px;
-    height: 99px;
-    width: 230px;
+    right: 118px;
+    top: 126px;
+    height: 66px;
+    width: 150px;
     font-size: 0;
     .bc-mmc-open-history-div{
       position: absolute;
@@ -184,9 +111,9 @@
         span{
           display: inline-block;
           color: #c6c6c8;
-          line-height: 33px;
-          font-size:20px;
-          margin: 0 11px 0 11px;
+          line-height: 22px;
+          font-size: 12px;
+          margin: 0 4px 0 4px;
           width: 15px;
         }
       }
@@ -194,8 +121,8 @@
   }
   .bc-mmc-more-history{
     position: absolute;
-    right: 200px;
-    top: 135px;
+    right: 168px;
+    top: 207px;
     color: #fff;
     height: 20px;
     width: 50px;
@@ -205,17 +132,26 @@
   }
   .mmc-bc-start{
     background:url(./mmc_drawbar_up.png) 0px 0px no-repeat;
-    width:68px;
-    height:199px;
+    width:60px;
+    height:133px;
     position:absolute;
-    right: 30px;
-    bottom: 15px;
+    right: -60px;
+    bottom: 16px;
     margin:0 auto;
     cursor:pointer;
     clear:both;
     &.active{
       background:url(./mmc_drawbar_down.png) 0px 0px no-repeat;
     }
+  }
+
+  .bc-mmc-sort-container{
+    position: absolute;
+    bottom: -2px;
+    left: 556px;
+    text-align: center;
+    font-size: 12px;
+    color: #fff;
   }
 
 
@@ -225,6 +161,7 @@
     border: 0px solid #c2c2c2;
     min-height: 0px;
     overflow: hidden;
+    margin-top: 0;
     .bc-first-title {
       height: 25px;
       line-height: 25px;
@@ -564,7 +501,7 @@
   }
   .bc-mmc-selected-area {
     height: 220px;
-    width: 1200px;
+    width: 1112px;
     background-color: #4f4f4f;
     border-bottom-left-radius : 12px;
     border-bottom-right-radius : 12px;
@@ -794,4 +731,91 @@
 
   }
 
+}
+
+//秒秒彩样式
+.bc-mmc-lose-model {
+  width: 1000px !important;
+  margin-left: -500px !important;
+  padding-top: 38px;
+  text-align: center;
+  .modal-body {
+    background-color: transparent;
+  }
+  .bc-mmc-result{
+    background: url('mmc_loser.png') top center repeat-y;
+    height: 430px;
+    margin-top: -200px;
+  }
+  .bc-mmc-result-choose{
+    height: 40px;
+    font-size: 14px;
+    .bc-mmc-result-bet-again{
+      width: 130px;
+      height: 43px;
+      border: 1px solid #ff6600;
+      background-color: #ff6600;
+      margin-left: 0px;
+      color: #ffffff;
+      font-size: 23px;
+    }
+    .bc-mmc-result-choose-again{
+      width: 130px;
+      height: 43px;
+      border: 1px solid #cb7d54;
+      background-color: #cb7d54;
+      margin-left: 0px;
+      color: #ffffff;
+      font-size: 23px;
+    }
+  }
+}
+.bc-mmc-win-model {
+  width: 1000px !important;
+  margin-left: -500px !important;
+  padding-top: 38px;
+  text-align: center;
+  .modal-body {
+    background-color: transparent;
+    margin-top: -200px;
+  }
+  .bc-mmc-result{
+    background: url('mmc_bet_win.png') top center repeat-y;
+    height: 430px;
+    .bc-mmc-win-result{
+      position: absolute;
+      right: 300px;
+      top: 392px;
+      color: #fff;
+      height: 32px;
+      width: 400px;
+      font-size: 23px;
+      .bc-mmc-total-text-italic {
+        font-size: 30px;
+        color: #ffff00;
+      }
+    }
+  }
+  .bc-mmc-result-choose{
+    height: 40px;
+    font-size: 14px;
+    .bc-mmc-result-bet-again{
+      width: 130px;
+      height: 43px;
+      border: 1px solid #ff6600;
+      background-color: #ff6600;
+      margin-left: 0px;
+      color: #ffffff;
+      font-size: 23px;
+    }
+    .bc-mmc-result-choose-again{
+      width: 130px;
+      height: 43px;
+      border: 1px solid #cb7d54;
+      background-color: #cb7d54;
+      margin-left: 0px;
+      color: #ffffff;
+      font-size: 23px;
+    }
+  }
 }

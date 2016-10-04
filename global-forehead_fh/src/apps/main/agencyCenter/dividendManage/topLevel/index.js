@@ -115,7 +115,7 @@ var TopLevelView = TabView.extend({
       title: strTitle,
       body: '<div class="js-ac-add-container"></div>',
       modalClass: 'ten',
-      size: 'modal-lg-julien',
+      size: 'modal-lg',
       footer: ''
     });
 

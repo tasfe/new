@@ -372,7 +372,7 @@ $main-area-width: 870px;
 
 .control-inline {
   display: inline-block;
-  margin-right: 34px;
+  margin-right: 20px;
 }
 
 .bc-confirm-list {
@@ -606,11 +606,6 @@ $main-area-width: 870px;
   //&.seq-div {
   //  background-color: lightgrey;
   //}
-}
-
-.control-inlin-num {
-  display: inline-block;
-  margin-right: 9px;
 }
 
 .control-inlin-quick {
@@ -991,37 +986,6 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
     display: inline-block;
     margin-left: 15px;
   }
-
-  .bc-multi-range{
-    height: 26px;
-
-    span{
-      width: 26px;
-      height: 26px;
-      padding: 0px;
-      background-color: #fff;
-      text-align: center;
-      position: relative;
-
-      &.disabled{
-        background-color: #fff;
-      }
-
-      .fa{
-        position: absolute;
-        left: 8px;
-        top: 8px;
-        color: #d8855a;
-      }
-
-    }
-    .num-range-center{
-      width: 65px;
-      height: 26px;
-      background-color: #fff;
-      color: #666;
-    }
-  }
 }
 
 .pull-bottom{
@@ -1167,29 +1131,6 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
   height: 30px;
   position: absolute;
   margin: -23px 750px;
-}
-.chase-normal{
-  background-image:  url(~base/images/fh/bet/chase-normal.png);
-  width: 120px;
-  height: 20px;
-  background-repeat: no-repeat;
-}
-.chase-num{
-  background-image:  url(~base/images/fh/bet/chase-num.png);
-  width: 90px;
-  height: 30px;
-  position: absolute;
-  margin: -30px 870px;
-}
-.chase-profit{
-  background-image:  url(~base/images/fh/bet/chase-profit.png);
-  width: 90px;
-  height: 30px;
-  background-repeat: no-repeat;
-}
-
-.background-color-white {
-  background-color: #fff;
 }
 
 .btn-pressdown-color1 {
@@ -1761,26 +1702,6 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
   border-radius: 3px;
 }
 
-.js-bc-quick-bet1{
-
-}
-
-.bc-statics-area .bc-multi-range span{
-  background:none;
-  border-radius: 3px;
-}
-
-.bc-statics-area .bc-multi-range span .fa{
-  color: #ccc;
-}
-.js-bc-multi-range{
-  border-radius: 3px;
-}
-
-.js-wt-number{
-  background-color: #f6f6f6 !important;
-}
-
 .add-number{
   border:1px solid #cd338a !important;
   background-image:-webkit-linear-gradient(180deg, #ef66ab, #cd338a);
@@ -1826,26 +1747,6 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
   div{
     background-position: 0px -29px;
   }
-}
-
-.js-bc-lottery-preview-del{
-  color: #ccc;
-  cursor: pointer;
-}
-.js-bc-lottery-preview{
-  .js-wt-tbody{
-    font-size: 12px;
-  }
-}
-
-.bc-type-select{
-  height: 24px;
-  border-radius: 3px;
-  width: 100px;
-  padding-right: 0;
-  font-size: 12px;
-
-  appearance: menulist;
 }
 
 .bc-result-container2{
