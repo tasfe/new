@@ -1,28 +1,27 @@
 <div class="portlet m-LR-sm">
   <div class="portlet-header">
-    <form class="js-bc-chase-normal-table form-inline m-bottom-lg" action="javascript:void(0)">
-      <div class="">
-        <div class="control-inlin-num">
+    <form class="js-bc-chase-normal-table form-inline" action="javascript:void(0)">
+      <div class="control-group">
+        <div class="control-inline">
           <label class="control-label-chase">起始期号</label>
           <select class="js-bc-chase-normal-planId bc-chase-normal-planId" name="startPlanId"></select>
         </div>
 
-        <div class="control-inlin-num">
+        <div class="control-inline">
           <label class="control-label-chase">连续追号</label>
           <div class="js-number-seq number-div-style" data-numSeq="5" data-value="5">5期</div>
           <div class="js-number-seq number-div-style" data-numSeq="10" data-value="10">10期</div>
           <div class="js-number-seq number-div-style" data-numSeq="15" data-value="15">15期</div>
           <div class="js-number-seq number-div-style" data-numSeq="20" data-value="20">20期</div>
         </div>
-        <div class="control-inlin-num">
+        <div class="control-inline">
           <label class="control-label-chase">追</label>
           <input name="chasePlans" type="text" class="js-bc-chase-chasePlans js-gl-monitor bc-monitor"
                  data-monitor-type="number" value="5" />
-          <label class="control-label-chase help-inline">期（包含当前期最多可追<span class="js-bc-chase-left-plans">-</span>期）</label>
+          <label class="control-label-chase help-inline">期（当前期最多可追<span class="js-bc-chase-left-plans">-</span>期）</label>
         </div>
       </div>
-      <br>
-      <div class="control-group no-margin">
+      <div class="control-group">
         <div class="control-inline">
           <label class="control-label-chase">起始倍数</label>
           <input name="startMultiple" type="text" class="js-bc-start-multiple bc-monitor"

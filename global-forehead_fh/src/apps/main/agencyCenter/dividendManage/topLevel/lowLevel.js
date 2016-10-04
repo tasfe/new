@@ -203,7 +203,7 @@ var LowLevelView = SearchGrid.extend({
 
     var $dialog = Global.ui.dialog.show({
       title: data.username + '的分红明细',
-      size: 'modal-lg-julien',
+      size: 'modal-lg',
       body: '<div class="js-ac-detail"></div>',
       footer: ''
     });

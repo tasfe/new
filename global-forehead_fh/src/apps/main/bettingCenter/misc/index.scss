@@ -372,7 +372,7 @@ $main-area-width: 870px;
 
 .control-inline {
   display: inline-block;
-  margin-right: 34px;
+  margin-right: 20px;
 }
 
 .bc-confirm-list {
@@ -606,11 +606,6 @@ $main-area-width: 870px;
   //&.seq-div {
   //  background-color: lightgrey;
   //}
-}
-
-.control-inlin-num {
-  display: inline-block;
-  margin-right: 9px;
 }
 
 .control-inlin-quick {
@@ -990,37 +985,6 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
     color: #cc3333;
     display: inline-block;
     margin-left: 15px;
-  }
-
-  .bc-multi-range{
-    height: 26px;
-
-    span{
-      width: 26px;
-      height: 26px;
-      padding: 0px;
-      background-color: #fff;
-      text-align: center;
-      position: relative;
-
-      &.disabled{
-        background-color: #fff;
-      }
-
-      .fa{
-        position: absolute;
-        left: 8px;
-        top: 8px;
-        color: #d8855a;
-      }
-
-    }
-    .num-range-center{
-      width: 65px;
-      height: 26px;
-      background-color: #fff;
-      color: #666;
-    }
   }
 }
 
@@ -1759,26 +1723,6 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
 .tab-toolbar.tab-border .tab.active{
   background: #e67eb2;
   border-radius: 3px;
-}
-
-.js-bc-quick-bet1{
-
-}
-
-.bc-statics-area .bc-multi-range span{
-  background:none;
-  border-radius: 3px;
-}
-
-.bc-statics-area .bc-multi-range span .fa{
-  color: #ccc;
-}
-.js-bc-multi-range{
-  border-radius: 3px;
-}
-
-.js-wt-number{
-  background-color: #f6f6f6 !important;
 }
 
 .add-number{

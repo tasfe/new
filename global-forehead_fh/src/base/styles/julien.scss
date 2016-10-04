@@ -54,89 +54,89 @@ textarea{
 .julien-table-tbody{
 	border-top: 0px;
 }
-.modal-lg-julien{
-	width: 876px !important;
-	margin-left: -438px !important;
-	font-size: 12px;
-	font-family: '微软雅黑';
-	background-color: #fff;
-	border: 1px solid #484848;
-	border-radius: 5px;
-
-	.athena-quota{
-		border:1px solid #e4393c;
-	}
-
-	.modal-body{
-		background: none;
-		padding: 8px;
-
-		p{
-			color: #cc0000;
-			font-size: 14px;
-			padding-left: 20px;
-		}
-
-		.control-group,.controls-group{
-			margin-left: 100px;
-		}
-
-		.tips{
-			color: #fff;
-			height: 33px;
-			line-height: 33px;
-			background-color: #cc0000;
-			border-radius: 33px;
-			padding-left: 20px;
-			margin-bottom: 20px;
-		}
-
-		.play-table{
-			width: 723px;
-			margin: 0px auto;
-
-			div div table{
-				font-size: 14px;
-				background-color: #fff;
-				color: #666666;
-			}
-		}
-
-		.btn-center{
-			text-align: center;
-			border-top: 1px solid #e2e2e2;
-			margin-top: 45px;
-			padding-top: 28px;
-
-			button{
-				background-color: #cc0000;
-				padding: 7px 19px;
-				border: 0px;
-				color: #fff;
-			}
-		}
-
-		textarea{
-			background-color: #f7f7f7;
-			border: 1px solid #ccc;
-		}
-
-		.rebateBtn{
-			margin: 20px;
-			text-align: center;
-			input{
-				width: 50px;
-			}
-			button{
-				background-color: #cc0000;
-				padding: 7px 19px;
-				border: 0px;
-				color: #fff;
-				margin-left: 20px;
-			}
-		}
-	}
-}
+//.modal-lg-julien{
+//	width: 876px !important;
+//	margin-left: -438px !important;
+//	font-size: 12px;
+//	font-family: '微软雅黑';
+//	background-color: #fff;
+//	border: 1px solid #484848;
+//	border-radius: 5px;
+//
+//	.athena-quota{
+//		border:1px solid #e4393c;
+//	}
+//
+//	.modal-body{
+//		background: none;
+//		padding: 8px;
+//
+//		p{
+//			color: #cc0000;
+//			font-size: 14px;
+//			padding-left: 20px;
+//		}
+//
+//		.control-group,.controls-group{
+//			margin-left: 100px;
+//		}
+//
+//		.tips{
+//			color: #fff;
+//			height: 33px;
+//			line-height: 33px;
+//			background-color: #cc0000;
+//			border-radius: 33px;
+//			padding-left: 20px;
+//			margin-bottom: 20px;
+//		}
+//
+//		.play-table{
+//			width: 723px;
+//			margin: 0px auto;
+//
+//			div div table{
+//				font-size: 14px;
+//				background-color: #fff;
+//				color: #666666;
+//			}
+//		}
+//
+//		.btn-center{
+//			text-align: center;
+//			border-top: 1px solid #e2e2e2;
+//			margin-top: 45px;
+//			padding-top: 28px;
+//
+//			button{
+//				background-color: #cc0000;
+//				padding: 7px 19px;
+//				border: 0px;
+//				color: #fff;
+//			}
+//		}
+//
+//		textarea{
+//			background-color: #f7f7f7;
+//			border: 1px solid #ccc;
+//		}
+//
+//		.rebateBtn{
+//			margin: 20px;
+//			text-align: center;
+//			input{
+//				width: 50px;
+//			}
+//			button{
+//				background-color: #cc0000;
+//				padding: 7px 19px;
+//				border: 0px;
+//				color: #fff;
+//				margin-left: 20px;
+//			}
+//		}
+//	}
+//}
 
 .model-delete-julien{
 	width: 700px !important;
@@ -747,19 +747,8 @@ dl,dt,dd{
 	border: 1px solid #ccc;
 }
 
-.modal-dialog{
-	font-size: 13px;
-	color: #999;
-}
-
 .margin20-0{
 	margin: 20px 0px;
-}
-
-body.footerShow{
-	#footer{
-		display: block !important;
-	}
 }
 
 .julien-loading-leftmenu{

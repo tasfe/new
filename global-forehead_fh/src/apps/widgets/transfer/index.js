@@ -30,7 +30,7 @@ $.widget('gl.transfer', {
     this.$dialog = Global.ui.dialog.show({
       id: this.uuid,
       title: '给' + this.options.title + '转账',
-      size: 'modal-lg-julien',
+      size: 'modal-lg',
       body: body.join('')
     });
 

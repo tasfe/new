@@ -9,7 +9,6 @@ $.widget('gl.numRange', {
   options: {
     namespace: 'numRange',
     name: 'num',
-    defaultValue: 1,
     min: 1,
     max: 100,
     onChange: _.noop,
@@ -17,17 +16,21 @@ $.widget('gl.numRange', {
   },
 
   _create: function() {
-    this.element.html(_(this.template).template()(_(this.options).pick('defaultValue', 'name')));
+    this.element.addClass('js-wt-number num-range-center');
 
-    this.$number = this.element.find('.js-wt-number');
-    this.$btnMinus = this.element.find('.js-wt-num-range-btn.num-range-left');
-    this.$btnAdd = this.element.find('.js-wt-num-range-btn.num-range-right');
+    // this.element.prepend($html);
+    this.$parent = this.element.wrap($(this.template)).parent();
+    this.$parent.find('.num-range-left').after(this.element);
+
+    this.$number = this.element;
+    this.$btnMinus = this.$parent.find('.js-wt-num-range-btn.num-range-left');
+    this.$btnAdd = this.$parent.find('.js-wt-num-range-btn.num-range-right');
 
     this._bindEvents();
   },
 
   _bindEvents: function() {
-    this._on({
+    this._on(this.$parent, {
       'blur .js-wt-number': 'numberInputHandler',
       'mousedown .js-wt-num-range-btn': 'btnDownHandler'
     });

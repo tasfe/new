@@ -155,9 +155,6 @@ var BettingCenterView = Base.ItemView.extend({
   },
 
   onRender: function() {
-
-    this.$bettingRecords = this.$('.js-bc-betting-records');
-
     this.$countdown = this.$('.js-bc-countdown');
     this.$planId = this.$('.js-bc-planId');
     this.$planIdStop = this.$('.js-bc-planId-stop');
@@ -900,7 +897,7 @@ var BettingCenterView = Base.ItemView.extend({
     var chaseView;
     var $dialog = Global.ui.dialog.show({
       title: '追号',
-      size: 'modal-lg-julien',
+      size: 'modal-lg',
       body: '<div class="js-bc-chase-container"></div>',
       bodyClass: 'p-top-xs no-p-left no-p-right no-p-bottom',
       footer: ''

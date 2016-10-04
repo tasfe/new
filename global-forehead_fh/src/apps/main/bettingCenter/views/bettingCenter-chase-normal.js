@@ -79,9 +79,12 @@ var BettingCenterChaseNormalView = Base.ItemView.extend({
       form: this.$filterTable
     });
 
-    this.$chasePlans.spinner({
+    this.$chasePlans.numRange({
       min: 1
     });
+    // this.$chasePlans.spinner({
+    //   min: 1
+    // });
 
     function overMax(e, data) {
       var $target = $(e.target);
@@ -150,9 +153,7 @@ var BettingCenterChaseNormalView = Base.ItemView.extend({
     }
 
     this.$leftPlans.html(plans.length);
-    this.$chasePlans.spinner('option', {
-      max: plans.length
-    });
+    this.$chasePlans.spinner('setRange', 1, plans.length);
 
     if (!isInDate && currentPlanId) {
       this.chaseCreateHandler();
