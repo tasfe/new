@@ -1,4 +1,4 @@
-<form class="js-fc-wd-form form-inline  row" action="javascript:void(0);" >
+<form class="js-fc-wd-form  form-inline form-horizontal  row" action="javascript:void(0);" >
 
     <div class="fc-wd-progress">
 
@@ -25,31 +25,40 @@
         温馨提示:需消费充值及转账金额的20%，方可全额提现。新绑定的提款银行卡需要3小时后才能发起提款。每天限制提现为10次,您已提0次。
     </div>
 
-    <div class="fc-wd-div1 text-center">
-        <div class=" m-bottom-md">
-            <span>  提现金额:&nbsp;&nbsp;&nbsp;&nbsp;</span>
-            <span class="text-hot"><span class="js-fc-valid-balance">-</span>元</span>
+    <div class="fc-wd-div1">
+        <div class="control-group ">
+            <label class="control-label"> 可用金额:</label>
+            <div class="controls">
+                <span class="text-hot"><span class="js-fc-valid-balance">-</span>元</span>
+            </div>
         </div>
 
-        <div class=" m-bottom-md">
-            <span>  提现金额:&nbsp;&nbsp;&nbsp;&nbsp;</span>
-            <div class="inline-block">
-                <input type="text" name="amount"  class="js-fc-wd-amount fc-wd-amount " autocomplete="off" required data-parsley-type="integer"> 元</div>
+        <div class="control-group ">
+            <label class="control-label">  提现金额:</label>
+            <div class="controls">
+                <span class="input-append">
+                    <input type="text" name="amount"  class="js-fc-wd-amount fc-wd-amount " autocomplete="off" required data-parsley-type="integer">
+                    <span class="add-on">元</span>
+                </span>
+            </div>
         </div>
 
-        <div class=" m-bottom-md">
-            <ul class="js-fc-wd-quickAmounts fc-wd-quickAmount">
-            </ul>
+        <div class="control-group">
+            <div class=" controls">
+                <ul class="js-fc-wd-quickAmounts fc-wd-quickAmount">
+                </ul>
+            </div>
         </div>
 
-        <div class="m-bottom-md">
-            <span >提现银行卡:&nbsp;&nbsp;</span><select class="js-fc-wd-bankList fc-wd-bankList"></select>
+        <div class="control-group">
+            <label class="control-label"> 提现银行卡:</label>
+            <div class="controls">
+                <select class="js-fc-wd-bankList fc-wd-bankList"></select>
+            </div>
         </div>
-
-        <div class="m-bottom-md rc-seperate-line"></div>
 
     </div>
-
+    <div class="m-bottom-md rc-seperate-line"></div>
 
     <div class="text-center  m-bottom-md fc-next-button">
         <button type="button" class="js-fc-wd-commit btn fc-wd-commit">下一步</button>

@@ -69,6 +69,11 @@
   display: inline-block;
 }
 
+.fc-wd-bg{
+  background: #fff;
+  padding: 10px;
+}
+
 .fc-cardList {
   margin-top: 5px;
   position: relative;
@@ -270,9 +275,10 @@
 }
 
 .fc-re-amount-container-super{
-  margin: 10px 0 10px 200px;
+  padding: 10px 0 10px 200px;
   display: table;
   width: 656px;
+  border-bottom: 1px solid #ccc;
 }
 .fc-re-amount-container{
 
@@ -513,8 +519,7 @@
 .fc-wd-div1 {
   margin-right: auto;
   margin-left: auto;
-  height: 100px;
-
+  padding-left: 200px;
 }
 
 .fc-wd-div2{
@@ -576,9 +581,6 @@
   height: 1px;
 }
 
-.fc-next-button{
-  margin-top: 50px;
-}
 
 .fc-wd-bankList {
   width: 250px;
@@ -586,7 +588,8 @@
 }
 
 .fc-wd-amount {
-  width: 236px;
+  display: inline-block;
+  width: 238px;
   height: 30px;
 }
 

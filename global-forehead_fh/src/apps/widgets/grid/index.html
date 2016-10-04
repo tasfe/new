@@ -2,7 +2,7 @@
   <table class="<%=tableClass %> no-margin">
     <colgroup>
       <% if (checkable) { %>
-      <col>
+      <col width="<%=checkableWidth %>">
       <% } %>
       <% _.each(columnDefinitions, function(columnDefinition) { %>
       <col width="<%=columnDefinition.width %>">
@@ -11,14 +11,14 @@
 
     <thead class="<%=showHead %>">
       <tr>
-        <% if (checkable) { %>
+        <!--<% if (checkable) { %>
         <th>
           <div class="custom-checkbox checkbox-small">
             <input type="checkbox" id="<%=chkAllId %>" class="js-wt-select-all">
             <label for="<%=chkAllId %>"></label>
           </div>
         </th>
-        <% } %>
+        <% } %>-->
         <% _.each(columnDefinitions, function(columnDefinition) { %>
         <% if (columnDefinition.name) { %>
         <th data-id="<%=columnDefinition.id %>">
@@ -38,11 +38,11 @@
   </table>
 </div>
 
-<div class="js-wt-body-main relative <%=divStyle %>">
+<div class="js-wt-body-main <%=divStyle %>">
   <table class="<%=tableClass %> no-margin <% if (hasBorder) { %>no-b-top no-b-bottom<% } %>">
     <colgroup>
       <% if (checkable) { %>
-      <col>
+      <col width="<%=checkableWidth %>">
       <% } %>
       <% _.each(columnDefinitions, function(columnDefinition) { %>
       <col width="<%=columnDefinition.width %>">
@@ -75,5 +75,5 @@
     <%=tip %>
   </div>
   <% } %>
-  <div class="js-wt-pagination"></div>
+  <div class="js-wt-pagination nc-pageSize-place"></div>
 </div>
