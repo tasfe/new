@@ -7,7 +7,7 @@
   //background-color: #efefef;
   width:1112px;
   margin: -135px 44px 0;
-  height:1053px;
+  //height:1053px;
 
   .bc-mmc-bg-area{
     position: fixed;
@@ -273,12 +273,15 @@
         background-color: transparent ;
         color: #b6b6b6;
         &:hover{
-          border: 1px solid #bf6f25
+          border: 1px solid #cc3333;
+          color: #fff;
+          background-color: #cc3333;
         }
       }
       label.active{
-        border: 1px solid #bf6f25;
-        background-color: #bf6f25;
+        border: 1px solid #cc3333;
+        color: #fff;
+        background-color: #cc3333;
       }
     }
   }
@@ -358,14 +361,16 @@
             margin-right: 12px;
             .tab{
               color: #ddd;
-              background: url('bal.png') no-repeat;
-
+              background: url('mmc-bal.png') no-repeat;
+              &:hover{
+                background: url('mmc-bal-hover.png') no-repeat;
+              }
             }
             .active{
-                background:url(bal1.png) no-repeat;
-                border-radius: 0px;
+                background:url(mmc-bal-active.png) no-repeat;
+                border-radius: 0;
                 color: #fff;
-                border: 0px;
+                border: 0;
                 background-size: cover;
             }
           }
@@ -399,6 +404,22 @@
           .tab{
             background-color: transparent;
             color: #909090;
+
+          }
+        }
+
+        .tab-toolbar.tab-border{
+          .tab-group{
+            .tab{
+              border-radius: 12px;
+              background-color: transparent;
+              color: #909090;
+              &:hover{
+                border: 1px solid #cc3333 !important;
+                color: #fff;
+                background-color: #cc3333 !important;
+              }
+            }
           }
         }
 
@@ -502,16 +523,16 @@
         border: 1px solid #606060;
         background-color: transparent;
         &.active{
-          background-color: #fff;
-          color: #000;
+          border: 1px solid #cc3333 !important;
+          color: #fff;
+          background-color: #cc3333 !important;
         }
         &:hover{
-          background-color: #fff !important;
-          color: #000 !important;
+          border: 1px solid #cc3333 !important;
+          color: #fff;
+          background-color: #cc3333 !important;
         }
-
       }
-
     }
 
     .price{
@@ -531,6 +552,7 @@
         background-color: #3c3c3c !important;
         text-align: center;
         position: relative;
+        cursor: pointer;
 
         &.disabled{
           background-color: #fff;
@@ -548,6 +570,7 @@
         height: 26px;
         background-color: #212121;
         color: #666;
+
       }
       .num-range-left{
         border-right: 0;
@@ -572,20 +595,6 @@
       color: #fff;
       border-radius: 25px;
     }
-    .bc-mmc-lottery-time-show {
-      background-color: #f2f0f0;
-      color: #b51810;
-      position: absolute;
-      margin: -38px 0 0 0;
-      width: 185px;
-      border-radius: 10px;
-      font-size: 14px;
-      font-weight: 500;
-      .bc-mmc-bet-times-num {
-        font-size: 16px;
-        font-weight: 600;
-      }
-    }
 
   }
   .bc-mmc-selected-area {
@@ -597,6 +606,32 @@
     border-bottom-right-radius : 12px;
     color: #fff;
     position: relative;
+    .bc-mmc-lottery-time-show {
+      background-color: #fff;
+      color: #000;
+      border: 1px solid #474747;
+      border-radius: 5px;
+      position: absolute;
+      top: -20px;
+      left: 392px;
+      width: 328px;
+      height: 40px;
+      line-height: 40px;
+      font-size: 24px;
+      font-weight: 500;
+      text-align: center;
+      .bc-mmc-bet-times-num {
+        display: inline-block;
+        min-width: 10px;
+        padding: 0 5px;
+        height: 28px;
+        line-height: 28px;
+        font-size: 16px;
+        border-radius: 5px;
+        background-color: #fa565a;
+        color: #fff;
+      }
+    }
     .bc-lottery-preview {
       position: relative;
       background-color: #666666;
@@ -609,7 +644,7 @@
         width: 100%;
       }
       .bc-mmc-result-win{
-        background: url('mmc_win_curr.png') no-repeat;
+        background: url('mmc-win-curr.png') no-repeat;
         position: absolute;
         margin: -68px 0 0 288px;
         width: 296px;
@@ -630,7 +665,7 @@
         z-index: 1;
 
         .bc-mmc-result-win-total {
-          background: url('mmc_win_end.png')  no-repeat;
+          background: url('mmc-win-end.png')  no-repeat;
           position: absolute;
           width: 469px;
           height: 197px;
@@ -723,7 +758,9 @@
       .bc-mmc-continue-lottery-times {
         max-width: 70px;
         font-size: 0;
-
+        .btn-group{
+          line-height: 16px;
+        }
         input {
           display: inline-block !important;
           background-color: #242424;
@@ -768,6 +805,7 @@
           li{
             background-color: #242424;
             font-size: 12px;
+
             &:hover{
               background-color: #fff;;
               color: #000;
@@ -801,36 +839,39 @@
 
     .bc-mmc-reSelect-btn {
       position: absolute;
-      bottom: 70px;
-      right: 100px;
-      color: #b51810;
+      bottom: 68px;
+      right: 280px;
+      width: 108px;
+      height: 33px;
+      line-height: 33px;
+      background: url(mmc-reselect.png) no-repeat;
       font-size: 14px;
-      display: inline-block;
-      margin-right: 50px;
+      color: #fff;
       cursor:pointer;
       border-radius: 6px;
-      background-color: #fbdc31;
-      padding: 3px 18px;
+      padding: 0 20px;
       letter-spacing: 2px;
-      font-weight: 700;
+      &:hover{
+        background: url(mmc-reselect-hover.png) no-repeat;
+      }
     }
 
-    .bc-mmc-lottery-confirm-div {
-      position: absolute;
-      text-align: center;
-      width: 100%;
-      bottom: 55px;
+
 
       .bc-mmc-lottery-confirm{
-        background: url(mmc-btn.png) no-repeat;
+        position: absolute;
+        text-align: center;
         width: 226px;
+        bottom: 55px;
+        left: 440px;
+        background: url(mmc-btn.png) no-repeat;
         height: 54px;
         border-radius: 27px;
         border: 0;
         color: #ffffff;
         font-size: 23px;
       }
-    }
+
 
   }
 
@@ -874,28 +915,48 @@
   }
 }
 .bc-mmc-win-model {
-  width: 1000px !important;
-  margin-left: -500px !important;
-  padding-top: 38px;
+  width: 360px !important;
+  height: 86px;
+  margin-left: -180px !important;
+  padding-top: 18px;
   text-align: center;
+
+  .bc-mmc-win-curr-bg{
+    position: fixed;
+    height: 906px;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: 0;
+    background-color: transparent;
+    background-image: url(mmc-win-curr.png);
+    background-repeat: no-repeat;
+    background-position: center 0px;
+  }
+  .modal-dialog{
+    border: 0;
+  }
   .modal-body {
     background-color: transparent;
-    margin-top: -200px;
   }
   .bc-mmc-result{
-    background: url('mmc_bet_win.png') top center repeat-y;
-    height: 430px;
     .bc-mmc-win-result{
-      position: absolute;
-      right: 300px;
-      top: 392px;
-      color: #fff;
-      height: 32px;
-      width: 400px;
+      width: 330px !important;
+      height: 60px;
+      line-height: 60px;
+      position: relative;
+      background-color: #fff;
+      color: #000;
+      border-radius: 10px;
+
       font-size: 23px;
-      .bc-mmc-total-text-italic {
-        font-size: 30px;
-        color: #ffff00;
+      .bc-mmc-win-injection{
+        font-size: 12px;
+        color: #000;
+      }
+      .bc-mmc-win-price{
+        font-size: 16px;
+        color: #d23132;
       }
     }
   }

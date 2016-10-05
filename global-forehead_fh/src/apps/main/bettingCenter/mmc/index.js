@@ -1178,7 +1178,7 @@ var BettingCenterView = Base.ItemView.extend({
   refreshOpenHistory: function(){
     var self = this;
     this.getOpenHistoryXhr({
-      pageSize: 10,
+      pageSize: 3,
       ticketId: this.options.ticketId
     }).done(function(res){
       if(res.result==0){
@@ -1368,28 +1368,27 @@ var BettingCenterView = Base.ItemView.extend({
         }),
         modalClass: 'bc-mmc-win-model'
       });
-
-      var timeout = setTimeout(function () {
-        $dialog.modal('hide');
-      }, 3000);
       $dialog.on('hidden.modal', function () {
         $dialog.remove();
       });
+      var timeout = setTimeout(function () {
+        $dialog.modal('hide');
+      }, 3000);
+
     }else {
-      this.$CurrentResult.addClass('hidden');
-      this.$CurrentResult.html('<span></span>');
-      $dialog = Global.ui.dialog.show({
-        body: this.betResultLoseTpl({
-        }),
-        modalClass: 'bc-mmc-lose-model'
-      });
-
-      var timeout = setTimeout(function () {
-        $dialog.modal('hide');
-      }, 3000);
-      $dialog.on('hidden.modal', function () {
-        $dialog.remove();
-      });
+      //this.$CurrentResult.addClass('hidden');
+      //this.$CurrentResult.html('<span></span>');
+      //$dialog = Global.ui.dialog.show({
+      //  body: this.betResultLoseTpl({
+      //  }),
+      //  modalClass: 'bc-mmc-lose-model'
+      //});
+      //$dialog.on('hidden.modal', function () {
+      //  $dialog.remove();
+      //});
+      //var timeout = setTimeout(function () {
+      //  $dialog.modal('hide');
+      //}, 3000);
 
     }
   },
@@ -1429,7 +1428,10 @@ var BettingCenterView = Base.ItemView.extend({
   showLotteryTime: function(flag,time) {
     if (flag && time > 0) {
       this.$LotteryTimeShow.removeClass('hidden');
-      this.$LotteryTimeShow.html('第<span class="bc-mmc-bet-times-num">' + time + '</span>次开奖');
+      if(time<10){
+        time = '0'+time;
+      }
+      this.$LotteryTimeShow.html('第&nbsp;<span class="bc-mmc-bet-times-num">' + time + '</span>&nbsp;次');
     }  else if (!flag) {
       this.$LotteryTimeShow.addClass('hidden');
       this.$LotteryTimeShow.html('');
