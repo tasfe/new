@@ -2,15 +2,11 @@
 
 require('./index.scss');
 
-//var NewsBarView = require('../newsBar');
-
 var ticketConfig = require('skeleton/misc/ticketConfig');
 
 var WithdrawView = require('fundCenter/views/withdraw');
 
 var InsideLetterView2 = require('skeleton/bases/insideLetter2');
-
-var NoticeBoardView = require('dynamicCenter/views/noticeBoardFH');
 
 var HeaderView = Base.ItemView.extend({
 
@@ -30,15 +26,12 @@ var HeaderView = Base.ItemView.extend({
     'click .js-gl-hd-logout': 'logoutHandler',
     'mouseover .js-bc-lottery-list': 'lotteryListHandler',
     'mouseout .js-bet-lottery-menu': 'outlotteryListHandler',
-    // 'click .js-affiche-show': 'afficShowHandler',
 
     //'click .js-letterList-titleLine': 'bindMessageUserList',
 
     'click  .js-h-security': 'accountSecurityHandler',
     /*'click  .js-message-small': 'MostSpan',*/
     'click  .js-head-info-close': 'headInfoCloseHandler',
-
-    'click .js-header-notice-item': 'showNoticeDialogHandler',
     'click .js-cBtn': 'cBtn'
   },
 
@@ -300,12 +293,6 @@ var HeaderView = Base.ItemView.extend({
     setInterval(function() {
       self.renderNotice();
     }, 60000);
-
-    if(!Global.cookieCache.get('hasLoadBulletin')){
-      Global.cookieCache.set('hasLoadBulletin', true);
-      this.renderBulletin();
-    }
-    
   },
 
   renderNotice: function() {
@@ -457,42 +444,6 @@ var HeaderView = Base.ItemView.extend({
     this.$dialogWd.on('hidden.modal', function () {
       $(this).remove();
     });
-
-  },
-
-  renderBulletin: function(bulletinId) {
-    var noticeBoardView;
-
-    var $dialog = Global.ui.dialog.show({
-      title: '平台公告',
-      size: '',
-      body: '<div class="js-head-bulletin-container"></div>',
-      bodyClass: 'no-padding',
-      modalClass: 'header-bulletin-dialog',
-      footer: ''
-    });
-
-    var $bulletinContainer = $dialog.find('.js-head-bulletin-container');
-
-    $dialog.on('hidden.modal', function() {
-      $(this).remove();
-      noticeBoardView.destroy();
-    });
-
-    noticeBoardView = new NoticeBoardView({
-      el: $bulletinContainer,
-      reqData: {
-        bulletinId: bulletinId
-      }
-    }).render();
-  },
-
-  showNoticeDialogHandler: function(e){
-    //var noticeBoardView;
-    var bulletinId = $(e.currentTarget).data('id');
-    if (bulletinId != 0) {
-      this.renderBulletin(bulletinId);
-    }
   },
 
   cBtn: function (e) {

@@ -8,13 +8,9 @@ var BettingCenterView = require('bettingCenter/views/bettingCenter');
 var MMCBettingCenterView = require('bettingCenter/mmc');
 var SMMCBettingCenterView = require('bettingCenter/smmc');
 
-var FirstLoginUpdatePasswd = require('com/firstLoginUpdatePasswd');
-
 var Countdown = require('com/countdown');
 
 var ticketConfig = require('skeleton/misc/ticketConfig');
-
-
 
 var EntryView = Base.ItemView.extend({
 
@@ -55,20 +51,6 @@ var EntryView = Base.ItemView.extend({
     this.$entryGroup.disableSelection();
 
     this.$('.js-gl-ticket-menu').dropMenu();
-
-    this.firstLoginUpdatePasswd = new FirstLoginUpdatePasswd();
-    this.firstLoginUpdatePasswd.checkState();
-
-    document.onkeydown = function(e) {  
-    //捕捉回车事件  
-    var ev = (typeof event!= 'undefined') ? window.event : e;  
-        if(ev.keyCode == 13) {
-
-          if ($('#adsf123').html() != undefined) {
-            $('.confirm-agree').click();
-          }
-        }  
-    }  
 
     var strHash = document.location.hash;
     if (strHash=='') {

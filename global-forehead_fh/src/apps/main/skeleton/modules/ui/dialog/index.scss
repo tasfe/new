@@ -41,13 +41,7 @@
     top: -25%;
     transition: opacity 0.3s linear, top 0.3s ease-out;
     &.in {
-      top: 200px;
-    }
-
-    &.ten {
-      &.in {
-        top: 10%;
-      }
+      top: 20%;
     }
   }
 
@@ -229,7 +223,7 @@
   color: $dark-color;
   position: relative;
   padding: 15px;
-  overflow-y: auto;
+  //overflow-y: auto;
 
 }
 
@@ -299,7 +293,7 @@ button.close {
 
 .header-bulletin-dialog{
   width: 1016px;
-  height: 565px;
+  //height: 565px;
   margin-left: -508px;
 }
 
@@ -311,5 +305,37 @@ button.close {
   //border-radius: 5px;
   .modal-body{
     padding: 0 10px 17px; ;
+  }
+}
+
+@media (min-height: 550px) and (max-height: 700px) {
+  .modal {
+    &.fade {
+      &.in {
+        top: 10%;
+      }
+    }
+  }
+}
+
+@media (max-height: 550px) {
+  .modal {
+    &.fade {
+      &.in {
+        top: 5%;
+      }
+    }
+
+    &.modal-notification {
+      .modal-dialog {
+      }
+      .modal-body {
+        padding: 24px 12px;
+      }
+
+      &.in {
+        top: 25%;
+      }
+    }
   }
 }
