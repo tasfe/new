@@ -1063,7 +1063,6 @@ var BettingCenterView = Base.ItemView.extend({
 
     var confirm = $(document).confirm({
       title: '确认投注',
-      id: 'adsf123',
       content: this.confirmTpl({
         ticketInfo: this.options.ticketInfo,
         ticketName: this.options.ticketName,
