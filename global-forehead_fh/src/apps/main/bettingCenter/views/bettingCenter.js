@@ -684,13 +684,13 @@ var BettingCenterView = Base.ItemView.extend({
     var previewList = this.model.get('previewList');
     var self = this;
     var rows = _(previewList).map(function(previewInfo) {
-      if(!(IDsSuper3.getArr().indexOf(parseInt(previewInfo.playId.toString().slice(0,3))) === -1)){
-        var title = '<span class="text-hot">【超级3000_' + previewInfo.levelName + '_' + previewInfo.playName + '】 ';
-        var sf = true;
-      }else{
+      // if(!(IDsSuper3.getArr().indexOf(parseInt(previewInfo.playId.toString().slice(0,3))) === -1)){
+      //   var title = '<span class="text-hot">【超级3000_' + previewInfo.levelName + '_' + previewInfo.playName + '】 ';
+      //   var sf = true;
+      // }else{
         var title = '[' + previewInfo.levelName + '_' + previewInfo.playName + '] ';
         var sf = false;
-      }
+      // }
       if (previewInfo.formatBettingNumber.length > 7) {
         title += '<a href="javascript:void(0)" class="js-bc-betting-preview-detail btn-link">' +
           previewInfo.formatBettingNumber.slice(0, 7) + '...</a></span>';
