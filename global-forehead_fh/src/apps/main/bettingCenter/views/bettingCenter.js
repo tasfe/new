@@ -46,8 +46,6 @@ var BettingCenterView = Base.ItemView.extend({
     'click .js-bc-quick-bet': 'quickBetHandler',
     'click .js-bc-btn-lottery-confirm': 'lotteryConfirmHandler',
     'click .js-bc-records-tab': 'toggleTabHandler',
-
-
     //需要重构的代码
     'click .js-cang02':'cangHandler'
   },
@@ -301,7 +299,7 @@ var BettingCenterView = Base.ItemView.extend({
   },
 
   renderLastPlan: function(model) {
-    var planInfo = model.pick('lastOpenId', 'lastOpenNum');
+    var planInfo = model.pick('lastOpenId', 'lastOpenNum', 'lastOrgOpenNum', 'ticketId');
 
     //this.$lastPlanId.html(planInfo.lastOpenId);
 
@@ -315,8 +313,82 @@ var BettingCenterView = Base.ItemView.extend({
       return '<span class="text-circle">' + num + '</span>';
     }));
 
+    //目前只有韩国1.5分彩需要显示
+
+    if(planInfo.ticketId === 21) {
+      this.renderSpecialHoverNums(planInfo);
+    }
+
     this.recordsOpenView.update();
     this.recordsRecentView.update();
+  },
+
+  renderSpecialHoverNums: function(planInfo) {
+    var self = this;
+    var html = [];
+    var openNun = planInfo.lastOrgOpenNum.split(',');
+    var count;
+    var result;
+    var first;
+    var last;
+
+
+    if (this.$lastResults.data('popover')) {
+      this.$lastResults.popover('destroy');
+    }
+
+    html.push('<div class="bc-hgcalculate-example">');
+
+    _.each(openNun, function (value, key) {
+      if (key == 0 || key == 4 || key == 8 || key == 12 || key == 16) {
+        count = 0;
+        result = 0;
+      }
+      count = count + "+" + value;
+      result += parseInt(value);
+      if (key == 3) {
+        first = ("" + result).substring(0, ("" + result).length - 1);
+        last = "<font color='red'>" + ("" + result).substring(("" + result).length - 1, ("" + result).length) + "</font>";
+        html.push('<div class="bc-hgcaculate-examplerow">万位:<span>');
+        html.push(count.replace('0+', '') + "=" + first + last);
+        html.push('</span></div>');
+      } else if (key == 7) {
+        first = ("" + result).substring(0, ("" + result).length - 1);
+        last = "<font color='red'>" + ("" + result).substring(("" + result).length - 1, ("" + result).length) + "</font>";
+
+        html.push('<div class="bc-hgcaculate-examplerow">千位:<span>');
+        html.push(count.replace('0+', '') + "=" + first + last);
+        html.push('</span></div>');
+      } else if (key == 11) {
+        first = ("" + result).substring(0, ("" + result).length - 1);
+        last = "<font color='red'>" + ("" + result).substring(("" + result).length - 1, ("" + result).length) + "</font>";
+        html.push('<div class="bc-hgcaculate-examplerow">百位:<span>');
+        html.push(count.replace('0+', '') + "=" + first + last);
+        html.push('</span></div>');
+      } else if (key == 15) {
+        first = ("" + result).substring(0, ("" + result).length - 1);
+        last = "<font color='red'>" + ("" + result).substring(("" + result).length - 1, ("" + result).length) + "</font>";
+        html.push('<div class="bc-hgcaculate-examplerow">十位:<span>');
+        html.push(count.replace('0+', '') + "=" + first + last);
+        html.push('</span></div>');
+      } else if (key == 19) {
+        first = ("" + result).substring(0, ("" + result).length - 1);
+        last = "<font color='red'>" + ("" + result).substring(("" + result).length - 1, ("" + result).length) + "</font>";
+        html.push('<div class="bc-hgcaculate-examplerow">个位:<span>');
+        html.push(count.replace('0+', '') + "=" + first + last);
+        html.push('</span></div>');
+      }
+    });
+
+    html.push('</div>');
+
+    this.$lastResults.popover({
+      trigger: 'hover',
+      container: this.$el,
+      html: true,
+      content: html.join(''),
+      placement: 'bottom'
+    });
   },
 
   renderBasicInfo: function(model) {
@@ -440,9 +512,9 @@ var BettingCenterView = Base.ItemView.extend({
 
     this.$playExample.html('<i class="fa fa-question-sign"></i>玩法说明：' + playInfo.playExample).attr('title', playInfo.playExample);
     this.$playExample2.html( playInfo.playDes.replace(/\|/g, '<br />').replace(/\[max\]/g,_(playInfo.betMethodMax).chain().formatDiv(10000).floor(4).value()).replace(/\[min\]/g,_(playInfo.betMethodMin).chain().formatDiv(10000).floor(4).value()) );
-    if (this.$playTip.data('popover')) {
-      this.$playTip.popover('destroy');
-    }
+    // if (this.$playTip.data('popover')) {
+    //   this.$playTip.popover('destroy');
+    // }
 
    // this.$playTip.popover({
    //   trigger: 'hover',
@@ -612,13 +684,13 @@ var BettingCenterView = Base.ItemView.extend({
     var previewList = this.model.get('previewList');
     var self = this;
     var rows = _(previewList).map(function(previewInfo) {
-      if(!(IDsSuper3.getArr().indexOf(parseInt(previewInfo.playId.toString().slice(0,3))) === -1)){
-        var title = '<span class="text-hot">【超级3000_' + previewInfo.levelName + '_' + previewInfo.playName + '】 ';
-        var sf = true;
-      }else{
+      // if(!(IDsSuper3.getArr().indexOf(parseInt(previewInfo.playId.toString().slice(0,3))) === -1)){
+      //   var title = '<span class="text-hot">【超级3000_' + previewInfo.levelName + '_' + previewInfo.playName + '】 ';
+      //   var sf = true;
+      // }else{
         var title = '[' + previewInfo.levelName + '_' + previewInfo.playName + '] ';
         var sf = false;
-      }
+      // }
       if (previewInfo.formatBettingNumber.length > 7) {
         title += '<a href="javascript:void(0)" class="js-bc-betting-preview-detail btn-link">' +
           previewInfo.formatBettingNumber.slice(0, 7) + '...</a></span>';

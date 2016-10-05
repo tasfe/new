@@ -6,142 +6,138 @@ var BettingRecordsView = Base.ItemView.extend({
 
   template: '',
 
-  events: {
-  },
-
   height: 240,
 
   tableClass: 'table table-center',
 
-  initialize: function() {
-  },
+  url: '/ticket/ticketmod/openhistory.json',
 
-  onRender: function() {
-    this.renderDrawRecords();
-  },
-
-  renderDrawRecords: function() {
-    if (!this.drawRecords) {
-     var gridTable = {};
-     var sscTicketIdArr = _(ticketConfig.getSccList()).pluck('id');
-     var c115TicketIdArr = _(ticketConfig.getChoose5List()).pluck('id');
-     var dpcTicketIdArr = _(ticketConfig.getLowList()).pluck('id');
-     if(_(sscTicketIdArr).indexOf(this.options.ticketId)!==-1){
-       gridTable = this._renderSSCLotteryRecord();
-     }else if(_(c115TicketIdArr).indexOf(this.options.ticketId)!==-1){
-       gridTable = this._render115LotteryRecord();
-     }else if(_(dpcTicketIdArr).indexOf(this.options.ticketId)!==-1){
-       gridTable = this._renderDPCLotteryRecord();
-     }
-     this.drawRecords = this.$el.staticGrid(gridTable).staticGrid('instance');
-    } else {
-     this.drawRecords.update();
-    }
-  },
-
-  _renderSSCLotteryRecord: function () {
-    var self = this;
-
-    return {
-      tableClass: this.tableClass,
-      colModel: [
-        {label: '期号', name: 'ticketPlanId', formatter: function(val, prop, info) {
+  GridOps: {
+    ssc: {
+      pageSize: 30,
+      formats: [
+        function(val) {
           return '第' + val + '期';
-        }, width: '45%'},
-        {label: '开奖号码', name: 'ticketOpenNum', width: '35%', formatter: function(val) {
+        },
+        function(val) {
           var html = ['<div class="open-nums">'];
           var numList = val.split(',');
-          _(numList).each(function(num, index) {
-            if (self.playRule && self.playRule.formType && self.playRule.keyPosition[index]) {
+          _(numList).each(function (num, index) {
+            if (this.playRule && this.playRule.keyPosition && this.playRule.keyPosition[index]) {
               html.push('<span class="key-num">' + num + '</span>');
             } else {
               html.push('<span>' + num + '</span>');
             }
-          });
+          }, this);
           html.push('</div>');
 
           return html.join('');
-        }},
-        {label: '形态', name: 'ticketOpenNum', width: '20%', formatter: function(val) {
-          return self.getFormType(val, self.playRule && self.playRule.keyPosition, self.playRule && self.playRule.formType);
-        }}
-        //{label: '开奖号', name: 'ticketOpenNum', width: '24%'},
-        //{label: '前三', name: 'qianSan', width: '17%'},
-        //{label: '后三', name: 'houSan', width: '17%', formatter: function (val) {
-        //  return val;
-        //}}
-      ],
-      url: '/ticket/ticketmod/openhistory.json',
-      emptyTip: '最近无开奖记录',
-      abort: false,
-      initRemote: false,
-      // showHeader: false,
-      height: this.height,
-      data: {
-        pageSize: 30,
-        ticketId: this.options.ticketId
-      },
-      dataProp: 'root.openedList'
-    };
-  },
-  _render115LotteryRecord: function () {
-    return {
-      tableClass: this.tableClass,
-      colModel: [
-        {label: '期号', name: 'ticketPlanId', width: '45%'},
-        {label: '开奖号码', name: 'ticketOpenNum', width: '35%'},
-        {label: '形态', name: 'type', width: '20%'}
-      ],
-      url: '/ticket/ticketmod/openhistory.json',
-      abort: false,
-      height: this.height,
-      initRemote: false,
-      // showHeader: false,
-      data: {
-        pageSize: 84,
-        ticketId: this.options.ticketId
-      },
-      dataProp: 'root.openedList'
-    };
-  },
-  _renderDPCLotteryRecord: function() {
-    return {
-      tableClass: this.tableClass,
-      colModel: [
-        {label: '期号', name: 'ticketPlanId', width: '45%', formatter: function(val) {
+        },
+        function(val) {
+          return this.getFormType(val, this.playRule && this.playRule.keyPosition, this.playRule && this.playRule.formType);
+        }
+      ]
+    },
+    '115': {
+      pageSize: 84
+    },
+    DPC: {
+      pageSize: 20,
+      formats: [
+        function (val) {
           return val.substring(4);
-        }},
-        // {label: '期号', name: 'ticketPlanId', width: '45%'},
-        {label: '开奖号码', name: 'ticketOpenNum', width: '35%'},
-        {label: '形态', name: 'type', width: '20%'}
-        // {label: '开奖号', name: 'ticketOpenNum', width: '30%'},
-        // {label: '三星', name: 'qianSan', width: '20%'}
-      ],
-      url: '/ticket/ticketmod/openhistory.json',
+        }
+      ]
+    }
+  },
+
+  onRender: function () {
+    // this.renderDrawRecords();
+  },
+
+  renderDrawRecords: function () {
+    if (!this.drawRecords) {
+      var gridTable = {};
+      var sscTicketIdArr = _(ticketConfig.getSccList()).pluck('id');
+      var c115TicketIdArr = _(ticketConfig.getChoose5List()).pluck('id');
+      var dpcTicketIdArr = _(ticketConfig.getLowList()).pluck('id');
+      if (_(sscTicketIdArr).contains(this.options.ticketId)) {
+        this.gridOps = this.GridOps['ssc'];
+      } else if(_(c115TicketIdArr).contains(this.options.ticketId)){
+        this.gridOps = this.GridOps['115'];
+      } else if(_(dpcTicketIdArr).contains(this.options.ticketId)){
+        this.gridOps = this.GridOps['DPC'];
+      }
+      gridTable = this.generateGridOptions(this.gridOps);
+      this.drawRecords = this.$el.staticGrid(gridTable).staticGrid('instance');
+    } else {
+      this.drawRecords.update();
+    }
+  },
+
+  generateGridOptions: function(ops) {
+    var self = this;
+    var options = {
+      tableClass: this.tableClass,
+      url: this.url,
+      // emptyTip: '最近无开奖记录',
+      emptyTip: '',
       abort: false,
       height: this.height,
-      // showHeader: false,
-      initRemote: false,
+      colModel: [],
       data: {
-        pageSize: 20,
+        pageSize: ops.pageSize,
         ticketId: this.options.ticketId
       },
       dataProp: 'root.openedList'
     };
+
+    options.colModel.push({
+      label: '期号',
+      name: 'ticketPlanId',
+      width: '45%',
+      formatter: ops.formats && ops.formats[0] ? function () {
+        return ops.formats[0].apply(self, arguments);
+      } : null
+    });
+
+    options.colModel.push({
+      label: '开奖号码',
+      name: 'ticketOpenNum',
+      width: '35%',
+      formatter: ops.formats && ops.formats[1] ? function () {
+        return ops.formats[1].apply(self, arguments);
+      }: null
+    });
+
+    if (this.playRule && this.playRule.formType) {
+      options.colModel.push({
+        label: '形态',
+        name: 'ticketOpenNum',
+        width: '20%',
+        formatter: ops.formats && ops.formats[2] ? function () {
+          return ops.formats[2].apply(self, arguments);
+        }: null
+      });
+    }
+
+    return options;
   },
 
-  update: function() {
-     this.renderDrawRecords();
+  update: function () {
+    this.renderDrawRecords();
   },
 
-  updateByPlayRule: function(playRule) {
+  updateByPlayRule: function (playRule) {
     this.playRule = playRule;
 
-    this.drawRecords.reformat();
+    if (this.drawRecords) {
+      this.drawRecords.reformat(this.generateGridOptions(this.gridOps));
+    }
   },
 
   //取得形态
-  getFormType: function(nums, keyPosition, type) {
+  getFormType: function (nums, keyPosition, type) {
     var formType;
     var numList = nums.split(',');
     switch (type) {
@@ -162,10 +158,10 @@ var BettingRecordsView = Base.ItemView.extend({
     return formType;
   },
 
-  getFormGroup: function(numList, keyPosition) {
+  getFormGroup: function (numList, keyPosition) {
     var formType = '';
 
-    var tempList = _(numList).chain().filter(function(val, index) {
+    var tempList = _(numList).chain().filter(function (val, index) {
       return keyPosition[index];
     }).union().value('');
     switch (tempList.length) {
@@ -185,10 +181,10 @@ var BettingRecordsView = Base.ItemView.extend({
     return formType;
   },
 
-  getFormPair: function(numList, keyPosition) {
+  getFormPair: function (numList, keyPosition) {
     var formType = '';
 
-    var tempList = _(numList).chain().filter(function(val, index) {
+    var tempList = _(numList).chain().filter(function (val, index) {
       return keyPosition[index];
     }).union().value('');
     switch (tempList.length) {
@@ -205,10 +201,10 @@ var BettingRecordsView = Base.ItemView.extend({
     return formType;
   },
 
-  getFormDragon: function(numList, keyPosition) {
+  getFormDragon: function (numList, keyPosition) {
     var formType = '';
 
-    var tempList = _(numList).filter(function(val, index) {
+    var tempList = _(numList).filter(function (val, index) {
       return keyPosition[index];
     });
     if (tempList[0] > tempList[1]) {

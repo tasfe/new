@@ -37,14 +37,14 @@ var BettingRecordsView = Base.ItemView.extend({
      this.bettingRecords = this.$el.staticGrid({
        tableClass: 'table',
        colModel: [
-         {label: '期号', name: 'ticketPlanId', width: '22%',formatter: function(val, index, bet) {
+         {label: '<div class="text-center">期号</div>', name: 'ticketPlanId', width: '22%',formatter: function(val, index, bet) {
            // return '<a class="router btn-link" href="#uc/br/detail/' + bet.ticketTradeNo + '">' + val.substring(4) + '</a>';
            return '<a class="router btn-link">' + val.substring(4) + '</a>';
          }},
-         {label: '投注金额', name: 'betTotalMoney', width: '20%', formatter: function(val) {
+         {label: '<div class="text-center">投注金额</div>', name: 'betTotalMoney', width: '26%', formatter: function(val) {
            return _(val).fixedConvert2yuan();
          }},
-         {label: '状态', name: 'prizeTotalMoney', width: '20%', formatter: function(val, index, bet) {
+         {label: '<div class="text-center">状态</div>', name: 'prizeTotalMoney', width: '18%', formatter: function(val, index, bet) {
            //0:未中奖，1：已中奖，2：用户撤单，3：系统撤单,ticketResult,prizeTotalMoney
            return _.checkBettingStatus({
              betStatus: bet.ticketBetStatus,
@@ -57,13 +57,13 @@ var BettingRecordsView = Base.ItemView.extend({
              prizeClass: 'text-pink'
            });
          }},
-         {label: '', name: 'betTotalMoney', width: '38%', formatter: function(val, index, bet) {
+         {label: '<div class="text-center">操作</div>', name: 'betTotalMoney', width: '34%', formatter: function(val, index, bet) {
            var html = [];
 
-           html.push('<button class="js-bc-betting-again btn btn-xs btn-pure" data-loading-text="再投一注">再投一注</button>');
+           html.push('<button class="js-bc-betting-again btn btn-xxs btn-pure" data-loading-text="再投一次">再投一次</button>');
 
            if (bet.canCancel) {
-             html.push('<button class="js-bc-cancel-betting btn btn-xs btn-pure" data-loading-text="撤单">撤单</button>');
+             html.push('<button class="js-bc-cancel-betting btn btn-xxs btn-pure" data-loading-text="撤单">撤单</button>');
            }
 
            return html.join(' ');
