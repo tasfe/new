@@ -151,6 +151,7 @@ function _create(ticketId) {
 
   //复式
   factory.addRule([ticketId, '020101'], {
+    keyPosition: [null, '千位', '百位', '十位', '个位'],
     algorithm: algorithm.mulAll,
     list: factory.createList([null, '千位', '百位', '十位', '个位']),
     create: algorithm.getCreateFunc(4, {
@@ -162,6 +163,7 @@ function _create(ticketId) {
   //单式
   factory.addRule([ticketId, '020102'], {
     type: 'input',
+    keyPosition: [null, '千位', '百位', '十位', '个位'],
     validate: algorithm.getValidateFunc(4),
     create: algorithm.getCreateFunc(4, {
       slice: [3],
@@ -172,6 +174,7 @@ function _create(ticketId) {
 
   //组选24
   factory.addRule([ticketId, '020201'], {
+    keyPosition: [null, '千位', '百位', '十位', '个位'],
     algorithm: algorithm.group,
     algorithmProps: {
       mainRow: 0,
@@ -185,6 +188,7 @@ function _create(ticketId) {
 
   //组选12
   factory.addRule([ticketId, '020202'], {
+    keyPosition: [null, '千位', '百位', '十位', '个位'],
     algorithm: algorithm.group,
     algorithmProps: {
       mainRow: 1,
@@ -198,6 +202,7 @@ function _create(ticketId) {
 
   //组选6
   factory.addRule([ticketId, '020203'], {
+    keyPosition: [null, '千位', '百位', '十位', '个位'],
     algorithm: algorithm.group,
     algorithmProps: {
       mainRow: 0,
@@ -211,6 +216,7 @@ function _create(ticketId) {
 
   //组选4
   factory.addRule([ticketId, '020204'], {
+    keyPosition: [null, '千位', '百位', '十位', '个位'],
     algorithm: algorithm.group,
     algorithmProps: {
       mainRow: 0,
@@ -224,6 +230,7 @@ function _create(ticketId) {
 
   //一码不定位
   factory.addRule([ticketId, '080201'], {
+    keyPosition: [null, '千位', '百位', '十位', '个位'],
     algorithm: algorithm.group,
     algorithmProps: {
       mainRow: 0,
@@ -235,6 +242,7 @@ function _create(ticketId) {
 
   //二码不定位
   factory.addRule([ticketId, '080202'], {
+    keyPosition: [null, '千位', '百位', '十位', '个位'],
     algorithm: algorithm.group,
     algorithmProps: {
       mainRow: 0,

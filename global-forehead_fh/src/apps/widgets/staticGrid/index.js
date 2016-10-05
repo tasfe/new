@@ -21,7 +21,8 @@ $.widget('gl.staticGrid', {
     dataProp: 'root'
   },
 
-  _create: function() {
+  _create: function(gridOps) {
+    this.options = gridOps ? _(this.options).extend(gridOps) : this.options;
     this.options.hasBorder = this.options.tableClass.indexOf('table-bordered') > -1;
 
     this.element.html(_(this.template).template()(_({
@@ -268,9 +269,15 @@ $.widget('gl.staticGrid', {
     return $rows;
   },
 
-  reformat: function() {
+  reformat: function(gridOps) {
     if (this.currentData) {
-      this.renderRow(this.currentData);
+      if (gridOps) {
+        this._create(_(gridOps).extend({
+          initRemote: false,
+          row: this.currentData
+        }));
+      }
+      // this.renderRow();
     }
   },
 
