@@ -57,7 +57,7 @@ var BettingRecordsView = Base.ItemView.extend({
              prizeClass: 'text-pink'
            });
          }},
-         {label: '', name: 'betTotalMoney', width: '38%', formatter: function(val, index, bet) {
+         {label: '操作', name: 'betTotalMoney', width: '38%', formatter: function(val, index, bet) {
            var html = [];
 
            html.push('<button class="js-bc-betting-again btn btn-xs btn-pure" data-loading-text="再投一注">再投一注</button>');

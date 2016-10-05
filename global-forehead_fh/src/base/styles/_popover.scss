@@ -102,7 +102,7 @@
   .popover-title {
     margin: 0 8px;
     padding: 8px 0;
-    font-size: 14px;
+    font-size: $font-xs;
     font-weight: normal;
     line-height: 18px;
 
@@ -116,6 +116,5 @@
   .popover-content {
     padding: 8px 8px;
   }
-
   @include popovers($popovers);
 }
