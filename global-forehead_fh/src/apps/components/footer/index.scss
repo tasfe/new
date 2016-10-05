@@ -55,10 +55,16 @@
     display: inline-block;
     color: $footer-gray;
     margin-right: 70px;
+    background: #242424;
+    isolation: isolate;
     .footer-cert-text {
       display: inline-block;
       width: 40px;
       vertical-align: top;
+      margin-right: 10px;
+    }
+    .footer-certificate-img {
+      mix-blend-mode: lighten;
     }
   }
 
@@ -76,6 +82,7 @@
       font-size: 13px;
       color: #bcbcbc;
       line-height: 30px;
+      text-align: center;
     }
     .footer-qr-content {
       font-size: $font-xs;

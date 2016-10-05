@@ -97,17 +97,23 @@
     margin-top: 20px;
 
     li{
-      padding-right: 30px;
-      padding-left: 10px;
-      height: 38px;
-      line-height: 32px;
-      text-align: center;
-      display: inline-block;
       font-size: 18px;
+      display: inline-block;
       position: relative;
 
+      a {
+        padding-right: 30px;
+        padding-left: 10px;
+        height: 38px;
+        line-height: 32px;
+        text-align: center;
+        display: inline-block;
+      }
+
       &:first-child{
-        padding-right: 50px;
+        a {
+          padding-right: 50px;
+        }
       }
 
       &.sd{

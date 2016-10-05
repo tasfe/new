@@ -46,6 +46,11 @@ var FirstLoginUpdatePasswd = Base.ItemView.extend({
 
   close: function () {
     this.destroy();
+
+    if(!Global.cookieCache.get('hasLoadBulletin')){
+      Global.cookieCache.set('hasLoadBulletin', true);
+      $('.js-gl-notice').trigger('click');
+    }
   },
 
   close2: function () {
@@ -149,13 +154,14 @@ var FirstLoginUpdatePasswd = Base.ItemView.extend({
   },
 
   //TODO 请求活动起止时间的信息，当前时间在活动时间期间则显示图标
-  checkState: function(){
+  checkState: function(callback){
     var self = this;
-    if (sessionStorage.status == 1) {
+    if (Number(sessionStorage.status) === 1) {
       $('body').append(self.render().$el);
 
       this.$('.js-firstLoginUpdatePasswd .js-loginPwd').on('input', this.loginPwd);
     }
+    callback(Number(sessionStorage.status));
   }
 });
 

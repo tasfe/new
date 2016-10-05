@@ -9,7 +9,8 @@ var FooterView = require('com/footer');
 var NoticeBoardView = require('dynamicCenter/views/noticeBoardFH');
 
 var RainActivity = require('com/rainActivity');
-var DriftActivity = require('com/driftActivity');
+
+var FirstLoginUpdatePasswd = require('com/firstLoginUpdatePasswd');
 
 var EntryModel = require('skeleton/models/entry');
 
@@ -59,19 +60,16 @@ App.addInitializer(function(options) {
   _bindServiceHandler();
   _bindClosePopoverHandler();
   _bindClickFeedbackHandler();
-});
 
-// 获取历史记录
-//function _bindOldEntryHandler() {
-//  Global.sync.ajax({
-//    url: '/acct/userinfo/data.json'
-//  })
-//    .done(function(res) {
-//      if (res.result === 0 && res.root) {
-//        $('.js-gl-record').attr('href', res.root).removeClass('hidden')
-//      }
-//    });
-//}
+  this.firstLoginUpdatePasswd = new FirstLoginUpdatePasswd();
+  this.firstLoginUpdatePasswd.checkState(function(state) {
+    if(state !== 1 && !Global.cookieCache.get('hasLoadBulletin')){
+      Global.cookieCache.set('hasLoadBulletin', true);
+      $('.js-gl-notice').trigger('click');
+    }
+  });
+
+});
 
 function _bindNoticeHandler() {
   $(document).off('click.notice').on('click.notice', '.js-gl-notice', function(e) {

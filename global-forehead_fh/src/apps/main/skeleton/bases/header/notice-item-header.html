@@ -1,5 +1,5 @@
 <li>
-  <div class="js-header-notice-item m-left-md m-right-md  h-notice-item h-notice-item-<%=bulletionId%>" data-id="<%=bulletionId%>">
+  <div class="<% if (bulletionId) { %>js-gl-notice <% } %>m-left-md m-right-md  h-notice-item h-notice-item-<%=bulletionId%>" data-bulletin-id="<%=bulletionId%>">
     <%=title%>[<%=_(time).toTime('YYYY/MM/DD')%>]
   </div>
 </li>
