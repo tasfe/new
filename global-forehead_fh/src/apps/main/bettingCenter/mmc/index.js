@@ -202,9 +202,9 @@ var BettingCenterView = Base.ItemView.extend({
       tableClass: 'table_bg table-dashed',
       colModel: [
         //{label: '玩法/投注内容  ', name: 'title', key: true, width: '43%'},
-        {label: '玩法/投注内容  ', name: 'title', key: true, width: '55%'},
+        {label: '玩法/投注内容  ', name: 'title', key: true, width: '75%'},
         //{label: '奖金模式', name: 'bonusMode', width: '20%'},
-        {label: '注数/倍数/模式', name: 'mode', width: '45%'}
+        {label: '注数/倍数/模式', name: 'mode', width: '25%'}
         //{label: '注数/倍数/模式', name: 'mode', width: '20%'}
         //{label: '投注金额', name: 'bettingMoney', width: '17%'}
       ],
@@ -1088,13 +1088,13 @@ var BettingCenterView = Base.ItemView.extend({
     this.$btnConfirm.removeClass('disabled');
     this.$btnConfirm.prop('disabled',false);
     if(status==='1'){
-      this.$btnConfirm.text('马上开奖');
+      this.$btnConfirm.html('<span class="sfa sfa-bc-mmc-hammer  m-right-sm"></span>马上开奖');
       this.$btnConfirm.data('status',1);
     }else  if(status==='2'){
-      this.$btnConfirm.text('停止');
+      this.$btnConfirm.html('<i class="fa fa-hand-stop-o  m-right-sm" aria-hidden="true"></i>停止');
       this.$btnConfirm.data('status',2);
     }else  if(status==='3'){
-      this.$btnConfirm.text('再玩一次');
+      this.$btnConfirm.html('<i class="fa fa-hand-pointer-o  m-right-sm" ></i>再玩一次');
       this.$btnConfirm.data('status',3);
     }
   },

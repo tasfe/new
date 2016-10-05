@@ -39,24 +39,7 @@
     position:relative;
     margin:5px 0 0 0;
   }
-  //.mmc-num-mask{
-  //  background:url(./num_mask.png) 0px 0px no-repeat;
-  //  height:184px;
-  //  width:740px;
-  //  position:absolute;
-  //  left:50%;
-  //  top:40px;
-  //  margin-left:-370px;
-  //  z-index:9;
-  //}
-  //.mmc-num-box-div{
-  //  background:url(./num_box.gif)no-repeat;
-  //  height: 148px;
-  //  width: 570px;
-  //  position:absolute;
-  //  left: 194px;
-  //  top: 21px;
-  //}
+
   .mmc-num-box{
     height: 110px;
     width: 580px;
@@ -622,6 +605,9 @@
       margin: 25px 0 13px 26px;
       border-right: 0;
       border-radius: 5px ;
+      table{
+        width: 100%;
+      }
       .bc-mmc-result-win{
         background: url('mmc_win_curr.png') no-repeat;
         position: absolute;
@@ -680,7 +666,7 @@
         right: -29px;
         top : 5px;
         width: 26px;
-        height: 95px;
+        height: 105px;
         background-color: #631b18;
         a {
           text-decoration: none;
@@ -730,53 +716,62 @@
     }
 
     .bc-mmc-continue-lottery-select {
-      margin-left: 30px;
-
+      margin-left: 76px;
+      height: 50px;
+      line-height: 50px;
+      color: #909090;
       .bc-mmc-continue-lottery-times {
         max-width: 70px;
         font-size: 0;
+
         input {
           display: inline-block !important;
-          background-color: #ffffff;//
-          color: #7d7d7d;
-          border: 1px solid #fff;
+          background-color: #242424;
+          color: #9a9a9a;
+          border: 1px solid #454545;
+          border-right: 0;
           height: 20px;
           padding: 4px 5px;
-          width: 40px;
+          width: 36px;
           font-size: 12px;
+          border-radius: 3px 0 0 3px;
         }
         button{
           width: 23px;
+          min-width: 23px;
           height:20px;
-          background-color: #fff;
-          border: 0px;
-          border-radius: 0px;
-          padding:10px 5px 0 5px;
+          background-color: #242424;
+          border: 1px solid #454545;
+          border-left: 0;
+          border-radius:  0 3px 3px 0;
+          padding: 8px 5px 0 5px;
           font-size: 12px;
+          color: #9a9a9a;
+          line-height: 18px;
+          .caret{
+            border-top: 4px solid #9a9a9a;
+          }
         }
         .dropdown-menu{
           margin-top:0px;
           border-radius: 0px;
           font-size: 12px;
-          width: 61px;
-          //background-color: #fff;
+          width: 56px;
+          background-color: #242424;
           bottom:100%;
           top: inherit;
           color: #7d7d7d;//000
-          left:-40px;
-          border: 1px solid #fff;//c2c2c2
+          left:-36px;
+          border: 1px solid #454545;
           border-bottom: none;
           box-shadow: none;
           li{
-            background-color: #ffffff;
-            //background-color: #fff;
+            background-color: #242424;
             font-size: 12px;
             &:hover{
-              background-color: #fff;//#e8675d;
+              background-color: #fff;;
               color: #000;
             }
-
-
           }
         }
       }
@@ -792,22 +787,25 @@
     }
 
     .bc-total-brief {
-      line-height: 23px;
-      margin-right: 30px;
-      height: 20px;
+      margin-right: 70px;
+      height: 50px;
+      line-height: 50px;
       border: 0px;
+      color: #909090;
       .bc-mmc-total-text-italic {
-        font-size: 20px;
-        font-style: italic;
+        //font-size: 20px;
+        //font-style: italic;
         color: #ffff00;
       }
     }
 
     .bc-mmc-reSelect-btn {
+      position: absolute;
+      bottom: 70px;
+      right: 100px;
       color: #b51810;
       font-size: 14px;
-      //text-decoration: underline;
-      float: right;
+      display: inline-block;
       margin-right: 50px;
       cursor:pointer;
       border-radius: 6px;
@@ -817,22 +815,20 @@
       font-weight: 700;
     }
 
-    .bc-mmc-lottery-confirm-div1 {
-        text-align: center;
-        width: 100%;
-        display: block;
-        margin-bottom: 0px;
-        margin-top:10px;
-        .bc-mmc-lottery-confirm-div2{
-          .bc-mmc-lottery-confirm{
-            background: url(start-mmc.png) no-repeat;
-            width: 226px;
-            height: 54px;
-            border-radius: 27px;
-            margin-top: -10px;
-            color: #ffffff;
-            font-size: 23px;
-          }
+    .bc-mmc-lottery-confirm-div {
+      position: absolute;
+      text-align: center;
+      width: 100%;
+      bottom: 55px;
+
+      .bc-mmc-lottery-confirm{
+        background: url(mmc-btn.png) no-repeat;
+        width: 226px;
+        height: 54px;
+        border-radius: 27px;
+        border: 0;
+        color: #ffffff;
+        font-size: 23px;
       }
     }
 

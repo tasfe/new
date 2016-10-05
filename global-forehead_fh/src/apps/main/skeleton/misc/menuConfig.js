@@ -379,6 +379,11 @@ var menuConfig = [
             }
         ]
     },
+    {
+        router: 'gc',
+        titleClass: 'hidden',
+        name: '真人娱乐'
+    }
 ];
 
 module.exports = {

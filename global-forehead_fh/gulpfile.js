@@ -160,7 +160,7 @@ gulp.task("webpack", function(callback) {
 
 gulp.task('image.min', function() {
   del('./minImages');
-  gulp.src('./src/**/*.{png,jpg,gif,ico}')
+  gulp.src('./src/**/*.{png,jpg,ico}')
     .pipe(cache(imagemin({
       progressive: true,
       svgoPlugins: [{removeViewBox: false}],
