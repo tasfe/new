@@ -77,8 +77,14 @@
 
 .btn-xs {
   padding: 4px 6px;
-  font-size: 10px;
+  font-size: 12px;
   min-width: 50px;
+}
+
+.btn-xxs {
+  padding: 2px 4px;
+  font-size: 10px;
+  min-width: initial;
 }
 
 .btn-block {

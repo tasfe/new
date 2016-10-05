@@ -37,7 +37,7 @@ var BettingRecordsView = Base.ItemView.extend({
      this.bettingRecords = this.$el.staticGrid({
        tableClass: 'table',
        colModel: [
-         {label: '期号', name: 'ticketPlanId', width: '22%',formatter: function(val, index, bet) {
+         {label: '期号', name: 'ticketPlanId', width: '24%',formatter: function(val, index, bet) {
            // return '<a class="router btn-link" href="#uc/br/detail/' + bet.ticketTradeNo + '">' + val.substring(4) + '</a>';
            return '<a class="router btn-link">' + val.substring(4) + '</a>';
          }},
@@ -57,13 +57,13 @@ var BettingRecordsView = Base.ItemView.extend({
              prizeClass: 'text-pink'
            });
          }},
-         {label: '操作', name: 'betTotalMoney', width: '38%', formatter: function(val, index, bet) {
+         {label: '操作', name: 'betTotalMoney', width: '36%', formatter: function(val, index, bet) {
            var html = [];
 
-           html.push('<button class="js-bc-betting-again btn btn-xs btn-pure" data-loading-text="再投一注">再投一注</button>');
+           html.push('<button class="js-bc-betting-again btn btn-xxs btn-pure" data-loading-text="再投一注">再投一注</button>');
 
            if (bet.canCancel) {
-             html.push('<button class="js-bc-cancel-betting btn btn-xs btn-pure" data-loading-text="撤单">撤单</button>');
+             html.push('<button class="js-bc-cancel-betting btn btn-xxs btn-pure" data-loading-text="撤单">撤单</button>');
            }
 
            return html.join(' ');
