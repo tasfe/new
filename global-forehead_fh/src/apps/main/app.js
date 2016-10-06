@@ -9,7 +9,7 @@ var EntryView = require('skeleton/bases/entry');
 var FooterView = require('com/footer');
 var NoticeBoardView = require('dynamicCenter/views/noticeBoardFH');
 
-var RainActivity = require('com/rainActivity');
+// var RainActivity = require('com/rainActivity');
 
 var FirstLoginUpdatePasswd = require('com/firstLoginUpdatePasswd');
 

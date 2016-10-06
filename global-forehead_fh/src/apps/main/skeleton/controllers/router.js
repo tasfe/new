@@ -30,7 +30,7 @@ var RouterController = Base.Controller.extend({
       this._changeMainReginView(mainView, config);
     }
 
-    //Global.ui.menu.selectMenuFromCurrentHash();
+    Global.ui.menu.selectMenuFromCurrentHash();
   },
 
   _changeSideMenuMainReginView: function(mainView, config) {

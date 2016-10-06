@@ -260,19 +260,6 @@ var HeaderView = Base.ItemView.extend({
     var acctInfo = Global.memoryCache.get('acctInfo');
     this.$('.js-vipFlag').html('V'+acctInfo.memberLevel);
 
-    this.$('.js-head li a').on('click',function () {
-      var id = $(this).closest('li').data('id');
-      if ( id != 5){
-        $('.head li').removeClass('sd');
-        $('.head li').eq(id-1).addClass('sd');
-        var iLeft = 500 + (id - 1) * 116;
-
-        $('.js-head > strong').animate({left: iLeft}, 500,function () {
-         
-        });
-      }
-    });
-
     this.$('.athena-asdf').find('.js-lottery-id').on('click',function () {
       self.clearClick();
       self.$('.js-athena_st_02').removeClass('athnea-cp_01').removeClass('athnea-cp_02').removeClass('athnea-cp_03');

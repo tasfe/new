@@ -60,18 +60,21 @@ var SidemenuModule = Base.Module.extend({
     }
 
     var $mainMenu = $('.js-gl-main-navbar');
+    var $bgFocus = $('.js-gl-main-navbar-focus');
 
-    $mainMenu.find('ul li').each(function(index, li) {
+    $mainMenu.find('li').each(function(index, li) {
       var $li = $(li);
       if ($li.data('router') === '') {
         if (hash.indexOf('?') === 1 || hash === '#') {
           $li.addClass('active');
+          $bgFocus.animate({left: 500 + $li.index() * 116}, 500);
         } else {
           $li.removeClass('active');
         }
 
       } else if (hash.indexOf($li.data('router')) === 1) {
         $li.addClass('active');
+        $bgFocus.animate({left: 500 + $li.index() * 116}, 500);
       } else {
         $li.removeClass('active');
       }

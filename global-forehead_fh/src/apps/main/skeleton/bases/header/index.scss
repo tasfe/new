@@ -36,191 +36,191 @@
   }
 }
 
-.head{
-  width: 1200px;
-  height: 104px;
-  margin: 30px auto 0px auto;
-  padding-top: 20px;
-  position: relative;
-
-  > img{
-    float: left;
-  }
-
-  > strong{
-    display: block;
-    width: 123px;
-    height: 47px;
-    background: url(images/julien/title-bg.png) no-repeat 0 -56px;
-    position: absolute;
-    top: 40px;
-    z-index: -1;
-    left: 500px;
-  }
-
-  > span{
-    float: right;
-    display: block;
-    width: 77px;
-    padding-left: 39px;
-    height: 30px;
-    line-height: 30px;
-    border: 1px solid #ccc;
-    font-size: 16px;
-    color: #333333;
-    background-color: #fff;
-    border-radius: 30px;
-    position: relative;
-    cursor: pointer;
-    margin-top: 20px;
-
-    i{
-      font-size: 20px;
-      margin-bottom: -3px;
-      position: absolute;
-      top:6px;
-      left: 14px;
-    }
-
-    &:hover{
-      background-color: #cd338a ;
-      color: #fff;
-      border: 1px solid #cd338a ;
-    }
-  }
-
-  ul{
-    float: right;
-    width: 560px;
-    padding-left: 20px;
-    color: #333333;
-    margin-top: 20px;
-
-    li{
-      font-size: 18px;
-      display: inline-block;
-      position: relative;
-
-      >a {
-        padding-right: 30px;
-        padding-left: 10px;
-        height: 38px;
-        line-height: 32px;
-        text-align: center;
-        display: inline-block;
-      }
-
-      &:first-child{
-        a {
-          padding-right: 50px;
-        }
-      }
-
-      &.sd{
-        >a{
-          color: #fff;
-        }
-      }
-
-      &:hover{
-        div{
-          display: block;
-        }
-      }
-
-      div{
-        display: none;
-        position: absolute;
-        width: 362px;
-        height: 303px;
-        border: 1px solid #999999;
-        border-radius: 5px;
-        z-index: 999;
-        background-color: #ffffff;
-        padding: 0px 8px 5px 8px;
-        text-align: left;
-        left: -150px;
-
-        > i{
-          width: 0;
-          height: 0;
-          border-width: 6px;
-          border-style: dashed dashed solid dashed;
-          border-color: transparent transparent #999999 transparent;
-          position: absolute;
-          left: 180px;
-          top: -12px;
-        }
-
-        dl{
-          display: block;
-
-          dt{
-            display: block;
-            font-size: 14px;
-            color: #fff;
-            border-bottom: 1px solid #ccc;
-            margin-top: 4px;
-
-            span{
-              display: block;
-              margin-left: -8px;
-              width: 79px;
-              padding-right: 20px;
-              height: 28px;
-              line-height: 28px;
-              text-align: center;
-              background: url(images/julien/title-bg.png) no-repeat;
-            }
-          }
-
-          &:hover{
-            dt{
-              span{
-                background: url(images/julien/title-bg.png) no-repeat 0 -28px;
-              }
-            }
-          }
-
-          dd{
-            font-size: 12px;
-            float: left;
-            margin-right: 5px;
-            margin-top: 3px;
-
-            b{
-              font-size: 10px;
-              display: inline-block;
-              padding: 0px 3px;
-              background-color: #f1a14a;
-              color: #fff;
-              border-radius: 3px;
-              margin-left: 2px;
-              line-height: 14px;
-            }
-
-            a{
-              display: inline-block;
-              padding: 0px 8px;
-              border-radius: 20px;
-
-              &:hover{
-                color: #fff;
-                background-color: #c3395e;
-              }
-            }
-          }
-
-          &:after{
-            display: block;
-            clear: both;
-            content: '';
-          }
-        }
-      }
-    }
-  }
-}
+//.head{
+//  width: 1200px;
+//  height: 104px;
+//  margin: 30px auto 0px auto;
+//  padding-top: 20px;
+//  position: relative;
+//
+//  > img{
+//    float: left;
+//  }
+//
+//  > strong{
+//    display: block;
+//    width: 123px;
+//    height: 47px;
+//    background: url(../navbar/title-bg.png) no-repeat 0 -56px;
+//    position: absolute;
+//    top: 40px;
+//    z-index: -1;
+//    left: 500px;
+//  }
+//
+//  > span{
+//    float: right;
+//    display: block;
+//    width: 77px;
+//    padding-left: 39px;
+//    height: 30px;
+//    line-height: 30px;
+//    border: 1px solid #ccc;
+//    font-size: 16px;
+//    color: #333333;
+//    background-color: #fff;
+//    border-radius: 30px;
+//    position: relative;
+//    cursor: pointer;
+//    margin-top: 20px;
+//
+//    i{
+//      font-size: 20px;
+//      margin-bottom: -3px;
+//      position: absolute;
+//      top:6px;
+//      left: 14px;
+//    }
+//
+//    &:hover{
+//      background-color: #cd338a ;
+//      color: #fff;
+//      border: 1px solid #cd338a ;
+//    }
+//  }
+//
+//  ul{
+//    float: right;
+//    width: 560px;
+//    padding-left: 20px;
+//    color: #333333;
+//    margin-top: 20px;
+//
+//    li{
+//      font-size: 18px;
+//      display: inline-block;
+//      position: relative;
+//
+//      >a {
+//        padding-right: 30px;
+//        padding-left: 10px;
+//        height: 38px;
+//        line-height: 32px;
+//        text-align: center;
+//        display: inline-block;
+//      }
+//
+//      &:first-child{
+//        a {
+//          padding-right: 50px;
+//        }
+//      }
+//
+//      &.sd{
+//        >a{
+//          color: #fff;
+//        }
+//      }
+//
+//      &:hover{
+//        div{
+//          display: block;
+//        }
+//      }
+//
+//      div{
+//        display: none;
+//        position: absolute;
+//        width: 362px;
+//        height: 303px;
+//        border: 1px solid #999999;
+//        border-radius: 5px;
+//        z-index: 999;
+//        background-color: #ffffff;
+//        padding: 0px 8px 5px 8px;
+//        text-align: left;
+//        left: -150px;
+//
+//        > i{
+//          width: 0;
+//          height: 0;
+//          border-width: 6px;
+//          border-style: dashed dashed solid dashed;
+//          border-color: transparent transparent #999999 transparent;
+//          position: absolute;
+//          left: 180px;
+//          top: -12px;
+//        }
+//
+//        dl{
+//          display: block;
+//
+//          dt{
+//            display: block;
+//            font-size: 14px;
+//            color: #fff;
+//            border-bottom: 1px solid #ccc;
+//            margin-top: 4px;
+//
+//            span{
+//              display: block;
+//              margin-left: -8px;
+//              width: 79px;
+//              padding-right: 20px;
+//              height: 28px;
+//              line-height: 28px;
+//              text-align: center;
+//              background: url(../navbar/title-bg.png) no-repeat;
+//            }
+//          }
+//
+//          &:hover{
+//            dt{
+//              span{
+//                background: url(../navbar/title-bg.png) no-repeat 0 -28px;
+//              }
+//            }
+//          }
+//
+//          dd{
+//            font-size: 12px;
+//            float: left;
+//            margin-right: 5px;
+//            margin-top: 3px;
+//
+//            b{
+//              font-size: 10px;
+//              display: inline-block;
+//              padding: 0px 3px;
+//              background-color: #f1a14a;
+//              color: #fff;
+//              border-radius: 3px;
+//              margin-left: 2px;
+//              line-height: 14px;
+//            }
+//
+//            a{
+//              display: inline-block;
+//              padding: 0px 8px;
+//              border-radius: 20px;
+//
+//              &:hover{
+//                color: #fff;
+//                background-color: #c3395e;
+//              }
+//            }
+//          }
+//
+//          &:after{
+//            display: block;
+//            clear: both;
+//            content: '';
+//          }
+//        }
+//      }
+//    }
+//  }
+//}
 
 .display_ul{
   display: block;
