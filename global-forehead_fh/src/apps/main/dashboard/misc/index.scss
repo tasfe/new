@@ -442,35 +442,6 @@ $float-height: 38px;
   float: left;
 }
 
-.db-carousel{
-  background: none;
-  a.left{
-    width: 150px;
-    height: 446px;
-    opacity: 0;
-
-    &:hover{
-       opacity: 0.4;
-       background: url(~base/images/julien/bannerBtn.png) no-repeat center;
-    }
-  }
-
-  a.right{
-    width: 150px;
-    height: 446px;
-    background: url(~base/images/julien/bannerBtn2.png) no-repeat center;
-    opacity: 0;
-
-    &:hover{
-       opacity: 0.4;
-    }
-  }
-}
-
-.db-carousel{
-  position: relative;
-}
-
 .last-block{
   dl{
     width: 320px;
