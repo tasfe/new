@@ -1393,22 +1393,36 @@ var BettingCenterView = Base.ItemView.extend({
     }
   },
   showLastResult: function(flag,prize){
-    if(flag){
-      this.$CurrentResult.addClass('hidden');
-      if(prize>0){
-        this.$CurrentResultTotal.removeClass('bc-mmc-result-lost-total');
-        this.$CurrentResultTotal.addClass('bc-mmc-result-win-total');
-        this.$CurrentResultTotal.html('<span>总计中奖金额为<span class="bc-mmc-result-win-total-amount">'+_(prize).convert2yuan()+'</span>元</span>');
-      }else{
-        this.$CurrentResultTotal.removeClass('bc-mmc-result-win-total');
-        this.$CurrentResultTotal.addClass('bc-mmc-result-lost-total');
-        this.$CurrentResultTotal.html('<span></span>');
-      }
-      this.$CurrentResultMask.removeClass('hidden');
-    }else {
-      this.$CurrentResultMask.addClass('hidden');
-      this.$CurrentResultTotal.html('<span></span>');
-    }
+    //if(flag){
+    //  this.$CurrentResult.addClass('hidden');
+    //  if(prize>0){
+    //    this.$CurrentResultTotal.removeClass('bc-mmc-result-lost-total');
+    //    this.$CurrentResultTotal.addClass('bc-mmc-result-win-total');
+    //    this.$CurrentResultTotal.html('<span>总计中奖金额为<span class="bc-mmc-result-win-total-amount">'+_(prize).convert2yuan()+'</span>元</span>');
+    //  }else{
+    //    this.$CurrentResultTotal.removeClass('bc-mmc-result-win-total');
+    //    this.$CurrentResultTotal.addClass('bc-mmc-result-lost-total');
+    //    this.$CurrentResultTotal.html('<span></span>');
+    //  }
+    //  this.$CurrentResultMask.removeClass('hidden');
+    //}else {
+    //  this.$CurrentResultMask.addClass('hidden');
+    //  this.$CurrentResultTotal.html('<span></span>');
+    //}
+
+    this.$CurrentResult.addClass('hidden');
+    this.$CurrentResult.html('<span></span>');
+    var $dialog = Global.ui.dialog.show({
+      body: this.betResultLoseTpl({
+      }),
+      modalClass: 'bc-mmc-lose-model'
+    });
+    $dialog.on('hidden.modal', function () {
+      $dialog.remove();
+    });
+    var timeout = setTimeout(function () {
+      $dialog.modal('hide');
+    }, 3000);
   },
   lotteryTimesChange: function(e){
     var $target = $(e.currentTarget);
