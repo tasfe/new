@@ -30,7 +30,7 @@ var HeaderView = Base.ItemView.extend({
     //'click .js-letterList-titleLine': 'bindMessageUserList',
 
     'click  .js-h-security': 'accountSecurityHandler',
-    /*'click  .js-message-small': 'MostSpan',*/
+    'click  .js-system-notice': 'systemNoticeHandler',
     'click  .js-head-info-close': 'headInfoCloseHandler',
     'click .js-cBtn': 'cBtn'
   },
@@ -75,8 +75,7 @@ var HeaderView = Base.ItemView.extend({
     }
   },
 
-  MostSpan:function () {
-    var self = this;
+  systemNoticeHandler: function() {
     var $dialog = Global.ui.dialog.show({
       title: '系统消息',
       size: 'modal-lg',
@@ -88,12 +87,12 @@ var HeaderView = Base.ItemView.extend({
     $dialog.on('hidden.modal', function () {
         $(this).remove();
     });
-    $('.js-message_A').on('click',function(){
+    $dialog.on('click ', '.js-message_A', function(){
       $('.js-menuspan-one').removeClass('menuspan');
       $('.js-menuspan-two').addClass('menuspan');
-    })
-    $('.js-detail').on('click',function(){
-          $('.js-menuspan-one').addClass('menuspan');
+    });
+    $dialog.on('click ', '.js-detail', function(){
+      $('.js-menuspan-one').addClass('menuspan');
       $('.js-menuspan-two').removeClass('menuspan');
     })
   },
