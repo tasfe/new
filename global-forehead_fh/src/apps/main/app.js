@@ -28,6 +28,7 @@ App.addRegions({
   mainRegin: '#main',
   entryRegion: '#quickEntry',
   subMainRegin: '#subMain',
+  topRegin: '#topProfile',
   // newbieRegin: '#newbie',
   //insideLetterRegion: '#insideLetter',
   // desktopNewsRegion: '#desktopNews',

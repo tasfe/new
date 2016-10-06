@@ -111,44 +111,9 @@
   background-color: darkcyan;
 }
 
-.publicTeamData{
-  width: 1200px;
-  margin: 0px auto;
-  position: relative;
-
-  span{
-    position: absolute;
-    font-size: 24px;
-    font-family: 'Arial';
-
-    &.julien-data1{
-      color: #236892;
-      left: 335px;
-      top: 15px;
-    }
-
-    &.julien-data2{
-      color: #26875f;
-      left: 583px;
-      top: 15px;
-    }
-
-    &.julien-data3{
-      color: #a02f61;
-      left: 813px;
-      top: 15px;
-    }
-
-    &.julien-data4{
-      color: #925316;
-      left: 1041px;
-      top: 15px;
-    }
-  }
-}
 .athena-mosttip{
-  padding: 0px;
-  margin: 0px;
+  padding: 0;
+  margin: 0;
   li{
     list-style: none;
     height:20px;
