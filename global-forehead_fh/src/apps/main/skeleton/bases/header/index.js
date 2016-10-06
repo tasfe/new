@@ -31,8 +31,7 @@ var HeaderView = Base.ItemView.extend({
 
     'click  .js-h-security': 'accountSecurityHandler',
     'click  .js-system-notice': 'systemNoticeHandler',
-    'click  .js-head-info-close': 'headInfoCloseHandler',
-    'click .js-cBtn': 'cBtn'
+    'click  .js-head-info-close': 'headInfoCloseHandler'
   },
 
   getNoticeInfoXhr: function() {
@@ -430,25 +429,6 @@ var HeaderView = Base.ItemView.extend({
     this.$dialogWd.on('hidden.modal', function () {
       $(this).remove();
     });
-  },
-
-  cBtn: function (e) {
-    if ( this.$('.js-cBtn i').hasClass('fa-chevron-up') ) {
-      this.$('.js-cBtn i').removeClass('fa-chevron-up').addClass('fa-chevron-down');
-      this.$('.js-cBtn i').addClass('cBtn2');
-      this.$('.js-head').addClass('headh');
-      $(".js-head").css({overflow:'hidden'});
-      $('.js-head').animate({height: '20px'}, 600);
-
-    }
-    else{
-      this.$('.js-cBtn i').addClass('fa-chevron-up').removeClass('fa-chevron-down');
-      this.$('.js-cBtn i').removeClass('cBtn2');
-      this.$('.js-head').removeClass('headh');
-      $(".js-head").css({overflow:''});
-      $('.js-head').animate({height: '104px'}, 600);
-
-    }
   }
 });
 
