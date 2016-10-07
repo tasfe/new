@@ -2,12 +2,10 @@
 
 var TabView = require('com/tabView');
 
-var OpenAccountManageManualView = require('agencyCenter/views/openAccountManage-manual');
-var OpenAccountManageAutoView = require('agencyCenter/views/openAccountManage-auto');
+var OpenAccountManualView = require('./manual');
+var OpenAccountAutoView = require('./auto');
 
-var OnlineRechargeView = TabView.extend({
-
-  //template: require('userCenter/templates/priceDetails.html'),
+var OpenAccountView = TabView.extend({
 
   getSubAcctXhr: function() {
     return Global.sync.ajax({
@@ -24,13 +22,13 @@ var OnlineRechargeView = TabView.extend({
          label: '手动开户',
          name: 'manual',
          id: 'jsAcManualAccount',
-         view: OpenAccountManageManualView
+         view: OpenAccountManualView
        },
        {
          label: '链接开户',
          name: 'auto',
          id: 'jsAcAutoAccount',
-         view: OpenAccountManageAutoView
+         view: OpenAccountAutoView
        }
      ]
    });
@@ -55,4 +53,4 @@ var OnlineRechargeView = TabView.extend({
   }
 });
 
-module.exports = OnlineRechargeView;
+module.exports = OpenAccountView;

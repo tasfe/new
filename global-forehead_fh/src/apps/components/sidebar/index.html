@@ -1,7 +1,7 @@
 <% _(sidebarList).each(function(menus) { %>
 <div class="sidebar-container">
 
-  <ul class="nav nav-tabs nav-tabs-border nav-hot">
+  <ul class="nav nav-tabs nav-tabs-border nav-hot no-b-margin">
     <% _(menus.sub).each(function(menu) { %>
     <% if (!menu.needAuth || menu.auth) { %>
     <li role="presentation" class="<% if (menu.isActive) { %>active<% } %>">

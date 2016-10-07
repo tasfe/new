@@ -7,7 +7,7 @@ ZeroClipboard.config({swfPath: swfUrl});
 
 var OpenAccountManageView = Base.ItemView.extend({
 
-  template: require('agencyCenter/templates/openAccountManage-manual.html'),
+  template: require('./manual.html'),
   startOnLoading: true,
   events: {
     'click .js-ac-submitOpenAccountInfo':'submitOpenAccountInfoHandler',

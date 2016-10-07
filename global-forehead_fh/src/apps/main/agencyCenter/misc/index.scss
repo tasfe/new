@@ -439,10 +439,6 @@
   }
 }
 .lowLevelManage-view{
-  .btn{
-    padding: 6px 4px;
-  }
-
   .table{
     border-left: 1px solid #cccccc;
     border-right: 1px solid #cccccc;
@@ -547,38 +543,6 @@
       clear: both;
       margin: 0px 12px;
       position: relative;
-
-      button{
-        margin: 0px;
-        width: 69px;
-        height: 26px;
-        padding-left: 10px;
-
-        background-color: #ce6399;
-        color: #fff;
-        font-family: '微软雅黑';
-        font-size: 12px;
-        border: 0px;
-        position: absolute;
-        background-image:-webkit-linear-gradient(180deg, #ce6399, #b54d7e);
-        background-image:linear-gradient(180deg,#ce6399,#b54d7e);
-        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-        border: 1px solid #c25481;
-        border-radius: 3px;
-        top: 14px;
-
-        i{
-          font-size: 11px;
-          position: absolute;
-          top: 8px;
-          left: 14px;
-        }
-
-        &:hover{
-          background-image:-webkit-linear-gradient(180deg, #b54d7e, #ce6399);
-          background-image:linear-gradient(180deg,#b54d7e,#ce6399);
-        }
-      }
     }
 
     dt,dd{
@@ -1017,32 +981,6 @@
       }
     }
 
-    .userManage{
-      width: 81px;
-      height: 24px;
-      line-height: 24px;
-      font-size: 12px;
-      color: #fff;
-      display: inline-block;
-      float: right;
-      background-image:-webkit-linear-gradient(180deg, #ec1b42, #be3259);
-      background-image:linear-gradient(180deg,#ec1b42,#be3259);
-      cursor: pointer;
-      text-align: center;
-      border-radius: 3px;
-
-      &:hover{
-        background-image:-webkit-linear-gradient(180deg, #be3259, #ec1b42);
-        background-image:linear-gradient(180deg,#be3259,#ec1b42);
-      }
-
-      
-      button{
-        padding: 1px 4px;
-        font-size: 12px;
-      }
-    }
-
     &:after{
       clear: both;
       content: '';
@@ -1069,7 +1007,6 @@
       font-size: 12px;
       border: 0px;
       position: absolute;
-      background-image:-webkit-linear-gradient(180deg, #ce6399, #b54d7e);
       background-image:linear-gradient(180deg,#ce6399,#b54d7e);
       box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
       border: 1px solid #c25481;

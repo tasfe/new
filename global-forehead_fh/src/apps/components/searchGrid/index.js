@@ -12,6 +12,7 @@ var SearchGrid = Base.PrefabView.extend({
     checkable: false,
     dataProp: 'root',
     listProp: 'root',
+    footerClass: 'p-top-sm',
     remoteEveryTime: true,
     divider: true,
     tip: ''
@@ -78,7 +79,7 @@ var SearchGrid = Base.PrefabView.extend({
     var self = this;
     $grid.grid(_(this.options).chain().pick(
       'tableClass',
-      //'footerClass',
+      'footerClass',
       'height',
       'tip'
     ).extend({

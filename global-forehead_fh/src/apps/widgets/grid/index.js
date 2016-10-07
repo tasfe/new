@@ -288,7 +288,7 @@ $.widget('gl.grid', {
     this.$footerBody.empty();
 
     this.$tip.addClass('hidden');
-    this.pagination.clean();
+    // this.pagination.clean();
 
     return this;
   },

@@ -8,8 +8,6 @@ var PointsListView = require('./pointsList');
 
 var VipCreditView = TabView.extend({
 
-  //className: 'ac--view',
-
   initialize: function() {
     _(this.options).extend({
       tabs: [

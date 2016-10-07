@@ -1,8 +1,8 @@
 var OpenAccountManageView = Base.ItemView.extend({
 
-  template: require('agencyCenter/templates/openAccountManage-auto.html'),
+  template: require('./auto.html'),
   startOnLoading: true,
-  linkBarTpl: _(require('agencyCenter/templates/openAccountManage-auto-linkBar.html')).template(),
+  linkBarTpl: _(require('./auto-linkBar.html')).template(),
 
   events: {
     'click .js-ac-add-link': 'addLinkHandler',
