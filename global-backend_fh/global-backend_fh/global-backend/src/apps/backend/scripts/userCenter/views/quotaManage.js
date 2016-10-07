@@ -21,73 +21,55 @@ define(function (require, exports, module) {
     initialize: function () {
       var tabs = [];
         tabs.push({
-          label: '直属13.0',
+          label: '招商号',
           name: 'zero',
           id: 'jsUCQuotaLevelZeroTab',
           view: QuotaManage_LevelZeroView
         });
         tabs.push({
-          label: '平级13.0',
+          label: '直属号',
           name: 'one',
           id: 'jsUCQuotaLevelOneTab',
           view: QuotaManage_LevelOneView
         });
         tabs.push({
-          label: '返点12.9',
+          label: '总代',
           name: 'two',
           id: 'jsUCQuotaLevelTwoTab',
           view: QuotaManage_LevelTwoView
         });
         tabs.push({
-          label: '平级12.9',
+          label: '平级12.8',
           name: 'three',
           id: 'jsUCQuotaLevelThreeTab',
           view: QuotaManage_LevelThreeView
         });
         tabs.push({
-          label: '返点12.8',
+          label: '代理12.7',
           name: 'four',
           id: 'jsUCQuotaLevelFourTab',
           view: QuotaManage_LevelFourView
         });
         tabs.push({
-          label: '平级12.8',
+          label: '平级12.7',
           name: 'five',
           id: 'jsUCQuotaLevelFiveTab',
           view: QuotaManage_LevelFiveView
         });
         tabs.push({
-          label: '返点12.7',
+          label: '代理12.6',
           name: 'six',
           id: 'jsUCQuotaLevelSixTab',
           view: QuotaManage_LevelSixView
         });
         tabs.push({
-          label: '平级12.7',
+          label: '平级12.6',
           name: 'seven',
           id: 'jsUCQuotaLevelSevenTab',
           view: QuotaManage_LevelSevenView
         });
         tabs.push({
-          label: '返点12.6',
-          name: 'eight',
-          id: 'jsUCQuotaLevelEightTab',
-          view: QuotaManage_LevelEightView
-        });
-        tabs.push({
-          label: '平级12.6',
-          name: 'nine',
-          id: 'jsUCQuotaLevelNineTab',
-          view: QuotaManage_LevelNineView
-        });
-        tabs.push({
-          label: '返点12.5',
-          name: 'ten',
-          id: 'jsUCQuotaLevelTenTab',
-          view: QuotaManage_LevelTenView
-        });
-        tabs.push({
-          label: '平级开关',
+          label: '平级配额',
           name: 'open',
           id: 'jsUCQuotaOpenTab',
           view: QuotaManage_OpenView

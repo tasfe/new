@@ -39,15 +39,14 @@ define(function (require, exports, module) {
       });
     },
     renderBaseInfo: function (root) {
-      if(root && root.sub130 && _(root.sub130).size()==5){
-        var quotaNumArr = _(root.sub130).sort(function(item){
+      if(root && root.superUser && _(root.superUser).size()==4){
+        var quotaNumArr = _(root.superUser).sort(function(item){
           return -item.rebate;
         });
-        this.$('.js-uc-qm-quotaZero').val( quotaNumArr[0].quotaNum);
-        this.$('.js-uc-qm-quotaOne').val( quotaNumArr[1].quotaNum);
-        this.$('.js-uc-qm-quotaTwo').val( quotaNumArr[2].quotaNum );
-        this.$('.js-uc-qm-quotaThree').val(  quotaNumArr[3].quotaNum );
-        this.$('.js-uc-qm-quotaFour').val(  quotaNumArr[4].quotaNum );
+        this.$('.js-uc-qm-quotaOne').val( quotaNumArr[0].quotaNum);
+        this.$('.js-uc-qm-quotaTwo').val( quotaNumArr[1].quotaNum );
+        this.$('.js-uc-qm-quotaThree').val(  quotaNumArr[2].quotaNum );
+        this.$('.js-uc-qm-quotaFour').val(  quotaNumArr[3].quotaNum );
       }
     },
 
@@ -59,10 +58,6 @@ define(function (require, exports, module) {
       var clpValidate = $currContainer.parsley().validate();
       if (clpValidate) {
         var quota = [
-          {
-            rebate: 12.9,
-            quotaNum: this.$('.js-uc-qm-quotaZero').val()
-          },
           {
             rebate: 12.8,
             quotaNum: this.$('.js-uc-qm-quotaOne').val()

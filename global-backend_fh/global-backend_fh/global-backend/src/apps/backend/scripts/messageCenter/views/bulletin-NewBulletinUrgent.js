@@ -18,12 +18,12 @@ define(function (require, exports, module) {
             this.$('.js-cn-notice-urgent-form').prepend(_(this.rebate_template).template()());
             //初始化时间选择
             self.$('.js-cn-urgent-starttime').datetimepicker({
-              useCurrent: false,
-              format: 'YYYY-MM-DD H:mm:ss'
+                useCurrent: false,
+                format: 'YYYY-MM-DD H:mm:ss'
             });
             self.$('.js-cn-urgent-endTime').datetimepicker({
-              useCurrent: false,
-              format: 'YYYY-MM-DD H:mm:ss'
+                useCurrent: false,
+                format: 'YYYY-MM-DD H:mm:ss'
             });
 
             this.$('#textarea1').richEditor();
@@ -54,7 +54,8 @@ define(function (require, exports, module) {
                         onlineTime: _(this.$('.js-cn-urgent-starttime').val()).toTime(),
                         offlineTime: _(this.$('.js-cn-urgent-endTime').val()).toTime(),
                         title: this.$('.js-cn-urgent-title').val(),
-                        userLevel: userLevel.join(',')
+                        userLevel: userLevel.join(','),
+                        broadcast:this.$('.js-cn-broadcast:checked').val()
                     }
                 })
                     .always(function () {
