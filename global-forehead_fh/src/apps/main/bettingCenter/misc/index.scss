@@ -108,54 +108,21 @@ $main-area-width: 870px;
 }
 
 .bc-rule-container {
-
   &.nav-tabs-border {
     a {
       border-right: 1px solid $gray-color;
       border-bottom: transparent;
       padding-top: 0;
       padding-bottom: 0;
-
-      &:hover{
-         > div {
-          margin-top: -3px;
-        }
-      }
-
-      > div {
-        padding-top: 8px;
-        padding-bottom: 8px;
-      }
     }
-
     .active {
-      
       a {
         border-bottom-color: #fff;
-        background-image:-webkit-linear-gradient(180deg, #eb3939, #a83d6b);
         background-image:linear-gradient(180deg,#eb3939,#a83d6b);
-        
-
-
-        &:hover{
-           > div {
-            margin-top: 0px;
-          }
-        }
-
         &:after{
           display: none;
         }
       }
-    }
-  }
-  &.nav-tabs-border > li > a {
-    border-top-right-radius: 5px;
-    border-top-left-radius: 5px;
-    margin-top: 10px;
-    > div {
-      line-height: 34px;
-      padding: 0 20px;
     }
   }
   .bc-first-prize {
@@ -901,18 +868,16 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
     }
 
     .bc-basic-rules{
+      li {
+        margin-top: 10px;
+      }
       a{
-        color: #333333;
-        font-size: 16px;
-        border:0px;
+        padding: 0 20px;
+        border:0;
 
         .bc-first-prize{
           font-size: 14px;
           color: #999999;
-        }
-
-        div{
-          //width: 80px;
         }
       }
 

@@ -13,8 +13,12 @@ var globalViewList = {
 
 var SideMenuMainView = Base.LayoutView.extend({
   className: 'clearfix',
-  template: '<div class="js-gl-sidebar menu-bock"></div>' +
-  '<div class="js-gl-main content-bock"></div>'
+  template: '<div class="portlet">' +
+  '<div class="portlet-header">' +
+  '<div class="js-gl-sidebar"></div>' +
+  '</div>' +
+  '<div class="js-gl-main content-bock"></div>' +
+  '</div>'
 });
 
 var RouterController = Base.Controller.extend({
