@@ -124,7 +124,7 @@ var BettingCenterView = Base.ItemView.extend({
   },
 
   onRender: function() {
-    $('#footer').css('display','none');
+    // $('#footer').css('display','none');
     this.rulesCollection.fetch({
       abort: false,
       localCache: true,
