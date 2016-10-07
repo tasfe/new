@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+@import "~base/styles/imports";
+
+.team-profile {
+  .portlet-header {
+    padding: 20px;
+  }
+  .team-logo {
+    float: left;
+    margin: 0 50px;
+  }
+  .team-details {
+    float: left;
+  }
+}
+

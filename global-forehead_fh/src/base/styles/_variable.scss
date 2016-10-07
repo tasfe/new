@@ -552,19 +552,12 @@ $tables: (
 //portlet
 
 $portlets: (
-  similar: (
-    header-bg: $main-light-color,
+  default: (
+    header-bg: $white-color,
     header-color: $font-color,
-    border-color: $main-deep-color,
-    body-bg: $main-light-color,
+    border-color: $gray-color,
+    body-bg: $white-color,
     body-color: $font-color
-  ),
-  inverse: (
-    header-bg: $main-deep-color,
-    header-color: $font-color,
-    border-color: $main-deep-color,
-    body-bg: $dark-color,
-    body-color: $new-black-color
   )
 );
 

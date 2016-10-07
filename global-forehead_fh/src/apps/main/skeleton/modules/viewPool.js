@@ -24,15 +24,15 @@ var PollingModule = Base.Module.extend({
 
     if (prevPool && prevPool === _(this._polling).last()) {
       this.destroyView(prevPool);
-      //Global.entryRegin.currentView.remove(prevPool.initId);
+      //Global.entryRegion.currentView.remove(prevPool.initId);
     } else {
 
       if (config.entry) {
         //如果新增新非快捷入口，则删除前非快捷入口
-        var isExceed = Global.entryRegin.currentView.isExceed(viewInfo.router);
+        var isExceed = Global.entryRegion.currentView.isExceed(viewInfo.router);
 
         if (isExceed) {
-          var oldInitId = Global.entryRegin.currentView.delNotQuickEntry();
+          var oldInitId = Global.entryRegion.currentView.delNotQuickEntry();
           if (oldInitId) {
             var exceedPool = this.getById(oldInitId);
 
@@ -47,12 +47,12 @@ var PollingModule = Base.Module.extend({
 
     if (config.entry) {
 
-      Global.entryRegin.currentView.update({
+      Global.entryRegion.currentView.update({
         initId: viewInfo.initId,
         router: viewInfo.router
       });
     } else {
-      viewInfo.parentId = Global.entryRegin.currentView.changeActiveInfo(viewInfo.initId, viewInfo.router);
+      viewInfo.parentId = Global.entryRegion.currentView.changeActiveInfo(viewInfo.initId, viewInfo.router);
     }
   },
 
@@ -69,7 +69,7 @@ var PollingModule = Base.Module.extend({
   },
 
   getBack: function() {
-    var current = this.getById(Global.entryRegin.currentView.getCurrent());
+    var current = this.getById(Global.entryRegion.currentView.getCurrent());
     var parent = this.getById(current.parentId);
     //var current = this._polling.pop();
 
@@ -78,7 +78,7 @@ var PollingModule = Base.Module.extend({
         parentRouter: current.parentRouter
       };
     } else {
-      Global.entryRegin.currentView.changeActiveInfo(parent.initId, parent.router);
+      Global.entryRegion.currentView.changeActiveInfo(parent.initId, parent.router);
 
       this.destroyView(current);
 
@@ -91,7 +91,7 @@ var PollingModule = Base.Module.extend({
 
     if (last) {
       last.router = viewInfo.router;
-      last.view.mainRegin.attachView(viewInfo.view);
+      last.view.mainRegion.attachView(viewInfo.view);
 
       this._polling.push(last);
     }
@@ -108,7 +108,7 @@ var PollingModule = Base.Module.extend({
       });
       if (find) {
         return {
-          regin: Global.mainRegin,
+          regin: Global.mainRegion,
           router: find.router,
           view: find.view
         };

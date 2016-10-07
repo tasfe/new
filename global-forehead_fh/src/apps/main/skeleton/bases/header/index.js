@@ -30,9 +30,8 @@ var HeaderView = Base.ItemView.extend({
     //'click .js-letterList-titleLine': 'bindMessageUserList',
 
     'click  .js-h-security': 'accountSecurityHandler',
-    /*'click  .js-message-small': 'MostSpan',*/
-    'click  .js-head-info-close': 'headInfoCloseHandler',
-    'click .js-cBtn': 'cBtn'
+    'click  .js-system-notice': 'systemNoticeHandler',
+    'click  .js-head-info-close': 'headInfoCloseHandler'
   },
 
   getNoticeInfoXhr: function() {
@@ -75,8 +74,7 @@ var HeaderView = Base.ItemView.extend({
     }
   },
 
-  MostSpan:function () {
-    var self = this;
+  systemNoticeHandler: function() {
     var $dialog = Global.ui.dialog.show({
       title: '系统消息',
       size: 'modal-lg',
@@ -88,12 +86,12 @@ var HeaderView = Base.ItemView.extend({
     $dialog.on('hidden.modal', function () {
         $(this).remove();
     });
-    $('.js-message_A').on('click',function(){
+    $dialog.on('click ', '.js-message_A', function(){
       $('.js-menuspan-one').removeClass('menuspan');
       $('.js-menuspan-two').addClass('menuspan');
-    })
-    $('.js-detail').on('click',function(){
-          $('.js-menuspan-one').addClass('menuspan');
+    });
+    $dialog.on('click ', '.js-detail', function(){
+      $('.js-menuspan-one').addClass('menuspan');
       $('.js-menuspan-two').removeClass('menuspan');
     })
   },
@@ -259,19 +257,6 @@ var HeaderView = Base.ItemView.extend({
 
     var acctInfo = Global.memoryCache.get('acctInfo');
     this.$('.js-vipFlag').html('V'+acctInfo.memberLevel);
-
-    this.$('.js-head li a').on('click',function () {
-      var id = $(this).closest('li').data('id');
-      if ( id != 5){
-        $('.head li').removeClass('sd');
-        $('.head li').eq(id-1).addClass('sd');
-        var iLeft = 500 + (id - 1) * 116;
-
-        $('.js-head > strong').animate({left: iLeft}, 500,function () {
-         
-        });
-      }
-    });
 
     this.$('.athena-asdf').find('.js-lottery-id').on('click',function () {
       self.clearClick();
@@ -444,25 +429,6 @@ var HeaderView = Base.ItemView.extend({
     this.$dialogWd.on('hidden.modal', function () {
       $(this).remove();
     });
-  },
-
-  cBtn: function (e) {
-    if ( this.$('.js-cBtn i').hasClass('fa-chevron-up') ) {
-      this.$('.js-cBtn i').removeClass('fa-chevron-up').addClass('fa-chevron-down');
-      this.$('.js-cBtn i').addClass('cBtn2');
-      this.$('.js-head').addClass('headh');
-      $(".js-head").css({overflow:'hidden'});
-      $('.js-head').animate({height: '20px'}, 600);
-
-    }
-    else{
-      this.$('.js-cBtn i').addClass('fa-chevron-up').removeClass('fa-chevron-down');
-      this.$('.js-cBtn i').removeClass('cBtn2');
-      this.$('.js-head').removeClass('headh');
-      $(".js-head").css({overflow:''});
-      $('.js-head').animate({height: '104px'}, 600);
-
-    }
   }
 });
 

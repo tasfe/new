@@ -1,14 +1,15 @@
 "use strict";
 
 var HeaderView = require('skeleton/bases/header');
+var NavbarView = require('skeleton/bases/navbar');
 var RechargeView = require('fundCenter/views/recharge');
-var DesktopNewsView = require('skeleton/bases/desktopNews');
-var InsideLetterView = require('skeleton/bases/insideLetter');
+// var DesktopNewsView = require('skeleton/bases/desktopNews');
+// var InsideLetterView = require('skeleton/bases/insideLetter');
 var EntryView = require('skeleton/bases/entry');
 var FooterView = require('com/footer');
 var NoticeBoardView = require('dynamicCenter/views/noticeBoardFH');
 
-var RainActivity = require('com/rainActivity');
+// var RainActivity = require('com/rainActivity');
 
 var FirstLoginUpdatePasswd = require('com/firstLoginUpdatePasswd');
 
@@ -23,14 +24,14 @@ App.on('start', function() {
 
 App.addRegions({
   headerRegion: '#header',
-  navbarRegin: '#navbar',
-  noticeRegin: '#notice',
+  navbarRegion: '#navbar',
   mainRegin: '#main',
-  entryRegin: '#quickEntry',
+  entryRegion: '#quickEntry',
   subMainRegin: '#subMain',
-  newbieRegin: '#newbie',
+  topRegin: '#topProfile',
+  // newbieRegin: '#newbie',
   //insideLetterRegion: '#insideLetter',
-  desktopNewsRegion: '#desktopNews',
+  // desktopNewsRegion: '#desktopNews',
   footerRegin: '#footer'
 });
 
@@ -38,15 +39,17 @@ App.addInitializer(function(options) {
 
   App.headerRegion.show(new HeaderView());
 
+  App.navbarRegion.show(new NavbarView());
+
   var entryModel = Global.data.set('entryModel', new EntryModel());
 
-  App.entryRegin.show(new EntryView({
+  App.entryRegion.show(new EntryView({
     model: entryModel
   }));
 
-  App.desktopNewsRegion.show(new DesktopNewsView());
+  // App.desktopNewsRegion.show(new DesktopNewsView());
 
-  $('body').append(new RainActivity().render().$el);
+  // $('body').append(new RainActivity().render().$el);
 
   App.footerRegin.show(new FooterView({
     signed: true

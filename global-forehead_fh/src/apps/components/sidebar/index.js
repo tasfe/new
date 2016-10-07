@@ -15,7 +15,7 @@ var SidebarView = Base.ItemView.extend({
     if (_(this.options.sidebar).isArray()) {
       sidebar = _(this.options.sidebar).map(this.formatSidebar.bind(this));
     } else {
-      sidebar = this.formatSidebar(this.options.sidebar);
+      sidebar = [this.formatSidebar(this.options.sidebar)];
     }
 
     return {

@@ -4,6 +4,13 @@ var SidebarView = require('com/sidebar');
 
 var menuConfig = require('skeleton/misc/menuConfig');
 
+var globalViewList = {
+  team: {
+    viewName: 'teamProfile',
+    View: require('agencyCenter/topProfile')
+  }
+};
+
 var SideMenuMainView = Base.LayoutView.extend({
   className: 'clearfix',
   template: '<div class="js-gl-sidebar menu-bock"></div>' +
@@ -23,6 +30,11 @@ var RouterController = Base.Controller.extend({
       subReturn: false
     });
 
+    if (config.topView || config.sidebar) {
+      this._changeTopView(config.topView);
+    } else if (!config.sidebar) {
+      this._destroyTopView();
+    }
 
     if (config.sidebar) {
       this._changeSideMenuMainReginView(mainView, config);
@@ -30,7 +42,7 @@ var RouterController = Base.Controller.extend({
       this._changeMainReginView(mainView, config);
     }
 
-    //Global.ui.menu.selectMenuFromCurrentHash();
+    Global.ui.menu.selectMenuFromCurrentHash();
   },
 
   _changeSideMenuMainReginView: function(mainView, config) {
@@ -47,7 +59,7 @@ var RouterController = Base.Controller.extend({
     });
 
     var sidebarView = new SidebarView({
-      sidebar: config.sidebar
+      sidebar: menuConfig.get(config.sidebar)
     });
 
     currentView.sidebar.show(sidebarView);
@@ -103,6 +115,26 @@ var RouterController = Base.Controller.extend({
     }
 
     this._changeReginView(Global, view, config);
+  },
+
+  _changeTopView: function(viewName) {
+    var currentViewInfo = globalViewList[viewName];
+
+    if (!currentViewInfo.showed) {
+      Global.topRegin.show(new currentViewInfo.View());
+      currentViewInfo.showed = true;
+    }
+  },
+
+  _destroyTopView: function() {
+    var currentViewInfo = _(globalViewList).findWhere({
+      showed: true
+    });
+
+    if (currentViewInfo) {
+      Global.topRegin.currentView.destroy();
+      currentViewInfo.showed = false;
+    }
   },
 
   _changeReginView: function(currentView, view, config) {

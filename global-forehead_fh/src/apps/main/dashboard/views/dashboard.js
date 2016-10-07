@@ -27,7 +27,6 @@ var DashboardView = Base.ItemView.extend({
     'click .js-db-ticket-bread-item': 'ticketBreadHandler',
     'click .js-db-ticket-scroll': 'ticketScrollHandler',
     'click .js-dynamic-itemShow': 'dynamicItemShowHandler',
-    // 'click .js-g2-a': 'afficShowHandler',
     'click .js-lottery': 'lottertyEnterHandler',
     'click .js-comingsoon': 'comeingsoonHandler',
     'mouseover .js-athena_st_07': 'tempMouseover',
@@ -49,46 +48,6 @@ var DashboardView = Base.ItemView.extend({
   dynamicItemShowHandler: function (e) {
 
     this.$afficheIndex = $(e.currentTarget).data('bulletionid');
-    this.afficShowHandler();
-
-  },
-  afficShowHandler: function () {
-
-    var self = this;
-    var html = '<div class="affiche-body-back">' +
-      '<div class="affiche-body-leftBody">' +
-      '<div class="affiche-body-lefthead">公告列表</div>' +
-      '<div class="js-affiche-list affiche-body-list"></div>' +
-      '</div>' +
-      '<div class="affiche-body-detail">' +
-      '<div  class="affiche-body-righthead">平台公告<span class="affiche-body-close sfa sfa-dialog-close close js-no-lock" data-dismiss="modal"></span></div>' +
-      '<div class="js-affiche-detail affiche-detail-content"></div>' +
-      '</div>' +
-      '</div>';
-
-    var $dialog = Global.ui.dialog.show({
-      size: 'modal-lg',
-      body: html,
-      bodyClass: 'ac-affiche-dialog'
-    });
-
-    $dialog.find('.ac-affiche-dialog').removeClass('modal-body');
-    this.$grid = $dialog.find('.js-affiche-list');
-    this.$gridDetail = $dialog.find('.js-affiche-detail');
-
-    $dialog.on('hidden.modal', function () {
-      $(this).remove();
-    });
-
-    self.startLoadAfficheList();
-
-    $dialog.find('.js-affiche-list').on('click', '.js-board-Affiche', function (e) {
-      var $target = $(e.currentTarget);
-      $dialog.find('.affiche-list-active').removeClass('affiche-list-active');
-      $target.addClass('affiche-list-active');
-      var afficheId = $target.data('affiche');
-      self.startLoadAfficheDetail(afficheId);
-    });
 
   },
 
@@ -117,30 +76,6 @@ var DashboardView = Base.ItemView.extend({
     this.$gridDetail.find('.js-nc-noticeDetailTitle').html(rootInfo.title);
     this.$gridDetail.find('.js-nc-noticeDetailDate').html(_(rootInfo.time).toTime());
     this.$gridDetail.find('.js-nc-noticeDetailContext').html(rootInfo.content);
-  },
-
-  startLoadAfficheList: function () {
-    var self = this;
-    Global.sync.ajax({
-      url: '/info/activitylist/getbulletinlist.json',
-      data: {
-        'pageSize': 20,
-        'pageIndex': 0
-      }
-    }).always(function () {
-      //开始加
-    })
-      .done(function (res) {
-        var data = res.root || {};
-        if (res && res.result === 0) {
-          self.renderGrid(data.buList);
-        } else {
-          Global.ui.notification.show('加载失败，请稍后再试');
-        }
-      })
-      .fail(function () {
-        Global.ui.notification.show('网络报错！');
-      });
   },
 
   renderGrid: function (rowList) {

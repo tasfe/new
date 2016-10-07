@@ -50,20 +50,11 @@ var AgencyCenterController = RouterController.extend({
       main: {
         title: '下级管理'
       },
-      sidebar: Global.ui.menu.get(['ac'])
+      sidebar: 'ac',
+      topView: 'team'
     });
 
     $('#main > .clearfix').addClass('ac-block');
-
-    this.getTeamOnlineXhr().done(function (res) {
-      var data = res && res.root || {};
-      if (res && res.result === 0) {
-        $('.js-julien-data1').text( (data.balanceTotal / 10000).toFixed(2) );
-        $('.js-julien-data2').text( data.todayRegTotal);
-        $('.js-julien-data3').text( data.todayOnlineTotal);
-        $('.js-julien-data4').text( data.todayBonusTotal);
-      }
-    });
   },
 
   accountDetails2: function() {
@@ -71,9 +62,9 @@ var AgencyCenterController = RouterController.extend({
       main: {
         title: '账户明细'
       },
-      sidebar: Global.ui.menu.get(['ac'])
+      sidebar: 'ac',
+      topView: 'team'
     });
-    $('#main > .clearfix').addClass('ac-block');
   },
 
   bettingRecords2: function() {
@@ -81,21 +72,10 @@ var AgencyCenterController = RouterController.extend({
       main: {
         title: '投注记录'
       },
-      sidebar: Global.ui.menu.get(['ac'])
+      sidebar: 'ac',
+      topView: 'team'
     });
     $('#main > .clearfix').addClass('ac-block');
-  },
-
-  getTeamOnlineXhr: function() {
-    var timestamp = Date.parse(new Date());
-    var now = _(timestamp).toDate();
-    return Global.sync.ajax({
-      url: '/info/teamreport/subuserstat.json',
-      data: {
-        'startTime': now,
-        'endTime': now
-      }
-    });
   },
 
   salaryManage: function () {
@@ -103,7 +83,8 @@ var AgencyCenterController = RouterController.extend({
       main: {
         title: '日工资管理'
       },
-      sidebar: Global.ui.menu.get(['ac'])
+      sidebar: 'ac',
+      topView: 'team'
     });
 
     $('#main > .clearfix').addClass('ac-block');
@@ -193,10 +174,9 @@ var AgencyCenterController = RouterController.extend({
       main: {
         title: '开户管理'
       },
-      sidebar: Global.ui.menu.get(['ac'])
+      sidebar: 'ac',
+      topView: 'team'
     });
-
-    $('#main > .clearfix').addClass('ac-block');
   },
 
   reportManage: function() {
@@ -206,8 +186,6 @@ var AgencyCenterController = RouterController.extend({
       },
       sidebar: Global.ui.menu.get(['ac'])
     });
-
-    $('#main > .clearfix').addClass('ac-block');
   },
 
   teamDynamic: function() {
@@ -215,10 +193,9 @@ var AgencyCenterController = RouterController.extend({
       main: {
         title: '团队动态'
       },
-      sidebar: Global.ui.menu.get(['ac'])
+      sidebar: 'ac',
+      topView: 'team'
     });
-
-    $('#main > .clearfix').addClass('ac-block');
   },
 
   accountDetail : function(userId, tabName){
@@ -294,10 +271,9 @@ var AgencyCenterController = RouterController.extend({
       main: {
         title: '分红管理'
       },
-      sidebar: Global.ui.menu.get(['ac'])
+      sidebar: 'ac',
+      topView: 'team'
     });
-
-    $('#main > .clearfix').addClass('ac-block');
   },
 
   redPacket: function() {
@@ -313,7 +289,8 @@ var AgencyCenterController = RouterController.extend({
       main: {
         title: '佣金管理'
       },
-      sidebar: Global.ui.menu.get(['ac'])
+      sidebar: 'ac',
+      topView: 'team'
     });
     $('#main > .clearfix').addClass('ac-block');
   },
@@ -359,22 +336,6 @@ var AgencyCenterController = RouterController.extend({
       sidebar: Global.ui.menu.get(['ac', 'uc', 'aa'])
     });
   }
-
-  //activeRecords4Report: function(userId) {
-  //  var day = _.getUrlParam('day');
-  //  this.changeSubReginView(new ActiveRecordView({
-  //    reqData: {
-  //      userId: userId,
-  //      startTime: day+ ' 0:00:00',
-  //      endTime: day + ' 23:59:59'
-  //    }
-  //  }), {
-  //    main: {
-  //      title: '查看' + _.getUrlParam('name') + '的活动记录'
-  //    },
-  //    parentRouter: 'ac/rm'
-  //  });
-  //},
 });
 
 module.exports = AgencyCenterController;
