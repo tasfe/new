@@ -635,14 +635,14 @@ $navTabs: (
   default: (
     border-color: $color-sunshine,
     color: $font-color-coffee,
-    bg-color: #f7f7f7,
+    //bg-color: #f7f7f7,
     active-color: $hot-color,
     active-bg-color: $white-linear-color
   ),
   hot: (
     border-color: #a83d6b,
     color: $font-color,
-    bg-color: $white-color,
+    //bg-color: $white-color,
     active-color: $white-color,
     active-bg-color: linear-gradient(180deg, #eb3939, #a83d6b)
   ),

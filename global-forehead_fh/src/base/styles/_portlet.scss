@@ -4,6 +4,7 @@ $portlet-padding-bottom: 8px;
   margin-bottom: 8px;
   border: 1px solid $gray-color;
   border-radius: $globalBoxRadius;
+  overflow: hidden;
   box-shadow: 0 1px 1px 0 rgba(5, 5, 5, 0.1);
 
   .portlet-header {

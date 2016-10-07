@@ -553,47 +553,6 @@
   border-top: 1px solid #a60000;
 }
 
-.menu-bock {
-  .sidebar-title {
-    display: none;
-  }
-
-  ul {
-    height: 30px;
-    padding-top: 15px;
-    border-bottom: 3px solid #a83d6b;
-
-    li {
-      list-style: none;
-      width: 120px;
-      height: 30px;
-      line-height: 30px;
-      text-align: center;
-      float: left;
-      margin-left: 9px;
-      border-radius: 5px 5px 0 0;
-
-      a {
-        color: #666;
-        font-size: 16px;
-      }
-
-      &.active {
-        background: url(~base/images/usercenter/line.png) repeat-x center;
-        a {
-          color: #fff;
-        }
-      }
-    }
-
-    &:after {
-      clear: both;
-      content: '';
-      display: block;
-    }
-  }
-}
-
 //VIP提交申请样式
 
 .vip-left {

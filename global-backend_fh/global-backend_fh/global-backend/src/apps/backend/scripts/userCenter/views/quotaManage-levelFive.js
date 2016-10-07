@@ -39,13 +39,12 @@ define(function (require, exports, module) {
       });
     },
     renderBaseInfo: function (root) {
-      if(root && root.sub128 && _(root.sub128).size()==3){
-        var quotaNumArr = _(root.sub128).sort(function(item){
+      if(root && root.sub127 && _(root.sub127).size()==2){
+        var quotaNumArr = _(root.sub127).sort(function(item){
           return -item.rebate;
         });
-        this.$('.js-uc-qm-quotaThree').val(  quotaNumArr[0].quotaNum );
-        this.$('.js-uc-qm-quotaFour').val(  quotaNumArr[1].quotaNum );
-        this.$('.js-uc-qm-quotaFive').val( quotaNumArr[2].quotaNum);
+        this.$('.js-uc-qm-quotaFour').val(  quotaNumArr[0].quotaNum );
+        this.$('.js-uc-qm-quotaFive').val( quotaNumArr[1].quotaNum);
       }
     },
 
@@ -57,10 +56,6 @@ define(function (require, exports, module) {
       var clpValidate = $currContainer.parsley().validate();
       if (clpValidate) {
         var quota = [
-          {
-            rebate: 12.7,
-            quotaNum: this.$('.js-uc-qm-quotaThree').val()
-          },
           {
             rebate: 12.6,
             quotaNum: this.$('.js-uc-qm-quotaFour').val()

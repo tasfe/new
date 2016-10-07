@@ -3,8 +3,8 @@
     <div class="form-group form-inline">
       <label class="col-sm-3 control-label">主题：</label>
       <div class="col-sm-9">
-          <input name="title" type="text" class="js-cn-urgent-title form-control" data-parsley-zhMaxLength="20" style="width: 300px;" data-parsley-someSpecialChar required>
-          <span class="help-inline">限20个字</span>
+        <input name="title" type="text" class="js-cn-urgent-title form-control" data-parsley-zhMaxLength="20" style="width: 300px;" data-parsley-someSpecialChar required>
+        <span class="help-inline">限20个字</span>
       </div>
     </div>
     <div class="form-group form-inline">
@@ -13,7 +13,7 @@
       <div class="col-sm-9">
         <div id="uploadBUContainer">
         </div>
-        <textarea id="textarea1" style='height:300px; width:100%;' class="js-cn-urgent-content" data-parsley-zhMaxLength="50000"   required></textarea>
+        <textarea id="textarea1" style='height:300px; width:100%;' class="js-cn-urgent-content" data-parsley-zhMaxLength="20000"   required></textarea>
       </div>
     </div>
     <div class="form-group form-inline">
@@ -26,6 +26,17 @@
       <label class="col-sm-3 control-label">过期时间：</label>
       <div class="col-sm-9">
         <input type="text" class="js-cn-urgent-endTime input-medium form-control" name="endTime" required>
+      </div>
+    </div>
+    <div class="form-group form-inline">
+      <label class="col-sm-3 control-label">公告轮播</label>
+      <div class="col-sm-9">
+        <label class="radio-inline">
+          <input class="js-cn-broadcast" type="radio" name="broadcast"  value="0">开
+        </label>
+        <label class="radio-inline">
+          <input class="js-cn-broadcast" type="radio" name="broadcast"  value="1">关
+        </label>
       </div>
     </div>
     <div class="form-group">

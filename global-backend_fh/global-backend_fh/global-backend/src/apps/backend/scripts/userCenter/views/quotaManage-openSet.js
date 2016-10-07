@@ -29,36 +29,27 @@ define(function (require, exports, module) {
 
     onRender: function () {
       var self = this;
+      self.$('.js-uc-qm-open').bind('click', self.switchHandler);
       this._getQuotaData().fail(function () {
       }).done(function (res) {
         if (res.result == 0) {
           self.renderBaseInfo(res.root);
+
         } else {
           Global.ui.notification.show('操作失败。');
         }
       });
     },
     renderBaseInfo: function (root) {
-      if(root.sub130Open){
-        self.$('.sub130Open').attr("checked", true);
+      //if(root && root.level4 && _(root.level4).size()==1){
+      //    this.$('.js-uc-qm-quotaFour').val(  root.level4[0].quotaNum );
+      //}
+      if(root.subOpen){
+        self.$('.js-uc-qm-open').click();
       }
-      if(root.sub129Open){
-        self.$('.sub129Open').attr("checked", true);
-      }
-      if(root.sub128Open){
-        self.$('.sub128Open').attr("checked", true);
-      }
-      if(root.sub127Open){
-        self.$('.sub127Open').attr("checked", true);
-      }
-      if(root.sub126Open){
-        self.$('.sub126Open').attr("checked", true);
-      }
-      if(root.sub125Open){
-        self.$('.sub125Open').attr("checked", true);
-      }
+      this.$('.js-uc-qm-quotaDown').val(root.subRebate/10);
+      this.$('.js-uc-qm-quotaNum').val(root.subQuotaNum);
     },
-
     saveQuotaHandler: function (e) {
       var self = this;
       var $target = $(e.currentTarget);
@@ -66,30 +57,29 @@ define(function (require, exports, module) {
       var $currContainer = this.$('.js-uc-qm-level-form');
       var clpValidate = $currContainer.parsley().validate();
       if (clpValidate) {
-        var open = '';
-
-        $("[name='checkbox']").each(function(){
-          if($(this).prop('checked') == true){
-            open = open + $(this).val()+",";
-          }
-        })
+        var quota = [
+          {
+            rebate: self.$('.js-uc-qm-quotaDown').val(),
+            quotaNum: self.$('.js-uc-qm-quotaNum').val()
+          }];
 
         var params = {
           level: 100,
-          open: open.substring(0,open.length-1)
+          quota: quota,
+          open:  self.$('.js-uc-qm-open').val()
         };
 
         this._saveQuotaData(params)
-          .always(function(){
-            $target.button('reset');
-          }).done(function (res) {
-          if (res.result === 0) {
-            Global.ui.notification.show('操作成功。');
-          } else {
-            Global.ui.notification.show('操作失败。');
-          }
-        }).fail(function () {
-        });
+            .always(function(){
+              $target.button('reset');
+            }).done(function (res) {
+              if (res.result === 0) {
+                Global.ui.notification.show('操作成功。');
+              } else {
+                Global.ui.notification.show('操作失败。');
+              }
+            }).fail(function () {
+            });
       }else{
         $target.button('reset');
       }
@@ -97,7 +87,18 @@ define(function (require, exports, module) {
 
     cancelQuotaHandler: function (e) {
       this.render();
-    }
+    },
+
+    //  点击开关触发的handler
+    switchHandler:function(e) {
+      var $target = $(e.currentTarget);
+      var cancelOpenVal = $target.val(); // 0：开启 1：关闭
+      if (cancelOpenVal == 0) {
+        $target.val(1);
+      } else if (cancelOpenVal == 1) {
+        $target.val(0);
+      }
+    },
   });
 
   module.exports = QuotaManageLevelOneView;
