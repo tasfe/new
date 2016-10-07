@@ -39,16 +39,11 @@ define(function (require, exports, module) {
       });
     },
     renderBaseInfo: function (root) {
-     if(root && root.level130 && _(root.level130).size()==6){
-       var quotaNumArr = _(root.level130).sort(function(item){
+     if(root && root.merMaster && _(root.merMaster).size()==1){
+       var quotaNumArr = _(root.merMaster).sort(function(item){
         return -item.rebate;
        });
        this.$('.js-uc-qm-quotaZero').val( quotaNumArr[0].quotaNum);
-       this.$('.js-uc-qm-quotaOne').val( quotaNumArr[1].quotaNum);
-       this.$('.js-uc-qm-quotaTwo').val( quotaNumArr[2].quotaNum );
-       this.$('.js-uc-qm-quotaThree').val(  quotaNumArr[3].quotaNum );
-       this.$('.js-uc-qm-quotaFour').val(  quotaNumArr[4].quotaNum );
-       this.$('.js-uc-qm-quotaFive').val( quotaNumArr[5].quotaNum);
      }
     },
 
@@ -61,28 +56,8 @@ define(function (require, exports, module) {
       if (clpValidate) {
         var quota = [
           {
-            rebate: 13.0,
-            quotaNum: this.$('.js-uc-qm-quotaZero').val()
-          },
-          {
-            rebate: 12.9,
-            quotaNum: this.$('.js-uc-qm-quotaOne').val()
-          },
-          {
             rebate: 12.8,
-            quotaNum: this.$('.js-uc-qm-quotaTwo').val()
-          },
-          {
-            rebate: 12.7,
-            quotaNum: this.$('.js-uc-qm-quotaThree').val()
-          },
-          {
-            rebate: 12.6,
-            quotaNum: this.$('.js-uc-qm-quotaFour').val()
-          },
-          {
-            rebate: 12.5,
-            quotaNum: this.$('.js-uc-qm-quotaFive').val()
+            quotaNum: this.$('.js-uc-qm-quotaZero').val()
           }];
 
         var params = {

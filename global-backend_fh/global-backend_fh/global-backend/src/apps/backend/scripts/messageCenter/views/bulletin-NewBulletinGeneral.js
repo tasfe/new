@@ -45,7 +45,8 @@ define(function (require, exports, module) {
                         onlineTime: _(this.$('.js-cn-general-starttime').val()).toTime(),
                         title: this.$('.js-cn-general-title').val(),
                         desc:this.$('.js-cn-general-desc').val(),
-                        userLevel: userLevel.join(',')
+                        userLevel: userLevel.join(','),
+                        broadcast:this.$('.js-cn-broadcast:checked').val()
                     }
                 })
                     .always(function () {
