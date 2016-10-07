@@ -21,6 +21,7 @@ var BettingCenterView = Base.ItemView.extend({
   rulesTpl: _.template(require('bettingCenter/templates/bettingCenter-rules.html')),
   betResultLoseTpl: _.template(require('bettingCenter/mmc/betResultLose.html')),
   betResultWinTpl: _.template(require('bettingCenter/mmc/betResultWin.html')),
+  betResultTotalWinTpl:  _.template(require('bettingCenter/mmc/betResultTotalWin.html')),
 
   events: {
     'click .js-bc-basic-rule': 'baseRuleChangeHandler',
@@ -43,24 +44,24 @@ var BettingCenterView = Base.ItemView.extend({
     'click .js-bc-mmc-bet-times': 'betTimesHandler',
     'click .js-bc-mmc-open-history-turn-page': 'openHistoryTurnPage',
     'change .js-bc-mmc-continue-lottery-times': 'lotteryTimesChange',
-    'click .js-play1': 'play1',
-    'click .js-play2': 'play2'
+    // 'click .js-play1': 'play1',
+    // 'click .js-play2': 'play2'
   },
-  play1:function () {
-    $('.js-play1').addClass('sd');
-    $('.js-play2').removeClass('sd');
-    $('.js-bc-basic-rules').addClass('hidden');
-    $('.js-bc-optional-rules').removeClass('hidden');
-    $('.js-bc-optional-rules ul').removeClass('hidden');
-  },
-
-  play2:function () {
-    $('.js-play2').addClass('sd');
-    $('.js-play1').removeClass('sd');
-    $('.js-bc-basic-rules').removeClass('hidden');
-    $('.js-bc-optional-rules').addClass('hidden');
-    $('.js-bc-optional-rules ul').addClass('hidden');
-  },
+  // play1:function () {
+  //   $('.js-play1').addClass('sd');
+  //   $('.js-play2').removeClass('sd');
+  //   $('.js-bc-basic-rules').addClass('hidden');
+  //   $('.js-bc-optional-rules').removeClass('hidden');
+  //   $('.js-bc-optional-rules ul').removeClass('hidden');
+  // },
+  //
+  // play2:function () {
+  //   $('.js-play2').addClass('sd');
+  //   $('.js-play1').removeClass('sd');
+  //   $('.js-bc-basic-rules').removeClass('hidden');
+  //   $('.js-bc-optional-rules').addClass('hidden');
+  //   $('.js-bc-optional-rules ul').addClass('hidden');
+  // },
   serializeData: function() {
     return {
       ticketInfo: this.options.ticketInfo
@@ -837,7 +838,6 @@ var BettingCenterView = Base.ItemView.extend({
     this.BetinfoList.push({status:'0'});
     this.BetRes = undefined;
     /*this.showWinResult(false);*/
-    this.showLastResult(false);
     this.showLotteryTime(true,this.BetTimes-this.LeftTimes);
     if(!this.BeenDistoryed){
       //1.开始动画
@@ -1107,10 +1107,14 @@ var BettingCenterView = Base.ItemView.extend({
     this.toggleShowDealOnce();
     this.model.emptyPrevBetting();//删除之前的选号
     //this.showWinResult(false);
-    //this.showLastResult(false);
     this.$LotteryTime.val(1);
     this.$WinStop.prop('checked',false);
 
+  },
+  getRecordNum: function(root){
+    return  _(root.openResultList).reduce(function(memo,item){
+      return memo + item.winNum;
+    },0);
   },
 
   showCurrResult: function(){
@@ -1124,8 +1128,9 @@ var BettingCenterView = Base.ItemView.extend({
     if(this.BetRes && this.BetRes.winPrize && Number(this.BetRes.winPrize)>0){
       this.TotalPrize = this.TotalPrize + this.BetRes.winPrize;
       this.HasWin = true;
+      var num = this.getRecordNum(this.BetRes);
       //中奖才弹中奖提示
-      this.showWinResult(true,this.BetRes.winPrize);
+      this.showWinResult(true,this.BetRes.winPrize,num);
       //Global.ui.notification.show('<div class="bc-mmc-bet-result-win">单次中奖</div>', {
       //  type: 'success'
       //});
@@ -1135,6 +1140,7 @@ var BettingCenterView = Base.ItemView.extend({
 
     //TODO 当期投注结果显示停留时间，待调整
     var delay = 1;
+    var delay2 = 3;
     var flag= false;
     flag= this.LeftTimes>0 && !this.UserStop && !this.NetException && !this.BettingFail &&  !(this.WinStop && this.HasWin);//新的一轮开始时，需要重置
     console.log('showCurrResult: UserStop-'+ this.UserStop);
@@ -1145,9 +1151,13 @@ var BettingCenterView = Base.ItemView.extend({
       },1000*delay);
       self.TimeOutArr.push(GoOnLottery);
     }else{
+      var delayLast = 0;
+      if(this.BetRes.winPrize>0){
+        delayLast = delay2;
+      }
         setTimeout(function(){
           self.showTotalResult();
-        },1000*delay);
+        },1000*delayLast);
     }
   },
 
@@ -1155,9 +1165,9 @@ var BettingCenterView = Base.ItemView.extend({
     //1.显示‘再玩一次’，显示‘重新选号’
     this._setConfirmButton('3');
     this.$reSelectBtn.removeClass('hidden');
-    if(((this.BetTimes==1 && this.TotalPrize==0) || this.BetTimes > 1) && !this.NetException && !this.BettingFail ){
+    // if(((this.BetTimes==1 && this.TotalPrize==0) || this.BetTimes > 1) && !this.NetException && !this.BettingFail ){
       this.showLastResult(true,this.TotalPrize);
-    }
+    // }
     //显示整体投注结果，当前最近一期为‘异常终止’，后续投注为“未投注”，之前投注为‘未中奖’或‘金额’
     if(this.BetTimes>1){
       //2隐藏当前期投注结果,清除数据
@@ -1165,6 +1175,7 @@ var BettingCenterView = Base.ItemView.extend({
       this.$lotteryTotalResultPreview.removeClass('hidden');
       this.renderlotteryTotalResultPreview();
     }
+    this.showLotteryTime(false);
   },
 
   showCurrIsBetting: function(){
@@ -1356,15 +1367,15 @@ var BettingCenterView = Base.ItemView.extend({
     }
 
   },
-  showWinResult: function(flag,prize){
+  showWinResult: function(flag,prize,num){
     var $dialog;
     if(flag){
       this.$CurrentResultMask.addClass('hidden');
       this.$CurrentResult.removeClass('hidden');
-      this.$CurrentResult.html('<span>恭喜您，中奖金额为'+_(prize).convert2yuan()+'元！</span>');
       $dialog = Global.ui.dialog.show({
         body: this.betResultWinTpl({
-          prize:_(prize).convert2yuan()
+          prize:_(prize).convert2yuan(),
+          injection: num
         }),
         modalClass: 'bc-mmc-win-model'
       });
@@ -1393,36 +1404,35 @@ var BettingCenterView = Base.ItemView.extend({
     }
   },
   showLastResult: function(flag,prize){
-    //if(flag){
-    //  this.$CurrentResult.addClass('hidden');
-    //  if(prize>0){
-    //    this.$CurrentResultTotal.removeClass('bc-mmc-result-lost-total');
-    //    this.$CurrentResultTotal.addClass('bc-mmc-result-win-total');
-    //    this.$CurrentResultTotal.html('<span>总计中奖金额为<span class="bc-mmc-result-win-total-amount">'+_(prize).convert2yuan()+'</span>元</span>');
-    //  }else{
-    //    this.$CurrentResultTotal.removeClass('bc-mmc-result-win-total');
-    //    this.$CurrentResultTotal.addClass('bc-mmc-result-lost-total');
-    //    this.$CurrentResultTotal.html('<span></span>');
-    //  }
-    //  this.$CurrentResultMask.removeClass('hidden');
-    //}else {
-    //  this.$CurrentResultMask.addClass('hidden');
-    //  this.$CurrentResultTotal.html('<span></span>');
-    //}
 
-    this.$CurrentResult.addClass('hidden');
-    this.$CurrentResult.html('<span></span>');
-    var $dialog = Global.ui.dialog.show({
-      body: this.betResultLoseTpl({
-      }),
-      modalClass: 'bc-mmc-lose-model'
-    });
-    $dialog.on('hidden.modal', function () {
-      $dialog.remove();
-    });
-    var timeout = setTimeout(function () {
-      $dialog.modal('hide');
-    }, 3000);
+      this.$CurrentResult.addClass('hidden');
+      this.$CurrentResult.html('<span></span>');
+      if (prize > 0) {
+        var $dialog = Global.ui.dialog.show({
+          body: this.betResultTotalWinTpl({
+            prize:_(prize).convert2yuan()
+          }),
+          modalClass: 'bc-mmc-win-total-model'
+        });
+        $dialog.on('hidden.modal', function () {
+          $dialog.remove();
+        });
+        // var timeout = setTimeout(function () {
+        //   $dialog.modal('hide');
+        // }, 3000);
+      } else {
+        var $dialog = Global.ui.dialog.show({
+          body: this.betResultLoseTpl({}),
+          modalClass: 'bc-mmc-lose-model'
+        });
+        $dialog.on('hidden.modal', function () {
+          $dialog.remove();
+        });
+        // var timeout = setTimeout(function () {
+        //   $dialog.modal('hide');
+        // }, 3000);
+      }
+
   },
   lotteryTimesChange: function(e){
     var $target = $(e.currentTarget);
