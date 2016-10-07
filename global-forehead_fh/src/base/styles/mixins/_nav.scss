@@ -2,18 +2,18 @@
 
   $borderColor: map_get($props, border-color);
   $color: map_get($props, color);
-  $bgColor: map_get($props, bg-color);
+  //$bgColor: map_get($props, bg-color);
   $activeColor: map_get($props, active-color);
   $activeBgColor: map_get($props, active-bg-color);
 
-  border-bottom: 1px solid $borderColor;
+  border-bottom: 2px solid $borderColor;
 
   > {
     li {
       > a {
         color: $color;
         border: 1px solid transparent;
-        background-color: $bgColor;
+        background-color: transparent;
 
         &:hover, &:focus {
           background-color: transparent;

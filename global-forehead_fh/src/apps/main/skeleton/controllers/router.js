@@ -14,7 +14,7 @@ var globalViewList = {
 var SideMenuMainView = Base.LayoutView.extend({
   className: 'clearfix',
   template: '<div class="portlet">' +
-  '<div class="portlet-header">' +
+  '<div class="portlet-header no-padding">' +
   '<div class="js-gl-sidebar"></div>' +
   '</div>' +
   '<div class="js-gl-main content-bock"></div>' +

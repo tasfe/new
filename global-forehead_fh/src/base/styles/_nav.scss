@@ -101,10 +101,11 @@
 }
 
 .nav-tabs {
-  //font-size: 16px;
+  padding: 0 10px;
+
   > {
     li {
-      margin-bottom: -1px;
+      margin-bottom: -2px;
       > a {
         color: $font-color-coffee;
         line-height: 20px;
@@ -122,6 +123,7 @@
   &.nav-tabs-border {
     background: $white-color;
     li {
+      margin-top: 10px;
       > a {
         border-top-right-radius: $globalBtnRadius;
         border-top-left-radius: $globalBtnRadius;
