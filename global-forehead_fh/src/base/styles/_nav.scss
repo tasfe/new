@@ -105,7 +105,6 @@
 
   > {
     li {
-      margin-bottom: -2px;
       > a {
         color: $font-color-coffee;
         line-height: 20px;
@@ -124,6 +123,7 @@
     background: $white-color;
     li {
       margin-top: 10px;
+      margin-bottom: -2px;
       > a {
         border-top-right-radius: $globalBtnRadius;
         border-top-left-radius: $globalBtnRadius;

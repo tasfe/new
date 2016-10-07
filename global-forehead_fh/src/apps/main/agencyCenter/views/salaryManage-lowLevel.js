@@ -120,7 +120,6 @@ var SalaryManageLowLeveView = SearchGrid.extend({
       endTime: 'endDate',
       startTimeHolder: '起始日期',
       endTimeHolder: '结束日期',
-      size: 'julien-time',
       prevClass: 'js-pf',
       startOps: {
         format: 'YYYY-MM-DD'

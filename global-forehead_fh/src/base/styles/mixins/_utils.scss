@@ -194,17 +194,17 @@
     $input: map_get($props, input);
     $disabled: map_get($props, disabled);
 
-    select {
-      @include select-factory($select);
-    }
-
-    input {
-      @include input-factory($input);
-    }
-
-    textarea {
-      @include input-factory($input);
-    }
+    //select {
+    //  @include select-factory($select);
+    //}
+    //
+    //input {
+    //  @include input-factory($input);
+    //}
+    //
+    //textarea {
+    //  @include input-factory($input);
+    //}
 
     @include disabled-factory($disabled);
 

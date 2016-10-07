@@ -978,7 +978,7 @@ var BettingCenterView = Base.ItemView.extend({
     var $dialog = Global.ui.dialog.show({
       title: '追号',
       size: 'modal-lg',
-      body: '<div class="js-bc-chase-container"></div>',
+      body: '<div class="js-bc-chase-container m-LR-sm"></div>',
       bodyClass: 'p-top-xs no-p-left no-p-right no-p-bottom',
       footer: ''
     });

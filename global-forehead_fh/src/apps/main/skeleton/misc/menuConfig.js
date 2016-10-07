@@ -70,7 +70,8 @@ var menuConfig = [
             {
                 id: 130,
                 router: 'ac/llm',
-                name: '下级管理'
+                name: '下级管理',
+                showTitle: false
             },
             {
                 id: 131,

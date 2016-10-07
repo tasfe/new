@@ -109,7 +109,6 @@ var LowLevelManageView = SearchGrid.extend({
       endTime: 'regTimeEnd',
       startTimeHolder: '起始日期',
       endTimeHolder: '结束日期',
-      size: 'julien-time',
       prevClass: 'js-pf',
       startOps: {
         format: 'YYYY-MM-DD'
@@ -125,7 +124,6 @@ var LowLevelManageView = SearchGrid.extend({
       endTime: 'loginTimeEnd',
       startTimeHolder: '起始日期',
       endTimeHolder: '结束日期',
-      size: 'julien-time',
       prevClass: 'js-last',
       startOps: {
         format: 'YYYY-MM-DD'

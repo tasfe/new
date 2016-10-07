@@ -11,7 +11,7 @@ Base.Prefab.Timeset = Base.PrefabView.extend({
 
   options: {
     prevClass: 'js',
-    size: 'input-md',
+    size: 'input-smd',
     endDate: moment().add(1, 'days').startOf('day')
   },
 

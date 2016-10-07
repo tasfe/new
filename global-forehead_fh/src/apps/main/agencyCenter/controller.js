@@ -48,7 +48,7 @@ var AgencyCenterController = RouterController.extend({
   lowLevelManage: function() {
     this.changeMainReginView(new LowLevelUserManageView(), {
       main: {
-        title: '下级管理'
+        // title: '下级管理'
       },
       sidebar: 'ac',
       topView: 'team'
