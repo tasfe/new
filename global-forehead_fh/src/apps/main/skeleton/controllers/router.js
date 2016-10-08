@@ -51,7 +51,7 @@ var RouterController = Base.Controller.extend({
   },
 
   _changeSideMenuMainReginView: function(mainView, config) {
-    var currentView = Global.viewPool.setCurrentView(new SideMenuMainView());
+    var currentView = Global.viewPool.setCurrentSubRegion(new SideMenuMainView());
 
     currentView.addRegions({
       sidebar: '.js-gl-sidebar',
@@ -74,7 +74,7 @@ var RouterController = Base.Controller.extend({
 
   //侧边栏子菜单view切换
   changeSubReginView: function(view, config) {
-    var currentView = Global.viewPool.getCurrentView();
+    var currentView = Global.viewPool.getCurrentSubRegion();
 
     config = _.defaults(config || {}, {
       //destroyDiff: 'low'

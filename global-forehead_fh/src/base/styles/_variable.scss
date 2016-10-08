@@ -322,7 +322,13 @@ $checkboxes: (
     active-bg-color: $pink-color,
     linear-color: linear-gradient(to bottom, #c00, #c00),
     hook-color: $light-color,
-    border-color: #929092
+    border-color: $gray-color
+  ),
+  inverse: (
+    bg-color: $light-color,
+    active-bg-color: $light-color,
+    hook-color: $pink-color,
+    border-color: $gray-color
   )
 );
 
@@ -407,40 +413,6 @@ $btns: (
     active: (
       color: $white-color,
       bg-color: $pink-color
-    )
-  ),
-  dark: (
-    color: $white-color,
-    bg-color: $dark-color,
-    border-color: $dark-color,
-    hover: (
-      color: $white-color,
-      bg-color: $dark-color
-    ),
-    focus: (
-      color: $white-color,
-      bg-color: $dark-color
-    ),
-    active: (
-      color: $white-color,
-      bg-color: $dark-color
-    )
-  ),
-  peaceful: (
-    //color: #ffffff,
-    bg-color: $color-peaceful,
-    border-color: $color-peaceful,
-    hover: (
-      //color: #ffffff,
-      bg-color: $color-peaceful
-    ),
-    focus: (
-      //color: #ffffff,
-      bg-color: $color-peaceful
-    ),
-    active: (
-      //color: #ffffff,
-      bg-color: $color-peaceful
     )
   ),
   pure: (
