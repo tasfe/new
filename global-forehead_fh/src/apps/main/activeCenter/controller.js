@@ -12,21 +12,22 @@ var ActiveCenterController = RouterController.extend({
   activityCenter: function() {
     this.changeMainReginView(new ActivityCenterView({
       type:''
-    }));
+    }), {
+      sidebar: 'at'
+    });
   },
   agencyActivity: function() {
     this.changeMainReginView(new ActivityCenterView({
       type:0
     }), {
-      sidebar: Global.ui.menu.get(['at'])
+      sidebar: 'at'
     });
-    $('#main > .clearfix').addClass('ac-block');
   },
   ticketActivity: function() {
     this.changeMainReginView(new ActivityCenterView({
       type:1
     }), {
-      sidebar: Global.ui.menu.get(['at'])
+      sidebar: 'at'
     });
     $('#main > .clearfix').addClass('ac-block');
   },
@@ -34,9 +35,8 @@ var ActiveCenterController = RouterController.extend({
     this.changeMainReginView(new ActivityCenterView({
       type:2
     }), {
-      sidebar: Global.ui.menu.get(['at'])
+      sidebar: 'at'
     });
-    $('#main > .clearfix').addClass('ac-block');
   },
   openActivityDetail: function(ticket) {
     this.changeSubReginView(new OpenActivityDetailView({

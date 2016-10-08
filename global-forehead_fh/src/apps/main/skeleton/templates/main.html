@@ -1,14 +1,37 @@
 <div class="portlet portlet-<%=obj.type %> no-margin">
+  <% if (obj.titleType === 'nav') { %>
+  <span class="portlet-option portlet-nav">
+      <% if (obj.subReturn) { %>
+      <button class="btn btn-link sub-return" type="button">
+         <i class="fa fa-share-square-o"></i>
+        返回
+      </button>
+      <% } %>
+    </span>
+  <ul class="nav nav-tabs nav-tabs-border nav-hot no-m-bottom">
+    <li role="presentation" class="active">
+      <a href="javascript:void(0)">
+        <% if (obj.icon) { %><span class="portlet-icon sfa sfa-sub-title-<%=obj.icon %>"></span><% } %>
+        <%=obj.title %>
+      </a>
+    </li>
+  </ul>
+  <% } else { %>
   <div class="portlet-header <%=obj.headerClass %>">
+    <span class="portlet-option">
+      <% if (obj.subReturn) { %>
+      <button class="btn btn-link sub-return" type="button">
+         <i class="fa fa-share-square-o"></i>
+        返回
+      </button>
+      <% } %>
+    </span>
     <span class="portlet-title">
       <% if (obj.icon) { %><span class="portlet-icon sfa sfa-sub-title-<%=obj.icon %>"></span><% } %>
       <%=obj.title %>
     </span>
-    <span class="portlet-option">
-      <% if (obj.subReturn) { %>
-      <button class="btn btn-pure sub-return" type="button">返回</button>
-      <% } %>
-    </span>
   </div>
-  <div class="js-rt-main rt-main portlet-body no-padding"></div>
+  <% } %>
+
+  <div class="js-rt-main rt-main portlet-body"></div>
 </div>

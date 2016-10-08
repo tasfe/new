@@ -55,6 +55,9 @@
 .no-radius {
   border-radius: 0;
 }
+.full-radius {
+  border-radius: 50%;
+}
 
 .no-height {
   height: 0;
@@ -151,8 +154,6 @@
 
 .no-rounded {
   border-radius: 0;
-  -moz-border-radius: 0;
-  -webkit-border-radius: 0
 }
 
 .hidden {

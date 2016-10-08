@@ -1,6 +1,6 @@
 "use strict";
 
-var PollingModule = Base.Module.extend({
+var PoolingModule = Base.Module.extend({
 
   startWithParent: false,
 
@@ -45,7 +45,8 @@ var PollingModule = Base.Module.extend({
 
     this._polling.push(viewInfo);
 
-    if (config.entry) {
+    // if (config.entry) {
+    if (config.subReturn) {
 
       Global.entryRegion.currentView.update({
         initId: viewInfo.initId,
@@ -206,4 +207,4 @@ var PollingModule = Base.Module.extend({
   }
 });
 
-module.exports = PollingModule;
+module.exports = PoolingModule;

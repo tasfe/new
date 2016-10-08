@@ -51,7 +51,7 @@ var SidemenuModule = Base.Module.extend({
 
   selectMenuFromCurrentHash: function() {
     this.selectMenu(window.location.hash);
-    Global.entryRegion.currentView.updateQuickEntry(window.location.hash);
+    // Global.entryRegion.currentView.updateQuickEntry(window.location.hash);
   },
 
   selectMenu: function(hash) {

@@ -242,55 +242,53 @@ var PlatformNewsPlatformView = Base.ItemView.extend({
     var self = this;
     var newsSettingView;
 
-    $('a[href="#jsNcPlatformSetting"]').click();
-    $('a[href="#jsNcPlatformSetting"]').closest('li').addClass('active').removeClass('hidden');
-    $('a[href="#jsNcPlatform"]').closest('li').removeClass('active').addClass('hidden');
-    return false;
-    // var $dialog = Global.ui.dialog.show({
-    //   title: '定义通知类型',
-    //   size: 'modal-lg',
-    //   body: '<div class="js-nc-news-setting"></div>',
-    //   bodyClass: 'no-padding',
-    //   footer: '<div class="text-center control-confirm-special ">' +
-    //   '<button type="button" class="js-nc-confirm btn btn-left " data-loading-text="保存中">保存</button>' +
-    //     //'<button type="button" class="btn btn-link btn-right " data-dismiss="modal">取消</button>' +
-    //   '</div>'
-    // });
-    //
-    // var $container = $dialog.find('.js-nc-news-setting');
-    //
-    // $dialog.on('hidden.modal', function() {
-    //   $(this).remove();
-    //   newsSettingView.destroy();
-    // });
+    // $('a[href="#jsNcPlatformSetting"]').click();
+    // $('a[href="#jsNcPlatformSetting"]').closest('li').addClass('active').removeClass('hidden');
+    // $('a[href="#jsNcPlatform"]').closest('li').removeClass('active').addClass('hidden');
+    // return false;
+    var $dialog = Global.ui.dialog.show({
+      title: '定义通知类型',
+      size: 'modal-lg',
+      body: '<div class="js-nc-news-setting"></div>',
+      bodyClass: 'no-padding',
+      footer: '<div class="text-center control-confirm-special ">' +
+      '<button type="button" class="js-nc-confirm btn btn-left " data-loading-text="保存中">保存</button>' +
+      '</div>'
+    });
 
-    // var $container = $('.js-platformNews-container');
-    // newsSettingView = new NewsSettingView({
-    //   el: $container
-    //   //functionId: this.model.get('functionId'),
-    //   //ticketId: this.model.get('ticketId')
-    // }).render();
+    var $container = $dialog.find('.js-nc-news-setting');
 
-    // $dialog.on('click', '.js-nc-confirm', function(e) {
-    //   var $target = $(e.currentTarget);
-    //
-    //   $target.button('loading');
-    //   newsSettingView.saveSettingHandler()
-    //     .always(function() {
-    //       $target.button('reset');
-    //     })
-    //     .done(function(res) {
-    //       if (res.result === 0) {
-    //         Global.ui.notification.show('通知设置保存成功', {
-    //           type: 'success'
-    //         });
-    //         $dialog.modal('hide');
-    //       } else {
-    //         Global.ui.notification.show('通知设置保存失败');
-    //       }
-    //     }
-    //   );
-    // });
+    $dialog.on('hidden.modal', function() {
+      $(this).remove();
+      newsSettingView.destroy();
+    });
+
+    newsSettingView = new NewsSettingView({
+      el: $container
+      //functionId: this.model.get('functionId'),
+      //ticketId: this.model.get('ticketId')
+    }).render();
+
+    $dialog.on('click', '.js-nc-confirm', function(e) {
+      var $target = $(e.currentTarget);
+
+      $target.button('loading');
+      newsSettingView.saveSettingHandler()
+        .always(function() {
+          $target.button('reset');
+        })
+        .done(function(res) {
+          if (res.result === 0) {
+            Global.ui.notification.show('通知设置保存成功', {
+              type: 'success'
+            });
+            $dialog.modal('hide');
+          } else {
+            Global.ui.notification.show('通知设置保存失败');
+          }
+        }
+      );
+    });
 
   }
 

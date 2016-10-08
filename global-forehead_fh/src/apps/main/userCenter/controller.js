@@ -44,7 +44,7 @@ var UserCenterController = RouterController.extend({
 
   transforRecord:function () {
     this.changeMainReginView(new transforRecordView(), {
-      sidebar: Global.ui.menu.get(['uc'])
+      sidebar: 'uc'
     });
     $('#main > .clearfix').addClass('ac-block ac-block2');
   },
@@ -52,14 +52,14 @@ var UserCenterController = RouterController.extend({
 
   baccaratPal:function () {
     this.changeMainReginView(new BaccaratPalView(), {
-      sidebar: Global.ui.menu.get(['uc'])
+      sidebar: 'uc'
     });
     $('#main > .clearfix').addClass('ac-block ac-block2');
   },
 
   reportManage:function () {
     this.changeMainReginView(new ReportManageView(), {
-      sidebar: Global.ui.menu.get(['uc'])
+      sidebar: 'uc'
     });
     $('#main > .clearfix').addClass('ac-block ac-block2');
   },
@@ -72,7 +72,7 @@ var UserCenterController = RouterController.extend({
 
   bettingRecords: function() {
     this.changeMainReginView(new BettingRecordView(), {
-      sidebar: Global.ui.menu.get(['uc'])
+      sidebar: 'uc'
     });
     $('#main > .clearfix').addClass('ac-block ac-block2');
   },
@@ -87,14 +87,14 @@ var UserCenterController = RouterController.extend({
         subReturn: true
       },
       needParent: false,
-      sidebar: Global.ui.menu.get(['uc'])
+      sidebar: 'uc'
     });
     $('#main > .clearfix').addClass('ac-block ac-block2');
   },
 
   trackRecords: function() {
     this.changeMainReginView(new TrackRecordView(), {
-      sidebar: Global.ui.menu.get(['uc'])
+      sidebar: 'uc'
     });
     $('#main > .clearfix').addClass('ac-block ac-block2');
   },
@@ -110,14 +110,14 @@ var UserCenterController = RouterController.extend({
 
   rechargeRecords: function() {
     this.changeMainReginView(new RechargeRecordsView(), {
-      sidebar: Global.ui.menu.get(['uc'])
+      sidebar: 'uc'
     });
     $('#main > .clearfix').addClass('ac-block ac-block2');
   },
 
   withdrawRecords: function() {
     this.changeMainReginView(new WithdrawRecordsView(), {
-      sidebar: Global.ui.menu.get(['uc'])
+      sidebar: 'uc'
     });
     $('#main > .clearfix').addClass('ac-block ac-block2');
   },
@@ -162,7 +162,7 @@ var UserCenterController = RouterController.extend({
 
   personalManage: function() {
     this.changeMainReginView(new PersonalManageView(), {
-      sidebar: Global.ui.menu.get(['pc'])
+      sidebar: 'pc'
     });
 
     var PublicView = require('userCenter/views/publicView');
@@ -198,7 +198,7 @@ var UserCenterController = RouterController.extend({
 
   verifySuccCallBack: function(){
     this.changeMainReginView(new CardManageView(), {
-      sidebar: Global.ui.menu.get(['pc'])
+      sidebar: 'pc'
     });
     var PublicView = require('userCenter/views/publicView');
     var publicView = new PublicView();
@@ -212,7 +212,7 @@ var UserCenterController = RouterController.extend({
 
   priceDetails: function() {
     this.changeMainReginView(new PriceDetailsView(), {
-      sidebar: Global.ui.menu.get(['pc'])
+      sidebar: 'pc'
     });
 
     var PublicView = require('userCenter/views/publicView');
