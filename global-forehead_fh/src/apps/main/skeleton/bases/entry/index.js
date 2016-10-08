@@ -343,8 +343,6 @@ var EntryView = Base.ItemView.extend({
     router = router === '#' ? '' : router;
     //$active.removeClass('js-gl-entry-item-' + prevId).addClass('js-gl-entry-item-' + id).data('id', id).attr('href', '#' + router);
     $active.removeClass('js-gl-entry-item-' + prevId).addClass('js-gl-entry-item-' + id).data('id', id);
-
-    return prevId;
   },
 
   getCurrent: function() {

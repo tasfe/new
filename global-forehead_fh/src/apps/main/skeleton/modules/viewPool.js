@@ -6,7 +6,9 @@ var PoolingModule = Base.Module.extend({
 
   _polling: [],
 
-  _currentView: null,
+  _currentSubRegion: null,
+
+  _currentViewInfo: null,
 
   push: function(viewInfo, config) {
     config = _(config || {}).defaults({
@@ -20,41 +22,45 @@ var PoolingModule = Base.Module.extend({
     viewInfo.router = viewInfo.router.replace(/\?.*/, '') || '#';
 
     //删除前一个相同view
-    var prevPool = this.getByRouter(viewInfo.router);
+    var samePool = this.getByRouter(viewInfo.router);
 
-    if (prevPool && prevPool === _(this._polling).last()) {
-      this.destroyView(prevPool);
-      //Global.entryRegion.currentView.remove(prevPool.initId);
+    if (samePool && samePool === _(this._polling).last()) {
+      this.destroyView(samePool);
     } else {
-
-      if (config.entry) {
-        //如果新增新非快捷入口，则删除前非快捷入口
-        var isExceed = Global.entryRegion.currentView.isExceed(viewInfo.router);
-
-        if (isExceed) {
-          var oldInitId = Global.entryRegion.currentView.delNotQuickEntry();
-          if (oldInitId) {
-            var exceedPool = this.getById(oldInitId);
-
-            this.destroyView(exceedPool);
-          }
-        }
-      }
+      // if (config.entry) {
+      //   //如果新增新非快捷入口，则删除前非快捷入口
+      //   var isExceed = Global.entryRegion.currentView.isExceed(viewInfo.router);
+      //
+      //   if (isExceed) {
+      //     var oldInitId = Global.entryRegion.currentView.delNotQuickEntry();
+      //     if (oldInitId) {
+      //       var exceedPool = this.getById(oldInitId);
+      //
+      //       this.destroyView(exceedPool);
+      //     }
+      //   }
+      // }
     }
 
-
-    this._polling.push(viewInfo);
-
     // if (config.entry) {
-    if (config.subReturn) {
+    // 没有subreturn时destroy所有非快捷入口view
+    if (viewInfo.subReturn) {
+      var prevViewInfo = this.getCurrentViewInfo();
+
+      if (prevViewInfo) {
+        viewInfo.parentId = prevViewInfo.initId;
+      }
 
       Global.entryRegion.currentView.update({
         initId: viewInfo.initId,
         router: viewInfo.router
       });
     } else {
-      viewInfo.parentId = Global.entryRegion.currentView.changeActiveInfo(viewInfo.initId, viewInfo.router);
+      this.destroyAllNotEntryView();
+      Global.entryRegion.currentView.changeActiveInfo(viewInfo.initId, viewInfo.router);
     }
+
+    this._pushView(viewInfo);
   },
 
   getById: function(initId) {
@@ -69,21 +75,38 @@ var PoolingModule = Base.Module.extend({
     });
   },
 
-  getBack: function() {
-    var current = this.getById(Global.entryRegion.currentView.getCurrent());
-    var parent = this.getById(current.parentId);
-    //var current = this._polling.pop();
+  _pushView: function(viewInfo) {
+    this.setCurrentViewInfo(viewInfo);
 
-    if (this._polling.length === 0 || !parent) {
+    this._polling.push(viewInfo);
+
+    Base.log(this._polling);
+  },
+
+  setCurrentViewInfo: function(viewInfo) {
+    this._currentViewInfo = viewInfo;
+  },
+
+  getCurrentViewInfo: function() {
+    return this._currentViewInfo;
+  },
+
+  getBack: function() {
+    // var current = this.getById(Global.entryRegion.currentView.getCurrent());
+    var currentViewInfo = this.getCurrentViewInfo();
+    var parentViewInfo = this.getById(currentViewInfo.parentId);
+
+    if (this._polling.length === 0 || !parentViewInfo) {
       return {
-        parentRouter: current.parentRouter
+        parentRouter: currentViewInfo.parentRouter
       };
     } else {
-      Global.entryRegion.currentView.changeActiveInfo(parent.initId, parent.router);
+      Global.entryRegion.currentView.changeActiveInfo(parentViewInfo.initId, parentViewInfo.router);
+      this.setCurrentViewInfo(parentViewInfo);
 
-      this.destroyView(current);
+      this.destroyView(currentViewInfo);
 
-      return parent;
+      return parentViewInfo;
     }
   },
 
@@ -99,13 +122,13 @@ var PoolingModule = Base.Module.extend({
   },
 
   pop: function() {
-    var current = this._polling.pop();
+    var currentViewInfo = this._polling.pop();
     var find;
 
     if (this._polling.length === 0) {
 
       find = _(this._polling).findWhere({
-        router: current.parentRouter
+        router: currentViewInfo.parentRouter
       });
       if (find) {
         return {
@@ -114,9 +137,7 @@ var PoolingModule = Base.Module.extend({
           view: find.view
         };
       } else {
-        return _(current).extend({
-          noParent: true
-        });
+        return currentViewInfo;
       }
     } else {
       return _(this._polling).last();
@@ -129,24 +150,13 @@ var PoolingModule = Base.Module.extend({
     });
   },
 
-  setCurrentView: function(view) {
-    this._currentView = view;
-    return this._currentView;
+  setCurrentSubRegion: function(view) {
+    this._currentSubRegion = view;
+    return this._currentSubRegion;
   },
 
-  getCurrentView: function() {
-    return this._currentView;
-  },
-
-  _getRootRouter: function(router) {
-    var rootRouter = router.match(/^(.*?)\//);
-    if (rootRouter) {
-      rootRouter = rootRouter[1];
-    } else {
-      rootRouter = router;
-    }
-
-    return rootRouter;
+  getCurrentSubRegion: function() {
+    return this._currentSubRegion;
   },
 
   removeById: function(initId) {
@@ -204,6 +214,10 @@ var PoolingModule = Base.Module.extend({
   destroyView: function(poll) {
     poll && poll.view && !poll.view.isDestroyed && poll.view.destroy();
     this._polling = _(this._polling).without(poll);
+  },
+
+  destroyAllNotEntryView: function() {
+
   }
 });
 

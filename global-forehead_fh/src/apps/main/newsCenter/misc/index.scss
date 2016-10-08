@@ -83,30 +83,9 @@
 
 .nc-setting-btn {
   position: relative;
-  margin-top: -47px;
+  margin-top: -54px;
   float: right;
-  padding: 0 10px;
-}
-.hint-message{
-  width: 100%;
-  height: 41px;
-  border: solid 1px #cccfcf;
-  border-radius: 4px;
-  box-shadow: 0px 2px 1px #EDEDED;
-  .hint-message-btn{
-    float: left;
-    background: url('./hint.png') no-repeat;
-    width: 21px;
-    height: 21px;
-    margin-left: 10px;
-    margin-top: 10px;
-  }
-  .hint-message-des{
-    line-height: 21px;
-    margin-left: 5px;
-    display: inline-block;
-    margin-top: 10px;
-  }
+  margin-right: -7px;
 }
 .il-detail {
   .nc-panel {
@@ -151,10 +130,6 @@
   line-height: 22px;
 }
 .nc-grid {
-  color:#562e0f;
-  position: relative;
-  height: 420px;
-
   tbody {
     tr {
       //border-bottom: 1px solid $gray-color !important;
@@ -177,12 +152,9 @@
       top: 12px;
     }
   }
-  .slimScrollDiv, .js-wt-body-main {
-    height: 580px;
-  }
 }
 
-.sfa-mes-read{
+.sfa-mes-read {
   background: url('./mailBtn-read.png') no-repeat;
   width: 21px;
   height: 21px;
@@ -190,7 +162,8 @@
   margin-right: 5px;
   float: left;
 }
-.sfa-mes-unRead{
+
+.sfa-mes-unRead {
   background: url('./mailBtn-unRead.png') no-repeat;
   width: 21px;
   height: 21px;
