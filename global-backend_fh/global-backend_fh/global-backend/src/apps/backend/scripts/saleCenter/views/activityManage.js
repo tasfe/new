@@ -224,6 +224,7 @@ define(function (require, exports, module) {
             var size = $target.data('type');
             var $dialog = Global.ui.dialog.show(
                 {
+                    size: 'modal-lg',
                     title: '编辑活动',
                     body: '<div class="js-il-edit-Activity"></div>',
                     footer: '<button class="js-il-edit-confirm btn btn-primary" style="width: 100px;margin-right: 20px;" type="commit">确定</button><button style="width: 100px;" class="btn" data-dismiss="modal">取消</button>'
