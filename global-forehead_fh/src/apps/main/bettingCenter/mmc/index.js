@@ -193,6 +193,8 @@ var BettingCenterView = Base.ItemView.extend({
     this.$WinStop = this.$('.js-bc-mmc-win-stop');
     this.$LotteryTimeShow = this.$('.js-bc-mmc-lottery-time-show');
 
+    this.$CurrPrize = this.$('.js-bc-mmc-lottery-curr-prize-show');
+
 
 
     this.initNumRange();
@@ -1370,36 +1372,28 @@ var BettingCenterView = Base.ItemView.extend({
   showWinResult: function(flag,prize,num){
     var $dialog;
     if(flag){
-      this.$CurrentResultMask.addClass('hidden');
-      this.$CurrentResult.removeClass('hidden');
-      $dialog = Global.ui.dialog.show({
-        body: this.betResultWinTpl({
-          prize:_(prize).convert2yuan(),
-          injection: num
-        }),
-        modalClass: 'bc-mmc-win-model'
-      });
-      $dialog.on('hidden.modal', function () {
-        $dialog.remove();
-      });
-      var timeout = setTimeout(function () {
-        $dialog.modal('hide');
-      }, 3000);
+      // this.$CurrentResultMask.addClass('hidden');
+      // this.$CurrentResult.removeClass('hidden');
+      // $dialog = Global.ui.dialog.show({
+      //   body: this.betResultWinTpl({
+      //     prize:_(prize).convert2yuan(),
+      //     injection: num
+      //   }),
+      //   modalClass: 'bc-mmc-win-model'
+      // });
+      // $dialog.on('hidden.modal', function () {
+      //   $dialog.remove();
+      // });
+      // var timeout = setTimeout(function () {
+      //   $dialog.modal('hide');
+      // }, 3000);
+
+      //显示中奖div,显示金额
+      this.$CurrPrize.removeClass('hidden');
+
 
     }else {
-      //this.$CurrentResult.addClass('hidden');
-      //this.$CurrentResult.html('<span></span>');
-      //$dialog = Global.ui.dialog.show({
-      //  body: this.betResultLoseTpl({
-      //  }),
-      //  modalClass: 'bc-mmc-lose-model'
-      //});
-      //$dialog.on('hidden.modal', function () {
-      //  $dialog.remove();
-      //});
-      //var timeout = setTimeout(function () {
-      //  $dialog.modal('hide');
-      //}, 3000);
+      //隐藏中奖div，清空金额
 
     }
   },
@@ -1417,9 +1411,9 @@ var BettingCenterView = Base.ItemView.extend({
         $dialog.on('hidden.modal', function () {
           $dialog.remove();
         });
-        // var timeout = setTimeout(function () {
-        //   $dialog.modal('hide');
-        // }, 3000);
+        var timeout = setTimeout(function () {
+          $dialog.modal('hide');
+        }, 3000);
       } else {
         var $dialog = Global.ui.dialog.show({
           body: this.betResultLoseTpl({}),
@@ -1428,9 +1422,9 @@ var BettingCenterView = Base.ItemView.extend({
         $dialog.on('hidden.modal', function () {
           $dialog.remove();
         });
-        // var timeout = setTimeout(function () {
-        //   $dialog.modal('hide');
-        // }, 3000);
+        var timeout = setTimeout(function () {
+          $dialog.modal('hide');
+        }, 3000);
       }
 
   },

@@ -632,6 +632,22 @@
         color: #fff;
       }
     }
+    .bc-mmc-lottery-curr-prize-show{
+      background: url(mmc-curr-prize-bg.png) no-repeat;
+      width: 330px;
+      height: 45px;
+      position: absolute;
+      top: -20px;
+      left: 392px;
+      width: 328px;
+      height: 40px;
+      line-height: 40px;
+      font-size: 24px;
+      font-weight: 500;
+      text-align: center;
+      font-size: 16px;
+    }
+
     .bc-lottery-preview {
       position: relative;
       background-color: #666666;
@@ -878,6 +894,9 @@
   text-align: center;
   .modal-dialog{
     border: 0;
+    .modal-content{
+      background-color: transparent !important;
+    }
   }
   .modal-body {
     background-color: transparent;
@@ -930,6 +949,9 @@
   }
   .modal-dialog{
     border: 0;
+    .modal-content{
+      background-color: transparent !important;
+    }
   }
   .modal-body {
     background-color: transparent;
@@ -1007,6 +1029,9 @@
   }
   .modal-dialog{
     border: 0;
+    .modal-content{
+      background-color: transparent !important;
+    }
   }
   .modal-body {
     background-color: transparent;

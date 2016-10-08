@@ -50,6 +50,8 @@ var MoneyWithdrawalView = Base.ItemView.extend({
       errorTemplate: '<div class="tooltip-inner">',
       trigger: 'change'
     });
+    this.acctInfo = Global.memoryCache.get('acctInfo');
+    this.$('.js-fc-wd-username').html(this.acctInfo.username)
 
     this.getInfoXhr()
       .always(function() {

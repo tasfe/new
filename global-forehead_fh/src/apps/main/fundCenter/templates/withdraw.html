@@ -1,31 +1,38 @@
 <form class="js-fc-wd-form  form-inline form-horizontal  row" action="javascript:void(0);" >
 
-    <div class="fc-wd-progress">
+    <!--<div class="fc-wd-progress">-->
 
-        <div class="fc-wd-pg-line"></div>
-        <div class="fc-wd-pg-round">1</div>
+        <!--<div class="fc-wd-pg-line"></div>-->
+        <!--<div class="fc-wd-pg-round">1</div>-->
 
-        <div class="fc-wd-pg-line1"></div>
-        <div class="fc-wd-pg-round1">2</div>
+        <!--<div class="fc-wd-pg-line1"></div>-->
+        <!--<div class="fc-wd-pg-round1">2</div>-->
 
-        <div class="fc-wd-pg-line1"></div>
-        <div class="fc-wd-pg-round1">√</div>
+        <!--<div class="fc-wd-pg-line1"></div>-->
+        <!--<div class="fc-wd-pg-round1">√</div>-->
 
-        <div class="fc-wd-pg-line1"></div>
+        <!--<div class="fc-wd-pg-line1"></div>-->
 
-    </div>
+    <!--</div>-->
 
-    <div class="fc-wd-progress">
-        <div class="fc-wd-title0">提现申请</div>
-        <div class="fc-wd-title">确认提现信息</div>
-        <div class="fc-wd-title">完成申请</div>
-    </div>
+    <!--<div class="fc-wd-progress">-->
+        <!--<div class="fc-wd-title0">提现申请</div>-->
+        <!--<div class="fc-wd-title">确认提现信息</div>-->
+        <!--<div class="fc-wd-title">完成申请</div>-->
+    <!--</div>-->
 
-    <div class="fc-wd-div0 text-left">
-        温馨提示:需消费充值及转账金额的20%，方可全额提现。新绑定的提款银行卡需要3小时后才能发起提款。每天限制提现为10次,您已提0次。
+    <div class="fc-wd-hint-message">
+        <i class="fc-wd-hint-message-btn sfa sfa-sys-setting font-md font-bold"></i>
+        <span class="fc-wd-hint-message-des">温馨提示:需消费充值及转账金额的20%，方可全额提现。新绑定的提款银行卡需要3小时后才能发起提款。每天限制提现为10次,您已提0次。</span>
     </div>
 
     <div class="fc-wd-div1">
+        <div class="control-group ">
+            <label class="control-label"> 用户名:</label>
+            <div class="controls">
+                <span class=""><span class="js-fc-wd-username"></span></span>
+            </div>
+        </div>
         <div class="control-group ">
             <label class="control-label"> 可用金额:</label>
             <div class="controls">
@@ -40,6 +47,11 @@
                     <input type="text" name="amount"  class="js-fc-wd-amount fc-wd-amount " autocomplete="off" required data-parsley-type="integer">
                     <span class="add-on">元</span>
                 </span>
+            </div>
+        </div>
+        <div class="control-group ">
+            <div class="controls">
+                <span class="fc-wd-limit-notice">单笔最低提现金额：<span class="js-fc-wd-limit-min"></span>,最高<span class="js-fc-wd-limit-amount"></span>元</span>
             </div>
         </div>
 
@@ -61,7 +73,7 @@
     <div class="m-bottom-md rc-seperate-line"></div>
 
     <div class="text-center  m-bottom-md fc-next-button">
-        <button type="button" class="js-fc-wd-commit btn fc-wd-commit">下一步</button>
+        <button type="button" class="js-fc-wd-commit btn  btn-pink btn-linear fc-wd-commit">下一步</button>
     </div>
 
     <!--<input type="hidden" name="token" value="<%=Global.memoryCache.get('acctInfo').token %>">-->
