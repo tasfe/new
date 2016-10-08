@@ -11,9 +11,6 @@ var PoolingModule = Base.Module.extend({
   _currentViewInfo: null,
 
   push: function(viewInfo, config) {
-    config = _(config || {}).defaults({
-      destroyDiff: false
-    });
 
     if (!viewInfo.initId) {
       viewInfo.initId = Number(_.uniqueId());
@@ -26,24 +23,9 @@ var PoolingModule = Base.Module.extend({
 
     if (samePool && samePool === _(this._pooling).last()) {
       this.destroyView(samePool);
-    } else {
-      // if (config.entry) {
-      //   //如果新增新非快捷入口，则删除前非快捷入口
-      //   var isExceed = Global.entryRegion.currentView.isExceed(viewInfo.router);
-      //
-      //   if (isExceed) {
-      //     var oldInitId = Global.entryRegion.currentView.delNotQuickEntry();
-      //     if (oldInitId) {
-      //       var exceedPool = this.getById(oldInitId);
-      //
-      //       this.destroyView(exceedPool);
-      //     }
-      //   }
-      // }
     }
 
-    // if (config.entry) {
-    // 没有subreturn时destroy所有非快捷入口view
+    // 没有sub return时destroy所有非快捷入口view
     if (viewInfo.subReturn) {
       var prevViewInfo = this.getCurrentViewInfo();
 
@@ -206,7 +188,14 @@ var PoolingModule = Base.Module.extend({
   },
 
   destroyAllNotEntryView: function() {
-
+    var entryList = Global.entryRegion.currentView.getEntryList();
+    var initIds = _(entryList).pluck('initId');
+    var uselessViewList = _(this._pooling).filter(function(viewInfo) {
+      return !_(initIds).contains(viewInfo.initId);
+    });
+    _(uselessViewList).each(function(viewInfo) {
+      this.destroyView(viewInfo);
+    }, this);
   }
 });
 

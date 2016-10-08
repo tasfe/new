@@ -369,6 +369,10 @@ var EntryView = Base.ItemView.extend({
     }
   },
 
+  getEntryList: function() {
+    return this.model.getEntryList();
+  },
+
   isExceed: function(router) {
     return !this.model.isQuick(router);
   },
