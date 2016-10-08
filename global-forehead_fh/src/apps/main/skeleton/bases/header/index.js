@@ -32,7 +32,7 @@ var HeaderView = Base.ItemView.extend({
     //'click .js-letterList-titleLine': 'bindMessageUserList',
 
     'click  .js-h-security': 'accountSecurityHandler',
-    'click  .js-system-notice': 'platformNewsHandler',
+    // 'click  .js-system-notice': 'platformNewsHandler',
     'click  .js-head-info-close': 'headInfoCloseHandler'
   },
 
@@ -76,20 +76,19 @@ var HeaderView = Base.ItemView.extend({
     }
   },
 
-  platformNewsHandler: function() {
-    var platformNewsView = new PlatformNewsView();
-    var $dialog = Global.ui.dialog.show({
-      title: '系统消息',
-      size: 'modal-lg',
-      body: '<div  style="background-color: #fff;" class="js-platformNews-container"></div>',
-      bodyClass: 'nc-platformNews-dialog'
-    });
-    $dialog.find('.nc-platformNews-dialog').removeClass('modal-body');
-    $dialog.find('.js-platformNews-container').html(platformNewsView.render().el);
-    $dialog.on('hidden.modal', function () {
-      $(this).remove();
-    });
-  },
+  // platformNewsHandler: function() {
+  //   var platformNewsView = new PlatformNewsView();
+  //   var $dialog = Global.ui.dialog.show({
+  //     title: '系统消息',
+  //     size: 'modal-lg',
+  //     body: '<div class="js-platformNews-container"></div>'
+  //   });
+  //   $dialog.find('.nc-platformNews-dialog').removeClass('modal-body');
+  //   $dialog.find('.js-platformNews-container').html(platformNewsView.render().el);
+  //   $dialog.on('hidden.modal', function () {
+  //     $(this).remove();
+  //   });
+  // },
 
   // systemNoticeHandler: function() {
   //   var $dialog = Global.ui.dialog.show({

@@ -29,8 +29,8 @@ var ActiveCenterView = Base.ItemView.extend({
     this.pagination = this.$pagination.pagination('instance');
 
     this.renderActiveGrid(0, self.$type);
-
   },
+
   getActiveXhr: function (data) {
     return Global.sync.ajax({
       url: '/info/activitylist/getactivitylist.json',

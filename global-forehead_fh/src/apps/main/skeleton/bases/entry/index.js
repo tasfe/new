@@ -488,7 +488,7 @@ var EntryView = Base.ItemView.extend({
           }
         });
     });
-  },
+  }
 
 
 });

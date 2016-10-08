@@ -29,6 +29,10 @@ $portlet-padding-bottom: 10px;
 
   .portlet-option {
     float: right;
+
+    &.portlet-nav {
+      margin: 10px 10px 0 0;
+    }
     .btn {
       //height: 32px;
       padding: 5px 10px;
