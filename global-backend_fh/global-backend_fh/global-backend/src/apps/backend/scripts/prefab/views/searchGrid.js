@@ -137,7 +137,7 @@ define(function(require, exports, module) {
 
       filters.pageIndex = Number(filters.pageIndex);
 
-      if (filters.pageSize) {
+      if ((filters.pageSize  && this.options.pagination )|| ( filters.pageSize  && this.options.pagination==undefined )) {
         this.grid.setPageSize(filters.pageSize);
       }
 

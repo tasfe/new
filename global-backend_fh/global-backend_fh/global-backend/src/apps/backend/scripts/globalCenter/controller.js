@@ -8,6 +8,8 @@ define(function (require, exports, module) {
 
   var BlackListOfIPManageView = require('globalCenter/views/blackListOfIPManage');
 
+  var DomainNameManagementView = require('globalCenter/views/domainNameManagement');
+
   var GlobalCenterController = RouterController.extend({
 
     registerAndLogin: function() {
@@ -19,6 +21,9 @@ define(function (require, exports, module) {
     },
     blackListOfIP: function() {
       this.changeMainReginView(new BlackListOfIPManageView());
+    },
+    domainNameManagement: function() {
+      this.changeMainReginView(new DomainNameManagementView());
     }
 
   });

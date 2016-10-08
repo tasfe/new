@@ -39,13 +39,13 @@ define(function (require, exports, module) {
             });
         },
         renderBaseInfo: function (root) {
-            if(root && root.goldUser && _(root.goldUser).size()==4){
+            if(root && root.goldUser && _(root.goldUser).size()==3){
                 var quotaNumArr = _(root.goldUser).sort(function(item){
                     return -item.rebate;
                 });
-                this.$('.js-uc-qm-quotaThree').val(  quotaNumArr[0].quotaNum );
-                this.$('.js-uc-qm-quotaFour').val(  quotaNumArr[1].quotaNum );
-                this.$('.js-uc-qm-quotaFive').val( quotaNumArr[2].quotaNum);
+                this.$('.js-uc-qm-quotaThree').val(quotaNumArr[0].quotaNum );
+                this.$('.js-uc-qm-quotaFour').val(quotaNumArr[1].quotaNum );
+                this.$('.js-uc-qm-quotaFive').val(quotaNumArr[2].quotaNum);
             }
         },
 

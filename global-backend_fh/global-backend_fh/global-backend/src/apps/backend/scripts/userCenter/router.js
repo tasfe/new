@@ -17,8 +17,8 @@ define(function(require, exports, module) {
       'uc/tu': 'enabledUserListView',//????????
       'uc/ru': 'recycleUserListView',//??????????
       'uc/cu': 'resetUserListView',//??????????
-      'uc/qm': 'quotaManage'
-
+      'uc/qm': 'quotaManage',
+      'uc/mm':'newMerMaster' // 招商号开户
 
     });
 

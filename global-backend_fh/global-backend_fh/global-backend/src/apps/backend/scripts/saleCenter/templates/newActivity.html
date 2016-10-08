@@ -10,10 +10,17 @@
         </div>
       </div>
     <div class="form-group form-inline">
-      <label class="col-sm-3 control-label">主题：</label>
+      <label class="col-sm-3 control-label">活动主题：</label>
       <div class="col-sm-9">
           <input name="title" type="text" class="js-cc-title form-control" required style="width: 200px;" data-parsley-zhMaxLength="20" data-parsley-someSpecialChar >
           <span class="help-inline">限20个字</span>
+      </div>
+    </div>
+    <div class="form-group form-inline">
+      <label class="col-sm-3 control-label">活动介绍：</label>
+      <div class="col-sm-9">
+        <input name="title" type="text" class="js-cc-des form-control" required style="width: 200px;" data-parsley-zhMaxLength="50" data-parsley-someSpecialChar >
+        <span class="help-inline">限50个字</span>
       </div>
     </div>
     <div class="form-group form-inline">
@@ -37,6 +44,15 @@
         <div class="js-cc-singleUser-container" >
           <span class="js-cc-timeset"></span>
         </div>
+      </div>
+    </div>
+    <div class="form-group form-inline">
+      <label class="col-sm-3 control-label">内容：</label>
+
+      <div class="col-sm-9">
+        <div id="uploadBUContainer">
+        </div>
+        <textarea id="textarea1" style='height:300px; width:100%;' class="js-cc-content" data-parsley-zhMaxLength="20000"   required></textarea>
       </div>
     </div>
     <div class="form-group">
