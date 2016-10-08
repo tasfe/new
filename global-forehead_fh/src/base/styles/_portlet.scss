@@ -7,6 +7,8 @@ $portlet-padding-bottom: 10px;
   overflow: hidden;
   box-shadow: 0 1px 1px 0 rgba(5, 5, 5, 0.1);
 
+  min-height: 648px;
+
   .portlet-header {
     padding: 8px $portlet-padding-bottom;
     line-height: 26px;
@@ -39,7 +41,6 @@ $portlet-padding-bottom: 10px;
       vertical-align: top;
       margin-left: 5px;
       margin-top: -1px;
-      font-size: $font-sm;
     }
   }
 

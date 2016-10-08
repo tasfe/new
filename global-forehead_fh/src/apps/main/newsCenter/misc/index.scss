@@ -40,16 +40,18 @@
     background-color:#cb6798;
     float: left;
     width: 25%;
+    padding-left: 0;
     .setting-group {
-      width: 100px;
+      width: 50%;
     }
   }
   .setting:last-child {
     background-color:#7ebc79;
     float: right;
     width: 25%;
+    padding-left: 0;
     .setting-group {
-      width: 100px;
+      width: 50%;
     }
   }
   .setting {
@@ -70,12 +72,14 @@
     float: right;
     height: 100%;
     border-left: 1px solid rgba(238,238,238,0.3);
-    width: 240px;
+    width: 60%;
+    padding-left: 10%;
     text-align: left;
 
     .setting-tab {
       margin: 10px;
-      color: #fff;
+      color: $white-color;
+      width: 120px;
       display: inline-block;
     }
   }
@@ -83,9 +87,9 @@
 
 .nc-setting-btn {
   position: relative;
-  margin-top: -54px;
+  margin-top: -53px;
   float: right;
-  margin-right: -7px;
+  margin-right: -8px;
 }
 .il-detail {
   .nc-panel {

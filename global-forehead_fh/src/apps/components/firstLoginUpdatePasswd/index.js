@@ -37,9 +37,6 @@ var FirstLoginUpdatePasswd = Base.ItemView.extend({
       })
       .always(function() {
         $('.js-firstLoginUpdatePasswd .js-affirm').text('确认');
-      })
-      .fail(function () {
-        Global.ui.notification.show('网络报错！');
       });
     }
   },
