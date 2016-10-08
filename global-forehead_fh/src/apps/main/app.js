@@ -3,7 +3,7 @@
 var HeaderView = require('skeleton/bases/header');
 var NavbarView = require('skeleton/bases/navbar');
 var RechargeView = require('fundCenter/views/recharge');
-// var DesktopNewsView = require('skeleton/bases/desktopNews');
+var DesktopNewsView = require('skeleton/bases/desktopNews');
 // var InsideLetterView = require('skeleton/bases/insideLetter');
 var EntryView = require('skeleton/bases/entry');
 var FooterView = require('com/footer');
@@ -32,7 +32,7 @@ App.addRegions({
   topRegin: '#topProfile',
   // newbieRegin: '#newbie',
   //insideLetterRegion: '#insideLetter',
-  // desktopNewsRegion: '#desktopNews',
+  desktopNewsRegion: '#desktopNews',
   footerRegin: '#footer'
 });
 
@@ -50,7 +50,7 @@ App.addInitializer(function(options) {
     model: entryModel
   }));
 
-  // App.desktopNewsRegion.show(new DesktopNewsView());
+  App.desktopNewsRegion.show(new DesktopNewsView());
 
   // $('body').append(new RainActivity().render().$el);
 
