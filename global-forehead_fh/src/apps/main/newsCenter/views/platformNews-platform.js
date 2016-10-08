@@ -31,15 +31,12 @@ var PlatformNewsPlatformView = Base.ItemView.extend({
     _(this.options).extend({
       columns: [
         {
-          //name: '主题',
           width: '800px;'
         },
         {
-          //name: '时间',
           width: '200px;'
         }
       ],
-      height: 590,
       gridOps: {
         emptyTip: '没有消息'
       },
@@ -67,7 +64,7 @@ var PlatformNewsPlatformView = Base.ItemView.extend({
     var self = this;
     $grid.grid({
       tableClass: 'table table-unbordered  no-margin nc-platform-table' ,
-      height:420,
+      height:470,
       checkable: true,
       checkableWidth: '40px',
       tip: this.options.tip,
