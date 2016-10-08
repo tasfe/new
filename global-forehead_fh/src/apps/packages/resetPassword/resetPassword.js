@@ -723,7 +723,7 @@ $.widget('gl.resetPassword', {
       type: 'POST',
       url: '/acct/usermsg/validSecurity.json',
       data: {
-        username: $('.panel02 div span').html()
+        userName: $('.panel02 div span').html()
       }
     });
   },

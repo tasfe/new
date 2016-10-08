@@ -58,7 +58,7 @@ define(function (require, exports, module) {
                 Global.sync.ajax({
                     url: '/intra/activitymanage/saveactivity.json',
                     data: {
-                        bannerUrl: this.$('.js-cc-url').val(),
+                        bannerUrl: '',
                         bannerPicUrl: this.$('.js-wt-img-attach').attr('src'),
                         activityTitle: this.$('.js-cc-title').val(),
                         startTime: this.$('.js-start-time').val(),
