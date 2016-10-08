@@ -1,0 +1,40 @@
+{
+  "result":0,
+  "msg":"ok",
+  "sign":null,
+  "root":[
+    {
+      "noticeId":94253,
+      "title": "活动金到账",
+      "content":"​恭喜您在<rc>分分彩20160818-0723期</rc>中奖，金额：<gc>174.20。</gc>",
+      "type":3,
+      "time":1471492982155,
+      "systemNoticeId":null,
+      "isRead":0
+    },{
+      "noticeId":94255,
+      "title": "分红同志",
+      "content":"您参与的<rc>红包大作战</rc>活动奖金<gc>888</gc>元已成功到账，请注意查收！",
+      "type":3,
+      "time":1471492982169,
+      "systemNoticeId":null,
+      "isRead":0
+    },{
+      "noticeId":94256,
+      "title": "中奖了",
+      "content":"恭喜您在<rc>分分彩20160818-0988期</rc>中奖，金额：<gc>10.6</gc>元。",
+      "type":3,
+      "time":1471492982169,
+      "systemNoticeId":null,
+      "isRead":0
+    },{
+      "noticeId":94253,
+      "title": "佣金到账",
+      "content":"您7月1日应得<rc>日工资</rc><gc>20000.00</gc>元已经成功到账，请注意查收。",
+      "type":3,
+      "time":1471492982155,
+      "systemNoticeId":null,
+      "isRead":0
+    }
+  ]
+}

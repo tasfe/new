@@ -39,7 +39,6 @@ $portlet-padding-bottom: 10px;
       vertical-align: top;
       margin-left: 5px;
       margin-top: -1px;
-      font-size: $font-sm;
     }
   }
 
@@ -64,4 +63,15 @@ $portlet-padding-bottom: 10px;
   }
 
   @include portlets($portlets);
+}
+
+.portlet-side-main {
+
+  > .portlet-header {
+    height: 25px;
+    line-height: 25px;
+  }
+}
+.portlet-main {
+  min-height: 648px;
 }

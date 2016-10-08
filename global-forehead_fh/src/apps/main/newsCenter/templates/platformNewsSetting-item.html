@@ -7,7 +7,7 @@
     <% _(confList).each(function(item) { %>
     <% var unique = _.uniqueId() %>
     <div class="setting-tab">
-      <div class="custom-checkbox">
+      <div class="custom-checkbox checkbox-inverse">
         <input type="checkbox" id="<%=unique %>" class="inbox-check" name="noticeList[]" value="<%=item.confId %>">
         <label class="checkbox-label" for="<%=unique %>"></label>
       </div>

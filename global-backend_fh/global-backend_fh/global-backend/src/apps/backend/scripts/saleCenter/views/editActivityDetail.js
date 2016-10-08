@@ -27,11 +27,14 @@ define(function (require, exports, module) {
                     var option = {userLevel:res.root.userLevel,disabled:1};
                     var rebateRightView = new RebateRightView(option);
                     self.$('.js-cm-edit-form').prepend(rebateRightView.render().$el);
-                    if(res.root.type==1){
-                    self.$('.js-cm-type').html('<span>日常活动</span>');
+                    if(res.root.type==0){
+                        self.$('.js-cm-type').html('<span>代理活动</span>');
+                    }
+                    else if(res.root.type==1){
+                    self.$('.js-cm-type').html('<span>彩票活动</span>');
                     }
                     if(res.root.type==2){
-                        self.$('.js-cm-type').html('<span>大型活动</span>');
+                        self.$('.js-cm-type').html('<span>真人娱乐</span>');
                     }
                     self.$('.js-cm-title').val(res.root.activityTitle);
                     self.$('.js-cm-actUrl').val(res.root.bannerUrl);
@@ -41,7 +44,7 @@ define(function (require, exports, module) {
                     self.type=res.root.type;
                     self.$('.js-cm-arManageUpload-btn').imgBar({imgList:(res.root.bannerPicUrl).split(',')});
                     self.$('.js-cm-des').val(res.root.des);
-                    self.$('.js-cm-des').val(res.root.content);
+                    self.$('.js-cm-content').val(res.root.content);
                 }else {
                     Global.ui.notification.show('数据异常。');
                 }
@@ -76,7 +79,7 @@ define(function (require, exports, module) {
             return Global.sync.ajax({
                     url: '/intra/activitymanage/modifyactivity.json',
                     data: {
-                        bannerUrl:this.$('.js-cm-actUrl').val(),
+                        bannerUrl:'',
                         bannerPicUrl:this.$('.js-wt-img-attach').attr('src'),
                         activityTitle:this.$('.js-cm-title').val(),
                         startTime:this.$('.js-start-time').val(),

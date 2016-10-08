@@ -6,14 +6,14 @@ var banks = [
     id: 1,
     zhName: '招商银行',
     pic: require('base/images/bank/userCenter/zhaoshang.png'),
-    logo: require('./zhaoshang.png'),
+    logo: require('base/images/bank/fundCenter/zhaoshang.png'),
     className: 'fc-re-bank-zhaoshang'
   },
   {
     id: 2,
     zhName: '工商银行',
     pic:  require('base/images/bank/userCenter/gongshang.png'),
-    logo: require('./gongshang.png'),
+    logo: require('base/images/bank/fundCenter/gongshang.png'),
     className: 'fc-re-bank-gongshang'
   },
   {
