@@ -68,7 +68,7 @@ define(function(require, exports, module) {
 
   var DoubleSevenCfgView = require('saleCenter/views/activity-doubleSevenCfg');
   var DoubleSevenDetailView = require('saleCenter/views/activity-doubleSevenDetail');
-
+  var BonusConfView = require('saleCenter/views/bonusConf');
 
   var SaleCenterController = RouterController.extend({
 
@@ -245,6 +245,9 @@ define(function(require, exports, module) {
     },
     doubleSevenDetail:function(){
       this.changeMainReginView(new DoubleSevenDetailView());
+    },
+    bonusConf:function(){
+      this.changeMainReginView(new BonusConfView());
     }
 
   });

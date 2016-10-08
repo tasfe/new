@@ -67,8 +67,8 @@ define(function(require, exports, module) {
       'sc/bri':'betRebateDetail',
 
       'sc/dsc':'doubleSevenCfg',
-      'sc/dsd':'doubleSevenDetail'
-
+      'sc/dsd':'doubleSevenDetail',
+      'sc/sf/conf':'bonusConf'
 
     });
 
