@@ -209,10 +209,8 @@ var CardManageView = Base.ItemView.extend({
 
       if(bankInfo){
         card.pic = bankInfo.pic;
-        card.lockPic = bankInfo.lockPic;
       }else{
         card.pic = '';
-        card.lockPic = '';
       }
 
       return this.itemTpl({

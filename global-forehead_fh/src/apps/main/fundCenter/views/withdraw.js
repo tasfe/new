@@ -41,7 +41,7 @@ var MoneyWithdrawalView = Base.ItemView.extend({
 
   onRender: function() {
     var self = this;
-    this.$('.js-fc-wd-payPwd').val(this.options.payPwd);
+    // this.$('.js-fc-wd-payPwd').val(this.options.payPwd);
     this.$form = this.$('.js-fc-wd-form');
     this.$QuickAmountContainer = this.$('.js-fc-wd-quickAmounts');
     this.$cardList = this.$('.js-fc-wd-bankList');
@@ -50,8 +50,18 @@ var MoneyWithdrawalView = Base.ItemView.extend({
       errorTemplate: '<div class="tooltip-inner">',
       trigger: 'change'
     });
+    this.$TimeLimit = this.$('.js-fc-wd-times-limit');
+    this.$TimeUsed = this.$('.js-fc-wd-times-used');
+    this.$AmountMin = this.$('.js-fc-wd-amount-limit-min');
+    this.$AmountMax = this.$('.js-fc-wd-amount-limit-max');
     this.acctInfo = Global.memoryCache.get('acctInfo');
-    this.$('.js-fc-wd-username').html(this.acctInfo.username)
+    this.$('.js-fc-wd-username').html(this.acctInfo.username);
+
+    //TODO 待修改
+    this.$ConfirmBank = this.$('.js-fc-wd-confirm-bank');
+    this.$CustomerName = this.$('.js-fc-wd-confirm-customerName');
+    this.$BankNo = this.$('.js-fc-wd-confirm-bankNo');
+    this.$Amount = this.$('.js-fc-wd-confirm-amount');
 
     this.getInfoXhr()
       .always(function() {
@@ -78,6 +88,8 @@ var MoneyWithdrawalView = Base.ItemView.extend({
 
     this.$quest = data.question;
     this.$securityId = data.securityId;
+    this.$TimeLimit.html(data.confNum);
+    this.$TimeUsed.html(data.confNum - data.remainTimes);
 
   },
   generateQuickAmount: function(keyAmount) {
@@ -117,7 +129,7 @@ var MoneyWithdrawalView = Base.ItemView.extend({
         var bankInfo = bankConfig.get(card.bankId);
         var valMin = _(card.minMoneyLimit).convert2yuan();
         var valMax = _(card.maxMoneyLimit).convert2yuan();
-        return '<option value="' + card.cardId + '" data-min=' + valMin + ' data-max=' + valMax + '>' + card.cardNo + ' ' + card.name + (card.canWithdraw ? '' : '(不可用)') + '</option>';
+        return '<option value="' + card.cardId + '" data-min=' + valMin + ' data-max=' + valMax + '>'+card.bankName+ ' '+ card.cardNo + ' ' + (card.canWithdraw ? '' : '(不可用)') + '</option>';
       }, this).join(''));
     }
     this.$('.js-fc-wd-bankList').trigger('change');
@@ -136,6 +148,8 @@ var MoneyWithdrawalView = Base.ItemView.extend({
     }
     self.$('.js-fc-wd-amount').attr('data-parsley-range', '[' + valMin + ',' + valMax + ']');
     // this.$btnSubmit.removeAttr('disabled');
+    this.$AmountMin.html(valMin);
+    this.$AmountMax.html(valMax);
     this.parsley.reset();
   },
 
@@ -145,8 +159,7 @@ var MoneyWithdrawalView = Base.ItemView.extend({
     // var $btnConfirm = this.$('.js-fc-confirm');
     //
     // $btnConfirm.button('loading');
-    
-    
+
     if (!this.parsley.validate()) {
       return false;
     }
