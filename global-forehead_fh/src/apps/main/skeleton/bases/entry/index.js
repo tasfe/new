@@ -142,27 +142,8 @@ var EntryView = Base.ItemView.extend({
       }
       else{
         sessionStorage.setItem('opacity',1);
-        $('.global-main').css('opacity',0);
-        $('.global-main').animate({opacity: 1}, 1000);
-      }
-
-      var strType = strHash.slice(0,3);
-      if (strType == '#ac' || strType == '#uc') {
-        if ( strType == '#uc' ) {
-          var strType2 = strHash.slice(4);
-          if (strType2 == 'rr' || strType2 == 'wr' || strType2 == 'ad' || strType2 == 'br' || strType2 == 'tr' || strType2 == 'rm' || strType2 == 'bac') {
-             $('.js-publicTeamData').removeClass('hidden');
-          }
-          else{
-            $('.js-publicTeamData').addClass('hidden');
-          }
-        }
-        else{
-          $('.js-publicTeamData').removeClass('hidden');
-        }
-      }
-      else{
-        $('.js-publicTeamData').addClass('hidden');
+        Global.mainRegin.currentView.$el.css('opacity',0);
+        Global.mainRegin.currentView.$el.animate({opacity: 1}, 500);
       }
 
       if (strHash=='' || strHash.slice(1) == 'gc') {

@@ -105,7 +105,6 @@
 
   > {
     li {
-      margin-bottom: -2px;
       > a {
         color: $font-color-coffee;
         line-height: 20px;
@@ -121,9 +120,10 @@
     }
   }
   &.nav-tabs-border {
-    background: $white-color;
+    //background: $white-color;
     li {
       margin-top: 10px;
+      margin-bottom: -2px;
       > a {
         border-top-right-radius: $globalBtnRadius;
         border-top-left-radius: $globalBtnRadius;
@@ -175,6 +175,7 @@
     margin-bottom: 0;
     li{
       margin-right: 2px;
+      margin-bottom: -1px;
       a{
         border: 1px solid $gray-color;
         border-radius: 5px 5px 0 0;

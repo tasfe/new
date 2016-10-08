@@ -33,7 +33,7 @@ var DialogModule = Base.Module.extend({
     html.push(id);
     html.push('" tabindex="-1" role="dialog" aria-labelledby="' + id + 'Label"  aria-hidden="true">');
     html.push('<div class="modal-dialog">');
-    html.push('<div class="modal-content">');
+    html.push('<div class="modal-content clearfix">');
 
     if (options.title) {
       if (options.size == 'modal-info-julien') {

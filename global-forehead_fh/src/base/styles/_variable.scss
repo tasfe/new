@@ -221,8 +221,9 @@ $squares: (
 $input-widths: (
   xs: 60px,
   sm: 90px,
+  smd: 100px,
   md: 134px,
-  lg: 210px,
+  lg: 186px,
   jb: 270px
 );
 
@@ -238,10 +239,10 @@ $inputs: (
     bg-color: transparent,
     border-color: $inverse-border-color
   ),
-  black: (
-    color: $new-black-color,
+  amber: (
+    color: $color-amber,
     bg-color: transparent,
-    border-color: $light-color
+    border-color: $gray-color
   )
 );
 
@@ -252,14 +253,14 @@ $select: (
     color: $font-color,
     background: url(~base/images/select-caret.png) no-repeat scroll 97% center transparent
   ),
+  amber: (
+    border-color: $gray-color,
+    color: $color-amber,
+    background: url(~base/images/select-caret.png) no-repeat scroll 97% center transparent
+  ),
   inverse: (
     border-color: $light-color,
     color: $color-amber,
-    background: url(~base/images/select-caret-black.png) no-repeat scroll 97% center transparent
-  ),
-  black: (
-    border-color: $light-color,
-    color: $new-black-color,
     background: url(~base/images/select-caret-black.png) no-repeat scroll 97% center transparent
   )
 );
@@ -291,10 +292,10 @@ $basics: (
     input: map_get($inputs, default),
     disabled: map_get($disabled, default)
   ),
-  white: (
-    select: map_get($select, inverse),
-    input: map_get($inputs, inverse),
-    disabled: map_get($disabled, inverse),
+  amber: (
+    select: map_get($select, amber),
+    input: map_get($inputs, amber),
+    disabled: map_get($disabled, default),
     bg-color: #ffffff,
     color: $color-amber
   ),
@@ -375,29 +376,26 @@ $btns: (
   hot: (
     color: $white-color,
     bg-color: $color-hot,
-    linear-color: linear-gradient(to bottom, #ed584d, #bb261b),
-    border-color: #ed584d,
+    linear-color: linear-gradient(to bottom, $white-color, #e8213f 5%, #bd3358),
+    border-color: #b4497a,
     hover: (
       color: $white-color,
-      bg-color: $color-hot,
-      linear-color: linear-gradient(to bottom, #ed584d, #bb261b),
+      bg-color: $color-hot
     ),
     focus: (
       color: $white-color,
-      bg-color: $color-hot,
-      linear-color: linear-gradient(to bottom, #ed584d, #bb261b),
+      bg-color: $color-hot
     ),
     active: (
       color: $white-color,
-      bg-color: $color-hot,
-      linear-color: linear-gradient(to bottom, #ed584d, #bb261b),
+      bg-color: $color-hot
     )
   ),
   pink: (
     color: $white-color,
     bg-color: $pink-color,
     border-color: #bb5283,
-    linear-color: linear-gradient(to bottom, $white-color, #CA6496 5%, #b64d7e),
+    linear-color: linear-gradient(to bottom, $white-color, #ca6496 5%, #b64d7e),
     hover: (
       color: $white-color,
       bg-color: $pink-color
@@ -558,16 +556,23 @@ $portlets: (
     border-color: $gray-color,
     body-bg: $white-color,
     body-color: $font-color
+  ),
+  amber: (
+    header-bg: $white-color,
+    header-color: $color-amber,
+    border-color: $gray-color,
+    body-bg: $white-color,
+    body-color: $font-color
   )
 );
 
 //alert
 $alerts: (
   default: (
-    bg-color: $deep-gray-color,
-    color: $dark-color
+    bg-color: $white-linear-color,
+    border-color: $gray-color,
+    color: $color-amber
   ),
-
   warning: (
     bg-color: #fcf8e3,
     color: $main-deep-color

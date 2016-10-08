@@ -684,16 +684,7 @@
             }
           }
         }
-        .bc-mmc-result-lost-total {
-          background: url('mmc_loser.png') no-repeat;
-          position: absolute;
-          width: 469px;
-          height: 197px;
-          margin: 43px 0 0 271px;
-          padding: 143px 0 0 0;
-          text-align: center;
-          z-index: 2;
-        }
+
       }
 
       .bc-mmc-link-bet-record {
@@ -718,6 +709,7 @@
       }
       td{
         border:0;
+        height:22px;
       }
       .icon-block {
         background-color: #fff;
@@ -880,16 +872,19 @@
 //秒秒彩样式
 .bc-mmc-lose-model {
   width: 1000px !important;
+  margin-top: -30px;
   margin-left: -500px !important;
-  padding-top: 38px;
+  padding-top: 24px;
   text-align: center;
+  .modal-dialog{
+    border: 0;
+  }
   .modal-body {
     background-color: transparent;
   }
   .bc-mmc-result{
-    background: url('mmc_loser.png') top center repeat-y;
+    background: url('mmc-loser.png') no-repeat top center;
     height: 430px;
-    margin-top: -200px;
   }
   .bc-mmc-result-choose{
     height: 40px;
@@ -916,9 +911,86 @@
 }
 .bc-mmc-win-model {
   width: 360px !important;
-  height: 86px;
+  height: 120px;
   margin-left: -180px !important;
   padding-top: 18px;
+  text-align: center;
+
+  .bc-mmc-win-curr-bg{
+    position: fixed;
+    height: 906px;
+    width: 100%;
+    left: 48px;
+    top: 0;
+    z-index: 0;
+    background-color: transparent;
+    background-image: url(mmc-win-curr.png);
+    background-repeat: no-repeat;
+    background-position: center 0px;
+  }
+  .modal-dialog{
+    border: 0;
+  }
+  .modal-body {
+    background-color: transparent;
+    padding: 20px 20px 0;
+  }
+  .bc-mmc-result{
+    .bc-mmc-win-result{
+      width: 330px !important;
+      height: 60px;
+      line-height: 30px;
+      position: relative;
+      //background-color: #fff;
+      color: #fff;
+      //border-radius: 10px;
+      //border: 2px solid #ca3532;
+
+      font-size: 23px;
+
+      .bc-mmc-win-injection{
+        font-size: 16px;
+      }
+      .bc-mmc-win-title-price{
+        font-size: 16px;
+      }
+      .bc-mmc-win-price{
+
+        color: #f3c189;
+        font-size: 20px;
+      }
+    }
+  }
+  .bc-mmc-result-choose{
+    height: 40px;
+    font-size: 14px;
+    .bc-mmc-result-bet-again{
+      width: 130px;
+      height: 43px;
+      border: 1px solid #ff6600;
+      background-color: #ff6600;
+      margin-left: 0px;
+      color: #ffffff;
+      font-size: 23px;
+    }
+    .bc-mmc-result-choose-again{
+      width: 130px;
+      height: 43px;
+      border: 1px solid #cb7d54;
+      background-color: #cb7d54;
+      margin-left: 0px;
+      color: #ffffff;
+      font-size: 23px;
+    }
+  }
+}
+
+.bc-mmc-win-total-model {
+  width: 710px !important;
+  height: 509px;
+  margin-top: -187px !important;
+  margin-left: -338px !important;
+  padding-top: 0px;
   text-align: center;
 
   .bc-mmc-win-curr-bg{
@@ -938,19 +1010,30 @@
   }
   .modal-body {
     background-color: transparent;
+    padding: 0;
   }
   .bc-mmc-result{
-    .bc-mmc-win-result{
+    background: url(mmc-win-end.png) no-repeat;
+    width: 710px !important;
+    height: 509px;
+    .bc-mmc-win-total-result{
       width: 330px !important;
+      margin: 0 174px ;
+      padding-top: 265px;
       height: 60px;
       line-height: 60px;
       position: relative;
-      background-color: #fff;
-      color: #000;
-      border-radius: 10px;
+      //background-color: #fff;
+      //color: #000;
+      //border-radius: 10px;
+      //border: 2px solid #ca3532;
 
-      font-size: 23px;
-      .bc-mmc-win-injection{
+      .bc-mmc-win-total-price-container{
+        font-size: 23px;
+        padding: 222px auto 0;
+        color: #fff;
+      }
+      .bc-mmc-win-title-price{
         font-size: 12px;
         color: #000;
       }

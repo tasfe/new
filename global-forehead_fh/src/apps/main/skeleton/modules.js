@@ -22,6 +22,7 @@ var OauthMediatorModule = require('skeleton/modules/mediator/oauth');
 var MessageMediatorModule = require('skeleton/modules/mediator/message');
 var RainActivityModule = require('skeleton/modules/mediator/rainActivity');
 var DriftActivityModule = require('skeleton/modules/mediator/driftActivity');
+var NewsMediatorModule = require('skeleton/modules/mediator/news');
 
 exports.install = function() {
   window.Global.module('viewPool', ViewPollModule);
@@ -44,7 +45,7 @@ exports.install = function() {
   window.Global.module('ui.notification', NotificationModule);
 
   window.Global.module('m.message', MessageMediatorModule);
-  //window.Global.module('m.news', NewsMediatorModule);
+  window.Global.module('m.news', NewsMediatorModule);
   window.Global.module('m.oauth', OauthMediatorModule);
   window.Global.module('m.rainActivity', RainActivityModule);
   window.Global.module('m.driftActivity', DriftActivityModule);

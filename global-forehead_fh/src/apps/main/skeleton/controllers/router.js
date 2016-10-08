@@ -14,10 +14,10 @@ var globalViewList = {
 var SideMenuMainView = Base.LayoutView.extend({
   className: 'clearfix',
   template: '<div class="portlet">' +
-  '<div class="portlet-header no-padding">' +
+  '<div class="portlet-header no-padding no-border">' +
   '<div class="js-gl-sidebar"></div>' +
   '</div>' +
-  '<div class="js-gl-main content-bock"></div>' +
+  '<div class="js-gl-main portlet-body"></div>' +
   '</div>'
 });
 
@@ -92,8 +92,10 @@ var RouterController = Base.Controller.extend({
 
       if (ops) {
         config.main.type = 'side-main no-shadow';
-        config.main.title = config.main.title || ops.menu.name;
-        config.main.headerClass = ops.menus.titleClass || 'bg-sunshine';
+        if (config.main.showTitle) {
+          config.main.title = config.main.title || ops.menu.name;
+        }
+        config.main.headerClass = ops.menus.titleClass || '';
         config.main.noTitle = ops.menu.noTitle;
       } else {
         config.main.type = 'side-main no-shadow';

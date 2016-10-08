@@ -6,7 +6,6 @@
 //begin 1投追记录页查询栏样式
 
 .search-condition-table {
-  margin-top: 15px;
   .row1 {
     margin-bottom: 13px;
   }
@@ -15,9 +14,6 @@
   }
   .row3 {
     margin: 9px 0 1px 0;
-  }
-  .control-label {
-    text-align: right;
   }
   .label1 {
     width: 44px;
@@ -69,12 +65,6 @@
   }
   .input3 {
     width: 115px;
-  }
-
-  button {
-    padding-left: 0;
-    padding-right: 0;
-    margin-right: 5px;
   }
 
   //下级管理页面
@@ -666,76 +656,6 @@
 }
 
 //
-.content-bock {
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-top: 0;
-  padding-bottom: 20px;
-  .controls > span {
-    margin-top: 0px;
-    font-size: 12px;
-    margin-left: 10px;
-  }
-
-  .uc-personalManage-btn-div {
-    .btn {
-      width: 100px;
-      height: 31px;
-      line-height: 31px;
-      font-size: 18px;
-      color: #fff;
-      padding: 0px;
-      border: 0px;
-    }
-  }
-
-  .birthday {
-    span {
-      display: inline-block;
-      margin: 0px 5px;
-      padding: 0px;
-    }
-  }
-
-  select option {
-    color: #666666;
-  }
-
-  .color-dark {
-    color: #666666;
-  }
-
-  .portlet-side-main {
-    width: auto;
-    //height: 525px;
-    .portlet-header {
-      display: none;
-    }
-  }
-
-  .help-inline {
-    //color: #cc0000;
-    color: grey;
-    font-size: 12px;
-  }
-
-  .portlet {
-    border: 0px;
-  }
-
-  .left-vip {
-    margin-left: 400px !important;
-  }
-
-  .search-condition-table {
-    margin-left: 120px;
-    margin-top: 20px;
-    margin-bottom: 25px;
-  }
-  .search-condition-layout {
-    display: inline-block;
-  }
-}
 
 .ac-block2 {
   background: url(~base/images/julien/banner02.png) no-repeat top center !important;
@@ -1288,10 +1208,6 @@
 
 .genderation.sel .fa, .genderation:hover .fa {
   color: #fff;
-}
-
-.form-horizontal .control-label {
-  padding-top: 0;
 }
 
 .user-information-content {

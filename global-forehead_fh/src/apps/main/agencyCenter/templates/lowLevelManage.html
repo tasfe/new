@@ -1,20 +1,20 @@
-<div class="select-block">
+<div class="portlet-header-block">
   <div class="search-condition-table">
-    <div class="row1">
-      <dl class="width150">
+    <div class="clearfix">
+      <dl class="">
         <dt>账号</dt>
         <dd><input type="text" name="userName" data-parsley-username></dd>
       </dl>
-      <dl class="width165">
+      <dl class="">
         <dt>是否在线</dt>
         <dd>
           <select name="online">
-            <option value="0">显示全部</option>
+            <option value="0">全部</option>
             <option value="1">在线</option>
           </select>
         </dd>
       </dl>
-      <dl class="width285">
+      <dl class="">
         <dt>注册时间</dt>
         <dd>
           <span class="js-pf-timeset"></span>
@@ -24,20 +24,21 @@
         <dt>个人余额</dt>
         <dd>
            <input type="text" name="balanceStart" data-parsley-type="integer" data-parsley-range="[0,1000000000]">
-           -
+            —
            <input type="text" name="balanceEnd" data-parsley-type="integer" data-parsley-range="[0,1000000000]">
         </dd>
       </dl>
-      <span class="js-userManage userManage">
+      <button type="button" class="js-ac-open-account btn btn-hot btn-linear pull-right">
         <i class="fa fa-plus-circle"></i>
         开户管理
-      </span>
-    </div>
-    <div class="row2">
-      <button type="submit">
-        <i class="fa fa-search"></i>
-        搜索
       </button>
     </div>
   </div>
+</div>
+
+<div class="portlet-header-btnGroup">
+  <button type="submit" class="btn btn-pink btn-linear" data-loading-text="搜索">
+    <i class="fa fa-search"></i>
+    搜索
+  </button>
 </div>

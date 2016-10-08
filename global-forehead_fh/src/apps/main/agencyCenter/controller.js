@@ -17,8 +17,8 @@ var LowLevelTransferView =require('agencyCenter/views/lowLevelManage-transfer');
 
 var LowLevelDetailView = require('agencyCenter/views/lowLevelDetail');
 
-var OpenAccountManageView = require('agencyCenter/views/openAccountManage');
-var OpenAccountManagePriceView = require('agencyCenter/views/openAccountManage-price');
+var OpenAccountManageView = require('agencyCenter/openAccount');
+var OpenAccountManagePriceView = require('agencyCenter/openAccount/price');
 
 var TeamDynamicView = require('agencyCenter/views/teamDynamic');
 var ReportManageView = require('agencyCenter/reportManage');
@@ -46,15 +46,13 @@ var MoneyDetailsView = require('agencyCenter/moneyChange');
 var AgencyCenterController = RouterController.extend({
 
   lowLevelManage: function() {
-    this.changeMainReginView(new LowLevelUserManageView(), {
+    this.changeMainReginView(new LowLevelManageView(), {
       main: {
-        title: '下级管理'
+        // title: '下级管理'
       },
       sidebar: 'ac',
       topView: 'team'
     });
-
-    $('#main > .clearfix').addClass('ac-block');
   },
 
   accountDetails2: function() {
@@ -75,7 +73,6 @@ var AgencyCenterController = RouterController.extend({
       sidebar: 'ac',
       topView: 'team'
     });
-    $('#main > .clearfix').addClass('ac-block');
   },
 
   salaryManage: function () {

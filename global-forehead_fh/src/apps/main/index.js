@@ -31,6 +31,9 @@ Global.m.oauth.check().done(function(res) {
     //开启消息监听
     Global.m.message.start();
 
+    //开启系统通知监听
+    Global.m.news.start();
+
     //开启菜单权限监听
     Global.ui.menu.start();
 

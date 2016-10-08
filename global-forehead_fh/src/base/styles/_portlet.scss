@@ -1,4 +1,4 @@
-$portlet-padding-bottom: 8px;
+$portlet-padding-bottom: 10px;
 
 .portlet {
   margin-bottom: 8px;
@@ -8,8 +8,12 @@ $portlet-padding-bottom: 8px;
   box-shadow: 0 1px 1px 0 rgba(5, 5, 5, 0.1);
 
   .portlet-header {
-    padding: 6px $portlet-padding-bottom;
+    padding: 8px $portlet-padding-bottom;
     line-height: 26px;
+
+    &.portlet-linear {
+      background: linear-gradient(180deg, $white-color, #f7f7f7);
+    }
   }
 
   .portlet-title {
@@ -46,7 +50,7 @@ $portlet-padding-bottom: 8px;
   }
 
   .portlet-body {
-    padding: 10px 15px;
+    padding: 15px 20px;
   }
 
   .portlet-footer {

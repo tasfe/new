@@ -4,6 +4,8 @@ var SearchGrid = require('com/searchGrid');
 
 var Timeset = require('com/timeset');
 
+var OpenAccountView = require('agencyCenter/openAccount');
+
 var LowLevelManageView = SearchGrid.extend({
 
   template: require('agencyCenter/templates/lowLevelManage.html'),
@@ -11,34 +13,16 @@ var LowLevelManageView = SearchGrid.extend({
   className: 'lowLevelManage-view',
 
   events: {
-    'click .js-ac-llm-quota': 'changeQuota',
-    'click .js-ac-rebate': 'changeRebate',
+    'click .js-ac-open-account': 'openAccountHandler',
+    'click .js-ac-llm-quota': 'changeQuotaHandler',
+    'click .js-ac-rebate': 'changeRebateHandler',
     'click .js-ac-expend-btn': 'expendHandler',
-    'click .js-ac-llm-cp': 'checkPayPwdSet',
-    'click .js-toggle-seach': 'toggleSeach'
-  },
-
-  changeQuota: function (e) {
-    var $target = $(e.currentTarget);
-    $(document).quota({
-      title: $target.data('username'),
-      userId: $target.data('subacctid')
-    });
-  },
-
-  changeRebate: function (e) {
-    var $target = $(e.currentTarget);
-
-    $(document).rebate({
-      title: '提升' + $target.data('username') + '返点',
-      userId: $target.data('subacctid')
-    });
+    'click .js-ac-llm-cp': 'checkPayPwdSetHandler'
   },
 
   initialize: function() {
     _(this.options).extend({
-      footerClass: 'border-cool-top',
-      height: 400,
+      height: 297,
       title: '下级管理',
       columns: [
         {
@@ -67,7 +51,7 @@ var LowLevelManageView = SearchGrid.extend({
         },
         {
           name: '注册时间',
-          width: '15%',
+          width: '15%'
         },
         {
           name: '不活跃天数',
@@ -75,7 +59,7 @@ var LowLevelManageView = SearchGrid.extend({
         },
         {
           name: '最后登录时间',
-          width: '15%',
+          width: '15%'
         },
         {
           name: '操作',
@@ -95,12 +79,6 @@ var LowLevelManageView = SearchGrid.extend({
     });
   },
 
-  checkPayPwdXhr: function() {
-    return Global.sync.ajax({
-      url: '/fund/moneypd/checkpaypwd.json'
-    });
-  },
-
   onRender: function() {
     //初始化时间选择
     new Timeset({
@@ -109,7 +87,6 @@ var LowLevelManageView = SearchGrid.extend({
       endTime: 'regTimeEnd',
       startTimeHolder: '起始日期',
       endTimeHolder: '结束日期',
-      size: 'julien-time',
       prevClass: 'js-pf',
       startOps: {
         format: 'YYYY-MM-DD'
@@ -125,7 +102,6 @@ var LowLevelManageView = SearchGrid.extend({
       endTime: 'loginTimeEnd',
       startTimeHolder: '起始日期',
       endTimeHolder: '结束日期',
-      size: 'julien-time',
       prevClass: 'js-last',
       startOps: {
         format: 'YYYY-MM-DD'
@@ -142,17 +118,6 @@ var LowLevelManageView = SearchGrid.extend({
       content: '<strong>不活跃天数定义</strong> <br />连续多少天内无任何账变，即为不活跃的天数',
       placement: 'bottom'
     });
-  },
-
-  toggleSeach: function(){
-    $('.search-condition-table .row2').slideToggle('slow');
-    if($('.js-toggle-seach').hasClass('on'))
-    {
-      $('.js-toggle-seach').removeClass('on')
-    }
-    else{
-      $('.js-toggle-seach').addClass('on')
-    }
   },
 
   renderGrid: function(gridData) {
@@ -233,6 +198,51 @@ var LowLevelManageView = SearchGrid.extend({
 
   //event handlers
 
+  openAccountHandler: function() {
+    var openAccountView;
+    var $dialog = Global.ui.dialog.show({
+      title: '开户管理',
+      size: 'modal-lg',
+      body: '<div class="js-ac-open-account-container m-LR-sm"></div>',
+      bodyClass: 'p-top-xs no-p-left no-p-right no-p-bottom',
+      footer: ''
+    });
+
+    var $openAccountContainer = $dialog.find('.js-ac-open-account-container');
+
+    $dialog.on('hidden.modal', function() {
+      $(this).remove();
+      openAccountView.destroy();
+    });
+
+    openAccountView = new OpenAccountView({
+      className: 'ac-openAccount-view'
+    });
+
+    $openAccountContainer.html(openAccountView.render().$el);
+
+    openAccountView.on('submit:complete', function() {
+      $dialog.modal('hide');
+    });
+  },
+
+  changeQuotaHandler: function(e) {
+    var $target = $(e.currentTarget);
+    $(document).quota({
+      title: $target.data('username'),
+      userId: $target.data('subacctid')
+    });
+  },
+
+  changeRebateHandler: function (e) {
+    var $target = $(e.currentTarget);
+
+    $(document).rebate({
+      title: '提升' + $target.data('username') + '返点',
+      userId: $target.data('subacctid')
+    });
+  },
+
   expendHandler: function(e) {
     var $target = $(e.currentTarget);
     var $currentTr = $target.closest('tr');
@@ -248,7 +258,7 @@ var LowLevelManageView = SearchGrid.extend({
         .find('.js-ac-expend-btn').addClass('fa-rotate-180');
   },
   
-  checkPayPwdSet: function(e){
+  checkPayPwdSetHandler: function(e){
     var $target = $(e.currentTarget);
 
     var acctInfo = Global.memoryCache.get('acctInfo');

@@ -5,7 +5,9 @@
 .main-active-container {
   margin: 0 15px;
   padding-top: 30px;
-  height: 600px;
+  .active-context {
+    height: 500px;
+  }
   .at-activity-main {
     margin-bottom: 30px;
     .ac-activity-banner {

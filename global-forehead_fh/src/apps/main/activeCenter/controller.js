@@ -12,10 +12,7 @@ var ActiveCenterController = RouterController.extend({
   activityCenter: function() {
     this.changeMainReginView(new ActivityCenterView({
       type:''
-    }), {
-      sidebar: Global.ui.menu.get(['at'])
-    });
-    $('#main > .clearfix').addClass('ac-block');
+    }));
   },
   agencyActivity: function() {
     this.changeMainReginView(new ActivityCenterView({

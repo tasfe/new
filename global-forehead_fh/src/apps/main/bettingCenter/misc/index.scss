@@ -559,7 +559,7 @@ $main-area-width: 870px;
 
 .number-div-style {
   height: 24px;
-  width: 42px;
+  width: 40px;
   border:1px solid $gray-color;
   text-align:center;
   display: inline-block;
@@ -1502,12 +1502,6 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
   height: auto !important;
   padding-top: 10px;
 
-}
-
-.bc-main-area{
-  .nav-tabs{
-    border-bottom: 2px solid #a83d6b;
-  }
 }
 
 .bc-advance-rules-container{

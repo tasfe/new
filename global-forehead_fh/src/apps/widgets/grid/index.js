@@ -105,7 +105,7 @@ $.widget('gl.grid', {
     var events = {
       'click tbody>tr': this.clickRowHandler,
       'click .sortable-grid-col-header': this.sortGridHandler,
-      'click .js-pf-select-all': this.selectAllHandler,
+      'click .js-pf-select-all, .js-wt-select-all': this.selectAllHandler,
       'click .js-pf-inverse': this.inverseHandler
     };
 
@@ -288,7 +288,7 @@ $.widget('gl.grid', {
     this.$footerBody.empty();
 
     this.$tip.addClass('hidden');
-    this.pagination.clean();
+    // this.pagination.clean();
 
     return this;
   },
