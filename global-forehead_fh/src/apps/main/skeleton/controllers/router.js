@@ -184,6 +184,7 @@ var RouterController = Base.Controller.extend({
       regin: currentView.mainRegin,
       view: currentView.mainRegin.currentView,
       router: Backbone.history.getHash(),
+      subReturn: config.main.subReturn,
       parentRouter: config.parentRouter
     };
 
