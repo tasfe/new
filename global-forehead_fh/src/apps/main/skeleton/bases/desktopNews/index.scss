@@ -2,27 +2,37 @@
 @import "~base/styles/imports";
 
 .desktopNews {
-  position: fixed;
-  width: 100%;
+  position: absolute;
+  width: 240px;
   z-index: 9;
-  bottom: 0;
+  bottom: -20px;
+  left: calc(50% + 601px);
+  overflow-x: hidden;
+
+  rc {
+    color: red;
+  }
+  gc {
+    color: green;
+  }
 
   .alert {
-    height: 74px;
-    background-color: $deep-gray-color;
-    opacity: 0.9;
+    opacity: 0.7;
     padding: 15px 0;
-    color: $dark-color;
     font-size: 14px;
+    background: transparent;
+    border: 0;
 
-    .close {
+    .close-notice {
       top: 25px;
       right: 80px;
+      color: #999999;
     }
 
     .desktopNews-content {
       position: relative;
-      height: 74px;
+      height: 600px;
+      width: 100%;
       overflow: hidden;
       display: inline-block;
       vertical-align: bottom;
@@ -32,36 +42,49 @@
         top: 20px;
 
         li > div {
+          height: 86px;
+          left: 0px;
+          border: 1px solid #999999;
+          background: white;
           line-height: 24px;
+          padding: 6px;
+          color: #424244;
+        }
+        div.slideIn {
+          animation: slideIn 1s;
+          bottom: 0;
+        }
+        div.fadeOut {
+          animation: fadeOut 1s;
+          animation-delay: 3s;
+          animation-fill-mode: forwards;
         }
       }
 
-      a {
-        font-weight: bold;
-        color: #e8675d;
+      .notice-title {
+        font-size: 16px;
+        border-bottom: 1px solid #ddd;
+        padding: 3px 0;
       }
     }
   }
-
-  //.notice-container {
-  //  .alert {
-  //    padding-left: 0;
-  //    padding-right: 0;
-  //  }
-  //}
 }
-
-@media (min-height: 930px) {
-  .desktopNews {
-    bottom: 137px;
+@keyframes slideIn
+{
+  from {
+    transform: translateX(-100px);
+  }
+  to {
+    transform: translateX(0px);
+  }
+}
+@keyframes fadeOut
+{
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
   }
 }
 
-.alert-info-list {
-  background: url(~base/images/fh/alert_info.png) no-repeat;
-  width: 265px;
-  height: 128px;
-  position: absolute;
-  margin: -25px 1650px;
-  z-index: -9;
-}
