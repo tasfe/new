@@ -1,56 +1,46 @@
 <div class="ac-openAccount-rebate-notice">
-  <div class="js-ac-quota-container tips hidden">
-    馨提示：您目前拥有<span class="js-ac-open-limit"></span>
+  <div class="js-ac-quota-container alert hidden">
+    <span class="sfa sfa-tip-heart vertical-middle m-right-xs"></span>
+    温馨提示：您目前拥有<span class="js-ac-open-limit"></span>
   </div>
-  <div class="js-julien-left julien-left julien-verify">
-    <dl class="manualRebate">
-      <dt>选择等级：</dt>
-      <dd>
-        <input class="js-ac-manual-rebate" placeholder="请选择或手动输入返点" type="text">
-        <ul class="hidden">
-        </ul>
-      </dd>
-    </dl>
-    <dl>
-      <dt>用户名：</dt>
-      <dd>
-        <input type="text" class="js-ac-userName" />
-        <i></i>
-        <div class="messageBox">
-          <b></b>
-          <span></span>
+
+  <form class="js-ac-openAccountManual-form form-horizontal">
+    <div class="m-bottom-md">
+      <div class="pull-left m-right-lg">
+        <div class="control-group">
+          <label class="control-label text-coffee">返点等级：</label>
+          <div class="controls">
+            <input type="text" class="js-ac-manual-rebate input-lg" data-parsley-oneDecimal
+                   required autocomplete="off">
+          </div>
         </div>
-      </dd>
-      <h3 class="hidden">4-16个字符，支持中英文和数字，不能以数字开头</h3>
-    </dl>
-    <dl>
-      <dt>密码：</dt>
-      <dd>
-        <input type="password" class="js-ac-password">
-        <i></i>
-        <div class="messageBox">
-          <b></b>
-          <span></span>
+        <div class="control-group">
+
+          <label class="control-label text-coffee">用户名：</label>
+
+          <div class="controls">
+            <input type="text" class="js-ac-userName input-lg" autocomplete="off" name="userName" data-parsley-username required autocomplete="off">
+          </div>
+          <div class="controls">
+            <span class="js-ac-tip text-danger form-control hidden"></span>
+          </div>
         </div>
-      </dd>
-    </dl>
-    <dl>
-      <dt>确认密码：</dt>
-      <dd>
-        <input type="password" class="js-ac-repeatPassword">
-        <i></i>
-        <div class="messageBox">
-          <b></b>
-          <span></span>
+        <div class="control-group">
+          <label class="control-label text-coffee">默认密码：</label>
+
+          <div class="controls m-top-xs">
+            fh12345
+          </div>
         </div>
-      </dd>
-    </dl>
-    <hr>
-    <div>
-      <button type="button" class="js-ac-submitOpenAccountInfo" data-loading-text="保存中">立即开户</button>
+      </div>
+
+      <div class="js-ac-rebate-set-container overflow-hidden"></div>
     </div>
-  </div>
-  <div class="julien-right">
-    <div class="js-ac-rebate-set-container ac-op-manual-rebate-set-container"></div>
-  </div>
+
+    <div class="text-center p-top-md border-top">
+      <button type="button" class="js-ac-submitOpenAccountInfo btn btn-pink btn-linear" data-loading-text="开户中">
+        立即开户
+      </button>
+    </div>
+  </form>
 </div>

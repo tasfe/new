@@ -1,6 +1,7 @@
 @mixin alert($class, $props) {
-  background-color: map_get($props, bg-color);
+  background: map_get($props, bg-color);
   color: map_get($props, color);
+  border-color: map_get($props, border-color);
   a {
     color: map_get($props, color);
   }
