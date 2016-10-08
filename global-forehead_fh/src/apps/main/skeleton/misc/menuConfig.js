@@ -173,6 +173,11 @@ var menuConfig = [
                 id: 150,
                 router: 'nc/pn',
                 name: '系统通知'
+            },
+            {
+              id: 151,
+              router: 'nc/pn/setting',
+              name: '系统通知设置'
             }
         ]
     },

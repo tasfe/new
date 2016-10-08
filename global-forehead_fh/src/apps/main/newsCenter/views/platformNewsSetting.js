@@ -11,8 +11,7 @@ var PlatformNewsSettingView = Base.ItemView.extend({
   settingItemTpl: _(require('newsCenter/templates/platformNewsSetting-item.html')).template(),
 
   events: {
-    'click .js-nc-smSetting-submit': 'saveSettingHandler',
-    'click .js-nc-back': 'gobackHandler'
+    'click .js-nc-smSetting-submit': 'saveSettingHandler'
   },
 
   onRender: function() {
@@ -73,14 +72,7 @@ var PlatformNewsSettingView = Base.ItemView.extend({
        }
      }
     );
-  },
-
-  gobackHandler: function () {
-    $('a[href="#jsNcPlatform"]').click();
-    $('a[href="#jsNcPlatform"]').closest('li').addClass('active').removeClass('hidden');
-    $('a[href="#jsNcPlatformSetting"]').closest('li').removeClass('active').addClass('hidden');
   }
-
 });
 
 module.exports = PlatformNewsSettingView;
