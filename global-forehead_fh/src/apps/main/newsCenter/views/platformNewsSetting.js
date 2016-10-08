@@ -67,6 +67,7 @@ var PlatformNewsSettingView = Base.ItemView.extend({
          Global.ui.notification.show('通知设置保存成功', {
            type: 'success'
          });
+         Global.router.back();
        } else {
          Global.ui.notification.show('通知设置保存失败');
        }

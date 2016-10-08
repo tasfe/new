@@ -4,19 +4,13 @@ var RouterController = require('skeleton/controllers/router');
 
 var BettingRecordView = require('userCenter/bettingRecords');
 
-//var BettingRecordView = require('userCenter/bettingRecords/team');
 var BettingDetailView = require('userCenter/views/bettingDetail');
-
-// var TrackRecordView = require('userCenter/trackRecords');
 
 var TrackRecordView = require('userCenter/trackRecords/team');
 var TrackDetailView = require('userCenter/views/trackDetail');
 
-// var RechargeRecordsView = require('userCenter/rechargeRecords');
-
 var RechargeRecordsView = require('userCenter/rechargeRecords/team');
 
-// var WithdrawRecordsView = require('userCenter/withdrawRecords');
 var WithdrawRecordsView = require('userCenter/withdrawRecords/team');
 
 
@@ -29,7 +23,6 @@ var VipPointView = require('userCenter/vipPoint');
 var VipLevelView = require('userCenter/vipLevel');
 var VipPrizeView = require('userCenter/vipPrize');
 var VipCashView = require('userCenter/vipCash');
-//var VipInfoView = require('userCenter/vipInfo');
 var VipCreditView = require('userCenter/vipCredit');
 
 
@@ -37,8 +30,6 @@ var ReportManageView = require('agencyCenter/reportManage/teamReport');
 
 var BaccaratPalView = require('userCenter/baccaratPal/baccaratPal');
 var transforRecordView = require('userCenter/transforRecord/transforRecord');
-
-//var menuConfig = Global.ui.menu.get(['ac', 'uc', 'aa']);
 
 var UserCenterController = RouterController.extend({
 

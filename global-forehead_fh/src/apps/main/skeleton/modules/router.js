@@ -17,17 +17,12 @@ var RouterModule = Base.Module.extend({
       self._history.push(Backbone.history.getHash());
 
 
-      //if (!hasFind) {
       Global.appRouter.navigate(_($target.attr('href')).addHrefArgs({
         '_t': _.now()
       }), {trigger: true, replace: false});
-      //}
 
       Global.appRouter.navigate($target.attr('href'), {trigger: false, replace: true});
 
-      //if (hasFind) {
-      //  Global.ui.menu.selectMenuFromCurrentHash();
-      //}
 
       e.preventDefault();
 
@@ -50,10 +45,7 @@ var RouterModule = Base.Module.extend({
   back: function() {
     var superior = Global.viewPool.getBack();
 
-    if (!superior.noParent && superior.view) {
-
-      //superior.regin.$el.removeClass('hidden');
-
+    if (superior.view) {
       superior.regin.show(superior.view, {
         preventRender: true
       });
@@ -62,24 +54,13 @@ var RouterModule = Base.Module.extend({
         superior.view.trigger('router:back');
         superior.view.mainRegin.currentView.trigger('router:back');
       } catch(e) {
-
       }
-
 
       Global.appRouter.navigate(superior.router, {trigger: false, replace: false});
       //Global.appRouter.navigate(this._history.pop(), {trigger: false, replace: false});
-    } else if (superior.noParent && superior.parentRouter) {
-
-      superior.view.destroy();
-
-      Global.appRouter.navigate(superior.parentRouter, {trigger: true, replace: false});
     } else {
-      Global.appRouter.navigate('#', {trigger: true, replace: false});
+      Global.appRouter.navigate(superior.parentRouter ? superior.parentRouter : '#', {trigger: true, replace: false});
     }
-  },
-
-  close: function() {
-
   }
 });
 
