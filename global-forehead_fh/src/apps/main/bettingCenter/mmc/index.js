@@ -839,7 +839,7 @@ var BettingCenterView = Base.ItemView.extend({
     this.LeftTimes--;
     this.BetinfoList.push({status:'0'});
     this.BetRes = undefined;
-    /*this.showWinResult(false);*/
+    this.showWinResult(false);
     this.showLotteryTime(true,this.BetTimes-this.LeftTimes);
     if(!this.BeenDistoryed){
       //1.开始动画
@@ -932,7 +932,7 @@ var BettingCenterView = Base.ItemView.extend({
 
       })
       .done(function(res) {
-        console.log('请求已返回：'+self.isReturn+ '--'+ self.isBegin);
+        // console.log('请求已返回：'+self.isReturn+ '--'+ self.isBegin);
         if( !self.isReturn &&  self.isBegin && !self.BeenDistoryed ){
           self.isReturn = true;
 
@@ -1153,10 +1153,10 @@ var BettingCenterView = Base.ItemView.extend({
       },1000*delay);
       self.TimeOutArr.push(GoOnLottery);
     }else{
-      var delayLast = 0;
-      if(this.BetRes.winPrize>0){
-        delayLast = delay2;
-      }
+      var delayLast = 1;
+      // if(this.BetRes.winPrize>0){
+      //   delayLast = delay1;
+      // }
         setTimeout(function(){
           self.showTotalResult();
         },1000*delayLast);
@@ -1178,6 +1178,7 @@ var BettingCenterView = Base.ItemView.extend({
       this.renderlotteryTotalResultPreview();
     }
     this.showLotteryTime(false);
+    this.showWinResult(false);
   },
 
   showCurrIsBetting: function(){
@@ -1390,10 +1391,11 @@ var BettingCenterView = Base.ItemView.extend({
 
       //显示中奖div,显示金额
       this.$CurrPrize.removeClass('hidden');
-
-
+      this.$CurrPrize.html('恭喜您，中奖金额为'+prize+'元');
     }else {
       //隐藏中奖div，清空金额
+      this.$CurrPrize.addClass('hidden');
+      this.$CurrPrize.html('');
 
     }
   },
