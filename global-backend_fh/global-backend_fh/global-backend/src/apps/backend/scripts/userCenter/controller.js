@@ -17,6 +17,7 @@ define(function (require, exports, module) {
   var QuotaManageView = require('userCenter/views/quotaManage');
   var DropUserListView = require('userCenter/views/abnormalUser-dropUserList');//降點用戶記錄
 
+  var NewMerMasterView = require('userCenter/views/user-newMerMaster'); // 招商号开户
   var UserCenterController = RouterController.extend({
 
     userList: function() {
@@ -66,6 +67,9 @@ define(function (require, exports, module) {
     },
     dropUserListView:function(){
       this.changeMainReginView(new DropUserListView());
+    },
+    newMerMaster: function () {
+      this.changeMainReginView(new NewMerMasterView());
     }
   });
 

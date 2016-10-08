@@ -40,12 +40,13 @@ define(function (require, exports, module) {
                     self.actId=res.root.activityCenterId;
                     self.type=res.root.type;
                     self.$('.js-cm-arManageUpload-btn').imgBar({imgList:(res.root.bannerPicUrl).split(',')});
-
+                    self.$('.js-cm-des').val(res.root.des);
+                    self.$('.js-cm-des').val(res.root.content);
                 }else {
                     Global.ui.notification.show('数据异常。');
                 }
 
-
+                self.$('#textarea1').richEditor();
             });
             //初始化时间选择
             new Global.Prefab.Timeset({
@@ -82,7 +83,9 @@ define(function (require, exports, module) {
                         endTime:this.$('.js-end-time').val(),
                         type:this.type,
                         actId:this.actId,
-                        userLevel: userLevel.join(',')
+                        userLevel: userLevel.join(','),
+                        content:this.$('.js-cm-content').val(),
+                        des:this.$('.js-cm-des').val()
                     }
                 });
         },

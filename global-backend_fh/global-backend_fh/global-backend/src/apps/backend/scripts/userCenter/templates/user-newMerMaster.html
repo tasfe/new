@@ -1,0 +1,61 @@
+<div class="panel padding-md">
+    <form class="js-so-sales-form form-horizontal" action="javascript:void(0)">
+        <div class="form-group form-inline">
+            <label class="col-sm-2 control-label">用户名：</label>
+
+            <div class="col-sm-9">
+                <input type="text" class="js-so-username form-control" data-parsley-username required>
+                <span class="help-inline">&nbsp;&nbsp;&nbsp;&nbsp;只能字母和数字，长度必须在4到16个字符之间</span>
+            </div>
+        </div>
+        <div class="form-group form-inline">
+            <label class="col-sm-2 control-label"></label>
+            <div class="col-sm-9">
+                <span class="js-so-tip text-danger hidden"></span>
+            </div>
+        </div>
+        <!--<div class="form-group form-inline">-->
+        <!--<label class="col-sm-2 control-label">昵称：</label>-->
+
+        <!--<div class="col-sm-9">-->
+        <!--<input type="text" class="js-go-useruname form-control" data-parsley-zhAndLetNumMaxLen="16" required>-->
+        <!--<span class="help-inline">&nbsp;&nbsp;&nbsp;&nbsp;4-16个字符，支持中英文和数字，不能以数字开头</span>-->
+        <!--</div>-->
+        <!--</div>-->
+        <div class="form-group form-inline">
+            <label class="col-sm-2 control-label">密码：</label>
+
+            <div class="col-sm-10">
+                <input type="password" id='jsACPassword' class="js-so-password form-control" data-parsley-length="[6, 20]" data-parsley-noSpecialChar required>
+                <span class="help-inline">&nbsp;&nbsp;&nbsp;&nbsp;6-20位字符组成，区分大小写，不能使用特殊字符</span>
+            </div>
+        </div>
+        <div class="form-group form-inline">
+            <label class="col-sm-2 control-label">确认密码：</label>
+
+            <div class="col-sm-10">
+                <input type="password" class="js-so-repeatPassword form-control" data-parsley-length="[6, 20]" data-parsley-equalto="#jsACPassword" data-parsley-noSpecialChar required>
+                <span class="help-inline">&nbsp;&nbsp;&nbsp;&nbsp;再次输入密码</span>
+            </div>
+        </div>
+        <div class="form-group form-inline">
+            <label class="col-sm-2 control-label">招商经理配额：</label>
+            <div class="col-sm-9">
+                <input type="text" class="js-so-quotaNum form-control" value="10" data-parsley-range="[0, 100]" data-parsley-type="integer" required >
+                <span class="help-inline">&nbsp;&nbsp;&nbsp;&nbsp;返点等级（1956）</span>
+            </div>
+        </div>
+        <div class="form-group form-inline">
+            <label class="col-sm-2 control-label"></label>
+            <div class="col-sm-9">
+                <span class="js-so-quotaTip text-danger hidden"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-3 col-sm-10">
+                <button type="submit" class="js-so-btn-submit btn btn-primary" style="width: 100px;margin-right: 20px;;" data-loading-text="发送中">确定</button>
+                <button class="sub-return btn btn-default" type="reset" style="width: 100px;">取消</button>
+            </div>
+        </div>
+    </form>
+</div>

@@ -39,7 +39,7 @@ define(function (require, exports, module) {
             });
         },
         renderBaseInfo: function (root) {
-            if(root && root.level127 && _(root.level127).size()==3){
+            if(root && root.level127 && _(root.level127).size()==2){
                 var quotaNumArr = _(root.level127).sort(function(item){
                     return -item.rebate;
                 });
