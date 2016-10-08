@@ -56,13 +56,13 @@ var OpenAccountManageView = Base.ItemView.extend({
             self.$rebate.attr('data-parsley-range', '[' + _(data.subRebateRange.rebateMin).formatDiv(10, {fixed: 1}) + ', ' + _(127).formatDiv(10, {fixed: 1}) + ']');
           } else {
             self.$rebate.attr('data-parsley-range', '[' + _(data.subRebateRange.rebateMin).formatDiv(10, {fixed: 1}) + ', ' + _(data.subRebateRange.rebateMax).formatDiv(10, {fixed: 1}) + ']');
-            // return '<input type="text" class="js-ac-manual-rebate " required value="' + _(val).formatDiv(10, {fixed: 1}) + '" ' +
-            //   'data-parsley-oneDecimal data-parsley-range="[' + _(info.minRebate).formatDiv(10, {fixed: 1}) + ',' +
-            //   _( info.maxRebate).formatDiv(10, {fixed: 1}) + ']" > % 可配置范围(' +
-            //   info.minRebate + '～' + _( info.maxRebate).formatDiv(10, {fixed: 1}) + ')';
           }
 
-          self._getTable(_(data.ticketSeriesList).map(function(ticketSeries) {
+          self._getTable(_(data.ticketSeriesList).chain().filter(function(ticketSeries) {
+            if (_(['时时彩', '十一选五', '低频彩', '快乐彩']).contains(ticketSeries.sericeName)) {
+              return true;
+            }
+          }).map(function(ticketSeries) {
             return {
               sericeName: ticketSeries.sericeName,
               maxBonus: _(ticketSeries.maxBonus).convert2yuan(),
@@ -70,7 +70,7 @@ var OpenAccountManageView = Base.ItemView.extend({
               maxRebate: data.subRebateRange.rebateMax,
               minRebate: data.subRebateRange.rebateMin
             };
-          }));
+          }).value());
           if(self.acctInfo.userGroupLevel==2){
             self._parentView.renderSuperLimit(self.$limit, res.root.quotaList);
           }else {
@@ -82,12 +82,6 @@ var OpenAccountManageView = Base.ItemView.extend({
 
   _getTable: function(tableInfo) {
     var self = this;
-
-    // {
-    //   label: '下级返点', name: 'subAcctRebate', merge: true, formatter: function(val, index, info) {
-    // }
-    // }
-
 
     this.$('.js-ac-rebate-set-container').staticGrid({
       tableClass: 'table table-bordered text-amber table-center',
@@ -225,16 +219,13 @@ var OpenAccountManageView = Base.ItemView.extend({
   showCopyDailog: function(data) {
     var $dialog = Global.ui.dialog.show({
       title: '开户成功',
-      size: 'modal-md',
-      body: '<form><div class="p-left-lg m-bottom-lg m-top-lg">' +
-      '<div class="control-group m-left-sm p-left-lg m-top-md  m-bottom-md"><label class="text-left">账号:&nbsp;&nbsp;&nbsp;&nbsp;  ' + data.userName + '</label></div>' +
-      '<div class="control-group m-left-sm p-left-lg m-top-md  m-bottom-md"><label class="text-left">密码:&nbsp;&nbsp;&nbsp;&nbsp;  ' + data.loginPwd + '</label></div>' +
-      '<div class="control-group m-left-sm p-left-lg m-top-md  m-bottom-md"><label class="text-left">返点:&nbsp;&nbsp;&nbsp;&nbsp;  ' + _(data.rebate).formatDiv(10, {fixed: 1}) + '</label></div></div>' +
-      '<div class="m-top-lg m-bottom-lg"><button type="button" class="js-ac-ocm-copy btn btn-sun btn-lg" data-dismiss="modal"><span class="sfa ac-ocm-copy-coin m-right-sm"></span>复制并关闭</button></div></form>',
-      bodyClass: 'p-top-xs p-left-lg p-right-lg text-center'
+      size: 'modal-sm',
+      body: '<form><div class="width-smd m-center text-center">' +
+      '<div class="control-group"><label class="text-left">账号:&nbsp;&nbsp;' + data.userName + '</label></div>' +
+      '<div class="control-group"><label class="text-left">密码:&nbsp;&nbsp;' + data.loginPwd + '</label></div>' +
+      '<div class="control-group m-bottom-md"><label class="text-left">返点:&nbsp;&nbsp;' + _(data.rebate).formatDiv(10, {fixed: 1}) + '</label></div>' +
+      '<button type="button" class="js-ac-ocm-copy btn btn-pink btn-linear" data-dismiss="modal">复制并关闭</button></div></form>'
     });
-
-    var $chaseContainer = $dialog.find('.js-bc-chase-container');
 
     $dialog.on('hidden.modal', function() {
       $(this).remove();

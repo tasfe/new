@@ -32,18 +32,18 @@ var PlatformNewsPlatformView = Base.ItemView.extend({
       columns: [
         {
           //name: '主题',
-          width: '900px;'
+          width: '800px;'
         },
         {
           //name: '时间',
-          width: '120px;'
+          width: '200px;'
         }
       ],
       height: 590,
       gridOps: {
         emptyTip: '没有消息'
       },
-      tip: '<div class="custom-checkbox checkbox-small"> <input type="checkbox" id="<%=chkAllId %>" class="js-wt-select-all"> <label for="<%=chkAllId %>"></label></div><span class="m-right-sm"><span class="js-pf-select-all cursor-pointer">全选</span> | ' +
+      tip: '<div class="custom-checkbox checkbox-small"> <input type="checkbox" id="<%=chkAllId %>" class="js-wt-select-all inbox-check"> <label for="<%=chkAllId %>"></label></div><span class="m-right-sm"><span class="js-pf-select-all cursor-pointer">全选</span> | ' +
       '<span class="js-pf-inverse cursor-pointer">反选</span></span>' +
       '<div class="btn-group"><button class="js-nc-read btn btn-hollow">标记已读</button></div>' +
       '<div class="btn-group"><button class="js-nc-del btn btn-hollow">删除选中</button></div>',
@@ -66,7 +66,7 @@ var PlatformNewsPlatformView = Base.ItemView.extend({
   initGrid: function($grid) {
     var self = this;
     $grid.grid({
-      tableClass: 'table table-unbordered  no-margin' ,
+      tableClass: 'table table-unbordered  no-margin nc-platform-table' ,
       height:420,
       checkable: true,
       checkableWidth: '40px',
@@ -147,7 +147,7 @@ var PlatformNewsPlatformView = Base.ItemView.extend({
 
     switch (rowInfo.type) {
       case 0:
-        if (rowInfo.isRead==0){
+        if (rowInfo.isRead){
           title.push('<i class="sfa sfa-mes-read font-md font-bold"></i><span class="np-message-des-read">'+rowInfo.title+'</span>');
         }else{
           title.push('<i class="sfa sfa-mes-unRead font-md font-bold"></i>'+rowInfo.title);
@@ -155,7 +155,7 @@ var PlatformNewsPlatformView = Base.ItemView.extend({
 
         break;
       case 2:
-          if (rowInfo.isRead==0){
+          if (rowInfo.isRead){
             title.push('<i class="sfa sfa-mes-read font-md font-bold"></i><span class="np-message-des-read">'+rowInfo.title+'</span><a href="#as/ll" class="js-nc-link message-log-read router btn-link">登录日志</a>');
           }else{
             title.push('<i class="sfa sfa-mes-unRead font-md font-bold"></i><span>'+rowInfo.title+'</span><a href="#as/ll" class="js-nc-link message-log-unRead router btn-link">登录日志</a>');
@@ -172,7 +172,7 @@ var PlatformNewsPlatformView = Base.ItemView.extend({
 
     row.push(title.join(''));
 
-    row.push('<span >' + _(rowInfo.time).toTime() + '</span>');
+    row.push('<span class="pull-right">' + _(rowInfo.time).toTime() + '</span>');
     return row;
   },
 
@@ -230,63 +230,67 @@ var PlatformNewsPlatformView = Base.ItemView.extend({
   },
   inSettingHandler: function(e) {
     var $target = $(e.currentTarget);
-    $target.find('.js-setting-btn').addClass('fa-spin');
+    $target.find('.js-nc-setting-btn').addClass('fa-spin');
   },
 
   outSettingHandler: function(e) {
     var $target = $(e.currentTarget);
-    $target.find('.js-setting-btn').removeClass('fa-spin');
+    $target.find('.js-nc-setting-btn').removeClass('fa-spin');
   },
 
   openSettingDialogHandler: function(e) {
     var self = this;
     var newsSettingView;
 
-    var $dialog = Global.ui.dialog.show({
-      title: '定义通知类型',
-      size: 'modal-lg',
-      body: '<div class="js-nc-news-setting"></div>',
-      bodyClass: 'no-padding',
-      footer: '<div class="text-center control-confirm-special ">' +
-        //'<p class="text-pleasant text-center">说明：最多可选择一个菜单和三个彩种。</p>' +
-      '<button type="button" class="js-nc-confirm btn btn-left " data-loading-text="保存中">保存</button>' +
-        //'<button type="button" class="btn btn-link btn-right " data-dismiss="modal">取消</button>' +
-      '</div>'
-    });
+    $('a[href="#jsNcPlatformSetting"]').click();
+    $('a[href="#jsNcPlatformSetting"]').closest('li').addClass('active').removeClass('hidden');
+    $('a[href="#jsNcPlatform"]').closest('li').removeClass('active').addClass('hidden');
+    return false;
+    // var $dialog = Global.ui.dialog.show({
+    //   title: '定义通知类型',
+    //   size: 'modal-lg',
+    //   body: '<div class="js-nc-news-setting"></div>',
+    //   bodyClass: 'no-padding',
+    //   footer: '<div class="text-center control-confirm-special ">' +
+    //   '<button type="button" class="js-nc-confirm btn btn-left " data-loading-text="保存中">保存</button>' +
+    //     //'<button type="button" class="btn btn-link btn-right " data-dismiss="modal">取消</button>' +
+    //   '</div>'
+    // });
+    //
+    // var $container = $dialog.find('.js-nc-news-setting');
+    //
+    // $dialog.on('hidden.modal', function() {
+    //   $(this).remove();
+    //   newsSettingView.destroy();
+    // });
 
-    var $container = $dialog.find('.js-nc-news-setting');
+    // var $container = $('.js-platformNews-container');
+    // newsSettingView = new NewsSettingView({
+    //   el: $container
+    //   //functionId: this.model.get('functionId'),
+    //   //ticketId: this.model.get('ticketId')
+    // }).render();
 
-    $dialog.on('hidden.modal', function() {
-      $(this).remove();
-      newsSettingView.destroy();
-    });
-
-    newsSettingView = new NewsSettingView({
-      el: $container
-      //functionId: this.model.get('functionId'),
-      //ticketId: this.model.get('ticketId')
-    }).render();
-
-    $dialog.on('click', '.js-nc-confirm', function(e) {
-      var $target = $(e.currentTarget);
-
-      $target.button('loading');
-      newsSettingView.saveSettingHandler()
-        .always(function() {
-          $target.button('reset');
-        })
-        .done(function(res) {
-          if (res.result === 0) {
-            Global.ui.notification.show('通知设置保存成功', {
-              type: 'success'
-            });
-            $dialog.modal('hide');
-          } else {
-            Global.ui.notification.show('通知设置保存失败');
-          }
-        }
-      );
-    });
+    // $dialog.on('click', '.js-nc-confirm', function(e) {
+    //   var $target = $(e.currentTarget);
+    //
+    //   $target.button('loading');
+    //   newsSettingView.saveSettingHandler()
+    //     .always(function() {
+    //       $target.button('reset');
+    //     })
+    //     .done(function(res) {
+    //       if (res.result === 0) {
+    //         Global.ui.notification.show('通知设置保存成功', {
+    //           type: 'success'
+    //         });
+    //         $dialog.modal('hide');
+    //       } else {
+    //         Global.ui.notification.show('通知设置保存失败');
+    //       }
+    //     }
+    //   );
+    // });
 
   }
 
