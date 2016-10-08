@@ -81,19 +81,11 @@
   }
 }
 
-.nc-setting-btn, .nc-back-btn {
+.nc-setting-btn {
   position: relative;
-  margin-top: -40px;
+  margin-top: -47px;
   float: right;
-  padding: 1px 10px;
-  color: #696969;
-  //margin-right: 20px;
-  &:hover {
-    color: $light-color;
-  }
-  .fa {
-    color: #696969;
-  }
+  padding: 0 10px;
 }
 .hint-message{
   width: 100%;
@@ -155,7 +147,7 @@
   }
 }
 .grid-notice{
-  margin-top:10px;
+  margin-bottom: 10px;
   line-height: 22px;
 }
 .nc-grid {

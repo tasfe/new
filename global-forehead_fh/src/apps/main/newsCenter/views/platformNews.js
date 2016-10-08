@@ -4,13 +4,10 @@ var TabView = require('com/tabView');
 
 var PlatformView = require('newsCenter/views/platformNews-platform');
 var PlatformSettingView = require('newsCenter/views/platformNewsSetting');
-// var LetterView = require('newsCenter/views/platformNews-letter');
 
 var PlatformNewsView = TabView.extend({
 
   events: {},
-
-  className: 'nc-platformNews',
 
   initialize: function () {
     _(this.options).extend({

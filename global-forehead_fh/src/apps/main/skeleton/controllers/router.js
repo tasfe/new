@@ -31,12 +31,13 @@ var RouterController = Base.Controller.extend({
     });
 
     config.main = _.defaults(config.main || {}, {
+      titleType: 'normal',
       subReturn: false
     });
 
-    if (config.topView || config.sidebar) {
+    if (config.topView) {
       this._changeTopView(config.topView);
-    } else if (!config.sidebar) {
+    } else {
       this._destroyTopView();
     }
 
@@ -99,7 +100,7 @@ var RouterController = Base.Controller.extend({
         config.main.noTitle = ops.menu.noTitle;
       } else {
         config.main.type = 'side-main no-shadow';
-        config.main.headerClass = 'bg-sunshine';
+        config.main.headerClass = '';
       }
     }
 
