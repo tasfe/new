@@ -8,12 +8,14 @@ var WithdrawView = require('fundCenter/views/withdraw');
 
 var InsideLetterView2 = require('skeleton/bases/insideLetter2');
 
+var PlatformNewsView = require('newsCenter/views/platformNews');
+
 var HeaderView = Base.ItemView.extend({
 
   template: require('./index.html'),
 
   isBindQQ: 0,
-  
+
   itemTpl:_.template(require('dynamicCenter/templates/noticeBoard-item.html')),
   AfficheTpl:_.template(require('dynamicCenter/templates/noticeDetail.html')),
   dialog: _.template(require('skeleton/bases/header/indexmostDialog.html')),
@@ -30,7 +32,7 @@ var HeaderView = Base.ItemView.extend({
     //'click .js-letterList-titleLine': 'bindMessageUserList',
 
     'click  .js-h-security': 'accountSecurityHandler',
-    'click  .js-system-notice': 'systemNoticeHandler',
+    'click  .js-system-notice': 'platformNewsHandler',
     'click  .js-head-info-close': 'headInfoCloseHandler'
   },
 
@@ -74,27 +76,42 @@ var HeaderView = Base.ItemView.extend({
     }
   },
 
-  systemNoticeHandler: function() {
+  platformNewsHandler: function() {
+    var platformNewsView = new PlatformNewsView();
     var $dialog = Global.ui.dialog.show({
       title: '系统消息',
       size: 'modal-lg',
-      body: '<div  style="background-color: #fff;" class="js-pw-container"></div>',
-      bodyClass: 'ac-periodWay-dialog'
+      body: '<div  style="background-color: #fff;" class="js-platformNews-container"></div>',
+      bodyClass: 'nc-platformNews-dialog'
     });
-    $dialog.find('.ac-periodWay-dialog').removeClass('modal-body');
-    $dialog.find('.js-pw-container').html(this.dialog());
+    $dialog.find('.nc-platformNews-dialog').removeClass('modal-body');
+    $dialog.find('.js-platformNews-container').html(platformNewsView.render().el);
     $dialog.on('hidden.modal', function () {
-        $(this).remove();
+      $(this).remove();
     });
-    $dialog.on('click ', '.js-message_A', function(){
-      $('.js-menuspan-one').removeClass('menuspan');
-      $('.js-menuspan-two').addClass('menuspan');
-    });
-    $dialog.on('click ', '.js-detail', function(){
-      $('.js-menuspan-one').addClass('menuspan');
-      $('.js-menuspan-two').removeClass('menuspan');
-    })
   },
+
+  // systemNoticeHandler: function() {
+  //   var $dialog = Global.ui.dialog.show({
+  //     title: '系统消息',
+  //     size: 'modal-lg',
+  //     body: '<div  style="background-color: #fff;" class="js-pw-container"></div>',
+  //     bodyClass: 'ac-periodWay-dialog'
+  //   });
+  //   $dialog.find('.ac-periodWay-dialog').removeClass('modal-body');
+  //   $dialog.find('.js-pw-container').html(this.dialog());
+  //   $dialog.on('hidden.modal', function () {
+  //       $(this).remove();
+  //   });
+  //   $dialog.on('click ', '.js-message_A', function(){
+  //     $('.js-menuspan-one').removeClass('menuspan');
+  //     $('.js-menuspan-two').addClass('menuspan');
+  //   });
+  //   $dialog.on('click ', '.js-detail', function(){
+  //     $('.js-menuspan-one').addClass('menuspan');
+  //     $('.js-menuspan-two').removeClass('menuspan');
+  //   })
+  // },
 
   accountSecurityHandler:function(e) {
     var $target = $(e.currentTarget);
@@ -247,7 +264,7 @@ var HeaderView = Base.ItemView.extend({
       self.renderAcctInfo();
     });
 
-    this.subscribe('message', 'message:updating', function(model) {
+    this.subscribe('news', 'news:updating', function(model) {
       self.renderUpdateUnread(model);
     });
 

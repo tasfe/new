@@ -14,6 +14,7 @@ var NewsModel = Model.extend({
     unReadNotice: 0
   },
 
+
   setReadNoticeXhr: function(idList) {
     if (_.isUndefined(idList)) {
       idList = _(this.get('noticeList')).pluck('noticeId');
@@ -91,7 +92,8 @@ var NewsModel = Model.extend({
   },
 
   getUnreadCount: function() {
-    return this.get('unReadLetter') + this.get('unReadNotice');
+    // return this.get('unReadLetter') + this.get('unReadNotice');
+    return this.get('unReadNotice');
   }
 });
 
