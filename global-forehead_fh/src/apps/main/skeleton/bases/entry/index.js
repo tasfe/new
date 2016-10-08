@@ -255,8 +255,8 @@ var EntryView = Base.ItemView.extend({
     var ticketView;
     if (entry.type === 'ticket') {
       //当前页正是快捷入口时，直接加入quickPool中
-      if (Global.viewPool._polling.length && Global.viewPool._polling[0].router === entry.router) {
-        ticketView = Global.viewPool._polling[0].view;
+      if (Global.viewPool._pooling.length && Global.viewPool._pooling[0].router === entry.router) {
+        ticketView = Global.viewPool._pooling[0].view;
       } else {
 
         if(Number(entry.id)===20){

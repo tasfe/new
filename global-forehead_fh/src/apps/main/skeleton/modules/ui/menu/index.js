@@ -55,12 +55,16 @@ var SidemenuModule = Base.Module.extend({
   },
 
   selectMenu: function(hash) {
+    var $mainMenu = $('.js-gl-main-navbar');
+    var $bgFocus = $('.js-gl-main-navbar-focus');
+
+    if (!_(['', 'bc', 'gc', 'at']).contains(_(hash).getRouter().substring(0, 2))) {
+      return false;
+    }
+
     if (!hash) {
       hash = '#';
     }
-
-    var $mainMenu = $('.js-gl-main-navbar');
-    var $bgFocus = $('.js-gl-main-navbar-focus');
 
     $mainMenu.find('li').each(function(index, li) {
       var $li = $(li);
