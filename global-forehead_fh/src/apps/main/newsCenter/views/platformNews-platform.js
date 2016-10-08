@@ -45,8 +45,8 @@ var PlatformNewsPlatformView = Base.ItemView.extend({
       },
       tip: '<div class="custom-checkbox checkbox-small"> <input type="checkbox" id="<%=chkAllId %>" class="js-wt-select-all inbox-check"> <label for="<%=chkAllId %>"></label></div><span class="m-right-sm"><span class="js-pf-select-all cursor-pointer">全选</span> | ' +
       '<span class="js-pf-inverse cursor-pointer">反选</span></span>' +
-      '<div class="btn-group"><button class="js-nc-read btn btn-hollow">标记已读</button></div>' +
-      '<div class="btn-group"><button class="js-nc-del btn btn-hollow">删除选中</button></div>',
+      '<div class="btn-group"><button class="js-nc-read btn btn-xs text-amber full-radius">标记已读</button></div>' +
+      '<div class="btn-group"><button class="js-nc-del btn btn-xs text-amber full-radius">删除选中</button></div>',
       ajaxOps: {
         url: '/acct/usernotice/getnoticelist.json'
       }
