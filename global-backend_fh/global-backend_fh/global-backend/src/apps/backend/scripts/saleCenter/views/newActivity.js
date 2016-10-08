@@ -27,6 +27,7 @@ define(function (require, exports, module) {
                 startValidate: 'required data-parsley-trigger="blur"',
                 endValidate: 'required data-parsley-trigger="blur"'
             }).render();
+            this.$('#textarea1').richEditor();
         },
         //上传附件
         generateImageArea: function (url, name) {
@@ -63,7 +64,9 @@ define(function (require, exports, module) {
                         startTime: this.$('.js-start-time').val(),
                         endTime: this.$('.js-end-time').val(),
                         type:this.$('.js-cc-type').val(),
-                        userLevel: userLevel.join(',')
+                        userLevel: userLevel.join(','),
+                        content:this.$('.js-cc-content').val(),
+                        des:this.$('.js-cc-des').val()
                     }
                 })
                     .always(function () {

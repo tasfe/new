@@ -11,7 +11,8 @@ var PlatformNewsSettingView = Base.ItemView.extend({
   settingItemTpl: _(require('newsCenter/templates/platformNewsSetting-item.html')).template(),
 
   events: {
-    //'click .js-nc-smSetting-submit': 'saveSettingHandler'
+    'click .js-nc-smSetting-submit': 'saveSettingHandler',
+    'click .js-nc-back': 'gobackHandler'
   },
 
   onRender: function() {
@@ -61,17 +62,23 @@ var PlatformNewsSettingView = Base.ItemView.extend({
       url: '/acct/usernotice/savenoticeconf.json',
       data: _(this.$('.js-nc-setting-form').serializeArray()).serializeObject(),
       tradition: true
-    });
-    //  .done(function(res) {
-    //    if (res.result === 0) {
-    //      Global.ui.notification.show('通知设置保存成功', {
-    //        type: 'success'
-    //      });
-    //    } else {
-    //      Global.ui.notification.show('通知设置保存失败');
-    //    }
-    //  }
-    //);
+    })
+     .done(function(res) {
+       if (res.result === 0) {
+         Global.ui.notification.show('通知设置保存成功', {
+           type: 'success'
+         });
+       } else {
+         Global.ui.notification.show('通知设置保存失败');
+       }
+     }
+    );
+  },
+
+  gobackHandler: function () {
+    $('a[href="#jsNcPlatform"]').click();
+    $('a[href="#jsNcPlatform"]').closest('li').addClass('active').removeClass('hidden');
+    $('a[href="#jsNcPlatformSetting"]').closest('li').removeClass('active').addClass('hidden');
   }
 
 });

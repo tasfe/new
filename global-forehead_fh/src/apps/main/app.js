@@ -14,6 +14,7 @@ var NoticeBoardView = require('dynamicCenter/views/noticeBoardFH');
 var FirstLoginUpdatePasswd = require('com/firstLoginUpdatePasswd');
 
 var EntryModel = require('skeleton/models/entry');
+var NewsModel = require('skeleton/models/news');
 
 var App = new window.Base.Application();
 
@@ -42,6 +43,8 @@ App.addInitializer(function(options) {
   App.navbarRegion.show(new NavbarView());
 
   var entryModel = Global.data.set('entryModel', new EntryModel());
+
+  var newsModel = Global.data.set('newsModel', new NewsModel());
 
   App.entryRegion.show(new EntryView({
     model: entryModel

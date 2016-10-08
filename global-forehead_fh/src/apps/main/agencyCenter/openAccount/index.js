@@ -1,5 +1,7 @@
 "use strict";
 
+require('./index.scss');
+
 var TabView = require('com/tabView');
 
 var OpenAccountManualView = require('./manual');
@@ -17,6 +19,7 @@ var OpenAccountView = TabView.extend({
 
   initialize: function() {
    _(this.options).extend({
+     tabClass: 'view-tabs nav nav-tabs nav-tabs-special',
      tabs: [
        {
          label: '手动开户',

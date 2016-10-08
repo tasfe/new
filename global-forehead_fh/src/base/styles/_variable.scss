@@ -223,7 +223,7 @@ $input-widths: (
   sm: 90px,
   smd: 100px,
   md: 134px,
-  lg: 210px,
+  lg: 186px,
   jb: 270px
 );
 
@@ -569,10 +569,10 @@ $portlets: (
 //alert
 $alerts: (
   default: (
-    bg-color: $deep-gray-color,
-    color: $dark-color
+    bg-color: $white-linear-color,
+    border-color: $gray-color,
+    color: $color-amber
   ),
-
   warning: (
     bg-color: #fcf8e3,
     color: $main-deep-color

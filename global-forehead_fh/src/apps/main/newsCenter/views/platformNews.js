@@ -3,7 +3,8 @@
 var TabView = require('com/tabView');
 
 var PlatformView = require('newsCenter/views/platformNews-platform');
-var LetterView = require('newsCenter/views/platformNews-letter');
+var PlatformSettingView = require('newsCenter/views/platformNewsSetting');
+// var LetterView = require('newsCenter/views/platformNews-letter');
 
 var PlatformNewsView = TabView.extend({
 
@@ -15,23 +16,24 @@ var PlatformNewsView = TabView.extend({
     _(this.options).extend({
       tabs: [
         {
-          label: '系统通知<span class="js-nc-unRead-main">（<span class="js-nc-noticeTab-unRead text-bold-pleasant">-</span>）</span>',
+          label: '消息中心',
           name: 'platform',
           id: 'jsNcPlatform',
-          router: 'nc/pn',
+          // router: 'nc/pn',
           view: PlatformView
         },
         {
-          label: '站内信<span class="js-nc-unRead-main">（<span class="js-nc-letterTab-unRead text-bold-pleasant">-</span>）</span>',
-          name: 'insideLetter',
-          id: 'jsNcInsideLetter',
-          router: 'nc/il',
-          view: LetterView
+          label: '通知设置',
+          name: 'platformSetting',
+          id: 'jsNcPlatformSetting',
+          class: 'hidden',
+          // router: 'nc/il',
+          view: PlatformSettingView
         }
       ]
     });
 
-    _.bindAll(this, 'renderUnread');
+    // _.bindAll(this, 'renderUnread');
   },
 
   onRender: function() {
@@ -39,8 +41,9 @@ var PlatformNewsView = TabView.extend({
 
     this.$unReadNotice = this.$('.js-nc-noticeTab-unRead');
     this.$unReadLetter = this.$('.js-nc-letterTab-unRead');
+    this.$('.js-view-tabs li:not(.active)').addClass('hidden');
 
-    this.subscribe('news', 'news:updating', this.renderUnread);
+    // this.subscribe('news', 'news:updating', this.renderUnread);
   },
 
   renderUnread: function(model) {

@@ -7,7 +7,8 @@ define(function (require, exports, module) {
     window.Global.appRouter.processAppRoutes(new GlobalCenterController(), {
       'gc/rl': 'registerAndLogin',
       'gc/sw': 'sensitiveWord',
-      'gc/bl': 'blackListOfIP'
+      'gc/bl': 'blackListOfIP',
+      'gc/dn':'domainNameManagement'
     });
 
   };

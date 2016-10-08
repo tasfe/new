@@ -204,7 +204,7 @@ var LowLevelManageView = SearchGrid.extend({
       title: '开户管理',
       size: 'modal-lg',
       body: '<div class="js-ac-open-account-container m-LR-sm"></div>',
-      // bodyClass: 'p-top-xs no-p-left no-p-right no-p-bottom',
+      bodyClass: 'p-top-xs no-p-left no-p-right no-p-bottom',
       footer: ''
     });
 
@@ -216,8 +216,10 @@ var LowLevelManageView = SearchGrid.extend({
     });
 
     openAccountView = new OpenAccountView({
-      el: $openAccountContainer
-    }).render();
+      className: 'ac-openAccount-view'
+    });
+
+    $openAccountContainer.html(openAccountView.render().$el);
 
     openAccountView.on('submit:complete', function() {
       $dialog.modal('hide');
