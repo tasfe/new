@@ -91,3 +91,17 @@
   }
 }
 
+.activityDetail-context {
+  height: 500px;
+  padding-top: 10px;
+}
+.activityDetail-container-header {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+}
+.activityDetail-back-btn {
+  color: grey;
+}
+.activityDetail-content {
+  color: $color-amber;
+}
