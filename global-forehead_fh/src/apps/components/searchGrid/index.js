@@ -1,4 +1,5 @@
 "use strict";
+require('./index.scss');
 
 var FilterHelper = require('skeleton/misc/filterHelper');
 

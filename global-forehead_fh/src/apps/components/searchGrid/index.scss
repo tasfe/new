@@ -1,0 +1,121 @@
+@charset "UTF-8";
+
+@import "~base/styles/imports";
+
+.search-condition-table{
+  padding-top: 13px;
+
+  .search-timeSet {
+    display: inline-block;
+    min-width: 240px;
+    input {
+      width: 100px;
+    }
+  }
+
+  .row1{
+    padding: 0px 12px 0px 12px;
+
+    dt{
+      font-size: 12px;
+    }
+
+    dd{
+      >button{
+        border: 1px solid #cccccc;
+        border-radius: 3px;
+        color: #666;
+        width: auto;
+        padding: 1px 8px;
+        border-radius: 3px;
+        font-size: 12px;
+        background-color: #ffffff;
+        outline: 0 none;
+
+        &:hover{
+          color: #fff;
+          border: 1px solid #ce6399;
+          background-color: #ce6399;
+        }
+
+      }
+    }
+  }
+
+  .row2{
+    border-top: 1px solid #f2d8e1;
+    text-align: center;
+    clear: both;
+    margin: 0px 12px;
+    position: relative;
+  }
+
+  .row3{
+    border-top: 1px solid #f2d8e1;
+    text-align: center;
+    clear: both;
+    margin: 0px 12px;
+    position: relative;
+
+    button{
+      margin: 0px;
+      width: 69px;
+      height: 26px;
+      padding-left: 10px;
+      background-color: #ce6399;
+      color: #fff;
+      font-family: '微软雅黑';
+      font-size: 12px;
+      border: 0px;
+      background-image:linear-gradient(180deg,#ce6399,#b54d7e);
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+      border: 1px solid #c25481;
+      border-radius: 3px;
+      top: 18px;
+
+      i{
+        font-size: 11px;
+        position: absolute;
+        top: 8px;
+        left: 14px;
+      }
+
+      &:hover{
+        background-image:-webkit-linear-gradient(180deg, #b54d7e, #ce6399);
+        background-image:linear-gradient(180deg,#b54d7e,#ce6399);
+      }
+    }
+  }
+
+  dt,dd{
+    display: inline-block;
+  }
+  dt{
+    margin-right: 5px;
+    font-weight: normal;
+    font-size: 14px;
+    color: #999999;
+    font-family: '微软雅黑';
+  }
+
+  select{
+    width: 86px;
+    padding: 0px 5px;
+    height: 24px;
+    font-size: 12px;
+    border-radius: 3px;
+    background-color: #fff;
+  }
+
+  input{
+    width: 86px;
+    height: 22px;
+    padding: 0px 5px;
+  }
+}
+
+.search-condition-table.row1only{
+    height: 80px;
+    position: relative;
+}
+
