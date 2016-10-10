@@ -29,7 +29,6 @@ var ActiveCenterController = RouterController.extend({
     }), {
       sidebar: 'at'
     });
-    $('#main > .clearfix').addClass('ac-block');
   },
   onlineGameActivity: function() {
     this.changeMainReginView(new ActivityCenterView({
@@ -38,11 +37,14 @@ var ActiveCenterController = RouterController.extend({
       sidebar: 'at'
     });
   },
-  activityDetail: function(activityId) {
+  activityDetail: function(type, activityId) {
     this.changeSubReginView(new ActivityDetailView({
-      // triggerTab: ticket,
       activityId: activityId
     }), {
+      main: {
+        title: '活动详情',
+        subReturn: true
+      },
       parentRouter: 'at/tb'
     });
   }
