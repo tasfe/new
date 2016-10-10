@@ -8,6 +8,6 @@ exports.install = function() {
     'at/ag': 'agencyActivity',
     'at/ti': 'ticketActivity',
     'at/ol':'onlineGameActivity',
-    'at/tb/:activity': 'openActivityDetail'
+    'at/tb/detail/:activityId': 'activityDetail'
   });
 };
