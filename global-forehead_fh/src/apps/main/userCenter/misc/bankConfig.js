@@ -6,35 +6,35 @@ var banks = [
     id: 1,
     zhName: '招商银行',
     pic: require('base/images/bank/userCenter/zhaoshang.png'),
-    logo: require('base/images/bank/fundCenter/zhaoshang.png'),
+    logo: require('base/images/bank/fundCenter/zhaoshang.jpg'),
     className: 'fc-re-bank-zhaoshang'
   },
   {
     id: 2,
     zhName: '工商银行',
     pic:  require('base/images/bank/userCenter/gongshang.png'),
-    logo: require('base/images/bank/fundCenter/gongshang.png'),
+    logo: require('base/images/bank/fundCenter/gongshang.jpg'),
     className: 'fc-re-bank-gongshang'
   },
   {
     id: 3,
     zhName: '建设银行',
     pic: require('base/images/bank/userCenter/jianshe.png'),
-    logo: require('base/images/bank/fundCenter/jianshe.png'),
+    logo: require('base/images/bank/fundCenter/jianshe.jpg'),
     className: 'fc-re-bank-jianshe'
   },
   {
     id: 4,
     zhName: '农业银行',
     pic: require('base/images/bank/userCenter/nongye.png'),
-    logo: require('base/images/bank/fundCenter/nongye.png'),
+    logo: require('base/images/bank/fundCenter/nongye.jpg'),
     className: 'fc-re-bank-nongye'
   },
   {
     id: 5,
     zhName: '中国银行',
     pic: require('base/images/bank/userCenter/zhongguo.png'),
-    logo: require('base/images/bank/fundCenter/zhongguo.png'),
+    logo: require('base/images/bank/fundCenter/zhongguo.jpg'),
     className: 'fc-re-bank-zhongguo'
   },
 
@@ -42,35 +42,35 @@ var banks = [
     id: 6,
     zhName: '交通银行',
     pic: require('base/images/bank/userCenter/jiaotong.png'),
-    logo: require('base/images/bank/fundCenter/jiaotong.png'),
+    logo: require('base/images/bank/fundCenter/jiaotong.jpg'),
     className: 'fc-re-bank-jiaotong'
   },
   {
     id: 7,
     zhName: '广发银行',
     pic: require('base/images/bank/userCenter/guangfa.png'),
-    logo: require('base/images/bank/fundCenter/guangfa.png'),
+    logo: require('base/images/bank/fundCenter/guangfa.jpg'),
     className: 'fc-re-bank-guangfa'
   },
   {
     id: 8,
     zhName: '光大银行',
     pic: require('base/images/bank/userCenter/guangda.png'),
-    logo: require('base/images/bank/fundCenter/guangda.png'),
+    logo: require('base/images/bank/fundCenter/guangda.jpg'),
     className: 'fc-re-bank-guangda'
   },
   {
     id: 9,
     zhName: '浦发银行',
     pic: require('base/images/bank/userCenter/pufa.png'),
-    logo: require('base/images/bank/fundCenter/pufa.png'),
+    logo: require('base/images/bank/fundCenter/pufa.jpg'),
     className: 'fc-re-bank-pufa'
   },
   {
     id: 10,
     zhName: '民生银行',
     pic: require('base/images/bank/userCenter/minsheng.png'),
-    logo: require('base/images/bank/fundCenter/minsheng.png'),
+    logo: require('base/images/bank/fundCenter/minsheng.jpg'),
     className: 'fc-re-bank-minsheng'
   },
   // {
