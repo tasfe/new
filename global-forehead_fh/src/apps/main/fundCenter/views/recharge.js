@@ -118,7 +118,8 @@ var RechargeView = TabView.extend({
       html.push('<li class="js-fc-re-payment-type ' + (index === 0 ? 'active' : '') +
         '" data-payment-type="' + payment.paymentType + '" data-payment-id="' + payment.paymentId + '">');
       html.push('<a href="javascript:void(0)" class="fc-re-nav-tab-a" >');
-      html.push('<span class="' + payment.className + '">' +payment.zhName+ '</span>');
+      // html.push('<span class="' + payment.className + '">' +payment.zhName+ '</span>');
+      html.push(payment.zhName);
       html.push('</a>');
       html.push('</li>');
 
@@ -139,7 +140,7 @@ var RechargeView = TabView.extend({
       var index = 0;
       _(bankList).each(function(bank, index1) {
         var bankInfo = bankConfig.get(bank.bankId);
-        if (bankInfo.className==='') {
+        if (!bankInfo || bankInfo.className==='') {
           return false;
         }
 
@@ -277,7 +278,7 @@ var RechargeView = TabView.extend({
   },
 
   switchRechargePage: function () {
-    this.$('.form-area, .tip-area').slideToggle()
+    this.$('.js-fc-form-area, .js-fc-tip-area').slideToggle()
   },
 
   dismiss: function () {

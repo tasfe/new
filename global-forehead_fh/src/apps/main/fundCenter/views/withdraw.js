@@ -1,7 +1,5 @@
 "use strict";
 
-var bankConfig = require('userCenter/misc/bankConfig');
-
 var WithdrawConfirmView = require('fundCenter/views/withdraw-confirm');
 
 var MoneyWithdrawalView = Base.ItemView.extend({
@@ -78,7 +76,7 @@ var MoneyWithdrawalView = Base.ItemView.extend({
 
   renderBasicInfo: function(data) {
     var self = this;
-    this.$('.js-fc-valid-balance').text(_(data.validBalance).convert2yuan());
+    this.$('.js-fc-valid-balance').html(_(data.validBalance).convert2yuan({fixed:4,clear: false}));
     this.$('.js-fc-wd-amount').attr('data-parsley-max', _(data.validBalance).convert2yuan());
 
     this.renderCardList(data.cardList);
@@ -126,10 +124,9 @@ var MoneyWithdrawalView = Base.ItemView.extend({
       this.$cardList.html();
     } else {
       this.$cardList.html(_(cardList).map(function(card, index) {
-        var bankInfo = bankConfig.get(card.bankId);
         var valMin = _(card.minMoneyLimit).convert2yuan();
         var valMax = _(card.maxMoneyLimit).convert2yuan();
-        return '<option value="' + card.cardId + '" data-min=' + valMin + ' data-max=' + valMax + '>'+card.bankName+ ' '+ card.cardNo + ' ' + (card.canWithdraw ? '' : '(不可用)') + '</option>';
+        return '<option value="' + card.cardId + '" data-min="' + valMin + '" data-max="' + valMax +'" data-bankid="' +card.bankId +'" data-cusname="' + card.name + '" data-cardno="' + card.cardNo +'">'+card.bankName+ ' '+ card.cardNo + ' ' + (card.canWithdraw ? '' : '(不可用)') + '</option>';
       }, this).join(''));
     }
     this.$('.js-fc-wd-bankList').trigger('change');
@@ -164,13 +161,21 @@ var MoneyWithdrawalView = Base.ItemView.extend({
       return false;
     }
 
-    var wcView = new WithdrawConfirmView({parentView: this.parentView,
-                                          cardId: this.$('.js-fc-wd-bankList').find('option:selected').val(),
-                                          amount: this.$('.js-fc-wd-amount').val(),
-                                          question:this.$quest,
-                                          securityId:this.$securityId});
+    var $bankCard = this.$('.js-fc-wd-bankList').find('option:selected');
 
-    $('.js-fc-wd-container').html(wcView.render().el);
+    var wcView = new WithdrawConfirmView({
+      parentView: this.parentView,
+      cardId: $bankCard.val(),
+      bankId: $bankCard.data('bankid'),
+      cardNo: $bankCard.data('cardno'),
+      cusName: $bankCard.data('cusname'),
+      amount: this.$('.js-fc-wd-amount').val(),
+      question:this.$quest,
+      securityId:this.$securityId
+    });
+    this.$('.js-fc-wd-form').addClass('hidden');
+
+    this.$('.js-fc-wd-container-sub').removeClass('hidden').html(wcView.render().el);
     
     
   }

@@ -260,6 +260,8 @@
         a{
           background:  linear-gradient(to bottom,#bf6f25,#812521);
           border-bottom: 1px solid #812521;
+          border: 0 !important;
+          color: #fff;
         }
 
         .bc-first-prize{
@@ -323,7 +325,7 @@
   }
 
   .bc-play-brief {
-    padding-left: 25px;
+    padding-left: 12px;
     margin-top:10px;
     color: #4e4e4e;
     .bc-play-example{
@@ -356,6 +358,7 @@
       border-top: 1px solid #404040;
       border-bottom: 1px solid #222;
       padding: 16px;
+      padding-left: 20px;
       position: relative;
 
       .bc-playArea-items {
@@ -363,6 +366,7 @@
         .tab-toolbar.tab-circle{
           width: 818px ;
           .tab-title{
+            text-align: left;
             div{
               background: transparent;
             }
@@ -425,9 +429,9 @@
               background-color: transparent;
               color: #909090;
               &:hover{
-                border: 1px solid #cc3333 !important;
-                color: #fff;
-                background-color: #cc3333 !important;
+                border: 1px solid #565656 !important;
+                //color: #fff;
+                background-color: transparent !important;
               }
             }
           }
@@ -532,15 +536,16 @@
         color: #909090;
         border: 1px solid #606060;
         background-color: transparent;
+        margin-top: 0;
         &.active{
           border: 1px solid #cc3333 !important;
           color: #fff;
           background-color: #cc3333 !important;
         }
         &:hover{
-          border: 1px solid #cc3333 !important;
-          color: #fff;
-          background-color: #cc3333 !important;
+          border: 1px solid #999 !important;
+          //color: #fff;
+          background-color: transparent !important;
         }
       }
     }
@@ -880,7 +885,8 @@
         bottom: 55px;
         left: 440px;
         background: url(mmc-btn.png) no-repeat;
-        height: 54px;
+        height: 51px;
+        line-height: 41px;
         border-radius: 27px;
         border: 0;
         color: #ffffff;

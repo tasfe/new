@@ -199,7 +199,6 @@
 //fc
 
 .fc-recharge{
-  border-top: 1px solid #ccc;
   padding-top: 15px;
 }
 
@@ -405,18 +404,23 @@
 //.fc-re-bank-pingan {
 //  background: url('pingan.jpg') no-repeat;
 //}
-//.fc-re-bank-xingye {
-//  background: url('xingye.jpg') no-repeat;
-//}
-//.fc-re-bank-zhongxin {
-//  background: url('zhongxin.jpg') no-repeat;
-//}
-//.fc-re-bank-youzheng {
-//  background: url('youzheng.jpg') no-repeat;
-//}
-//.fc-re-bank-huaxia {
-//  background: url('huaxia.jpg') no-repeat;
-//}
+
+.fc-re-bank-xingye {
+  background: url('~base/images/bank/fundCenter/xingye.jpg') no-repeat;
+}
+.fc-re-bank-zhongxin {
+  background: url('~base/images/bank/fundCenter/zhongxin.jpg') no-repeat;
+}
+.fc-re-bank-youzheng {
+  background: url('~base/images/bank/fundCenter/youzheng.jpg') no-repeat;
+}
+.fc-re-bank-huaxia {
+  background: url('~base/images/bank/fundCenter/huaxia.jpg') no-repeat;
+}
+
+.fc-re-bank-beijing {
+  background: url('~base/images/bank/fundCenter/beijing.jpg') no-repeat;
+}
 
 .fc-re-resultShow {
   margin: 10px 20px;
@@ -539,23 +543,25 @@
 
 }
 
-.fc-wd-div2{
+.fc-wd-finished-container{
   display: inline-flex;
-  height: 100px;
-  margin: 30px 0px 30px 250px;
+  height: 58px;
+  margin: 57px 0px 85px 250px;
 
   .fc-wd-finishImg{
-    width: 66px;
-    height: 66px;
-    background: url("fc-wd-success.png") no-repeat;
+    width: 58px;
+    height: 58px;
+    background: url("withdraw-succ.png") no-repeat;
 
   }
 
-  .fc-wd-div3{
-    height: 80px;
-    margin: 10px 10px 10px 20px;
+  .fc-wd-finished-desc{
+    height: 54px;
+    margin: 4px 10px 0 15px;
+    color: #666;
     .fc-wd-successWord{
-      font-size: 15px;
+      font-size: 18px;
+      color: #333;
     }
   }
 
@@ -589,6 +595,11 @@
 
 .fc-wd-commit {
   width: 80px;
+  height: 24px;
+  border-radius: 5px;
+}
+
+.fc-wd-return {
   height: 24px;
   border-radius: 5px;
 }
@@ -743,18 +754,21 @@
     border-right: 1px solid #ccc;
     float: left;
     width: 330px;
-    height: 235px;
+    height: 185px;
     padding-top: 50px;
     padding-left: 80px;
     color: #666;//#9a9a9a
     .fc-wd-confirm-bank{
-      width:100px;
-      height: 40px;
+      width:121px;
+      height: 36px;
+    }
+    .fc-wd-confirm-amount{
+      font-size: 16px;
     }
   }
   .fc-wd-confirm-right{
     width: 350px;
-    height: 235px;
+    height: 185px;
     display: inline-block;
     padding-top: 50px;
     padding-left: 60px;
