@@ -67,8 +67,8 @@ var WithdrawConfirmView = Base.ItemView.extend({
                 var wfView = new WithdrawFinishView({parentView: this.parentView});
                 $('.js-fc-wd-container-sub').html(wfView.render().el);
             } else {
-                var wfView = new WithdrawFinishView({parentView: this.parentView});
-                $('.js-fc-wd-container-sub').html(wfView.render().el);
+                // var wfView = new WithdrawFinishView({parentView: this.parentView});
+                // $('.js-fc-wd-container-sub').html(wfView.render().el);
                 Global.ui.notification.show(res.msg);
             }
 

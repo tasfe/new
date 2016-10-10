@@ -6,8 +6,8 @@ var WithdrawFinishView = Base.ItemView.extend({
 
     events: {
 
-        'click .js-fc-wd-check': 'finishedHandler',
-        'click .js-fc-wd-bet': 'goBetHandler'
+        // 'click .js-fc-wd-check': 'finishedHandler',
+        // 'click .js-fc-wd-bet': 'goBetHandler'
     },
 
 
@@ -17,14 +17,6 @@ var WithdrawFinishView = Base.ItemView.extend({
         
 
     },
-
-    finishedHandler:function () {
-        window.open('#uc/wr');
-    },
-    goBetHandler: function(){
-        window.location.href = '#uc/wr';
-
-    }
 
 });
 
