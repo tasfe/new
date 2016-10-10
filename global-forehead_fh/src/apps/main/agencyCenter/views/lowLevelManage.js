@@ -8,6 +8,8 @@ var OpenAccountView = require('agencyCenter/openAccount');
 
 var QuotaTransferView = require('agencyCenter/lowLevelManage/quotaTransfer');
 
+var RebateView = require('agencyCenter/lowLevelManage/rebate');
+
 var LowLevelManageView = SearchGrid.extend({
 
   template: require('agencyCenter/templates/lowLevelManage.html'),
@@ -27,6 +29,15 @@ var LowLevelManageView = SearchGrid.extend({
       url: '/acct/subaccount/getquotacfg.json',
       data: {
         userId: userId
+      }
+    });
+  },
+
+  getSubAcctXhr: function(userId) {
+    return Global.sync.ajax({
+      url: '/acct/subaccount/getsubacctrebate.json',
+      data:{
+        subAcctId: userId
       }
     });
   },
@@ -247,12 +258,12 @@ var LowLevelManageView = SearchGrid.extend({
         if(res && res.result === 0) {
 
           var $dialog = Global.ui.dialog.show({
-            title: '转给' + $target.data('username') + '的配额',
+            title: '转给' + rowData.userName + '的配额',
             size: 'modal-lg',
             body: '<div class="js-ac-quotatransfer-container"></div>'
           });
 
-          var $quotaContainer = $dialog.find('.js-ac-quotatransfer-container');
+          var $container = $dialog.find('.js-ac-quotatransfer-container');
           var quotaView;
 
           $dialog.on('hidden.modal', function() {
@@ -261,31 +272,52 @@ var LowLevelManageView = SearchGrid.extend({
           });
 
           quotaView = new QuotaTransferView({
-            el: $quotaContainer,
+            el: $container,
             username: rowData.userName,
-            subacctId: rowData.userId,
+            userId: rowData.userId,
             rebate: rowData.rebate,
             data: reqData
-          }).render();
-
-          // $dialog.off('click.saveInfoq')
-          //   .on('click.saveInfoq', '.js-ac-submitQuotaInfo', function(e) {
-          //     self.submitQuotaHandler(e, $target.attr('data-user-id'), $target.attr('data-name'), $dialog, levelName);
-          //   });
-          // $dialog.off('click.editQuota')
-          //   .on('blur.editQuota', '.js-ac-subRebate', function(e) {
-          //     self.inputRebateHandler(e);
-          //   });
+          }).render()
+            .on('submit:complete', function() {
+              $dialog.modal('hide');
+              self.refresh();
+            });
         }
       });
   },
 
   changeRebateHandler: function(e) {
+    var self = this;
     var $target = $(e.currentTarget);
+    var rowData = this.grid.getRowData($target);
 
-    $(document).rebate({
-      title: '提升' + $target.data('username') + '返点',
-      userId: $target.data('subacctid')
+    this.getSubAcctXhr(rowData.userId).done(function(res) {
+      var reqData = res.root || {};
+      if(res && res.result === 0) {
+        var $dialog = Global.ui.dialog.show({
+          title: '提升' + rowData.userName + '返点',
+          size: 'modal-lg',
+          body: '<div class="js-ac-rebate-container"></div>'
+        });
+
+        var $container = $dialog.find('.js-ac-rebate-container');
+        var rebateView;
+
+        $dialog.on('hidden.modal', function() {
+          $(this).remove();
+          rebateView.destroy();
+        });
+
+        rebateView = new RebateView({
+          el: $container,
+          userId: rowData.userId,
+          data: reqData
+        }).render()
+          .on('submit:complete', function() {
+            $dialog.modal('hide');
+            self.refresh();
+          });
+      }
     });
   },
 
