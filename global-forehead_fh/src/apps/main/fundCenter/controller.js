@@ -25,7 +25,7 @@ var FundCenterController = RouterController.extend({
       main: {
         title: '账户明细'
       },
-      sidebar: Global.ui.menu.get(['uc'])
+      sidebar: 'uc'
     });
     $('#main > .clearfix').addClass('ac-block ac-block2');
   }

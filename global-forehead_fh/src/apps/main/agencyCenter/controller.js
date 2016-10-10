@@ -181,7 +181,7 @@ var AgencyCenterController = RouterController.extend({
       main: {
         title: '报表查询'
       },
-      sidebar: Global.ui.menu.get(['ac'])
+      sidebar: 'ac'
     });
   },
 
@@ -278,7 +278,7 @@ var AgencyCenterController = RouterController.extend({
       main: {
         title: '红包查询'
       },
-      sidebar: Global.ui.menu.get(['ac', 'uc', 'aa'])
+      sidebar: 'ac'
     });
   },
   commissionStatistics: function() {
@@ -330,7 +330,7 @@ var AgencyCenterController = RouterController.extend({
 
   rushReward: function() {
     this.changeMainReginView(new RushRewardView(), {
-      sidebar: Global.ui.menu.get(['ac', 'uc', 'aa'])
+      sidebar: 'ac'
     });
   }
 });

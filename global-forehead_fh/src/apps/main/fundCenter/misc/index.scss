@@ -71,7 +71,7 @@
 
 .fc-wd-bg{
   background: #fff;
-  padding: 10px;
+  padding: 0px 8px;
 }
 
 .fc-cardList {
@@ -373,36 +373,34 @@
 }
 
 .fc-re-bank-zhongguo {
-  background: url('zhongguo.jpg') no-repeat;
+  background: url('~base/images/bank/fundCenter/zhongguo.jpg') no-repeat;
 }
 .fc-re-bank-gongshang {
-  background: url('gongshang.jpg') no-repeat;
+  background: url('~base/images/bank/fundCenter/gongshang.jpg') no-repeat;
 }
 .fc-re-bank-nongye {
-  background: url('nongye.jpg') no-repeat;
+  background: url('~base/images/bank/fundCenter/nongye.jpg') no-repeat;
 }
 .fc-re-bank-jianshe {
-   background: url('jianshe.jpg') no-repeat;
+   background: url('~base/images/bank/fundCenter/jianshe.jpg') no-repeat;
 }
-
 .fc-re-bank-jiaotong {
-  background: url('jiaotong.jpg') no-repeat;
+  background: url('~base/images/bank/fundCenter/jiaotong.jpg') no-repeat;
 }
 .fc-re-bank-minsheng {
-  background: url('minsheng.jpg') no-repeat;
+  background: url('~base/images/bank/fundCenter/minsheng.jpg') no-repeat;
 }
 .fc-re-bank-guangfa {
-  background: url('guangfa.jpg') no-repeat;
+  background: url('~base/images/bank/fundCenter/guangfa.jpg') no-repeat;
 }
 .fc-re-bank-guangda {
-  background: url('guangda.jpg') no-repeat;
+  background: url('~base/images/bank/fundCenter/guangda.jpg') no-repeat;
 }
-
 .fc-re-bank-pufa {
-  background: url('pufa.jpg') no-repeat;
+  background: url('~base/images/bank/fundCenter/pufa.jpg') no-repeat;
 }
 .fc-re-bank-zhaoshang {
-  background: url('zhaoshang.jpg') no-repeat;
+  background: url('~base/images/bank/fundCenter/zhaoshang.jpg') no-repeat;
 }
 //.fc-re-bank-pingan {
 //  background: url('pingan.jpg') no-repeat;
@@ -504,22 +502,41 @@
     width: 210px;
   }
 }
-
-
-.fc-wd-div0{
-  background-color: #cc0001;
-  border-radius: 15px;
-  margin-bottom: 30px;
-  padding-left: 10px;
-  line-height: 30px;
-  color: #ffffff;
-  height: 30px;
+.fc-wd-hint-message{
+  width: 858px;
+  height: 41px;
+  border: solid 1px #cccfcf;
+  border-radius: 4px;
+  margin: 13px 0 82px 0;
+  box-shadow: 0px 2px 1px #EDEDED;
+  .fc-wd-hint-message-btn{
+    float: left;
+    background: url('./hint.png') no-repeat;
+    width: 21px;
+    height: 21px;
+    margin-left: 10px;
+    margin-top: 10px;
+  }
+  .fc-wd-hint-message-des{
+    line-height: 21px;
+    margin-left: 5px;
+    display: inline-block;
+    margin-top: 10px;
+    color: #666;
+  }
 }
-
 .fc-wd-div1 {
   margin-right: auto;
   margin-left: auto;
-  padding-left: 200px;
+  margin-bottom: 75px;
+  padding-left: 242px;
+  color: #666;//#9a9a9a
+
+  .fc-wd-limit-notice{
+    color:#9a9a9a;
+    font-size: 12px;
+  }
+
 }
 
 .fc-wd-div2{
@@ -571,9 +588,9 @@
 }
 
 .fc-wd-commit {
-  width: 200px;
-  background-color: #cc0001;
-  border-radius: 0px;
+  width: 80px;
+  height: 24px;
+  border-radius: 5px;
 }
 
 .rc-seperate-line{
@@ -589,7 +606,7 @@
 
 .fc-wd-amount {
   display: inline-block;
-  width: 238px;
+  width: 250px !important;
   height: 30px;
 }
 
@@ -716,5 +733,37 @@
   .fc-re-tip-cancel{
     color: #000;
     background: #fff;
+  }
+}
+
+.fc-wd-confirm-container{
+  padding-top: 50px;
+  padding-bottom: 98px;
+  .fc-wd-confirm-left {
+    border-right: 1px solid #ccc;
+    float: left;
+    width: 330px;
+    height: 235px;
+    padding-top: 50px;
+    padding-left: 80px;
+    color: #666;//#9a9a9a
+    .fc-wd-confirm-bank{
+      width:100px;
+      height: 40px;
+    }
+  }
+  .fc-wd-confirm-right{
+    width: 350px;
+    height: 235px;
+    display: inline-block;
+    padding-top: 50px;
+    padding-left: 60px;
+    color: #666;//#9a9a9a
+    .fc-wd-answer{
+      width: 204px;
+    }
+    .fc-wd-paypwd{
+      width: 204px;
+    }
   }
 }

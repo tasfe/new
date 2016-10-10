@@ -8,6 +8,7 @@
   width:1112px;
   margin: -135px 44px 0;
   //height:1053px;
+  min-height:803px;
 
   .bc-mmc-bg-area{
     position: fixed;
@@ -20,6 +21,7 @@
     background-image: url(mmc-bg.png);
     background-repeat: no-repeat;
     background-position: center 0px;
+
   }
 
   .bc-head-area{
@@ -31,6 +33,14 @@
     height:255px;
     width: 1215px;
     margin-left: -103px;
+    .mmc-header-light{
+      background: url(mmc-header-light.gif) no-repeat;
+      width: 961px;
+      height: 35px;
+      position: absolute;
+      left: 73px;
+      top: 56px;
+    }
   }
 
   .mmc-main{
@@ -632,6 +642,19 @@
         color: #fff;
       }
     }
+    .bc-mmc-lottery-curr-prize-show{
+      background: url(mmc-curr-prize-bg.png) no-repeat;
+      width: 330px;
+      height: 45px;
+      position: absolute;
+      top: -20px;
+      left: 392px;
+      line-height: 40px;
+      font-size: 20px;
+      font-weight: 500;
+      text-align: center;
+    }
+
     .bc-lottery-preview {
       position: relative;
       background-color: #666666;
@@ -878,6 +901,9 @@
   text-align: center;
   .modal-dialog{
     border: 0;
+    .modal-content{
+      background-color: transparent !important;
+    }
   }
   .modal-body {
     background-color: transparent;
@@ -930,6 +956,9 @@
   }
   .modal-dialog{
     border: 0;
+    .modal-content{
+      background-color: transparent !important;
+    }
   }
   .modal-body {
     background-color: transparent;
@@ -1007,6 +1036,9 @@
   }
   .modal-dialog{
     border: 0;
+    .modal-content{
+      background-color: transparent !important;
+    }
   }
   .modal-body {
     background-color: transparent;

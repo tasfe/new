@@ -84,7 +84,7 @@ var OpenAccountManageView = Base.ItemView.extend({
     var self = this;
 
     this.$('.js-ac-rebate-set-container').staticGrid({
-      tableClass: 'table table-bordered text-amber table-center',
+      tableClass: 'table table-bordered table-center',
       colModel: [
         {
           label: '游戏', name: 'sericeName', width: '30%', formatter: function(val) {
@@ -129,7 +129,7 @@ var OpenAccountManageView = Base.ItemView.extend({
       var rebate =  _(this.$('.js-ac-manual-rebate').val()).formatMul(10);
       var data = {
         userName: _(this.$('.js-ac-userName').val()).trim(),
-        loginPwd: 'abc123',
+        loginPwd: 'fh12345',
         rebate: rebate,
         type: 2
       };

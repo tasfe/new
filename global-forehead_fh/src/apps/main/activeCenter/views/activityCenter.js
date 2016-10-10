@@ -23,7 +23,8 @@ var ActiveCenterView = Base.ItemView.extend({
     this.$pagination.pagination({
       onPaginationChange: function (index) {
         self.renderActiveGrid(index, self.$type);
-      }
+      },
+      pageSize: 3
     });
     this.pagination = this.$pagination.pagination('instance');
 

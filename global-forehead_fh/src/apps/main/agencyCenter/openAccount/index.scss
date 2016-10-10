@@ -2,44 +2,13 @@
 
 @import "~base/styles/imports";
 
-.ac-openAccount-view{
-
+.ac-openAccount-view {
   .linkAddress{
-    width:170px;
+    width: 145px;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
     margin-left: 15px;
-  }
-  .ac-openAccount-rebate-notice {
-    a {
-      font-size: 14px;
-      color: #666666;
-      text-decoration: underline;
-      padding: 0px 10px;
-    }
-
-    dl, dt, dd {
-      padding: 0px;
-      margin: 0px;
-      font-weight: initial;
-      display: inline-block;
-    }
-
-    .tips {
-      color: #cc0000;
-      height: 33px;
-      line-height: 33px;
-      margin-bottom: 20px;
-    }
-  }
-}
-
-.ac-openAccount-view {
-  .control-label{
-    padding: 0;
-    display: block;
-    color: #666666;
   }
 
   .ac-openAccount-rebate-notice {
@@ -115,21 +84,6 @@
     vertical-align: middle;
     border-radius: 4px;
     color: #fefbfa;
-  }
-
-  .ac-openAccount-link-main-div {
-    margin: -8px 0 0 0;
-  }
-
-  .ac-add-link {
-    margin-right: 15px;
-    width: 115px;
-    height: 30px;
-    border:0px;
-    background-color: #d8855a;
-    font-size: 16px;
-    font-family: '微软雅黑';
-    color: #fff;
   }
 
   .ac-open-account-link {

@@ -361,7 +361,8 @@ var HeaderView = Base.ItemView.extend({
           if (res && res.result === 0) {
             if (data.hasMoneyPwd && data.hasBankCard) {
               //设置了则弹出验证框
-              $(document).verifyFundPwd({parentView:self});
+              // $(document).verifyFundPwd({parentView:self});
+              self.verifySuccCallBack();
             } else if (!data.hasMoneyPwd || !data.hasBankCard) {
               if(!data.hasMoneyPwd){
                 //未设置则弹出链接到资金密码设置页面的提示框
