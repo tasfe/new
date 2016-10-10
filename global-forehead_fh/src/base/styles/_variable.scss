@@ -452,21 +452,21 @@ $btns: (
     )
   ),
   silent: (
-    color: $font-color-coffee,
-    bg-color: transparent,
-    border-color: transparent,
+    color: $color-amber,
+    bg-color: $white-color,
+    border-color: $gray-color,
     hover: (
-      color: $font-color-coffee,
-      bg-color: $color-deep-gray
+      color: $color-amber,
+      bg-color: $white-color
     ),
     focus: (
-      color: $font-color-coffee,
-      bg-color: $color-deep-gray
+      color: $color-amber,
+      bg-color: $white-color
       //box-shadow: none
     ),
     active: (
-      color: $font-color-coffee,
-      bg-color: $color-sunshine,
+      color: $color-amber,
+      bg-color: $white-color
       //box-shadow: none
     )
   )
