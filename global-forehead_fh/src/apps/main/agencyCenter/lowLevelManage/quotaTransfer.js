@@ -1,5 +1,7 @@
 "use strict";
 
+require('./quotaTransfer.scss');
+
 var QuotaTransferView = Base.ItemView.extend({
 
   template: require('./quotaTransfer.html'),
@@ -17,7 +19,7 @@ var QuotaTransferView = Base.ItemView.extend({
 
   serializeData: function() {
     return {
-      currentLevel: this.getUserGroupLevel(this.acctInfo.userGroupLevel,_(this.acctInfo.userRebate).formatDiv(10), _(this.acctInfo.parentRebate).formatDiv(10))
+      currentLevel: this.getUserGroupLevel(this.acctInfo.userGroupLevel, this.acctInfo.userRebate, this.acctInfo.parentRebate)
       + _(this.acctInfo.userRebate).formatDiv(10, {fixed: 1}),
       targetUsername: this.options.username,
       targetCurtLevel: this.getUserGroupLevel((Number(this.acctInfo.userGroupLevel) + 1), this.options.rebate) + _(this.options.rebate).formatDiv(10, {fixed: 1})
@@ -52,18 +54,30 @@ var QuotaTransferView = Base.ItemView.extend({
     var levelName = '';
     var acctInfo = this.acctInfo;
 
-    if(rebate < 12.8) {
-      levelName = '代理';
-      if((parentRebate && (parentRebate == rebate)) || !parentRebate && (_(acctInfo.userRebate).formatDiv(10) == rebate)) {
-        levelName = '平级';
-      }
+    if (level === 0) {
+      levelName = '招商';
+    } else if (level === 1) {
+      levelName = '直属';
+    } else if (level === 2 && rebate === 128) {
+      levelName = '总代';
+    } else if (rebate === parentRebate) {
+      levelName = '平级';
     } else {
-      if(level == 4) {
-        levelName = '平级';
-      } else {
-        levelName = '代理';
-      }
+      levelName = '代理';
     }
+
+    // if(rebate < 12.8) {
+    //   levelName = '代理';
+    //   if((parentRebate && (parentRebate == rebate)) || !parentRebate && (_(acctInfo.userRebate).formatDiv(10) == rebate)) {
+    //     levelName = '平级';
+    //   }
+    // } else {
+    //   if(level == 4) {
+    //     levelName = '平级';
+    //   } else {
+    //     levelName = '代理';
+    //   }
+    // }
 
     return levelName;
   },
@@ -161,7 +175,6 @@ var QuotaTransferView = Base.ItemView.extend({
               bodyClass: 'text-center font-sm'
             });
             self.trigger('submit:complete');
-            self.render();
           } else {
             Global.ui.notification.show(res.msg);
           }

@@ -233,60 +233,6 @@ body{
 	z-index: 101;
 }
 
-.julien-rebate-dialog{
-	font-family: '微软雅黑';
-	margin: 0px 130px;
-
-	.tips{
-		text-align: center;
-	}
-
-	> div > div > table{
-		tr{
-			height: 38px;
-			background-color: #f2f2f2;
-			line-height: 38px;
-			color: #999999;
-			font-family: '\5FAE\8F6F\96C5\9ED1';
-			font-size: 14px;
-
-			th{
-				vertical-align: middle;
-				background: none;
-				font-weight: normal;
-			}
-		}
-	}
-
-	> div > div > div >table{
-		tr{
-			background-color: #fff;
-			color: #666666;
-			font-size: 14px;
-		}
-		td{
-			padding: 8px 3px;
-		}
-		a{
-			color: #666666;
-			font-size: 14px;
-		}
-	}
-}
-
-#footer{
-	.foot1{
-		clear: both;
-		position: fixed;
-		bottom: 0px;
-		left: 0px;
-		width: 100%;
-	}
-	.foot2{
-		height: 100px;
-	}
-}
-
 .julien-table-tbody{
 	tr{
 		color:#444;

@@ -64,6 +64,10 @@ var SearchGrid = Base.PrefabView.extend({
     this.$searchForm.trigger('submit');
   },
 
+  refresh: function() {
+    this._getGridXhr();
+  },
+
   _setUrlParams: function() {
     var params = _.getUrlParam();
     _(params).each(function(val, prop) {
