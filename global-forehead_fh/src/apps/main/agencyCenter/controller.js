@@ -188,7 +188,7 @@ var AgencyCenterController = RouterController.extend({
   teamDynamic: function() {
     this.changeMainReginView(new TeamDynamicView(), {
       main: {
-        title: '团队动态'
+        // title: '团队动态'
       },
       sidebar: 'ac',
       topView: 'team'
