@@ -3,7 +3,7 @@
 
   <ul class="nav nav-tabs nav-tabs-border nav-hot no-m-bottom">
     <% _(menus.sub).each(function(menu) { %>
-    <% if (!menu.needAuth || menu.auth) { %>
+    <% if ((!menu.needAuth || menu.auth) && !menu.notShow) { %>
     <li role="presentation" class="<% if (menu.isActive) { %>active<% } %>">
       <a class="router" href="#<%=menu.router %>">
         <%=menu.name %>
