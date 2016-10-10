@@ -12,6 +12,7 @@ var BettingRecordsView = TabView.extend({
 
   initialize: function() {
     _(this.options).extend({
+      tabClass: 'view-tabs nav nav-tabs nav-tabs-special',
       tabs: [
         {
           label: '彩票投注记录',
