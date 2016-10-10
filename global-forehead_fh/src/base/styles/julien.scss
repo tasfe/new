@@ -233,96 +233,6 @@ body{
 	z-index: 101;
 }
 
-.julien-rebate-dialog{
-	font-family: '微软雅黑';
-	margin: 0px 130px;
-
-	.tips{
-		text-align: center;
-	}
-
-	> div > div > table{
-		tr{
-			height: 38px;
-			background-color: #f2f2f2;
-			line-height: 38px;
-			color: #999999;
-			font-family: '\5FAE\8F6F\96C5\9ED1';
-			font-size: 14px;
-
-			th{
-				vertical-align: middle;
-				background: none;
-				font-weight: normal;
-			}
-		}
-	}
-
-	> div > div > div >table{
-		tr{
-			background-color: #fff;
-			color: #666666;
-			font-size: 14px;
-		}
-		td{
-			padding: 8px 3px;
-		}
-		a{
-			color: #666666;
-			font-size: 14px;
-		}
-	}
-}
-
-.julien-quota-dialog{
-	font-family: '微软雅黑';
-
-	.title{
-		font-size: 16px;
-		color: #666666;
-		margin-bottom: 15px;
-
-
-		span{
-			display: inline-block;
-			margin-right: 100px;
-			b{
-				color: #cc0000;
-				font-weight: initial;
-			}
-		}
-	}
-}
-
-#footer{
-	.foot1{
-		clear: both;
-		position: fixed;
-		bottom: 0px;
-		left: 0px;
-		width: 100%;
-	}
-	.foot2{
-		height: 100px;
-	}
-}
-
-.julien-table-title{
-	tr{
-		height: 38px;
-		background-color: #f2f2f2;
-		line-height: 38px;
-		color: #999999;
-		font-family: '\5FAE\8F6F\96C5\9ED1';
-		font-size: 14px;
-
-		th{
-			vertical-align: middle;
-			background: none;
-			font-weight: normal;
-		}
-	}
-}
 .julien-table-tbody{
 	tr{
 		color:#444;
@@ -330,10 +240,6 @@ body{
 			color:red;
 		}
 	}
-}
-.row-span{
-	height:13px;
-	display:inline-block;
 }
 .julien-transfer-dialog{
 	font-family: '微软雅黑';
@@ -378,21 +284,6 @@ body{
 				left: 305px;
 			}
 
-		}
-	}
-
-	.row-btn{
-		text-align: center;
-		border-top: 1px solid #e2e2e2;
-		margin-top: 45px;
-		padding-top: 28px;
-		margin-bottom: 20px;
-
-		button{
-			background-color: #cc0000;
-			padding: 7px 19px;
-			border: 0px;
-			color: #fff;
 		}
 	}
 }
@@ -527,37 +418,6 @@ body{
 .js-quota-rebate-Inp{
 	width:35px;
 	height:26px;
-}
-.julien-button{
-	border: 1px solid #bb346e;
-	border-radius: 3px;
-	color: #fff;
-	width: auto;
-	padding: 5px 10px;
-	font-size: 12px;
-	outline: 0 none;
-	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
-	background-image:-webkit-linear-gradient(180deg, #db5790, #c04b7f);
-	background-image:linear-gradient(180deg,#db5790,#c04b7f);
-
-	&:hover{
-		color: #fff;
-		border: 1px solid #ce6399;
-		background-color: #ce6399;
-		background-image:-webkit-linear-gradient(180deg, #c04b7f, #db5790);
-		background-image:linear-gradient(180deg,#c04b7f,#db5790);
-	}
-}
-.julien-button2{
-	background-color: #cc0000;
-	padding: 7px 19px;
-	border: 0px;
-	color: #fff;
-	margin-top: 15px;
-}
-.julien-button-margin{
-	margin-left:430px;
-	margin-top:30px;
 }
 
 .julien-close-btn{

@@ -227,7 +227,7 @@ var OpenAccountManageView = Base.ItemView.extend({
       '<form class="js-ac-oam-au-form" >' +
       '<div class="js-ac-link-edit-div play-table m-bottom-md clearfix"></div>' +
       '<div class="text-center p-top-md border-top">' +
-      '<button type="button" class="js-ac-submitOpenAccountInfo btn btn-pink btn-linear" data-loading-text="保存中">' +
+      '<button type="button" class="js-ac-oam-au-save btn btn-pink btn-linear" data-loading-text="保存中">' +
       btnName +
       '</button>' +
       '</div>' +

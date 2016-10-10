@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+@import "~base/styles/imports";
+
+.quota-title-inner {
+  font-size: $font-sm;
+  width: 50%;
+  text-align: center;
+  margin: 0 auto;
+  display: inline-block;
+
+  &:first-child {
+    width: 40%;
+    padding-left: 10%;
+  }
+}
+.quota-results {
+  .quota-result {
+    width: 49%;
+    border-right: 1px solid $gray-color;
+    display: inline-block;
+    margin-bottom: 5px;
+
+    &:nth-of-type(2n), &:last-child {
+      border-right: 0;
+    }
+  }
+}
+

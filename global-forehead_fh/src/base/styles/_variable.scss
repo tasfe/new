@@ -124,7 +124,7 @@ $font-colors: (
   blue: $blue-color,
 
   important: $font-light-pleasant,
-  info: $font-info,
+  info: $green-color,
   success: $font-success,
   warning: $font-warning,
   danger: $font-danger,
@@ -219,8 +219,8 @@ $squares: (
 );
 
 $input-widths: (
-  xs: 60px,
-  sm: 90px,
+  xs: 30px,
+  sm: 60px,
   smd: 100px,
   md: 134px,
   lg: 186px,

@@ -6,7 +6,7 @@ var RouterController = require('skeleton/controllers/router');
 
 var ActivityCenterView = require('activeCenter/views/activityCenter');
 
-var OpenActivityDetailView = require('activeCenter/views/activityCenter');
+var ActivityDetailView = require('activeCenter/views/activityDetail');
 
 var ActiveCenterController = RouterController.extend({
   activityCenter: function() {
@@ -38,10 +38,10 @@ var ActiveCenterController = RouterController.extend({
       sidebar: 'at'
     });
   },
-  openActivityDetail: function(ticket) {
-    this.changeSubReginView(new OpenActivityDetailView({
-      triggerTab: ticket,
-      activityId: _.getUrlParam('activityId')
+  activityDetail: function(activityId) {
+    this.changeSubReginView(new ActivityDetailView({
+      // triggerTab: ticket,
+      activityId: activityId
     }), {
       parentRouter: 'at/tb'
     });

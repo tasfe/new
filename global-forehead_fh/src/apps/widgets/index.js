@@ -13,8 +13,6 @@ require('./dropMenu');
 require('./verifyFundPwd');
 require('./editUName');
 require('./editIcons');
-require('./rebate');
-require('./quota');
 require('./transfer');
 require('./addSalaryUser');
 require('./tendency');

@@ -93,7 +93,7 @@ var ActiveCenterView = Base.ItemView.extend({
             break;
         }
         var target = activity.bannerUrl || 'javascript:void(0)';
-        var leftBanner = '<a href=' + target + ' target="_blank">' +
+        var leftBanner = '<a href="'+ _.getUrl('/detail/' + activity.activityId) + '">' +
           '<img class="ac-activity-image" src=' + activity.bannerPicUrl + '/>' +
           '</a>';
         var rightBanner = '<div class="ac-activity-word"><div class="ac-activity-title">' + activity.activityTitle + '</div><div class="activity-badge">' + badgeInner + '</div>' +
