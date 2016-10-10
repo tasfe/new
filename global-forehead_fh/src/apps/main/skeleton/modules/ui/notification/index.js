@@ -16,19 +16,17 @@ var NotificationModule = Base.Module.extend({
       size: 'modal-sm',
       id: 'notification',
       modalClass: 'modal-notification',
+      bodyClass: 'text-center font-md',
       backdrop: true,
       event: _.noop
       //btnContent: '确认'
     });
 
-    var body = [];
     var timer = null;
-
-    body.push('<div class="text-center font-md">' + content + '</div>');
 
     var $dialog = Global.ui.dialog.show(_({
       id: this.options.id,
-      body: body.join('')
+      body: content
     }).extend(options));
 
     timer = setTimeout(function() {

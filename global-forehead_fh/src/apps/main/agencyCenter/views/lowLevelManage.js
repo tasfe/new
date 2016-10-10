@@ -263,19 +263,13 @@ var LowLevelManageView = SearchGrid.extend({
           quotaView = new QuotaTransferView({
             el: $quotaContainer,
             username: rowData.userName,
-            subacctId: rowData.userId,
+            userId: rowData.userId,
             rebate: rowData.rebate,
             data: reqData
-          }).render();
-
-          // $dialog.off('click.saveInfoq')
-          //   .on('click.saveInfoq', '.js-ac-submitQuotaInfo', function(e) {
-          //     self.submitQuotaHandler(e, $target.attr('data-user-id'), $target.attr('data-name'), $dialog, levelName);
-          //   });
-          // $dialog.off('click.editQuota')
-          //   .on('blur.editQuota', '.js-ac-subRebate', function(e) {
-          //     self.inputRebateHandler(e);
-          //   });
+          }).render()
+            .on('submit:complete', function() {
+              $dialog.modal('hide');
+            });
         }
       });
   },
