@@ -4,7 +4,7 @@ $portlet-padding-bottom: 10px;
   margin-bottom: 8px;
   border: 1px solid $gray-color;
   border-radius: $globalBoxRadius;
-  overflow: hidden;
+  //overflow: hidden;
   box-shadow: 0 1px 1px 0 rgba(5, 5, 5, 0.1);
 
   .portlet-header {
@@ -67,9 +67,19 @@ $portlet-padding-bottom: 10px;
 
 .portlet-side-main {
 
+  box-shadow: initial;
+  border: 0;
   > .portlet-header {
-    height: 25px;
-    line-height: 25px;
+    padding: 0 0 10px 0;
+    border-width: 0 0 1px 0;
+    margin-top: -5px;
+    .portlet-title {
+      //font-size: $font-xs;
+      font-weight: normal;
+    }
+  }
+  > .portlet-body {
+    padding: 0;
   }
 }
 .portlet-main {

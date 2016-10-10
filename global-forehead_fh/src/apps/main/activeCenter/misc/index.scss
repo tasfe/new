@@ -3,10 +3,9 @@
 @import "~base/styles/imports";
 
 .main-active-container {
-  margin: 0 15px;
-  padding-top: 30px;
+  padding-top: 15px;
   .active-context {
-    height: 500px;
+    min-height: 500px;
   }
   .at-activity-main {
     margin-bottom: 30px;
