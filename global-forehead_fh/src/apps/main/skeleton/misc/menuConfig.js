@@ -81,7 +81,8 @@ var menuConfig = [
             {
                 id: 132,
                 router: 'ac/oam',
-                name: '开户管理'
+                name: '开户管理',
+                notShow: true
             },
             {
                 id: 133,

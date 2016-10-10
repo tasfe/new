@@ -68,7 +68,7 @@ var AgencyCenterController = RouterController.extend({
   bettingRecords2: function() {
     this.changeMainReginView(new BettingRecordView(), {
       main: {
-        title: '投注记录'
+        // title: '投注记录'
       },
       sidebar: 'ac',
       topView: 'team'
@@ -188,7 +188,7 @@ var AgencyCenterController = RouterController.extend({
   teamDynamic: function() {
     this.changeMainReginView(new TeamDynamicView(), {
       main: {
-        title: '团队动态'
+        // title: '团队动态'
       },
       sidebar: 'ac',
       topView: 'team'
