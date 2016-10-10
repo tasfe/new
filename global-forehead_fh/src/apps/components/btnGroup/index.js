@@ -5,8 +5,11 @@
 "use strict";
 
 var BtnGroup = Base.PrefabView.extend({
+
   template: require('./index.html'),
+
   className: 'btn-group',
+
   events: function() {
     var events = {};
 
