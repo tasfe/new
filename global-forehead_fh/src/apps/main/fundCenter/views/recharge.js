@@ -139,7 +139,7 @@ var RechargeView = TabView.extend({
       var index = 0;
       _(bankList).each(function(bank, index1) {
         var bankInfo = bankConfig.get(bank.bankId);
-        if (bankInfo.className==='') {
+        if (!bankInfo || bankInfo.className==='') {
           return false;
         }
 
