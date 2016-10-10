@@ -14,7 +14,7 @@ var DynamicCenterController = RouterController.extend({
       main: {
         title: '平台动态'
       },
-      sidebar: Global.ui.menu.get(['ac', 'uc', 'aa'])
+      sidebar: 'ac'
     });
   },
 
@@ -26,7 +26,7 @@ var DynamicCenterController = RouterController.extend({
         subReturn: true
       },
       needParent: false,
-      sidebar: Global.ui.menu.get(['ac', 'uc', 'aa']),
+      sidebar: 'ac',
       parentRouter: 'nc/nb'
     });
   }

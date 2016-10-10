@@ -1291,13 +1291,11 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
           padding: 0 2px;
           background: transparent;
           border-bottom: 1px solid #cccccc;
-          font-size: 12px;
         }
       }
       tbody {
         td {
-          font-size: 12px;
-          padding: 2px 0;
+          height: 21px;
         }
       }
 
@@ -1688,7 +1686,7 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
       }
     }
     td {
-      padding: 6px 3px;
+      padding: 5px 3px;
     }
   }
 }

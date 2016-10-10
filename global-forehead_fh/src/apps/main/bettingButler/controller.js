@@ -11,7 +11,7 @@ var bettingButlerController = RouterController.extend({
       main: {
   			title: '设置计划'
   		},
-  		sidebar: Global.ui.menu.get(['bb'])
+  		sidebar: 'bb'
     });
 
     $('#main > .clearfix').addClass('bb-block');
@@ -22,7 +22,7 @@ var bettingButlerController = RouterController.extend({
       main: {
   			title: '进行中的计划'
   		},
-  		sidebar: Global.ui.menu.get(['bb'])
+  		sidebar: 'bb'
     });
 
     $('#main > .clearfix').addClass('bb-block');
@@ -33,7 +33,7 @@ var bettingButlerController = RouterController.extend({
       main: {
   			title: '我的收藏方案'
   		},
-  		sidebar: Global.ui.menu.get(['bb'])
+  		sidebar: 'bb'
     });
 
     $('#main > .clearfix').addClass('bb-block');
