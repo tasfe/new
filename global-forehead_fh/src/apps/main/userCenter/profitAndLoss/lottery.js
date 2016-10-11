@@ -57,12 +57,12 @@ var ReportManageView = SearchGrid.extend({
           sortable: true,
           id: 7
         },
-        // {
-        //   name: '日薪',
-        //   width: '12%',
-        //   sortable: true,
-        //   id: 8
-        // },
+        {
+          name: '日薪',
+          width: '12%',
+          sortable: true,
+          id: 8
+        },
         {
           name: '盈亏',
           width: '12%',
@@ -79,10 +79,10 @@ var ReportManageView = SearchGrid.extend({
         emptyTip: '没有盈亏记录'
       },
       ajaxOps: {
-        url: '/fund/fundreport/profitdetail.json'
+        url: '/fund/fundreport/profitreport.json'
       },
       subOps: {
-        url: '/fund/fundreport/profitdetail.json',
+        url: '/fund/fundreport/profitreport.json',
         data: ['userId']
       }
     });
@@ -223,9 +223,9 @@ var ReportManageView = SearchGrid.extend({
     row.push(_(rowInfo.activity).convert2yuan({clear: false}));
 
     var acctInfo = Global.memoryCache.get('acctInfo');
-    // if(acctInfo.salaryStatus ===2 ||  acctInfo.userGroupLevel == 0 || acctInfo.userGroupLevel == 1){
-    //   row.push(_(rowInfo.salary).convert2yuan());
-    // }
+    if(acctInfo.salaryStatus ===2 ||  acctInfo.userGroupLevel == 0 || acctInfo.userGroupLevel == 1){
+      row.push(_(rowInfo.salary).convert2yuan());
+    }
     row.push(_(rowInfo.profitAndLoss).convert2yuan());
     //row.push('<a href="' + _.addHrefArgs('#ac/betting/' + rowInfo.userId, 'name', rowInfo.userName) + '" class="router btn btn-link no-padding">投注</a>&nbsp;&nbsp;' +
     // '<a  href="' + _.addHrefArgs('#ac/account/' + rowInfo.userId, 'name', rowInfo.userName) + '" class="router btn btn-link no-padding">账变</a>');

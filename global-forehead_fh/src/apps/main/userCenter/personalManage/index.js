@@ -1,8 +1,9 @@
 "use strict";
 
+require('./index.scss');
 var PersonalManageView = Base.ItemView.extend({
 
-  template: require('userCenter/templates/personalManage.html'),
+  template: require('./index.html'),
 
   startOnLoading: true,
 

@@ -59,7 +59,7 @@ var WithdrawRecordsView = SearchGrid.extend({
         subUser: 0
       },
       listProp: 'root.withdrawList',
-      height: 345
+      height: 330
     });
   },
 
@@ -153,6 +153,7 @@ var WithdrawRecordsView = SearchGrid.extend({
 
   formatRowData: function(rowInfo) {
     var row = [];
+
     row.push(rowInfo.userName);
     row.push(rowInfo.tradeNo);
     row.push(_(rowInfo.createTime).toTime());
@@ -160,6 +161,7 @@ var WithdrawRecordsView = SearchGrid.extend({
     row.push(_(rowInfo.balance).fixedConvert2yuan());
     row.push(rowInfo.status);
     row.push(rowInfo.remark);
+
     return row;
   }
 });

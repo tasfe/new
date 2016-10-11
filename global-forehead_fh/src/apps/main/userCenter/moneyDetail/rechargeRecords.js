@@ -14,6 +14,7 @@ var RechargeRecordsView = SearchGrid.extend({
 
   initialize: function () {
     _(this.options).extend({
+      height: 330,
       columns: [
         {
           name: '交易流水号',
@@ -40,7 +41,7 @@ var RechargeRecordsView = SearchGrid.extend({
           id: 1
         },
         {
-          name: '状态',
+          name: '支付状态',
           width: '14%'
         }
       ],

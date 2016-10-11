@@ -12,7 +12,7 @@ var TrackDetailView = require('userCenter/views/trackDetail');
 var MoneyDetailView = require('userCenter/moneyDetail');
 var ProfitAndLossView = require('userCenter/profitAndLoss');
 
-var PersonalManageView = require('userCenter/views/personalManage');
+var PersonalManageView = require('userCenter/personalManage');
 var CardManageView = require('userCenter/views/cardManage');
 var CardBindingView = require('userCenter/views/cardBinding');
 var PriceDetailsView = require('userCenter/views/priceDetails');
@@ -113,12 +113,6 @@ var UserCenterController = RouterController.extend({
       sidebar: 'vip'
     });
   },
-  //vipInfo:function() {
-  //  this.changeMainReginView(new VipInfoView(), {
-  //    sidebar: 'vip'
-  //  });
-  //
-  //},
   vipCredit:function() {
   this.changeMainReginView(new VipCreditView(), {
     sidebar: 'vip'

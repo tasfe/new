@@ -19,7 +19,7 @@ var MoneyDetailView = SearchGrid.extend({
     });
 
     _(this.options).extend({
-      height: '330',
+      height: 330,
       columns: [
         {
          name: '交易流水号',
@@ -44,13 +44,9 @@ var MoneyDetailView = SearchGrid.extend({
         {
           name: '账户余额',
           width: '20%'
-        },
-        {
-          name: '操作',
-          width: '15%'
         }
       ],
-      tip: '<div class="tip-hot"><span>提示</span>账变明细只保留30天数据。</div>',
+      tip: '提示：账变明细只保留30天数据。',
       gridOps: {
         emptyTip: '没有账变明细'
       },
@@ -159,10 +155,17 @@ var MoneyDetailView = SearchGrid.extend({
   formatRowData: function(info) {
     var row = [];
 
+    if (info.remark === '投注扣款' || info.remark === '中奖' || info.remark.indexOf('投注所得') !== -1 || info.remark === '用户撤单' || info.remark === '系统撤单') {
+      row.push('<a href="' + this.options.betDetailPrevUrl + info.tradeNo + _.getUrlParamStr() + '" class="router btn-link btn-hot">' + info.tradeNo + '</a>');
+    } else if (info.remark === '追号扣款' || info.remark.indexOf('撤销追号') !== -1) {//
+      row.push('<a href="' + this.options.chaseDetailPrevUrl + info.tradeNo + _.getUrlParamStr() + '" class="router btn-link btn-hot">' + info.tradeNo + '</a>');
+    } else {
+      row.push(info.tradeNo);
+    }
+
     row.push(_(info.createTime).toTime());
     row.push(tradingStatusConfig.toZh(info.tradeType));
 
-    // TODO 增加账变字段
     if (info.amount >= 0) {
       row.push('<span class="">+'+_(info.amount).convert2yuan()+'</span>');
     } else {
@@ -170,29 +173,6 @@ var MoneyDetailView = SearchGrid.extend({
     }
 
     row.push('<span class="text-bold-cool">'+_(info.balance).convert2yuan()+'</span>');
-    //var remark = info.remark;
-    //
-    //if (remark.replace(/[\u4e00-\u9fa5]/g, '**').length>16) {
-    //  //if (info.remark.length > 5) {
-    //  remark = remark.substring(0,16);
-    //
-    //  var newLen =remark.replace(/[*]/g,'').length;
-    //  var subLen = 6+newLen/2;//当前宽度大约够显示16-17个字符，多减了两个位置留给省略号
-    //  row.push('<div title="' + info.remark + '">' + info.remark.substr(0, subLen) + '...</div>');
-    //} else {
-    //  row.push(info.remark);
-    //}
-
-    //Number(info.tradeType) === 107 || info.tradeType === '投注'
-
-    if ( info.remark==='投注扣款'||info.remark==='免费游戏中奖'||info.remark==='中奖'||info.remark.indexOf('投注所得')!==-1||info.remark==='用户撤单'||info.remark==='系统撤单') {
-      row.push('<a href="' + this.options.betDetailPrevUrl + info.tradeNo + _.getUrlParamStr() + '" class="router btn-link btn-link-sun">' + '查看详情' + '</a>');
-    } else if(info.remark==='追号扣款'||info.remark.indexOf('撤销追号')!==-1) {//
-      row.push('<a href="' + this.options.chaseDetailPrevUrl + info.tradeNo + _.getUrlParamStr() + '" class="router btn-link btn-link-sun">' + '查看详情' + '</a>');
-    } else {
-      //alert(info.remark)  保级礼金发放
-      row.push('');
-    }
 
     return row;
   }

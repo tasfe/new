@@ -14,7 +14,7 @@ var ReportManageView = SearchGrid.extend({
 
   initialize: function () {
     _(this.options).extend({
-      height: 434,
+      height: 330,
       title: '报表查询',
       columns: [
         {
@@ -57,12 +57,6 @@ var ReportManageView = SearchGrid.extend({
           sortable: true,
           id: 7
         },
-        // {
-        //   name: '日薪',
-        //   width: '12%',
-        //   sortable: true,
-        //   id: 8
-        // },
         {
           name: '盈亏',
           width: '12%',
@@ -79,17 +73,13 @@ var ReportManageView = SearchGrid.extend({
         emptyTip: '没有盈亏记录'
       },
       ajaxOps: {
-        url: '/fund/fundreport/profitdetail.json'
+        url: '/ticket/bethistory/agProfitLossReport.json'
       },
       subOps: {
-        url: '/fund/fundreport/profitdetail.json',
+        url: '/ticket/bethistory/agProfitLossReport.json',
         data: ['userId']
       }
     });
-    var acctInfo = Global.memoryCache.get('acctInfo');
-    if(acctInfo.salaryStatus !=2 && ( acctInfo.userGroupLevel !== 0 && acctInfo.userGroupLevel !== 1)){
-      this.options.columns.splice(7,1);
-    }
   },
 
   onRender: function () {
@@ -159,14 +149,14 @@ var ReportManageView = SearchGrid.extend({
   },
 
   renderGrid: function(gridData) {
-    var rowsData = _(gridData.amountList).map(function(fundTrace, index, betList) {
+    var rowsData = _(gridData.dataList).map(function(fundTrace, index, betList) {
       return {
         columnEls: this.formatRowData(fundTrace, index, betList),
         dataAttr: fundTrace
       };
     }, this);
 
-    this.grid.refreshRowData(rowsData, gridData.rowCount, {
+    this.grid.refreshRowData(rowsData, gridData.total.rowCount, {
       pageIndex: this.filterHelper.get('pageIndex'),
       initPagination: false
     });
@@ -187,20 +177,16 @@ var ReportManageView = SearchGrid.extend({
       trClass: 'tr-footer',
       columnEls: [
         '总计',
-        _(gridData.rechargeTotal).convert2yuan({fixed:2}),
-        _(gridData.withdrawTotal).convert2yuan({fixed:2}),
-        _(gridData.betTotal).fixedConvert2yuan(),
-        _(gridData.prizeTotal).convert2yuan(),
-        _(gridData.bonusTotal).convert2yuan(),
-        _(gridData.activityTotal).convert2yuan(),
-        _(gridData.salaryTotal).convert2yuan(),
-        _(gridData.profitAndLossTotal).convert2yuan(),
+        _(gridData.total.recharge).convert2yuan({fixed:2}),
+        _(gridData.total.withdraw).convert2yuan({fixed:2}),
+        _(gridData.total.bet).fixedConvert2yuan(),
+        _(gridData.total.prize).convert2yuan(),
+        _(gridData.total.rebate).convert2yuan(),
+        _(gridData.total.activity).convert2yuan(),
+        _(gridData.total.profit).convert2yuan(),
       ]
     };
-    var acctInfo = Global.memoryCache.get('acctInfo');
-    if(acctInfo.salaryStatus !==2 && ( acctInfo.userGroupLevel !== 0 && acctInfo.userGroupLevel !== 1)){
-      foot.columnEls.splice(7,1);
-    }
+
     this.grid.addFooterRows(foot)
       .hideLoading();
   },
@@ -219,16 +205,10 @@ var ReportManageView = SearchGrid.extend({
     row.push(_(rowInfo.withdraw).convert2yuan({fixed:2, clear: false}));
     row.push(_(rowInfo.bet).convert2yuan({clear: false}));
     row.push(_(rowInfo.prize).convert2yuan({clear: false}));
-    row.push(_(rowInfo.bonus).convert2yuan({clear: false}));
+    row.push(_(rowInfo.rebate).convert2yuan({clear: false}));
     row.push(_(rowInfo.activity).convert2yuan({clear: false}));
 
-    var acctInfo = Global.memoryCache.get('acctInfo');
-    // if(acctInfo.salaryStatus ===2 ||  acctInfo.userGroupLevel == 0 || acctInfo.userGroupLevel == 1){
-    //   row.push(_(rowInfo.salary).convert2yuan());
-    // }
-    row.push(_(rowInfo.profitAndLoss).convert2yuan());
-    //row.push('<a href="' + _.addHrefArgs('#ac/betting/' + rowInfo.userId, 'name', rowInfo.userName) + '" class="router btn btn-link no-padding">投注</a>&nbsp;&nbsp;' +
-    // '<a  href="' + _.addHrefArgs('#ac/account/' + rowInfo.userId, 'name', rowInfo.userName) + '" class="router btn btn-link no-padding">账变</a>');
+    row.push(_(rowInfo.profit).convert2yuan());
 
     return row;
   }

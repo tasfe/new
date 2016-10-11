@@ -7,8 +7,6 @@ var AGLotteryView = require('./agLottery');
 
 var TeamGamesView = TabView.extend({
 
-  //className: 'ac--view',
-
   initialize: function() {
     _(this.options).extend({
       tabClass: 'view-tabs nav nav-tabs nav-tabs-special',
