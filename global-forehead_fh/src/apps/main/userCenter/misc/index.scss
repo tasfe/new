@@ -297,20 +297,6 @@
   right: 74px;
 }
 
-.dl-detail, .dl-horizontal {
-  dt {
-    min-width: 60px;
-    width: auto;
-    margin-bottom: 10px;
-    font-weight: normal;
-  }
-  dd {
-    margin-left: 70px;
-    margin-bottom: 10px;
-    display: block !important;
-  }
-}
-
 .detail-betting-num {
   width: 100%;
   border: 1px solid $gray-color;
@@ -939,20 +925,6 @@
 
 .graded-symbol .fl {
   float: left;
-}
-
-.vviip-gray-icon {
-  background: url("~base/images/vip-gray-icon.png") no-repeat center;
-  display: inline-block;
-  width: 43px;
-  height: 13px;
-}
-
-.vviip1-icon {
-  background: url("~base/images/vip1.png") no-repeat center;
-  display: inline-block;
-  width: 43px;
-  height: 13px;
 }
 
 .graded-symbol .fr {

@@ -28,7 +28,6 @@ var DashboardView = Base.ItemView.extend({
     'click .js-db-ticket-scroll': 'ticketScrollHandler',
     'click .js-dynamic-itemShow': 'dynamicItemShowHandler',
     'click .js-lottery': 'lottertyEnterHandler',
-    'click .js-comingsoon': 'comeingsoonHandler',
     'mouseover .js-athena_st_07': 'tempMouseover',
     'mouseover .js-athena_st_08': 'tempMouseover',
     'mouseover .js-athena_st_09': 'tempMouseover',
@@ -236,18 +235,6 @@ var DashboardView = Base.ItemView.extend({
     $('.js-athena_st_09').addClass('athnea-Reality_01');
     $('.js-athena_st_10').addClass('athnea-ticket_01');
 
-  },
-
-
-  comeingsoonHandler: function () {
-    var self = this;
-
-    var $dialogRe = Global.ui.dialog.show({
-      id: _.now(),
-      title: '敬请期待',
-      size: 'modal-lg',
-      body: '<div class="comingsoon-pic"></div>'
-    });
   },
 
   lottertyEnterHandler: function () {

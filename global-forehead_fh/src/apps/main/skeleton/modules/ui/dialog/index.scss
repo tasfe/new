@@ -77,121 +77,6 @@
   border-radius: $globalBoxRadius;
 }
 
-@for $i from 1 through 12 {
-  .iconsImage#{$i} {
-    color: #fff;
-    background: url(~base/images/icons/#{$i}.jpg) no-repeat;
-    background-size:100% auto;
-  }
-}
-
-.julien-dialog{
-  font-family: '微软雅黑';
-  font-size: 14px;
-
-  .julien-input{
-    position: relative;
-    margin-top:20px;
-    padding-right: 40px;
-  }
-
-  .julien-images{
-    span{
-      width: 96px;
-      height: 96px;
-      display: inline-block;
-      margin: 0px 15px 30px 15px;
-      border: 1px solid #c9c9c9;
-      cursor: pointer;
-      border-radius: 2px;
-
-      &.sd{
-        width: 106px;
-        height: 106px;
-        margin: -6px 9px 24px 9px;
-        border: 3px solid #3366cc;
-      }
-    }
-  }
-
-  .correct{
-    i{
-      position: absolute;
-      top: 7px;
-      left: 335px;
-      display: inline-block;
-      width: 16px;
-      height: 16px;
-      background: url(~base/images/julien/07.png) no-repeat;
-    }
-  }
-
-  .messageBox{
-    position: absolute;
-    top: 2px;
-    left: 355px;
-    display: none;
-
-    b{
-      float: left;
-      display: block;
-      width: 0;
-      height: 0;
-      border-width: 5px;
-      border-style: dashed solid dashed dashed;
-      border-color: transparent #999999 transparent transparent;
-      margin-top: 8px;
-    }
-
-    span{
-      float: left;
-      display: block;
-      height: 26px;
-      background-color: #999999;
-      line-height: 26px;
-      padding: 0px 8px;
-      border-radius: 3px;
-      color: #fff;
-    }
-  }
-
-  .wrong{
-    i{
-      position: absolute;
-      top: 7px;
-      left: 335px;
-      display: inline-block;
-      width: 16px;
-      height: 16px;
-      background: url(~base/images/julien/07.png) no-repeat 0 -16px;
-    }
-
-    .messageBox{
-      display: block;
-    }
-  }
-}
-
-.julien-btn{
-  border: 0px;
-  background-color: #cc0000;
-  padding: 5px 25px;
-  color: #fff;
-  font-size: 16px;
-  font-family: '微软雅黑';
-}
-
-.julien-btn2{
-  border: 0px;
-  background-color: #cc9966;
-  padding: 5px 25px;
-  color: #fff;
-  font-size: 16px;
-  font-family: '微软雅黑';
-
-  margin-left: 20px;
-}
-
 .modal-content {
   background-color: #fff;
   outline: 0;
@@ -200,8 +85,6 @@
 .modal-header {
   color: $new-black-color;
   background-color: $white-color;
-  //background-image:-webkit-linear-gradient(90deg, #327fc3, #bb2929);
-  //background-image:linear-gradient(90deg,#327fc3,#bb2929);
 
   margin: 7px 7px 0;
   border-radius: 5px 5px 0 0;

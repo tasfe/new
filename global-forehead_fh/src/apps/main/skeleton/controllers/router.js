@@ -131,20 +131,23 @@ var RouterController = Base.Controller.extend({
   _changeTopView: function(viewName) {
     var currentViewInfo = globalViewList[viewName];
 
-    if (!currentViewInfo.showed) {
+    if (!currentViewInfo._view) {
+      if (Global.topRegin.currentView !== currentViewInfo._view) {
+        this._destroyTopView();
+      }
       Global.topRegin.show(new currentViewInfo.View());
-      currentViewInfo.showed = true;
+      currentViewInfo._view = Global.topRegin.currentView;
     }
   },
 
   _destroyTopView: function() {
-    var currentViewInfo = _(globalViewList).findWhere({
-      showed: true
+    var currentViewInfo = _(globalViewList).find(function(viewInfo) {
+      return !!viewInfo._view;
     });
 
     if (currentViewInfo) {
       Global.topRegin.currentView.destroy();
-      currentViewInfo.showed = false;
+      currentViewInfo._view = null;
     }
   },
 
