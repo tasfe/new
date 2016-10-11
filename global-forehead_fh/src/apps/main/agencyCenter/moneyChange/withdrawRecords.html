@@ -1,45 +1,48 @@
-<div class="search-condition-table-julien row1only">
-  <div class="control-group row1 search-condition-layout">
-    <select name="subUser" class="select1 hidden">
-      <option value="0">个人</option>
-      <option value="1" selected="true">团队</option>
-    </select>
-    <dl class="width150">
-      <dt>账号</dt>
-      <dd>
-        <input type="text" name="username" class="input3 margin-add">
-      </dd>
-    </dl>
-    <dl class="width442">
-      <dt>投注时间</dt>
-      <dd>
-        <button class="js-excess-cell" data-index="1">今天</button>
-        <button class="js-excess-cell" data-index="2">三天</button>
-        <button class="js-excess-cell" data-index="3">七天</button>
-      </dd>
-      <dd>
-        <span class="js-pf-timeset"></span>
-      </dd>
-    </dl>
-    <dl class="width185">
-      <dt>交易流水号</dt>
-      <dd>
-        <input type="text" name="tradeNo" class="input3 margin-add" data-parsley-maxlength="30">
-      </dd>
-    </dl>
-    <dl class="width165">
-      <dt>提现状态</dt>
-      <dd>
-        <select name="status"  style="width:70px" >
-          <option value="-1">全部</option>
-          <option value="0">处理中</option>
-          <option value="1">成功</option>
-          <option value="2">失败</option>
-        </select>
-      </dd>
-    </dl>
+<div class="portlet-header-block">
+  <div class="search-condition-table">
+    <div class="clearfix">
+    <!--<select name="subUser" class="select1 hidden">-->
+      <!--<option value="0">个人</option>-->
+      <!--<option value="1" selected="true">团队</option>-->
+    <!--</select>-->
+      <dl>
+       <dt>账号</dt>
+       <dd>
+          <input type="text" name="username" class="input3 margin-add">
+       </dd>
+     </dl>
+      <dl>
+        <dt>投注时间</dt>
+        <dd class="m-right-xs">
+          <span class="js-ac-btnGroup ac-btnGroup inline-block"></span>
+        </dd>
+        <dd>
+          <span class="js-ac-timeset search-timeSet"></span>
+        </dd>
+      </dl>
+      <dl>
+        <dt>交易流水号</dt>
+        <dd>
+          <input type="text" name="tradeNo" class="input3 margin-add" data-parsley-maxlength="30">
+        </dd>
+      </dl>
+      <dl>
+        <dt>提现状态</dt>
+        <dd>
+          <select name="status"  style="width:70px" >
+            <option value="-1">全部</option>
+            <option value="0">处理中</option>
+            <option value="1">成功</option>
+            <option value="2">失败</option>
+          </select>
+        </dd>
+      </dl>
+    </div>
   </div>
-  <div class="row3">
-    <button type="submit" class="btn uc-search-button">搜索</button>
-  </div>
+</div>
+<div class="portlet-header-btnGroup">
+  <button type="submit" class="btn btn-pink btn-linear" data-loading-text="搜索">
+    <i class="fa fa-search"></i>
+    搜索
+  </button>
 </div>
