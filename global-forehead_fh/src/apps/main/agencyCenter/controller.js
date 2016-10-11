@@ -58,7 +58,8 @@ var AgencyCenterController = RouterController.extend({
   accountDetails2: function() {
     this.changeMainReginView(new MoneyDetailsView(), {
       main: {
-        title: '账户明细'
+      	
+//      title: '账户明细'
       },
       sidebar: 'ac',
       topView: 'team'

@@ -1,41 +1,45 @@
-<div class="search-condition-table-julien row1only">
-  <div class="control-group row1 search-condition-layout">
-    <select name="subUser" class="select1 hidden ">
-      <option value="0">个人</option>
-      <option value="1" selected="true">团队</option>
-    </select>
-    <dl class="width150">
-      <dt>账号</dt>
-      <dd>
-        <input type="text" name="username" class="input3 margin-add">
-      </dd>
-    </dl>
-    <dl class="width442">
-      <dt>投注时间</dt>
-      <dd>
-        <button class="js-excess-cell" data-index="1">今天</button>
-        <button class="js-excess-cell" data-index="2">三天</button>
-        <button class="js-excess-cell" data-index="3">七天</button>
-      </dd>
-      <dd>
-        <span class="js-pf-timeset"></span>
-      </dd>
-    </dl>
-    <dl class="width165">
-      <dt>流水号</dt>
-      <dd>
-        <input type="text" name="tradeNo" class="fc-trade-no-input " data-parsley-maxlength="30">
-      </dd>
-    </dl>
-    <dl class="width165">
-      <dt>交易类型</dt>
-      <dd>
-        <select name="tradeType" class="select1"></select>
-      </dd>
-    </dl>
-  </div>
-  <div class="row3">
-    <button type="submit" class="btn uc-search-button">搜索</button>
-  </div>
+<div class="portlet-header-block">
+	<!--<select name="subUser" class="select1 hidden ">
+		<option value="0">个人</option>
+		<option value="1" selected="true">团队</option>
+	</select>-->
+	<div class="search-condition-table">
+		<div class="clearfix">
+			<dl class="">
+				<dt>账号</dt>
+				<dd>
+					<input type="text" name="username" class="input3 margin-add">
+				</dd>
+			</dl>
+			<dl class="">
+				<dt>投注时间</dt>
+				<dd>
+					<button class="js-excess-cell" data-index="1">今天</button>
+					<button class="js-excess-cell" data-index="2">三天</button>
+					<button class="js-excess-cell" data-index="3">七天</button>
+				</dd>
+				<dd>
+					<span class="js-pf-timeset"></span>
+				</dd>
+			</dl>
+			<dl class="">
+				<dt>流水号</dt>
+				<dd>
+					<input type="text" name="tradeNo" class="fc-trade-no-input " data-parsley-maxlength="30">
+				</dd>
+			</dl>
+			<dl class="">
+				<dt>交易类型</dt>
+				<dd>
+					<select name="tradeType" class="select1"></select>
+				</dd>
+			</dl>
+		</div>
+	</div>
 </div>
-
+<div class="portlet-header-btnGroup">
+	<button type="submit" class="btn btn-pink btn-linear" data-loading-text="搜索">
+		<i class="fa fa-search"></i>
+		搜索
+	</button>
+</div>

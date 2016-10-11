@@ -925,7 +925,7 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
   font-size: 14px;
   font-family: '微软雅黑';
   padding: 0 15px;
-      margin-left: 50px;
+  margin-left: 50px;
 
   .tab-group{
     .tab{
@@ -941,6 +941,9 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
     color: #cc3333;
     display: inline-block;
     margin-left: 15px;
+  }
+  .bc-type-select{
+      width: 88px;
   }
 }
 
