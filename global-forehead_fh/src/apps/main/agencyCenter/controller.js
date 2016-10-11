@@ -22,7 +22,8 @@ var OpenAccountManagePriceView = require('agencyCenter/openAccount/price');
 
 var TeamDynamicView = require('agencyCenter/views/teamDynamic');
 var ReportManageView = require('agencyCenter/reportManage');
-//var ProfitAndLossView = require('agencyCenter/profitAndLoss');
+
+var ProfitAndLossView = require('agencyCenter/profitAndLoss');
 
 var DividendMangeView = require('./dividendManage');
 var RedPacketView = require('./redPacket');
@@ -36,9 +37,8 @@ var WithdrawRecordsView = require('userCenter/withdrawRecords');
 
 var RushRewardView = require('./rushReward');
 
-var LowLevelUserManageView =  require('agencyCenter/views/index');
+var SalaryView = require('agencyCenter/salaryManage');
 
-var SalaryView = require('agencyCenter/views/salaryManage');
 
 var TeamGamesView = require('agencyCenter/teamGames');
 var MoneyDetailsView = require('agencyCenter/moneyChange');
@@ -329,6 +329,13 @@ var AgencyCenterController = RouterController.extend({
   rushReward: function() {
     this.changeMainReginView(new RushRewardView(), {
       sidebar: 'ac'
+    });
+  },
+
+  teamProfitAndLoss: function(){
+    this.changeMainReginView(new ProfitAndLossView(), {
+      sidebar: 'ac',
+      topView: 'team'
     });
   }
 });

@@ -4,72 +4,19 @@ var SignedView = Base.ItemView.extend({
 
   template: require('./index.html'),
 
-  verifyTpl: _(require('./verify.html')).template(),
-
-  officialAgreementTpl: _(require('./../official-agreement.html')).template(),
-
   events: {
-    'click .js-ac-check-agreement': 'checkAgreementHandler',
-    'click .js-add-area': 'addArea',
-    'click .js-ac-next': 'saveData',
-    'change #jsAcAgreeSign': 'changeAgreeHandler',
-    'change .js-rebetRate': 'dividChangeHandler',
-    'submit .js-ac-signed-form': 'nextHandler'
+    'submit .js-ac-verify-form': 'confirmHandler',
+    'click .js-ac-sm-sign-aa': 'addAgreementHandler',
+
+    'click .js-ac-sm-sign-delete': 'delAgreementHandler',
+    'change .js-ac-sm-sign-select': 'selectTypeHandler',
+    'blur .js-ac-sm-sign-username': 'usernameBlurHandler'
   },
 
-  saveData: function () {
-    var clpValidate = this.$('.js-ac-signed-form').parsley().validate();
-    if (clpValidate) {
-      var self = this;
-      var $btnConfirm = this.$('.js-ac-next');
-      $btnConfirm.button('loading');
-
-      this.signXhr()
-      .always(function() {
-        $btnConfirm.button('reset');
-      })
-      .done(function(res) {
-        if (res && res.result === 0) {
-          $('.modal-lg-julien').modal('hide');
-          Global.ui.notification.show('操作成功！<br />等待下级同意签约。');
-        } else {
-          Global.ui.notification.show(res.msg || '');
-        }
-      });
-    }
-  },
-
-  addArea: function () {
-    if ($('.js-betTotal').val() != '' && $('.js-rebetRate').val() != '') {
-      $('.js-julien-dm-area').removeClass('hidden');
-      $('.julien-dm-area').append('<dl><dd>≥<span class="js-athena-span-01" >' + $('[name="betTotal"]').val() +'</span></dd><dd><span class="js-athena-span-02">' + $('[name="divid"]').val() + '</span>%</dd><dt><span class="athena-dl-area">删除</span></dt> </dl>');
-
-      $('.athena-dl-area').click(function(){
-         $(this).parent().parent().remove();
-
-         if ($('.js-julien-dm-area dl').length == 1) {
-          $('.js-julien-dm-area').addClass('hidden');
-         }
-      });
-    }
-  },
-
-  signXhr: function() {
-    var itemList = [];
-    for (var i = 0; i < $('.js-athena-span-01').length; i++){
-      itemList[i] = {
-        betTotal: $('.js-athena-span-01').eq(i).text(),
-        divid: $('.js-athena-span-02').eq(i).text() *10
-      };
-    }
-
+  signXhr: function(data) {
     return Global.sync.ajax({
       url: '/fund/divid/sign.json',
-      tradition: true,
-      data:{
-        username: $('.js-username').val(),
-        itemList: itemList
-      }
+      data: data
     });
   },
 
@@ -80,108 +27,151 @@ var SignedView = Base.ItemView.extend({
     });
   },
 
-  serializeData: function() {
-    var userData = this.options.userData;
-    var dividConf = this.options.dividConf;
-
-    dividConf.formatRebateLimit = _(dividConf.rebateLimit).formatDiv(10);
-    dividConf.formatDividMax = _(dividConf.dividMax).formatDiv(100);
-    dividConf.formatDividMin = _(dividConf.dividMin).formatDiv(100);
-
-    if (userData) {
-      userData.formatDivid = _(userData.divid).formatDiv(100);
-      if (dividConf.formatDividMin < userData.formatDivid) {
-        dividConf.formatDividMin = userData.formatDivid;
-      }
-    }
-    return this.options;
-  },
-
   onRender: function() {
-    this.$btnNext = this.$('.js-ac-next');
+    var self = this;
+    this.$table = this.$('.js-ac-sm-sign-table');
     this.$form = this.$('.js-ac-signed-form');
-    this.$verify = this.$('.js-ac-verify');
+
+    this.$username = this.$('.js-ac-sm-sign-username');
+    if(this.options.username){
+      this.$username.val(this.options.username);
+      this.$username.addClass('hidden');
+      this.$username.removeAttr('required');
+      this.$username.removeAttr('parsleyUsername');
+      this.$username.removeAttr('parsleyRemote');
+      this.$('.js-ac-sm-sign-username-div').addClass('hidden');
+    }
+
+    this.$username.typeahead({
+      source: function(query,process){
+        self.verifyXhr({username:query}).done(function(res){
+          if(res.result===0){
+            self.ValidUser = res.root;
+            var users = [];
+            _(res.root).each(function(item,index){
+              users.push(item.userName);
+            })
+            return process(users);
+          }
+        });
+      },
+      items: 5,
+      minlength:1,
+      matcher: function (item) {
+        if (item && item.toLowerCase().indexOf(this.query.trim().toLowerCase()) != -1) {
+          return true;
+        }
+      },
+      updater: function (item) {
+        setTimeout(500,self.$form.parsley());
+        if(self.ValidUser){
+          var user = _(self.ValidUser).find(function(userItem){
+            return userItem.userName == item ;
+          });
+          self.$('.js-ac-sm-sign-userid').val(user.userId);
+        }
+        return item;
+      }
+    });
+
 
     this.$form.parsley();
 
     window.ParsleyExtend.addAsyncValidator('accheckusername', function(xhr) {
       var valid = xhr.responseJSON.result === 0;
+      var user;
+      if(self.ValidUser){
+        user = _(self.ValidUser).find(function(userItem){
+          return userItem.userName== self.$username.val();
+        });
+        if(user){
+          self.$('.js-ac-sm-sign-userid').val(user.userId);
+        }else{
+          this.$element.parsley().domOptions.remoteMessage='未找到该下级用户';
+        }
 
-      this.$element.parsley().domOptions.remoteMessage = xhr.responseJSON.msg || '';
+      }else{
+        this.$element.parsley().domOptions.remoteMessage='未找到该下级用户';
+      }
+      //this.$element.parsley().domOptions.remoteMessage = xhr.responseJSON.msg || '';
 
-      return valid;
+      return user;
     }, '/fund/divid/valid.json');
 
-    var listContent = $('.js-update-content').val();
-    var username = $('.js-update-username').val();
-    if (listContent != '') {
-      $('.js-username').val(username);
-      $('.js-julien-dm-area').removeClass('hidden');
+    this.$table.staticGrid({
+      colModel: [
+        {label: '分红要求1：日量标准', name: 'betTotal', key: true, width: '50%', formatter: function(val) {
+          return '≥&nbsp;' +
+            '<input type="text" class="js-ac-sm-sign-saleAmount ac-sm-sign-saleAmount  m-right-sm" ' +
+            'data-parsley-range="[0, 100000000]" data-parsley-threeDecimal value="'+val+'" required>' +
+            '元/日'
+        }},
 
-      var data = listContent.split(' ');
-      var obj = {};
-      for (var i = 0; i < data.length - 1; i++) {
-        obj = eval('(' + data[i] + ')');
-        $('.julien-dm-area').append('<dl><dd>≥<span class="js-athena-span-01" >' + obj.betTotal/10000 +'</span></dd><dd><span class="js-athena-span-02">' + obj.divid/100 + '</span>%</dd><dt><span class="athena-dl-area">删除</span></dt> </dl>');
-      }
+        {label: '分红比例', name: 'divid', width: '50%', formatter: function(val,index,rowInfo) {
+          return '<input type="text" class="form-control js-ac-sm-sign-salary ac-sm-sign-salary  m-right-sm" name="salaryAmount" ' +
+            'value="'+val+'" required data-parsley-range="[0, 100000000]"  data-parsley-type="integer" />%' +
+            '<div class="js-ac-sm-sign-delete ac-sm-sign-delete inline-block m-left-sm"><button>X</button></div>';
+        }},
+      ],
+      height: 270,
+      row:this.options.agreementList||[],
+      startOnLoading: false
+    });
+    this.StaticGrid = this.$table.staticGrid('instance');
 
-      $('.athena-dl-area').click(function(){
-         $(this).parent().parent().remove();
+  },
 
-         if ($('.js-julien-dm-area dl').length == 1) {
-          $('.js-julien-dm-area').addClass('hidden');
-         }
+  usernameBlurHandler: function(e){
+    var self = this;
+    var item = $(e.currentTarget).val();
+    if(self.ValidUser){
+      var user = _(self.ValidUser).find(function(userItem){
+        return userItem.userName==item;
       });
+      if(user){
+        self.$('.js-ac-sm-sign-userid').val(user.userId);
+      }
     }
   },
 
-  changeAgreeHandler: function(e) {
-    var $target = $(e.currentTarget);
-    this.$btnNext.prop('disabled', !$target.prop('checked'));
+  addAgreementHandler: function(e,obj) {
+    this.StaticGrid.addRows([{
+      betTotal: 0,
+      divid: 0
+    }])
+  },
+  delAgreementHandler: function(e) {
+     $(e.currentTarget).closest('tr').remove();;
   },
 
-  nextHandler: function() {
-    this.data = _(this.$form.serializeArray()).serializeObject();
-    this.data.agreement = _(this.data.agreement).escape();
-    this.$form.addClass('hidden');
-    this.$verify.html(this.verifyTpl(_({
-      dividConf: this.options.dividConf
-    }).extend(this.data)));
-  },
 
-  checkAgreementHandler: function(e) {
-    var $target = $(e.currentTarget);
-
-    var $dialog = Global.ui.dialog.show({
-      title: '繁华娱乐分红协议条款',
-      size: 'modal-lg',
-      body: '<div class="ac-official">' + this.officialAgreementTpl() + '</div>',
-      footer: ''
+  //获取页面输入的配置信息
+  getConfigDataFormTable: function(){
+    var result = this.$form.parsley().validate();
+    if(!result){
+      return false;
+    }
+    var username = this.$('.js-ac-sm-sign-username').val();
+    var $saleAmount = this.$('.js-ac-sm-sign-saleAmount');
+    var $salary = this.$('.js-ac-sm-sign-salary');
+    var dividendList = [];
+    _($saleAmount).each(function(item,index){
+      dividendList.push({
+        betTotal: $(item).val(),
+        divid: $salary.eq(index).val()
+      });
     });
-
-    $dialog.on('hidden.modal', function() {
-      $(this).remove();
-    });
-  },
-
-  dividChangeHandler: function(e) {
-    var $target = $(e.currentTarget);
-    var divid = Number($target.val());
-    var min = this.options.dividConf.formatDividMin;
-    var max = this.options.dividConf.formatDividMax;
-
-    if (!_.isNumber(divid)) {
-      divid = min;
+    if(_(dividendList).size()===0){
+      return false;
+    }else{
+      return {
+        username: username,
+        itemList: dividendList
+      }
     }
 
-    if (divid < min) {
-      $target.val(min);
-    }
-
-    if (divid > max) {
-      $target.val(max);
-    }
   }
+
 });
 
 module.exports = SignedView;

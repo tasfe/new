@@ -8,7 +8,7 @@ var config = [
     status: [
       {
         id: 0,
-        zhName: '申请领取',
+        zhName: '领取分红',
         type: 'button',
         loadingText: '申请中'
       },

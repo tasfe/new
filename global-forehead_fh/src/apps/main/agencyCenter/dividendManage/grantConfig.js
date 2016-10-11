@@ -3,23 +3,27 @@
 var config = [
   {
     id: 0,
-    zhName: '待发放',
-    name: 'WAIT'
+    zhName: '<span style="color: #c60511">未发放</span>',
+    name: 'WAIT',
+    classStr: 'text-hot'
   },
   {
     id: 1,
-    zhName: '已发放',
-    name: 'DONE'
+    zhName: '<span style="color: #949494">已发放</span>',
+    name: 'DONE',
+    classStr: ''
   },
   {
     id: 2,
-    zhName: '不发放',
-    name: 'PASS'
+    zhName: '<span style="color: #949494">不发放</span>',
+    name: 'PASS',
+    classStr: ''
   },
   {
     id: 9,
-    zhName: '统计中',
-    name: 'STATISTIC'
+    zhName: '<span style="color: #ffaa4d">统计中</span>',
+    name: 'STATISTIC',
+    classStr: 'text-sunshine'
   }
 ];
 

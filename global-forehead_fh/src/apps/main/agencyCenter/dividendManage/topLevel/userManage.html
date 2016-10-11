@@ -1,16 +1,30 @@
-<div class="search-condition-table">
-	<div class="row1">
-		<dl class="width160">
-	      <dt>用户名</dt>
-	      <dd><input type="text" name="username"></dd>
-	    </dl>
-	    <div>
-	      <button type="submit">搜索</button>
-	    </div>
-	</div>
+<div class="ac-dividend ad-first-level">
+  <!--搜索栏-->
+  <form class="js-search-form form-inline row">
+    <div class="search-condition-table">
+      <div class="control-group row2">
+        <label class="control-label label1">用户名：</label>
+        <input type="text" name="username" class="input-date-sm username">
+        <label class="control-label label1" style="width:60px;">签约状态：</label>
+        <select name="status" class="status">
+          <option value="-1" selected>全部</option>
+          <option value="0">待确认</option>
+          <option value="1">已签约</option>
+          <option value="2">未签约</option>
+        </select>
+        <button type="button" class="js-search btn btn-lg btn-orange ac-rm-btn m-left-sm">
+         <span class="sfa sfa-search vertical-middle"></span> 搜 索</button>
+      </div>
+    </div>
+  </form>
+
+  <div class="alert hidden">
+    <i class="fa fa-exclamation-circle font-md text-hot pull-left"></i>
+    <div class="overflow-hidden hidden">
+      <span class="ac-dm-sm-notice">温馨提示</span>您还剩余可签约名额 <span class="js-ac-leftQuota text-hot"></span> 个， 已签约用户：
+      <span class="js-ac-usedQuota text-hot"></span> 个
+    </div>
+  </div>
+
+  <div class="js-ac-user-grid"></div>
 </div>
-<div class="tips">
-	温馨提示：您还剩余可签约名额 <span class="js-ac-leftQuota text-pleasant"></span> 个，
-    已签约用户：<span class="js-ac-usedQuota text-pleasant"></span> 个
-</div>
-<div class="js-ac-user-grid"></div>

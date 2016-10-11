@@ -11,7 +11,7 @@ var AgreementView = Base.ItemView.extend({
   startOnLoading: true,
 
   events: {
-    'click .js-as-approve': 'approveHandler'
+    'click .js-ac-next': 'approveHandler'
   },
 
   getAgreementXhr: function() {
@@ -30,42 +30,53 @@ var AgreementView = Base.ItemView.extend({
   onRender: function() {
     var self = this;
 
-    this.$rate = this.$('.js-ac-rate');
     this.$countdown = this.$('.js-ac-dm-fg-countdown');
     this.$btnApprove = this.$('.js-as-approve');
 
-    this.getAgreementXhr()
-      .always(function() {
-        self.loadingFinish();
-      })
-      .done(function(res) {
-        if (res && res.result === 0) {
-          self._render(res.root);
-        }
-      });
-  },
+    this.$table = this.$('.js-ac-sm-agree-table');
+    this.$form = this.$('.js-ac-signed-form');
+    this.$username = this.$('.ja-ac-sm-sign-username');
+    this.$username.val(this.options.username);
+    var acctInfo = Global.memoryCache.get('acctInfo');
 
-  _render: function(data) {
-    this.$('.js-ac-agreement-content').html(this.agreementContentTpl({
-      agreement: data.agreement
-    }));
-
-    this.$rate.text(_(data.divid).formatDiv(100) + '%');
-
-    this.countdown = new Countdown({
-      el: this.$countdown,
-      color: 'red',
-      size: 'sm'
-    })
-      .render(data.leftSeconds * 1000)
-      .on('finish.countdown', function(e) {
-        Global.ui.notification.show('您未在协议有效期内签署，当前协议已失效。', {
-          event: function() {
-            Global.m.oauth.check();
-            Global.router.goTo('');
-          }
+    this.getAgreementXhr({username: acctInfo.username}).always(function() {
+      self.loadingFinish();
+    }).done(function(res){
+      if(res.result===0){
+        var list = res.root.itemList;
+        self.countdown = new Countdown({
+          el: self.$countdown,
+          color: 'red',
+          size: 'sm'
+        })
+          .render(res.root.leftSeconds * 1000)
+          .on('finish.countdown', function(e) {
+            Global.ui.notification.show('您未在协议有效期内签署，当前协议已失效。', {
+              event: function() {
+                Global.m.oauth.check();
+                Global.router.goTo('');
+              }
+            });
+          });
+        self.$table.staticGrid({
+          colModel: [
+            {label: '分红等级', name: 'level', key: true, width: '30%', formatter: function(val,index) {
+              return index+1;
+            }},
+            {label: '日量要求', name: 'betTotal', width: '40%', formatter: function(val,index,rowInfo) {
+              return '≥'+_(val).convert2yuan({fixed:0});
+            }},
+            {label: '分红比例', name: 'divid', width: '30%', formatter: function(val,index,rowInfo) {
+              return _(val).formatDiv(100) + '%';
+            }},
+          ],
+          height: 270,
+          row: list||[],
+          startOnLoading: false
         });
-      });
+      }
+    });
+
   },
 
   approveHandler: function(e) {

@@ -1,6 +1,6 @@
 "use strict";
 
-var menuConfig = require('skeleton/misc/menuConfig');
+var MenuConfig = require('skeleton/misc/menuConfig');
 
 var dividendConfig = require('agencyCenter/dividendManage/dividendConfig');
 
@@ -8,7 +8,7 @@ var SidemenuModule = Base.Module.extend({
 
   startWithParent: false,
 
-  menuConfig: menuConfig.getAll(),
+  menuConfig: MenuConfig.getAll(),
 
   onStart: function() {
     _.bindAll(this, 'updateMenuAuth');
@@ -17,28 +17,23 @@ var SidemenuModule = Base.Module.extend({
   },
 
   updateMenuAuth: function(acctInfo) {
-    //dividendStatus 分红状态
-    var dividendAuth = acctInfo.dividendStatus !== dividendConfig.getByName('UN_APPLIED').id;
+    var dividendAuth = acctInfo.dividendStatus !== dividendConfig.getByName('UN_APPLIED').id;//dividendStatus 分红状态
+    var wagesAuth = acctInfo.salaryStatus !== dividendConfig.getByName('UN_APPLIED').id; //工资状态，true,false
 
-    _(menuConfig.get('ac').sub).findWhere({
+    var dividendMenu = _(MenuConfig.get('ac').sub).findWhere({
+      id: 136
+    });
+    var wagesMenu = _(MenuConfig.get('ac').sub).findWhere({
       id: 135
-    }).auth = dividendAuth;
+    });
 
-    _(menuConfig.get('ac').sub).findWhere({
-      id: 137
-    }).auth = acctInfo.upGradeUser;
+    dividendMenu.auth = dividendAuth;
+    wagesMenu.auth = wagesAuth;
 
-    setTimeout(function() {
-      if (Global.headerRegion.currentView) {
-        Global.headerRegion.currentView.toggleDividend(dividendAuth);
-        Global.headerRegion.currentView.toggleRush(acctInfo.upGradeUser);
-      }
+    setInterval(function() {
+      // Global.navbarRegion.currentView && Global.navbarRegion.currentView.toggleMenu(dividendMenu);
+      // Global.navbarRegion.currentView && Global.navbarRegion.currentView.toggleMenu(wagesMenu);
     }, 500);
-
-    //dividendStatus 分红状态
-    //_(menuConfig.get('ac').sub).findWhere({
-    //  id: 33
-    //}).auth = acctInfo.redEnvelope;
   },
 
   getAll: function() {
@@ -46,7 +41,7 @@ var SidemenuModule = Base.Module.extend({
   },
 
   get: function(router) {
-    return menuConfig.get(router);
+    return MenuConfig.get(router);
   },
 
   selectMenuFromCurrentHash: function() {
