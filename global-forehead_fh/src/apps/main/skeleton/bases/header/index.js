@@ -287,6 +287,7 @@ var HeaderView = Base.ItemView.extend({
     this.$('.js-gl-hd-nickName').text(acctInfo.uName ? acctInfo.uName : acctInfo.username);
     this.$('.js-gl-hd-balance').text(acctInfo.fBalance);
     this.$('.js-gl-ag-balance').text(acctInfo.agBalance);
+    this.$('.js-gl-total-balance').text(acctInfo.fBalance + acctInfo.agBalance);
 
   },
 

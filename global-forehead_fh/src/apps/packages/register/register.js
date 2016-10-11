@@ -87,9 +87,9 @@ $.widget('gl.register', {
     var str= $('.js-rp-loginPwd1').val();
     var str2= $('.js-rp-loginPwd2').val();
     if (str.length == 0) {
-      $('.content-julien .right dl').eq(1).addClass('wrong');
-      $('.content-julien .right dl').eq(1).removeClass('correct');
-      $('.content-julien .right dl .messageBox span').eq(0).html('不能为空');
+      self.$('.content-julien .right dl').eq(1).addClass('wrong');
+      self.$('.content-julien .right dl').eq(1).removeClass('correct');
+      self.$('.content-julien .right dl .messageBox span').eq(0).html('不能为空');
 
       iIs = 1;
     }
@@ -162,27 +162,27 @@ $.widget('gl.register', {
       if (str.length == 0) {
         $('.content-julien .right dl').eq(1).addClass('wrong');
         $('.content-julien .right dl').eq(1).removeClass('correct');
-        $('.content-julien .right dl .messageBox span').eq(0).html('不能为空');
+        $('.content-julien .right dl .messageBox span').eq(1).html('不能为空');
       }
       else if ( !isNaN(str) && str.length < 9 ) {
         $('.content-julien .right dl').eq(1).addClass('wrong');
         $('.content-julien .right dl').eq(1).removeClass('correct');
-        $('.content-julien .right dl .messageBox span').eq(0).html('不能是9位以下的纯数字（≤8个阿拉伯数字）');
+        $('.content-julien .right dl .messageBox span').eq(1).html('不能是9位以下的纯数字（≤8个阿拉伯数字）');
       }
       else if(str.indexOf(" ")>0){
         $('.content-julien .right dl').eq(1).addClass('wrong');
         $('.content-julien .right dl').eq(1).removeClass('correct');
-        $('.content-julien .right dl .messageBox span').eq(0).html('不能包含空格');
+        $('.content-julien .right dl .messageBox span').eq(1).html('不能包含空格');
       }
       else if (str.length < 6 || str.length > 20) {
         $('.content-julien .right dl').eq(1).addClass('wrong');
         $('.content-julien .right dl').eq(1).removeClass('correct');
-        $('.content-julien .right dl .messageBox span').eq(0).html('6-20位字符组成');
+        $('.content-julien .right dl .messageBox span').eq(1).html('6-20位字符组成');
       }
       else{
         $('.content-julien .right dl').eq(1).removeClass('wrong');
         $('.content-julien .right dl').eq(1).addClass('correct');
-        $('.content-julien .right dl .messageBox span').eq(0).html('');
+        $('.content-julien .right dl .messageBox span').eq(1).html('');
       }
 
       if (str2 != '') {
@@ -255,8 +255,8 @@ $.widget('gl.register', {
       }
     }).debounce(400);
 
-    $('.js-rp-loginPwd1').on('keyup', newLoginPassword);
-    $('.js-rp-loginPwd2').on('keyup', newLoginPassword2);
+    $('.js-rp-loginPwd1').on('blur', newLoginPassword);
+    $('.js-rp-loginPwd2').on('blur', newLoginPassword2);
 
     $('.js-rp-valCode').on('input', function() {
       if ($('.js-rp-valCode').val().length == 4) {
@@ -311,7 +311,7 @@ $.widget('gl.register', {
           else{
             $('.content-julien .right dl').eq(0).addClass('wrong');
             $('.content-julien .right dl').eq(0).removeClass('correct');
-            $('.content-julien .right dl .messageBox span').eq(0).html('字符4到6');
+            $('.content-julien .right dl .messageBox span').eq(0).html('字符数必须是4至16之间');
           }
         }
         else{
@@ -322,7 +322,7 @@ $.widget('gl.register', {
       }
     }).debounce(400);
 
-    $('.js-re-userName').on('keyup', verifyInputUserName);
+    $('.js-re-userName').on('blur', verifyInputUserName);
   },
 
   refreshValCodeHandler: function(){

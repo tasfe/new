@@ -147,10 +147,8 @@ dl,dt,dd{
 
       dl{
         position: relative;
-        height: 30px;
         line-height: 30px;
-        margin-bottom: 28px;
-        
+        margin-bottom: 10px;
         &:after{
           clear:both;
           content: '';
@@ -174,24 +172,24 @@ dl,dt,dd{
       dd{
         width: 500px;
         float: left;
+        line-height: 30px;
 
         p{
-          line-height: 30px;
+          line-height: 28px;
           font-size: 12px;
           margin: 0px;
           color: #999999;
+          width: 284px;
         }
 
         a{
           color: #666666;
           text-decoration: underline;
           display: inline-block;
-          margin-top: 10px;
         }
       }
 
       .code{
-        margin-top: -10px;
         margin-bottom: 20px;
 
         input{
@@ -346,9 +344,10 @@ a.logo{
   }
 
   span{
-    float: left;
+    float: right;
     display: block;
-    height: 26px;
+    line-height: 26px;
+    width: 188px;
     background-color: #999999;
     line-height: 26px;
     padding: 0px 8px;
