@@ -157,7 +157,7 @@ var TrackRecordsView = TabView.extend({
           'playName': play.ticketPlayName,
           'bonusMin': _(play.ticketPlayBonus).convert2yuan(),
           'rebate': _(play.userRebate).formatDiv(10) + '%',
-          'bonusMax': '<span class="text-bold-pleasant">' + _(play.ticketPlayMaxBonus).convert2yuan() + '</span>'
+          'bonusMax': '<span class="text-hot">' + _(play.ticketPlayMaxBonus).convert2yuan() + '</span>'
         };
       });
     }).flatten().value();
