@@ -183,18 +183,12 @@ var UserCenterController = RouterController.extend({
     this.changeMainReginView(new MoneyDetailView(), {
       sidebar: 'pc'
     });
-    var PublicView = require('userCenter/views/publicView');
-    var publicView = new PublicView();
-    publicView.checkState();
   },
 
   profitAndLoss: function () {
     this.changeMainReginView(new ProfitAndLossView(), {
       sidebar: 'pc'
     });
-    var PublicView = require('userCenter/views/publicView');
-    var publicView = new PublicView();
-    publicView.checkState();
   }
 });
 
