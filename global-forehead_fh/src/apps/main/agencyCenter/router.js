@@ -22,6 +22,8 @@ exports.install = function() {
     'ac/rm/br/:tabName': 'bettingRecords4Report', //投注记录
     'ac/td': 'teamDynamic',
 
+    'ac/tpl/lottery': 'teamProfitAndLoss',
+
     //'ac/pl': 'profitAndLoss', //报表查询
 
     'ac/betting/:userId/:tabName': 'bettingRecords', //投注

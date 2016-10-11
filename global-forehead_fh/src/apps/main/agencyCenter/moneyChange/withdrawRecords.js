@@ -3,39 +3,14 @@
 var SearchGrid = require('com/searchGrid');
 
 var Timeset = require('com/timeset');
-
+var BtnGroup = require('com/btnGroup');
 var betStatusConfig = require('userCenter/misc/betStatusConfig');
 
 var RechargeRecordsView = SearchGrid.extend({
 
   template: require('./withdrawRecords.html'),
 
-  events: {
-    'click .js-excess-cell': 'dateSelectHandler',
-    'click .js-toggle-seach': 'toggleseachHandler'
-  },
-
-  dateSelectHandler:function (e) {
-    var recIndex = $(e.currentTarget).data('index');
-    this.$('.js-pf-end-time').val( _(moment().add('days')).toDate() );
-    if (recIndex===1){
-      this.$('.js-pf-start-time').val( _(moment().add('days')).toDate() );
-    }else if (recIndex===2){
-      this.$('.js-pf-start-time').val( _(moment().add('days',-3)).toDate() );
-    }else if (recIndex===3){
-      this.$('.js-pf-start-time').val( _(moment().add('days',-7)).toDate() );
-    }
-  },
-
-  toggleseachHandler:function () {
-    if($('.js-toggle-seach').hasClass('on')) {
-      $('.search-condition-table .row2').addClass('hidden');
-      $('.js-toggle-seach').removeClass('on')
-    } else{
-      $('.search-condition-table .row2').removeClass('hidden');
-      $('.js-toggle-seach').addClass('on')
-    }
-  },
+  events: {},
 
   initialize: function () {
     _(this.options).extend({
@@ -89,21 +64,62 @@ var RechargeRecordsView = SearchGrid.extend({
   },
 
   onRender: function() {
+    var self = this;
     this.$('.js-pf-search-grid').addClass('bc-report-table');
-    //初始化时间选择
-    new Timeset({
-      el: this.$('.js-pf-timeset'),
-      startTime: 'regTimeStart',
-      endTime: 'regTimeEnd',
+    this.$btnGroup = this.$('.js-ac-btnGroup');
+    this.$timeset = this.$('.js-ac-timeset');
+
+    this.timeset = new Timeset({
+      el: this.$timeset,
       startTimeHolder: '起始日期',
       endTimeHolder: '结束日期',
-      size: 'julien-time',
-      prevClass: 'js-pf',
-      startOps: {
-        format: 'YYYY-MM-DD'
-      },
-      endOps: {
-        format: 'YYYY-MM-DD'
+      prevClass: 'js-pf'
+      // startOps: {
+      //   format: 'YYYY-MM-DD'
+      // },
+      // endOps: {
+      //   format: 'YYYY-MM-DD'
+      // }
+    }).render();
+
+    this.timeset.$startDate.on('dp.change', function() {
+      if(self.btnGroup) {
+        self.btnGroup.clearSelect();
+      }
+    });
+
+    this.timeset.$endDate.on('dp.change', function() {
+      if(self.btnGroup) {
+        self.btnGroup.clearSelect();
+      }
+    });
+
+    this.btnGroup = new BtnGroup({
+      el: this.$btnGroup,
+      btnGroup: [
+        {
+          title: '今日',
+          value: 0,
+          active: true
+        },
+        {
+          title: '昨天',
+          value: -1
+        },
+        {
+          title: '本半月',
+          value: -15
+        },
+        {
+          title: '本月',
+          value: -30
+        }
+      ],
+      onBtnClick: function(offset) {
+        self.timeset.$startDate.data("DateTimePicker").date(moment().add(offset, 'days').startOf('day'));
+        self.timeset.$endDate.data("DateTimePicker").date(moment().add(offset === -1 ? -1 : 0, 'days').endOf('day'));
+        (self.$('.js-ac-search-form') && !self.firstTime) && self.$('.js-ac-search-form').trigger('submit');
+        return false;
       }
     }).render();
     
