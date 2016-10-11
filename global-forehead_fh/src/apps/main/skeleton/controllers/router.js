@@ -8,6 +8,10 @@ var globalViewList = {
   team: {
     viewName: 'teamProfile',
     View: require('agencyCenter/topProfile')
+  },
+  personal: {
+    viewName: 'personalProfile',
+    View: require('userCenter/topProfile')
   }
 };
 

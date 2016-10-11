@@ -35,9 +35,9 @@ var UserCenterController = RouterController.extend({
 
   transforRecord:function () {
     this.changeMainReginView(new transforRecordView(), {
-      sidebar: 'uc'
+      sidebar: 'ac',
+      topView: 'personal'
     });
-    $('#main > .clearfix').addClass('ac-block ac-block2');
   },
 
 
@@ -110,26 +110,22 @@ var UserCenterController = RouterController.extend({
     this.changeMainReginView(new VipPointView(), {
       sidebar: 'vip'
     });
-    $('.js-gl-sidebar').addClass('vip-sidebar');
   },
 
   vipLevel:function() {
     this.changeMainReginView(new VipLevelView(), {
       sidebar: 'vip'
     });
-    $('.js-gl-sidebar').addClass('vip-sidebar');
   },
   vipPrize:function() {
     this.changeMainReginView(new VipPrizeView(), {
       sidebar: 'vip'
     });
-    $('.js-gl-sidebar').addClass('vip-sidebar');
   },
   vipCash:function() {
     this.changeMainReginView(new VipCashView(), {
       sidebar: 'vip'
     });
-    $('.js-gl-sidebar').addClass('vip-sidebar');
   },
   //vipInfo:function() {
   //  this.changeMainReginView(new VipInfoView(), {
@@ -141,17 +137,13 @@ var UserCenterController = RouterController.extend({
   this.changeMainReginView(new VipCreditView(), {
     sidebar: 'vip'
   });
-    $('.js-gl-sidebar').addClass('vip-sidebar');
 },
 
   personalManage: function() {
     this.changeMainReginView(new PersonalManageView(), {
-      sidebar: 'pc'
+      sidebar: 'pc',
+      topView: 'personal'
     });
-
-    var PublicView = require('userCenter/views/publicView');
-    var publicView = new PublicView();
-    publicView.checkState();
   },
 
   cardManage: function() {
@@ -159,8 +151,6 @@ var UserCenterController = RouterController.extend({
 
     var self  = this;
     this.checkPayPwdXhr()
-        .always(function(){
-        })
         .done(function(res) {
           if (res && res.result === 0) {
             //设置了则弹出验证框
@@ -174,8 +164,6 @@ var UserCenterController = RouterController.extend({
               showBankCard: false,
               hasBankCard: false
             });
-            //self.$('.js-uc-cm-fundPwdSetNotice').removeClass('hidden');
-            //self.$el.removeClass('hidden');
           }
         });
   },
@@ -184,9 +172,6 @@ var UserCenterController = RouterController.extend({
     this.changeMainReginView(new CardManageView(), {
       sidebar: 'pc'
     });
-    var PublicView = require('userCenter/views/publicView');
-    var publicView = new PublicView();
-    publicView.checkState();
   },
   cardBinding: function() {
     this.changeSubReginView(new CardBindingView(), {
@@ -196,12 +181,9 @@ var UserCenterController = RouterController.extend({
 
   priceDetails: function() {
     this.changeMainReginView(new PriceDetailsView(), {
-      sidebar: 'pc'
+      sidebar: 'pc',
+      topView: 'personal'
     });
-
-    var PublicView = require('userCenter/views/publicView');
-    var publicView = new PublicView();
-    publicView.checkState();
   },
   trackBetDetail: function(chaseFormId,tradeNo){
     this.changeSubReginView(new BettingDetailView({
