@@ -8,24 +8,27 @@ var betStatusConfig = require('userCenter/misc/betStatusConfig');
 
 var BettingRecordsView = SearchGrid.extend({
 
-  template: require('./personal.html'),
+  template: require('./agBetting.html'),
 
   events: {
     'click .js-excess-cell': 'dateSelectHandler',
-    'click .js-toggle-seach': 'toggleseachHandler'
+    'click .js-toggle-seach': 'toggleSearchHandler'
   },
+
   dateSelectHandler:function (e) {
     var recIndex = $(e.currentTarget).data('index');
-    this.$('.js-pf-end-time').val( _(moment().add('days')).toDate() );
+
+    this.$('.js-pf-end-time').val(_(moment().add('days')).toDate());
     if (recIndex===1){
-      this.$('.js-pf-start-time').val( _(moment().add('days')).toDate() );
+      this.$('.js-pf-start-time').val(_(moment().add('days')).toDate());
     }else if (recIndex===2){
-      this.$('.js-pf-start-time').val( _(moment().add('days',-3)).toDate() );
+      this.$('.js-pf-start-time').val(_(moment().add('days',-3)).toDate());
     }else if (recIndex===3){
-      this.$('.js-pf-start-time').val( _(moment().add('days',-7)).toDate() );
+      this.$('.js-pf-start-time').val(_(moment().add('days',-7)).toDate());
     }
   },
-  toggleseachHandler:function () {
+
+  toggleSearchHandler: function() {
     if($('.js-toggle-seach').hasClass('on')) {
       $('.search-condition-table .row2').addClass('hidden');
       $('.js-toggle-seach').removeClass('on')
@@ -34,6 +37,7 @@ var BettingRecordsView = SearchGrid.extend({
       $('.js-toggle-seach').addClass('on')
     }
   },
+
   initialize: function () {
     _(this.options).extend({
       columns: [

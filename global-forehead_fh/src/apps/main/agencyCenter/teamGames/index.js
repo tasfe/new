@@ -2,11 +2,11 @@
 
 var TabView = require('com/tabView');
 
-var PersonalView = require('./personal');
-var TeamView = require('./team');
-var TrackRecords = require('./trackRecords');
+var BettingRecordsView = require('./betting');
+var AGBettingView = require('./agBetting');
+var TrackRecordsView = require('./trackRecords');
 
-var BettingRecordsView = TabView.extend({
+var TeamGamesView = TabView.extend({
 
   //className: 'ac--view',
 
@@ -18,23 +18,23 @@ var BettingRecordsView = TabView.extend({
           label: '彩票投注记录',
           name: 'team',
           id: 'jsTeam',
-          view: TeamView
+          view: BettingRecordsView
         },
         {
           label: '彩票追号记录',
           name: 'records',
           id: 'jsTrackRecords',
-          view: TrackRecords
+          view: TrackRecordsView
         },
         {
           label: 'AG投注记录',
           name: 'personal',
           id: 'jsPersonal',
-          view: PersonalView
+          view: AGBettingView
         }
       ]
     });
   }
 });
 
-module.exports = BettingRecordsView;
+module.exports = TeamGamesView;

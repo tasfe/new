@@ -45,14 +45,12 @@ var UserCenterController = RouterController.extend({
     this.changeMainReginView(new BaccaratPalView(), {
       sidebar: 'uc'
     });
-    $('#main > .clearfix').addClass('ac-block ac-block2');
   },
 
   reportManage:function () {
     this.changeMainReginView(new ReportManageView(), {
       sidebar: 'uc'
     });
-    $('#main > .clearfix').addClass('ac-block ac-block2');
   },
 
   checkPayPwdXhr: function() {
@@ -65,7 +63,6 @@ var UserCenterController = RouterController.extend({
     this.changeMainReginView(new BettingRecordView(), {
       sidebar: 'uc'
     });
-    $('#main > .clearfix').addClass('ac-block ac-block2');
   },
 
   bettingDetail: function(tradeNo) {
@@ -80,14 +77,12 @@ var UserCenterController = RouterController.extend({
       needParent: false,
       sidebar: 'uc'
     });
-    $('#main > .clearfix').addClass('ac-block ac-block2');
   },
 
   trackRecords: function() {
     this.changeMainReginView(new TrackRecordView(), {
       sidebar: 'uc'
     });
-    $('#main > .clearfix').addClass('ac-block ac-block2');
   },
 
   trackDetail: function(tradeNo) {
@@ -103,14 +98,12 @@ var UserCenterController = RouterController.extend({
     this.changeMainReginView(new RechargeRecordsView(), {
       sidebar: 'uc'
     });
-    $('#main > .clearfix').addClass('ac-block ac-block2');
   },
 
   withdrawRecords: function() {
     this.changeMainReginView(new WithdrawRecordsView(), {
       sidebar: 'uc'
     });
-    $('#main > .clearfix').addClass('ac-block ac-block2');
   },
 
   vipPoint:function() {

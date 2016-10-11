@@ -40,7 +40,7 @@ var LowLevelUserManageView =  require('agencyCenter/views/index');
 
 var SalaryView = require('agencyCenter/views/salaryManage');
 
-var BettingRecordView = require('agencyCenter/bettingRecords');
+var TeamGamesView = require('agencyCenter/teamGames');
 var MoneyDetailsView = require('agencyCenter/moneyChange');
 
 var AgencyCenterController = RouterController.extend({
@@ -66,10 +66,10 @@ var AgencyCenterController = RouterController.extend({
     });
   },
 
-  bettingRecords2: function() {
-    this.changeMainReginView(new BettingRecordView(), {
+  teamGames: function() {
+    this.changeMainReginView(new TeamGamesView(), {
       main: {
-        // title: '投注记录'
+        // title: '团队游戏'
       },
       sidebar: 'ac',
       topView: 'team'
@@ -84,8 +84,6 @@ var AgencyCenterController = RouterController.extend({
       sidebar: 'ac',
       topView: 'team'
     });
-
-    $('#main > .clearfix').addClass('ac-block');
   },
 
   rebateManage: function(userId){
@@ -290,7 +288,6 @@ var AgencyCenterController = RouterController.extend({
       sidebar: 'ac',
       topView: 'team'
     });
-    $('#main > .clearfix').addClass('ac-block');
   },
   rechargeRecords4Report: function(tabName) {
     var startTime = _.getUrlParam('startTime');

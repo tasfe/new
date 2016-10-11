@@ -35,6 +35,15 @@
     display: inline-block;
   }
 
+  dl,dt,dd{
+    padding: 0;
+    margin: 0;
+  }
+
+  dl{
+    margin-right: 10px;
+  }
+
   select{
     width: 86px;
   }

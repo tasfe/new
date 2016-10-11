@@ -360,11 +360,11 @@ var HeaderView = Base.ItemView.extend({
         .done(function(res) {
           var data = res && res.root || {};
           if (res && res.result === 0) {
-            if (data.hasMoneyPwd && data.hasBankCard) {
+            if (data.hasMoneyPwd && data.hasBankCard && data.hasSecurity) {
               //设置了则弹出验证框
               // $(document).verifyFundPwd({parentView:self});
               self.verifySuccCallBack();
-            } else if (!data.hasMoneyPwd || !data.hasBankCard) {
+            } else if (!data.hasMoneyPwd || !data.hasBankCard || !data.hasSecurity) {
               if(!data.hasMoneyPwd){
                 //未设置则弹出链接到资金密码设置页面的提示框
                 $(document).securityTip({
@@ -382,6 +382,16 @@ var HeaderView = Base.ItemView.extend({
                   hasMoneyPwd: true,
                   showBankCard: true,
                   hasBankCard: false
+                });
+              }else if(!data.hasSecurity){
+                //未设置则弹出链接到密保问题设置页面的提示框
+                $(document).securityTip({
+                  content: '请补充完您的安全信息后再提现',
+                  showMoneyPwd: true,
+                  hasMoneyPwd: data.hasMoneyPwd,
+                  showBankCard: true,
+                  hasBankCard: data.hasBankCard,
+                  hasSecurity: data.hasSecurity
                 });
               }
             }

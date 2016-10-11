@@ -76,37 +76,37 @@ var banks = [
   // {
   //   id: 11,
   //   zhName: '平安银行',
-  //   pic: ,
-  //   logo: ,
+  //   pic: '',
+  //   logo: require('base/images/bank/fundCenter/pingan.jpg'),
   //   className: ''// 'fc-re-bank-pingan'
   // },
   // {
   //   id: 12,
   //   zhName: '兴业银行',
-  //   pic: ,
-  //   logo: ,
-  //   className:  ''//'fc-re-bank-xingye'
+  //   pic: '',
+  //   logo: require('base/images/bank/fundCenter/xingye.jpg'),
+  //   className:  'fc-re-bank-xingye'
   // },
   // {
   //   id: 13,
   //   zhName: '中信银行',
-  //   pic: ,
-  //   logo: ,
-  //   className:  ''//'fc-re-bank-zhongxin'
+  //   pic: '',
+  //   logo: require('base/images/bank/fundCenter/zhongxin.jpg'),
+  //   className:  'fc-re-bank-zhongxin'
   // },
   // {
   //   id: 14,
   //   zhName: '邮政银行',
-  //   pic: ,
-  //   logo: ,
-  //   className: ''// 'fc-re-bank-youzheng'
+  //   pic: '',
+  //   logo: require('base/images/bank/fundCenter/youzheng.jpg'),
+  //   className: 'fc-re-bank-youzheng'
   // },
   // {
   //   id: 15,
   //   zhName: '华夏银行',
-  //   pic: ,
-  //   logo: ,
-  //   className:  ''//'fc-re-bank-huaxia'
+  //   pic: '',
+  //   logo: require('base/images/bank/fundCenter/huaxia.jpg'),
+  //   className:  'fc-re-bank-huaxia'
   // }
 ];
 
