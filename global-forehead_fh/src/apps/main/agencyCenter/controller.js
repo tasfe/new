@@ -22,7 +22,8 @@ var OpenAccountManagePriceView = require('agencyCenter/openAccount/price');
 
 var TeamDynamicView = require('agencyCenter/views/teamDynamic');
 var ReportManageView = require('agencyCenter/reportManage');
-//var ProfitAndLossView = require('agencyCenter/profitAndLoss');
+
+var ProfitAndLossView = require('agencyCenter/profitAndLoss');
 
 var DividendMangeView = require('./dividendManage');
 var RedPacketView = require('./redPacket');
@@ -35,8 +36,6 @@ var WithdrawRecordsView = require('userCenter/withdrawRecords');
 //var ActiveRecordView = require('userCenter/activeRecords'); //活动数据详情页
 
 var RushRewardView = require('./rushReward');
-
-var LowLevelUserManageView =  require('agencyCenter/views/index');
 
 var SalaryView = require('agencyCenter/views/salaryManage');
 
@@ -329,6 +328,13 @@ var AgencyCenterController = RouterController.extend({
   rushReward: function() {
     this.changeMainReginView(new RushRewardView(), {
       sidebar: 'ac'
+    });
+  },
+
+  teamProfitAndLoss: function(){
+    this.changeMainReginView(new ProfitAndLossView(), {
+      sidebar: 'ac',
+      topView: 'team'
     });
   }
 });

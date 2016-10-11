@@ -94,6 +94,11 @@ var menuConfig = [
                 router: 'ac/ad',
                 name: '团队账变'
             },
+            {
+                id: 135,
+                router: 'ac/tpl/lottery',
+                name: '团队盈亏'
+            },
 
             //    {
             //       id: 133,
@@ -101,7 +106,7 @@ var menuConfig = [
             //      name: '佣金管理'
             //    },
             {
-                id: 135,
+                id: 136,
                 router: 'ac/salary',
                 name: '日工资管理'
             },
@@ -111,7 +116,7 @@ var menuConfig = [
             //      name: '报表查询'
             //  },
             {
-                id: 136,
+                id: 137,
                 router: 'ac/dm',
                 name: '分红管理',
                 needAuth: true
@@ -122,7 +127,7 @@ var menuConfig = [
             //  name: '盈亏报表'
             //},
             {
-                id: 137,
+                id: 138,
                 router: 'ac/rr',
                 name: '冲级奖励',
                 needAuth: true
