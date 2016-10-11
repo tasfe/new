@@ -328,12 +328,12 @@ var menuConfig = [
             },
             {
                 id: 209,
-                router: 'uc/rp',
+                router: 'uc/pal',
                 name: '盈亏报表'
             },
             {
                 id: 210,
-                router: 'uc/ad',
+                router: 'uc/md',
                 name: '帐变明细'
             },
             {

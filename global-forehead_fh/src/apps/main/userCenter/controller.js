@@ -9,10 +9,8 @@ var BettingDetailView = require('userCenter/views/bettingDetail');
 var TrackRecordView = require('userCenter/trackRecords/team');
 var TrackDetailView = require('userCenter/views/trackDetail');
 
-var RechargeRecordsView = require('userCenter/rechargeRecords/team');
-
-var WithdrawRecordsView = require('userCenter/withdrawRecords/team');
-
+var MoneyDetailView = require('userCenter/moneyDetail');
+var ProfitAndLossView = require('userCenter/profitAndLoss');
 
 var PersonalManageView = require('userCenter/views/personalManage');
 var CardManageView = require('userCenter/views/cardManage');
@@ -91,18 +89,6 @@ var UserCenterController = RouterController.extend({
     }), {
       parentRouter: 'uc/tr',
       destroyDiff: false
-    });
-  },
-
-  rechargeRecords: function() {
-    this.changeMainReginView(new RechargeRecordsView(), {
-      sidebar: 'uc'
-    });
-  },
-
-  withdrawRecords: function() {
-    this.changeMainReginView(new WithdrawRecordsView(), {
-      sidebar: 'uc'
     });
   },
 
@@ -209,6 +195,24 @@ var UserCenterController = RouterController.extend({
     }), {
       parentRouter: 'uc/tr'
     });
+  },
+
+  moneyDetail: function () {
+    this.changeMainReginView(new MoneyDetailView(), {
+      sidebar: 'pc'
+    });
+    var PublicView = require('userCenter/views/publicView');
+    var publicView = new PublicView();
+    publicView.checkState();
+  },
+
+  profitAndLoss: function () {
+    this.changeMainReginView(new ProfitAndLossView(), {
+      sidebar: 'pc'
+    });
+    var PublicView = require('userCenter/views/publicView');
+    var publicView = new PublicView();
+    publicView.checkState();
   }
 });
 
