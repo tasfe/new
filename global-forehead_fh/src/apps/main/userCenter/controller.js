@@ -181,13 +181,15 @@ var UserCenterController = RouterController.extend({
 
   moneyDetail: function () {
     this.changeMainReginView(new MoneyDetailView(), {
-      sidebar: 'pc'
+      sidebar: 'pc',
+      topView: 'personal'
     });
   },
 
   profitAndLoss: function () {
     this.changeMainReginView(new ProfitAndLossView(), {
-      sidebar: 'pc'
+      sidebar: 'pc',
+      topView: 'personal'
     });
   }
 });
