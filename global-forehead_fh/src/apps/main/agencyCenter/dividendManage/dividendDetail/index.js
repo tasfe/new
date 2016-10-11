@@ -11,8 +11,8 @@ var DividendDetailView = Base.ItemView.extend({
   render: function() {
     var self = this;
 
-    return this.$el.staticGrid({
-      tableClass: 'table table-bordered table-hover table-center',
+    this.$el.staticGrid({
+      //tableClass: 'table table-bordered table-hover table-center',
       height: 369,
       colModel: [
         {label: '结算日期', name: 'cycle', width: '10%'},
@@ -52,6 +52,8 @@ var DividendDetailView = Base.ItemView.extend({
           ]
         });
       });
+
+    return this;
   }
 });
 

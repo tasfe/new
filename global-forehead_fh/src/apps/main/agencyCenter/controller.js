@@ -38,7 +38,7 @@ var RushRewardView = require('./rushReward');
 
 var LowLevelUserManageView =  require('agencyCenter/views/index');
 
-var SalaryView = require('agencyCenter/views/salaryManage');
+var SalaryView = require('agencyCenter/salaryManage');
 
 var TeamGamesView = require('agencyCenter/teamGames');
 var MoneyDetailsView = require('agencyCenter/moneyChange');

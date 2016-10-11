@@ -1,248 +1,248 @@
 "use strict";
 
-var SearchGrid = require('com/searchGrid');
-
 var userManageConfig = require('./userManageConfig');
 
 var SignedView = require('./../signed');
 
-var UserManageView = SearchGrid.extend({
+var UserManageView = Base.ItemView.extend({
 
   template: require('./userManage.html'),
 
   events: {
-    'click .js-ac-modify': 'modifyHandler',
+    'click .js-ac-modify': 'updateConfigHander',
     'click .js-ac-break-off': 'breakOffHandler',
-    'click .js-select-content': 'selectContent',
-    'click .js-select-log': 'selectLog'
+    'click .js-search': 'getSubUser',
+    'click .js-ac-see': 'seeConfigHander',
   },
 
-  initialize: function() {
-    _(this.options).extend({
-      columns: [
-        {
-          name: '账号',
-          width: '10%'
-        },
-        {
-          name: '协议内容',
-          width: '10%'
-        },
-        {
-          name: '签约时间',
-          width: '10%'
-        },
-        {
-          name: '协议生效时间',
-          width: '10%'
-        },
-        {
-          name: '签约日志',
-          width: '10%'
-        },
-        {
-          name: '操作',
-          width: '20%'
-        }
-      ],
-      gridOps: {
-        emptyTip: '没有信息'
-      },
-      ajaxOps: {
-        url: '/fund/divid/sublist.json'
-      },
-      height: 290
-    });
-  },
 
-  selectLog: function (e) {
-    var self = this;
-    var $target = $(e.currentTarget);
-
-    var $dialog = Global.ui.dialog.show({
-      title: '签约日志',
-      body: '<div class="js-select-log-html margin20-0"></div>',
-      size: 'modal-lg',
-      footer: ''
-    });
-
-    this.signInfo($target.parent().parent().data('user-id'))
-    .done(function(res) {
-      if (res && res.result === 0) {
-        var strContent = '<div class="julien-title"></div>';
-        strContent += '<div class="julien-div-table-title">';
-        strContent += '<table class="table table-bordered table-no-lr table-center no-margin"><colgroup><col width="50%"><col width="50%"></colgroup><thead><tr><th>操作</th><th>时间</th></tr></thead></table>';
-        strContent += '</div>';
-
-        strContent += '<table class="table table-center no-margin julien-table-content"><colgroup><col width="50%"><col width="50%"></colgroup>';
-
-        for (var i = 0; i < res.root.length; i++) {
-          var statusName = '';
-          if (res.root[i].status == 1) {
-            statusName = '申请签约';
-          }
-          if (res.root[i].status == 2) {
-            statusName = '签约成功';
-          }
-          if (res.root[i].status == 3) {
-            statusName = '签约失败';
-          }
-          if (res.root[i].status == 4) {
-            statusName = '修改签约';
-          }
-          if (res.root[i].status == 5) {
-            statusName = '签约修改成功';
-          }
-          if (res.root[i].status == 6) {
-            statusName = '签约修改失败';
-          }
-          if (res.root[i].status == 7) {
-            statusName = '申请解约';
-          }
-          if (res.root[i].status == 8) {
-            statusName = '解约成功';
-          }
-          if (res.root[i].status == 9) {
-            statusName = '解约失败';
-          }
-          strContent += '<thead><tr><td>' + statusName + '</td><td>' + _(res.root[i].createTime).toTime() + '</td></tr></thead>';
-        }
-        strContent += '</table>';
-        
-        $('.js-select-log-html').html(strContent);
-      } else {
-        Global.ui.notification.show(res.msg || '');
-      }
-    });
-  },
-
-  selectContent: function (e) {
-    var self = this;
-    var $target = $(e.currentTarget);
-    
-    
-    var strContent = '<div class="julien-title">下级：' + $target.parent().parent().data('username') + ' 自愿达成以下分红协议</div>';
-    strContent += '<div class="julien-div-table-title">';
-    strContent += '<table class="bb table table-bordered table-no-lr table-center no-margin"><colgroup><col width="50%"><col width="50%"></colgroup><thead><tr><th>半月销量</th><th>分红比例</th></tr></thead></table>';
-    strContent += '</div>';
-
-    strContent += '<table class="table table-center no-margin julien-table-content"><colgroup><col width="50%"><col width="50%"></colgroup>';
-    
-    var data = $target.data('content').split(' ');
-    var obj = {};
-    for (var i = 0; i < data.length - 1; i++) {
-      obj = eval('(' + data[i] + ')');
-      strContent += '<thead><tr><td>' + obj.betTotal/10000 + '</td><td>' + obj.divid/100 + '%</td></tr></thead>';
-    }
-    strContent += '</table>';
-
-    var $dialog = Global.ui.dialog.show({
-      title: '协议内容',
-      body: strContent,
-      size: 'modal-lg',
-      footer: ''
-    });
-  },
-
-  breakOffXhr: function(data) {
+  breakOffXhr: function (data) {
     return Global.sync.ajax({
-      url: '/fund/divid/sublist.json',
+      url: '/fund/divid/cancel.json',
       data: data
     });
   },
 
-  signInfo: function(userId) {
+  getDividConfXhr: function (data) {
     return Global.sync.ajax({
-      url: '/fund/divid/signinfo.json',
-      data: {
-        userId:userId
-      }
+      url: 'fund/divid/info.json',///fund/divid/info1.json
+      data: data
     });
   },
 
-  onRender: function() {
-    SearchGrid.prototype.onRender.apply(this, arguments);
+  getSubUserListXhr: function (data) {
+    return Global.sync.ajax({
+      url: 'fund/divid/sublist.json',
+      data: data
+    });
+  },
+  //签约、修改
+  signAgreementXhr: function (data) {
+    return Global.sync.ajax({
+      url: '/fund/divid/sign.json',
+      data: data,
+      tradition: true
+    });
+  },
+  //搜索
+  getSubUser: function () {
+    var username = this.$(".username").val();
+    var status = Number(this.$(".status").val());
+    this.initGrid({ 'userName': username, 'status': status, pageSize: 100 })
+  },
+  // 表格填充
+  initGrid: function (data) {
+    console.log(data)
+    var self = this;
+    this.getSubUserListXhr(data).done(function (res) {
+      console.log(res)
+      if (res.result == 0) {
+        if (self.grid) {
+          console.log("destroy staticGrid")
+          self.$grid.staticGrid("destroy");
+        }
+        self.userList = res.root.usbUserList;
+        self.grid = self.$grid.staticGrid({
+          colModel: [
+            { label: '用户名', name: 'username', width: 120 },
+            {
+              label: '签约时间', name: 'agreeDate', width: 180, formatter: function (val) {
+                return _(val).toTime();
+              }
+            },
+            { label: '最近生效时间', name: 'effectDay', width: 125 },
+            {
+              label: '状态', name: 'status', width: 125, formatter: function (val) {
+                if (val == 0) {
+                  return '<span class="green">待确认</span>';
+                }
+                else if (val == 1) {
+                  return '<span>已签约</span>';
+                }
+                else if (val == 2) {
+                  return '<span class="red">未签约</span>';
+                }
+
+              }
+            },
+            {
+              label: '操作', name: 'status', width: 195, formatter: function (val) {
+                return userManageConfig.getZh(val);
+              }
+            }
+          ],
+          height: 434,
+          row: self.userList,
+          startOnLoading: false,
+        }).staticGrid('instance');
+      }
+      var acctInfo = Global.memoryCache.get('acctInfo');
+      this.userGroupLevel = acctInfo.userGroupLevel;
+      if (this.userGroupLevel <= 1) {
+        // self.$('.js-ac-modify').addClass('hidden');
+        // self.$('.js-ac-break-off').addClass('hidden');
+      }
+    });
+  },
+  onRender: function () {
+    var self = this;
+    this.$usedQuota = this.$('.js-ac-usedQuota');
+    this.$leftQuota = this.$('.js-ac-leftQuota');
+    this.$grid = this.$('.js-ac-user-grid');
+    this.grid = null;
+    this.initGrid({ pageSize: 100 });
   },
 
-  renderGrid: function(gridData) {
-    $('.js-ac-leftQuota').text(gridData.leftQuota);
-    $('.js-ac-usedQuota').text(gridData.usedQuota);
-
-    var rowsData = _(gridData.usbUserList).map(function(info, index, list) {
-      return {
-        id: info.dividId,
-        columnEls: this.formatRowData(info, index, list),
-        dataAttr: info
-      };
-    }, this);
-
-    this.grid.refreshRowData(rowsData, gridData.rowCount, {
-      pageIndex: this.filterHelper.get('pageIndex'),
-      initPagination: false
-    }).hideLoading();
-  },
-
-  formatRowData: function(rowInfo) {
-
-
-    var row = [];
-
-    var strItemList = '';
-
-    for (var i = 0; i < rowInfo.itemList.length; i++) {
-      strItemList += '{betTotal:"' + rowInfo.itemList[i].betTotal + '",divid:"' + rowInfo.itemList[0].divid + '"} ';
-    }
-
-    row.push(rowInfo.username);
-    row.push('<span class="a js-select-content" data-content=\'' + strItemList + '\'>查看协议内容</span>');
-    row.push(_(rowInfo.agreeDate).toTime());
-    row.push(_(rowInfo.agreeDate).toDate());
-    row.push('<span class="a js-select-log">查看签约日志</span>');
-
-    if (rowInfo.status == 1) {
-      row.push('<span class="dm-table-update js-ac-add-user"  data-content=\'' + strItemList + '\'>修改协议</span> <span class="js-ac-break-off dm-table-off">申请解约</span>');
-    }
-    else if (rowInfo.status == 0) {
-      row.push('<span class="dm-table-no">等待下级同意签约</span>');
-    }
-
-    return row;
-  },
-
-  //event handlers
-
-  modifyHandler: function(e) {
+  // 查看签约
+  seeConfigHander: function (e) {
     var self = this;
     var $target = $(e.currentTarget);
-    var data = this.grid.getRowData($target);
-
+    var $tr = $target.closest('tr');
+    var userId = $tr.data('userId');
+    var userList = _(self.userList).find(function (item) {
+      return item.userId === userId;
+    });
+    var username = $tr.data('username');
+    var config = userList.itemList;
+    //格式化
+    config = _(config).map(function (item) {
+      return {
+        betTotal: _(item.betTotal).convert2yuan({ fixed: 0 }),
+        divid: _(item.divid).formatDiv(100, { fixed: 0 })
+      }});
     var $dialog = Global.ui.dialog.show({
-      title: '修改签约分红',
+      title: '查看签约',
       body: '<div class="js-ac-add-container"></div>',
+      modalClass: 'ten',
+      size: 'modal',
+      footer: ''
+    }).on('hidden.modal', function () {
+      self.getSubUser();
+      $(this).remove()
+    });
+    var $container = $dialog.find('.js-ac-add-container');
+    console.log('查看签约');
+    console.log(config);
+    $container.staticGrid({
+      colModel: [
+        {
+          label: '日量标准', name: 'betTotal', width: 120
+        },
+        {
+          label: '分红标准', name: 'divid', width: 180, formatter: function (val) {
+                return val+'%';
+              }
+        },
+      ],
+      height: 300,
+      row: config,
+      startOnLoading: false,
+    }).staticGrid('instance');
+  },
+  //event handlers
+  updateConfigHander: function (e) {
+    var self = this;
+    var $target = $(e.currentTarget);
+    var $tr = $target.closest('tr');
+    var userId = $tr.data('userId');
+    //var agreeId =  $tr.data('agreeId');
+
+    var userList = _(self.userList).find(function (item) {
+      return item.userId === userId;
+    });
+    var username = $tr.data('username');
+
+    var config = userList.itemList;
+    //格式化
+    config = _(config).map(function (item) {
+      return {
+        betTotal: _(item.betTotal).convert2yuan({ fixed: 0 }),
+        divid: _(item.divid).formatDiv(100, { fixed: 0 })
+      }
+
+
+    });
+    var $dialog = Global.ui.dialog.show({
+      title: '设置下级账号：<span style="color:#f1c112">' + username + '</span>的签约分红',
+      body: '<div class="js-ac-add-container"></div>',
+      modalClass: 'ten',
       size: 'modal-lg',
       footer: ''
+    }).on('hidden.modal', function () {
+      self.getSubUser();
+      //self.$grid.staticGrid('update');
+      // self.render();
+      $(this).remove()
     });
 
     var $container = $dialog.find('.js-ac-add-container');
 
     var signedView = new SignedView({
       el: $container,
-      dividConf: this._parentView.dividConf,
-      userData: data
+      agreementList: config,
+      username: username
     })
       .render()
-      .on('hide', function() {
-        self.$grid.staticGrid('update');
+      .on('hide', function () {
         $dialog.modal('hide');
       });
 
-    $dialog.on('hidden.modal', function() {
+    $dialog.on('hidden.modal', function () {
       $(this).remove();
       signedView.destroy();
     });
+    $dialog.find('.js-ac-next').on('click', function () {
+      var conf = signedView.getConfigDataFormTable();
+
+      if (conf) {
+        var VL = conf.itemList
+        console.log(VL)
+        // 如果大于一条数据就判断
+        if (VL.length > 1) {
+          for (var i = 0; i < VL.length - 1; i++) {
+            if (Number(VL[i + 1].betTotal) <= Number(VL[i].betTotal) || Number(VL[i + 1].divid) <= Number(VL[i].divid)) {
+              console.log("同一列的填写数值，第二行必须大于第一行")
+              return Global.ui.notification.show('同一列的填写数值，第二行必须大于第一行！');
+            }
+          }
+        }
+        self.signAgreementXhr(conf).done(function (res) {
+          if (res.result == 0) {
+            Global.ui.notification.show('操作成功！');
+            $dialog.modal('hide');
+          } else {
+            Global.ui.notification.show('操作失败！' + res.msg);
+          }
+        }).fail(function (res) {
+          Global.ui.notification.show('请求失败！');
+        });
+      }
+    });
+
+
   },
 
-  breakOffHandler: function(e) {
+  breakOffHandler: function (e) {
     var self = this;
     var $target = $(e.currentTarget);
     var data = this.grid.getRowData($target);
@@ -250,11 +250,11 @@ var UserManageView = SearchGrid.extend({
     var $dialog = Global.ui.dialog.show({
       title: '提示',
       body: '<form class="js-ac-break-off ac-break-off no-margin" action="javascript:void(0)">' +
-      '<p class="js-ac-detail text-bold-pleasant">您确定要解约与' + data.username + '的分红关系？' +
+      '<p class="js-ac-detail text-bold-hot">您确定要解约与' + data.username + '的分红关系？' +
       '请确保您的余额可以完成本次分红，否则会解约失败。</p><div class="dot-divider dot-divider-md"></div>' +
-      '<p>请说明原因：</p><textarea class="js-ac-remark julien-remark" required maxlength="200"></textarea>' +
-      '<div class="controls control-confirm text-center">' +
-      '<button class="js-ac-break-confirm julien-button2">确定</button>' +
+      '<p>请说明原因：</p><textarea class="js-ac-remark" required maxlength="200"></textarea>' +
+      '<div class="text-center m-TB-sm">' +
+      '<button class="js-ac-break-confirm btn btn-hot btn-lg">确定</button>' +
       '</div>' +
       '</form>',
       footer: ''
@@ -265,11 +265,12 @@ var UserManageView = SearchGrid.extend({
 
     $dialog.find('.js-ac-break-off').parsley();
 
-    $dialog.on('hidden.modal', function() {
+    $dialog.on('hidden.modal', function () {
+      self.render();
       $(this).remove();
     });
 
-    $dialog.on('submit', '.js-ac-break-off', function(e) {
+    $dialog.on('submit', '.js-ac-break-off', function (e) {
       var $target = $(e.currentTarget);
 
       $btnConfirm.button('loading');
@@ -278,13 +279,14 @@ var UserManageView = SearchGrid.extend({
         userId: data.userId,
         remark: _($remark.val()).escape()
       })
-        .always(function() {
+        .always(function () {
           $btnConfirm.button('reset');
         })
-        .done(function(res) {
+        .done(function (res) {
           if (res && res.result === 0) {
             Global.ui.notification.show('操作成功！等待审核。');
-            self.$grid.staticGrid('update');
+            self.getSubUser();
+            // self.$grid.staticGrid('update');
             $dialog.modal('hide');
           } else {
             Global.ui.notification.show(res.msg || '');
