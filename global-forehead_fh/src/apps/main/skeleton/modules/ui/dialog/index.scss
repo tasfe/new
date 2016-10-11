@@ -296,6 +296,7 @@ button.close {
 .header-bulletin-dialog{
   width: 1016px;
   height: 608px;
+  background-color: #fff;
   margin-left: -508px;
   .modal-dialog{
     height:604px;
@@ -309,7 +310,8 @@ button.close {
   //border: 1px solid #484848;
   //border-radius: 5px;
   .modal-body{
-    padding: 0 10px 17px; ;
+    padding: 0 10px 17px;
+    height:565px;
   }
 }
 
