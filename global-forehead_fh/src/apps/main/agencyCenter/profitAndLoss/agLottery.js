@@ -79,10 +79,10 @@ var ReportManageView = SearchGrid.extend({
         emptyTip: '没有盈亏记录'
       },
       ajaxOps: {
-        url: '/fund/fundreport/profitdetail.json'
+        url: '/ticket/bethistory/agProfitLossReport.json'
       },
       subOps: {
-        url: '/fund/fundreport/profitdetail.json',
+        url: '/ticket/bethistory/agProfitLossReport.json',
         data: ['userId']
       }
     });

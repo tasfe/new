@@ -1,0 +1,30 @@
+@charset "UTF-8";
+
+@import "~base/styles/imports";
+
+@for $i from 1 through 12 {
+  .avatar-#{$i} {
+    color: #fff;
+    background: url(~base/images/avatars/#{13 - $i}.jpg) no-repeat;
+    background-size:100% auto;
+  }
+}
+
+.user-avatars {
+  .user-avatar {
+    width: 96px;
+    height: 96px;
+    display: inline-block;
+    margin: 0 15px 30px 15px;
+    border: 1px solid $gray-color;
+    cursor: pointer;
+    border-radius: $globalBoxRadius;
+
+    &.sd{
+      width: 106px;
+      height: 106px;
+      margin: -6px 9px 24px 9px;
+      border: 3px solid #3366cc;
+    }
+  }
+}

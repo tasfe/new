@@ -7,6 +7,7 @@ var UserCenterController = require('userCenter/controller');
 exports.install = function() {
 
   window.Global.appRouter.processAppRoutes(new UserCenterController(), {
+    'uc/pm': 'personalManage', //个人资料
     'ac/rm': 'reportManage', //报表查询(彩票盈亏)
     'uc/bac':'baccaratPal',
     'uc/tfr':'transforRecord',
@@ -18,8 +19,7 @@ exports.install = function() {
     'uc/tr': 'trackRecords', //追号记录
     'uc/tr/detail/:tradeNo': 'trackDetail', //追号记录
     'uc/tr/detail/:chaseTradeNo/detail/:tradeNo': 'trackBetDetail', //追号投注记录
-
-    'uc/pm': 'personalManage',
+    
     'uc/cm': 'cardManage', //银行卡管理
     'uc/cm/bind': 'cardBinding',//银行卡绑定
     'uc/pd': 'priceDetails',//奖金详情
