@@ -6,39 +6,17 @@ var TicketSelectGroup = require('com/ticketSelectGroup');
 
 var Timeset = require('com/timeset');
 
+var BtnGroup = require('com/btnGroup');
+
 var trackStatusConfig = require('userCenter/misc/trackStatusConfig');
 
 var TrackRecordsView = SearchGrid.extend({
 
   template: require('./trackRecords.html'),
 
-  events: {
-    'click .js-excess-cell': 'dateSelectHandler',
-    'click .js-toggle-seach': 'toggleseachHandler'
-  },
+  events: {},
 
-  dateSelectHandler:function (e) {
-    var recIndex = $(e.currentTarget).data('index');
-    this.$('.js-pf-end-time').val( _(moment().add('days')).toDate() );
-    if (recIndex===1){
-      this.$('.js-pf-start-time').val( _(moment().add('days')).toDate() );
-    }else if (recIndex===2){
-      this.$('.js-pf-start-time').val( _(moment().add('days',-3)).toDate() );
-    }else if (recIndex===3){
-      this.$('.js-pf-start-time').val( _(moment().add('days',-7)).toDate() );
-    }
-  },
-  toggleseachHandler:function () {
-    if($('.js-toggle-seach').hasClass('on')) {
-      $('.search-condition-table .row2').addClass('hidden');
-      $('.js-toggle-seach').removeClass('on')
-    } else{
-      $('.search-condition-table .row2').removeClass('hidden');
-      $('.js-toggle-seach').addClass('on')
-    }
-  },
-
-  initialize: function () {
+  initialize: function() {
     _(this.options).extend({
       columns: [
         {
@@ -90,26 +68,60 @@ var TrackRecordsView = SearchGrid.extend({
   },
 
   onRender: function() {
+    var self = this;
+
+    this.$btnGroup = this.$('.js-ac-btnGroup');
+
+    this.$timeset = this.$('.js-ac-timeset');
+
     this.$('.js-pf-search-grid').addClass('bc-report-table');
-    //初始化时间选择
-    new Timeset({
-      el: this.$('.js-pf-timeset'),
-      startTime: 'regTimeStart',
-      endTime: 'regTimeEnd',
+
+    this.timeset = new Timeset({
+      el: this.$timeset,
       startTimeHolder: '起始日期',
       endTimeHolder: '结束日期',
-      size: 'julien-time',
-      prevClass: 'js-pf',
-      startOps: {
-        format: 'YYYY-MM-DD'
-      },
-      endOps: {
-        format: 'YYYY-MM-DD'
+      prevClass: 'js-pf'
+    }).render();
+
+    this.timeset.$startDate.on('dp.change', function() {
+      if(self.btnGroup) {
+        self.btnGroup.clearSelect();
+      }
+    });
+
+    this.timeset.$endDate.on('dp.change', function() {
+      if(self.btnGroup) {
+        self.btnGroup.clearSelect();
+      }
+    });
+
+    this.btnGroup = new BtnGroup({
+      el: this.$btnGroup,
+      btnGroup: [
+        {
+          title: '今天',
+          value: 0,
+          active: true
+        },
+        {
+          title: '三天',
+          value: -3
+        },
+        {
+          title: '七天',
+          value: -7
+        }
+      ],
+      onBtnClick: function(offset) {
+        self.timeset.$startDate.data("DateTimePicker").date(moment().add(offset, 'days').startOf('day'));
+        self.timeset.$endDate.data("DateTimePicker").date(moment().add(offset === -1 ? -1 : 0, 'days').endOf('day'));
+        (self.$('.js-ac-search-form') && !self.firstTime) && self.$('.js-ac-search-form').trigger('submit');
+        return false;
       }
     }).render();
 
 
-    if(this.options.reqData.username){
+    if(this.options.reqData.username) {
       this.$('input[name="username"]').val(this.options.reqData.username);
     }
 
@@ -143,9 +155,10 @@ var TrackRecordsView = SearchGrid.extend({
     this.grid.addFooterRows({
       trClass: 'tr-footer',
       columnEls: [
-        '<strong>所有页总计</strong>', '', '',
-        _(gridData.prizeMoneyTotal).convert2yuan(),'', '',
-        _(gridData.betMoneyTotal).convert2yuan(), ''
+        '所有页总计', '', '', '', '',
+        _(gridData.betMoneyTotal).fixedConvert2yuan(),
+        '<div class="text-hot">' + _(gridData.prizeMoneyTotal).convert2yuan() + '</div>',
+        ''
       ]
     }).hideLoading();
 
@@ -154,7 +167,7 @@ var TrackRecordsView = SearchGrid.extend({
   formatRowData: function(rowInfo) {
     var row = [];
     row.push(rowInfo.userName);
-    row.push('<a class="router btn-link btn-link-sun" href="' + _.getUrl('/detail/' + rowInfo.ticketTradeNo) + '">'+rowInfo.ticketTradeNo+'</a>');
+    row.push('<a class="router btn-link" href="' + _.getUrl('/detail/' + rowInfo.ticketTradeNo) + '">' + rowInfo.ticketTradeNo + '</a>');
     row.push(rowInfo.ticketName);
 
     switch(rowInfo.chaseStatus) {
@@ -177,7 +190,7 @@ var TrackRecordsView = SearchGrid.extend({
     row.push('&nbsp;' + _(rowInfo.chaseBetMoney).fixedConvert2yuan() + '/' + _(rowInfo.chaseAllMoney).fixedConvert2yuan());
 
     var status = '';
-    if(rowInfo.chasePrizeMoney === 0 || rowInfo.chasePrizeMoney === null ){
+    if(rowInfo.chasePrizeMoney === 0 || rowInfo.chasePrizeMoney === null) {
       status = '0';
     } else {
       status = '<span class="text-pleasant">' + _(rowInfo.chasePrizeMoney).convert2yuan() + '</span>';

@@ -13,7 +13,7 @@ var betStatusConfig = require('userCenter/misc/betStatusConfig');
 var BettingRecordsView = SearchGrid.extend({
 
   template: require('./betting.html'),
-  
+
   events: {},
 
   initialize: function() {
@@ -88,13 +88,13 @@ var BettingRecordsView = SearchGrid.extend({
     }).render();
 
     this.timeset.$startDate.on('dp.change', function() {
-      if (self.btnGroup) {
+      if(self.btnGroup) {
         self.btnGroup.clearSelect();
       }
     });
 
     this.timeset.$endDate.on('dp.change', function() {
-      if (self.btnGroup) {
+      if(self.btnGroup) {
         self.btnGroup.clearSelect();
       }
     });
@@ -128,10 +128,10 @@ var BettingRecordsView = SearchGrid.extend({
       }
     }).render();
 
-    if (this.options.reqData.username) {
+    if(this.options.reqData.username) {
       this.$('input[name="username"]').val(this.options.reqData.username);
     }
-    
+
     //初始化彩种选择
     new TicketSelectGroup({
       el: this.$('.js-uc-ticket-select-group')
@@ -162,8 +162,8 @@ var BettingRecordsView = SearchGrid.extend({
     this.grid.addFooterRows({
       //trClass: 'tr-footer',
       columnEls: [
-        '<div class="text-hot">所有页总计</div>', '', '','',
-        '<div class="text-hot">' + _(gridData.betMoneyTotal).fixedConvert2yuan() + '</div>',
+        '所有页总计', '', '', '',
+        _(gridData.betMoneyTotal).fixedConvert2yuan(),
         '<div class="text-hot">' + _(gridData.prizeMoneyTotal).convert2yuan() + '</div>',
         ''
       ]
@@ -171,19 +171,18 @@ var BettingRecordsView = SearchGrid.extend({
   },
 
   formatRowData: function(rowInfo) {
-
     var row = [];
     row.push(rowInfo.userName);
-    row.push('<a class="router btn-link" href="' + _.getUrl('/detail/' + rowInfo.ticketTradeNo) + '">'+rowInfo.ticketTradeNo+'</a>');
+    row.push('<a class="router btn-link" href="' + _.getUrl('/detail/' + rowInfo.ticketTradeNo) + '">' + rowInfo.ticketTradeNo + '</a>');
     row.push(rowInfo.ticketName);
-    if(rowInfo.ticketPlanId==='mmc'){
+    if(rowInfo.ticketPlanId === 'mmc') {
       row.push('/');
-    }else{
+    } else {
       row.push(rowInfo.ticketPlanId);
     }
-    if(rowInfo.betTotalMoney==0) {
+    if(rowInfo.betTotalMoney == 0) {
       row.push('免费游戏');
-    }else {
+    } else {
       row.push(_(rowInfo.betTotalMoney).fixedConvert2yuan());
     }
 
@@ -195,10 +194,10 @@ var BettingRecordsView = SearchGrid.extend({
       prizing: rowInfo.prizing,
       prizeTotalMoney: rowInfo.prizeTotalMoney,
       betTime: rowInfo.betTime,
-      prizeClass: 'text-bold-hot',
+      prizeClass: 'text-hot',
       ticketPlanId: rowInfo.ticketPlanId
     });
-    
+
     row.push(status);
     row.push(_(rowInfo.betTime).toTime());
     return row;
