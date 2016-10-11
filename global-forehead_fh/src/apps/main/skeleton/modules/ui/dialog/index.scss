@@ -295,8 +295,11 @@ button.close {
 
 .header-bulletin-dialog{
   width: 1016px;
-  //height: 565px;
+  height: 608px;
   margin-left: -508px;
+  .modal-dialog{
+    height:604px;
+  }
 }
 
 .fc-re-modal{
