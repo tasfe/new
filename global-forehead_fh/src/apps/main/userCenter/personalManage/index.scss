@@ -7,18 +7,20 @@
   .personal-menu {
     float: left;
     width: 49%;
-    height: 426px;
+    height: 431px;
+    overflow: hidden;
   }
 
   .personal-main {
     float: right;
     width: 49%;
-    height: 426px;
+    height: 431px;
+    overflow: hidden;
   }
 
   .changeinformation-items {
     overflow: hidden;
-    padding: 17px 10px;
+    padding: 19px 10px;
     border-bottom: 1px solid $gray-color;
     margin: 0 15px;
 
