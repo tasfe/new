@@ -2,8 +2,6 @@
 
 var SearchGrid = require('com/searchGrid');
 
-var TicketSelectGroup = require('com/ticketSelectGroup');
-
 var BtnGroup = require('com/btnGroup');
 
 var Timeset = require('com/timeset');
@@ -59,18 +57,18 @@ var ReportManageView = SearchGrid.extend({
           sortable: true,
           id: 7
         },
-        {
-          name: '日薪',
-          width: '12%',
-          sortable: true,
-          id: 8
-        },
+        // {
+        //   name: '日薪',
+        //   width: '12%',
+        //   sortable: true,
+        //   id: 8
+        // },
         {
           name: '盈亏',
           width: '12%',
           sortable: true,
           id: 6
-        },
+        }
         //{
         //  name: '操作',
         //  width: '9%'
@@ -98,7 +96,7 @@ var ReportManageView = SearchGrid.extend({
     //初始化时间选择
     var self = this;
     this.timeset = new Timeset({
-      el: this.$('.js-ac-timeSel'),
+      el: this.$('.js-ac-timeset'),
       startTime: 'startTime',
       endTime: 'endTime',
       startTimeHolder: '起始日期',
@@ -117,8 +115,21 @@ var ReportManageView = SearchGrid.extend({
     this.firstTime = true;
     this.btnGroup = new BtnGroup({
       el: this.$btnGroup,
-      prevClass: 'js',
-      styleClass: 'btnGroup-gray',
+      btnGroup: [
+        {
+          title: '今天',
+          value: 0,
+          active: true
+        },
+        {
+          title: '三天',
+          value: -3
+        },
+        {
+          title: '七天',
+          value: -7
+        }
+      ],
       onBtnClick: function(offset) {
         self.timeset.$startDate.data("DateTimePicker").date(moment().add(offset, 'days').startOf('day'));
         self.timeset.$endDate.data("DateTimePicker").date(moment().add(offset === -1 ? -1 : 0, 'days').endOf('day'));
@@ -212,10 +223,10 @@ var ReportManageView = SearchGrid.extend({
     row.push(_(rowInfo.activity).convert2yuan({clear: false}));
 
     var acctInfo = Global.memoryCache.get('acctInfo');
-    if(acctInfo.salaryStatus ===2 ||  acctInfo.userGroupLevel == 0 || acctInfo.userGroupLevel == 1){
-      row.push(_(rowInfo.salary).convert2yuan({clear: false,color0: '#3c993b',color1: '#ce010f'}));
-    }
-    row.push(_(rowInfo.profitAndLoss).convert2yuan({clear: false,color0: '#3c993b',color1: '#ce010f'}));
+    // if(acctInfo.salaryStatus ===2 ||  acctInfo.userGroupLevel == 0 || acctInfo.userGroupLevel == 1){
+    //   row.push(_(rowInfo.salary).convert2yuan());
+    // }
+    row.push(_(rowInfo.profitAndLoss).convert2yuan());
     //row.push('<a href="' + _.addHrefArgs('#ac/betting/' + rowInfo.userId, 'name', rowInfo.userName) + '" class="router btn btn-link no-padding">投注</a>&nbsp;&nbsp;' +
     // '<a  href="' + _.addHrefArgs('#ac/account/' + rowInfo.userId, 'name', rowInfo.userName) + '" class="router btn btn-link no-padding">账变</a>');
 
