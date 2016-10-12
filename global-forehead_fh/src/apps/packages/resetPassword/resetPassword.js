@@ -249,9 +249,10 @@ $.widget('gl.resetPassword', {
     }).done(function (res) {
       if (res && res.result === 0) {
         // $('.js-safety-problem dd').eq(0).html(res.root[0].userSecurityQuestion);
-        $('.js-safety-problem dd').eq(0).html(res.root[0].question);
-        $('.js-safety-problem dd').eq(2).html(res.root[1].question);
-        $('.js-safety-problem dd').eq(4).html(res.root[2].question);
+
+        $('.js-safety-problem dd').eq(0).html('<select><option>'+res.root[0].question+'</option></select>');
+        $('.js-safety-problem dd').eq(2).html('<select><option>'+res.root[1].question+'</option></select>');
+        $('.js-safety-problem dd').eq(4).html('<select><option>'+res.root[2].question+'</option></select>');
 
         $('.js-safety-problem dd').eq(0).attr('data-id',res.root[0].qesId);
         $('.js-safety-problem dd').eq(2).attr('data-id',res.root[1].qesId);
@@ -702,7 +703,8 @@ $.widget('gl.resetPassword', {
   verifySecurityQuestion: function () {
     return Global.sync.ajax({
       type: 'POST',
-      url: '/acct/usersecurity/verqesforloginpwdByName.json',
+      // url: '/acct/usersecurity/verqesforloginpwdByName.json',
+      url: '/acct/usersecurity/verpwdforloginpwd.json',
       data: {
         'secrityList[0].securityId': $('.js-safety-problem dd').eq(0).data('id'),
         'secrityList[0].securityQes': $('.js-safety-problem dd').eq(0).html(),
@@ -713,7 +715,8 @@ $.widget('gl.resetPassword', {
         'secrityList[2].securityId': $('.js-safety-problem dd').eq(4).data('id'),
         'secrityList[2].securityQes': $('.js-safety-problem dd').eq(4).html(),
         'secrityList[2].securityAsw': $('.js-answer3').val(),
-         username: $('.panel02 div span').html()
+        username: $('.panel02 div span').html(),
+        loginToken:sessionStorage.getItem('pwdToken')
       }
     });
   },

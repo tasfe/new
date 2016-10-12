@@ -15,7 +15,7 @@ var NotificationModule = Base.Module.extend({
       type: 'info',
       size: 'modal-sm',
       id: 'notification',
-      modalClass: 'modal-notification',
+      modalClass: 'modal-notification modal-notification-tip',
       bodyClass: 'text-center font-md',
       backdrop: true,
       event: _.noop
