@@ -2,17 +2,17 @@ define(function (require, exports, module) {
 
   require('prefab/views/searchGrid');
 
-  var DividendAuditView = require('fundCenter/views/bonus-salesAccountManagement-Audit');
+  var DividendAuditView = require('fundCenter/views/bonus-GeneralAgentManagement-Audit');
   var fundStatusConfig = require('fundCenter/misc/fundStateTDConfig');
 
   var SalesAccountManagementView = Base.Prefab.SearchGrid.extend({
 
-    template: require('text!fundCenter/templates/bonus-salesAccountManagement.html'),
+    template: require('text!fundCenter/templates/bonus-GeneralAgentManagement.html'),
     status_template: require('text!fundCenter/templates/fund-StatusTD-Temp.html'),
 
     events: {
-      'click .js-fc-sm-deal': 'dealWithdrawHandler',
-      'click .js-fc-sm-notDeal': 'notDealWithdrawHandler',
+      'click .js-fc-gm-deal': 'dealWithdrawHandler',
+      'click .js-fc-gm-notDeal': 'notDealWithdrawHandler',
       'click .js-fc-gm-account':'userAccountHandler',
       'change .js-fc-gm-dr': 'settleDateChangeHandler',
       'click .js-fc-gm-log':'checkLogHandler'
@@ -20,7 +20,7 @@ define(function (require, exports, module) {
 
     initialize: function () {
       _(this.options).extend({
-        tableClass: '招商号分红管理',
+        tableClass: '',
         checkable: true,
         columns: [
           {
@@ -28,7 +28,7 @@ define(function (require, exports, module) {
             width: '15%'
           },
           {
-            name: '月份',
+            name: '结算日期',
             width: '15%'
           },
           {
@@ -36,15 +36,15 @@ define(function (require, exports, module) {
             width: '10%'
           },
           {
-            name: '下级团队月度总盈亏',
+            name: '层级关系',
             width: '10%'
           },
           {
-            name: '下级直属号月度总分红',
+            name: '团队投注金额',
             width: '10%'
           },
           {
-            name: '招商号月度返点总额',
+            name: '团队盈亏',
             width: '10%'
           },
           {
@@ -68,19 +68,19 @@ define(function (require, exports, module) {
           emptyTip: '无记录'
         },
         ajaxOps: {
-          url: '/intra/merchantdividmng/list.json'
+          url: '/intra/dividmng/list.json'
         }
       });
     },
 
     getCheckUserListXhr: function(){
       return Global.sync.ajax({
-        url: '/intra/merchantdividmng/genoperator.json'
+        url: '/intra/dividmng/genoperator.json '
       });
     },
     dealDividendXhr: function(data){
       return Global.sync.ajax({
-        url: '/intra/merchantdividmng/approve.json',
+        url: '/intra/dividmng/approve.json ',
         data:data
       });
     },
@@ -96,7 +96,7 @@ define(function (require, exports, module) {
               text: user.username
             }
           });
-          self.renderSelect(optionData,self.$('.js-fc-sm-operatorId'))
+          self.renderSelect(optionData,self.$('.js-fc-gm-operatorId'))
         }else{
           Global.ui.notification.show('操作失败。');
         }
@@ -133,20 +133,20 @@ define(function (require, exports, module) {
       var row = [];
       if(dividend.tradeNo){
         if(Global.authority.fc && Global.authority.fc.ad && Global.authority.fc.ad.page ) {
-          row.push('<button data-id="' + dividend.tradeNo + '"  class="js-fc-sm-account btn btn-link">'+dividend.tradeNo+'</button>');
+          row.push('<button data-id="' + dividend.tradeNo + '" class="js-fc-gm-account btn btn-link">'+dividend.tradeNo+'</button>');
         }else{
           row.push(dividend.tradeNo);
         }
       }else{
         row.push('');
       }
-      row.push(dividend.month);
-      row.push(dividend.userName);
-      row.push(_(dividend.profitTotal).formatDiv(10000, {fixed: 4}));
-      row.push(_(dividend.dividTotal).formatDiv(10000, {fixed: 4}));
-      row.push(_(dividend.bonusTotal).formatDiv(10000, {fixed: 4}));
-      row.push(_(dividend.divid).formatDiv(100, {fixed: 2}));
-      row.push(_(dividend.dividAmount).convert2yuan());
+      row.push(dividend.cycle);
+      row.push(dividend.subUsername || '');
+      row.push(dividend.subUsername+'<'+dividend.username);
+      row.push(_(dividend.betTotal).fixedConvert2yuan());
+      row.push( _(dividend.profitTotal).convert2yuan());
+      row.push(_(dividend.divid).formatDiv(100, {fixed: 0}));
+      row.push(_(dividend.dividTotal).convert2yuan());
       //status:0 // 状态：0待发放，1已发放，2不发放，3未申请
       var status = '';
       switch(dividend.status){
@@ -180,7 +180,7 @@ define(function (require, exports, module) {
 
       _(checkedData.$rows).each(function(row,index,$rows){
         dividIdList.push($(row).data('dividid'));
-        usernameList.push($(row).data('username'));
+        usernameList.push($(row).data('subusername'));
       });
       return {
         dividIdList: dividIdList,
@@ -195,59 +195,59 @@ define(function (require, exports, module) {
         return false;
       }
       var $dialog = Global.ui.dialog.show(
-        {
-          title:  '提示',
-          body: '<div class="js-fc-sm-Check-container"></div>',
-          footer: ''
-        }
+          {
+            title:  '提示',
+            body: '<div class="js-fc-gm-Check-container"></div>',
+            footer: ''
+          }
       );
       _(data).extend({
         type: type
       });
-      var $checkDividendContainer = $dialog.find('.js-fc-sm-Check-container');
+      var $checkDividendContainer = $dialog.find('.js-fc-gm-Check-container');
       var dividendAuditView = new DividendAuditView(data);
       $checkDividendContainer.html(dividendAuditView.render().el);
 
       $dialog.on('hidden.bs.modal', function () {
         $(this).remove();
       });
-      var $notice = $dialog.find('.js-fc-sm-deal-notice');
+      var $notice = $dialog.find('.js-fc-gm-deal-notice');
       $dialog.off('click.saveInfo')
-        .on('click.saveInfo', '.js-fc-sm-audit-submit', function (ev) {
-          var $target = $(ev.currentTarget);
-          $target.button('loading');
-          var clpValidate = $dialog.find('.js-fc-sm-deal-form').parsley().validate();
-          if (clpValidate) {
-            //var type = $(ev.currentTarget).data('type');
-            var status;
-            if (type === 'allow') {
-              status = '1';
-            } else if (type === 'prevent') {
-              status = '2';
-            }
-            var data2 = {
-              status: status,
-              dividId: data.dividIdList.join(','),
-              remark: $dialog.find('.js-fc-sm-deal-remark').val()
-            };
-            self.dealDividendXhr(data2).always(function () {
-              $target.button('reset');
-            }).fail(function () {
-
-            }).done(function (res) {
-              if (res.result === 0) {
-                $dialog.modal('hide');
-                Global.ui.notification.show('操作成功。');
-                self._getGridXhr();
-              } else {
-                Global.ui.notification.show('操作失败。');
+          .on('click.saveInfo', '.js-fc-gm-audit-submit', function (ev) {
+            var $target = $(ev.currentTarget);
+            $target.button('loading');
+            var clpValidate = $dialog.find('.js-fc-gm-deal-form').parsley().validate();
+            if (clpValidate) {
+              //var type = $(ev.currentTarget).data('type');
+              var status;
+              if (type === 'allow') {
+                status = '1';
+              } else if (type === 'prevent') {
+                status = '2';
               }
-            });
-          }else{
-            $target.button('reset');
-          }
+              var data2 = {
+                status: status,
+                dividId: data.dividIdList.join(','),
+                remark: $dialog.find('.js-fc-gm-deal-remark').val()
+              };
+              self.dealDividendXhr(data2).always(function () {
+                $target.button('reset');
+              }).fail(function () {
 
-        });
+              }).done(function (res) {
+                if (res.result === 0) {
+                  $dialog.modal('hide');
+                  Global.ui.notification.show('操作成功。');
+                  self._getGridXhr();
+                } else {
+                  Global.ui.notification.show('操作失败。');
+                }
+              });
+            }else{
+              $target.button('reset');
+            }
+
+          });
     },
     userAccountHandler:function(e){
       var $target = $(e.currentTarget);
@@ -308,15 +308,15 @@ define(function (require, exports, module) {
       //  remark:"",		// 解约原因
       //  operator:""		// 操作人
       var $dialog = Global.ui.dialog.show(
-        {
-          title:  '查看',
-          body: '<div class="js-fc-gm-Check-container margin-sm">' +
-          '<div class="margin-sm inline-block">操作时间：'+_(detail.effectDate).formatTime()+
-          '</div><div class="margin-sm m-left-lg inline-block">'+detail.operator+'</div>'+
-          ( (detail.remarks==='')? '':( '<div class="border-all margin-sm padding-sm">'+detail.remarks+'</div>'))+
-          '</div>',
-          footer: ''
-        }
+          {
+            title:  '查看',
+            body: '<div class="js-fc-gm-Check-container margin-sm">' +
+            '<div class="margin-sm inline-block">操作时间：'+_(detail.effectDate).formatTime()+
+            '</div><div class="margin-sm m-left-lg inline-block">'+detail.operator+'</div>'+
+            ( (detail.remarks==='')? '':( '<div class="border-all margin-sm padding-sm">'+detail.remarks+'</div>'))+
+            '</div>',
+            footer: ''
+          }
       );
       $dialog.on('hidden.bs.modal', function () {
         $(this).remove();

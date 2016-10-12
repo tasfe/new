@@ -1,6 +1,6 @@
 define(function (require, exports, module) {
 
-  var ListView = require('./list');
+  var ListView = require('./takeoutList');
 
   var TakeoutView = ListView.extend({
     initialize: function() {

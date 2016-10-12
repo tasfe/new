@@ -68,7 +68,10 @@ define(function(require, exports, module) {
 
       'sc/dsc':'doubleSevenCfg',
       'sc/dsd':'doubleSevenDetail',
-      'sc/sf/conf':'bonusConf'
+      'sc/sf/conf':'bonusConf',
+
+      'sc/ds/conf':'dailySalaryCfg',
+      'sc/ds/detail':'dailySalaryDetail'
 
     });
 

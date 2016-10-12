@@ -1,7 +1,7 @@
 define(function (require, exports, module) {
-  require('prefab/views/tabView');
+  require('./bankList-tab');
 
-  var ListView = require('./list');
+  var ListView = require('./bankList');
 
   var RechargeView = Base.Prefab.TabView.extend({
 
@@ -9,54 +9,75 @@ define(function (require, exports, module) {
       _(this.options).extend({
         tabs: [
           {
-            label: '银联支付',
-            name: 'jsUnion',
-            id: 'jsUnionTab',
+            label: '银联支付一',
+            name: 'jsUnionOne',
+            id: 'jsUnionOneTab',
             view: ListView,
             options: {
-              paymentType: 1,
-              type:0
+              paymentType: 1
             }
           },
           {
-            label: '支付宝',
+            label: '银联支付二',
+            name: 'jsUnionTwo',
+            id: 'jsUnionTwoTab',
+            view: ListView,
+            options: {
+              paymentType: 4
+            }
+          },
+          {
+            label: '银联支付三',
+            name: 'jsUnionThree',
+            id: 'jsUnionThreeTab',
+            view: ListView,
+            options: {
+              paymentType: 5
+            }
+          },
+          {
+            label: '支付宝扫码支付',
+            name: 'jsAliPayOne',
+            id: 'jsAliPayOneTab',
+            view: ListView,
+            options: {
+              paymentType: 2
+            }
+          },
+          {
+            label: '支付宝支付',
             name: 'jsAliPay',
             id: 'jsAliPayTab',
             view: ListView,
             options: {
-              paymentType: 2,
-              type:0
+              paymentType: 6
             }
           },
           {
-            label: '微信',
-            name: 'jsWechat',
-            id: 'jsWechatTab',
+            label: '微信小额支付',
+            name: 'jsWechatOne',
+            id: 'jsWechatOneTab',
             view: ListView,
             options: {
-              paymentType: 3,
-              type:0
+              paymentType: 3
             }
           },
           {
-            label: '支付宝转账',
-            name: 'jsAliRecharge',
-            id: 'jsAliRechargeTab',
+            label: '微信大额支付',
+            name: 'jsWechatTwo',
+            id: 'jsWechatTwoTab',
             view: ListView,
             options: {
-              paymentType: 4,
-              type:0
-
+              paymentType: 7
             }
           },
           {
-            label: '微信转账',
-            name: 'jsWechatRecharge',
-            id: 'jsWechatRechargeTab',
+            label: '信用卡支付',
+            name: 'jsCardPay',
+            id: 'jsCardPayTab',
             view: ListView,
             options: {
-              paymentType: 5,
-              type:0
+              paymentType: 8
             }
           }
         ]

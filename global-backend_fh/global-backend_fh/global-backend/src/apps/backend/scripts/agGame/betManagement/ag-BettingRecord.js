@@ -42,10 +42,6 @@ define(function (require, exports, module) {
                         width: '10%'
                     },
                     {
-                        name: '玩法类型',
-                        width: '8%'
-                    },
-                    {
                         name: '投注额',
                         width: '8%'
                     },
@@ -126,7 +122,7 @@ define(function (require, exports, module) {
 
         renderGrid: function (gridData) {
             var self = this;
-            var rowsData = _(gridData.betList).map(function (order, index) {
+            var rowsData = _(gridData.dataList).map(function (order, index) {
                 return {
                     columnEls: this.formatRowData(order, index),
                     dataAttr: order
@@ -142,13 +138,13 @@ define(function (require, exports, module) {
                 columnEls: [
                     '<strong>本页小结</strong>',
                     {
-                        colspan: 5
+                        colspan: 6
                     },
                     _(gridData.betTotal).fixedConvert2yuan(),
                     _(gridData.validBetTotal).convert2yuan(),
                     _(gridData.bonusTotal).convert2yuan(),
                     {
-                        colspan: 2
+                        colspan: 1
                     }
                 ]
             })
@@ -159,7 +155,7 @@ define(function (require, exports, module) {
             var row = [];
             row.push(rowInfo.billNo);
             row.push(rowInfo.player);
-            if(rowInfo.platformType==1){
+            if(rowInfo.platformType==0){
                 row.push("AG国际厅");
             }else{
                 row.push("/");
@@ -172,17 +168,12 @@ define(function (require, exports, module) {
             row.push(rowInfo.gameCode);
             row.push(rowInfo.tableCode);
             row.push(_(rowInfo.betTime).toTime());
-            if(rowInfo.playType==1){
-                row.push("百家乐");
-            }else{
-                row.push("/");
-            }
             row.push(_(rowInfo.betAmount).fixedConvert2yuan());
             row.push(_(rowInfo.validBetamount).fixedConvert2yuan());
             if(rowInfo.netAmount>=0){
                 row.push('+' + _(rowInfo.netAmount).fixedConvert2yuan());
             }else{
-                row.push('-' + _(rowInfo.netAmount).fixedConvert2yuan());
+                row.push(_(rowInfo.netAmount).fixedConvert2yuan());
             }
             row.push("已派彩");
 

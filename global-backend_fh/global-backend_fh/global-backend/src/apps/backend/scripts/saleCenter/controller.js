@@ -70,6 +70,9 @@ define(function(require, exports, module) {
   var DoubleSevenDetailView = require('saleCenter/views/activity-doubleSevenDetail');
   var BonusConfView = require('saleCenter/views/bonusConf');
 
+  var DailySalaryCfgView = require('saleCenter/views/games-dailySalaryCfg');
+  var DailySalaryDetailView = require('saleCenter/views/games-dailySalaryDetail');
+
   var SaleCenterController = RouterController.extend({
 
     advertisementManagement: function() {
@@ -248,6 +251,13 @@ define(function(require, exports, module) {
     },
     bonusConf:function(){
       this.changeMainReginView(new BonusConfView());
+    },
+    dailySalaryCfg:function(){
+      this.changeMainReginView(new DailySalaryCfgView());
+    },
+
+    dailySalaryDetail:function(){
+      this.changeMainReginView(new DailySalaryDetailView());
     }
 
   });

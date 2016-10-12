@@ -2,9 +2,19 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/app.routers.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/fundCenter/rwManagement" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/fundCenter/rwManagement/bankList-tab.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/fundCenter/templates/dividCfg.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/fundCenter/views/dividCfg.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/saleCenter/templates/bonusManager-manager.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/saleCenter/templates/games-ShowAgreementDetail.html" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/saleCenter/templates/games-dailySalaryCfg.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/saleCenter/templates/games-dailySalaryDetail.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/saleCenter/views/bonusConf.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/saleCenter/views/bonusManager-manager.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/saleCenter/views/games-ShowAgreementDetail.js" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/saleCenter/views/games-dailySalaryCfg.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/saleCenter/views/games-dailySalaryDetail.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/userCenter/templates/user-newMerMaster.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/userCenter/views/user-newMerMaster.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/vipCenter/router.js" charset="UTF-8" />
