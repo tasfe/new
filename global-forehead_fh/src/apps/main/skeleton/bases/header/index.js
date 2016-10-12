@@ -107,18 +107,6 @@ var HeaderView = Base.ItemView.extend({
 
   },
 
-  getTeamOnlineXhr: function() {
-    var timestamp = Date.parse(new Date());
-    var now = _(timestamp).toDate();
-    return Global.sync.ajax({
-      url: '/info/teamreport/subuserstat.json',
-      data: {
-        'startTime': now,
-        'endTime': now
-      }
-    });
-  },
-
   renderAfficheDetail:function (rootInfo) {
     this.$gridDetail.html(this.AfficheTpl());
     this.$gridDetail.find('.js-nc-noticeDetailTitle').html(rootInfo.title);
@@ -241,15 +229,6 @@ var HeaderView = Base.ItemView.extend({
       self.$('.js-athena_st_02').removeClass('athnea-cp_01').removeClass('athnea-cp_02').removeClass('athnea-cp_03');
       self.$('.js-athena_st_02').addClass('athnea-cp_03');
 
-    });
-    this.getTeamOnlineXhr().done(function (res) {
-      var data = res && res.root || {};
-      if (res && res.result === 0) {
-        $('.js-julien-data1').text( (data.balanceTotal / 10000).toFixed(2) );
-        $('.js-julien-data2').text( data.todayRegTotal);
-        $('.js-julien-data3').text( data.todayOnlineTotal);
-        $('.js-julien-data4').text( data.todayBonusTotal);
-      }
     });
 
     this.renderNotice();

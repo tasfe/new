@@ -1,18 +1,15 @@
 "use scrict";
 
 var RouterController = require('skeleton/controllers/router');
-
-var BettingRecordView = require('userCenter/bettingRecords');
-
-var BettingDetailView = require('userCenter/views/bettingDetail');
+var BettingDetailView = require('userCenter/bettingDetail');
 
 var TrackRecordView = require('userCenter/trackRecords/team');
 var TrackDetailView = require('userCenter/views/trackDetail');
 
+var GameRecordsView = require('userCenter/gameRecords');
 var MoneyDetailView = require('userCenter/moneyDetail');
 var ProfitAndLossView = require('userCenter/profitAndLoss');
 
-var PersonalManageView = require('userCenter/personalManage');
 var CardManageView = require('userCenter/views/cardManage');
 var CardBindingView = require('userCenter/views/cardBinding');
 var PriceDetailsView = require('userCenter/views/priceDetails');
@@ -26,22 +23,28 @@ var VipCreditView = require('userCenter/vipCredit');
 
 var ReportManageView = require('agencyCenter/reportManage/teamReport');
 
-var BaccaratPalView = require('userCenter/baccaratPal/baccaratPal');
-var transforRecordView = require('userCenter/transforRecord/transforRecord');
-
 var UserCenterController = RouterController.extend({
 
-  transforRecord:function () {
-    this.changeMainReginView(new transforRecordView(), {
-      sidebar: 'ac',
+  gameRecords: function (type) {
+    this.changeMainReginView(new GameRecordsView({
+      triggerTab: type
+    }), {
+      sidebar: 'pc',
       topView: 'personal'
     });
   },
 
-
-  baccaratPal:function () {
-    this.changeMainReginView(new BaccaratPalView(), {
-      sidebar: 'uc'
+  bettingDetail: function(tradeNo) {
+    this.changeSubReginView(new BettingDetailView({
+      tradeNo: tradeNo,
+      quickEntry: true
+    }), {
+      parentRouter: 'gr/br',
+      main: {
+        subReturn: true
+      },
+      sidebar: 'pc',
+      topView: 'personal'
     });
   },
 
@@ -57,25 +60,11 @@ var UserCenterController = RouterController.extend({
     });
   },
 
-  bettingRecords: function() {
-    this.changeMainReginView(new BettingRecordView(), {
-      sidebar: 'uc'
-    });
-  },
-
-  bettingDetail: function(tradeNo) {
-    this.changeSubReginView(new BettingDetailView({
-      tradeNo: tradeNo,
-      quickEntry: true
-    }), {
-      parentRouter: 'uc/br',
-      main: {
-        subReturn: true
-      },
-      needParent: false,
-      sidebar: 'uc'
-    });
-  },
+  // bettingRecords: function() {
+  //   this.changeMainReginView(new BettingRecordView(), {
+  //     sidebar: 'uc'
+  //   });
+  // },
 
   trackRecords: function() {
     this.changeMainReginView(new TrackRecordView(), {
@@ -119,14 +108,7 @@ var UserCenterController = RouterController.extend({
   });
 },
 
-  personalManage: function() {
-    this.changeMainReginView(new PersonalManageView(), {
-      sidebar: 'pc',
-      topView: 'personal'
-    });
-  },
-
-  cardManage: function() {
+  /*cardManage: function() {
     //判断是否设置资金密码
 
     var self  = this;
@@ -146,11 +128,12 @@ var UserCenterController = RouterController.extend({
             });
           }
         });
-  },
+  },*/
 
-  verifySuccCallBack: function(){
+  cardManage: function(){
     this.changeMainReginView(new CardManageView(), {
-      sidebar: 'pc'
+      sidebar: 'pc',
+      topView: 'personal'
     });
   },
   cardBinding: function() {

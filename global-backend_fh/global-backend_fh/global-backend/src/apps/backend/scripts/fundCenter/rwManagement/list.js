@@ -44,8 +44,7 @@ define(function (require, exports, module) {
         },
         addBankHandler: function (e) {
             var data = {
-                type: 'add',
-                payType:this.options.paymentType
+                type: 'add'
             };
             this.popLargeRechargeUserEditModel(data);
 
@@ -55,7 +54,6 @@ define(function (require, exports, module) {
             var $tr = $(e.currentTarget);
             var data = {
                 type: 'edit',
-                payType:this.options.paymentType,
                 paymentId: $tr.data('paymentid'),
                 platformId: $tr.data('platformid'),
                 platformName: $tr.data('platformname'),
@@ -64,8 +62,7 @@ define(function (require, exports, module) {
                 publicKey: $tr.data('publickey'),
                 payUrl: $tr.data('payurl'),
                 notifyUrl: $tr.data('notifyurl'),
-                remark:$tr.data('remark'),
-                merchantName:$tr.data('merchantname')
+                remark:$tr.data('remark')
             };
             this.popLargeRechargeUserEditModel(data);
         },
@@ -135,7 +132,7 @@ define(function (require, exports, module) {
 
         onRender: function () {
             var self = this;
-            this.$bankTable = this.$('.js-fc-tp-table');
+            this.$bankTable = this.$('.js-fc-tpm-table');
             this.$bankTable.html('');
 
             this.findBankListXhr().fail(function () {
@@ -175,7 +172,6 @@ define(function (require, exports, module) {
             });
 
             _(tPayList).each(function (pay) {
-
                 idHtml.push('<label style="margin-top:9px;">'+pay.paymentId+'</label>');
                 noHtml.push('<label style="margin-top:9px;">'+pay.merchantCode+'</label>');
                 if(pay.remark==null){
@@ -188,11 +184,11 @@ define(function (require, exports, module) {
                 switch (pay.status) {
                     case 1 :
                         status = '<span class="text-danger"><label style="margin-top:9px;">使用中</label></span>';
-                        operate += '<button class="btn btn-link js-fc-tp-useable no-m-right" data-status="1" data-id="' + pay.paymentId + '">禁用</button>';
+                        operate += '<button class="btn btn-link js-fc-tpm-useable no-m-right" data-status="1" data-id="' + pay.paymentId + '">禁用</button>';
                         break;
                     case 2 :
                         status = '<label style="margin-top:9px;">已停用</label>';
-                        operate += '<button class="btn btn-link js-fc-tp-useable no-m-right" data-status="2" data-id="' + pay.paymentId + '">启用</button>';
+                        operate += '<button class="btn btn-link js-fc-tpm-useable no-m-right" data-status="2" data-id="' + pay.paymentId + '">启用</button>';
                         break;
                 }
 
@@ -201,12 +197,12 @@ define(function (require, exports, module) {
                 }
 
                 if (Global.authority.fc && Global.authority.fc.tp && Global.authority.fc.tp.edit) {
-                    operate += '<button  class="btn btn-link js-fc-tp-edit no-m-left no-p-left" data-platformname="' + pay.platformName
+                    operate += '<button  class="btn btn-link js-fc-tpm-edit no-m-left no-p-left" data-platformname="' + pay.platformName
                         + '" data-merchantcode="' + pay.merchantCode + '" data-publickey="'+pay.publicKey + '" data-privatekey="'+pay.privateKey+'" data-remark="' + pay.remark + '" ' +
-                        'data-payurl="' + pay.payUrl + '" data-notifyurl="' + pay.notifyUrl + '" data-paymentid="' + pay.paymentId + '" data-platformid="' + pay.platformId + '" data-merchantName="' + pay.merchantName + '" data-type="edit">编辑</button>';
+                        'data-payurl="' + pay.payUrl + '" data-notifyurl="' + pay.notifyUrl + '" data-paymentid="' + pay.paymentId + '" data-platformid="' + pay.platformId + '"data-type="edit">编辑</button>';
                 }
 
-                operate += '<button  class="btn btn-link js-fc-tp-delete no-m-left no-p-left" data-id="' + pay.paymentId + '" data-type="delete">删除</button>';
+                operate += '<button  class="btn btn-link js-fc-tpm-delete no-m-left no-p-left" data-id="' + pay.paymentId + '" data-type="delete">删除</button>';
                 statuHtml.push(status);
                 operaterHtml.push(operate);
             });
@@ -229,49 +225,42 @@ define(function (require, exports, module) {
             var $dialog = Global.ui.dialog.show(
                 {
                     title: title,
-                    body: '<div class="js-fc-tp-AOE-container"></div>',
-                    footer: '<button class="js-fc-tp-AOE-confirm btn btn-primary" type="button">确定</button><button class="btn" data-dismiss="modal">取消</button>'
+                    body: '<div class="js-fc-tpm-AOE-container"></div>',
+                    footer: '<button class="js-fc-tpm-AOE-confirm btn btn-primary" type="button">确定</button><button class="btn" data-dismiss="modal">取消</button>'
                 }
             );
-            var $aOEContainer = $dialog.find('.js-fc-tp-AOE-container');
+            var $aOEContainer = $dialog.find('.js-fc-tpm-AOE-container');
             var bankManagementAddOrEditView = new BankManagementAddOrEditView(data);
             $aOEContainer.html(bankManagementAddOrEditView.render().el);
             $dialog.on('hidden.bs.modal', function () {
                 $(this).remove();
             });
             $dialog.off('click.saveInfo')
-                .on('click.saveInfo', '.js-fc-tp-AOE-confirm', function (ev) {
+                .on('click.saveInfo', '.js-fc-tpm-AOE-confirm', function (ev) {
                     self.saveBankInfo($dialog);
                 });
         },
+
         saveBankInfo: function ($dialog) {
-            var $currContainer = $dialog.find('.js-fc-tp-aoe-form');
+            var $currContainer = $dialog.find('.js-fc-tpm-aoe-form');
             var clpValidate = $currContainer.parsley().validate();
             if (!clpValidate) {
                 return false;
             }
-            var $notice = $dialog.find('.js-fc-tp-AOE-notice');
+            var $notice = $dialog.find('.js-fc-tpm-AOE-notice');
             var self = this;
-            var pKey="";
-            if(self.options.paymentType==4||self.options.paymentType==5){
-                pKey=$dialog.find('.js-wt-upload-url').val();
-            }else{
-                pKey=$dialog.find('.js-fc-tp-AOE-publicKey').val();
-            }
             var data = {
-                paymentId: $dialog.find('.js-fc-tp-AOE-paymentId').val(),
+                paymentId: $dialog.find('.js-fc-tpm-AOE-paymentId').val(),
                 platformId: $dialog.find('.js-fc-third-pm').val(),
-                platformName: $dialog.find('.js-fc-tp-AOE-platformName').val(),
-                merchantCode: $dialog.find('.js-fc-tp-AOE-merchantCode').val(),
-                publicKey: pKey,
-                privateKey: $dialog.find('.js-fc-tp-AOE-privateKey').val(),
-                payUrl: $dialog.find('.js-fc-tp-AOE-payUrl').val(),
-                notifyUrl: $dialog.find('.js-fc-tp-AOE-notifyUrl').val(),
-                remark:$dialog.find('.js-fc-tp-AOE-remark').val(),
-                merchantName:$dialog.find('.js-fc-tp-AOE-merchantName').val(),
+                platformName: $dialog.find('.js-fc-tpm-AOE-platformName').val(),
+                merchantCode: $dialog.find('.js-fc-tpm-AOE-merchantCode').val(),
+                publicKey: $dialog.find('.js-fc-tpm-AOE-publicKey').val(),
+                privateKey: $dialog.find('.js-fc-tpm-AOE-privateKey').val(),
+                payUrl: $dialog.find('.js-fc-tpm-AOE-payUrl').val(),
+                notifyUrl: $dialog.find('.js-fc-tpm-AOE-notifyUrl').val(),
+                remark:$dialog.find('.js-fc-tpm-AOE-remark').val(),
                 type:0
             };
-
             this.saveBankInfoXhr(data).fail(function () {
             }).done(function (res) {
                 if (res.result === 0) {
@@ -303,8 +292,9 @@ define(function (require, exports, module) {
             return str;
         },
 
+
         insertNotice: function ($target, html) {
-            this.$('.js-fc-tp-AOE-notice').html(this._getErrorMsg(html));
+            $target.html(this._getErrorMsg(html));
         },
 
         //组装错误提示框

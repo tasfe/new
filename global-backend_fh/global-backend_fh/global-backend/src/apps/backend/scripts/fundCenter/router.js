@@ -38,7 +38,8 @@ define(function(require, exports, module) {
       'fc/rsm': 'rechargeSetMobile',
       'fc/tpm': 'rechargeMobileManagement',
 
-      'fc/dd': 'dailyDividManagement'
+      'fc/dd': 'dailyDividManagement',
+      'fc/ds':'dividCfg'
 
     });
 

@@ -1,0 +1,15 @@
+
+<ul id="<%=_.unique() %>" class="view-tabs nav nav-tabs">
+  <% _(tabs).each(function(tab, index) { %>
+  <li class="<% if ((!triggerTab && index) === 0 || (tab.name === triggerTab)) { %>active<% } %>">
+    <a href="#<%=tab.id %>" data-toggle="tab" data-index="<%=index %>" data-name="<%=tab.name %>"><%=tab.label %></a>
+  </li>
+  <% }); %>
+
+</ul>
+
+<div id="<%=_.unique() %>" class="view-container tab-content">
+  <% _(tabs).each(function(tab, index) { %>
+  <div id="<%=tab.id %>" class="tab-pane fade <% if ((!triggerTab && index) === 0 || (tab.name === triggerTab)) { %>in active <% } %>"></div>
+  <% }); %>
+</div>

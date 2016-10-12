@@ -1,0 +1,43 @@
+<div class="portlet-header-block">
+  <div class="search-condition-table">
+    <select name="subUser" class="hidden">
+      <option value="-1">全部</option>
+      <option value="0"  selected="selected">>个人</option>
+      <option value="1">团队</option>
+    </select>
+    <dl>
+      <dt>游戏时间</dt>
+      <dd class="m-right-xs">
+        <span class="js-ac-btnGroup ac-btnGroup inline-block"></span>
+      </dd>
+      <dd>
+        <span class="js-ac-timeset search-timeSet"></span>
+      </dd>
+    </dl>
+    <dl>
+      <dt>彩种名称</dt>
+      <dd class="js-uc-ticket-select-group">
+        <select class="js-pf-select-ticket-list" name="ticketId"></select>
+      </dd>
+    </dl>
+    <dl>
+      <dt>订单号</dt>
+      <dd>
+        <input type="text" name="tradeNo" class="input3 margin-add" data-parsley-maxlength="30">
+      </dd>
+    </dl>
+    <dl>
+      <dt>追号状态</dt>
+      <dd class="m-right-xs">
+        <select name="chaseStatus"></select>
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<div class="portlet-header-btnGroup">
+  <button type="submit" class="btn btn-pink btn-linear" data-loading-text="搜索">
+    <i class="fa fa-search"></i>
+    搜索
+  </button>
+</div>

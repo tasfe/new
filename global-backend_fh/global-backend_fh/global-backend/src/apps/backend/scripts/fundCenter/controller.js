@@ -45,6 +45,8 @@ define(function (require, exports, module) {
 
   var SalesAccountManagementView = require('fundCenter/views/bonus-salesAccountManagement');
 
+  var DividCfgView = require('fundCenter/views/dividCfg');
+
   var FundCenterController = RouterController.extend({
 
     rechargeRecord: function () {
@@ -153,6 +155,9 @@ define(function (require, exports, module) {
 
     salesAccountManagement: function () {
       this.changeMainReginView(new SalesAccountManagementView());
+    },
+    dividCfg:function(){
+      this.changeMainReginView(new DividCfgView());
     }
   });
 

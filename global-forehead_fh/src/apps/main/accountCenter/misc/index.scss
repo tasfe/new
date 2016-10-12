@@ -160,79 +160,6 @@
 //  background-repeat: no-repeat;
 //}
 
-.as-passwordManage {
-  .tip{
-    padding: 0px 0px 10px 105px;
-
-    color: rgb(226, 41, 25);
-    width: 250px;
-    text-align: center;
-  }
-
-  .passwdSafetyTips{
-    padding: 0px 0px 10px 120px;
-    color: #999999;
-
-    span{
-      display: inline-block;
-      width: 69px;
-      height: 10px;
-      margin: 0px;
-      border: 1px solid #cfcfcf;
-      background-color: #fff;
-      float: left;
-    }
-
-    span.s1{
-      background-color: #ff6600;
-    }
-    span.s2{
-      background-color: #ff9900;
-    }
-    span.s3{
-      background-color: #99cc33;
-    }
-
-    b{
-      padding-left: 20px;
-    }
-
-    b.s1{
-      color: #ff6600;
-    }
-    b.s2{
-      color: #ff9900;
-    }
-    b.s3{
-      color: #99cc33;
-    }
-
-  }
-
-  .red{
-    color: #ff6600;
-  }
-
-  .input2{
-    background: #dbddda !important;
-    color: #fff !important;
-    border: 1px solid #eee;
-  }
-
-  .help-inline{
-    display: inline-block;
-    width: 350px;
-  }
-
-  .line-height30{
-    line-height: 30px;
-  }
-}
-
-.hide{
-  display:none;
-}
-
 .ac-reset-div{
   .passwdSafetyTips{
     padding: 0px 0px 10px 40px;
@@ -241,7 +168,6 @@
 
 .login-table{
   margin:0px 10px;
- // border: 1px solid #ccc;
 }
 
 .ac-setemail-content{
