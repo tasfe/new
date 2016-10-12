@@ -185,30 +185,30 @@ var menuConfig = [
     sub: [
       {
         id: 200,
-        router: 'ac/pm',
+        router: 'pm',
         name: '账户安全'
       },
       {
         id: 204,
-        router: 'as/pm/pl',
+        router: 'pm/pl',
         name: '登陆密码',
         notShow: true
       },
       {
         id: 205,
-        router: 'as/pm/pf',
+        router: 'pm/pf',
         name: '资金密码',
         notShow: true
       },
       {
         id: 206,
-        router: 'as/pm/sq',
+        router: 'pm/sq',
         name: '密保问题',
         notShow: true
       },
       {
         id: 207,
-        router: 'as/pm/se',
+        router: 'pm/se',
         name: '邮箱设置',
         notShow: true
       },
@@ -216,6 +216,18 @@ var menuConfig = [
         id: 208,
         router: 'uc/br',
         name: '游戏记录'
+      },
+      {
+        id: 208,
+        router: 'uc/br',
+        name: '游戏记录',
+        notShow: true
+      },
+      {
+        id: 208,
+        router: 'uc/br',
+        name: '游戏记录',
+        notShow: true
       },
       {
         id: 209,
