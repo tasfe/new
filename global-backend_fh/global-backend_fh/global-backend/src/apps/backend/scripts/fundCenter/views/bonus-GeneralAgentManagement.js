@@ -36,7 +36,7 @@ define(function (require, exports, module) {
             width: '10%'
           },
           {
-            name: '所属招商号',
+            name: '层级关系',
             width: '10%'
           },
           {
@@ -142,7 +142,7 @@ define(function (require, exports, module) {
       }
       row.push(dividend.cycle);
       row.push(dividend.subUsername || '');
-      row.push(dividend.username);
+      row.push(dividend.subUsername+'<'+dividend.username);
       row.push(_(dividend.betTotal).fixedConvert2yuan());
       row.push( _(dividend.profitTotal).convert2yuan());
       row.push(_(dividend.divid).formatDiv(100, {fixed: 0}));

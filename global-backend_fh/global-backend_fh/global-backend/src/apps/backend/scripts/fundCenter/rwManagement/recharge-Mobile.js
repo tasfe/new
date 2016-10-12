@@ -34,32 +34,11 @@ define(function (require, exports, module) {
             id: 'jsWechatMobileTab',
             view: ListMobileView,
             options: {
-            paymentType: 3,
-            type:1
-          }
-          }
-          ,
-          {
-            label: '支付宝转账',
-            name: 'jsAliRecharge',
-            id: 'jsAliRechargeTab',
-            view: ListMobileView,
-            options: {
-              paymentType: 4,
-              type:1
-
-            }
-          },
-          {
-            label: '微信转账',
-            name: 'jsWechatRecharge',
-            id: 'jsWechatRechargeTab',
-            view: ListMobileView,
-            options: {
-              paymentType: 5,
+              paymentType: 3,
               type:1
             }
-          }     ]
+          }
+        ]
       });
     }
 

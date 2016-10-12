@@ -4,14 +4,14 @@ define(function (require, exports, module) {
 
     var ListView = Base.ItemView.extend({
 
-        template: require('text!./list.html'),
+        template: require('text!./takeoutList.html'),
 
         events: {
-            'click .js-fc-tp-add': 'addBankHandler',
-            'click .js-fc-tp-edit': 'editBankHandler',
-            'click .js-fc-tp-delete': 'deleteBankHandler',
-            'click .js-fc-tp-useable': 'changeBankStateHandler',
-            'click .js-fc-tp-save': 'saveThirdPartyPaySort'
+            'click .js-fc-tpm-add': 'addBankHandler',
+            'click .js-fc-tpm-edit': 'editBankHandler',
+            'click .js-fc-tpm-delete': 'deleteBankHandler',
+            'click .js-fc-tpm-useable': 'changeBankStateHandler',
+            'click .js-fc-tpm-save': 'saveThirdPartyPaySort'
         },
 
         //银行列表
@@ -240,7 +240,6 @@ define(function (require, exports, module) {
                     self.saveBankInfo($dialog);
                 });
         },
-
         saveBankInfo: function ($dialog) {
             var $currContainer = $dialog.find('.js-fc-tpm-aoe-form');
             var clpValidate = $currContainer.parsley().validate();
@@ -291,7 +290,6 @@ define(function (require, exports, module) {
             }
             return str;
         },
-
 
         insertNotice: function ($target, html) {
             $target.html(this._getErrorMsg(html));

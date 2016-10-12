@@ -1,31 +1,78 @@
-<div>
-  <%if(Global.authority.fc && Global.authority.fc.tp && Global.authority.fc.tp.add){%>
-  <button type="button" class="js-fc-tp-add btn btn-primary" data-type="edit" style="margin-top:10px;;">
-    <i class="fa fa-plus m-right-xs"></i>增加第三方
-  </button>
-  <%}%>
+<div class="row m-bottom-sm">
+  <div class="col-sm-3">
+    <div class="form-group">
+      <label class="control-label m-right-sm">平台名称</label>
+      <select class="js-fc-tp-pm form-control" name="platformId"  >
+        <option value="">全部</option>
+        <option value="1">宝付支付</option>
+        <option value="2">聚宝支付</option>
+        <option value="3">易宝支付</option>
+        <option value="4">魔宝支付</option>
+        <option value="5">快汇通</option>
+        <option value="6">易优付</option>
+        <option value="7">智付</option>
+        <option value="8">国付宝</option>
+        <option value="9">同略云</option>
+        <option value="10">盈宝</option>
+        <option value="11">新生</option>
+        <option value="12">优付</option>
+        <option value="13">威富通</option>
+        <option value="14">汇潮</option>
+        <option value="15">快捷通</option>
+        <option value="16">6付</option>
+        <option value="17">银盛</option>
+        <option value="18">易汇金</option>
+        <option value="19">乐盈支付</option>
+        <option value="20">摩宝云汇</option>
+      </select>
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="form-group">
+      <label class="control-label m-right-sm">终端渠道：</label>
+      <select class="form-control" name="type">
+        <option value="">全部</option>
+        <option value="0">PC端</option>
+        <option value="1">移动端</option>
+      </select>
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="form-group">
+      <label class="control-label m-right-sm">状态：</label>
+      <select class="form-control" name="status">
+        <option value="">全部</option>
+        <option value="0">已停用</option>
+        <option value="1">使用中</option>
+      </select>
+    </div>
+  </div>
 </div>
-<div class="smart-grid table-responsive" style="margin-top: 10px;;">
-  <table class="table table-striped">
-    <colgroup>
-      <col width="9%">
-      <col width="5%">
-      <col width="10%">
-      <col width="14%">
-      <col width="8%">
-      <col width="12%">
-    </colgroup>
-    <thead>
-    <tr>
-      <td>平台名字</td>
-      <td>ID</td>
-      <td>商户号</td>
-      <td>备注</td>
-      <td>状态</td>
-      <td>操作</td>
-    </tr>
-    </thead>
-    <tbody class="js-fc-tp-table">
-    </tbody>
-  </table>
+
+
+<div class="row">
+  <div class="col-lg-12 pull-right form-group">
+    <%if(Global.authority.fc && Global.authority.fc.tp && Global.authority.fc.tp.add){%>
+    <button type="button" class="js-fc-tp-add btn btn-success pull-left btn-sm" data-type="edit">
+      <i class="fa fa-plus m-right-xs"></i>新&nbsp;&nbsp;&nbsp;&nbsp;增
+    </button>
+    <%}%>
+    <%if(Global.authority.fc && Global.authority.fc.tp && Global.authority.fc.tp.add){%>
+    <button type="button" class="js-fc-tp-set-pc btn btn-success pull-left btn-sm" data-type="0" style="margin-left:10px;">
+      <i class="fa fa-plus m-right-xs"></i>PC端充值设置
+    </button>
+    <%}%>
+    <%if(Global.authority.fc && Global.authority.fc.tp && Global.authority.fc.tp.add){%>
+    <button type="button" class="js-fc-tp-set-mobile btn btn-success pull-left btn-sm" data-type="1" style="margin-left:10px;">
+      <i class="fa fa-plus m-right-xs"></i>移动端充值设置
+    </button>
+    <%}%>
+    <button class="ul-search-confirm btn btn-purple pull-right btn-sm" type="submit"><i
+      class="fa fa-search m-right-xs"></i>搜&nbsp;&nbsp;索
+    </button>
+    <button class="fu-search-reset btn btn-wt-default-purple pull-right m-right-sm btn-sm" type="reset"><i
+      class="fa fa-repeat m-right-xs"></i>重&nbsp;&nbsp;置
+    </button>
+  </div>
 </div>
+
