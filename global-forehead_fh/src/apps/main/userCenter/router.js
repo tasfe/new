@@ -13,6 +13,8 @@ exports.install = function() {
     'uc/tfr':'transforRecord',
     'uc/br': 'bettingRecords', // 投注信息
     'uc/br/detail/:betId': 'bettingDetail', // 投注详情
+    
+    'uc/gr': 'gameRecords', // 游戏记录
     'uc/pal': 'profitAndLoss', // 盈亏报表
     'uc/md': 'moneyDetail', // 账变明细
 

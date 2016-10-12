@@ -9,6 +9,7 @@ var BettingDetailView = require('userCenter/views/bettingDetail');
 var TrackRecordView = require('userCenter/trackRecords/team');
 var TrackDetailView = require('userCenter/views/trackDetail');
 
+var GameRecordsView = require('userCenter/gameRecords');
 var MoneyDetailView = require('userCenter/moneyDetail');
 var ProfitAndLossView = require('userCenter/profitAndLoss');
 
@@ -170,6 +171,13 @@ var UserCenterController = RouterController.extend({
       tradeNo: tradeNo
     }), {
       parentRouter: 'uc/tr'
+    });
+  },
+
+  gameRecords: function () {
+    this.changeMainReginView(new GameRecordsView(), {
+      sidebar: 'pc',
+      topView: 'personal'
     });
   },
 
