@@ -1,4 +1,4 @@
-var TabView = require('com/tabPriceView');
+var TabView = require('com/tabView');
 var cup = require('../misc/cup.png');
 var IDsSuper3 = require('bettingCenter/misc/super3k/IDsOfSuper3k');
 
@@ -10,7 +10,8 @@ var TrackRecordsView = TabView.extend({
 
   initialize: function() {
     _(this.options).defaults({
-      height: 400,
+      height: 392,
+      tabClass: 'view-tabs nav nav-tabs nav-tabs-special',
       tabs: [
         {
           label: '时时彩',
@@ -44,10 +45,16 @@ var TrackRecordsView = TabView.extend({
           template: '<div class="js-uc-smmcContainer price-container"><div class="js-uc-smmcNotice"></div><div class="js-uc-smmcGrid portlet-filter uc-prize"></div></div>'
         }
       ],
-      append:  '<div class="controls fc-lesson">' +
-      '<div class="pull-right fc-lesson-text text-pleasant">' +
-      '<img class="" src="'+cup+'">' +
-      '</span>单期最高奖金限制：<span class="js-ac-pd-maxBonus" >300,000</span>元</div>' +
+      // append:  '<div class="controls fc-lesson">' +
+      // '<div class="pull-right fc-lesson-text text-pleasant">' +
+      // '<img class="" src="'+cup+'">' +
+      // '</span>单期最高奖金限制：<span class="js-ac-pd-maxBonus" >300,000</span>元</div>' +
+      // '</div>'
+      append:'<div class="alert">' +
+      '<div class="js-ac-quota-container">' +
+      '<span class="sfa sfa-tip-trophy vertical-middle m-right-xs"></span>' +
+      '单期最高奖金限制：<span class="js-ac-pd-maxBonus" >300,000</span>元' +
+      '</div>' +
       '</div>'
     });
 
@@ -113,7 +120,7 @@ var TrackRecordsView = TabView.extend({
   _getTable: function (tableInfo, classValue) {
     this.$('.' + classValue).staticGrid({
       tableClass: 'table table-bordered table-center',
-      wrapperClass: 'border-table-bottom',
+      wrapperClass: '',
       height: this.options.height,
       colModel: [
         {label: '玩法群', name: 'playLevel', merge: true, width: 100},
@@ -150,7 +157,7 @@ var TrackRecordsView = TabView.extend({
           'playName': play.ticketPlayName,
           'bonusMin': _(play.ticketPlayBonus).convert2yuan(),
           'rebate': _(play.userRebate).formatDiv(10) + '%',
-          'bonusMax': '<span class="text-bold-pleasant">' + _(play.ticketPlayMaxBonus).convert2yuan() + '</span>'
+          'bonusMax': '<span class="text-hot">' + _(play.ticketPlayMaxBonus).convert2yuan() + '</span>'
         };
       });
     }).flatten().value();

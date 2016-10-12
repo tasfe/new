@@ -8,8 +8,6 @@ var WithdrawView = require('fundCenter/views/withdraw');
 
 var InsideLetterView2 = require('skeleton/bases/insideLetter2');
 
-var PlatformNewsView = require('newsCenter/views/platformNews');
-
 var HeaderView = Base.ItemView.extend({
 
   template: require('./index.html'),
@@ -75,42 +73,6 @@ var HeaderView = Base.ItemView.extend({
       $('.js-single-lowLevelSelect').animate({height:"551px"});
     }
   },
-
-  // platformNewsHandler: function() {
-  //   var platformNewsView = new PlatformNewsView();
-  //   var $dialog = Global.ui.dialog.show({
-  //     title: '系统消息',
-  //     size: 'modal-lg',
-  //     body: '<div class="js-platformNews-container"></div>'
-  //   });
-  //   $dialog.find('.nc-platformNews-dialog').removeClass('modal-body');
-  //   $dialog.find('.js-platformNews-container').html(platformNewsView.render().el);
-  //   $dialog.on('hidden.modal', function () {
-  //     $(this).remove();
-  //   });
-  // },
-
-  // systemNoticeHandler: function() {
-  //   var $dialog = Global.ui.dialog.show({
-  //     title: '系统消息',
-  //     size: 'modal-lg',
-  //     body: '<div  style="background-color: #fff;" class="js-pw-container"></div>',
-  //     bodyClass: 'ac-periodWay-dialog'
-  //   });
-  //   $dialog.find('.ac-periodWay-dialog').removeClass('modal-body');
-  //   $dialog.find('.js-pw-container').html(this.dialog());
-  //   $dialog.on('hidden.modal', function () {
-  //       $(this).remove();
-  //   });
-  //   $dialog.on('click ', '.js-message_A', function(){
-  //     $('.js-menuspan-one').removeClass('menuspan');
-  //     $('.js-menuspan-two').addClass('menuspan');
-  //   });
-  //   $dialog.on('click ', '.js-detail', function(){
-  //     $('.js-menuspan-one').addClass('menuspan');
-  //     $('.js-menuspan-two').removeClass('menuspan');
-  //   })
-  // },
 
   accountSecurityHandler:function(e) {
     var $target = $(e.currentTarget);
@@ -325,6 +287,7 @@ var HeaderView = Base.ItemView.extend({
     this.$('.js-gl-hd-nickName').text(acctInfo.uName ? acctInfo.uName : acctInfo.username);
     this.$('.js-gl-hd-balance').text(acctInfo.fBalance);
     this.$('.js-gl-ag-balance').text(acctInfo.agBalance);
+    this.$('.js-gl-total-balance').text(acctInfo.fBalance + acctInfo.agBalance);
 
   },
 
@@ -397,10 +360,11 @@ var HeaderView = Base.ItemView.extend({
         .done(function(res) {
           var data = res && res.root || {};
           if (res && res.result === 0) {
-            if (data.hasMoneyPwd && data.hasBankCard) {
+            if (data.hasMoneyPwd && data.hasBankCard && data.hasSecurity) {
               //设置了则弹出验证框
-              $(document).verifyFundPwd({parentView:self});
-            } else if (!data.hasMoneyPwd || !data.hasBankCard) {
+              // $(document).verifyFundPwd({parentView:self});
+              self.verifySuccCallBack();
+            } else if (!data.hasMoneyPwd || !data.hasBankCard || !data.hasSecurity) {
               if(!data.hasMoneyPwd){
                 //未设置则弹出链接到资金密码设置页面的提示框
                 $(document).securityTip({
@@ -418,6 +382,16 @@ var HeaderView = Base.ItemView.extend({
                   hasMoneyPwd: true,
                   showBankCard: true,
                   hasBankCard: false
+                });
+              }else if(!data.hasSecurity){
+                //未设置则弹出链接到密保问题设置页面的提示框
+                $(document).securityTip({
+                  content: '请补充完您的安全信息后再提现',
+                  showMoneyPwd: true,
+                  hasMoneyPwd: data.hasMoneyPwd,
+                  showBankCard: true,
+                  hasBankCard: data.hasBankCard,
+                  hasSecurity: data.hasSecurity
                 });
               }
             }

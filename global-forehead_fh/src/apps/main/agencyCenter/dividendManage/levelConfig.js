@@ -3,12 +3,12 @@
 var config = [
   {
     id: 1,
-    zhName: '总代',
+    zhName: '招商直属',
     name: 'TOP',
     status: [
       {
         id: 0,
-        zhName: '申请领取',
+        zhName: '领取分红',
         type: 'button',
         loadingText: '申请中'
       },
@@ -32,7 +32,7 @@ var config = [
   },
   {
     id: 2,
-    zhName: '一代',
+    zhName: '代理',
     name: 'LEVEL_ONE',
     status: [
       {

@@ -1,0 +1,51 @@
+<div class="search-condition-table">
+  <!--<div class="js-ac-state pull-right" style="margin-top:-46px;">-->
+    <!--<a href="javascript:void(0);" style="color:#cc0000;">-->
+      <!--<span class="sfa sfa-info " style="margin-bottom: -3px;"></span> 日工资报表说明</a>-->
+  <!--</div>-->
+  <div class="control-group row1">
+    <span class="control-label">结算日期:</span>
+    <span class="js-ac-timeset input-date"></span>
+    <span class="js-ac-btnGroup pf-btnGroup inline-block"></span>
+    <label class="control-label" style="width: 40px">状态:</label>
+    <select name="status" class="input-sm">
+      <option value="-1">全部</option>
+      <option value="0">未发放</option>
+      <option value="1">已发放</option>
+    </select>
+
+    <div class="inline-block m-left-md pull-right">
+      <button type="submit" class="btn btn-lg btn-orange">
+        <span class="sfa sfa-search vertical-middle"></span>
+        搜 索
+      </button>
+      <!--<button type="reset" class="btn btn-link ">清空条件</button>-->
+    </div>
+  </div>
+  <div class="control-group">
+    <span class="control-label">用户名:</span>
+    <input type="text" class="js-ac-sr-date " name="userName"/>
+
+    <label class="control-label">返点:</label>
+    <input type="text" class="js-ac-sr-date " name="rebate"/>
+
+    <input type="hidden" name="pageSize" value="20">
+
+    <div class="pull-right">
+      <button type="button" class="js-ac-sm-watch btn btn-lg ac-sm-watch">
+        <span class="sfa sfa-watch vertical-middle"></span>
+        查看我的日薪
+      </button>
+      <button type="button" class="js-ac-sm-add-user btn btn-lg ac-sm-add-user">
+        <span class="sfa sfa-plus vertical-middle"></span>
+        日薪签约
+      </button>
+    </div>
+  </div>
+
+  <!--<p>
+    1、团队投注金额日均量≥30万，分红比例1% </br>
+    2、当日亏损≥199999，分红可多增加1% </br>
+    3、每日的00：00：00到24：00：00为统计时间 </br>
+  </p>-->
+</div>

@@ -1,4 +1,5 @@
 "use strict";
+require('./index.scss');
 
 var FilterHelper = require('skeleton/misc/filterHelper');
 
@@ -15,7 +16,8 @@ var SearchGrid = Base.PrefabView.extend({
     footerClass: 'p-top-sm',
     remoteEveryTime: true,
     divider: true,
-    tip: ''
+    tip: '',
+    headTip: ''
   },
 
   constructor: function() {
@@ -62,6 +64,10 @@ var SearchGrid = Base.PrefabView.extend({
     this._initGrid(this.$grid);
 
     this.$searchForm.trigger('submit');
+  },
+
+  refresh: function() {
+    this._getGridXhr();
   },
 
   _setUrlParams: function() {

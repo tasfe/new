@@ -3,10 +3,9 @@
 @import "~base/styles/imports";
 
 .main-active-container {
-  margin: 0 15px;
-  padding-top: 30px;
+  padding-top: 15px;
   .active-context {
-    height: 500px;
+    height: 600px;
   }
   .at-activity-main {
     margin-bottom: 30px;
@@ -91,3 +90,17 @@
   }
 }
 
+.activityDetail-context {
+  height: 500px;
+  padding-top: 10px;
+}
+.activityDetail-container-header {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+}
+.activityDetail-back-btn {
+  color: grey;
+}
+.activityDetail-content {
+  color: $color-amber;
+}

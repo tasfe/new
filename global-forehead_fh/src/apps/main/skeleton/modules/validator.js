@@ -107,6 +107,26 @@ var ValidatorModule = Base.Module.extend({
       return myReg.test(value);
     }, 35)
       .addMessage('zh_cn', '手机号码', '手机号码格式不正确');
+
+    ParsleyValidator.addValidator('notisnumandlessthen9', function (value,maxLength) {
+      var myReg = /^\d{0,8}$/;
+      if (myReg.test(value)) {
+        return false;
+      } else {
+        return true;
+      }
+    }, 42)
+      .addMessage('zh_cn', 'notisnumandlessthen9', '不能是9位以下的纯数字');
+
+    ParsleyValidator.addValidator('nospacechar', function (value,maxLength) {
+      var myReg = /[\ ]/;
+      if (myReg.test(value)) {
+        return false;
+      } else {
+        return true;
+      }
+    }, 42)
+      .addMessage('zh_cn', 'nospacechar', '不能包含空格');
   }
 });
 

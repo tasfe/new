@@ -1,0 +1,63 @@
+@charset "UTF-8";
+
+@import "~base/styles/imports";
+
+.search-condition-table{
+  padding-top: 13px;
+
+  .search-timeSet {
+    display: inline-block;
+    min-width: 240px;
+    input {
+      width: 100px;
+    }
+  }
+
+  .row1{
+    padding: 0 12px;
+  }
+
+  .row2{
+    text-align: center;
+    clear: both;
+    margin: 0px 12px;
+    position: relative;
+  }
+
+  .row3{
+    text-align: center;
+    clear: both;
+    margin: 0 12px;
+    position: relative;
+  }
+
+  dt,dd{
+    display: inline-block;
+  }
+
+  dl,dt,dd{
+    font-weight: normal;
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+  }
+
+  dl{
+    margin-right: 10px;
+  }
+
+  select{
+    width: 86px;
+  }
+
+  input{
+    width: 86px;
+  }
+}
+
+.table-head-tip{
+  padding-bottom: 10px;
+  text-align: left;
+  font-size: 12px;
+  color: #cb342c;
+}

@@ -11,14 +11,14 @@
 
     <thead class="<%=showHead %>">
       <tr>
-        <!--<% if (checkable) { %>
+        <% if (checkable && columnDefinitions.length>0 && columnDefinitions[0].name ) { %>
         <th>
           <div class="custom-checkbox checkbox-small">
             <input type="checkbox" id="<%=chkAllId %>" class="js-wt-select-all">
             <label for="<%=chkAllId %>"></label>
           </div>
         </th>
-        <% } %>-->
+        <% } %>
         <% _.each(columnDefinitions, function(columnDefinition) { %>
         <% if (columnDefinition.name) { %>
         <th data-id="<%=columnDefinition.id %>">

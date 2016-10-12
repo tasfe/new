@@ -4,14 +4,13 @@ var PoolingModule = Base.Module.extend({
 
   startWithParent: false,
 
-  _polling: [],
+  _pooling: [],
 
-  _currentView: null,
+  _currentSubRegion: null,
+
+  _currentViewInfo: null,
 
   push: function(viewInfo, config) {
-    config = _(config || {}).defaults({
-      destroyDiff: false
-    });
 
     if (!viewInfo.initId) {
       viewInfo.initId = Number(_.uniqueId());
@@ -20,92 +19,98 @@ var PoolingModule = Base.Module.extend({
     viewInfo.router = viewInfo.router.replace(/\?.*/, '') || '#';
 
     //删除前一个相同view
-    var prevPool = this.getByRouter(viewInfo.router);
+    var samePool = this.getByRouter(viewInfo.router);
 
-    if (prevPool && prevPool === _(this._polling).last()) {
-      this.destroyView(prevPool);
-      //Global.entryRegion.currentView.remove(prevPool.initId);
-    } else {
-
-      if (config.entry) {
-        //如果新增新非快捷入口，则删除前非快捷入口
-        var isExceed = Global.entryRegion.currentView.isExceed(viewInfo.router);
-
-        if (isExceed) {
-          var oldInitId = Global.entryRegion.currentView.delNotQuickEntry();
-          if (oldInitId) {
-            var exceedPool = this.getById(oldInitId);
-
-            this.destroyView(exceedPool);
-          }
-        }
-      }
+    if (samePool && samePool === _(this._pooling).last()) {
+      this.destroyView(samePool);
     }
 
+    // 没有sub return时destroy所有非快捷入口view
+    if (viewInfo.subReturn) {
+      var prevViewInfo = this.getCurrentViewInfo();
 
-    this._polling.push(viewInfo);
-
-    // if (config.entry) {
-    if (config.subReturn) {
+      if (prevViewInfo) {
+        viewInfo.parentId = prevViewInfo.initId;
+      }
 
       Global.entryRegion.currentView.update({
         initId: viewInfo.initId,
         router: viewInfo.router
       });
     } else {
-      viewInfo.parentId = Global.entryRegion.currentView.changeActiveInfo(viewInfo.initId, viewInfo.router);
+      this.destroyAllNotEntryView();
+      Global.entryRegion.currentView.changeActiveInfo(viewInfo.initId, viewInfo.router);
     }
+
+    this._pushView(viewInfo);
   },
 
   getById: function(initId) {
-    return _(this._polling).findWhere({
+    return _(this._pooling).findWhere({
       initId: initId
     });
   },
 
   getByRouter: function(router) {
-    return _(this._polling).findWhere({
+    return _(this._pooling).findWhere({
       router: router
     });
   },
 
-  getBack: function() {
-    var current = this.getById(Global.entryRegion.currentView.getCurrent());
-    var parent = this.getById(current.parentId);
-    //var current = this._polling.pop();
+  _pushView: function(viewInfo) {
+    this.setCurrentViewInfo(viewInfo);
 
-    if (this._polling.length === 0 || !parent) {
+    this._pooling.push(viewInfo);
+
+    Base.log(this._pooling);
+  },
+
+  setCurrentViewInfo: function(viewInfo) {
+    this._currentViewInfo = viewInfo;
+  },
+
+  getCurrentViewInfo: function() {
+    return this._currentViewInfo;
+  },
+
+  getBack: function() {
+    // var current = this.getById(Global.entryRegion.currentView.getCurrent());
+    var currentViewInfo = this.getCurrentViewInfo();
+    var parentViewInfo = this.getById(currentViewInfo.parentId);
+
+    if (this._pooling.length === 0 || !parentViewInfo) {
       return {
-        parentRouter: current.parentRouter
+        parentRouter: currentViewInfo.parentRouter
       };
     } else {
-      Global.entryRegion.currentView.changeActiveInfo(parent.initId, parent.router);
+      Global.entryRegion.currentView.changeActiveInfo(parentViewInfo.initId, parentViewInfo.router);
+      this.setCurrentViewInfo(parentViewInfo);
 
-      this.destroyView(current);
+      this.destroyView(currentViewInfo);
 
-      return parent;
+      return parentViewInfo;
     }
   },
 
   replace: function(viewInfo) {
-    var last = this._polling.pop();
+    var last = this._pooling.pop();
 
     if (last) {
       last.router = viewInfo.router;
       last.view.mainRegion.attachView(viewInfo.view);
 
-      this._polling.push(last);
+      this._pooling.push(last);
     }
   },
 
   pop: function() {
-    var current = this._polling.pop();
+    var currentViewInfo = this._pooling.pop();
     var find;
 
-    if (this._polling.length === 0) {
+    if (this._pooling.length === 0) {
 
-      find = _(this._polling).findWhere({
-        router: current.parentRouter
+      find = _(this._pooling).findWhere({
+        router: currentViewInfo.parentRouter
       });
       if (find) {
         return {
@@ -114,70 +119,46 @@ var PoolingModule = Base.Module.extend({
           view: find.view
         };
       } else {
-        return _(current).extend({
-          noParent: true
-        });
+        return currentViewInfo;
       }
     } else {
-      return _(this._polling).last();
+      return _(this._pooling).last();
     }
   },
 
   empty: function() {
-    _(this._polling).each(function(superior) {
+    _(this._pooling).each(function(superior) {
       superior.regin.empty();
     });
   },
 
-  setCurrentView: function(view) {
-    this._currentView = view;
-    return this._currentView;
+  setCurrentSubRegion: function(view) {
+    this._currentSubRegion = view;
+    return this._currentSubRegion;
   },
 
-  getCurrentView: function() {
-    return this._currentView;
-  },
-
-  _getRootRouter: function(router) {
-    var rootRouter = router.match(/^(.*?)\//);
-    if (rootRouter) {
-      rootRouter = rootRouter[1];
-    } else {
-      rootRouter = router;
-    }
-
-    return rootRouter;
+  getCurrentSubRegion: function() {
+    return this._currentSubRegion;
   },
 
   removeById: function(initId) {
-    var viewInfo = _(this._polling).findWhere({
+    var viewInfo = _(this._pooling).findWhere({
       initId: initId
     });
 
     this.destroyView(viewInfo);
   },
 
-  quickClear: function() {
-    _(this._polling).each(function(viewInfo) {
-      if (!viewInfo.display) {
-        viewInfo.view.destroy();
-      } else {
-      }
-    });
-
-    this._polling = [];
-  },
-
   quickPush: function(viewInfo, config) {
     //viewInfo.view._remain = true;
 
-    this._polling.push(viewInfo);
+    this._pooling.push(viewInfo);
   },
 
   getQuick: function(router) {
     var isFind = false;
 
-    _(this._polling).each(function(viewInfo) {
+    _(this._pooling).each(function(viewInfo) {
       if (router === '#' + viewInfo.router) {
         viewInfo.display = true;
         viewInfo.regin.show(viewInfo.view, {
@@ -203,7 +184,18 @@ var PoolingModule = Base.Module.extend({
 
   destroyView: function(poll) {
     poll && poll.view && !poll.view.isDestroyed && poll.view.destroy();
-    this._polling = _(this._polling).without(poll);
+    this._pooling = _(this._pooling).without(poll);
+  },
+
+  destroyAllNotEntryView: function() {
+    var entryList = Global.entryRegion.currentView.getEntryList();
+    var initIds = _(entryList).pluck('initId');
+    var uselessViewList = _(this._pooling).filter(function(viewInfo) {
+      return !_(initIds).contains(viewInfo.initId);
+    });
+    _(uselessViewList).each(function(viewInfo) {
+      this.destroyView(viewInfo);
+    }, this);
   }
 });
 

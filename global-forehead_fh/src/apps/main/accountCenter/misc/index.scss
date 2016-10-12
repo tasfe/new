@@ -32,17 +32,12 @@
 .as-loginLog {
   //padding: 16px 16px 0 19px;
   .login-table table {
-    border-left: 0;
-    border-right: 0;
+    //border-left: 0;
+    //border-right: 0;
     thead {
       color: $font-color-coffee;
     }
   }
-}
-
-.as-alert-bar {
-  color: $light-dark-color-2;
-  padding: 13px;
 }
 
 .as-step-container {
@@ -246,7 +241,7 @@
 
 .login-table{
   margin:0px 10px;
-  border: 1px solid #ccc;
+ // border: 1px solid #ccc;
 }
 
 .ac-setemail-content{

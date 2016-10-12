@@ -22,7 +22,8 @@ var OpenAccountManagePriceView = require('agencyCenter/openAccount/price');
 
 var TeamDynamicView = require('agencyCenter/views/teamDynamic');
 var ReportManageView = require('agencyCenter/reportManage');
-//var ProfitAndLossView = require('agencyCenter/profitAndLoss');
+
+var ProfitAndLossView = require('agencyCenter/profitAndLoss');
 
 var DividendMangeView = require('./dividendManage');
 var RedPacketView = require('./redPacket');
@@ -36,20 +37,16 @@ var WithdrawRecordsView = require('userCenter/withdrawRecords');
 
 var RushRewardView = require('./rushReward');
 
-var LowLevelUserManageView =  require('agencyCenter/views/index');
+var SalaryView = require('agencyCenter/salaryManage');
 
-var SalaryView = require('agencyCenter/views/salaryManage');
 
-var BettingRecordView = require('agencyCenter/bettingRecords');
+var TeamGamesView = require('agencyCenter/teamGames');
 var MoneyDetailsView = require('agencyCenter/moneyChange');
 
 var AgencyCenterController = RouterController.extend({
 
   lowLevelManage: function() {
     this.changeMainReginView(new LowLevelManageView(), {
-      main: {
-        // title: '下级管理'
-      },
       sidebar: 'ac',
       topView: 'team'
     });
@@ -58,17 +55,18 @@ var AgencyCenterController = RouterController.extend({
   accountDetails2: function() {
     this.changeMainReginView(new MoneyDetailsView(), {
       main: {
-        title: '账户明细'
+      	
+//      title: '账户明细'
       },
       sidebar: 'ac',
       topView: 'team'
     });
   },
 
-  bettingRecords2: function() {
-    this.changeMainReginView(new BettingRecordView(), {
+  teamGames: function() {
+    this.changeMainReginView(new TeamGamesView(), {
       main: {
-        title: '投注记录'
+        // title: '团队游戏'
       },
       sidebar: 'ac',
       topView: 'team'
@@ -77,14 +75,9 @@ var AgencyCenterController = RouterController.extend({
 
   salaryManage: function () {
     this.changeMainReginView(new SalaryView(), {
-      main: {
-        title: '日工资管理'
-      },
       sidebar: 'ac',
       topView: 'team'
     });
-
-    $('#main > .clearfix').addClass('ac-block');
   },
 
   rebateManage: function(userId){
@@ -181,14 +174,14 @@ var AgencyCenterController = RouterController.extend({
       main: {
         title: '报表查询'
       },
-      sidebar: Global.ui.menu.get(['ac'])
+      sidebar: 'ac'
     });
   },
 
   teamDynamic: function() {
     this.changeMainReginView(new TeamDynamicView(), {
       main: {
-        title: '团队动态'
+        // title: '团队动态'
       },
       sidebar: 'ac',
       topView: 'team'
@@ -265,9 +258,9 @@ var AgencyCenterController = RouterController.extend({
 
   dividendManage: function() {
     this.changeMainReginView(new DividendMangeView(), {
-      main: {
-        title: '分红管理'
-      },
+      // main: {
+      //   title: '分红管理'
+      // },
       sidebar: 'ac',
       topView: 'team'
     });
@@ -278,7 +271,7 @@ var AgencyCenterController = RouterController.extend({
       main: {
         title: '红包查询'
       },
-      sidebar: Global.ui.menu.get(['ac', 'uc', 'aa'])
+      sidebar: 'ac'
     });
   },
   commissionStatistics: function() {
@@ -289,7 +282,6 @@ var AgencyCenterController = RouterController.extend({
       sidebar: 'ac',
       topView: 'team'
     });
-    $('#main > .clearfix').addClass('ac-block');
   },
   rechargeRecords4Report: function(tabName) {
     var startTime = _.getUrlParam('startTime');
@@ -330,7 +322,14 @@ var AgencyCenterController = RouterController.extend({
 
   rushReward: function() {
     this.changeMainReginView(new RushRewardView(), {
-      sidebar: Global.ui.menu.get(['ac', 'uc', 'aa'])
+      sidebar: 'ac'
+    });
+  },
+
+  teamProfitAndLoss: function(){
+    this.changeMainReginView(new ProfitAndLossView(), {
+      sidebar: 'ac',
+      topView: 'team'
     });
   }
 });

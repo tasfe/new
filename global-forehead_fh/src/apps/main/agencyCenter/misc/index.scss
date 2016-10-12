@@ -116,21 +116,6 @@
   display: inline-block;
 }
 
-//teamDynamic
-.ac-chart {
-  height: 260px;
-}
-
-.table {
-  tbody tr {
-    &:hover {
-      .ac-expend-btn {
-        opacity: 1;
-      }
-    }
-  }
-}
-
 .ac-expend-btn {
   float: right;
   position: absolute;
@@ -183,89 +168,6 @@
 
 .ac-oam-au-link {
   color: $main-color;
-}
-
-.ac-teamDynamic-view {
-  .ac-ta-nav-manual-tabs {
-    margin: 0 ;
-    padding: 0 0 0 15px;
-    font-size: 15px;
-  }
-  .ac-tm-data-label{
-    font-size: 14px;
-    color:#666666;
-    padding: 15px 10px 0 0px;
-  }
-  .ac-btnGroup {
-
-    font-size: 14px;
-    vertical-align: top;
-    .btn {
-      font-size: 14px;
-      border: 1px solid #ccc ;
-      padding: 3px 5px;
-      margin: 10px 9px;
-      height: 34px;
-      border-radius: 3px;
-      margin-right: 5px;
-    }
-  }
-  form {
-    margin: 0px 0 0 0px;
-  }
-  ul {
-    margin: 12px 12px 0 12px;
-  }
-
-  .ac-td-tab-lab {
-    padding: 0 2px;
-  }
-  .ac-td-oa-title {
-    background: url(openAccountOrder.png) no-repeat;
-    margin-left: 5px;
-    padding-left: 25px;
-    height: 21px;
-
-  }
-  .ac-td-uu-title {
-    background: url(unActiveUserOrder.png) no-repeat;
-    margin-top: -5px;
-    padding-left: 31px;
-    height: 26px;
-  }
-
-  .ac-tm-oa-order1 {
-    background-image: url(no1.png);
-    margin-left: 30px;
-    width: 18px;
-    height: 21px;
-    position: absolute;
-    left: 0;
-  }
-  .ac-tm-oa-order2 {
-    background-image: url(no2.png);
-    margin-left: 30px;
-    width: 18px;
-    height: 21px;
-    position: absolute;
-    left: 0;
-  }
-  .ac-tm-oa-order3 {
-    background-image: url(no3.png);
-    margin-left: 30px;
-    width: 18px;
-    height: 21px;
-    position: absolute;
-    left: 0;
-  }
-  //teamDynamic
-  .ac-chart {
-    height: 230px;
-    margin: 5px 10px 10px 10px;
-  }
-  .ac-grid-title-div {
-    margin: 0 20px;
-  }
 }
 
 .ac-loginDate {
@@ -329,79 +231,6 @@
     bottom: 20px;
     left: 30px;
     font-weight: initial;
-  }
-
-  dl,dt,dd{
-    padding: 0px;
-    margin: 0px;
-  }
-
-  dl{
-    float: left;
-    margin-right: 10px; 
-  }
-
-  .search-condition-table{
-    .row1{
-      padding: 13px 12px 0px 12px;
-
-      input{
-        border-radius: 3px;
-        background-color: #fff;
-      }
-
-      select{
-        background-color: #fff;
-      }
-
-      .userManage{
-        width: 81px;
-        height: 24px;
-        line-height: 24px;
-        color: #fff;
-        display: inline-block;
-        float: right;
-        background-image:-webkit-linear-gradient(180deg, #ec1b42, #be3259);
-        background-image:linear-gradient(180deg,#ec1b42,#be3259);
-        cursor: pointer;
-        text-align: center;
-        border-radius: 3px;
-
-        &:hover{
-          background-image:-webkit-linear-gradient(180deg, #be3259, #ec1b42);
-          background-image:linear-gradient(180deg,#be3259,#ec1b42);
-        }
-      }
-
-      &:after{
-        clear: both;
-        content: '';
-        display: block;
-      }
-    }
-
-    .row2{
-      border-top: 1px solid #f2d8e1;
-      text-align: center;
-      clear: both;
-      margin: 0px 12px;
-      position: relative;
-    }
-
-    dt,dd{
-      display: inline-block;
-    }
-    dt{
-      margin-right: 5px;
-    }
-
-    select{
-      width: 86px;
-    }
-
-    input{
-      width: 86px;
-    }
   }
 
   dl.width150{
@@ -477,128 +306,73 @@
     }
   }
 }
-
-.julienTeamTitle{
-  margin: 10px 20px;
-  font-family: '微软雅黑';
-
-  div{
+// teamDynamic
+.ac-td-statistic {
+  .ac-td-statistic-item {
     padding-top: 8px;
     width: 179px;
     float: left;
     height: 69px;
     line-height: 30px;
-    text-align: center;
-    font-size: 14px;
-    color: #666;
+    color: $color-amber;
     border: 1px solid #cccccc;
     border-radius: 3px;
     margin-right: 14px;
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.05);
 
-    &.noborder{
-      margin-right: 0px;
-    }
-
     span{
       display: block;
-      color: #333;
+      color: $font-color;
       font-size: 16px;
-      margin-top: -3px;
-    }
-  }
-
-  b{
-    margin-top: 15px;
-    display: block;
-    width: 21px;
-    height: 37px;
-    background: url(~base/images/julien/24.png) no-repeat;
-    float: left;
-
-    &:last-child{
-      background-position: right;
-      float: right;
-    }
-  }
-
-  &:after{
-    content: '';
-    clear: both;
-    display: block;
-  }
-}
-
-.js-ac-search-bar{
-  .julien-select{
-    border-bottom: 1px solid #f0d9e1;
-    margin:5px 10px 0 10px;
-    padding-bottom: 10px;
-
-    .btn{
-      height: 26px;
-      border: 1px solid #cccccc;
-      border-left: 0px;
-      padding: 0px;
-      margin: 0px;
-      margin-right: 3px;
-      float:left;
-      background: #fff;
-      margin-top: 13px;
-      padding: 0px 10px;
-      font-size: 12px;
-      border-left: 1px solid #cccccc;
-
-      &.active{
-        border: 1px solid #cc6699;
-        background-color: #cc6699;
-        color: #fff;
-      }
-
-      &:hover{
-        border: 1px solid #cc6699;
-        color: #cc6699;
-      }
     }
 
-    .active{
-      &:hover{
-        color: #fff;
+    &.red-bg {
+      background: #cc3432;
+      color: #ffffff;
+      span {
+        color: #ffffff;
       }
     }
   }
 }
+.ac-td-tab-select{
+  border-bottom: 1px solid #e6e6e6;
+  padding: 10px;
 
-.ac-grid-title-div{
-  > div >div > table{
-    tr{
-      height: 38px;
-      background-color: #f2f2f2;
-      line-height: 38px;
-      color: #999999;
-      font-family: '\5FAE\8F6F\96C5\9ED1';
-      font-size: 14px;
+  .btn{
+    height: 26px;
+    border: 1px solid #cccccc;
+    margin-right: 3px;
+    float:left;
+    background: #fff;
+    font-size: 12px;
 
-      th{
-        vertical-align: middle;
-        background: none;
-        font-weight: normal;
-      }
+    &.active{
+      border: 1px solid #cc6699;
+      background-color: #cc6699;
+      color: #fff;
     }
-  }
 
-  div div div table{
-    td{
-      padding: 8px 3px;
+    &:hover{
+      border: 1px solid #cc6699;
+      color: #cc6699;
+      background-color: #ffffff;
     }
   }
 }
-
-.ac-cs-view{
-  .julien-search-condition-table{
-    margin-left: 20px;
-  }
+.ac-td-tab-content{
+  border: 1px solid #cccccc;
+  background-image:-webkit-linear-gradient(180deg, #ffffff, #f7f7f7);
+  background-image:linear-gradient(180deg,#ffffff,#f7f7f7);
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 10px;
 }
+.ac-chart {
+  height: 260px;
+}
+
+
 
 .julien-ac-salary-my{
   position: relative;
@@ -617,181 +391,6 @@
     top: -45px;
     cursor: pointer;
   }
-}
-
-.julien-childBlock{
-  border: 1px solid #cccccc;
-  background-color: #ffffff;
-  background-image:-webkit-linear-gradient(180deg, #ffffff, #f7f7f7);
-  background-image:linear-gradient(180deg,#ffffff,#f7f7f7);
-  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
-  margin:0px 20px;
-  border-radius: 5px;
-}
-
-.search-condition-table-julien{
-  border: 1px solid #cccccc;
-  border-radius: 3px;
-  height: 115px;
-  background-image:-webkit-linear-gradient(180deg, #ffffff, #f7f7f7);
-  background-image:linear-gradient(180deg,#ffffff,#f7f7f7);
-  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
-  padding-top: 13px;
-  
-  .row1{
-    padding: 0px 12px 0px 12px;
-    dt{
-      font-size: 12px;
-    }
-
-    input{
-      border-radius: 3px;
-      background-color: #fff;
-    }
-
-    select{
-      background-color: #fff;
-    }
-
-    dd{
-      >button{
-        border: 1px solid #cccccc;
-        border-radius: 3px;
-        color: #666;
-        width: auto;
-        padding: 1px 8px;
-        border-radius: 3px;
-        font-size: 12px;
-        background-color: #ffffff;
-        outline: 0 none;
-
-        &:hover{
-          color: #fff;
-          border: 1px solid #ce6399;
-          background-color: #ce6399;
-        }
-
-      }
-    }
-
-    &:after{
-      clear: both;
-      content: '';
-      display: block;
-    }
-  }
-
-  .row3{
-    border-top: 1px solid #f2d8e1;
-    text-align: center;
-    clear: both;
-    margin: 0px 12px;
-    position: relative;
-
-    button{
-      margin: 0px;
-      width: 69px;
-      height: 26px;
-      padding-left: 10px;
-
-      background-color: #ce6399;
-      color: #fff;
-      font-family: '微软雅黑';
-      font-size: 12px;
-      border: 0px;
-      position: absolute;
-      background-image:linear-gradient(180deg,#ce6399,#b54d7e);
-      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-      border: 1px solid #c25481;
-      border-radius: 3px;
-      top: 18px;
-
-      i{
-        font-size: 11px;
-        position: absolute;
-        top: 8px;
-        left: 14px;
-      }
-
-      &:hover{
-        background-image:-webkit-linear-gradient(180deg, #b54d7e, #ce6399);
-        background-image:linear-gradient(180deg,#b54d7e,#ce6399);
-      }
-    }
-  }
-
-  dt,dd{
-    display: inline-block;
-  }
-  dt{
-    margin-right: 5px;
-    font-weight: normal;
-    font-size: 14px;
-    color: #999999;
-    font-family: '微软雅黑';
-  }
-
-  select{
-    width: 86px;
-    padding: 0px 5px;
-    height: 24px;
-    font-size: 12px;
-    border-radius: 3px;
-  }
-
-  input{
-    width: 86px;
-    height: 22px;
-    padding: 0px 5px;
-  }
-}
-
-.row1only{
-  height: 80px;
-  position: relative;
-}
-dl.width128{
-  width: 128px;
-}
-
-dl.width140{
-  width: 140px;
-}
-
-dl.width150{
-  width: 150px;
-}
-
-dl.width155{
-  width: 155px;
-}
-
-dl.width165{
-  width: 165px;
-}
-
-dl.width185{
-  width: 185px;
-}
-
-dl.width255{
-  width: 255px;
-}
-
-dl.width285{
-  width: 285px;
-}
-
-dl.width315{
-  width: 315px;
-}
-
-dl.width442{
-  width: 442px;
-}
-
-dl.width487{
-  width: 487px;
 }
 
 .add-salary-user{

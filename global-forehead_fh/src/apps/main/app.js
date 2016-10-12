@@ -3,7 +3,7 @@
 var HeaderView = require('skeleton/bases/header');
 var NavbarView = require('skeleton/bases/navbar');
 var RechargeView = require('fundCenter/views/recharge');
-// var DesktopNewsView = require('skeleton/bases/desktopNews');
+var DesktopNewsView = require('skeleton/bases/desktopNews');
 // var InsideLetterView = require('skeleton/bases/insideLetter');
 var EntryView = require('skeleton/bases/entry');
 var FooterView = require('com/footer');
@@ -32,7 +32,7 @@ App.addRegions({
   topRegin: '#topProfile',
   // newbieRegin: '#newbie',
   //insideLetterRegion: '#insideLetter',
-  // desktopNewsRegion: '#desktopNews',
+  desktopNewsRegion: '#desktopNews',
   footerRegin: '#footer'
 });
 
@@ -50,7 +50,7 @@ App.addInitializer(function(options) {
     model: entryModel
   }));
 
-  // App.desktopNewsRegion.show(new DesktopNewsView());
+  App.desktopNewsRegion.show(new DesktopNewsView());
 
   // $('body').append(new RainActivity().render().$el);
 
@@ -150,57 +150,60 @@ function _bindRechargeHandler() {
       Global.ui.notification.show('用户已被冻结，无法进行充值操作。');
       return false;
     }
-    getInfoXhr()
-        .always(function() {
-          //self.loadingFinish();
-        })
-        .done(function(res) {
-          var data = res && res.root || {};
-          if (res && res.result === 0) {
-            if (data.hasMoneyPwd && data.hasBankCard) {
-              //设置了则弹出验证框
-              var rechargeView = new RechargeView({parentView: self});
 
-              var $dialogRe = Global.ui.dialog.show({
-                id: _.now(),
-                title: '充值',
-                size: ' ',
-                modalClass: 'fc-re-modal',
-                bodyClass: 'js-fc-re-modal',
-                body: '<div class="js-fc-re-container"></div>'
-              });
+    //设置了则弹出验证框
+    var rechargeView = new RechargeView({parentView: self});
 
-              $dialogRe.find('.js-fc-re-container').html(rechargeView.render().el);
+    var $dialogRe = Global.ui.dialog.show({
+      id: _.now(),
+      title: '充值',
+      size: ' ',
+      modalClass: 'fc-re-modal',
+      bodyClass: 'js-fc-re-modal',
+      body: '<div class="js-fc-re-container"></div>'
+    });
 
-              $dialogRe.on('hidden.modal', function (e) {
-                $(this).remove();
-                //self.destroy();
-              });
-            } else if (!data.hasMoneyPwd || !data.hasBankCard) {
-              if(!data.hasMoneyPwd){
-                //未设置则弹出链接到资金密码设置页面的提示框
-                $(document).securityTip({
-                  content: '您未设置资金密码，无法进行充值操作',
-                  showMoneyPwd: true,
-                  hasMoneyPwd: false,
-                  showBankCard: false,
-                  hasBankCard: false
-                });
-              }else if (!data.hasBankCard){
-                //未设置则弹出链接到资金密码设置页面的提示框
-                $(document).securityTip({
-                  content: '您未绑定银行卡，无法进行充值操作',
-                  showMoneyPwd: false,
-                  hasMoneyPwd: true,
-                  showBankCard: true,
-                  hasBankCard: false
-                });
-              }
-            }
-          } else {
-            Global.ui.notification.show('服务器异常');
-          }
-        });
+    $dialogRe.find('.js-fc-re-container').html(rechargeView.render().el);
+
+    $dialogRe.on('hidden.modal', function (e) {
+      $(this).remove();
+      //self.destroy();
+    });
+
+    // getInfoXhr()
+    //     .always(function() {
+    //       //self.loadingFinish();
+    //     })
+    //     .done(function(res) {
+    //       var data = res && res.root || {};
+    //       if (res && res.result === 0) {
+    //         if (data.hasMoneyPwd && data.hasBankCard) {
+    //
+    //         } else if (!data.hasMoneyPwd || !data.hasBankCard) {
+    //           if(!data.hasMoneyPwd){
+    //             //未设置则弹出链接到资金密码设置页面的提示框
+    //             $(document).securityTip({
+    //               content: '您未设置资金密码，无法进行充值操作',
+    //               showMoneyPwd: true,
+    //               hasMoneyPwd: false,
+    //               showBankCard: false,
+    //               hasBankCard: false
+    //             });
+    //           }else if (!data.hasBankCard){
+    //             //未设置则弹出链接到资金密码设置页面的提示框
+    //             $(document).securityTip({
+    //               content: '您未绑定银行卡，无法进行充值操作',
+    //               showMoneyPwd: false,
+    //               hasMoneyPwd: true,
+    //               showBankCard: true,
+    //               hasBankCard: false
+    //             });
+    //           }
+    //         }
+    //       } else {
+    //         Global.ui.notification.show('服务器异常');
+    //       }
+    //     });
   });
 }
 

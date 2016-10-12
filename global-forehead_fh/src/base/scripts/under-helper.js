@@ -292,6 +292,16 @@ _.mixin({
     }
   },
 
+  getRouter: function(hash) {
+    var match = (hash || window.location.hash).match(/#?(.*).*/);
+
+    if (!match) {
+      return '';
+    } else {
+      return match[1] || hash;
+    }
+  },
+
   //config文件用方法
   getConfig: function(config, index) {
     if (_(index).isUndefined()) {

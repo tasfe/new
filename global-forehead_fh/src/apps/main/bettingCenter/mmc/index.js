@@ -193,6 +193,8 @@ var BettingCenterView = Base.ItemView.extend({
     this.$WinStop = this.$('.js-bc-mmc-win-stop');
     this.$LotteryTimeShow = this.$('.js-bc-mmc-lottery-time-show');
 
+    this.$CurrPrize = this.$('.js-bc-mmc-lottery-curr-prize-show');
+
 
 
     this.initNumRange();
@@ -837,7 +839,7 @@ var BettingCenterView = Base.ItemView.extend({
     this.LeftTimes--;
     this.BetinfoList.push({status:'0'});
     this.BetRes = undefined;
-    /*this.showWinResult(false);*/
+    this.showWinResult(false);
     this.showLotteryTime(true,this.BetTimes-this.LeftTimes);
     if(!this.BeenDistoryed){
       //1.开始动画
@@ -930,7 +932,7 @@ var BettingCenterView = Base.ItemView.extend({
 
       })
       .done(function(res) {
-        console.log('请求已返回：'+self.isReturn+ '--'+ self.isBegin);
+        // console.log('请求已返回：'+self.isReturn+ '--'+ self.isBegin);
         if( !self.isReturn &&  self.isBegin && !self.BeenDistoryed ){
           self.isReturn = true;
 
@@ -1151,10 +1153,10 @@ var BettingCenterView = Base.ItemView.extend({
       },1000*delay);
       self.TimeOutArr.push(GoOnLottery);
     }else{
-      var delayLast = 0;
-      if(this.BetRes.winPrize>0){
-        delayLast = delay2;
-      }
+      var delayLast = 1;
+      // if(this.BetRes.winPrize>0){
+      //   delayLast = delay1;
+      // }
         setTimeout(function(){
           self.showTotalResult();
         },1000*delayLast);
@@ -1176,6 +1178,7 @@ var BettingCenterView = Base.ItemView.extend({
       this.renderlotteryTotalResultPreview();
     }
     this.showLotteryTime(false);
+    this.showWinResult(false);
   },
 
   showCurrIsBetting: function(){
@@ -1370,36 +1373,29 @@ var BettingCenterView = Base.ItemView.extend({
   showWinResult: function(flag,prize,num){
     var $dialog;
     if(flag){
-      this.$CurrentResultMask.addClass('hidden');
-      this.$CurrentResult.removeClass('hidden');
-      $dialog = Global.ui.dialog.show({
-        body: this.betResultWinTpl({
-          prize:_(prize).convert2yuan(),
-          injection: num
-        }),
-        modalClass: 'bc-mmc-win-model'
-      });
-      $dialog.on('hidden.modal', function () {
-        $dialog.remove();
-      });
-      var timeout = setTimeout(function () {
-        $dialog.modal('hide');
-      }, 3000);
+      // this.$CurrentResultMask.addClass('hidden');
+      // this.$CurrentResult.removeClass('hidden');
+      // $dialog = Global.ui.dialog.show({
+      //   body: this.betResultWinTpl({
+      //     prize:_(prize).convert2yuan(),
+      //     injection: num
+      //   }),
+      //   modalClass: 'bc-mmc-win-model'
+      // });
+      // $dialog.on('hidden.modal', function () {
+      //   $dialog.remove();
+      // });
+      // var timeout = setTimeout(function () {
+      //   $dialog.modal('hide');
+      // }, 3000);
 
+      //显示中奖div,显示金额
+      this.$CurrPrize.removeClass('hidden');
+      this.$CurrPrize.html('恭喜您，中奖金额为'+prize+'元');
     }else {
-      //this.$CurrentResult.addClass('hidden');
-      //this.$CurrentResult.html('<span></span>');
-      //$dialog = Global.ui.dialog.show({
-      //  body: this.betResultLoseTpl({
-      //  }),
-      //  modalClass: 'bc-mmc-lose-model'
-      //});
-      //$dialog.on('hidden.modal', function () {
-      //  $dialog.remove();
-      //});
-      //var timeout = setTimeout(function () {
-      //  $dialog.modal('hide');
-      //}, 3000);
+      //隐藏中奖div，清空金额
+      this.$CurrPrize.addClass('hidden');
+      this.$CurrPrize.html('');
 
     }
   },
@@ -1417,9 +1413,9 @@ var BettingCenterView = Base.ItemView.extend({
         $dialog.on('hidden.modal', function () {
           $dialog.remove();
         });
-        // var timeout = setTimeout(function () {
-        //   $dialog.modal('hide');
-        // }, 3000);
+        var timeout = setTimeout(function () {
+          $dialog.modal('hide');
+        }, 3000);
       } else {
         var $dialog = Global.ui.dialog.show({
           body: this.betResultLoseTpl({}),
@@ -1428,9 +1424,9 @@ var BettingCenterView = Base.ItemView.extend({
         $dialog.on('hidden.modal', function () {
           $dialog.remove();
         });
-        // var timeout = setTimeout(function () {
-        //   $dialog.modal('hide');
-        // }, 3000);
+        var timeout = setTimeout(function () {
+          $dialog.modal('hide');
+        }, 3000);
       }
 
   },

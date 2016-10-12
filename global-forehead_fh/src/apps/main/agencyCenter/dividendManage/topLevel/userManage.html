@@ -1,16 +1,21 @@
-<div class="search-condition-table">
-	<div class="row1">
-		<dl class="width160">
-	      <dt>用户名</dt>
-	      <dd><input type="text" name="username"></dd>
-	    </dl>
-	    <div>
-	      <button type="submit">搜索</button>
-	    </div>
-	</div>
+<div class="portlet-header-block">
+  <div class="search-condition-table">
+    <div class="control-group">
+      <label class="control-label ">用户名：</label>
+      <input type="text" name="username" class="input-date-sm username">
+      <label class="control-label ">签约状态：</label>
+      <select name="status" class="status">
+        <option value="-1" selected>全部</option>
+        <option value="0">待确认</option>
+        <option value="1">已签约</option>
+        <option value="2">未签约</option>
+      </select>
+    </div>
+  </div>
 </div>
-<div class="tips">
-	温馨提示：您还剩余可签约名额 <span class="js-ac-leftQuota text-pleasant"></span> 个，
-    已签约用户：<span class="js-ac-usedQuota text-pleasant"></span> 个
+<div class="portlet-header-btnGroup">
+  <button type="submit" class="js-search  btn btn-pink btn-linear" data-loading-text="搜索">
+    <i class="fa fa-search"></i>
+    搜索
+  </button>
 </div>
-<div class="js-ac-user-grid"></div>

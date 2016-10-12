@@ -62,8 +62,8 @@ var menuConfig = [
         router: 'ac',
         name: '团队中心',
         first: 'ac/llm',
-        titleClass: 'bg-sunshine',
-        backStyle: 'text-sunshine',
+        // titleClass: 'bg-sunshine',
+        // backStyle: 'text-sunshine',
         iconType: 'sfa',
         icon: 'agency',
         sub: [
@@ -81,7 +81,8 @@ var menuConfig = [
             {
                 id: 132,
                 router: 'ac/oam',
-                name: '开户管理'
+                name: '开户管理',
+                notShow: true
             },
             {
                 id: 133,
@@ -93,6 +94,11 @@ var menuConfig = [
                 router: 'ac/ad',
                 name: '团队账变'
             },
+            {
+                id: 135,
+                router: 'ac/tpl/lottery',
+                name: '团队盈亏'
+            },
 
             //    {
             //       id: 133,
@@ -100,9 +106,10 @@ var menuConfig = [
             //      name: '佣金管理'
             //    },
             {
-                id: 135,
+                id: 136,
                 router: 'ac/salary',
-                name: '日工资管理'
+                name: '日工资管理',
+                needAuth: true
             },
             // {
             //    id: 134,
@@ -110,7 +117,7 @@ var menuConfig = [
             //      name: '报表查询'
             //  },
             {
-                id: 136,
+                id: 137,
                 router: 'ac/dm',
                 name: '分红管理',
                 needAuth: true
@@ -121,7 +128,7 @@ var menuConfig = [
             //  name: '盈亏报表'
             //},
             {
-                id: 137,
+                id: 138,
                 router: 'ac/rr',
                 name: '冲级奖励',
                 needAuth: true
@@ -138,8 +145,8 @@ var menuConfig = [
         router: 'bb',
         name: '投注管家',
         first: 'bb/sp',
-        titleClass: 'bg-sunshine',
-        backStyle: 'text-sunshine',
+        // titleClass: 'bg-sunshine',
+        // backStyle: 'text-sunshine',
         iconType: 'sfa',
         icon: 'agency',
         sub: [
@@ -164,8 +171,8 @@ var menuConfig = [
         router: 'nc',
         name: '消息中心',
         first: 'nc/pn',
-        titleClass: 'bg-sunshine',
-        backStyle: 'text-sunshine',
+        // titleClass: 'bg-sunshine',
+        // backStyle: 'text-sunshine',
         iconType: 'sfa',
         icon: 'nes',
         sub: [
@@ -208,8 +215,8 @@ var menuConfig = [
     {
         router: 'as',
         name: '账户安全',
-        titleClass: 'bg-sunshine',
-        backStyle: 'text-sunshine',
+        // titleClass: 'bg-sunshine',
+        // backStyle: 'text-sunshine',
         //iconType: 'sfa',
         first: 'as/pl',
         //icon: 'safe',
@@ -248,8 +255,8 @@ var menuConfig = [
         router: 'at',
         name: '活动中心',
         first: 'at/tb',
-        titleClass: 'bg-sunshine',
-        backStyle: 'text-sunshine',
+        // titleClass: 'bg-sunshine',
+        // backStyle: 'text-sunshine',
         iconType: 'sfa',
         icon: 'activity',
         sub: [
@@ -289,15 +296,15 @@ var menuConfig = [
     {
         router: 'pc',
         name: '个人中心',
-        titleClass: 'bg-sunshine',
-        backStyle: 'text-sunshine',
+        // titleClass: 'bg-sunshine',
+        // backStyle: 'text-sunshine',
         iconType: 'sfa',
         //notShow: true,
         sub: [
             {
                 id: 200,
                 router: 'uc/pm',
-                name: '个人资料'
+                name: '账户安全'
             },
             // {
             //     id: 204,
@@ -321,12 +328,12 @@ var menuConfig = [
             },
             {
                 id: 209,
-                router: 'uc/rp',
+                router: 'uc/pal',
                 name: '盈亏报表'
             },
             {
                 id: 210,
-                router: 'uc/ad',
+                router: 'uc/md',
                 name: '帐变明细'
             },
             {
@@ -354,8 +361,8 @@ var menuConfig = [
     {
         router: 'vip',
         name: 'VIP中心',
-        titleClass: 'bg-sunshine',
-        backStyle: 'text-sunshine',
+        // titleClass: 'bg-sunshine',
+        // backStyle: 'text-sunshine',
         iconType: 'sfa',
         sub: [
             {

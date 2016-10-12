@@ -5,8 +5,9 @@ require('./index.scss');
 var TopProfileView = Base.ItemView.extend({
   template: require('./index.html'),
 
-  events: {
-  },
+  events: {},
+
+  timer: null,
 
   getTeamInfoXhr: function() {
     var timestamp = Date.parse(new Date());
@@ -28,6 +29,15 @@ var TopProfileView = Base.ItemView.extend({
     this.$todayOnlineTotal = this.$('.js-team-today-online-total');
     this.$todayBonusTotal = this.$('.js-team-today-bonus-total');
 
+    this.renderData();
+
+    this.timer = setInterval(function() {
+      self.renderData();
+    }, 60000);
+  },
+
+  renderData: function() {
+    var self = this;
     this.getTeamInfoXhr()
       .done(function (res) {
         var data = res && res.root || {};
@@ -38,6 +48,11 @@ var TopProfileView = Base.ItemView.extend({
           self.$todayBonusTotal.text( data.todayBonusTotal);
         }
       });
+  },
+
+  destroy: function() {
+    Base.ItemView.prototype.destroy.apply(this, arguments);
+    clearInterval(this.timer);
   }
 });
 

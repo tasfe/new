@@ -8,6 +8,7 @@
   width:1112px;
   margin: -135px 44px 0;
   //height:1053px;
+  min-height:803px;
 
   .bc-mmc-bg-area{
     position: fixed;
@@ -20,6 +21,7 @@
     background-image: url(mmc-bg.png);
     background-repeat: no-repeat;
     background-position: center 0px;
+
   }
 
   .bc-head-area{
@@ -31,6 +33,14 @@
     height:255px;
     width: 1215px;
     margin-left: -103px;
+    .mmc-header-light{
+      background: url(mmc-header-light.gif) no-repeat;
+      width: 961px;
+      height: 35px;
+      position: absolute;
+      left: 73px;
+      top: 56px;
+    }
   }
 
   .mmc-main{
@@ -250,6 +260,8 @@
         a{
           background:  linear-gradient(to bottom,#bf6f25,#812521);
           border-bottom: 1px solid #812521;
+          border: 0 !important;
+          color: #fff;
         }
 
         .bc-first-prize{
@@ -313,7 +325,7 @@
   }
 
   .bc-play-brief {
-    padding-left: 25px;
+    padding-left: 12px;
     margin-top:10px;
     color: #4e4e4e;
     .bc-play-example{
@@ -346,6 +358,7 @@
       border-top: 1px solid #404040;
       border-bottom: 1px solid #222;
       padding: 16px;
+      padding-left: 20px;
       position: relative;
 
       .bc-playArea-items {
@@ -353,6 +366,7 @@
         .tab-toolbar.tab-circle{
           width: 818px ;
           .tab-title{
+            text-align: left;
             div{
               background: transparent;
             }
@@ -415,9 +429,9 @@
               background-color: transparent;
               color: #909090;
               &:hover{
-                border: 1px solid #cc3333 !important;
-                color: #fff;
-                background-color: #cc3333 !important;
+                border: 1px solid #565656 !important;
+                //color: #fff;
+                background-color: transparent !important;
               }
             }
           }
@@ -482,6 +496,7 @@
     color: #333333;
     font-size: 14px;
     padding: 0 26px;
+    
     .bc-result-container {
       background-color: #313131;
       width: 1060px;
@@ -522,15 +537,16 @@
         color: #909090;
         border: 1px solid #606060;
         background-color: transparent;
+        margin-top: 0;
         &.active{
           border: 1px solid #cc3333 !important;
           color: #fff;
           background-color: #cc3333 !important;
         }
         &:hover{
-          border: 1px solid #cc3333 !important;
-          color: #fff;
-          background-color: #cc3333 !important;
+          border: 1px solid #999 !important;
+          //color: #fff;
+          background-color: transparent !important;
         }
       }
     }
@@ -632,6 +648,19 @@
         color: #fff;
       }
     }
+    .bc-mmc-lottery-curr-prize-show{
+      background: url(mmc-curr-prize-bg.png) no-repeat;
+      width: 330px;
+      height: 45px;
+      position: absolute;
+      top: -20px;
+      left: 392px;
+      line-height: 40px;
+      font-size: 20px;
+      font-weight: 500;
+      text-align: center;
+    }
+
     .bc-lottery-preview {
       position: relative;
       background-color: #666666;
@@ -857,7 +886,8 @@
         bottom: 55px;
         left: 440px;
         background: url(mmc-btn.png) no-repeat;
-        height: 54px;
+        height: 51px;
+        line-height: 41px;
         border-radius: 27px;
         border: 0;
         color: #ffffff;
@@ -878,6 +908,9 @@
   text-align: center;
   .modal-dialog{
     border: 0;
+    .modal-content{
+      background-color: transparent !important;
+    }
   }
   .modal-body {
     background-color: transparent;
@@ -930,6 +963,9 @@
   }
   .modal-dialog{
     border: 0;
+    .modal-content{
+      background-color: transparent !important;
+    }
   }
   .modal-body {
     background-color: transparent;
@@ -1007,6 +1043,9 @@
   }
   .modal-dialog{
     border: 0;
+    .modal-content{
+      background-color: transparent !important;
+    }
   }
   .modal-body {
     background-color: transparent;

@@ -6,14 +6,16 @@ var grantConfig = require('./../grantConfig');
 
 var DividendDetailView = require('./../dividendDetail');
 
+var SignedView = require('../signed');
+
 var LowLevelView = SearchGrid.extend({
 
   template: require('./lowLevel.html'),
 
   events: {
-    'click .js-ac-grant': 'grantHandler',
-    'click .js-ac-multi-grant': 'multiGrantHandler',
-    'click .js-ac-detail': 'detailHandler'
+    'click .js-ac-dm-ll-grant': 'grantHandler',
+    'click .js-ac-dm-ll-multi-grant': 'multiGrantHandler',
+    'click .js-ac-dm-ll-detail': 'getAgentDetailHandler'
   },
 
   giveOutXhr: function(data) {
@@ -23,52 +25,67 @@ var LowLevelView = SearchGrid.extend({
     });
   },
 
+  getDividendDetailXhr: function(data) {
+    return Global.sync.ajax({
+      url: '/fund/divid/subdividdetail.json',
+      data: data
+    });
+  },
+
   initialize: function() {
     _(this.options).extend({
       columns: [
+
         {
           name: '账号',
-          width: '12%'
+          width: '11%'
         },
         {
           name: '结算周期',
-          width: '12%'
+          width: '11%'
         },
         {
-          name: '累计销量 ',
-          width: '15%'
+          name: '累计销量',
+          width: '13%'
         },
+        // {
+        //   name: '日均销量',
+        //   width: '13%'
+        // },
         {
           name: '盈亏累计',
-          width: '15%'
+          width: '13%'
         },
         {
           name: '分红比',
-          width: '6%'
+          width: '8%'
         },
-        {
-          name: '分红比',
-          width: '12%'
-        },
+        // {
+        //   name: '分红金额',
+        //   width: '13%'
+        // },
         {
           name: '状态',
-          width: '12%'
+          width: '8%'
         },
         {
           name: '操作',
-          width: '12%'
+          width: '10%'
         }
       ],
       gridOps: {
-        emptyTip: '没有发放记录'
+        emptyTip: '没有记录'
       },
       ajaxOps: {
         url: '/fund/divid/subdivid.json'
       },
       checkable: true,
       listProp: 'root.dividList',
-      tip: '<div class="julien-btn-group-top"><button class="js-ac-multi-grant">提交分红申请</button></div>',
-      height: 290
+      //tip: '<span class="m-right-sm vertical-middle"><span class="js-pf-select-all cursor-pointer">全选</span> | ' +
+      //'<span class="js-pf-inverse cursor-pointer">反选</span></span>' +
+      //'<div class="btn-group"><button class="js-ac-multi-grant btn btn-sm btn-hot">发放</button></div>',
+      headTip: '<div class="table-head-tip"><button class=" btn btn-hot btn-linear js-ac-dm-ll-multi-grant m-right-sm ">提交分红申请</button><span >温馨提示：下级分红每月1号和16号结算，只保留上一次的记录，未按时下发分红给下级平台会强制发放。</span></div>',
+      height: 310
     });
   },
 
@@ -79,15 +96,49 @@ var LowLevelView = SearchGrid.extend({
   },
 
   onRender: function() {
+
+    this.generateCycle();
     this.$('select[name=status]').append(_(grantConfig.getAll()).map(function(grant) {
       return '<option value="' + grant.id + '">' + grant.zhName + '</option>';
     }).join(''));
 
-    this.$('.js-pf-breadcrumb').before(
-      '<div class="tips22">温馨提示：下级分红每月1号和16号结算，只保留上一次的记录，未按时下发分红给下级平台会强制发放。</div>'
-    );
+    //this.$('.js-pf-breadcrumb').before(
+    //  '<div class="alert">' +
+    //  '<i class="fa fa-exclamation-circle font-md text-hot pull-left"></i>' +
+    //  '<div class="overflow-hidden">' +
+    //  '提示：下级分红每月1号和16号结算，只保留上一次的记录，未按时下发分红给下级平台会强制发放。' +
+    //  '</div>' +
+    //  '</div>'
+    //);
 
     SearchGrid.prototype.onRender.apply(this, arguments);
+  },
+
+  generateCycle: function(){
+    var $cycle = this.$('.js-ac-dm-lowLeve-cycle');
+    var options = [];
+    var now = moment();
+    var time1 = moment().set('date',1);
+    var month1 = time1.month()+1;
+    var cycle1 = time1.format('YYYY-MM-DD');
+    var time2 = moment().set('date',16);
+    var cycle2 = time2.format('YYYY-MM-DD');
+    var cycles = [];
+    if(now>=time2){
+      cycles.push('<option value="'+cycle2+'">'+month1+'月下半月'+'</option>')
+    }
+    cycles.push('<option value="'+cycle1+'">'+month1+'月上半月'+'</option>');
+    _(2).chain().range().each(function(item,index){
+      var time3 = moment().subtract(item+1,'month').set('date',1);
+      var time4 = moment().subtract(item+1,'month').set('date',16);
+      var cycle3 = time3.format('YYYY-MM-DD');
+      var month3 = time3.month()+1;
+      var cycle4 = time4.format('YYYY-MM-DD');
+      cycles.push('<option value="'+cycle4+'">'+month3+'月下半月'+'</option>');
+      cycles.push('<option value="'+cycle3+'">'+month3+'月上半月'+'</option>');
+    }).value();
+    $cycle.html(cycles.join(''));
+
   },
 
   renderGrid: function(gridData) {
@@ -101,50 +152,46 @@ var LowLevelView = SearchGrid.extend({
 
     this.grid.refreshRowData(rowsData, gridData.rowCount, {
       pageIndex: this.filterHelper.get('pageIndex'),
-      initPagination: true
+      initPagination: false
     });
 
     //加上统计行
-    var iIs = 0;
-    if (rowsData != null && rowsData != '') {
-      iIs = 1;
-    }
 
-    this.grid.addFooterRows4({
-      trClass: 'julien-table-footer',
-      columnEls: [
-        '所有页总计',
-        _(gridData.dividTotal).convert2yuan(),
-      ],
-      iIs: iIs
-    })
-    .hideLoading();
+    //this.grid.addFooterRows({
+    //  trClass: 'tr-footer',
+    //  columnEls: [
+    //    '', '',
+    //    _(gridData.dividTotal).convert2yuan(),
+    //    '', ''
+    //  ]
+    //})
+    //  .hideLoading();
+    this.grid.hideLoading();
   },
 
   formatRowData: function(rowInfo) {
     var row = [];
 
+    row.push('<button type="button" class="js-ac-dm-ll-detail btn btn-link btn-link-hot btn-sm" data-id="'+rowInfo.dividId+'"  data-name="'+rowInfo.username+'">'+rowInfo.cycle+'</button>');
     row.push(rowInfo.username);
-    row.push(rowInfo.cycle);
-    row.push( _(rowInfo.betTotal).convert2yuan() );
-    row.push( _(rowInfo.profitTotal).convert2yuan() );
-    row.push(rowInfo.divid + '%');
-    
-    row.push( _(rowInfo.dividTotal).convert2yuan({fixed: 2, clear: false}) );
+    row.push('<span class="">' + _(rowInfo.betTotal).convert2yuan({fixed: 4, clear: false})+'</span>');
+    row.push('<span class="">'+_(rowInfo.dailyBet).convert2yuan({fixed: 4, clear: false})+ '</span>');
+    var profitSpan='<span class="text-hot">' + _(rowInfo.profitTotal).convert2yuan({fixed: 4, clear: false}) + '</span>';
+    if(rowInfo.profitTotal>0){
+      profitSpan='<span class="text-green">+' + _(rowInfo.profitTotal).convert2yuan({fixed: 4, clear: false}) + '</span>';
+    }
+    row.push(profitSpan);
+    row.push('<span class="text-hot">' + _(rowInfo.divid).formatDiv(100,{fixed: 0, clear: true}) + '%</span>');
+    row.push('<span class="text-hot">' + _(rowInfo.dividTotal).convert2yuan({fixed: 4, clear: false}) + '</span>');
 
     row.push(grantConfig.getZh(rowInfo.status));
 
     var operate = [];
 
     if (rowInfo.status === grantConfig.getByName('WAIT').id) {
-      operate.push('<button class="js-ac-grant btn btn-link btn-link-pleasant">发放</button>');
+      operate.push('<button class="js-ac-dm-ll-grant btn btn-link btn-link-hot ac-dm-ll-detail-btn">发放</button>');
     }
 
-    if (rowInfo.status === grantConfig.getByName('DONE').id) {
-      operate.push('<a href="#fc/ad?tradeNo=' + rowInfo.tradeNo + '" class="btn btn-link btn-link-pleasant">查看明细</a>');
-    }
-
-    operate.push('<button class="js-ac-detail btn btn-link">明细</button>');
     row.push(operate.join(''));
 
     return row;
@@ -197,28 +244,68 @@ var LowLevelView = SearchGrid.extend({
     });
   },
 
-  detailHandler: function(e) {
+  getAgentDetailHandler: function(e){
+    var self = this;
     var $target = $(e.currentTarget);
-    var data = this.grid.getRowData($target);
+    var dividId = $target.data('id');
+    var username  = $target.data('name');
 
-    var $dialog = Global.ui.dialog.show({
-      title: data.username + '的分红明细',
-      size: 'modal-lg',
-      body: '<div class="js-ac-detail"></div>',
-      footer: ''
-    });
+    self.getDividendDetailXhr({
+        dividId: dividId,
+      })
+      .always(function() {
+      })
+      .done(function(res) {
+        if (res && res.result === 0) {
 
-    var $detail = $dialog.find('.js-ac-detail');
+          var $dialog = Global.ui.dialog.show({
+            title: '每日报表',
+            size: 'modal-lg',
+            body: '<div class="js-ac-detail"></div>',
+            footer: ''
+          });
 
-    $dialog.on('hidden.modal', function() {
-      $(this).remove();
-    });
+          $dialog.on('hidden.modal', function() {
+            $(this).remove();
+          });
 
-    var dividendDetailView = new DividendDetailView({
-      dividId: data.dividId,
-      userId: data.userId,
-      el: $detail
-    }).render();
+          var $detail = $dialog.find('.js-ac-detail');
+
+          $detail.staticGrid({
+            wrapperClass: 'm-top-md',
+            height: '310',
+            colModel: [
+              {label: '日期', name: 'cycle', merge: false, width: 100},
+              {label: '用户', name: 'username', merge: false, width: 100,formatter:function(val){
+                return val;
+              }},
+              {label: '团队销量', name: 'betTotal', merge: false, width: 100},
+              {label: '盈亏', name: 'profitTotal', width: 100},
+              {label: '操作', name: 'username', width: 100,formatter:function(val){
+                return '<a href="#ac/tpl?username=' + val + '" class="btn btn-link router ac-dm-ll-detail-btn" data-dismiss="modal">查看</a>';
+              }}
+            ],
+            row: self.formatData((res.root && res.root.dividList)||[]),
+            startOnLoading: false
+          });
+        }else{
+          Global.ui.notification.show(res.msg)
+        }
+        //self.refresh();
+      });
+  },
+  //格式化我的分红数据
+  formatData: function(list){
+    //金额负的红色，正的绿色
+    return _(list).map(function(item){
+      return {
+        cycle: item.cycle,
+        username: item.username,
+        betTotal: _(item.betTotal).convert2yuan(),
+        profitTotal: _(item.profitTotal).convert2yuan({clear: true,color0: '#3c993b',color1: '#ce010f'})
+      }
+    })
+
   }
 });
 

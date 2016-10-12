@@ -31,22 +31,19 @@ var PlatformNewsPlatformView = Base.ItemView.extend({
     _(this.options).extend({
       columns: [
         {
-          //name: '主题',
           width: '800px;'
         },
         {
-          //name: '时间',
           width: '200px;'
         }
       ],
-      height: 590,
       gridOps: {
         emptyTip: '没有消息'
       },
       tip: '<div class="custom-checkbox checkbox-small"> <input type="checkbox" id="<%=chkAllId %>" class="js-wt-select-all inbox-check"> <label for="<%=chkAllId %>"></label></div><span class="m-right-sm"><span class="js-pf-select-all cursor-pointer">全选</span> | ' +
       '<span class="js-pf-inverse cursor-pointer">反选</span></span>' +
-      '<div class="btn-group"><button class="js-nc-read btn btn-hollow">标记已读</button></div>' +
-      '<div class="btn-group"><button class="js-nc-del btn btn-hollow">删除选中</button></div>',
+      '<div class="btn-group"><button class="js-nc-read btn btn-xs text-amber full-radius">标记已读</button></div>' +
+      '<div class="btn-group"><button class="js-nc-del btn btn-xs text-amber full-radius">删除选中</button></div>',
       ajaxOps: {
         url: '/acct/usernotice/getnoticelist.json'
       }
@@ -67,7 +64,7 @@ var PlatformNewsPlatformView = Base.ItemView.extend({
     var self = this;
     $grid.grid({
       tableClass: 'table table-unbordered  no-margin nc-platform-table' ,
-      height:420,
+      height:470,
       checkable: true,
       checkableWidth: '40px',
       tip: this.options.tip,

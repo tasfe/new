@@ -34,15 +34,16 @@ var OpenAccountManageView = Base.ItemView.extend({
 
   initialize: function() {
     // this.subSubAcctXhr = this.getSubAcctXhr();
+    
   },
 
   onRender: function() {
     var self = this;
-
+	
     this.$rebate = this.$('.js-ac-manual-rebate');
     this.$limit = this.$('.js-ac-quota-container');
     this.acctInfo = Global.memoryCache.get('acctInfo');
-
+		
     this.getSubAcctXhr()
       .always(function() {
         self.loadingFinish();
@@ -71,6 +72,9 @@ var OpenAccountManageView = Base.ItemView.extend({
               minRebate: data.subRebateRange.rebateMin
             };
           }).value());
+          
+          self.$rebate.val(Global.localCache.get('ac.openAccountRebate') || '').trigger('blur');
+          
           if(self.acctInfo.userGroupLevel==2){
             self._parentView.renderSuperLimit(self.$limit, res.root.quotaList);
           }else {
@@ -84,7 +88,7 @@ var OpenAccountManageView = Base.ItemView.extend({
     var self = this;
 
     this.$('.js-ac-rebate-set-container').staticGrid({
-      tableClass: 'table table-bordered text-amber table-center',
+      tableClass: 'table table-bordered table-center',
       colModel: [
         {
           label: '游戏', name: 'sericeName', width: '30%', formatter: function(val) {
@@ -123,13 +127,15 @@ var OpenAccountManageView = Base.ItemView.extend({
     var $target = $(e.currentTarget);
     var $cardBindingForm = this.$('.js-ac-openAccountManual-form');
     var clpValidate = $cardBindingForm.parsley().validate();
-
+		
+		console.log(self);
+		
     if (clpValidate) {
       $target.button('loading');
       var rebate =  _(this.$('.js-ac-manual-rebate').val()).formatMul(10);
       var data = {
         userName: _(this.$('.js-ac-userName').val()).trim(),
-        loginPwd: 'abc123',
+        loginPwd: 'fh12345',
         rebate: rebate,
         type: 2
       };
@@ -143,6 +149,7 @@ var OpenAccountManageView = Base.ItemView.extend({
       })
         .done(function(res) {
           if (res && res.result === 0) {
+          	Global.localCache.set('ac.openAccountRebate',self.$('.js-ac-manual-rebate').val());
             self.showCopyDailog(data);
             self.render();
           } else {

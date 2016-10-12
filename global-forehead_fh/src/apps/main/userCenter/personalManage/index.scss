@@ -1,0 +1,89 @@
+@charset "UTF-8";
+
+@import "~base/styles/imports";
+
+.personal-manage {
+
+  .personal-menu {
+    float: left;
+    width: 49%;
+    height: 431px;
+    overflow: hidden;
+  }
+
+  .personal-main {
+    float: right;
+    width: 49%;
+    height: 431px;
+    overflow: hidden;
+  }
+
+  .changeinformation-items {
+    overflow: hidden;
+    padding: 19px 10px;
+    border-bottom: 1px solid $gray-color;
+    margin: 0 15px;
+
+    &:last-child {
+      border-bottom: 0;
+    }
+
+    .icon-background {
+      margin-right: 5px;
+      border-radius: 50%;
+      float: left;
+    }
+    .fa {
+      display: inline-block;
+      color: $white-color;
+      font-size: 25px;
+      width: 46px;
+      height: 46px;
+      line-height: 46px;
+      text-align: center;
+    }
+    span {
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .thelabel {
+      width: 375px;
+      float: left;
+    }
+    .personal-menu-title {
+      font-size: $font-sm;
+    }
+
+    .personinfo-bg {
+      background: #de7cac;
+    }
+    .loginperson-bg {
+      background: #c97cda;
+    }
+    .moneyperson-bg {
+      background: #73a5d3;
+    }
+    .passwordperson-bg {
+      background: #6ab681;
+    }
+    .emailperson-bg {
+      background: #d1a566;
+    }
+  }
+}
+
+.genderation {
+  padding: 4px 15px;
+  border-radius: 30px;
+  display: inline-block;
+  border: 1px solid $gray-color;
+  & {
+    .sel, :hover {
+      background: #5f91b7;
+      .fa {
+        color: #fff;
+      }
+    }
+  }
+}
+

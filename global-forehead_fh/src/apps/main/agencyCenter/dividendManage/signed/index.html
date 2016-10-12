@@ -1,40 +1,28 @@
-
 <form class="js-ac-signed-form ac-signed-form form-horizontal" action="javascript:void(0);">
-  <div class="julien-row">
-    <span>用户名：</span>
-    <input type="text" class="input-sm js-username" name="username" <% if (obj.userData) { %>readonly<% } %>
+  <div>
+    <div class="control-group">
+      <button type="button" class="js-ac-sm-sign-aa ac-sm-sign-aa m-right-sm"><span><span class="sfa sfa-plus"></span>增加分红标准段</span></button>
+
+      <div class="js-ac-sm-sign-username-div inline-block"><span class="">待签约下级：</span>
+      <div class="inline-block"><input type="text" class="js-ac-sm-sign-username" name="username" <% if (obj.userData) { %>readonly<% } %>
       value="<%=obj.userData && obj.userData.username %>"
       data-parsley-username required
       data-parsley-remote data-parsley-remote-validator="accheckusername"
       data-parsley-remote-options='{"type": "POST"}'
-      required />
-    <span><%=dividConf.formatRebateLimit %>%返点以下用户不可签约</span>
-  </div>
-  <dl class="julien-row">
-    <dt>
-      半月销量：
-    </dt>
-    <dd>
-      <b>≥</b>
-      <input type="text" name="betTotal" class="js-betTotal" data-parsley-twodecima>
-    </dd>
-    <dt>
-      分红比：
-    </dt>
-    <dd>
-      <input type="text" name="divid" class="js-rebetRate" data-parsley-twodecimal>
-      <b>%</b> <span class="help-inline">可分红范围（<%=dividConf.formatDividMin %>-<%=dividConf.formatDividMax %>%）</span>
-    </dd>
-    <dd>
-      <span class="julien-button js-add-area">+ 增加分红段</span>
-    </dd>
-  </dl>
-  <div class="julien-dm-area js-julien-dm-area hidden">
-    <dl class="title"><dd>半月销量</dd><dd>分红比</dd><dt>操作</dt></dl>
-  </div>
-  <div class="julien-btn-group">
-    <button type="button" class="js-ac-next julien-button">确定签约</button>
-    <button type="button" class="julien-close-btn" data-dismiss="modal">取消</button>
+      required autocomplete="off" />
+        <input type="hidden" class="js-ac-sm-sign-userid" />
+      </div>
+      </div>
+    </div>
+
+    <div class="js-ac-sm-sign-table ac-sm-sign-table">
+
+    </div>
+    <div class="ac-sign-notice"><span class="ac-sign-notice-head">温馨提示</span>同一列的填写数值，第二行必须大于第一行</div>
+    <div class="text-center m-top-md">
+      <button type="button" class="js-ac-next btn btn-hot btn-lg p-left-md  p-right-md m-right-md"  data-type="<%=obj.type %>">确定</button>
+      <button type="button" class="btn btn-lg"  data-dismiss="modal">取消</button>
+    </div>
   </div>
 </form>
 <div class="js-ac-verify"></div>

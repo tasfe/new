@@ -94,16 +94,18 @@ var OpenAccountManageView = Base.ItemView.extend({
         {label: '链接地址', name: 'userLinkId', formatter: function(userLinkId, index) {
           var link = _('/register.html?linkId=' + userLinkId).toLink();
           return  '<div class="linkAddress">'+link+'</div>';
-        },width: 200},
-        {label: '链接生成时间', name: 'createTime',width: 120},
-        {label: '返点等级', name: 'rank',width: 90},
-        {label: '点击人数', name: 'accessNum',width: 90},
-        {label: '已注册人数', name: 'regUserNum',width: 100},
-        {label: '备注用途', name: 'userLinkDes',width: 100},
+        },width: '20%'},
+        {label: '链接生成时间', name: 'createTime',width: '15%'},
+        {label: '返点等级', name: 'rank',width: '8%'},
+        {label: '点击人数', name: 'accessNum',width: '8%'},
+        {label: '已注册人数', name: 'regUserNum',width: '8%'},
+        {label: '备注用途', name: 'userLinkDes',width: '8%'},
         {label: '操作', name: 'userLinkId',formatter:function(userLinkId, index) {
           var link = _('/register.html?linkId=' + userLinkId).toLink();
-          return  '<a href="'+link+'" target="_blank" >预览</a><a href="javascript:void(0);" class="js-ac-btn-link-copy" data-url="'+link+'">复制</a><a href="javascript:void(0);" class="js-ac-auto-btn-edit">编辑</a><a href="javascript:void(0);" class="js-ac-btn-delLink" >删除</a>';
-        },width: 200}
+          return  '<a href="javascript:void(0);" class="js-ac-btn-link-copy btn btn-link" data-url="'+link+'">复制</a>' +
+            '<a href="javascript:void(0);" class="js-ac-auto-btn-edit btn btn-link">编辑</a>' +
+            '<a href="javascript:void(0);" class="js-ac-btn-delLink btn btn-link">删除</a>';
+        },width: '15%'}
       ],
       height: 354,
       row: rows,
@@ -197,26 +199,39 @@ var OpenAccountManageView = Base.ItemView.extend({
    * 编辑按钮
    * @param row
      */
-  showRebateEditDialog: function(row,btnName) {
+  showRebateEditDialog: function(row, btnName) {
 
     var strTips = '';
     if (row.quotaList != null) {
-      strTips = '<p>温馨提示：</p><div class="tips">您目前拥有';
+      strTips = '<div class="alert">' +
+        '<div class="js-ac-quota-container">' +
+        '<span class="sfa sfa-tip-heart vertical-middle m-right-xs"></span>' +
+        '温馨提示：您目前拥有';
       _.each(row.quotaList, function (quota) {
         strTips += quota.quotaLevel + '配额 ' + quota.quotaLimit + '个，'
       });
-      strTips += '此后奖金组配额无限制，有配额限制请使用手动开户。</div>';
+      strTips += '此后奖金组配额无限制，有配额限制请使用手动开户。</div></div>';
     }
 
     var self = this;
-    var rebateData =  row.row;
+    var rebateData = _(row.row).filter(function(ticketSeries) {
+      if (_(['时时彩', '十一选五', '低频彩', '快乐彩']).contains(ticketSeries.sericeName)) {
+        return true;
+      }
+    });
+
     var $dialog = Global.ui.dialog.show({
       title: '链接开户设置',
       size: 'modal-lg',
       body: strTips +
       '<form class="js-ac-oam-au-form" >' +
-      '<div class="js-ac-link-edit-div play-table"></div>' +
-      '<div class="btn-center"><button type="button" class="js-ac-oam-au-save">' + btnName + '</button></div></form>',
+      '<div class="js-ac-link-edit-div play-table m-bottom-md clearfix"></div>' +
+      '<div class="text-center p-top-md border-top">' +
+      '<button type="button" class="js-ac-oam-au-save btn btn-pink btn-linear" data-loading-text="保存中">' +
+      btnName +
+      '</button>' +
+      '</div>' +
+      '</form>',
       bodyClass: ''
     });
 
@@ -248,7 +263,7 @@ var OpenAccountManageView = Base.ItemView.extend({
               _(info.minRebate).formatDiv(10,{fixed:1}) + '</span>～' + _(info.maxRebate>124?124:info.maxRebate).formatDiv(10,{fixed:1}) + ')</div>';
         }},
         {label: '备注', name: 'subAcctRebate', width: '31%', merge: true, formatter: function(val, index, info) {
-          return '<textarea rows="7" cols="20" class="js-ac-auto-remark remark" data-parsley-zhmaxlength="10" data-parsley-noSpecialChar placeholder="请输入备注" >'+row.row[0].userLinkDes+'</textarea>';
+          return '<textarea rows="5" cols="35" class="js-ac-auto-remark no-resize" data-parsley-zhmaxlength="10" data-parsley-noSpecialChar placeholder="请输入备注" >'+row.row[0].userLinkDes+'</textarea>';
         }}
       ],
       row: rebateData

@@ -19,84 +19,57 @@ var AccountCenterController = RouterController.extend({
 
   moneyTransfer: function() {
     this.changeMainReginView(new MoneyTransferView(), {
-      sidebar: 'pc'
+      sidebar: 'pc',
+      topView: 'personal'
     });
-
-    var PublicView = require('userCenter/views/publicView');
-    var publicView = new PublicView();
-    publicView.checkState();
   },
 
 
   settingEmail: function() {
     this.changeMainReginView(new settingEmailView(), {
-      sidebar: 'pc'
+      sidebar: 'pc',
+      topView: 'personal'
     });
-
-    var PublicView = require('userCenter/views/publicView');
-    var publicView = new PublicView();
-    publicView.checkState();
   },
   
 
   loginPwd: function() {
     this.changeMainReginView(new PasswordManageView(), {
-      sidebar: 'pc'
+      sidebar: 'pc',
+      topView: 'personal'
     });
-
-    var PublicView = require('userCenter/views/publicView');
-    var publicView = new PublicView();
-    publicView.checkState();
   },
-
-  // loginPwd: function() {
-  //   this.changeMainReginView(new PwdAdministration(), {
-  //     sidebar: 'pc'
-  //   });
-  //
-  //   var PublicView = require('userCenter/views/publicView');
-  //   var publicView = new PublicView();
-  //   publicView.checkState();
-  // },
 
   fundPwd: function() {
     this.changeMainReginView(new PasswordManageView({
       triggerTab: 'modifyFundPwd'
     }), {
-      sidebar: 'pc'
+      sidebar: 'pc',
+      topView: 'personal'
     });
-    var PublicView = require('userCenter/views/publicView');
-    var publicView = new PublicView();
-    publicView.checkState();
   },
 
   findPwd: function() {
     this.changeMainReginView(new PasswordManageView({
       triggerTab: 'modifyFindPwd'
     }), {
-      sidebar: 'pc'
+      sidebar: 'pc',
+      topView: 'personal'
     });
-    var PublicView = require('userCenter/views/publicView');
-    var publicView = new PublicView();
-    publicView.checkState();
   },
 
   securityQuestion: function() {
     this.changeMainReginView(new SecurityQuestionView(), {
-      sidebar: 'pc'
+      sidebar: 'pc',
+      topView: 'personal'
     });
-    var PublicView = require('userCenter/views/publicView');
-    var publicView = new PublicView();
-    publicView.checkState();
   },
 
   loginLog: function() {
     this.changeMainReginView(new LoginLogView(), {
-      sidebar: 'pc'
+      sidebar: 'pc',
+      topView: 'personal'
     });
-    var PublicView = require('userCenter/views/publicView');
-    var publicView = new PublicView();
-    publicView.checkState();
   }
   
 

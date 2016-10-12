@@ -1,0 +1,174 @@
+.ac-sm-agree-leftTime{
+
+
+}
+
+.ac-sm-agree-notice{
+  color: #da5144;
+  font-size: 17px;
+  padding: 10px;
+  font-weight: 500;
+}
+
+.ac-sm-agree-title{
+  color: #da5144;
+  font-size: 17px;
+  padding: 5px;
+  font-weight: 500;
+  border: 1px solid #ccc;
+  width: 788px;
+  text-align: center;
+  border-bottom:0px;
+}
+
+.ac-sm-agree-table{
+  height: 258px;
+
+}
+
+.ac-sm-agree-agreement-title{
+  color: #da5144;
+  font-size: 17px;
+  padding: 5px;
+  font-weight: 500;
+  border: 1px solid #ccc;
+  border-bottom:0px;
+  width: 788px;
+  text-align: center;
+
+}
+
+.ac-sm-agree-agreement-content{
+  color: #000;
+  height:  185px;
+  font-size: 12px;
+  padding: 5px;
+  //font-weight: 300;
+  border: 1px solid #ccc;
+  width: 788px;
+  text-align: left;
+  p{
+    line-height: 21px;
+    margin: 0px;
+  }
+}
+
+.ac-sm-pay-all {
+  width: 98px;
+  height: 26px;
+  font-size: 14px;
+  background-color: #e45b49;
+  border-radius: 2px;
+  border: 0px;
+  color: #fff;
+  padding: 4px !important;
+}
+.ac-sm-sign-table{
+  width: 800px;
+  height: 286px;
+}
+.ac-sm-sign-special-table{
+  width: 800px;
+  height: 316px;
+  border: 1px solid #c9c9c9;
+  height: 222px;
+  tr{
+    height: 36px;
+    font-size: 14px;
+    color: #666;
+    text-align: center;
+  }
+  td{
+    border: 1px solid #c9c9c9;
+    height: 36px;
+    input{
+      height: 13px;
+    }
+    .width-size1{
+      width: 80px;
+    }
+    .width-size2{
+      width: 128px;
+    }
+    .width-size3{
+      width: 60px;
+    }
+    .width-size4{
+      width: 180px;
+    }
+  }
+  tr:first-child{
+    background: linear-gradient(to bottom,#fff,#ede8e7);
+  }
+  tr:last-child{
+    div{
+      height: 72px;
+      padding: 10px;
+      text-align: left;
+      p{
+        font-size: 13px;
+        margin-bottom: 0px;
+        line-height: 18px;
+        height: 18px;
+      }
+    }
+  }
+}
+
+.ac-sm-sign-type-container{
+  vertical-align: middle;
+  height: 20px;
+  line-height: 20px;
+  label{
+    display: inline-block;
+    margin-right: 20px;
+    input{
+      margin: 0 5px 0 0 ;
+    }
+  }
+}
+.ac-sm-sign-username{
+  height: 35px;
+  margin-bottom: 15px;
+}
+
+.ac-sm-agree-special-example{
+  height: 72px;
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #c9c9c9;
+  border-top:0px;
+  margin-bottom: 30px;
+  p{
+    font-size: 13px;
+    margin-bottom: 0px;
+    line-height: 18px;
+    height: 18px;
+  }
+}
+
+.ac-sm-conf-title{
+  color: #da5144;
+  font-size: 17px;
+  padding: 5px;
+  font-weight: 500;
+  border: 1px solid #ccc;
+  width: 789px;
+  text-align: center;
+  border-bottom:0px;
+}
+.ac-sm-conf-special-example{
+  height: 72px;
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #c9c9c9;
+  border-top:0px;
+  margin-bottom: 30px;
+  margin-top: -7px;
+  p{
+    font-size: 13px;
+    margin-bottom: 0px;
+    line-height: 18px;
+    height: 18px;
+  }
+}

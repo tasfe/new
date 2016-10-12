@@ -8,6 +8,10 @@ var globalViewList = {
   team: {
     viewName: 'teamProfile',
     View: require('agencyCenter/topProfile')
+  },
+  personal: {
+    viewName: 'personalProfile',
+    View: require('userCenter/topProfile')
   }
 };
 
@@ -51,7 +55,7 @@ var RouterController = Base.Controller.extend({
   },
 
   _changeSideMenuMainReginView: function(mainView, config) {
-    var currentView = Global.viewPool.setCurrentView(new SideMenuMainView());
+    var currentView = Global.viewPool.setCurrentSubRegion(new SideMenuMainView());
 
     currentView.addRegions({
       sidebar: '.js-gl-sidebar',
@@ -74,7 +78,7 @@ var RouterController = Base.Controller.extend({
 
   //侧边栏子菜单view切换
   changeSubReginView: function(view, config) {
-    var currentView = Global.viewPool.getCurrentView();
+    var currentView = Global.viewPool.getCurrentSubRegion();
 
     config = _.defaults(config || {}, {
       //destroyDiff: 'low'
@@ -127,20 +131,23 @@ var RouterController = Base.Controller.extend({
   _changeTopView: function(viewName) {
     var currentViewInfo = globalViewList[viewName];
 
-    if (!currentViewInfo.showed) {
+    if (!currentViewInfo._view) {
+      if (Global.topRegin.currentView !== currentViewInfo._view) {
+        this._destroyTopView();
+      }
       Global.topRegin.show(new currentViewInfo.View());
-      currentViewInfo.showed = true;
+      currentViewInfo._view = Global.topRegin.currentView;
     }
   },
 
   _destroyTopView: function() {
-    var currentViewInfo = _(globalViewList).findWhere({
-      showed: true
+    var currentViewInfo = _(globalViewList).find(function(viewInfo) {
+      return !!viewInfo._view;
     });
 
     if (currentViewInfo) {
       Global.topRegin.currentView.destroy();
-      currentViewInfo.showed = false;
+      currentViewInfo._view = null;
     }
   },
 

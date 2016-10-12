@@ -1,0 +1,39 @@
+<div class="js-ac-add-container">
+  <p><br>
+    1、下级活动要求：团队下级成员当天有登陆且有账变
+  <hr class="ac-description">
+  2、工资统计规则为团队前一天的销量，按照平台日工资规则标注手动领取前台的工资，逾期作废。
+  <hr class="ac-description">
+  3、销量达标下级活跃不足时，将按实际活跃度发放工资，如销售4999，活跃度为7（不足10），则工资为100元。
+  <hr class="ac-description">
+  4、快发娱乐享有最终解释和修改权。
+  <hr class="ac-description">
+  平台日工资比例<br>
+  <table class="table table-bordered table-linear table-center no-margin">
+    <tr>
+      <td>团队日均销量</td>
+      <td>日工资标准</td>
+      <td>亏损要求</td>
+      <td>下级活跃要求</td>
+    </tr>
+    <%_(confList).each(function(item,index){%>
+      <% if(index==0){%>
+        <tr>
+          <td>≥<%=_(item.salesVolume).convert2yuan()%></td>
+          <td><%=_(item.wagesVal).convert2yuan()%></td>
+          <!--<td rowspan="<%=size%>">≥<%=_(item.lossAmount).convert2yuan()%></td>-->
+          <td >≥<%=_(item.lossAmount).convert2yuan()%></td>
+          <td>≥<%=item.validUser%></td>
+        </tr>
+      <%}else{%>
+        <tr>
+          <td>≥<%=_(item.salesVolume).convert2yuan()%></td>
+          <td><%=_(item.wagesVal).convert2yuan()%></td>
+          <td >≥<%=_(item.lossAmount).convert2yuan()%></td>
+          <td>≥<%=item.validUser%></td>
+        </tr>
+      <%}%>
+
+    <%})%>
+  </table>
+</div>

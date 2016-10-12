@@ -1,14 +1,15 @@
-$portlet-padding-bottom: 10px;
+$portlet-bottom: 10px;
 
 .portlet {
   margin-bottom: 8px;
   border: 1px solid $gray-color;
   border-radius: $globalBoxRadius;
-  overflow: hidden;
+  //overflow: hidden;
   box-shadow: 0 1px 1px 0 rgba(5, 5, 5, 0.1);
 
   .portlet-header {
-    padding: 8px $portlet-padding-bottom;
+    padding: 8px 0;
+    margin: 0 $portlet-bottom;
     line-height: 26px;
 
     &.portlet-linear {
@@ -24,7 +25,7 @@ $portlet-padding-bottom: 10px;
     }
 
     font-size: $font-sm;
-    font-weight: bold;
+    //font-weight: bold;
   }
 
   .portlet-option {
@@ -39,7 +40,6 @@ $portlet-padding-bottom: 10px;
       vertical-align: top;
       margin-left: 5px;
       margin-top: -1px;
-      font-size: $font-sm;
     }
   }
 
@@ -50,7 +50,7 @@ $portlet-padding-bottom: 10px;
   }
   .portlet-header-btnGroup {
     text-align: center;
-    margin-bottom: -$portlet-padding-bottom + 1px;
+    margin-bottom: -$portlet-bottom + 1px;
   }
 
   .portlet-body {
@@ -64,4 +64,25 @@ $portlet-padding-bottom: 10px;
   }
 
   @include portlets($portlets);
+}
+
+.portlet-side-main {
+
+  box-shadow: initial;
+  border: 0;
+  > .portlet-header {
+    padding: 0 0 10px 0;
+    border-width: 0 0 1px 0;
+    margin-top: -5px;
+    .portlet-title {
+      //font-size: $font-xs;
+      font-weight: normal;
+    }
+  }
+  > .portlet-body {
+    padding: 0;
+  }
+}
+.portlet-main {
+  min-height: 648px;
 }

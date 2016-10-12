@@ -35,9 +35,6 @@ var GameCenterView = Base.ItemView.extend({
           } else {
             Global.ui.notification.show('加载失败，请稍后再试');
           }
-        })
-        .fail(function () {
-          Global.ui.notification.show('网络报错！');
         });
   },
 

@@ -14,9 +14,6 @@ var NoticeView = Base.ItemView.extend({
 
   noticeList: [],
   closeStatus: true,
-
-  //count: 0,
-  //newNotice: [],
   newNoticeNum: 0,
 
   getXhr: function() {
@@ -27,7 +24,7 @@ var NoticeView = Base.ItemView.extend({
 
   initialize: function() {
     _(this.options || {}).extend({
-      spacing: 24,
+      spacing: 500,
       total: 0,
       index: 1
     });
@@ -39,51 +36,34 @@ var NoticeView = Base.ItemView.extend({
 
   onRender: function() {
     var self = this;
-
     this.$content = this.$('.js-gl-notice-content');
-    //this.$pnDown = this.$('.js-wt-pn-down');
-
     this.handleGetXhr();
 
     window.setInterval(function() {
       self.handleGetXhr();
     }, 30000);
 
-    //setInterval(function() {
-    //  self.$pnDown.trigger('click');
-    //}, 5000);
-
   },
 
   handleGetXhr: function() {
     var self = this;
-
     this.getXhr()
       .done(function(res) {
         if (res && res.result === 0) {
           self.updateNotice(res.root || []);
         }
       });
-
-    //self.updateNotice(self.countDown());
   },
-
-  //countDown: function() {
-  //  this.count++;
-  //  this.newNotice = [{title: '您有'+ this.count +"个轰动奖励可以领取,<a href='#'>点击领取-></a>"},{title: '您有'+ ++this.count +"个轰动奖励可以领取,<a href='#'>点击领取-></a>"},{title: '您有'+ ++this.count +"个轰动奖励可以领取,<a href='#'>点击领取-></a>"}];
-  //  return this.newNotice;
-  //},
 
   updateNotice: function(noticeList) {
     var self = this;
-
     if (!noticeList.length) {
       noticeList = [];
       return ;
     }
 
     if (this.closeStatus) {
-      this.options.spacing = 24;
+      this.options.spacing = 500;
       this.$content.html('').css('top', this.options.spacing);
       this.noticeList = noticeList;
       this.$el.removeClass('hidden');
@@ -94,22 +74,12 @@ var NoticeView = Base.ItemView.extend({
     }
 
     clearTimeout(this.timer);
-
     this.closeStatus = false;
-
     this.options.total = this.noticeList.length;
-
-    //showList = showList.concat(this.noticeList);
-    //showList = _(showList.concat(noticeList)).map(function(notice) {
-    //  return '<li><div>' + notice.title + '</div></li>';
-    //});
 
     if (this.noticeList.length) {
       this.startRoll();
     }
-    //this.$content.html(_(showList).map(function(notice) {
-    //  return '<li><div>' + notice.title + '</div></li>';
-    //}));
 
   },
 
@@ -120,7 +90,6 @@ var NoticeView = Base.ItemView.extend({
   },
 
   //common APIs
-  
 
   isShow: function() {
     return !!this.$('.js-gl-notice-content').length;
@@ -136,25 +105,26 @@ var NoticeView = Base.ItemView.extend({
 
   showNextNotice: function() {
     var self = this;
-
     var notice = this.getNewOne();
 
     if (notice) {
       this.rollStatus = true;
 
-      self.$content.append('<li><div>' + notice.title + '</div></li>');
+      self.$content.append('<li><div class="slideIn"><a class="js-close close-notice pull-right" data-dismiss="alert" href="#">X</a><div class="notice-title text-hot">' + notice.title + '</div><div class="notice-content">'+notice.content+'</div></div></li>');
 
       this.$content.animate({
         top: self.options.spacing
-      }, 2000, function () {
+      }, 1000, function () {
         self.$content.css('top', self.options.spacing);
-        self.options.spacing -= 24;
+        self.options.spacing -= 100;
         self.delNewOne();
-
         //setTimeout(self.showTimer);
+        self.$content.find('div.slideIn').last().addClass('showing');
+        console.log(self.options.spacing );
         self.showTimer = setTimeout(function() {
           self.showNextNotice();
-        }, 3000);
+          self.$content.find('div.slideIn.showing').first().removeClass('slideIn').addClass('fadeOut');
+        }, 1500);
       });
 
     } else {
@@ -175,13 +145,17 @@ var NoticeView = Base.ItemView.extend({
   },
 
   //event handlers
+  //closeHandler: function() {
+  //  this._doClose();
+  //  return false;
+  //}
 
-  closeHandler: function() {
-    this._doClose();
+  closeHandler: function(e) {
+    var $target = $(e.currentTarget);
+    $target.closest('li').remove();
+    this.options.spacing += 100;
     return false;
   }
-
-
 
 });
 

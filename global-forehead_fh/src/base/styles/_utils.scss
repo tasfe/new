@@ -56,7 +56,7 @@
   border-radius: 0;
 }
 .full-radius {
-  border-radius: 50%;
+  border-radius: 100px;
 }
 
 .no-height {
@@ -266,7 +266,7 @@
 }
 
 .gap {
-  margin-bottom: 15px;
+  margin-bottom: 7px;
 }
 
 .dot-divider {
@@ -336,22 +336,6 @@
     margin-right: $wrapper-margin-right;
     position: relative;
     top:-18px;
-  }
-}
-
-.portlet-side-main {
-
-  > .portlet-header {
-    height: 25px;
-    line-height: 25px;
-  }
-}
-.portlet-main {
-  height: 615px;
-
-  > .portlet-header {
-    height: 25px;
-    line-height: 25px;
   }
 }
 

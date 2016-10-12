@@ -255,8 +255,8 @@ var EntryView = Base.ItemView.extend({
     var ticketView;
     if (entry.type === 'ticket') {
       //当前页正是快捷入口时，直接加入quickPool中
-      if (Global.viewPool._polling.length && Global.viewPool._polling[0].router === entry.router) {
-        ticketView = Global.viewPool._polling[0].view;
+      if (Global.viewPool._pooling.length && Global.viewPool._pooling[0].router === entry.router) {
+        ticketView = Global.viewPool._pooling[0].view;
       } else {
 
         if(Number(entry.id)===20){
@@ -343,8 +343,6 @@ var EntryView = Base.ItemView.extend({
     router = router === '#' ? '' : router;
     //$active.removeClass('js-gl-entry-item-' + prevId).addClass('js-gl-entry-item-' + id).data('id', id).attr('href', '#' + router);
     $active.removeClass('js-gl-entry-item-' + prevId).addClass('js-gl-entry-item-' + id).data('id', id);
-
-    return prevId;
   },
 
   getCurrent: function() {
@@ -369,6 +367,10 @@ var EntryView = Base.ItemView.extend({
     } else {
       $quickEntries.removeClass('active');
     }
+  },
+
+  getEntryList: function() {
+    return this.model.getEntryList();
   },
 
   isExceed: function(router) {

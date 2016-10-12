@@ -36,6 +36,7 @@ require('jquery-ui/ui/mouse');
 require('jquery-ui/ui/position');
 require('jquery-ui/ui/button');
 require('jquery-ui/ui/slider');
+require('jquery-ui/ui/draggable');
 require('jquery-ui/ui/sortable');
 require('./scripts/spinner');
 

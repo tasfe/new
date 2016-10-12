@@ -6,7 +6,7 @@ var RouterController = require('skeleton/controllers/router');
 
 var ActivityCenterView = require('activeCenter/views/activityCenter');
 
-var OpenActivityDetailView = require('activeCenter/views/activityCenter');
+var ActivityDetailView = require('activeCenter/views/activityDetail');
 
 var ActiveCenterController = RouterController.extend({
   activityCenter: function() {
@@ -29,7 +29,6 @@ var ActiveCenterController = RouterController.extend({
     }), {
       sidebar: 'at'
     });
-    $('#main > .clearfix').addClass('ac-block');
   },
   onlineGameActivity: function() {
     this.changeMainReginView(new ActivityCenterView({
@@ -38,11 +37,14 @@ var ActiveCenterController = RouterController.extend({
       sidebar: 'at'
     });
   },
-  openActivityDetail: function(ticket) {
-    this.changeSubReginView(new OpenActivityDetailView({
-      triggerTab: ticket,
-      activityId: _.getUrlParam('activityId')
+  activityDetail: function(type, activityId) {
+    this.changeSubReginView(new ActivityDetailView({
+      activityId: activityId
     }), {
+      main: {
+        title: '活动详情',
+        subReturn: true
+      },
       parentRouter: 'at/tb'
     });
   }

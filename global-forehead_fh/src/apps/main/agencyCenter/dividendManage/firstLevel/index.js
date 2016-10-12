@@ -14,7 +14,7 @@ var FirstLevelView = Base.ItemView.extend({
 
   getXhr: function() {
     return Global.sync.ajax({
-      url: '/fund/divid/info1.json'
+      url: '/fund/divid/info.json'
     });
   },
 
@@ -33,9 +33,9 @@ var FirstLevelView = Base.ItemView.extend({
   },
 
   _render: function(data) {
-    this.$('.js-ac-agreement-content').html(this.agreementContentTpl({
-      agreement: data.agreement
-    }));
+    //this.$('.js-ac-agreement-content').html(this.agreementContentTpl({
+    //  agreement: data.agreement
+    //}));
 
     this.$('.js-ac-effect-date').text(_(data.effectDate).toDate('YYYY年MM月DD日'));
 

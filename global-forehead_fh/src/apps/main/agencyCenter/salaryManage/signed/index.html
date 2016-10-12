@@ -1,0 +1,117 @@
+
+  <div>
+    <div class="control-group ac-sm-sign-type-container ">
+      <label>
+        <input type="radio" class="js-ac-sm-sign-type" name="salaryType" value="0" checked>标准日薪设置
+      </label>
+      <label>
+        <input type="radio" class="js-ac-sm-sign-type" name="salaryType" value="1">快捷日薪设置
+      </label>
+
+    </div>
+    <div class="js-ac-sm-sign-common">
+      <form class="js-ac-signed-common-form ac-signed-form form-horizontal" action="javascript:void(0);">
+        <div class="control-group ac-sm-sign-username" >
+
+          <div class="js-ac-sm-sign-username-div inline-block">
+            <span class="">待签约下级：</span>
+            <div class=" inline-block"><input type="text" class="js-ac-sm-sign-username" name="username" <% if (obj.userData) { %>readonly<% }  %>
+              value="<%=obj.userData && obj.userData.username %>"
+              data-parsley-username required
+              data-parsley-remote data-parsley-remote-validator="accheckusername"
+              data-parsley-remote-options='{"type": "POST"}'
+              required autocomplete="off" />
+
+            </div>
+          </div>
+          <button type="button" class="js-ac-sm-sign-aa ac-sm-sign-aa m-right-sm"><span><span class="sfa sfa-plus"></span>增加日薪标准段</span></button>
+        </div>
+        <div class="js-ac-sm-sign-common-table ac-sm-sign-table">
+
+        </div>
+        <div class="ac-sign-notice"><span class="ac-sign-notice-head">温馨提示</span>同一列的填写数值，第二行必须大于第一行</div>
+      </form>
+    </div>
+    <div class="js-ac-sm-sign-special hidden">
+      <form class="js-ac-signed-special-form ac-signed-form form-horizontal" action="javascript:void(0);">
+        <div class="control-group ac-sm-sign-username" >
+
+          <div class="js-ac-sm-sign-username-div inline-block">
+            <span class="">待签约下级：</span>
+            <div class=" inline-block"><input type="text" class="js-ac-sm-sign-username" name="username" <% if (obj.userData) { %>readonly<% }  %>
+              value="<%=obj.userData && obj.userData.username %>"
+              data-parsley-username required
+              data-parsley-remote data-parsley-remote-validator="accheckusername"
+              data-parsley-remote-options='{"type": "POST"}'
+              required autocomplete="off" />
+            </div>
+          </div>
+        </div>
+        <table class="ac-sm-sign-special-table">
+          <tr>
+            <td>日量要求基础值</td>
+            <td>日薪发放基础值</td>
+            <td>是否需要亏损</td>
+          </tr>
+          <tr>
+            <td rowspan="1">
+              ≥&nbsp;<input type="text" class="js-ac-sm-sign-minSales ac-sm-sign-minSales m-right-sm width-size1"
+                            data-parsley-range="[0, 100000000]" data-parsley-threedecimal="" value="0" required="">元/日
+            </td>
+            <td>
+              <input type="text" class="form-control js-ac-sm-sign-minSalary ac-sm-sign-minSalary  m-right-sm width-size2"
+                     value="0" required="" data-parsley-range="[0, 100000000]" data-parsley-type="integer">元
+            </td>
+            <td rowspan="5">
+              <select class="js-ac-sm-sign-needLoss ac-sm-sign-select  m-right-sm width-size3" name="needLoss" value="0">
+                <option value="1">是</option>
+                <option value="0" selected="">否</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>日量要求跨度值</td>
+            <td>日薪发放跨度值</td>
+          </tr>
+          <tr>
+            <td rowspan="1">
+              ≥&nbsp;<input type="text" class="js-ac-sm-sign-salesSpan ac-sm-sign-salesSpan  m-right-sm width-size1"
+                            data-parsley-range="[1, 100000000]" data-parsley-threedecimal="" value="0" required="">元/日
+            </td>
+            <td>
+              <input type="text" class="form-control js-ac-sm-sign-salarySpan ac-sm-sign-salarySpan  m-right-sm width-size2"
+                     name="salaryAmount" value="0" required="" data-parsley-range="[1, 100000000]" data-parsley-type="integer">元
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">日薪最高值</td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <input type="text" class="js-ac-sm-sign-maxSalary ac-sm-sign-maxSalary  m-right-sm width-size4"
+                     data-parsley-range="[1, 100000000]" data-parsley-threedecimal="" value="0" required="">元/日
+            </td>
+          </tr>
+          <tr >
+            <td colspan="3">
+              <div class="ac-sm-sign-special-example">
+              <p>示例：</p>
+              <p>日量要求基础值=10000（1W） 日量要求跨度值=10000（1W） 日薪最高值=1000000（100W）</p>
+              <p>日薪发放基础值=100 日薪发放跨度值=100 日薪发放最高值=10000</p>
+              <p>则表示：日薪发放规则为：1W=100 2W=200 3W=300以此类推至销量100W</p>
+            </div>
+            </td>
+          </tr>
+
+        </table>
+      </form>
+    </div>
+    <div class="text-center m-top-md">
+      <button type="button" class="js-ac-next btn btn-hot btn-lg p-left-md  p-right-md m-right-md"  data-type="<%=obj.type %>">确定</button>
+      <button type="button" class="btn btn-lg"  data-dismiss="modal">取消</button>
+    </div>
+  </div>
+  <input type="hidden" class="js-ac-sm-sign-userid" />
+</form>
+<div class="js-ac-verify"></div>
+
