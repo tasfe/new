@@ -23,16 +23,7 @@ var VipCreditView = require('userCenter/vipCredit');
 
 var ReportManageView = require('agencyCenter/reportManage/teamReport');
 
-var transforRecordView = require('userCenter/transforRecord/transforRecord');
-
 var UserCenterController = RouterController.extend({
-
-  transforRecord:function () {
-    this.changeMainReginView(new transforRecordView(), {
-      sidebar: 'ac',
-      topView: 'personal'
-    });
-  },
 
   reportManage:function () {
     this.changeMainReginView(new ReportManageView(), {

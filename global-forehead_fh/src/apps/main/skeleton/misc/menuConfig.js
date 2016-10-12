@@ -185,30 +185,30 @@ var menuConfig = [
     sub: [
       {
         id: 200,
-        router: 'ac/pi',
+        router: 'ac/pm',
         name: '账户安全'
       },
       {
         id: 204,
-        router: 'as/pl',
+        router: 'as/pm/pl',
         name: '登陆密码',
         notShow: true
       },
       {
         id: 205,
-        router: 'as/pf',
+        router: 'as/pm/pf',
         name: '资金密码',
         notShow: true
       },
       {
         id: 206,
-        router: 'as/sq',
+        router: 'as/pm/sq',
         name: '密保问题',
         notShow: true
       },
       {
         id: 207,
-        router: 'as/se',
+        router: 'as/pm/se',
         name: '邮箱设置',
         notShow: true
       },
