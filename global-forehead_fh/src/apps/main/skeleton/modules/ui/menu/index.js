@@ -21,10 +21,10 @@ var SidemenuModule = Base.Module.extend({
     var wagesAuth = acctInfo.salaryStatus !== dividendConfig.getByName('UN_APPLIED').id; //工资状态，true,false
 
     var dividendMenu = _(MenuConfig.get('ac').sub).findWhere({
-      id: 136
+      id: 137
     });
     var wagesMenu = _(MenuConfig.get('ac').sub).findWhere({
-      id: 135
+      id: 136
     });
 
     dividendMenu.auth = dividendAuth;

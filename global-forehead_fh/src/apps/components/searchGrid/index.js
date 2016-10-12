@@ -16,7 +16,8 @@ var SearchGrid = Base.PrefabView.extend({
     footerClass: 'p-top-sm',
     remoteEveryTime: true,
     divider: true,
-    tip: ''
+    tip: '',
+    headTip: ''
   },
 
   constructor: function() {

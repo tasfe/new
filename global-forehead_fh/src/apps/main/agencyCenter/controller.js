@@ -75,9 +75,6 @@ var AgencyCenterController = RouterController.extend({
 
   salaryManage: function () {
     this.changeMainReginView(new SalaryView(), {
-      main: {
-        title: '日工资管理'
-      },
       sidebar: 'ac',
       topView: 'team'
     });
@@ -261,9 +258,9 @@ var AgencyCenterController = RouterController.extend({
 
   dividendManage: function() {
     this.changeMainReginView(new DividendMangeView(), {
-      main: {
-        title: '分红管理'
-      },
+      // main: {
+      //   title: '分红管理'
+      // },
       sidebar: 'ac',
       topView: 'team'
     });

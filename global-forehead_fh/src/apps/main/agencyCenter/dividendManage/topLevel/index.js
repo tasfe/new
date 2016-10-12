@@ -34,61 +34,67 @@ var TopLevelView = TabView.extend({
   },
 
   initialize: function() {
-    var tabs;
+    var tabs = [{
+      label: '我的分红',
+      name: 'self',
+      id: 'jsAcSelf',
+      view: TopView
+    }];
     var acctInfo = Global.memoryCache.get('acctInfo');
-    tabs = [
-      {
-        label: '我的分红',
-        name: 'self',
-        id: 'jsAcSelf',
-        view: TopView
-      },
-      {
-        label: '下级分红',
-        name: 'lowLevel',
-        id: 'jsAcLowLevel',
-        view: LowLevelView
-      },
-      {
-        label: '分红用户管理',
-        name: 'user',
-        id: 'jsAcUserManage',
-        view: UserManageView
-      }
-    ];
-
-    _(this.options).extend({
-      tabs: tabs,
-      append: '<div class="js-ac-add-user cursor-pointer ac-add-user pull-right text-pleasant">' +
-      '<span class="sfa sfa-dividend-add vertical-bottom"></span> ' +
-      '签约分红用户</div>' +
-      '</div>'
-    });
-
+    this.userGroupLevel = acctInfo.userGroupLevel;
+    if(this.userGroupLevel!==0){
+      tabs = tabs.concat([
+        {
+          label: '下级分红',
+          name: 'lowLevel',
+          id: 'jsAcLowLevel',
+          view: LowLevelView
+        },
+        {
+          label: '分红用户管理',
+          name: 'user',
+          id: 'jsAcUserManage',
+          view: UserManageView
+        }
+      ]);
+      _(this.options).extend({
+        tabs: tabs,
+        tabClass: 'view-tabs nav nav-tabs nav-tabs-special',
+        append: '<div class="js-ac-add-user cursor-pointer ac-add-user pull-right text-pleasant">' +
+        '<span class="sfa sfa-dividend-add vertical-bottom"></span> ' +
+        '签约分红用户</div>' +
+        '</div>'
+      });
+    }else{
+      _(this.options).extend({
+        tabs: tabs,
+        tabClass: 'view-tabs nav nav-tabs nav-tabs-special',
+      });
+    }
   },
 
   onRender: function() {
     var self = this;
-
-    ////查询添加分红用户配额
-    //this.getConfXhr()
-    //  .always(function() {
-    //    self.loadingFinish();
-    //  })
-    //  .done(function(res) {
-    //    if (res.result === 0) {
-    //      self.dividConf = res.root;
-    //      //if (res.root.quotaLeft <= 0) {
-    //      //  self.$('.js-ac-add-user').addClass('hidden');
-    //      //}
-    //      TabView.prototype.onRender.apply(self, arguments);
-    //    }
-    //  });
-
-    TabView.prototype.onRender.apply(self, arguments);
+    if(this.userGroupLevel!==0){
+      //查询添加分红用户配额
+      this.getConfXhr()
+        .always(function() {
+          self.loadingFinish();
+        })
+        .done(function(res) {
+          if (res.result === 0) {
+            self.dividConf = res.root;
+            if (res.root.quotaLeft <= 0) {
+             self.$('.js-ac-add-user').addClass('hidden');
+            }
+            TabView.prototype.onRender.apply(self, arguments);
+          }
+        });
+    }else{
+      TabView.prototype.onRender.apply(self, arguments);
+    }
   },
 
-  //event handlers
 
   addUserHandler: function(e) {
     var self = this;

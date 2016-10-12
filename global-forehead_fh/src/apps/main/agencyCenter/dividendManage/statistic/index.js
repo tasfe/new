@@ -31,7 +31,7 @@ var StatisticView = Base.ItemView.extend({
     this.$divid = this.$('.js-ac-divid');
     this.$addDivid = this.$('.js-ac-addDivid');
     this.$dividTotal = this.$('.js-ac-dividTotal');
-    this.$freezeTotal = this.$('.js-ac-freezeTotal');
+    // this.$freezeTotal = this.$('.js-ac-freezeTotal');
     this.$freezeContainer = this.$('.js-ac-freezeTotal-container');
 
     this.$status = this.$('.js-ac-status');
@@ -42,12 +42,29 @@ var StatisticView = Base.ItemView.extend({
       dividId: dividId,
     });
 
-    this.$('.js-ac-freeze-top').popover({
-      trigger: 'hover',
-      html: true,
-      content: '<strong>冻结金额</strong> <br />应该发放给签约下级的分红金额，平台将暂时冻结',
-      placement: 'bottom'
+    // this.$('.js-ac-freeze-top').popover({
+    //   trigger: 'hover',
+    //   html: true,
+    //   content: '<strong>冻结金额</strong> <br />应该发放给签约下级的分红金额，平台将暂时冻结',
+    //   placement: 'bottom'
+    // });
+    this.$('.js-ac-dm-my-conf').staticGrid({
+      tableClass: 'table table-bordered table-center ac-dm-conf-table',
+      colModel: [
+        {
+          label: '团队投注额（日）平均', name: 'betTotal', width: '50%', formatter: function(val) {
+            return _(val).convert2yuan();
+          }
+        },
+        {
+          label: '分红比例', name: 'divid', width: '50%', formatter: function(val, index, info) {
+            return _(val).formatDiv(100);
+          }
+        }
+      ],
+      row: this.options.signList
     });
+
   },
 
   changeHandler: function(e) {
@@ -83,29 +100,30 @@ var StatisticView = Base.ItemView.extend({
     '<button class="js-ac-status-op btn btn-sm ac-status-op" data-loading-text="' + statusInfo.loadingText + '" data-status="' + info.status +
     '" data-divid-id="' + info.dividId + '">' + statusInfo.zhName + '</button>' : statusInfo.zhName);//
 
-    self.getDividendDetailXhr({
-        dividId: info.dividId,
-      })
-      .always(function() {
-      })
-      .done(function(res) {
-        if (res && res.result === 0) {
-          self.$('.js-ac-dm-md-report').staticGrid({
-            wrapperClass: 'm-top-md',
-            height: '310',
-            colModel: [
-              {label: '日期', name: 'cycle', merge: false, width: 100},
-              {label: '团队销量', name: 'betTotal', merge: false, width: 150},
-              {label: '盈亏', name: 'profitTotal', width: 150}
-            ],
-            row: self.formatData((res.root && res.root.dividList)||[]),
-            startOnLoading: false
-          });
-        }else{
-          Global.ui.notification.show(res.msg)
-        }
-        //self.refresh();
-      });
+    //日销量明细
+    // self.getDividendDetailXhr({
+    //     dividId: info.dividId,
+    //   })
+    //   .always(function() {
+    //   })
+    //   .done(function(res) {
+    //     if (res && res.result === 0) {
+    //       self.$('.js-ac-dm-md-report').staticGrid({
+    //         wrapperClass: 'm-top-md',
+    //         height: '310',
+    //         colModel: [
+    //           {label: '日期', name: 'cycle', merge: false, width: 100},
+    //           {label: '团队销量', name: 'betTotal', merge: false, width: 150},
+    //           {label: '盈亏', name: 'profitTotal', width: 150}
+    //         ],
+    //         row: self.formatData((res.root && res.root.dividList)||[]),
+    //         startOnLoading: false
+    //       });
+    //     }else{
+    //       Global.ui.notification.show(res.msg)
+    //     }
+    //     //self.refresh();
+    //   });
   },
 
   detailHandler: function(e) {

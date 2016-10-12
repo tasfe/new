@@ -109,7 +109,7 @@ var menuConfig = [
                 id: 136,
                 router: 'ac/salary',
                 name: '日工资管理',
-                // needAuth: true
+                needAuth: true
             },
             // {
             //    id: 134,
@@ -120,7 +120,7 @@ var menuConfig = [
                 id: 137,
                 router: 'ac/dm',
                 name: '分红管理',
-                // needAuth: true
+                needAuth: true
             },
             //{
             //  id: 112,

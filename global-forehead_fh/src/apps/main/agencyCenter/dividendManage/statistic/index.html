@@ -1,8 +1,9 @@
+<div class="js-ac-caption  ac-dm-tab-bottom"></div>
 <div class="js-ac-statics-bread ac-statistic ">
   <div class="">
-    <ul class="nav nav-tabs nav-tabs-border no-margin ad-statics-ul">
+    <ul class=" ad-statics-ul">
       <% _(dividList).each(function(divid, index,dividList) { %>
-      <li class="js-ad-statics ad-statics-<%=_(dividList).size()%>" data-id="<%=divid.dividId%>">
+      <li class="js-ad-statics ad-statics" data-id="<%=divid.dividId%>">
         <a href="#jsTeam" class="" data-toggle="tab">
           <span><%=divid.cycle %></span>
         </a>
@@ -11,10 +12,10 @@
     </ul>
   </div>
   <div class=" ac-statics-detail clearfix ">
-    <div class=ac-statics-td "ac-statics-item">
+    <div class="ac-statics-td ac-statics-item">
       <div class="ac-statics-text">
-        团队总销量
-        <div>
+        团队总投注额
+        <div class="ac-statics-text-sub">
           <span class="js-ac-betTotal"></span>
         </div>
       </div>
@@ -22,7 +23,7 @@
     <div class="ac-statics-td ac-total-statistic">
       <div class="ac-statics-text">
         团队总盈亏
-        <div>
+        <div class="ac-statics-text-sub">
           <span class="js-ac-profitTotal"></span>
         </div>
       </div>
@@ -30,29 +31,21 @@
     <div class="ac-statics-td ac-rate">
 
       <div class="ac-statics-text">
-        当前分红比
-        <div><span class="js-ac-divid"></span><span>%</span></div>
+        您的分红比例
+        <div  class="ac-statics-text-sub">
+          <span class="js-ac-divid"></span><span>%</span>
+        </div>
       </div>
     </div>
     <div class="ac-statics-td ac-money ">
       <div class="ac-statics-text">
-        预计分红
-        <div><span class="js-ac-dividTotal"></span></div>
-      </div>
-    </div>
-    <div class="ac-statics-td ac-dm-gd last">
-      <div  class="ac-statics-text">
-        <div class="js-ac-status">
+        您应得的分红金额：
+        <div class="js-ac-status ac-dm-status">
           <button>
             <span class="js-ac-status-op sfa sfa-get-dividend" style=""></span>领取分红
           </button>
         </div>
-
-        <div class="ac-dm-md-check">
-          <a class="js-ac-dm-description  btn  btn-link ac-dm-description pull-right">
-            查看我的分红标准
-          </a>
-        </div>
+        <div class=" ac-statics-text-sub ac-dm-bonus"><span class="js-ac-dividTotal"></span></div>
       </div>
     </div>
   </div>
@@ -60,4 +53,21 @@
 <div class="js-ac-dm-md-report">
 
 </div>
-<div class="js-ac-dm-list-statistic"></div>
+<div class="">
+  <table class="ac-dm-rule-statistic">
+    <tr>
+      <th>我的分红标准</th>
+      <th>我的分红制度</th>
+    </tr>
+    <tr>
+      <td class="js-ac-dm-my-conf"></td>
+      <td class="ac-dm-rule-container">
+        <p>1、每半个月为一个分红周期，不累计。</p>
+        <p>2、每个月的1号和16号为分红领取时间。</p>
+        <p>3、每分红周期的分红比例，据分红制度表自动计算</p>
+      </td>
+    </tr>
+
+  </table>
+
+</div>
