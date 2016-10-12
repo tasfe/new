@@ -248,13 +248,14 @@ $.widget('gl.resetPassword', {
       Global.ui.notification.show('获取密码问题失败');
     }).done(function (res) {
       if (res && res.result === 0) {
-        $('.js-safety-problem dd').eq(0).html(res.root[0].userSecurityQuestion);
-        $('.js-safety-problem dd').eq(2).html(res.root[1].userSecurityQuestion);
-        $('.js-safety-problem dd').eq(4).html(res.root[2].userSecurityQuestion);
+        // $('.js-safety-problem dd').eq(0).html(res.root[0].userSecurityQuestion);
+        $('.js-safety-problem dd').eq(0).html(res.root[0].question);
+        $('.js-safety-problem dd').eq(2).html(res.root[1].question);
+        $('.js-safety-problem dd').eq(4).html(res.root[2].question);
 
-        $('.js-safety-problem dd').eq(0).attr('data-id',res.root[0].userSecurityId);
-        $('.js-safety-problem dd').eq(2).attr('data-id',res.root[1].userSecurityId);
-        $('.js-safety-problem dd').eq(4).attr('data-id',res.root[2].userSecurityId);
+        $('.js-safety-problem dd').eq(0).attr('data-id',res.root[0].qesId);
+        $('.js-safety-problem dd').eq(2).attr('data-id',res.root[1].qesId);
+        $('.js-safety-problem dd').eq(4).attr('data-id',res.root[2].qesId);
       } else {
         $('.js-safety-problem').addClass('hidden');
         $('.panel02').removeClass('hidden');
@@ -721,7 +722,8 @@ $.widget('gl.resetPassword', {
   getUserEcurityQes: function () {
     return $.ajax({
       type: 'POST',
-      url: '/acct/usermsg/validSecurity.json',
+      // url: '/acct/usermsg/validSecurity.json',
+      url: '/acct/usersecurity/getqesforloginpwd.json',
       data: {
         userName: $('.panel02 div span').html()
       }
