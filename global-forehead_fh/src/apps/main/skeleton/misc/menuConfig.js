@@ -332,7 +332,7 @@ var menuConfig = [
       },
       {
         id: 208,
-        router: 'uc/rc',
+        router: 'uc/gr',
         name: '游戏记录'
       },
       {
