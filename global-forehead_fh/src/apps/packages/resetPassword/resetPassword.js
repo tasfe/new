@@ -14,6 +14,8 @@ $.widget('gl.resetPassword', {
     this.$valImg = this.element.find('.js-rp-valImg');
     this.$valMoneyPasswd = this.element.find('.js-moneyPasswdInput');
 
+    this.$questionSelect = this.element.find('.js-rp-questionSelect');
+
     var url =  window.self.location.toString();
     this.codeUrl = url.substring(0, url.indexOf('/', url.indexOf('://',0)+3))+'/acct/imgcode/code';
     this.$valImg.attr('src',this.codeUrl+'?_t='+_.now());
@@ -47,6 +49,7 @@ $.widget('gl.resetPassword', {
       'click .js-reSendEmail': 'reSendEmail',//重新发送邮件
       'click .js-rp-verifySQABtn': 'verifySQABtn',//安全问题验证
       'click .js-rp-findBySQBtn': 'findBySQBtn',//进入安全问题
+      'change .js-rp-questionSelect': 'questionSelectChangeHandler',//控制三个下拉框的值不能重复选择
       'click .js-safety-problem-black': 'safetyProblemBlack',//安全问题返回
       'click .js-rp-setLPBtn': 'setLPHandler',//设置登录密码
       'click .js-reset': 'reset',//清空登录密码
@@ -176,6 +179,14 @@ $.widget('gl.resetPassword', {
     var str3= $('.js-answer3').val();
     var iIs = 0;
 
+    self.$questionSelect.each(function () {
+      if($(this).val()==''){
+        $(this).closest('dl').addClass('wrong').removeClass('correct');
+      }else{
+        $(this).closest('dl').addClass('correct').removeClass('wrong');
+      }
+    })
+
     if (str1.length == 0) {
       $('.js-safety-problem dl').eq(1).addClass('wrong');
       $('.js-safety-problem dl').eq(1).removeClass('correct');
@@ -239,6 +250,7 @@ $.widget('gl.resetPassword', {
   },
 
   findBySQBtn: function(){
+    var self = this;
     $('.js-safety-problem').removeClass('hidden');
     $('.panel02').addClass('hidden');
 
@@ -249,10 +261,13 @@ $.widget('gl.resetPassword', {
     }).done(function (res) {
       if (res && res.result === 0) {
         // $('.js-safety-problem dd').eq(0).html(res.root[0].userSecurityQuestion);
-
-        $('.js-safety-problem dd').eq(0).html('<select><option>'+res.root[0].question+'</option></select>');
-        $('.js-safety-problem dd').eq(2).html('<select><option>'+res.root[1].question+'</option></select>');
-        $('.js-safety-problem dd').eq(4).html('<select><option>'+res.root[2].question+'</option></select>');
+        self.$questionSelect.html('<option value="">请选择密保问题</option>');
+        self.$questionSelect.append(_(res.root).map(function (option) {
+          return '<option value="' + option.qesId + '">' + option.question + '</option>';
+        }).join(''));
+        // $('.js-safety-problem dd').eq(0).html('<select><option>'+res.root[0].question+'</option></select>');
+        // $('.js-safety-problem dd').eq(2).html('<select><option>'+res.root[1].question+'</option></select>');
+        // $('.js-safety-problem dd').eq(4).html('<select><option>'+res.root[2].question+'</option></select>');
 
         $('.js-safety-problem dd').eq(0).attr('data-id',res.root[0].qesId);
         $('.js-safety-problem dd').eq(2).attr('data-id',res.root[1].qesId);
@@ -386,6 +401,20 @@ $.widget('gl.resetPassword', {
 
     $('.js-rp-loginPwd1').on('keyup', newLoginPassword);
     $('.js-rp-loginPwd2').on('keyup', newLoginPassword2);
+  },
+
+  //下拉框选择的事件,用于控制不会重复选择
+  questionSelectChangeHandler: function (e) {
+    var $target = $(e.currentTarget);
+    var $option = $target.find('option:selected');
+
+    var selectedValue = $option.siblings('.selected').removeClass('selected').val();
+    var selectingValue = $target.val();
+
+    this.$questionSelect.not($target).find('option[value=' + selectedValue + ']').removeClass('hidden');
+    this.$questionSelect.not($target).find('option[value=' + selectingValue + ']').addClass('hidden');
+
+    $option.addClass('selected');
   },
 
   setLPHandler: function(e){
@@ -701,19 +730,20 @@ $.widget('gl.resetPassword', {
 
   //TODO 验证密保 ，待修改参数名
   verifySecurityQuestion: function () {
+    var self = this;
     return Global.sync.ajax({
       type: 'POST',
       // url: '/acct/usersecurity/verqesforloginpwdByName.json',
       url: '/acct/usersecurity/verpwdforloginpwd.json',
       data: {
-        'secrityList[0].securityId': $('.js-safety-problem dd').eq(0).data('id'),
-        'secrityList[0].securityQes': $('.js-safety-problem dd').eq(0).html(),
+        'secrityList[0].securityId': self.$questionSelect.eq(0).val(),
+        'secrityList[0].securityQes': self.$questionSelect.eq(0).find('option:selected').html(),
         'secrityList[0].securityAsw': $('.js-answer1').val(),
-        'secrityList[1].securityId': $('.js-safety-problem dd').eq(2).data('id'),
-        'secrityList[1].securityQes': $('.js-safety-problem dd').eq(2).html(),
+        'secrityList[1].securityId': self.$questionSelect.eq(1).val(),
+        'secrityList[1].securityQes': self.$questionSelect.eq(1).find('option:selected').html(),
         'secrityList[1].securityAsw': $('.js-answer2').val(),
-        'secrityList[2].securityId': $('.js-safety-problem dd').eq(4).data('id'),
-        'secrityList[2].securityQes': $('.js-safety-problem dd').eq(4).html(),
+        'secrityList[2].securityId': self.$questionSelect.eq(2).val(),
+        'secrityList[2].securityQes': self.$questionSelect.eq(2).find('option:selected').html(),
         'secrityList[2].securityAsw': $('.js-answer3').val(),
         username: $('.panel02 div span').html(),
         loginToken:sessionStorage.getItem('pwdToken')
