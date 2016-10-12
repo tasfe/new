@@ -173,7 +173,9 @@ var BettingRecordsView = SearchGrid.extend({
   formatRowData: function(rowInfo) {
     var row = [];
     row.push(rowInfo.userName);
-    row.push('<a class="router btn-link" href="' + _.getUrl('/detail/' + rowInfo.ticketTradeNo) + '">' + rowInfo.ticketTradeNo + '</a>');
+    // row.push('<a class="router btn-link" href="#gr/br/detail/' + rowInfo.ticketTradeNo + '">' + rowInfo.ticketTradeNo + '</a>');
+    var url = _.getUrl('/detail/' + rowInfo.ticketTradeNo + '?name=' + rowInfo.userName);
+    row.push('<a class="router btn-link" href="' + url + '">' + rowInfo.ticketTradeNo + '</a>');
     row.push(rowInfo.ticketName);
     if(rowInfo.ticketPlanId === 'mmc') {
       row.push('/');

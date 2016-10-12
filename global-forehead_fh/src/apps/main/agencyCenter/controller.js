@@ -6,7 +6,7 @@ var LowLevelManageView = require('agencyCenter/views/lowLevelManage');
 var LowLevelRebateView = require('agencyCenter/views/lowLevelManage-rebate');
 
 var LowLevelBettingRecordsView = require('userCenter/bettingRecords');
-var LowLevelBettingDetailView = require('agencyCenter/views/lowLevelManage-bettingDetail');
+var LowLevelBettingDetailView = require('./teamGames/bettingDetail');
 
 var LowLevelTrackRecordsView = require('userCenter/trackRecords');
 var LowLevelTrackDetailView = require('agencyCenter/views/lowLevelManage-trackDetail');
@@ -73,6 +73,14 @@ var AgencyCenterController = RouterController.extend({
     });
   },
 
+  bettingDetail: function(betId) {
+    this.changeSubReginView(new LowLevelBettingDetailView({
+      tradeNo: betId
+    }), {
+      parentRouter: 'ac/br'
+    });
+  },
+
   salaryManage: function () {
     this.changeMainReginView(new SalaryView(), {
       sidebar: 'ac',
@@ -113,18 +121,6 @@ var AgencyCenterController = RouterController.extend({
     }), {
       main: {
         title: '查看' + userName + '的投注记录'
-      },
-      parentRouter: 'ac/llm'
-    });
-  },
-
-  bettingDetail: function(userId, tabName,betId) {
-    this.changeSubReginView(new LowLevelBettingDetailView({
-      userId: userId,
-      tradeNo: betId
-    }), {
-      main: {
-        title: '查看' + _.getUrlParam('name') + '的投注详情'
       },
       parentRouter: 'ac/llm'
     });

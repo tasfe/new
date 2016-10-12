@@ -47,7 +47,7 @@
     border-width: 11px;
   }
   &.top .arrow {
-    bottom: -10px;
+    bottom: -11px;
     left: 50%;
     margin-left: -11px;
     //border-top-color: #999;
@@ -61,7 +61,7 @@
   }
   &.right .arrow {
     top: 50%;
-    left: -10px;
+    left: -11px;
     margin-top: -11px;
     border-right-color: #999;
     border-right-color: rgba(0, 0, 0, 0.15);
@@ -73,7 +73,7 @@
     }
   }
   &.bottom .arrow {
-    top: -10px;
+    top: -11px;
     left: 50%;
     margin-left: -11px;
     //border-bottom-color: #999;
@@ -87,7 +87,7 @@
   }
   &.left .arrow {
     top: 50%;
-    right: -10px;
+    right: -11px;
     margin-top: -11px;
     border-left-color: #999;
     border-left-color: rgba(0, 0, 0, 0.15);

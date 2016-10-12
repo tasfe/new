@@ -26,10 +26,10 @@ exports.install = function() {
 
     //'ac/pl': 'profitAndLoss', //报表查询
 
-    'ac/betting/:userId/:tabName': 'bettingRecords', //投注
-    'ac/track/:userId/:tabName': 'trackRecords', //追号
-    'ac/account/:userId/:tabName': 'accountDetail', //账变
-    'ac/betting/:userId/:tabName/detail/:betId': 'bettingDetail', //投注详情
+    // 'ac/betting/:userId/:tabName': 'bettingRecords', //投注
+    // 'ac/track/:userId/:tabName': 'trackRecords', //追号
+    // 'ac/account/:userId/:tabName': 'accountDetail', //账变
+    'ac/br/detail/:betId': 'bettingDetail', //投注详情
     'ac/track/:userId/:tabName/detail/:tradeNo': 'trackDetail', //追号详情
 
     'ac/dm': 'dividendManage', //分红管理

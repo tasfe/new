@@ -45,7 +45,7 @@ var TopProfileView = Base.ItemView.extend({
           self.$balanceTotal.text(_(data.balanceTotal).convert2yuan());
           self.$todayRegTotal.text( data.todayRegTotal);
           self.$todayOnlineTotal.text( data.todayOnlineTotal);
-          self.$todayBonusTotal.text( data.todayBonusTotal);
+          self.$todayBonusTotal.text(_(data.todayBonusTotal).convert2yuan());
         }
       });
   },

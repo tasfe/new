@@ -1,7 +1,7 @@
 "use scrict";
 
 var RouterController = require('skeleton/controllers/router');
-var BettingDetailView = require('userCenter/views/bettingDetail');
+var BettingDetailView = require('userCenter/bettingDetail');
 
 var TrackRecordView = require('userCenter/trackRecords/team');
 var TrackDetailView = require('userCenter/views/trackDetail');
@@ -25,6 +25,29 @@ var ReportManageView = require('agencyCenter/reportManage/teamReport');
 
 var UserCenterController = RouterController.extend({
 
+  gameRecords: function (type) {
+    this.changeMainReginView(new GameRecordsView({
+      triggerTab: type
+    }), {
+      sidebar: 'pc',
+      topView: 'personal'
+    });
+  },
+
+  bettingDetail: function(tradeNo) {
+    this.changeSubReginView(new BettingDetailView({
+      tradeNo: tradeNo,
+      quickEntry: true
+    }), {
+      parentRouter: 'gr/br',
+      main: {
+        subReturn: true
+      },
+      sidebar: 'pc',
+      topView: 'personal'
+    });
+  },
+
   reportManage:function () {
     this.changeMainReginView(new ReportManageView(), {
       sidebar: 'uc'
@@ -42,20 +65,6 @@ var UserCenterController = RouterController.extend({
   //     sidebar: 'uc'
   //   });
   // },
-
-  bettingDetail: function(tradeNo) {
-    this.changeSubReginView(new BettingDetailView({
-      tradeNo: tradeNo,
-      quickEntry: true
-    }), {
-      parentRouter: 'uc/br',
-      main: {
-        subReturn: true
-      },
-      needParent: false,
-      sidebar: 'uc'
-    });
-  },
 
   trackRecords: function() {
     this.changeMainReginView(new TrackRecordView(), {
@@ -143,13 +152,6 @@ var UserCenterController = RouterController.extend({
       tradeNo: tradeNo
     }), {
       parentRouter: 'uc/tr'
-    });
-  },
-
-  gameRecords: function () {
-    this.changeMainReginView(new GameRecordsView(), {
-      sidebar: 'pc',
-      topView: 'personal'
     });
   },
 
