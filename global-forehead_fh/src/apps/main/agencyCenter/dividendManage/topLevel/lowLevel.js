@@ -13,8 +13,8 @@ var LowLevelView = SearchGrid.extend({
   template: require('./lowLevel.html'),
 
   events: {
-    'click .js-ac-grant': 'grantHandler',
-    'click .js-ac-multi-grant': 'multiGrantHandler',
+    'click .js-ac-dm-ll-grant': 'grantHandler',
+    'click .js-ac-dm-ll-multi-grant': 'multiGrantHandler',
     'click .js-ac-dm-ll-detail': 'getAgentDetailHandler'
   },
 
@@ -35,34 +35,35 @@ var LowLevelView = SearchGrid.extend({
   initialize: function() {
     _(this.options).extend({
       columns: [
+
         {
-          name: '分红周期',
+          name: '账号',
           width: '11%'
         },
         {
-          name: '用户名',
+          name: '结算周期',
           width: '11%'
         },
         {
-          name: '周期总销量',
+          name: '累计销量',
           width: '13%'
         },
+        // {
+        //   name: '日均销量',
+        //   width: '13%'
+        // },
         {
-          name: '日均销量',
-          width: '13%'
-        },
-        {
-          name: '总盈亏',
+          name: '盈亏累计',
           width: '13%'
         },
         {
           name: '分红比',
           width: '8%'
         },
-        {
-          name: '分红金额',
-          width: '13%'
-        },
+        // {
+        //   name: '分红金额',
+        //   width: '13%'
+        // },
         {
           name: '状态',
           width: '8%'
@@ -78,11 +79,12 @@ var LowLevelView = SearchGrid.extend({
       ajaxOps: {
         url: '/fund/divid/subdivid.json'
       },
-      checkable: false,
+      checkable: true,
       listProp: 'root.dividList',
       //tip: '<span class="m-right-sm vertical-middle"><span class="js-pf-select-all cursor-pointer">全选</span> | ' +
       //'<span class="js-pf-inverse cursor-pointer">反选</span></span>' +
       //'<div class="btn-group"><button class="js-ac-multi-grant btn btn-sm btn-hot">发放</button></div>',
+      headTip: '<div class="table-head-tip"><button class=" btn btn-hot btn-linear js-ac-dm-ll-multi-grant m-right-sm ">提交分红申请</button><span >温馨提示：下级分红每月1号和16号结算，只保留上一次的记录，未按时下发分红给下级平台会强制发放。</span></div>',
       height: 310
     });
   },
@@ -118,9 +120,9 @@ var LowLevelView = SearchGrid.extend({
     var now = moment();
     var time1 = moment().set('date',1);
     var month1 = time1.month()+1;
-    var cycle1 = time1.format('YYYY-MM-D');
+    var cycle1 = time1.format('YYYY-MM-DD');
     var time2 = moment().set('date',16);
-    var cycle2 = time2.format('YYYY-MM-D');
+    var cycle2 = time2.format('YYYY-MM-DD');
     var cycles = [];
     if(now>=time2){
       cycles.push('<option value="'+cycle2+'">'+month1+'月下半月'+'</option>')
@@ -129,9 +131,9 @@ var LowLevelView = SearchGrid.extend({
     _(2).chain().range().each(function(item,index){
       var time3 = moment().subtract(item+1,'month').set('date',1);
       var time4 = moment().subtract(item+1,'month').set('date',16);
-      var cycle3 = time3.format('YYYY-MM-D');
+      var cycle3 = time3.format('YYYY-MM-DD');
       var month3 = time3.month()+1;
-      var cycle4 = time4.format('YYYY-MM-D');
+      var cycle4 = time4.format('YYYY-MM-DD');
       cycles.push('<option value="'+cycle4+'">'+month3+'月下半月'+'</option>');
       cycles.push('<option value="'+cycle3+'">'+month3+'月上半月'+'</option>');
     }).value();
@@ -187,7 +189,7 @@ var LowLevelView = SearchGrid.extend({
     var operate = [];
 
     if (rowInfo.status === grantConfig.getByName('WAIT').id) {
-      operate.push('<button class="js-ac-grant btn btn-link btn-link-hot ac-dm-ll-detail-btn">发放</button>');
+      operate.push('<button class="js-ac-dm-ll-grant btn btn-link btn-link-hot ac-dm-ll-detail-btn">发放</button>');
     }
 
     row.push(operate.join(''));

@@ -1,19 +1,24 @@
-<div class="control-group">
-  <label class="control-label">分红周期:</label>
-  <select name="cycle" class="js-ac-dm-lowLeve-cycle input-md m-right-md">
-    <option value="-1">全部</option>
-  </select>
-  <label class="control-label">用户名:</label>
-  <input type="text" class="input-sm m-right-md" name="username">
+<div class="portlet-header-block">
+  <div class="search-condition-table">
+    <div class="control-group">
+      <label class="control-label">周期查询</label>
+      <select name="cycle" class="js-ac-dm-lowLeve-cycle input-md m-right-md">
+        <option value="-1">全部</option>
+      </select>
+      <label class="control-label">用户名</label>
+      <input type="text" class="input-sm m-right-md" name="username">
 
-  <label class="control-label">状态:</label>
-  <select name="status" class="input-sm m-right-md">
-    <option value="-1">全部</option>
-  </select>
-  <div class="pull-right">
-    <button type="submit" class="btn btn-sun">
-      <span class="sfa sfa-search vertical-middle"></span>
-      搜 索
-    </button>
+      <label class="control-label">状态</label>
+      <select name="status" class="input-sm m-right-md">
+        <option value="-1">全部</option>
+      </select>
+    </div>
   </div>
+</div>
+
+<div class="portlet-header-btnGroup">
+  <button type="submit" class="btn btn-pink btn-linear" data-loading-text="搜索">
+    <i class="fa fa-search"></i>
+    搜索
+  </button>
 </div>

@@ -57,6 +57,7 @@ var TopLevelView = TabView.extend({
     ];
 
     _(this.options).extend({
+      tabClass: 'view-tabs nav nav-tabs nav-tabs-special',
       tabs: tabs,
       append: '<div class="js-ac-sm-add-user cursor-pointer ac-add-user pull-right text-pleasant">' +
       '<span class="sfa sfa-dividend-add vertical-bottom"></span> ' +
@@ -68,13 +69,13 @@ var TopLevelView = TabView.extend({
 
   onRender: function() {
     var acctInfo = Global.memoryCache.get('acctInfo');
-    if (acctInfo.salaryStatus === dividendConfig.getByName('APPLYING').id) {//APPLYING
-      //申请中
-      this.$el.html(new AgreeView().render().$el);
-    } else if (acctInfo.salaryStatus === dividendConfig.getByName('APPLIED').id) {
+    // if (acctInfo.salaryStatus === dividendConfig.getByName('APPLYING').id) {//APPLYING
+    //   //申请中
+    //   this.$el.html(new AgreeView().render().$el);
+    // } else if (acctInfo.salaryStatus === dividendConfig.getByName('APPLIED').id) {
       var self = this;
       TabView.prototype.onRender.apply(self, arguments);
-    }
+    // }
 
   },
 

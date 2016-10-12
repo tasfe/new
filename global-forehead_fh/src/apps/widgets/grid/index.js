@@ -7,6 +7,7 @@ $.widget('gl.grid', {
 
   options: {
     checkable: true,
+    checkableWidth: '1%',
     chkAllId: 'chkAll',
     namespace: 'glGrid',
     tableClass: 'table table-bordered ',
