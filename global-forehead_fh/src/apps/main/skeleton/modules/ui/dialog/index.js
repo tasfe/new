@@ -14,6 +14,7 @@ var DialogModule = Base.Module.extend({
       show: true,
       bodyClass: '',
       modalClass: '',
+      draggable: true,
       size: '',
       backdrop: 'static'
     });
@@ -36,11 +37,6 @@ var DialogModule = Base.Module.extend({
     html.push('<div class="modal-content clearfix">');
 
     if (options.title) {
-      if (options.size == 'modal-info-julien') {
-        $('body').addClass('overflow-hidden');
-
-        html.push('<div class="modal-header-left">消息管理</div>');
-      }
       html.push('<div class="modal-header">');
       html.push('<i class="fa fa-times-circle close js-no-lock  fa-remove"  aria-hidden="true" data-dismiss="modal">');
       //html.push('<span aria-hidden="true">&times;</span>');
@@ -69,14 +65,17 @@ var DialogModule = Base.Module.extend({
         backdrop: options.backdrop
       });
     }
-    if (options.size == 'modal-info-julien') {
-      $('.js-no-lock').on('click',function () {
-        $('body').removeClass('overflow-hidden')
-      })
+
+    var $currentDialog = $container.find('#' + options.id);
+
+    if (options.draggable) {
+      $currentDialog.find('.modal-dialog').draggable({
+        handle: $currentDialog.find('.modal-header'),
+        containment: $('html')
+      });
     }
 
-    return $container.find('#' + options.id);
-
+    return $container.find($currentDialog);
   },
 
   hide: function(id, targetEl) {

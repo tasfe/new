@@ -14,7 +14,7 @@ var ReportManageView = SearchGrid.extend({
 
   initialize: function () {
     _(this.options).extend({
-      height: 330,
+      height: 434,
       title: '报表查询',
       columns: [
         {
@@ -79,15 +79,15 @@ var ReportManageView = SearchGrid.extend({
         emptyTip: '没有盈亏记录'
       },
       ajaxOps: {
-        url: '/fund/fundreport/profitdetail.json'
+        url: '/fund/fundreport/profitreport.json'
       },
       subOps: {
-        url: '/fund/fundreport/profitdetail.json',
+        url: '/fund/fundreport/profitreport.json',
         data: ['userId']
       }
     });
     var acctInfo = Global.memoryCache.get('acctInfo');
-    if(acctInfo.salaryStatus !=2 && ( acctInfo.userGroupLevel !== 0 && acctInfo.userGroupLevel !== 1)) {
+    if(acctInfo.salaryStatus !=2 && ( acctInfo.userGroupLevel !== 0 && acctInfo.userGroupLevel !== 1)){
       this.options.columns.splice(7,1);
     }
   },
@@ -171,17 +171,17 @@ var ReportManageView = SearchGrid.extend({
       initPagination: false
     });
 
-    if (!_(gridData.parents).isEmpty()) {
-      this._breadList = _(gridData.parents).map(function(parent, index) {
-        return {
-          data: {
-            userId: parent.userId
-          },
-          label: parent.userName
-        };
-      });
-      this.renderBread();
-    }
+    // if (!_(gridData.parents).isEmpty()) {
+    //   this._breadList = _(gridData.parents).map(function(parent, index) {
+    //     return {
+    //       data: {
+    //         userId: parent.userId
+    //       },
+    //       label: parent.userName
+    //     };
+    //   });
+    //   this.renderBread();
+    // }
     //
     var foot = {
       trClass: 'tr-footer',
@@ -194,7 +194,7 @@ var ReportManageView = SearchGrid.extend({
         _(gridData.bonusTotal).convert2yuan(),
         _(gridData.activityTotal).convert2yuan(),
         _(gridData.salaryTotal).convert2yuan(),
-        _(gridData.profitAndLossTotal).convert2yuan()
+        _(gridData.profitAndLossTotal).convert2yuan(),
       ]
     };
     var acctInfo = Global.memoryCache.get('acctInfo');

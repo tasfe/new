@@ -62,8 +62,8 @@ var menuConfig = [
         router: 'ac',
         name: '团队中心',
         first: 'ac/llm',
-        titleClass: 'bg-sunshine',
-        backStyle: 'text-sunshine',
+        // titleClass: 'bg-sunshine',
+        // backStyle: 'text-sunshine',
         iconType: 'sfa',
         icon: 'agency',
         sub: [
@@ -145,8 +145,8 @@ var menuConfig = [
         router: 'bb',
         name: '投注管家',
         first: 'bb/sp',
-        titleClass: 'bg-sunshine',
-        backStyle: 'text-sunshine',
+        // titleClass: 'bg-sunshine',
+        // backStyle: 'text-sunshine',
         iconType: 'sfa',
         icon: 'agency',
         sub: [
@@ -171,8 +171,8 @@ var menuConfig = [
         router: 'nc',
         name: '消息中心',
         first: 'nc/pn',
-        titleClass: 'bg-sunshine',
-        backStyle: 'text-sunshine',
+        // titleClass: 'bg-sunshine',
+        // backStyle: 'text-sunshine',
         iconType: 'sfa',
         icon: 'nes',
         sub: [
@@ -215,8 +215,8 @@ var menuConfig = [
     {
         router: 'as',
         name: '账户安全',
-        titleClass: 'bg-sunshine',
-        backStyle: 'text-sunshine',
+        // titleClass: 'bg-sunshine',
+        // backStyle: 'text-sunshine',
         //iconType: 'sfa',
         first: 'as/pl',
         //icon: 'safe',
@@ -255,8 +255,8 @@ var menuConfig = [
         router: 'at',
         name: '活动中心',
         first: 'at/tb',
-        titleClass: 'bg-sunshine',
-        backStyle: 'text-sunshine',
+        // titleClass: 'bg-sunshine',
+        // backStyle: 'text-sunshine',
         iconType: 'sfa',
         icon: 'activity',
         sub: [
@@ -296,8 +296,8 @@ var menuConfig = [
     {
         router: 'pc',
         name: '个人中心',
-        titleClass: 'bg-sunshine',
-        backStyle: 'text-sunshine',
+        // titleClass: 'bg-sunshine',
+        // backStyle: 'text-sunshine',
         iconType: 'sfa',
         //notShow: true,
         sub: [
@@ -328,12 +328,12 @@ var menuConfig = [
             },
             {
                 id: 209,
-                router: 'uc/rp',
+                router: 'uc/pal',
                 name: '盈亏报表'
             },
             {
                 id: 210,
-                router: 'uc/ad',
+                router: 'uc/md',
                 name: '帐变明细'
             },
             {
@@ -361,8 +361,8 @@ var menuConfig = [
     {
         router: 'vip',
         name: 'VIP中心',
-        titleClass: 'bg-sunshine',
-        backStyle: 'text-sunshine',
+        // titleClass: 'bg-sunshine',
+        // backStyle: 'text-sunshine',
         iconType: 'sfa',
         sub: [
             {

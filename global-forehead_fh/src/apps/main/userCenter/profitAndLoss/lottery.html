@@ -1,21 +1,12 @@
 <div class="portlet-header-block">
   <div class="search-condition-table">
     <select name="subUser" class="hidden">
-      <option value="1">团队</option>
-      <!--<option value="0">个人</option>-->
+      <option value="0" selected>个人</option>
     </select>
+    <input type="hidden" name="userId" value="<%=Global.memoryCache.get('acctInfo').userId %>" />
     <div class="control-group">
       <dl>
-        <dt>账号</dt>
-        <dd><input type="text" name="username" class="js-rm-userName" /></dd>
-      </dl>
-      <!--<dl>-->
-        <!--<dt>查询范围</dt>-->
-        <!--<dd>-->
-        <!--</dd>-->
-      <!--</dl>-->
-      <dl>
-        <dt>投注时间</dt>
+        <dt>游戏时间</dt>
         <dd class="m-right-xs">
           <span class="js-ac-btnGroup ac-btnGroup inline-block"></span>
         </dd>
@@ -23,6 +14,12 @@
           <span class="js-ac-timeset search-timeSet"></span>
         </dd>
       </dl>
+      <!--<dl>-->
+        <!--<dt>期号</dt>-->
+        <!--<dd>-->
+          <!--<input type="text" name="ticketPlanId" class="input3 margin-add" data-parsley-maxlength="30">-->
+        <!--</dd>-->
+      <!--</dl>-->
     </div>
   </div>
 </div>

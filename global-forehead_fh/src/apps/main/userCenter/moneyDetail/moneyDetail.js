@@ -1,15 +1,14 @@
 "use strict";
 
-var tradingStatusConfig = require('fundCenter/misc/tradingStatusConfig');
+var tradingStatusConfig = require('../misc/tradingStatusConfig');
 
 var SearchGrid = require('com/searchGrid');
-
 var BtnGroup = require('com/btnGroup');
 var Timeset = require('com/timeset');
 
 var MoneyDetailView = SearchGrid.extend({
 
-  template: require('./moneyDetails.html'),
+  template: require('./moneyDetail.html'),
 
   events: {},
 
@@ -20,44 +19,36 @@ var MoneyDetailView = SearchGrid.extend({
     });
 
     _(this.options).extend({
-      height: '330',
+      height: 330,
       columns: [
         {
-          name: '账号',
-          width: '10%'
+         name: '交易流水号',
+         width: '20%'
         },
         {
           name: '交易时间',
-          width: '15%'
-        },
-        {
-          name: '交易流水号',
-          width: '18%'
+          width: '20%'
         },
         {
           name: '交易类型',
-          width: '8%'
+          width: '10%'
         },
-        // {
-        //   name: '备注类型',
-        //   width: '8%'
-        // },
         {
-          name: '交易金额',
-          width: '12%'
+          name: '账变',
+          width: '20%'
         },
+        //{
+        //  name: '支出',
+        //  width: '14%'
+        //},
         {
           name: '账户余额',
-          width: '15%'
-        },
-        {
-          name: '备注',
-          width: '15%'
+          width: '20%'
         }
       ],
-      tip: '<div class="table-foot-tips"><span>提示:</span> 帐户明细只保留30天数据。</div>',
+      tip: '提示：账变明细只保留30天数据。',
       gridOps: {
-        emptyTip: '没有账户明细'
+        emptyTip: '没有账变明细'
       },
       ajaxOps: {
         url: '/fund/balance/history.json'
@@ -65,13 +56,12 @@ var MoneyDetailView = SearchGrid.extend({
       reqData: {
         subUser: 0
       }
-      // viewType: 'team'
     });
   },
 
   onRender: function() {
     var self = this;
-    this.$('.js-pf-search-grid').addClass('bc-report-table');
+
     this.$btnGroup = this.$('.js-ac-btnGroup');
     this.$timeset = this.$('.js-ac-timeset');
 
@@ -129,10 +119,6 @@ var MoneyDetailView = SearchGrid.extend({
       }
     }).render();
 
-    if(this.options.reqData.username){
-      this.$('input[name="username"]').val(this.options.reqData.username);
-    }
-    
     this.$('select[name=tradeType]').html(_(tradingStatusConfig.get()).map(function(status) {
       return '<option value="' + status.id + '">' + status.searchName + '</option>';
     }).join(''));
@@ -148,7 +134,6 @@ var MoneyDetailView = SearchGrid.extend({
       };
     }, this);
 
-
     this.grid.refreshRowData(rowsData, gridData.rowCount, {
       pageIndex: this.filterHelper.get('pageIndex'),
       initPagination: true
@@ -159,8 +144,9 @@ var MoneyDetailView = SearchGrid.extend({
         trClass: 'tr-cool',
         columnEls: [
           '<div class="text-hot">所有页总计</div>',
-          '', '', '',
-         '<div class="text-hot">' +  _(gridData.income + gridData.spending).convert2yuan() + '</div>', '',''
+          '','',
+          '<div class="text-hot">' +  _(gridData.income + gridData.spending).convert2yuan() + '</div>',
+          '', ''
         ]
       })
       .hideLoading();
@@ -169,11 +155,6 @@ var MoneyDetailView = SearchGrid.extend({
   formatRowData: function(info) {
     var row = [];
 
-    row.push(info.userName);
-
-    row.push(_(info.createTime).toTime());
-
-    var href;
     if (info.remark === '投注扣款' || info.remark === '中奖' || info.remark.indexOf('投注所得') !== -1 || info.remark === '用户撤单' || info.remark === '系统撤单') {
       row.push('<a href="' + this.options.betDetailPrevUrl + info.tradeNo + _.getUrlParamStr() + '" class="router btn-link btn-hot">' + info.tradeNo + '</a>');
     } else if (info.remark === '追号扣款' || info.remark.indexOf('撤销追号') !== -1) {//
@@ -182,10 +163,9 @@ var MoneyDetailView = SearchGrid.extend({
       row.push(info.tradeNo);
     }
 
+    row.push(_(info.createTime).toTime());
     row.push(tradingStatusConfig.toZh(info.tradeType));
 
-
-    // TODO 增加账变字段
     if (info.amount >= 0) {
       row.push('<span class="">+'+_(info.amount).convert2yuan()+'</span>');
     } else {
@@ -193,8 +173,6 @@ var MoneyDetailView = SearchGrid.extend({
     }
 
     row.push('<span class="text-bold-cool">'+_(info.balance).convert2yuan()+'</span>');
-
-    row.push(info.remark);
 
     return row;
   }

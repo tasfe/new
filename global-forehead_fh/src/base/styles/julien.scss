@@ -317,50 +317,6 @@ body{
 	display:none;
 }
 
-.modal-info-julien{
-	width: 1020px !important;
-	margin-left: -510px !important;
-	font-size: 14px;
-	font-family: '微软雅黑';
-	background: url(~base/images/julien/modal-lg-julien-bg.jpg) no-repeat 100px 80px #fff;
-
-	.modal-body{
-		background: none;
-	}
-
-	.modal-title{
-		margin: 0 0 0 20px;
-	}
-
-	.modal-header-left{
-		padding-left: 50px;
-		width: 240px;
-		height: 42px;
-		line-height: 41px;
-		font-size: 16px;
-		color: #000000;
-		float: left;
-		border: 1px solid #cccccc;
-		border-top: 0px;
-		border-left: 0px;
-		background: url(~base/images/julien/25.png) no-repeat 15px 15px;
-	}
-	.modal-header{
-		width: 715px;
-		float: left;
-		border-bottom: 1px solid #cccccc;
-	}
-	.modal-body{
-		clear: both;
-		border-bottom: 1px solid #cccccc;
-		border-top: 0px;
-	}
-
-	form{
-		margin: 0px;
-	}
-}
-
 .border-table-bottom{
 	border: 0px;
 }
@@ -433,20 +389,6 @@ body{
 		display: inline-block;
 		margin-right: 3px;
 	}
-}
-
-dl,dt,dd{
-	padding: 0px;
-	margin: 0px;
-	font-weight: normal;
-	display: inline-block;
-}
-
-.julien-btn-group{
-	margin-top: 30px;
-	padding-top: 20px;
-	border-top: 1px solid #e2e2e2;
-	text-align: center;
 }
 
 .julien-table-content{
