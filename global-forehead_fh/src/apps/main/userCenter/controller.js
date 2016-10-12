@@ -1,9 +1,6 @@
 "use scrict";
 
 var RouterController = require('skeleton/controllers/router');
-
-var BettingRecordView = require('userCenter/bettingRecords');
-
 var BettingDetailView = require('userCenter/views/bettingDetail');
 
 var TrackRecordView = require('userCenter/trackRecords/team');
@@ -26,7 +23,6 @@ var VipCreditView = require('userCenter/vipCredit');
 
 var ReportManageView = require('agencyCenter/reportManage/teamReport');
 
-var BaccaratPalView = require('userCenter/baccaratPal/baccaratPal');
 var transforRecordView = require('userCenter/transforRecord/transforRecord');
 
 var UserCenterController = RouterController.extend({
@@ -35,13 +31,6 @@ var UserCenterController = RouterController.extend({
     this.changeMainReginView(new transforRecordView(), {
       sidebar: 'ac',
       topView: 'personal'
-    });
-  },
-
-
-  baccaratPal:function () {
-    this.changeMainReginView(new BaccaratPalView(), {
-      sidebar: 'uc'
     });
   },
 
@@ -57,11 +46,11 @@ var UserCenterController = RouterController.extend({
     });
   },
 
-  bettingRecords: function() {
-    this.changeMainReginView(new BettingRecordView(), {
-      sidebar: 'uc'
-    });
-  },
+  // bettingRecords: function() {
+  //   this.changeMainReginView(new BettingRecordView(), {
+  //     sidebar: 'uc'
+  //   });
+  // },
 
   bettingDetail: function(tradeNo) {
     this.changeSubReginView(new BettingDetailView({

@@ -8,57 +8,6 @@ var menuConfig = [
     noTitle: true
   },
   {
-    router: 'uc',
-    name: '历史记录',
-    first: 'uc/br',
-    titleClass: 'bg-pink',
-    backStyle: 'text-pink',
-    iconType: 'sfa',
-    icon: 'history',
-    sub: [
-      {
-        id: 104,
-        router: 'uc/rr',
-        name: '充值记录'
-      },
-      // {
-      //   id: 109,
-      //   router: 'uc/tfr',
-      //   name: '转账记录'
-      // },
-      {
-        id: 105,
-        router: 'uc/wr',
-        name: '提现记录'
-      },
-      {
-        id: 106,
-        router: 'uc/ad',
-        name: '账变明细'
-      },
-      {
-        id: 102,
-        router: 'uc/br',
-        name: '投注记录'
-      },
-      {
-        id: 103,
-        router: 'uc/tr',
-        name: '追号记录'
-      },
-      {
-        id: 107,
-        router: 'ac/rm',
-        name: '彩票盈亏'
-      },
-      {
-        id: 108,
-        router: 'uc/bac',
-        name: 'AG游戏盈亏'
-      }
-    ]
-  },
-  {
     router: 'ac',
     name: '团队中心',
     first: 'ac/llm',
@@ -111,22 +60,12 @@ var menuConfig = [
         name: '日工资管理',
         needAuth: true
       },
-      // {
-      //    id: 134,
-      //    router: 'ac/rm',
-      //      name: '报表查询'
-      //  },
       {
         id: 137,
         router: 'ac/dm',
         name: '分红管理',
         needAuth: true
       },
-      //{
-      //  id: 112,
-      //  router: 'ac/pl',
-      //  name: '盈亏报表'
-      //},
       {
         id: 138,
         router: 'ac/rr',
@@ -185,63 +124,6 @@ var menuConfig = [
         id: 151,
         router: 'nc/pn/setting',
         name: '系统通知设置'
-      }
-    ]
-  },
-  //{
-  //  router: 'fc',
-  //  name: '资金管理',
-  //  first: 'fc/re',
-  //  icon: 'fund',
-  //  titleClass: 'bg-sunshine',
-  //  sub: [
-  //{
-  //  id: 114,
-  //  router: 'fc/re',
-  //  name: '在线充值',
-  //},
-  //{
-  //  id: 115,
-  //  router: 'fc/ow',
-  //  name: '在线提现',
-  //},
-  //    {
-  //      id: 116,
-  //      router: 'fc/pt',
-  //      name: '平台转账',
-  //    }
-  //  ]
-  //},
-  {
-    router: 'as',
-    name: '账户安全',
-    // titleClass: 'bg-sunshine',
-    // backStyle: 'text-sunshine',
-    //iconType: 'sfa',
-    first: 'as/pl',
-    //icon: 'safe',
-    sub: [
-      {
-        id: 160,
-        router: 'as/pl',
-        name: '密码管理'
-      },
-      {
-        id: 161,
-        router: 'as/pf',
-        name: '密码管理',
-        notShow: true
-      },
-      {
-        id: 162,
-        router: 'as/pz',
-        name: '密码管理',
-        notShow: true
-      },
-      {
-        id: 163,
-        router: 'as/sq',
-        name: '密保问题'
       }
     ]
   },
@@ -332,7 +214,7 @@ var menuConfig = [
       },
       {
         id: 208,
-        router: 'uc/gr',
+        router: 'uc/br',
         name: '游戏记录'
       },
       {
