@@ -304,7 +304,7 @@ var menuConfig = [
             {
                 id: 200,
                 router: 'uc/pm',
-                name: '个人资料'
+                name: '账户安全'
             },
             // {
             //     id: 204,
