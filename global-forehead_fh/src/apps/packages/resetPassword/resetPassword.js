@@ -642,7 +642,7 @@ $.widget('gl.resetPassword', {
           else{
             $('.safety-passwd button').removeClass('hidden');
           }
-          if (res.root.email == '') {
+          if (res.root.email == '' || res.root.email == null) {
             $('.safety-email dd span').removeClass('hidden');
           }
           else{
@@ -725,7 +725,8 @@ $.widget('gl.resetPassword', {
       // url: '/acct/usermsg/validSecurity.json',
       url: '/acct/usersecurity/getqesforloginpwd.json',
       data: {
-        userName: $('.panel02 div span').html()
+        username: $('.panel02 div span').html(),
+        loginToken: sessionStorage.getItem('pwdToken')
       }
     });
   },
