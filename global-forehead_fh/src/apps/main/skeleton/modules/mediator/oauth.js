@@ -27,10 +27,10 @@ var NewsMediatorModule = Base.Module.extend({
     var self = this;
     var oauthXhr = Global.oauth.check(options)
       .done(function(res) {
+        var prevAcctInfo = Global.memoryCache.get('acctInfo');
         var acctInfo = res.root || {};
 
         acctInfo.fBalance = _(acctInfo.balance).convert2yuan();
-        acctInfo.agBalance = _(acctInfo.agBalance).convert2yuan();
         acctInfo.fLastLoginTime = _(acctInfo.lastLoginTime).toTime();
         acctInfo.fLoginTime = _(acctInfo.loginTime).toTime();
 
@@ -39,12 +39,30 @@ var NewsMediatorModule = Base.Module.extend({
           self.autoLogoutCountdown(acctInfo.outTime);
         }
 
-        Global.memoryCache.set('acctInfo', acctInfo);
-
-        Global.m.publish('acct:updating', acctInfo);
+        Global.memoryCache.set('acctInfo', _(prevAcctInfo || {}).extend(acctInfo));
 
         self.login = false;
       });
+
+    var agXhr = Global.sync.ajax({
+      url: '/acct/login/agBalance.json'
+    })
+      .done(function(res) {
+        if (res && res.result === 0) {
+          var acctInfo = Global.memoryCache.get('acctInfo');
+          if (acctInfo) {
+            acctInfo.agBalance = _(res.root || 0).convert2yuan();
+
+            Global.memoryCache.set('acctInfo', acctInfo);
+
+          }
+        }
+      });
+
+    $.when(oauthXhr, agXhr).done(function() {
+      Global.m.publish('acct:updating', Global.memoryCache.get('acctInfo'));
+    });
+
     this._checkUserIsEffective(oauthXhr);
 
     return oauthXhr;
