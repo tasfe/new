@@ -74,7 +74,7 @@ var LowLevelView = SearchGrid.extend({
         }
       ],
       gridOps: {
-        emptyTip: '没有发放记录'
+        emptyTip: '没有记录'
       },
       ajaxOps: {
         url: '/fund/divid/subdivid.json'

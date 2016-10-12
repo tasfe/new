@@ -1,0 +1,40 @@
+<div class="js-pf-search-portlet">
+  <div class="js-pf-search-bar">
+    <form class="js-pf-search-form form-inline no-margin portlet portlet-amber">
+      <div class="portlet-header portlet-linear">
+        <div class="portlet-header-block">
+          <div class="search-condition-table">
+            <div class="control-group">
+              <label class="control-label ">用户名：</label>
+              <input type="text" name="username" class="input-date-sm username">
+              <label class="control-label ">签约状态：</label>
+              <select name="status" class="status">
+                <option value="-1" selected>全部</option>
+                <option value="0">待确认</option>
+                <option value="1">已签约</option>
+                <option value="2">未签约</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="portlet-header-btnGroup">
+          <button type="submit" class="js-search  btn btn-pink btn-linear" data-loading-text="搜索">
+            <i class="fa fa-search"></i>
+            搜索
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="gap"></div>
+<!--<div class="alert ">-->
+  <!--<i class="fa fa-exclamation-circle font-md text-hot pull-left"></i>-->
+  <div class="overflow-hidden  text-hot">
+    <span class="ac-dm-sm-notice">温馨提示：</span>您还剩余可签约名额 <span class="js-ac-leftQuota ">0</span> 个， 已签约用户：
+    <span class="js-ac-usedQuota ">0</span> 个
+  </div>
+<!--</div>-->
+
+<div class="js-ac-user-grid"></div>
