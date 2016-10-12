@@ -11,7 +11,6 @@ require('./fileLoad');
 require('./numRange');
 require('./dropMenu');
 require('./verifyFundPwd');
-require('./editUName');
 require('./editIcons');
 require('./transfer');
 require('./addSalaryUser');

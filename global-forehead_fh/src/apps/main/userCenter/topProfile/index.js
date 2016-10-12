@@ -6,41 +6,96 @@ var TopProfileView = Base.ItemView.extend({
 
   template: require('./index.html'),
 
+  updateUNameTpl: _(require('./updateUName.html')).template(),
+
   events: {
-    'click .js-editUName': 'editUName',//修改昵称
-    'click .js-editIcons': 'editIcons',//修改头像
+    'click .js-personal-uname-edit': 'editUNameHandler',
+    'click .js-personal-avatar': 'editIconsHandler'
   },
 
-  initialize: function() {
+  updateUNameXhr: function(data) {
+    return Global.sync.ajax({
+      url: '/acct/userinfo/updateuname.json',
+      data: data
+    });
   },
 
   onRender: function() {
-    this.checkState();
+    var self = this;
+
+    this.$uName = this.$('.js-personal-u-name');
+    this.$loginTime = this.$('.js-personal-login-time');
+    this.$loginLoc = this.$('.js-personal-login-loc');
+    this.$regTime = this.$('.js-personal-reg-time');
+    this.$avatar = this.$('.js-personal-avatar');
+
+    this.subscribe('acct', 'acct:updating', function() {
+      self.checkState();
+    });
   },
 
-  editIcons: function () {
+  checkState: function() {
+    var acctInfo = Global.memoryCache.get('acctInfo');
+
+    this.$uName.html(acctInfo.uName);
+    this.$loginTime.html(_(acctInfo.lastLoginTime).toTime());
+    this.$loginLoc.html(acctInfo.loginIp + ' ' + acctInfo.loginAdd);
+    this.$regTime.html(_(acctInfo.registerTime).toTime());
+    // this.$('.uc-info div span').html('您当前VIP等级：VIP' + acctInfo.memberLevel + '级');
+
+    for (var i = 1; i <= 12; i++) {
+      this.$avatar.removeClass('avatar-' + i);
+    }
+
+    this.$avatar.addClass('avatar-' + acctInfo.headId);
+  },
+
+  //event handlers
+
+  editIconsHandler: function() {
     var self = this;
     $(document).editIcons();
   },
 
-  editUName: function () {
+  editUNameHandler: function() {
     var self = this;
-    $(document).editUName();
-  },
 
-  checkState: function(){
+    var $dialog = Global.ui.dialog.show({
+      title: '修改昵称',
+      body: this.updateUNameTpl()
+    });
 
-    function add0(m){return m<10?'0'+m:m }
-    var acctInfo = Global.memoryCache.get('acctInfo');
+    $dialog.on('hidden.modal', function (e) {
+      $(this).remove();
+    });
 
-    this.$('.uc-info dt b').html(acctInfo.uName);
-    this.$('.uc-info dd').eq(0).html('上次登录时间：' + _(acctInfo.lastLoginTime).toTime());
-    this.$('.uc-info dd').eq(1).html('上次登录地点：' + acctInfo.loginIp + ' ' + acctInfo.loginAdd);
-    this.$('.uc-info dd').eq(2).html('注  册  时  间：' + _(acctInfo.registerTime).toTime());
-    this.$('.uc-info div span').html('您当前VIP等级：VIP' + acctInfo.memberLevel + '级');
-    this.$('.uc-info div b').html('VIP' + acctInfo.memberLevel);
+    $dialog.off('submit.uName')
+      .on('submit.uName', '.js-personal-form', function(e) {
+        var $form = $(e.currentTarget);
+        var $submit = $form.find('.js-btn-submit');
 
-    this.$('.js-editIcons span').addClass('iconsImage' + acctInfo.headId);
+        var parsley = $form.parsley();
+
+        if (!parsley.validate()) {
+          return false;
+        }
+
+        $submit.button('loading');
+
+        self.updateUNameXhr(_($form.serializeArray()).serializeObject())
+          .always(function() {
+            $submit.button('reset');
+          }).done(function (res) {
+          if (res && res.result === 0) {
+            Global.ui.notification.show('修改成功');
+            Global.m.oauth.check();
+
+            $dialog.modal('hide');
+          } else {
+            Global.ui.notification.show(res.msg);
+          }
+        });
+      });
   }
 });
 

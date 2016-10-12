@@ -10,18 +10,28 @@ var SelfView = Base.ItemView.extend({
 
   startOnLoading: true,
 
+  //招商号查看我的分红
+  getInfoXhr: function() {
+    return Global.sync.ajax({
+      url: '/fund/divid/info.json'
+    });
+  },
+
+  //直属号查看我的分红
   getInfo0Xhr: function() {
     return Global.sync.ajax({
       url: '/fund/divid/info0.json'
     });
   },
 
+  //总代、代理查看我的分红
   getInfo1Xhr: function() {
     return Global.sync.ajax({
       url: '/fund/divid/info1.json'
     });
   },
 
+  //申请领取接口
   applyXhr: function(data) {
     return Global.sync.ajax({
       url: '/fund/divid/get.json',
@@ -34,7 +44,17 @@ var SelfView = Base.ItemView.extend({
     var acctInfo = Global.memoryCache.get('acctInfo');
     this.userGroupLevel = acctInfo.userGroupLevel;
 
-    if(this.userGroupLevel===1){
+    if(this.userGroupLevel===0){
+      this.getInfoXhr()
+        .always(function() {
+          self.loadingFinish();
+        })
+        .done(function(res) {
+          if (res && res.result === 0) {
+            self._render(res.root);
+          }
+        });
+    }else if(this.userGroupLevel===1){
       this.getInfo0Xhr()
         .always(function() {
           self.loadingFinish();
@@ -49,24 +69,23 @@ var SelfView = Base.ItemView.extend({
         .always(function() {
           self.loadingFinish();
         })
-        .done(function(res,res2) {
-          if ((res && res.result) === 0|| (res2 && res2.result===0)) {
-            self._render(res.root, res2.root);
+        .done(function(res) {
+          if ((res && res.result) === 0) {
+            self._render(res.root);
           }
         });
     }
-
-
-
   },
 
-  _render: function(info,info2) {
+  _render: function(info) {
     var self = this;
     var config ;
-    if(this.userGroupLevel===1){
+    if(this.userGroupLevel<2){
       config = levelConfig.getByName('TOP');
+      info.signList = info.dividConf;
     }else{
-      config = levelConfig.getByName('LEVEL_ONE');
+      // config = levelConfig.getByName('LEVEL_ONE');
+      config = levelConfig.getByName('TOP');
     }
 
     var statisticView = new StatisticView({
@@ -97,8 +116,6 @@ var SelfView = Base.ItemView.extend({
           });
       });
     this.$('.js-ac-statistic').html(statisticView.$el);
-
-
   },
 
 

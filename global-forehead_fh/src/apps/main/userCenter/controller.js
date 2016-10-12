@@ -9,12 +9,10 @@ var BettingDetailView = require('userCenter/views/bettingDetail');
 var TrackRecordView = require('userCenter/trackRecords/team');
 var TrackDetailView = require('userCenter/views/trackDetail');
 
-var RechargeRecordsView = require('userCenter/rechargeRecords/team');
+var MoneyDetailView = require('userCenter/moneyDetail');
+var ProfitAndLossView = require('userCenter/profitAndLoss');
 
-var WithdrawRecordsView = require('userCenter/withdrawRecords/team');
-
-
-var PersonalManageView = require('userCenter/views/personalManage');
+var PersonalManageView = require('userCenter/personalManage');
 var CardManageView = require('userCenter/views/cardManage');
 var CardBindingView = require('userCenter/views/cardBinding');
 var PriceDetailsView = require('userCenter/views/priceDetails');
@@ -94,18 +92,6 @@ var UserCenterController = RouterController.extend({
     });
   },
 
-  rechargeRecords: function() {
-    this.changeMainReginView(new RechargeRecordsView(), {
-      sidebar: 'uc'
-    });
-  },
-
-  withdrawRecords: function() {
-    this.changeMainReginView(new WithdrawRecordsView(), {
-      sidebar: 'uc'
-    });
-  },
-
   vipPoint:function() {
     this.changeMainReginView(new VipPointView(), {
       sidebar: 'vip'
@@ -127,12 +113,6 @@ var UserCenterController = RouterController.extend({
       sidebar: 'vip'
     });
   },
-  //vipInfo:function() {
-  //  this.changeMainReginView(new VipInfoView(), {
-  //    sidebar: 'vip'
-  //  });
-  //
-  //},
   vipCredit:function() {
   this.changeMainReginView(new VipCreditView(), {
     sidebar: 'vip'
@@ -190,6 +170,20 @@ var UserCenterController = RouterController.extend({
       tradeNo: tradeNo
     }), {
       parentRouter: 'uc/tr'
+    });
+  },
+
+  moneyDetail: function () {
+    this.changeMainReginView(new MoneyDetailView(), {
+      sidebar: 'pc',
+      topView: 'personal'
+    });
+  },
+
+  profitAndLoss: function () {
+    this.changeMainReginView(new ProfitAndLossView(), {
+      sidebar: 'pc',
+      topView: 'personal'
     });
   }
 });

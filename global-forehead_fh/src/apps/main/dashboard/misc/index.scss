@@ -535,7 +535,7 @@ $float-height: 38px;
     }
     .list-active{
       color: #fff;
-      background: url(~base/images/julien/btn-bg01.jpg) no-repeat;
+      //background: url(~base/images/julien/btn-bg01.jpg) no-repeat;
     }
 
   }
@@ -656,19 +656,6 @@ $float-height: 38px;
 
 .ssc-style-select:hover{
   border:4px solid #fb3838;
-}
-
-.list-active-chase-number{
-  color: #fff;
-  background: url(~base/images/julien/btn-bg01.jpg) no-repeat;
-  width: 120px;
-}
-
-.comingsoon-pic {
-  background: url(~base/images/fh/ssc-expect.png) no-repeat;
-  width: 720px;
-  height: 310px;
-  margin-left: 50px;
 }
 
 .js-db-dynamic-list{

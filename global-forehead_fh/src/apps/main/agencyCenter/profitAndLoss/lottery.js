@@ -14,7 +14,7 @@ var ReportManageView = SearchGrid.extend({
 
   initialize: function () {
     _(this.options).extend({
-      height: 434,
+      height: 330,
       title: '报表查询',
       columns: [
         {
@@ -57,12 +57,12 @@ var ReportManageView = SearchGrid.extend({
           sortable: true,
           id: 7
         },
-        // {
-        //   name: '日薪',
-        //   width: '12%',
-        //   sortable: true,
-        //   id: 8
-        // },
+        {
+          name: '日薪',
+          width: '12%',
+          sortable: true,
+          id: 8
+        },
         {
           name: '盈亏',
           width: '12%',
@@ -87,7 +87,7 @@ var ReportManageView = SearchGrid.extend({
       }
     });
     var acctInfo = Global.memoryCache.get('acctInfo');
-    if(acctInfo.salaryStatus !=2 && ( acctInfo.userGroupLevel !== 0 && acctInfo.userGroupLevel !== 1)){
+    if(acctInfo.salaryStatus !=2 && ( acctInfo.userGroupLevel !== 0 && acctInfo.userGroupLevel !== 1)) {
       this.options.columns.splice(7,1);
     }
   },
@@ -194,7 +194,7 @@ var ReportManageView = SearchGrid.extend({
         _(gridData.bonusTotal).convert2yuan(),
         _(gridData.activityTotal).convert2yuan(),
         _(gridData.salaryTotal).convert2yuan(),
-        _(gridData.profitAndLossTotal).convert2yuan(),
+        _(gridData.profitAndLossTotal).convert2yuan()
       ]
     };
     var acctInfo = Global.memoryCache.get('acctInfo');
@@ -223,9 +223,9 @@ var ReportManageView = SearchGrid.extend({
     row.push(_(rowInfo.activity).convert2yuan({clear: false}));
 
     var acctInfo = Global.memoryCache.get('acctInfo');
-    // if(acctInfo.salaryStatus ===2 ||  acctInfo.userGroupLevel == 0 || acctInfo.userGroupLevel == 1){
-    //   row.push(_(rowInfo.salary).convert2yuan());
-    // }
+    if(acctInfo.salaryStatus ===2 ||  acctInfo.userGroupLevel == 0 || acctInfo.userGroupLevel == 1){
+      row.push(_(rowInfo.salary).convert2yuan());
+    }
     row.push(_(rowInfo.profitAndLoss).convert2yuan());
     //row.push('<a href="' + _.addHrefArgs('#ac/betting/' + rowInfo.userId, 'name', rowInfo.userName) + '" class="router btn btn-link no-padding">投注</a>&nbsp;&nbsp;' +
     // '<a  href="' + _.addHrefArgs('#ac/account/' + rowInfo.userId, 'name', rowInfo.userName) + '" class="router btn btn-link no-padding">账变</a>');

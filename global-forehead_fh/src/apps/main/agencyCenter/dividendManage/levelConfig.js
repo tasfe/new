@@ -3,7 +3,7 @@
 var config = [
   {
     id: 1,
-    zhName: '总代',
+    zhName: '招商直属',
     name: 'TOP',
     status: [
       {
@@ -32,7 +32,7 @@ var config = [
   },
   {
     id: 2,
-    zhName: '一代',
+    zhName: '代理',
     name: 'LEVEL_ONE',
     status: [
       {
