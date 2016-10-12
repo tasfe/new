@@ -114,6 +114,7 @@ var SalaryManageView = SearchGrid.extend({
 
     this.timeset = new Timeset({
       el: this.$timeset,
+      prevClass: 'js-pf',
       startDefaultDate: '',
       endDefaultDate: ''
     }).render();

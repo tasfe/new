@@ -135,6 +135,7 @@ var SignedView = Base.ItemView.extend({
     }, '/info/dailysalary/valid.json');
 
     this.$table.staticGrid({
+      tableClass: 'table table-bordered table-no-lr table-center',
       colModel: [
         {label: '日薪日量要求', name: 'saleAmount', key: true, width: '30%', formatter: function(val) {
           return '≥&nbsp;' +
@@ -156,7 +157,7 @@ var SignedView = Base.ItemView.extend({
             '<div class="js-ac-sm-sign-delete ac-sm-sign-delete inline-block m-left-sm"><button>X</button></div>';
         }},
       ],
-      height: 210,
+      height: 248,
       row:this.options.agreementList||[],
       startOnLoading: false
     });

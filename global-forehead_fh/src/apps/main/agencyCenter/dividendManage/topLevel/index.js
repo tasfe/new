@@ -99,6 +99,10 @@ var TopLevelView = TabView.extend({
   addUserHandler: function(e) {
     var self = this;
     var $target = $(e.currentTarget);
+    // 配置数据未加载时点击添加无效
+    if(!this.dividConf){
+      return false;
+    }
 
     var $dialog = Global.ui.dialog.show({
       title: '签约分红用户',
@@ -129,7 +133,7 @@ var TopLevelView = TabView.extend({
     $dialog.find('.js-ac-next').on('click',function(){
       var conf = signedView.getConfigDataFormTable();
       if(conf){
-        self.signAgreementXhr(conf).done(function(res){
+        self.approveXhr(conf).done(function(res){
           if(res.result==0){
             Global.ui.notification.show('操作成功！');
             $dialog.modal('hide');
@@ -141,7 +145,15 @@ var TopLevelView = TabView.extend({
         });
       }
     });
-  }
+  },
+  //签约、修改
+  approveXhr: function (data) {
+    return Global.sync.ajax({
+      url: '/fund/divid/sign.json',
+      data: data,
+      tradition: true
+    });
+  },
 });
 
 module.exports = TopLevelView;

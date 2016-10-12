@@ -430,3 +430,64 @@
     margin-bottom: 0 !important;
   }
 }
+
+
+.ac-dm-prove-message{
+  height: 41px;
+  line-height: 41px;
+  border: solid 1px #cccfcf;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  box-shadow: 0px 2px 1px #EDEDED;
+  .ac-dm-prove-btn{
+    float: left;
+    background: url('../../fundCenter/misc/hint.png') no-repeat;
+    width: 21px;
+    height: 21px;
+    margin-left: 10px;
+    margin-top: 10px;
+  }
+  .ac-dm-prove--des{
+    line-height: 21px;
+    margin-left: 5px;
+    display: inline-block;
+    margin-top: 10px;
+    color: #666;
+  }
+
+  .ac-dm-agree-leftTime{
+    >div{
+      display: inline-block;
+      margin: 10px 5px;
+      height: 18px;
+      padding: 0 5px;
+      background-color: #cc3531;
+      position: relative;
+      line-height: 18px;
+      border-radius: 3px;
+      >span{
+        color: #fff;
+      }
+    }
+    .hours,.minutes{
+      &:after {
+        position: absolute;
+        right: -9px;
+        content: ':';
+        width: 5px;
+        display: inline-block;
+
+      }
+    }
+    //.minutes{
+    //  &:after {
+    //    content: ':';
+    //    width: 5px;
+    //  }
+    //}
+    .seconds{
+
+    }
+
+  }
+}

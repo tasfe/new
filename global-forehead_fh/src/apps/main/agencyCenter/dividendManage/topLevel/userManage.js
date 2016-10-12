@@ -13,8 +13,9 @@ var UserManageView = SearchGrid.extend({
   events: {
     'click .js-ac-modify': 'updateConfigHander',
     'click .js-ac-break-off': 'breakOffHandler',
-    'click .js-search': 'getSubUser',
+    // 'click .js-search': 'getSubUser',
     'click .js-ac-dm-um-agreement': 'seeConfigHander',
+    'click .js-ac-dm-um-log': 'seeSignLogHandler'
   },
 
   initialize: function() {
@@ -51,7 +52,7 @@ var UserManageView = SearchGrid.extend({
       ajaxOps: {
         url: '/fund/divid/sublist.json'
       },
-      listProp: 'root.dividList',
+      listProp: 'root.subUserList',
       headTip: '<div class="table-head-tip"><span class="ac-dm-sm-notice">温馨提示：</span>您还剩余可签约名额 <span class="js-ac-leftQuota ">0</span> 个，已签约用户：<span class="js-ac-usedQuota ">0</span> 个</div>',
       height: 310
     });
@@ -60,6 +61,13 @@ var UserManageView = SearchGrid.extend({
   breakOffXhr: function (data) {
     return Global.sync.ajax({
       url: '/fund/divid/cancel.json',
+      data: data
+    });
+  },
+
+  getSignLogXhr: function(data){
+    return Global.sync.ajax({
+      url: '/fund/divid/signinfo.json',
       data: data
     });
   },
@@ -144,7 +152,7 @@ var UserManageView = SearchGrid.extend({
     // }
     // row.push(status);
 
-    var log = '<button class="js-ac-dm-um-log btn btn-link btn-link-hot">点击查看</button>';
+    var log = '<button class="js-ac-dm-um-log btn btn-link btn-link-hot" l>点击查看</button>';
     if (rowInfo.status == 2) {
       log =   '<span class="red">未签约</span>';
     }
@@ -168,7 +176,7 @@ var UserManageView = SearchGrid.extend({
     config = _(config).map(function (item) {
       return {
         betTotal: _(item.betTotal).convert2yuan({ fixed: 0 }),
-        divid: _(item.divid).formatDiv(100, { fixed: 0 })
+        divid: _(item.divid).formatDiv(10, { fixed: 0 })
       }});
     var $dialog = Global.ui.dialog.show({
       title: '查看签约',
@@ -177,13 +185,14 @@ var UserManageView = SearchGrid.extend({
       size: 'modal',
       footer: ''
     }).on('hidden.modal', function () {
-      self.getSubUser();
+      // self.getSubUser();
       $(this).remove()
     });
     var $container = $dialog.find('.js-ac-add-container');
     console.log('查看签约');
     console.log(config);
     $container.staticGrid({
+      tableClass: 'table table-bordered table-no-lr table-center',
       colModel: [
         {
           label: '日量标准', name: 'betTotal', width: 120
@@ -229,9 +238,9 @@ var UserManageView = SearchGrid.extend({
       size: 'modal-lg',
       footer: ''
     }).on('hidden.modal', function () {
-      self.getSubUser();
+      // self.getSubUser();
       //self.$grid.staticGrid('update');
-      // self.render();
+      self.render();
       $(this).remove()
     });
 
@@ -240,16 +249,18 @@ var UserManageView = SearchGrid.extend({
     var signedView = new SignedView({
       el: $container,
       agreementList: config,
-      username: username
+      username: username,
+      dividConf: this._parentView.dividConf
     })
       .render()
       .on('hide', function () {
         $dialog.modal('hide');
       });
 
-    $dialog.on('hidden.modal', function () {
+    $dialog.off('hidden.modal').on('hidden.modal', function () {
       $(this).remove();
       signedView.destroy();
+      self.render();
     });
     $dialog.find('.js-ac-next').on('click', function () {
       var conf = signedView.getConfigDataFormTable();
@@ -323,13 +334,57 @@ var UserManageView = SearchGrid.extend({
         .done(function (res) {
           if (res && res.result === 0) {
             Global.ui.notification.show('操作成功！等待审核。');
-            self.getSubUser();
+            // self.getSubUser();
             // self.$grid.staticGrid('update');
             $dialog.modal('hide');
+            self.render();
           } else {
             Global.ui.notification.show(res.msg || '');
           }
         });
+    });
+  },
+
+  seeSignLogHandler: function(e){
+    var self = this;
+    var $target = $(e.currentTarget);
+    var $tr = $target.closest('tr');
+    var userId = $tr.data('userId');
+    this.getSignLogXhr({userId: userId}).done(function(res){
+      if(res.result===0){
+        var $dialog = Global.ui.dialog.show({
+          title: '查看签约日志',
+          body: '<div class="js-ac-dm-log-container"></div>',
+          modalClass: 'ten',
+          size: 'modal',
+          footer: ''
+        }).on('hidden.modal', function () {
+          // self.getSubUser();
+          $(this).remove()
+        });
+        var $container = $dialog.find('.js-ac-dm-log-container');
+        $container.staticGrid({
+          tableClass: 'table table-bordered table-no-lr table-center',
+          colModel: [
+            {
+              label: '操作', name: 'status', width: 120
+            },
+            {
+              label: '时间', name: 'createTime', width: 180, formatter: function (val) {
+              return _(val).formatDate();
+            }
+            },{
+              label: '备注', name: '', width: 120
+            },
+          ],
+          height: 300,
+          row: res.root,
+          startOnLoading: false,
+        }).staticGrid('instance');
+      }else{
+        Global.ui.notification.show(res.msg || '签约日志获取失败');
+      }
+
     });
   }
 });
