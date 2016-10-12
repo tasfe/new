@@ -212,23 +212,25 @@ var menuConfig = [
         name: '邮箱设置',
         notShow: true
       },
+
       {
         id: 208,
-        router: 'uc/br',
+        router: 'gr/br',
         name: '游戏记录'
       },
-      {
-        id: 208,
-        router: 'uc/br',
-        name: '游戏记录',
-        notShow: true
-      },
-      {
-        id: 208,
-        router: 'uc/br',
-        name: '游戏记录',
-        notShow: true
-      },
+      // {
+      //   id: 208,
+      //   router: 'gr/tr',
+      //   name: '追号记录',
+      //   notShow: true
+      // },
+      // {
+      //   id: 208,
+      //   router: 'uc/abr',
+      //   name: 'AG投注记录',
+      //   notShow: true
+      // },
+
       {
         id: 209,
         router: 'uc/pal',

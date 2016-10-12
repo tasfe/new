@@ -1,0 +1,16 @@
+@charset "UTF-8";
+
+@import
+"~base/styles/imports";
+
+.circle-icon {
+  background: $pink-color;
+  border-radius: 50px;
+  width: 45px;
+  height: 45px;
+  display: inline-block;
+  text-align: center;
+  line-height: 42px;
+  color: $white-color;
+  font-size: 25px;
+}

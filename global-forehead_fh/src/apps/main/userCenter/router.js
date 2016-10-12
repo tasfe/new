@@ -7,8 +7,9 @@ var UserCenterController = require('userCenter/controller');
 exports.install = function() {
 
   window.Global.appRouter.processAppRoutes(new UserCenterController(), {
-    'uc/br': 'gameRecords', // 游戏记录
-    'uc/br/detail/:betId': 'bettingDetail', // 投注详情
+    'gr/:type': 'gameRecords', // 游戏记录
+
+    'gr/br/detail/:betId': 'bettingDetail', // 投注详情
     'uc/tr': 'trackRecords', //追号记录
     'uc/tr/detail/:tradeNo': 'trackDetail', //追号记录
     'uc/tr/detail/:chaseTradeNo/detail/:tradeNo': 'trackBetDetail', //追号投注记录

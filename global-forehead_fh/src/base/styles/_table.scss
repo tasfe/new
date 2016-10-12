@@ -71,10 +71,7 @@ table {
     }
   }
   &.table-unbordered {
-    tr{
-      border-bottom: 1px solid #ccc;
-    }
-    , td, th {
+    td, th {
       border: none;
     }
   }
