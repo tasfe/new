@@ -12,7 +12,6 @@ var TrackDetailView = require('userCenter/views/trackDetail');
 var MoneyDetailView = require('userCenter/moneyDetail');
 var ProfitAndLossView = require('userCenter/profitAndLoss');
 
-var PersonalManageView = require('userCenter/personalManage');
 var CardManageView = require('userCenter/views/cardManage');
 var CardBindingView = require('userCenter/views/cardBinding');
 var PriceDetailsView = require('userCenter/views/priceDetails');
@@ -118,13 +117,6 @@ var UserCenterController = RouterController.extend({
     sidebar: 'vip'
   });
 },
-
-  personalManage: function() {
-    this.changeMainReginView(new PersonalManageView(), {
-      sidebar: 'pc',
-      topView: 'personal'
-    });
-  },
 
   cardManage: function() {
     //判断是否设置资金密码

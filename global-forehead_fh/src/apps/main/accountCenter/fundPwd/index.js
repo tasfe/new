@@ -2,7 +2,7 @@
 
 var FundPwdView = Base.ItemView.extend({
 
-  template: require('accountCenter/templates/passwordManage-fundPwd.html'),
+  template: require('./index.html'),
 
   startOnLoading: true,
 

@@ -1,8 +1,10 @@
 "use strict";
 
+require('./index.scss');
+
 var LoginPwdView = Base.ItemView.extend({
 
-  template: require('accountCenter/templates/passwordManage-login.html'),
+  template: require('./index.html'),
 
   className: 'as-loginPwd-view',
 

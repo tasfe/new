@@ -2,7 +2,7 @@
 
 var LoginLogView = Base.ItemView.extend({
 
-  template: require('accountCenter/templates/loginLog.html'),
+  template: require('./index.html'),
 
   className: 'as-loginLog',
 

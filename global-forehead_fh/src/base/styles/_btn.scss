@@ -9,6 +9,7 @@
   line-height: 16px;
   text-align: center;
   cursor: pointer;
+  box-sizing: border-box;
   *zoom: 1;
 
   border-radius: $globalBtnRadius;

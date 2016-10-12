@@ -2,9 +2,9 @@
 
 var inputNewEmail = Base.ItemView.extend({
 
-    template: require('accountCenter/templates/inputNewEmail.html'),
+    template: require('./inputNewEmail.html'),
 
-    success: _.template(require('accountCenter/templates/updateEmailSuccess.html')),
+    success: _.template(require('./updateEmailSuccess.html')),
 
     className: 'as-securityQuestion-view',
 

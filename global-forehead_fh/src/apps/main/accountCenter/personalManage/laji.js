@@ -32,7 +32,7 @@ var PersonalManageView = Base.ItemView.extend({
             self.$('.js-uc-eMail div').text(res.root.userEmail);
             self.$('.js-uc-eMail').removeClass('hidden');
           }
-          
+
           self.$('.js-uc-tel').val(res.root.userCellphone);
 
           self.$('.js-vip').text(res.root.memberLevel);
@@ -50,7 +50,7 @@ var PersonalManageView = Base.ItemView.extend({
 
           if(bday != null && bday != '') {
             var bday =bday.split("-");
-     
+
             self.$('.js-bday1').val(bday[0]);
             self.$('.js-bday2').val(bday[1]);
             self.$('.js-bday1').attr("disabled",true);
@@ -73,7 +73,7 @@ var PersonalManageView = Base.ItemView.extend({
       return xhr.responseJSON.result === 0;
     }, '/acct/userinfo/checkuname.json');
 
-    
+
   },
 
   updatePersonalInfoHandler: function(e) {

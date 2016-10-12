@@ -1,22 +1,25 @@
 "use strict";
 
+var inputNewEmail = require('./inputNewEmail');
 
-var ConfirmView = require('accountCenter/views/setEmailConfirm');
+var verifyOldEmail = Base.ItemView.extend({
 
-var contentEmailView = Base.ItemView.extend({
-    template: require('accountCenter/templates/contentEmail.html'),
+    template: require('./verifyOldEmail.html'),
+
     className: 'as-securityQuestion-view',
+
     events: {
         'click .js-ac-next': 'nextHandler' //输入密保问题(与修改页面共用)
     },
 
     initialize: function () {
-        
+
     },
 
     onRender: function () {
         this.$setEmail = this.$('.js-set-email');
-        
+        this.$('.js-old-email').html(this.options.oldEmial);
+
     },
 
     nextHandler: function (e) {
@@ -25,17 +28,19 @@ var contentEmailView = Base.ItemView.extend({
         var $target = $(e.currentTarget);
         $target.button('loading');
         Global.sync.ajax({
-                url: '/acct/userinfo/bundlEmail.json',
-                data: {email:self.$setEmail.val()}
+                url: '/acct/usermsg/sendEmailToken.json',
+                data:{
+                    sendType:1
+                }
             })
             .always(function() {
                 $target.button('reset');
             })
             .done(function(res) {
                 if (res && res.result === 0) {
-
-                    var confirm = new ConfirmView({email:self.$setEmail.val()});
-                    $('.js-acse-container').html(confirm.render().el);
+                    
+                    var newEmail = new inputNewEmail();
+                    $('.js-acse-container').html(newEmail.render().el);
                     self.destroy();
 
                 }else {
@@ -43,10 +48,11 @@ var contentEmailView = Base.ItemView.extend({
                 }
             
             });
+        
 
     }
 
 
 });
 
-module.exports = contentEmailView;
+module.exports = verifyOldEmail;

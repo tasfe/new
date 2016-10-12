@@ -5,9 +5,9 @@ var SecurityQuestionView = Base.ItemView.extend({
   template: '',
 
   //构造添加密保问题页面
-  addSQTpl: _.template(require('accountCenter/templates/securityQuestion-add.html')),
+  addSQTpl: _.template(require('./securityQuestion-add.html')),
   //构造修改密保问题页面
-  updateSQTpl: _.template(require('accountCenter/templates/securityQuestion-update.html')),
+  updateSQTpl: _.template(require('./securityQuestion-update.html')),
 
   className: 'as-securityQuestion-view',
 

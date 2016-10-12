@@ -6,7 +6,7 @@
   $bodyColor: map_get($props, body-color);
   $borderColor: map_get($props, border-color);
 
-  > {
+  //> {
     .portlet-header {
       //background-color: $headerBg;
       color: $headerColor;
@@ -17,7 +17,7 @@
       //background-color: $bodyBg;
       color: $bodyColor;
     }
-  }
+  //}
 
   background-color: $bodyBg;
 

@@ -1,12 +1,12 @@
 "use strict";
 
-var ContentEmailView = require('accountCenter/views/contentEmail');
+var ContentEmailView = require('./contentEmail');
 
-var verifyOldEmail = require('accountCenter/views/verifyOldEmail');
+var verifyOldEmail = require('./verifyOldEmail');
 
 var SettingEmail = Base.ItemView.extend({
 
-    template: require('accountCenter/templates/settingEmail.html'),
+    template: require('./index.html'),
 
     className: 'as-loginPwd-view',
 

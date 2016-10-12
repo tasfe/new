@@ -2,9 +2,9 @@
 
 var confirmEmailView = Base.ItemView.extend({
 
-    template: require('accountCenter/templates/setEmailConfirm.html'),
+    template: require('./setEmailConfirm.html'),
 
-    finish: _.template(require('accountCenter/templates/setEmailFinished.html')),
+    finish: _.template(require('./setEmailFinished.html')),
 
     className: 'as-securityQuestion-view',
 
@@ -44,7 +44,7 @@ var confirmEmailView = Base.ItemView.extend({
 
     acseBackHandler:function () {
         
-        var ContentEmailView12 = require('accountCenter/views/contentEmail');
+        var ContentEmailView12 = require('./contentEmail');
         var conetent = new ContentEmailView12();
         $('.js-acse-container').html(conetent.render().el);
         this.destroy();
