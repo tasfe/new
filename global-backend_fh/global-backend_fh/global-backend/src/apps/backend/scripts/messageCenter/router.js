@@ -11,7 +11,8 @@ define(function(require, exports, module) {
       'mc/pu':'subscribeManageView',
       'mc/pt':'noticeSettingView',
       'mc/pm':'noticeManageView',
-      'mc/sp':'newNoticeViewView'
+      'mc/sp':'newNoticeViewView',
+      'mc/uf':'userFeedbackView'
     });
 
   };

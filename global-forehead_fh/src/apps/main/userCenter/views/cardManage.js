@@ -429,7 +429,7 @@ var CardManageView = Base.ItemView.extend({
         '<i class="fa fa-times-circle m-right-xs"></i>' +
         '<strong>提示！</strong> ' + text +
         '</div>';
-  },
+  }
 
 });
 

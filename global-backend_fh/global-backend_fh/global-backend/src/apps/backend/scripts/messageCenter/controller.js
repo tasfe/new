@@ -2,13 +2,15 @@ define(function (require, exports, module) {
 
   var RouterController = require('skeleton/controllers/router');
 
-  var BulletinManageView = require('messageCenter/views/bulletin-BulletinManage');//¹«¸æ¹ÜÀí;
-  var NewBulletinView = require('messageCenter/views/bulletin-NewBulletin');//ÐÂ½¨¹«¸æ
-  var LetterManegeView = require('messageCenter/views/letter-LetterManage');//Õ¾ÄÚÐÅ¹ÜÀí
-  var SubscribeManageView = require('messageCenter/views/notice-SubscribeManage');//ÍË¶©ÓÃ»§¹ÜÀí
-  var NoticeSettingView = require('messageCenter/views/notice-NoticeSetting');//ÏµÍ³Í¨ÖªÉèÖÃ
-  var NoticeManageView = require('messageCenter/views/notice-NoticeManage');//ÏµÍ³Í¨Öª¹ÜÀí
-  var NewNoticeView = require('messageCenter/views/notice-NewNotice');//ÐÂ½¨ÏµÍ³Í¨Öª
+  var BulletinManageView = require('messageCenter/views/bulletin-BulletinManage');//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½;
+  var NewBulletinView = require('messageCenter/views/bulletin-NewBulletin');//ï¿½Â½ï¿½ï¿½ï¿½ï¿½ï¿½
+  var LetterManegeView = require('messageCenter/views/letter-LetterManage');//Õ¾ï¿½ï¿½ï¿½Å¹ï¿½ï¿½ï¿½
+  var SubscribeManageView = require('messageCenter/views/notice-SubscribeManage');//ï¿½Ë¶ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½
+  var NoticeSettingView = require('messageCenter/views/notice-NoticeSetting');//ÏµÍ³Í¨Öªï¿½ï¿½ï¿½ï¿½
+  var NoticeManageView = require('messageCenter/views/notice-NoticeManage');//ÏµÍ³Í¨Öªï¿½ï¿½ï¿½ï¿½
+  var NewNoticeView = require('messageCenter/views/notice-NewNotice');//ï¿½Â½ï¿½ÏµÍ³Í¨Öª
+
+  var UserFeedbackList = require('messageCenter/views/userFeedbackList');
 
   var MessageCenterController = RouterController.extend({
 
@@ -32,6 +34,9 @@ define(function (require, exports, module) {
     },
     newNoticeViewView: function() {
       this.changeMainReginView(new NewNoticeView());
+    },
+    userFeedbackView: function() {
+      this.changeMainReginView(new UserFeedbackList());
     }
   });
 

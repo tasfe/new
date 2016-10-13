@@ -22,20 +22,40 @@
   <component name="FileEditorManager">
     <leaf>
       <file leaf-file-name="router.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/agGame/router.js">
+        <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/messageCenter/router.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.542373">
-              <caret line="11" column="43" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="43" />
+            <state vertical-scroll-proportion="-9.5">
+              <caret line="14" column="31" selection-start-line="14" selection-start-column="15" selection-end-line="14" selection-end-column="31" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="edit.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/fundCenter/rwManagement/edit.js">
+      <file leaf-file-name="userFeedbackList.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/messageCenter/views/userFeedbackList.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.40335196">
-              <caret line="19" column="31" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
+            <state vertical-scroll-proportion="0.6368715">
+              <caret line="30" column="34" selection-start-line="30" selection-start-column="34" selection-end-line="30" selection-end-column="34" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="controller.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/messageCenter/controller.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-8.142858">
+              <caret line="12" column="22" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="userFeedbackList.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/messageCenter/templates/userFeedbackList.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-7.464286">
+              <caret line="22" column="58" selection-start-line="22" selection-start-column="58" selection-end-line="22" selection-end-column="58" />
               <folding />
             </state>
           </provider>
@@ -54,10 +74,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/global-backend/src/apps/backend/scripts/userCenter/templates/quotaManage-levelOne.html" />
-        <option value="$PROJECT_DIR$/global-backend/src/apps/backend/scripts/userCenter/templates/quotaManage-levelTwo.html" />
-        <option value="$PROJECT_DIR$/global-backend/src/apps/backend/scripts/userCenter/templates/quotaManage-levelFour.html" />
-        <option value="$PROJECT_DIR$/global-backend/src/apps/backend/scripts/userCenter/templates/quotaManage-levelSix.html" />
         <option value="$PROJECT_DIR$/global-backend/src/apps/backend/scripts/userCenter/templates/quotaManage-openSet.html" />
         <option value="$PROJECT_DIR$/global-backend/src/apps/backend/scripts/userCenter/views/quotaManage-openSet.js" />
         <option value="$PROJECT_DIR$/global-backend/src/apps/backend/scripts/userCenter/templates/user-userList.html" />
@@ -105,6 +121,10 @@
         <option value="$PROJECT_DIR$/global-backend/src/apps/backend/scripts/fundCenter/views/recharge-RechargeSet.js" />
         <option value="$PROJECT_DIR$/global-backend/src/apps/backend/scripts/fundCenter/views/recharge-RechargeSet-Range.js" />
         <option value="$PROJECT_DIR$/global-backend/src/apps/backend/scripts/fundCenter/templates/recharge-RechargeSet-Range.html" />
+        <option value="$PROJECT_DIR$/global-backend/src/apps/backend/scripts/messageCenter/router.js" />
+        <option value="$PROJECT_DIR$/global-backend/src/apps/backend/scripts/messageCenter/controller.js" />
+        <option value="$PROJECT_DIR$/global-backend/src/apps/backend/scripts/messageCenter/templates/userFeedbackList.html" />
+        <option value="$PROJECT_DIR$/global-backend/src/apps/backend/scripts/messageCenter/views/userFeedbackList.js" />
       </list>
     </option>
   </component>
@@ -272,7 +292,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="fundCenter" />
+              <option name="myItemId" value="messageCenter" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -306,7 +326,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="fundCenter" />
+              <option name="myItemId" value="messageCenter" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -344,11 +364,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="fundCenter" />
+              <option name="myItemId" value="messageCenter" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="rwManagement" />
+              <option name="myItemId" value="templates" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -358,7 +378,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../global-ui-kf/global-backend_kf" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../global-forehead_fh" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="FullScreen" value="false" />
@@ -369,11 +389,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\GIT\global-ui-fh\global-backend_fh\global-backend_fh\global-backend\src\apps\backend\scripts\messageCenter\templates" />
+      <recent name="F:\GIT\global-ui-fh\global-backend_fh\global-backend_fh\global-backend\src\apps\backend\scripts\messageCenter\views" />
       <recent name="F:\GIT\global-ui-fh\global-backend_fh\global-backend_fh\global-backend\src\apps\backend\scripts\fundCenter" />
       <recent name="F:\GIT\global-ui-fh\global-backend_fh\global-backend_fh\global-backend\src\apps\backend\scripts\fundCenter\templates" />
       <recent name="F:\GIT\global-ui-fh\global-backend_fh\global-backend_fh\global-backend\src\apps\backend\scripts\fundCenter\views" />
-      <recent name="F:\GIT\global-ui-fh\global-backend_fh\global-backend_fh\global-backend\src\apps\backend\scripts\saleCenter\templates" />
-      <recent name="F:\GIT\global-ui-fh\global-backend_fh\global-backend_fh\global-backend\src\apps\backend\scripts\saleCenter\views" />
     </key>
   </component>
   <component name="RunManager">
@@ -458,18 +478,18 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32983193" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -507,34 +527,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/messageCenter/templates/bulletin-NewBulletinGeneral.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/globalCenter/router.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2122905">
-          <caret line="10" column="35" selection-start-line="10" selection-start-column="15" selection-end-line="10" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/globalCenter/controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.21914648">
-          <caret line="10" column="81" selection-start-line="10" selection-start-column="61" selection-end-line="10" selection-end-column="81" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/globalCenter/views/blackListOfIPManage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.0227273">
-          <caret line="89" column="0" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/dataCenter/views/agencyProfitAndLossReport.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5094972">
@@ -812,7 +804,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -820,7 +811,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7151096">
           <caret line="128" column="15" selection-start-line="128" selection-start-column="15" selection-end-line="128" selection-end-column="15" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -828,7 +818,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.9575419">
           <caret line="134" column="3" selection-start-line="134" selection-start-column="3" selection-end-line="134" selection-end-column="3" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -836,7 +825,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5731844">
           <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -856,18 +844,50 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/fundCenter/rwManagement/edit.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33966482">
+          <caret line="35" column="65" selection-start-line="35" selection-start-column="65" selection-end-line="35" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/agGame/router.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.542373">
+        <state vertical-scroll-proportion="0.23351955">
           <caret line="11" column="43" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="43" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/fundCenter/rwManagement/edit.js">
+    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/messageCenter/router.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.40335196">
-          <caret line="19" column="31" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
+        <state vertical-scroll-proportion="-9.5">
+          <caret line="14" column="31" selection-start-line="14" selection-start-column="15" selection-end-line="14" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/messageCenter/templates/userFeedbackList.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.464286">
+          <caret line="22" column="58" selection-start-line="22" selection-start-column="58" selection-end-line="22" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/messageCenter/controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.142858">
+          <caret line="12" column="22" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/messageCenter/views/userFeedbackList.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6368715">
+          <caret line="30" column="34" selection-start-line="30" selection-start-column="34" selection-end-line="30" selection-end-column="34" />
           <folding />
         </state>
       </provider>

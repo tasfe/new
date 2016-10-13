@@ -1,8 +1,10 @@
 <div class="js-ac-lm-tf-row ac-lm-tf-row">
-  <div class="ac-lm-tf-select-container">
-    <select data-placeholder="请选择转账用户 " class="js-ac-lm-tf-username" value="<%=subUser %>" data-parsley-required ></select>
+  <div class="js-ac-lm-tf-select-container-<%=index %> ac-lm-tf-select-container">
+    <select data-placeholder="请选择转账用户 " class="js-ac-lm-tf-username" value="<%=subUser %>" data-parsley-required data-parsley-errors-container=".js-ac-lm-tf-select-container-<%=index %>"></select>
   </div>
-  <input type="text" class="js-ac-lm-tf-amount ac-lm-tf-amount" placeholder="输入金额" data-parsley-type="integer"  data-parsley-max-message="您申请的金额超出可转账金额"
-  required  data-parsley-range="[<%=minMoney %>,<%=maxMoney %>]" value="<%=amount %>" >元
-  <button type="button" class="js-ac-lm-tf-del ac-lm-tf-del">删除</button>
+  <div class="js-ac-lm-tf-input-container ac-lm-tf-input-container inline-block">
+    <input type="text" class="js-ac-lm-tf-amount ac-lm-tf-amount" placeholder="输入金额" data-parsley-type="integer"  data-parsley-max-message="您申请的金额超出可转账金额"
+    required  data-parsley-range="[<%=minMoney %>,<%=maxMoney %>]" value="<%=amount %>" >元
+  </div>
+  <button type="button" class="btn btn-linear js-ac-lm-tf-del ac-lm-tf-del">删除</button>
 </div>
