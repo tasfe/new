@@ -10,7 +10,6 @@ var LowLevelBettingDetailView = require('./teamGames/bettingDetail');
 var LowLevelTrackDetailView = require('./teamGames/chaseDetail');
 
 var LowLevelAccountDetailView =require('agencyCenter/views/lowLevelManage-accountDetail');
-var LowLevelSendMessageView =require('agencyCenter/views/lowLevelManage-sendMessage');
 var LowLevelTransferView =require('agencyCenter/views/lowLevelManage-transfer');
 
 var LowLevelDetailView = require('agencyCenter/views/lowLevelDetail');
@@ -151,14 +150,6 @@ var AgencyCenterController = RouterController.extend({
       main: {
         title: '查看' + userName + '的账变记录'
       },
-      parentRouter: 'ac/llm'
-    });
-  },
-
-  sendMessage : function(userId){
-    this.changeSubReginView(new LowLevelSendMessageView({
-      userId: userId
-    }), {
       parentRouter: 'ac/llm'
     });
   },
