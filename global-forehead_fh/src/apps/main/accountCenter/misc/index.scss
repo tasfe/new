@@ -3,13 +3,18 @@
 @import
 "~base/styles/imports";
 
+.personal-main {
+  .form-horizontal .controls {
+    margin-left: 185px;
+  }
+  .form-horizontal .control-label {
+    width: 180px;
+  }
+}
+
 .as-passwordManage {
   padding: 13px 15px 0 15px;
-  //.control-label {
-  //  width: 120px;
-  //  font-size: 13px;
-  //  font-weight: bold;
-  //}
+
   form {
     margin: 0 auto;
     width: 715px;
@@ -317,7 +322,72 @@
 }
 .uc-cmValidatePayPwd{
   background-color: #cc0000;
-  border: 0px;
+  border: 0;
   color: white;
   height: 30px;
+}
+
+.uc-genderation {
+  padding: 4px 15px;
+  border-radius: 30px;
+  display: inline-block;
+  border: 1px solid $gray-color;
+  cursor: pointer;
+  &.selected {
+    background: #5f91b7;
+    .fa {
+      color: #fff;
+    }
+  }
+}
+
+.uc-memberLevel {
+  line-height: 26px;
+}
+
+.passwdSafetyTips{
+  padding: 0 0 10px 185px;
+  color: #999999;
+  line-height: 10px;
+
+  span{
+    display: inline-block;
+    width: 69px;
+    height: 8px;
+    margin: 0;
+    border: 1px solid #ffffff;
+    background-color: #dddddd;
+    float: left;
+  }
+
+  &.level1 {
+    span:first-child {
+      background-color: #ff6600;
+    }
+    b {
+      color: #ff6600;
+    }
+  }
+  &.level2 {
+    span:first-child, span:nth-child(2) {
+      background-color: #ff9900;
+    }
+    b {
+      color: #ff9900;
+    }
+  }
+  &.level3 {
+    span {
+      background-color: #99cc33;
+    }
+    b {
+      color: #99cc33;
+    }
+  }
+}
+.as-loginPwd {
+  .invalid-pwd-tip{
+    padding: 0 0 10px 185px;
+    color: rgb(226, 41, 25);
+  }
 }

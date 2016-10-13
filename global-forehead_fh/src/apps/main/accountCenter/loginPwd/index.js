@@ -1,108 +1,72 @@
 "use strict";
 
-require('./index.scss');
-
 var LoginPwdView = Base.ItemView.extend({
 
   template: require('./index.html'),
 
-  className: 'as-loginPwd-view',
+  className: 'as-loginPwd',
 
   //绑定事件
   events: {
-    //修改登陆密码
-    'click .js-changeLoginPassword-submit': 'changeLoginPasswordHandler'
+    'click .js-changeLoginPassword-submit': 'changeLoginPasswordHandler',    //修改登陆密码
+    'keyup #newLoginPassword': 'validatePwdHandler'
   },
 
   onRender: function () {
-    var self = this;
-
     this.$changeLoginPasswordForm = this.$('.js-ac-changeLoginPassword-form');
+    this.$pwdTip = this.$('.js-invalid-pwd-tip');
+    this.$submitBtn = this.$('.js-changeLoginPassword-submit');
+    this.$saftyLevel = this.$('.js-passwdSafetyTips');
+  },
 
-    var newLoginPassword = _(function() {
-      var str= $('#newLoginPassword').val();
+  validatePwdHandler: function (e) {
+    var $target = $(e.currentTarget);
+    var pwd= $target.val();
+    var safety = 0;
 
-      if ( !isNaN(str) && str.length < 9 ) {
-        $('.js-tip').html('*不能是9位以下的纯数字（≤8个阿拉伯数字）');
-        $('.js-tip').removeClass('hide');
-        $('.js-help-inline').addClass('red');
+    if ( !isNaN(pwd) && pwd.length < 9 ) {
+      
+      this.$pwdTip.html('*新密码不能是9位以下的纯数字（≤8个阿拉伯数字）').removeClass('hidden');
+      this.$submitBtn.attr('disabled', 'disabled');
+    } else if(pwd.indexOf(" ")>0){
+      
+      this.$pwdTip.html('*新密码不能包含空格').removeClass('hidden');
+      this.$submitBtn.attr('disabled', 'disabled');
+    } else if (pwd.length < 6 || pwd.length > 20) {
+      
+      this.$pwdTip.html('*新密码必须由6-20位字符组成').removeClass('hidden');
+      this.$submitBtn.attr('disabled', 'disabled');
+    } else{
+      
+      this.$pwdTip.addClass('hidden');
+      this.$submitBtn.removeAttr('disabled');
+    }
 
-        $('.js-tip').removeClass('hide');
-        $('.js-forbidden-button').removeClass('hide');
-        $('.js-changeLoginPassword-submit').addClass('hide');
+    if ( pwd.length > 0 ) {
+      this.$saftyLevel.removeClass('hidden');
+      if(/\d/gi.test(pwd)){
+        safety++;
       }
-      else if(str.indexOf(" ")>0){
-        $('.js-tip').html('*不能包含空格');
-        $('.js-tip').removeClass('hide');
-        $('.js-help-inline').addClass('red');
-
-        $('.js-tip').removeClass('hide');
-        $('.js-forbidden-button').removeClass('hide');
-        $('.js-changeLoginPassword-submit').addClass('hide');
+      if (/[A-Za-z]/.test(pwd)) {
+        safety++;
       }
-      else if (str.length < 6 || str.length > 20) {
-        $('.js-tip').html('*6-20位字符组成');
-        $('.js-tip').removeClass('hide');
-        $('.js-help-inline').addClass('red');
-
-        $('.js-tip').removeClass('hide');
-        $('.js-forbidden-button').removeClass('hide');
-        $('.js-changeLoginPassword-submit').addClass('hide');
+      if(/[@#\$%\^&\*\!]+/g.test(pwd)){
+        safety++;
       }
-      else{
-        $('.js-help-inline').removeClass('red');
-        $('.js-tip').addClass('hide');
-        $('.js-forbidden-button').addClass('hide');
-        $('.js-changeLoginPassword-submit').removeClass('hide');
-      }
+    } else {
+      this.$saftyLevel.addClass('hidden');
+    }
 
-      var num = 0;
-      if ( str.length > 0 ) {
-        if(/\d/gi.test(str)){
-          num++;
-        }
-
-        if (/[A-Za-z]/.test(str)) {
-          num++;
-        }
-
-        if(/[@#\$%\^&\*\!]+/g.test(str)){
-          num++;
-        }
-
-        $('.js-passwdSafetyTips span').removeClass('s3').removeClass('s2').removeClass('s1');
-        $('.js-passwdSafetyTips b').removeClass('s3').removeClass('s2').removeClass('s1');
-        if (num == 3) {
-          $('.js-passwdSafetyTips span').addClass('s3');
-          $('.js-passwdSafetyTips b').addClass('s3');
-          $('.js-passwdSafetyTips b').html('强');
-        }
-        if (num == 2) {
-          $('.js-passwdSafetyTips span').eq(0).addClass('s2');
-          $('.js-passwdSafetyTips span').eq(1).addClass('s2');
-          $('.js-passwdSafetyTips b').addClass('s2');
-          $('.js-passwdSafetyTips b').html('中');
-        }
-        if (num == 1) {
-          $('.js-passwdSafetyTips span').eq(0).addClass('s1');
-          $('.js-passwdSafetyTips b').addClass('s1');
-          $('.js-passwdSafetyTips b').html('弱');
-        }
-
-        num = 0;
-        num = 0;
-      }
-
-      if (str.length != 0) {
-        $('.passwdSafetyTips').removeClass('hide');
-      }
-      else{
-        $('.passwdSafetyTips').addClass('hide');
-      }
-
-    }).debounce(400);
-
-    this.$('#newLoginPassword').on('keyup', newLoginPassword);
+    this.$saftyLevel.removeClass('level1').removeClass('level2').removeClass('level3');
+    if (safety == 3) {
+      this.$saftyLevel.addClass('level3').find('b').html('强');
+    }
+    if (safety == 2) {
+      this.$saftyLevel.addClass('level2').find('b').html('中');
+    }
+    if (safety == 1) {
+      this.$saftyLevel.addClass('level1').find('b').html('弱');
+    }
   },
 
   changeLoginPasswordHandler: function(e) {

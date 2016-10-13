@@ -1,5 +1,5 @@
 <div class="portlet-header">
-  <div class="portlet-title">登录密码</div>
+  <div class="portlet-title">修改登录密码</div>
 </div>
 <div class="portlet-body">
   <!--<div class="alert as-fund-pwd-head">-->
@@ -8,40 +8,38 @@
   <!--</div>-->
   <form action="javascript:void(0);" class="js-ac-changeLoginPassword-form form-horizontal m-top-lg">
     <div class="control-group">
-      <label class="control-label" for="oldLoginPassword">当前密码：</label>
+      <label class="control-label">当前密码：</label>
       <div class="controls">
-        <input type="password" class="input1" id="oldLoginPassword" placeholder="" data-parsley-length="[6, 20]"  required data-parsley-multiple-of="3">
+        <input type="password" name="oldPwd" id="oldLoginPassword" data-parsley-length="[6, 20]"  required data-parsley-multiple-of="3">
       </div>
     </div>
     <div class="control-group">
-      <label class="control-label line-height30">新密码：</label>
-
+      <label class="control-label">新密码：</label>
       <div class="controls">
-        <input type="password" class="input1" id="newLoginPassword" data-parsley-length="[6, 20]"
-               data-parsley-notEqualTo="oldLoginPassword" data-parsley-notEqualTo-message="新旧密码不能一致"  required>
-        <span class="js-help-inline help-inline">&nbsp;&nbsp;长度6-20位字符，支持数字，大小写字母和符号组合（不含空格）,不能是9位以下的纯数字</span>
+        <input type="password" name="NewPwd" id="newLoginPassword" data-parsley-length="[6, 20]"
+               data-parsley-notEqualTo="#oldLoginPassword" data-parsley-notEqualTo-message="新旧密码不能一致"  required>
+        <div class="help-block">长度6-20位字符，支持数字，大小写字母和符号组合（不含空格）,不能是9位以下的纯数字</div>
       </div>
     </div>
-    <div class="js-passwdSafetyTips passwdSafetyTips hide">
-      <span></span> <span></span> <span></span> <b class="s1">弱</b>
-      <p>连续字符密码易被破解，请用多组合的密码</p>
-    </div>
-    <div class="control-group">
-      <label class="control-label" style="width: 85px;">确认新密码：</label>
 
+    <div class="js-passwdSafetyTips passwdSafetyTips hidden">
+      <span></span> <span></span> <span></span><b class="m-left-xs">弱</b>
+      <!--<p>连续字符密码易被破解，请用多组合的密码</p>-->
+    </div>
+
+    <div class="control-group">
+      <label class="control-label">确认新密码：</label>
       <div class="controls">
-        <input type="password" class="input1"  id="newLoginPassword1" data-parsley-length="[6, 20]"
-               data-parsley-equalto="#newLoginPassword" required>
-        <span class="help-inline">&nbsp;&nbsp;再次输入密码</span>
+        <input type="password" data-parsley-length="[6, 20]" data-parsley-equalto="#newLoginPassword" required>
+        <div class="help-block">再次输入密码</div>
       </div>
     </div>
-    <div class="js-tip tip hide">
 
-    </div>
+    <div class="js-invalid-pwd-tip invalid-pwd-tip hidden"></div>
+
     <div class="control-group">
-      <div class="controls control-confirm">
-        <button type="button" class="btn btn-sun btn-linear input2 js-forbidden-button" >保存</button>
-        <button type="submit" class="btn btn-sun btn-linear input1 js-changeLoginPassword-submit hide" data-loading-text="保存中" >保存</button>
+      <div class="controls">
+        <button type="submit" class="btn btn-pink btn-linear js-changeLoginPassword-submit" data-loading-text="保存中" disabled>保存</button>
       </div>
     </div>
   </form>
