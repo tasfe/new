@@ -1,0 +1,43 @@
+<div class="js-footer-NoticeBar alert m-bottom-sm">
+  <!--<i class="fa fa-exclamation-circle font-md"></i>-->
+  <span class="sfa sfa-tip-heart vertical-middle m-right-xs"></span>
+  您好，欢迎提出宝贵建议和意见，您留下的每个字都将被用来改善我们的服务。
+</div>
+<div class="footer-feedback-model-body">
+  <div class="control-group">
+    <div class="footer-feedback-body-left text-right">选择反馈类型：</div>
+    <div class="footer-feedback-body-right">
+    <select class="js-ft-type footer-feedback-body-type" name="type" required>
+      <option value="">请选择反馈类型</option>
+      <option value="1">建议</option>
+      <option value="2">BUG</option>
+      <option value="3">投诉</option>
+      <option value="4">其他</option>
+    </select></div></div>
+  <div class="footer-feedback-body-title">
+    <div class="footer-feedback-body-left text-right">
+    主题：
+    </div>
+    <div class="footer-feedback-body-right">
+    <input type="text" class="js-ft-title footer-feedback-body-type-title" maxlength="20" required>
+      </div>
+    <span class="footer-feedback-body-des">请简要说明主题，最多可输入20个汉字</span>
+  </div>
+  <div class="">
+    <div class="footer-feedback-body-left text-right footer-ft-content-title">内容：</div>
+    <textarea row="6" value="请详细描述您遇到的问题、您的意见及建议" class="js-ft-content footer-feedback-body-right footer-ft-content" maxlength="500" required></textarea></div>
+  <div class="js-code footer-feedback-body-code-line">
+    <div class="footer-feedback-body-left text-right"> 验证码：</div>
+    <div class="footer-feedback-body-right">
+    <input type="text" class="js-ft-code footer-ft-code"/>
+      <img  class="js-ft-valImg var-code" src="<%=src%>"><i></i>
+      <div class="footer-feedback-body-left-word">您还可以输入<span class="js-ft-left">500</span>字</div>
+      </div>
+  </div>
+  <div class="js-ft-cmValFeedbackInfoNotice"></div>
+  </div>
+<div class="uc-bind-card-model-border"></div>
+<div class="text-center">
+<button type="button" class="js-ft-cmValidateFeedbackInfo btn btn-pink btn-linear" data-type="<%=type%>">确定</button>
+  <button type="button" class="js-confirm-reject btn btn-linear" data-dismiss="modal">取消</button>
+</div>

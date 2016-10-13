@@ -98,5 +98,87 @@
       z-index: 9999;
       border: 1px solid #bf6d8f;
     }
+
   }
+
 }
+.footer-feedback-body{
+  width: 880px!important;
+  margin-left: -440px!important;
+  .footer-feedback-model-body {
+    .footer-feedback-body-title {
+      margin-bottom: 5px;
+    }
+    .footer-ft-content {
+      width: 425px;
+      height: 150px;
+      border: solid 1px #cccfcf;
+      margin-top: 5px;
+      margin-bottom: 10px;
+    }
+    .footer-ft-content-title {
+      margin-top: 5px;
+      vertical-align: top;
+    }
+    .footer-ft-code {
+      width: 100px;
+    }
+    .footer-feedback-body-code-line {
+      margin-bottom: 50px;
+      position: relative;
+
+    }
+    .wrong{
+      i{
+        position: absolute;
+        top: 7px;
+        left: 510px;
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        background: url(~base/images/julien/07.png) no-repeat 0 -16px;
+      }
+
+
+    }
+    .correct{
+      i{
+        position: absolute;
+        top: 7px;
+        left: 510px;
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        background: url(~base/images/julien/07.png) no-repeat;
+      }
+    }
+  }
+
+
+
+  .footer-feedback-body-left{
+    width: 280px;
+    display: inline-block;
+  }
+    .footer-feedback-body-right{
+      display: inline-block;
+      .footer-feedback-body-type{
+        width: 214px;
+      }
+      .footer-feedback-body-type-title{
+        width: 200px
+      }
+      .var-code{
+        width: 100px;
+        height: 26px;
+      }
+      .footer-feedback-body-left-word{
+        margin-left: 115px;
+        float: right;
+      }
+    }
+    .footer-feedback-body-des{
+      color:#999;
+      margin-left: 10px;
+    }
+  }
