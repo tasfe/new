@@ -38,7 +38,7 @@ var BettingRecordsView = Base.ItemView.extend({
        tableClass: 'table',
        colModel: [
          {label: '<div class="text-center">期号</div>', name: 'ticketPlanId', width: '22%',formatter: function(val, index, bet) {
-           return '<a class="router btn-link" href="#uc/br/detail/' + bet.ticketTradeNo + '">' + val.substring(4) + '</a>';
+           return '<a class="router btn-link" href="#gr/br/detail/' + bet.ticketTradeNo + '">' + val.substring(4) + '</a>';
          }},
          {label: '<div class="text-center">投注金额</div>', name: 'betTotalMoney', width: '26%', formatter: function(val) {
            return _(val).fixedConvert2yuan();
