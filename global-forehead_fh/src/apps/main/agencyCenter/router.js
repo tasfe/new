@@ -11,26 +11,25 @@ exports.install = function() {
     'ac/llm/rebate/:userId': 'rebateManage', //升点(返点)管理
     'ac/llm/detail/:userId': 'lowLevelDetail', //下级管理详情
 
-    'ac/br': 'teamGames',
-    'ac/ad': 'accountDetails2',
+    'tg/:type': 'teamGames',
+    'tg/br/detail/:betId': 'bettingDetail', //投注详情
+    'tg/tr/detail/:tradeNo': 'chaseDetail', //追号详情
+
+
+    'ac/ad': 'accountDetails',
 
     'ac/llm/message/:userId': 'sendMessage', //发消息
     'ac/llm/transfer/:userId': 'transfer', //转账
     'ac/oam': 'openAccountManage', //开户
     'ac/oam/pd/:ticket': 'openAccountManagePrice',
     'ac/rm': 'reportManage', //报表查询
-    'ac/rm/br/:tabName': 'bettingRecords4Report', //投注记录
     'ac/td': 'teamDynamic',
 
     'ac/tpl/lottery': 'teamProfitAndLoss',
 
     //'ac/pl': 'profitAndLoss', //报表查询
 
-    'ac/betting/:userId/:tabName': 'bettingRecords', //投注
-    'ac/track/:userId/:tabName': 'trackRecords', //追号
-    'ac/account/:userId/:tabName': 'accountDetail', //账变
-    'ac/betting/:userId/:tabName/detail/:betId': 'bettingDetail', //投注详情
-    'ac/track/:userId/:tabName/detail/:tradeNo': 'trackDetail', //追号详情
+    // 'ac/account/:userId/:tabName': 'accountDetail', //账变
 
     'ac/dm': 'dividendManage', //分红管理
     'ac/rp': 'redPacket', //红包查询,

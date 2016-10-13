@@ -1,42 +1,34 @@
-<div class="search-condition-table">
+<div class="portlet-header-block">
+  <div class="search-condition-table">
   <!--<div class="js-ac-state pull-right" style="margin-top:-46px;">-->
     <!--<a href="javascript:void(0);" style="color:#cc0000;">-->
       <!--<span class="sfa sfa-info " style="margin-bottom: -3px;"></span> 日工资报表说明</a>-->
   <!--</div>-->
-  <div class="control-group row1">
-    <label class="control-label">结算日期:</label>
-    <span class="js-ac-timeset input-date"></span>
-    <span class="js-ac-btnGroup pf-btnGroup inline-block"></span>
-    <label class="control-label" style="width: 40px">状态:</label>
-    <select name="status" class="input-sm">
-      <option value="-1">全部</option>
-      <option value="0">未发放</option>
-      <option value="1">已发放</option>
-    </select>
+    <div class="control-group row1">
+      <label class="control-label">结算日期:</label>
+      <span class="js-ac-btnGroup ac-btnGroup inline-block "></span>
+      <span class="js-ac-timeset search-timeSet"></span>
 
-    <div class="inline-block m-left-md pull-right">
-      <button type="submit" class="btn btn-lg btn-orange">
-        <span class="sfa sfa-search vertical-middle"></span>
-        搜 索
-      </button>
-      <!--<button type="reset" class="btn btn-link ">清空条件</button>-->
+      <label class="control-label" >状态:</label>
+      <select name="status" class="input-sm">
+        <option value="-1">全部</option>
+        <option value="0">未发放</option>
+        <option value="1">已发放</option>
+      </select>
+      <label class="control-label" >用户名:</label>
+      <input type="text" class="js-ac-sr-date " name="userName"/>
+      <label class="control-label" >返点:</label>
+      <input type="text" class="js-ac-sr-date "  name="rebate"/>
+      <input type="hidden" name="pageSize" value="20">
     </div>
-  </div>
-  <div class="control-group">
-    <label class="control-label" style="width: 70px">用户名:</label>
-    <input type="text" class="js-ac-sr-date " style="width: 126px" name="userName"/>
-
-    <label class="control-label" style="width: 49px">返点:</label>
-    <input type="text" class="js-ac-sr-date " style="width: 97px" name="rebate"/>
-
-    <input type="hidden" name="pageSize" value="20">
-
 
   </div>
+</div>
 
-  <!--<p>
-    1、团队投注金额日均量≥30万，分红比例1% </br>
-    2、当日亏损≥199999，分红可多增加1% </br>
-    3、每日的00：00：00到24：00：00为统计时间 </br>
-  </p>-->
+
+<div class="portlet-header-btnGroup">
+  <button type="submit" class="btn btn-pink btn-linear" data-loading-text="搜索">
+    <i class="fa fa-search"></i>
+    搜索
+  </button>
 </div>

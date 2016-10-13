@@ -1,0 +1,79 @@
+<div class="portlet portlet-linear">
+  <div class="portlet-header">
+    <span class="portlet-option">
+      <button class="btn btn-link text-amber sub-return" type="button">
+         <i class="fa fa-share-square-o"></i>
+        返回
+      </button>
+    </span>
+    <div class="portlet-title">
+      <span class="js-bd-title">追号详情</span>
+    </div>
+  </div>
+  <div class="portlet-body">
+    <div class="portlet-header-block">
+      <table class="bc-detail-grid table no-margin table-unbordered">
+        <colgroup>
+          <col width="40%">
+          <col width="30%">
+          <col width="30%">
+        </colgroup>
+        <tr>
+          <td>
+            <span>彩种名称：</span>
+            <span id="jsPaTicketName"></span>
+          </td>
+          <td>
+            <span>开始奖期：</span>
+            <span id="jsPaChaseStart"></span>
+          </td>
+          <td>
+            <span>追号时间：</span>
+            <span id="jsPaChaseTime"></span>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <span>追号编号：</span>
+            <span id="jsPaChaseFormNo"></span>
+          </td>
+          <td>
+            <span>中奖即停止：</span>
+            <span id="jsPaStop"></span>
+          </td>
+          <td>
+            <span>已追/总期数：</span>
+            <span id="jsPaPeriod"></span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span>追号总金额：</span>
+            <span id="jsPaChaseAllAmount" class=""></span>元
+          </td>
+          <td>
+            <span>已追号总金额：</span>
+            <span id="jsPaChaseAmount" class=""></span>元
+          </td>
+          <td>
+            <span>中奖金额：</span>
+            <span id="jsPaMoney" class="text-hot"></span>元
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="js-uc-td-cancelAllTrack-container portlet-header-btnGroup hidden">
+      <button type="submit" class="js-uc-td-cancelAllTrack btn btn-pink btn-linear" data-loading-text="撤销中">
+        <i class="fa fa-hand-paper-o"></i>
+        终止追号
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="js-pa-play-detail m-bottom-mlg"></div>
+<div class="js-pa-plan-detail"></div>
+
+<input type="hidden" id="jsPaChaseFormId">

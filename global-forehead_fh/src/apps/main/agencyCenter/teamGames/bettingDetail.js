@@ -1,13 +1,14 @@
 "use strict";
 
-var BettingDetailView = require('userCenter/views/bettingDetail');
+var BettingDetailView = require('userCenter/bettingDetail');
 
 var LowLevelBettingDetailView = BettingDetailView.extend({
 
   initialize: function(options) {
     BettingDetailView.prototype.initialize.apply(this, arguments);
 
-    this.options.detailPrevUrl = '#ac/track/' + this.options.userId + '/detail/';
+    // this.options.detailPrevUrl = '#tg/tr/' + this.options.userId + '/detail/';
+    this.options.detailPrevUrl = '#tg/tr/detail/';
   },
 
   onRender: function() {

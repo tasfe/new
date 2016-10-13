@@ -642,14 +642,12 @@ var BettingCenterView = Base.ItemView.extend({
       this.$superRules.addClass('hidden');
       this.$optionalRules.addClass('hidden');
       $('.bc-curt-plan-main').addClass('bg-deep-gray');
-      //this.$lastResults.find('.text-circle:lt(3)').removeClass('text-circle-red');
     } else {
       this.$optionalRules.find('.js-bc-basic-rule').eq(0).trigger('click');
       this.$basicRules.addClass('hidden');
       this.$superRules.addClass('hidden');
       this.$optionalRules.removeClass('hidden');
       $('.bc-curt-plan-main').addClass('bg-deep-gray');
-      //this.$lastResults.find('.text-circle:lt(3)').removeClass('text-circle-red');
     }
   },
 
@@ -1391,7 +1389,7 @@ var BettingCenterView = Base.ItemView.extend({
 
       //显示中奖div,显示金额
       this.$CurrPrize.removeClass('hidden');
-      this.$CurrPrize.html('恭喜您，中奖金额为'+prize+'元');
+      this.$CurrPrize.html('恭喜您，中奖金额为'+_(prize).convert2yuan()+'元');
     }else {
       //隐藏中奖div，清空金额
       this.$CurrPrize.addClass('hidden');

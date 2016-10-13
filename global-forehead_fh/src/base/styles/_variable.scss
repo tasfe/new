@@ -664,7 +664,7 @@ $validate: (
 
 $sfa-d-tickets: (
   sfa-d-ne-ssc-smmc: (
-          default: '~base/images/tickets/d-ne-ssc-smmc.png'
+  default: '~base/images/tickets/d-ne-ssc-smmc.png'
   ),
   sfa-d-sp-ssc-ffc: (
     default: '~base/images/tickets/d-sp-ssc-ffc.png'
@@ -723,9 +723,5 @@ $sfa-d-tickets: (
   ),
   sfa-d-happy-pk10: (
     default: '~base/images/tickets/logo-bj-px10.png'
-  ),
-
-
-
-
+  )
 );

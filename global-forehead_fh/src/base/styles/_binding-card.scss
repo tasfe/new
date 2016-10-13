@@ -15,12 +15,14 @@
     position: relative;
     border:1px solid #e5e5e5;
     height: 80px;
-    width: 536px;
+    width: 610px;
 
     .binding-card-main {
       display: inline-flex;
       color: $background-color;
       padding: 5px;
+      width: 610px;
+      height: 80px;
       //padding: 15px 10px 15px 30px;
     }
     .binding-card-op {
@@ -30,6 +32,8 @@
       text-align: center;
       height: 29px;
       line-height: 29px;
+      width: 125px;
+      margin-right: 5px;
     }
   }
   .uc-lockedRectangle {
@@ -48,11 +52,49 @@
   }
   .binding-card-triangle-yellow {
     text-align: center;
-    margin-top: 25px;
+    margin-top: 15px;
     color: #999999;
-    height: 29px;
-    width: 70px;
+    width: 125px;
 
+
+  }
+  .binding-card-triangle-leftSecond{
+    width: 125px;
+  }
+  .binding-card-leftTime {
+    display: inline-block;
+    >div{
+      position: relative;
+      display: inline-block;
+      font-size: 0px;
+      >span{
+        font-size: 12px;
+      }
+      }
+    .hours{
+      margin-right:5px;
+      &:after{
+        top: 0;
+        content: ':';
+        display: inline-block;
+        position: absolute;
+        right: -4px;
+        width: 3px;
+        font-size: 12px;
+      }
+    }
+    .minutes{
+      margin-right:5px;
+      &:after{
+        top: 0;
+        content: ':';
+        display: inline-block;
+        position: absolute;
+        right: -4px;
+        width: 3px;
+        font-size: 12px;
+      }
+    }
 
   }
   .binding-card-triangle-red {

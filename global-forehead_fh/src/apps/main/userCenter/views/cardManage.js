@@ -5,7 +5,7 @@ var lockPng = require('../misc/lock.png');
 var deletePng = require('../misc/delete.png');
 
 var BindCardView = require('userCenter/views/cardBinding');
-
+var Countdown=require('com/countdown');
 var CardManageView = Base.ItemView.extend({
 
   template: require('userCenter/templates/cardManage.html'),
@@ -98,10 +98,25 @@ var CardManageView = Base.ItemView.extend({
           if (res.result === 0) {
             self.locked = res.root.locked;
             var cardHtml = self.generateCardInfoHtml(res.root.cardList, res.root.locked);
-            _(self.$('.js-uc-cmBindCard-btn').siblings()).each(function(item){
-              $(item).remove();
+            //_(self.$('.js-uc-cmBindCard-btn').siblings()).each(function(item){
+            //  $(item).remove();
+            //});
+            self.$('.js-uc-cmCardManage-container').html(cardHtml);
+            _(res.root.cardList).each(function(item,index){
+              if(item.leftSeconds>1){
+              self.countdown = new Countdown({
+                el: self.$('.js-uc-cm-leftSecond').eq(index),
+                color: 'red',
+                size: 'sm'
+              })
+                  .render(item.leftSeconds * 1000)
+                  .on('finish.countdown', function(e) {
+                    self.$('.js-uc-cm-leftTime-container').eq(index).remove();
+                  });
+              }else{
+                self.$('.js-uc-cm-leftTime-container').eq(index).addClass('hidden');
+              }
             });
-            self.$('.js-uc-cmCardManage-container').prepend(cardHtml);
             self.$('.js-uc-cmBtnContainer').removeClass('hidden');
             if(self.locked){
               self.$('.js-uc-cmBindCard-btn').prop('disabled',true);
@@ -167,8 +182,10 @@ var CardManageView = Base.ItemView.extend({
     var $target = $(e.currentTarget);
 
     $(document).confirm({
-      title: '安全提示',
-      content: '请注意：银行卡锁定以后不能再增加和删除银行卡，解锁需要联系在线客服并提交资料审核',
+      title: '',
+      size: 'uc-lockBankCard',
+      content: '<div class="uc-band-card-lock-img"><span class="uc-band-card-lock"></span></div><div class="uc-band-card-lock-mes"><div class="uc-band-card-lock-mes-title">请注意：</div>' +
+      '<div class="uc-band-card-lock-mes-content">银行卡锁定以后不能再增加和删除银行卡，解锁需要联系在线客服并提交资料审核</div></div>',
       agreeCallback: function() {
         $target.button('loading');
         self.lockBankCardXhr()
@@ -206,7 +223,6 @@ var CardManageView = Base.ItemView.extend({
 
     var cardInfoHtmlArr = _(cardList).map(function(card) {
       var bankInfo = bindBankConfig.get(card.bankId);
-
       if(bankInfo){
         card.pic = bankInfo.pic;
       }else{
@@ -263,7 +279,7 @@ var CardManageView = Base.ItemView.extend({
       title: '绑定银行卡',
       body: '<div class="js-uc-cm-bindContainer uc-cm-bindContainer"></div>',
       bodyClass: 'no-padding uc-cm-bindDialog',
-      size: 'modal-lg herry-addBankCard'
+      size: 'uc-addBankCard'
       //size: 'modal-md2'
     });
 
@@ -291,6 +307,7 @@ var CardManageView = Base.ItemView.extend({
       title = '输入上一张银行卡信息';
     }
     var $dialog = Global.ui.dialog.show({
+      size:'uc-bind-card-model',
       title: title,
       body: this.validateTpl({type:type}),
       footer: ''

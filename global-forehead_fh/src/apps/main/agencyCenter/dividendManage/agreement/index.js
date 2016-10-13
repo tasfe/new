@@ -43,7 +43,7 @@ var AgreementView = Base.ItemView.extend({
       self.loadingFinish();
     }).done(function(res){
       if(res.result===0){
-        var list = res.root.itemList;
+        var list = res.root.signList;
         self.countdown = new Countdown({
           el: self.$countdown,
           color: 'red',
@@ -70,7 +70,7 @@ var AgreementView = Base.ItemView.extend({
               return _(val).formatDiv(100) + '%';
             }},
           ],
-          height: 270,
+          height: 140,
           row: list||[],
           startOnLoading: false
         });

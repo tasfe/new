@@ -10,6 +10,8 @@
   @each $class, $val in $sfas {
     &.#{$class} {
       background: url(map_get($val, default)) no-repeat;
+      width: 120px;
+      height: 94px;
     }
   }
 }
@@ -1182,21 +1184,6 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
             cursor: pointer;
           }
         }
-      }
-
-      .text-circle{
-        background: url(julien/numbg2.jpg) no-repeat;
-        background-size: cover;
-        font-family: 'Arial';
-        border: 0px;
-        color: #fff;
-        font-size: 24px;
-        line-height: 30px;
-        border-radius: 0px;
-        width: 52px;
-        height: 52px;
-        line-height: 46px;
-        margin-right: 7px;
       }
     }
 

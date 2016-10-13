@@ -4,7 +4,7 @@ var OptionalBettingDetailView = require('userCenter/views/optionalBettingDetail'
 
 var TrackDetailView = Base.ItemView.extend({
 
-  template: require('userCenter/templates/trackDetail.html'),
+  template: require('./index.html'),
 
   startOnLoading: true,
 
@@ -13,12 +13,7 @@ var TrackDetailView = Base.ItemView.extend({
   events: {
     'click .js-uc-td-cancelAllTrack':'cancelAllBettingHandler',
     'click .js-uc-td-cancel': 'cancelBettingHandler',
-    'click .js-uc-betDetail-optional-betNum': 'showBettingDetailOfOptionalHandler',
-    'click .js-bd-backAction':'backActionHandler'
-  },
-
-  backActionHandler:function () {
-    window.history.back();
+    'click .js-uc-betDetail-optional-betNum': 'showBettingDetailOfOptionalHandler'
   },
 
   getBetDetailXhr: function(data) {
@@ -30,7 +25,7 @@ var TrackDetailView = Base.ItemView.extend({
 
   initialize: function () {
     _(this.options).defaults({
-      detailPrevUrl: '#uc/br/detail/'
+      detailPrevUrl: '#gr/br/detail/'
     });
   },
 
@@ -66,7 +61,7 @@ var TrackDetailView = Base.ItemView.extend({
   },
   cancelAllBettingHandler: function(e){
     var self = this;
-    var html = '<p>确定终止追号？</p>';
+    var html = '<div class="text-center"><p><span class="circle-icon"><i class="fa fa-commenting"></i></span></p><p class="font-md">请问您是否需要终止追号？</p></div>';
     $(document).confirm({
       content: html,
       agreeCallback: function() {
@@ -103,7 +98,7 @@ var TrackDetailView = Base.ItemView.extend({
 
   cancelBettingHandler: function(e){
     var self = this;
-    var html = '<p>确定撤销本期追号？</p>';
+    var html = '<div class="text-center"><p><span class="circle-icon"><i class="fa fa-commenting"></i></span></p><p class="font-md">请问您是否需要撤销本期追号？</p></div>';
     $(document).confirm({
       content: html,
       agreeCallback: function() {
@@ -118,7 +113,7 @@ var TrackDetailView = Base.ItemView.extend({
     this.maxLength = 20;
 
     this.getBetDetailXhr({
-      userId: this.options.userId,
+      userId: (this.options.userId !=='undefined' &&  this.options.userId) || '',
       chaseFormId: this.options.chaseFormId,
       tradeNo: this.options.tradeNo
     }).always(function(){
@@ -128,11 +123,12 @@ var TrackDetailView = Base.ItemView.extend({
         var data;
         if (res && res.result === 0) {
           data = res.root || {};
-          self.isSelf = !(!_(self.options.userId).isUndefined() && (Global.memoryCache.get('acctInfo').userId + '' !== self.options.userId+'')) ;
+          //self.isSelf = !(!_(self.options.userId).isUndefined() && (Global.memoryCache.get('acctInfo').userId + '' !== self.options.userId+'')) ;
+          self.isSelf = !(!_(self.options.username).isUndefined() && (Global.memoryCache.get('acctInfo').username + '' !== self.options.username+'')) ;
           self.is11xuan5 = self.is11X5(data.ticketName);
           self.renderHeadInfo(data);
           self.renderPlayGrid(data.chaseTicketPlayDetail);
-          self.renderPlanGrid(data.chaseTicketPlanDetail, data);
+          self.renderPlanGrid(data.chaseTicketPlanDetail);
 
         } else {
           Global.ui.notification.show(res.msg);
@@ -144,8 +140,6 @@ var TrackDetailView = Base.ItemView.extend({
   },
 
   renderHeadInfo: function(info) {
-    var detail = info.chaseTicketPlayDetail[0];
-
     this.$('#jsPaTicketName').html(info.ticketName);
     this.$('#jsPaChaseStart').html(info.chaseStart);
     this.$('#jsPaChaseTime').html(_(info.chaseTime).toTime());
@@ -156,40 +150,35 @@ var TrackDetailView = Base.ItemView.extend({
     this.$('#jsPaChaseAmount').html(_(info.chaseAmount).fixedConvert2yuan());
     this.$('#jsPaMoney').html(_(info.money).convert2yuan());
     this.$('#jsPaChaseFormId').val(info.chaseFormId);
-
-    this.$('.js-pa-betting-numbers').text(this.is11xuan5 ? detail.betNums : detail.betNums.replace(/ /g,''));
   },
 
   renderPlayGrid: function(row) {
     var self = this;
     this.$('.js-pa-play-detail').staticGrid({
-      tableClass: 'table table-bordered table-hover table-center',
-      height: 75,
+      tableClass: 'table table-bordered table-center table-header-hot',
+      //height: 75,
       colModel: [
         {label: '玩法群', name: 'ticketLevelName', width: '15%'},
         {label: '玩法', name: 'ticketPlayName', width: '15%'},
-        {label: '投注号码', name: 'betNums', width: '15%', formatter: function(val, index, thisRow) {
+        {label: '投注号码', name: 'betNums', formatter: function(val, index, thisRow) {
           var html =  self.is11xuan5 ? val : val.replace(/ /g,'');
-          //if(thisRow.rx){
-          //  html  = '<a class="js-uc-betDetail-optional-betNum btn-link btn-link-cool" data-id="'+thisRow.ticketBetPlayId+'" data-loading-text="处理中">详细号码</a>';
-          //}else
           if(html.length> self.maxLength){
-            html  = '<a class="js-uc-trackDetail-betNum btn-link btn-link-cool">详细号码</a>';
+            html  = '<a class="js-uc-trackDetail-betNum btn-link btn-link-hot">详细号码</a>';
           }
           return html;
         }},
         {label: '注数', name: 'betNum', width: '15%'},
-        {label: '奖金模式', name: 'singleMoney', width: '15%', formatter: function(val, index, info) {
-          var cell = _(val).chain().div(10000).mul(info.moneyMethod).convert2yuan().value();
-
-          if (info.betMethod === 0) {
-            cell = +cell + '/0.0%';
-          } else {
-            cell = +cell + '/' + _(info.userRebate).formatDiv(10) + '%';
-          }
-
-          return cell;
-        }},
+        //{label: '奖金模式', name: 'singleMoney', width: '15%', formatter: function(val, index, info) {
+        //  var cell = _(val).chain().div(10000).mul(info.moneyMethod).convert2yuan().value();
+        //
+        //  if (info.betMethod === 0) {
+        //    cell = +cell + '/0.0%';
+        //  } else {
+        //    cell = +cell + '/' + _(info.userRebate).formatDiv(10) + '%';
+        //  }
+        //
+        //  return cell;
+        //}},
         {label: '投注模式', name: 'moneyMethod', width: '15%', formatter: function(val, info) {
           return val === 10000 ? '元' : val === 1000 ? '角' : val === 100 ?  '分' : '厘';
         }}
@@ -212,21 +201,21 @@ var TrackDetailView = Base.ItemView.extend({
     },this);
   },
 
-  renderPlanGrid: function(row, data) {
+  renderPlanGrid: function(row) {
     var self = this;
     this.$('.js-pa-plan-detail').staticGrid({
-      tableClass: 'table table-bordered table-hover table-center',
-      height: 200,
+      tableClass: 'table table-bordered table-center',
+      height: 230,
       colModel: [
         {label: '奖期', name: 'ticketPlanId', width: '15%'},
         {label: '开奖号码', name: 'ticketResult', width: '15%', formatter: function(val) {
           return val ? val.split(',') : '';
         }},
         {label: '倍数', name: 'betMultiple', width: '15%'},
-        {label: '投注金额', name: 'amount', width: '15%', formatter: function(val) {
-          return _(val).fixedConvert2yuan();
+        {label: '投注金额', name: 'amount', formatter: function(val) {
+          return '<span class="text-hot">' + _(val).fixedConvert2yuan() + '</span>';
         }},
-        {label: '状态', name: 'money', width: '15%', formatter: function(val,index,thisRow) {
+        {label: '中奖金额', name: 'money', width: '15%', formatter: function(val,index,thisRow) {
           return _.checkBettingStatus({
             betStatus: thisRow.planStatus,
             hasException: thisRow.hasException,
@@ -234,15 +223,13 @@ var TrackDetailView = Base.ItemView.extend({
             openStatus: thisRow.ticketOpenStatus,
             prizing: thisRow.prizing,
             prizeTotalMoney: val,
-            betTime: data.chaseTime,
-            prizeClass: 'text-sun'
+            prizeClass: 'text-hot'
           });
         }},
         {label: '操作', name: 'betStatus', width: '15%', formatter: function(val,index,thisRow) {
           if (thisRow.canCancel && self.isSelf) {
-            self.$('.js-uc-td-cancelAllTrack').removeClass('hidden');
-            self.$('.js-dd-cantCancel').addClass('hidden');
-            return '<a class="js-uc-td-cancel btn btn-link btn-link-cool" href="javascript:void(0)" data-chasePlanId="'+thisRow.chasePlanId+'">撤销</a>';
+            self.$('.js-uc-td-cancelAllTrack-container').removeClass('hidden');
+            return '<a class="js-uc-td-cancel btn btn-link btn-link-hot" href="javascript:void(0)" data-chasePlanId="'+thisRow.chasePlanId+'">撤销</a>';
           } else {
             if(thisRow.tradeId){
               return '<a class="js-uc-td-view router btn btn-link btn-link-hot" href="'+ self.options.detailPrevUrl + thisRow.tradeId + _.getUrlParamStr() + '">查看</a>';

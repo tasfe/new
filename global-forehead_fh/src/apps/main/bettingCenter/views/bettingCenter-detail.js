@@ -1,7 +1,7 @@
 /**
  * Created by ABCD on 2015/10/23.
  */
-var BettingDetailView = require('userCenter/views/bettingDetail');
+var BettingDetailView = require('userCenter/bettingDetail');
 
 var BettingCenterBettingDetailView = BettingDetailView.extend({
 

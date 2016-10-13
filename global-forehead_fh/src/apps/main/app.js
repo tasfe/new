@@ -74,7 +74,6 @@ App.addInitializer(function(options) {
       $('.js-gl-notice').trigger('click');
     }
   });
-
 });
 
 function _bindNoticeHandler() {
@@ -167,7 +166,7 @@ function _bindRechargeHandler() {
 
     $dialogRe.on('hidden.modal', function (e) {
       $(this).remove();
-      //self.destroy();
+      rechargeView.destroy();
     });
 
     // getInfoXhr()

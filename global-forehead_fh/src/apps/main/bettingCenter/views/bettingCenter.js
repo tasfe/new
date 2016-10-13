@@ -849,15 +849,11 @@ var BettingCenterView = Base.ItemView.extend({
       this.$basicRules.removeClass('hidden');
       this.$superRules.addClass('hidden');
       this.$optionalRules.addClass('hidden');
-      $('.bc-curt-plan-main').addClass('bg-deep-gray');
-      this.$lastResults.find('.text-circle:lt(3)').removeClass('text-circle-red');
     } else {
       this.$optionalRules.find('.js-bc-basic-rule').eq(0).trigger('click');
       this.$basicRules.addClass('hidden');
       this.$superRules.addClass('hidden');
       this.$optionalRules.removeClass('hidden');
-      $('.bc-curt-plan-main').addClass('bg-deep-gray');
-      this.$lastResults.find('.text-circle:lt(3)').removeClass('text-circle-red');
     }
   },
 

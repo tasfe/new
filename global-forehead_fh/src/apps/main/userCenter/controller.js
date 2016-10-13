@@ -1,10 +1,9 @@
 "use scrict";
 
 var RouterController = require('skeleton/controllers/router');
-var BettingDetailView = require('userCenter/views/bettingDetail');
+var BettingDetailView = require('userCenter/bettingDetail');
 
-var TrackRecordView = require('userCenter/trackRecords/team');
-var TrackDetailView = require('userCenter/views/trackDetail');
+var TrackDetailView = require('userCenter/chaseDetail');
 
 var GameRecordsView = require('userCenter/gameRecords');
 var MoneyDetailView = require('userCenter/moneyDetail');
@@ -25,41 +24,26 @@ var ReportManageView = require('agencyCenter/reportManage/teamReport');
 
 var UserCenterController = RouterController.extend({
 
-  reportManage:function () {
-    this.changeMainReginView(new ReportManageView(), {
-      sidebar: 'uc'
+  gameRecords: function (type) {
+    this.changeMainReginView(new GameRecordsView({
+      triggerTab: type
+    }), {
+      sidebar: 'pc',
+      topView: 'personal'
     });
   },
-
-  checkPayPwdXhr: function() {
-    return Global.sync.ajax({
-      url: '/fund/moneypd/checkpaypwd.json'
-    });
-  },
-
-  // bettingRecords: function() {
-  //   this.changeMainReginView(new BettingRecordView(), {
-  //     sidebar: 'uc'
-  //   });
-  // },
 
   bettingDetail: function(tradeNo) {
     this.changeSubReginView(new BettingDetailView({
       tradeNo: tradeNo,
       quickEntry: true
     }), {
-      parentRouter: 'uc/br',
+      parentRouter: 'gr/br',
       main: {
         subReturn: true
       },
-      needParent: false,
-      sidebar: 'uc'
-    });
-  },
-
-  trackRecords: function() {
-    this.changeMainReginView(new TrackRecordView(), {
-      sidebar: 'uc'
+      // sidebar: 'pc',
+      topView: 'personal'
     });
   },
 
@@ -67,8 +51,18 @@ var UserCenterController = RouterController.extend({
     this.changeSubReginView(new TrackDetailView({
       tradeNo: tradeNo
     }), {
-      parentRouter: 'uc/tr',
-      destroyDiff: false
+      parentRouter: 'gr/tr',
+      main: {
+        subReturn: true
+      },
+      // sidebar: 'pc',
+      topView: 'personal'
+    });
+  },
+
+  reportManage:function () {
+    this.changeMainReginView(new ReportManageView(), {
+      sidebar: 'uc'
     });
   },
 
@@ -99,7 +93,7 @@ var UserCenterController = RouterController.extend({
   });
 },
 
-  cardManage: function() {
+  /*cardManage: function() {
     //判断是否设置资金密码
 
     var self  = this;
@@ -119,11 +113,12 @@ var UserCenterController = RouterController.extend({
             });
           }
         });
-  },
+  },*/
 
-  verifySuccCallBack: function(){
+  cardManage: function(){
     this.changeMainReginView(new CardManageView(), {
-      sidebar: 'pc'
+      sidebar: 'pc',
+      topView: 'personal'
     });
   },
   cardBinding: function() {
@@ -134,20 +129,6 @@ var UserCenterController = RouterController.extend({
 
   priceDetails: function() {
     this.changeMainReginView(new PriceDetailsView(), {
-      sidebar: 'pc',
-      topView: 'personal'
-    });
-  },
-  trackBetDetail: function(chaseFormId,tradeNo){
-    this.changeSubReginView(new BettingDetailView({
-      tradeNo: tradeNo
-    }), {
-      parentRouter: 'uc/tr'
-    });
-  },
-
-  gameRecords: function () {
-    this.changeMainReginView(new GameRecordsView(), {
       sidebar: 'pc',
       topView: 'personal'
     });

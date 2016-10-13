@@ -1,5 +1,5 @@
 "use strict";
-
+require('./index.scss');
 var TabView = require('com/tabView');
 
 var BettingRecordsView = require('./betting');
@@ -16,20 +16,23 @@ var TeamGamesView = TabView.extend({
       tabs: [
         {
           label: '彩票投注记录',
-          name: 'team',
+          name: 'br',
           id: 'jsTeam',
+          router: 'gr/br',
           view: BettingRecordsView
         },
         {
           label: '彩票追号记录',
-          name: 'records',
+          name: 'tr',
           id: 'jsTrackRecords',
+          router: 'gr/tr',
           view: TrackRecordsView
         },
         {
           label: 'AG投注记录',
-          name: 'personal',
+          name: 'abr',
           id: 'jsPersonal',
+          router: 'gr/abr',
           view: AGBettingView
         }
       ]

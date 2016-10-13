@@ -1,6 +1,7 @@
 @charset "UTF-8";
 
 @import "~base/styles/imports";
+
 //@import "bootstrap-3.3.7-dist/css/bootstrap.css";
 //@import "font-awesome-4.4.0/css/font-awesome.min.css";
 //begin 1投追记录页查询栏样式
@@ -205,7 +206,17 @@
 
   //管理页
   .uc-cm-notice-div {
-    margin: 16px 5px 5px 55px;
+
+    .uc-cm-notice-msg {
+      margin-top: 5px;
+
+    }
+    .uc-cm-notice-msg2 {
+      margin-top: 5px;
+    }
+    .uc-cm-notice-msg3 {
+      margin-top: 5px;
+    }
   }
   .btn {
     width: 70px;
@@ -223,11 +234,10 @@
 
   }
   .uc-cm-btn-unlock-sign {
-    background: url(unLocked.png) no-repeat;
-    padding-left: 25px;
-    color: $background-color;
-    width: 18px;
-    height: 19px;
+    margin-right: 5px;
+  }
+  .uc-cm-btn-add-sign {
+    margin-right: 5px;
   }
   .uc-cm-btn-lock-sign {
     background: url(unLocked.png) no-repeat;
@@ -254,32 +264,51 @@
   .control-group {
     padding: 0 0 5px 0;
     display: inline-block;
-    margin-left: 165px;
   }
-  .select1 {
-    width: 352px;
-    height: 30px;
+  .uc-card-band-select1 {
+    width: 200px;
+    height: 26px;
   }
-  .select2 {
-    width: 171px;
-    height: 30px;
+  .uc-card-band-select2 {
+    width: 95px;
+    height: 26px;
   }
-  .select3 {
+  .uc-card-band-select3 {
     margin-left: 5px;
-    width: 171px;
-    height: 30px;
+    width: 95px;
+    height: 26px;
   }
-  .input1 {
+  .uc-card-band-input1 {
     width: 123px;
     height: 15px;
   }
-  .input2 {
-    width: 338px;
-    height: 20px;
+  .uc-card-band-input2 {
+    width: 185px;
+    height: 16px;
   }
   .uc-cm-lg-btn {
     width: 166px;
     height: 32px;
+  }
+  .uc-card-band-size{
+    width: 110px;
+  }
+  .uc-card-band-option-size{
+    margin-left: 110px;
+  }
+  .uc-bind-card-model-border{
+    border-top: 1px solid #cccccc;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    width: 570px;
+    margin-left: 5px;
+  }
+  .uc-bind-card-word-style{
+    color:#999;
+    margin-left: 10px;
+  }
+  .uc-band-card-bind{
+    margin-bottom: 20px;
   }
 }
 
@@ -291,25 +320,9 @@
   position: relative;
 }
 
-.bc-btn-cancel {
-  position: absolute;
-  top: 5px;
-  right: 74px;
-}
-
-.detail-betting-num {
-  width: 100%;
-  border: 1px solid $gray-color;
-  box-sizing: border-box;
-  height: 258px;
-  overflow: auto;
-  word-break: break-word;
-}
-
 .uc-cm-bindDialog {
   background-color: #fff;
-  //width: 560px;
-;
+  //width: 560px;;
 }
 
 .uc-cm-bindContainer {
@@ -518,15 +531,6 @@
 }
 
 //
-.bd-bet-header {
-
-  border-bottom: 1px solid #CCCCCC;
-  padding-left: 20px;
-  padding-right: 20px;
-  line-height: 40px;
-  height: 40px;
-
-}
 
 .bd-bet-headBack {
   text-decoration: underline;
@@ -743,26 +747,62 @@
 
 .binding-card-icon {
   //background-color: red;
-  width: 206px;
-  height: 66px;
-}
+  width: 150px;
+  height: 45px;
+  margin-top: 13px;
+  border-right: 1px solid #cccccc;
 
+}
+.uc-bind-card-locked{
+  color: #999!important;
+  .binding-card-cardName-Name{
+    color: #999!important;
+  }
+  .binding-card-cardNo-No{
+    color: #999!important;
+  }
+}
 .binding-card-cardName {
-  margin-top: 20px;
-  margin-left: 32px;
-  margin-bottom: 5px;
-  font-size: 16px;
-  line-height: 35px;
-  color: black;
+  margin-top: 15px;
+  width: 105px;
+  height: 45px;
+  margin-left: 15px;
+  .binding-card-cardName-card{
+    color: #999;
+  }
+  .binding-card-cardName-Name{
+    font-family: Arial;
+    font-size: 18px;
+    margin-top: 10px;
+    color: #333;
+  }
 }
-
+.uc-cm-notice-add{
+  width: 100px!important;
+  height: 30px;
+  font-size: 12px;
+}
+.uc-cm-notice-lock{
+  width: 100px!important;
+  height: 30px;
+  font-size: 12px;
+}
 .binding-card-cardNo {
-  margin-top: 20px;
-  margin-left: 32px;
-  margin-bottom: 5px;
-  font-size: 16px;
-  line-height: 35px;
-  color: black;
+  border-right: 1px solid #cccccc;
+  margin-top: 15px;
+  width: 220px;
+  height: 45px;
+  margin-left: 15px;
+
+  .binding-card-cardNo-card{
+    color: #999;
+  }
+  .binding-card-cardNo-No{
+    font-family: Arial;
+    font-size: 18px;
+    margin-top: 10px;
+    color: #333;
+  }
 }
 
 .binding-card-delete {
@@ -898,19 +938,13 @@
   color: #999;
 }
 
-.uc-bd-tHeader1 {
-  display: inline-flex;
-  dd {
-    margin-right: 100px;
-  }
-}
-
 .ucbt-open-number {
   height: 50px;
   line-height: 50px;
 }
 
-.herry-addBankCard {
+.uc-addBankCard {
+  width: 580px;
   .modal-dialog {
     overflow: visible;
   }
@@ -921,5 +955,62 @@
       padding-top: 40px;
     }
   }
+
 }
 
+.uc-bind-card-model{
+  width: 580px;
+  .uc-bind-card-model-body{
+    margin-top: 40px;
+    .uc-bind-card-model-name{
+      margin-bottom: 15px;
+      margin-top: 10px;
+    }
+    .uc-bind-card-model-no{
+      margin-bottom: 50px;
+    }
+
+  }
+  .uc-bind-card-model-border{
+    border-top: 1px solid #cccccc;
+    margin-bottom: 20px;
+  }
+
+
+}
+.uc-lockBankCard{
+  width: 400px;
+  border-bottom: 1px solid #cccccc;
+  .uc-band-card-lock-img{
+    display: inline-block;
+    float: left;
+    margin-left: 45px;
+    margin-right: 15px;
+    margin-top: 10px;
+    .uc-band-card-lock{
+      width: 60px;
+      height: 60px;
+      display: inline-block;
+      background: url(../misc/back_lock.png) no-repeat center;
+    }
+  }
+  .uc-band-card-lock-mes{
+    margin-top: 10px;
+    display: inline-block;
+    width: 230px;
+    .uc-band-card-lock-mes-title{
+      font-size: 18px;
+      margin-bottom: 5px;
+    }
+    .uc-band-card-lock-mes-content{
+      color: #999;
+    }
+  }
+
+}
+.uc-bind-card-lock-border{
+  border-top: 1px solid #cccccc;
+  margin-bottom: 20px;
+  width: 390px;
+  margin-left: 5px;
+}

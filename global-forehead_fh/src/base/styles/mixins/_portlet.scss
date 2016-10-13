@@ -12,6 +12,9 @@
       color: $headerColor;
       border-bottom: 1px solid $borderColor;
 
+      &:last-child {
+        border-bottom: 0;
+      }
     }
     .portlet-body {
       //background-color: $bodyBg;

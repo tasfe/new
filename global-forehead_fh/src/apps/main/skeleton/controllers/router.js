@@ -96,14 +96,14 @@ var RouterController = Base.Controller.extend({
       var ops = menuConfig.getCurrent();
 
       if (ops) {
-        config.main.type = 'side-main no-shadow';
+        config.main.type = config.main.type || 'side-main no-shadow';
         if (config.main.showTitle) {
           config.main.title = config.main.title || ops.menu.name;
         }
         config.main.headerClass = ops.menus.titleClass || '';
         config.main.noTitle = ops.menu.noTitle;
       } else {
-        config.main.type = 'side-main no-shadow';
+        config.main.type = config.main.type || 'side-main no-shadow';
         config.main.headerClass = '';
       }
     }
@@ -111,7 +111,7 @@ var RouterController = Base.Controller.extend({
     if (currentView) {
       this._changeReginView(currentView, view, config);
     } else {
-      Global.appRouter.navigate(_(config.parentRouter).addHrefArgs('_t', _.now()), {trigger: true, replace: false});
+      Global.router.goTo(config.parentRouter);
     }
   },
 

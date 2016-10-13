@@ -8,22 +8,31 @@
       <div class="binding-card-main ">
 
         <div class="binding-card-icon"><img src="<%=card.pic%>"></div>
-        <div class="js-uc-cmSingCardName&Num binding-card-cardNo"><%=card.cardNo %></div>
-        <div class="binding-card-cardName"><%=card.name %> </div>
+
+        <div class="js-uc-cmSingCardName&Num binding-card-cardNo <%= locked? 'uc-bind-card-locked':''%>">
+          <div class="binding-card-cardNo-card">卡号：</div>
+          <div class="binding-card-cardNo-No">
+          <%=card.cardNo %></div></div>
+        <div class="binding-card-cardName <%= locked? 'uc-bind-card-locked':''%>">
+          <div class="binding-card-cardName-card ">持卡人：</div>
+          <div class="binding-card-cardName-Name ">
+          <%=card.name %> </div></div>
 
         <!--<div class="js-uc-cmSingCardBindTime  ">绑定时间:<%=_(card.bindTime).toTime() %></div>-->
       </div>
 
-
+<!--
       <% if (!locked) { %>
         <div class="js-uc-cmDeleteSingCard binding-card-delete " data-type="<%=card.cardId %>"></div>
-      <% } %>
+      <% } %>-->
 
       <div class="js-uc-cm-option binding-card-op" data-type="<%=card.cardId %>">
 
-          <div class="js-uc-binding-card-triangle binding-card-triangle-yellow">已设置默认</div>
+          <!--<div>&ndash;&gt; class="js-uc-binding-card-triangle binding-card-triangle-yellow">已设置默认</div>&ndash;&gt;-->
 
           <!--<div class="js-uc-binding-card-sign <%= locked? 'binding-card-sign-locked':'binding-card-sign-checkMark'%>"></div>-->
+        <div class="binding-card-triangle-yellow"><%= locked?'已锁定':''%></div>
+        <div class="js-uc-cm-leftTime-container binding-card-triangle-leftSecond <%= locked? 'uc-bind-card-locked':''%>">生效倒计时：<div class="js-uc-cm-leftSecond binding-card-leftTime"></div></div>
 
       </div>
 

@@ -1,0 +1,80 @@
+<div class="portlet portlet-linear">
+  <div class="portlet-header">
+    <span class="portlet-option">
+      <button class="btn btn-link text-amber sub-return" type="button">
+         <i class="fa fa-share-square-o"></i>
+        返回
+      </button>
+    </span>
+    <div class="portlet-title">
+      <span class="js-bd-title">投注详情</span>
+    </div>
+  </div>
+  <div class="portlet-body">
+    <div class="portlet-header-block">
+      <table class="bc-detail-grid table no-margin table-unbordered">
+        <colgroup>
+          <col width="40%">
+          <col width="30%">
+          <col width="30%">
+        </colgroup>
+        <tr>
+          <td>
+            <span>彩种名称：</span>
+            <span id="jsPaTicketName"></span>
+          </td>
+          <td>
+            <span>投注奖期：</span>
+            <span id="jsPaTicketPlanId"></span>
+          </td>
+          <td>
+            <span>投注时间：</span>
+            <span id="jsPaBetTime"></span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span>订单编号：</span>
+            <span id="jsPaTicketBetNo"></span>
+          </td>
+          <td>
+            <span>订单总金额：</span>
+            <span id="jsPaBetAllMoney"></span>元
+          </td>
+          <td>
+            <span>总奖金：</span>
+            <span id="jsPaMoney" class="text-hot">-</span>元
+          </td>
+        </tr>
+        <tr>
+          <td colspan="3">
+            <span>开奖号码：</span>
+            <span id="jsPaOpenNum"></span>
+            <a class="js-pa-link-track btn-link btn-link-hot font-sm router hidden" href="javascript:void(0)">相关追号记录</a>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="js-uc-bdCancelBetting-container portlet-header-btnGroup hidden">
+      <button type="submit" class="js-uc-bdCancelBetting btn btn-pink btn-linear" data-loading-text="撤销中">
+        <i class="fa fa-hand-paper-o"></i>
+        撤销订单
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="js-pa-play-detail"></div>
+
+<!--<div class="js-pa-quick-entry pagination text-center">-->
+  <!--<ul>-->
+    <!--<li class="js-pa-prev pagination-pre  disabled">-->
+      <!--<span><a href="javascript:void(0)">上一条</a></span>-->
+    <!--</li>-->
+    <!--<li class="js-pa-next pagination-next m-left-md disabled">-->
+      <!--<span><a href="javascript:void(0)">下一条</a></span>-->
+    <!--</li>-->
+  <!--</ul>-->
+<!--</div>-->
+<input type="hidden" id="jsTicketBetId">

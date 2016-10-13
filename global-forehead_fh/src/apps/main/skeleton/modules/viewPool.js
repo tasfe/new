@@ -33,10 +33,11 @@ var PoolingModule = Base.Module.extend({
         viewInfo.parentId = prevViewInfo.initId;
       }
 
-      Global.entryRegion.currentView.update({
-        initId: viewInfo.initId,
-        router: viewInfo.router
-      });
+      //快捷入口
+      // Global.entryRegion.currentView.update({
+      //   initId: viewInfo.initId,
+      //   router: viewInfo.router
+      // });
     } else {
       this.destroyAllNotEntryView();
       Global.entryRegion.currentView.changeActiveInfo(viewInfo.initId, viewInfo.router);
@@ -93,13 +94,14 @@ var PoolingModule = Base.Module.extend({
   },
 
   replace: function(viewInfo) {
-    var last = this._pooling.pop();
+    var router = window.location.hash.substring(1);
+    var last = _(this._pooling).findWhere({
+      router: router
+    });
 
     if (last) {
       last.router = viewInfo.router;
-      last.view.mainRegion.attachView(viewInfo.view);
-
-      this._pooling.push(last);
+      last.regin.attachView(viewInfo.view);
     }
   },
 
