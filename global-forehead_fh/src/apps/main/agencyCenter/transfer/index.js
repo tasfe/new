@@ -62,11 +62,18 @@ var TransferView = Base.ItemView.extend({
     });
   },
 
+  getSubLevelXhr: function (subAcctId) {
+    return Global.sync.ajax({
+      url: '/acct/subacctinfo/getsubacctnamebyid.json',
+      data: {
+        subAcctId: subAcctId
+      }
+    });
+  },
+
   initialize: function (options) {
 
   },
-
-
 
   onRender: function () {
     var self = this;
@@ -80,6 +87,7 @@ var TransferView = Base.ItemView.extend({
     this.$addRowBtm = this.$('.js-ac-add-lowLevel');
     this.$UnionSet = this.$('.js-ac-lm-tf-check');
     this.$UnionAmount = this.$('.js-ac-lm-tf-union-amount');
+    this.$UnionAmountContainer = this.$('.js-ac-lm-tf-union-amount-container');
 
     var getInfoXhr = this.getInfoXhr()
       .always(function () {
@@ -96,7 +104,7 @@ var TransferView = Base.ItemView.extend({
           self.Balance = res.root.balance;
           self.$balance.html(_(res.root.balance).convert2yuan());
           self.$question.html(res.root.question);
-          self.$leftMoney.text(res.root.leftMoney / 10000);
+          self.$leftMoney.text(res.root.leftMoney==-1 ? 0: res.root.leftMoney / 10000);
           self.$questionId.val(res.root.securityId);
           self.SecurityId = res.root.securityId;
           self.minMoney = res.root.minMoney / 10000;
@@ -109,8 +117,7 @@ var TransferView = Base.ItemView.extend({
         }
       });
 
-    this.parsley = this.$form.parsley();
-
+    // this.parsley = this.$form.parsley();
 
     var getSubLevelXhr = this.getSubLevelXhr(Global.memoryCache.get('acctInfo').userId).done(function (res) {
       if (res && res.result === 0) {
@@ -128,68 +135,9 @@ var TransferView = Base.ItemView.extend({
       });
 
   },
-  blurSeach: function () {
-    //配置模糊搜索
-    var self = this;
-    this.$username = this.$('.js-ac-lm-tf-username');
-    this.$username.each(function (i, d) {
-      self.$(this).typeahead({
-        source: function (query, process) {
-          self.verifyXhr({username: query}).done(function (res) {
-            if (res.result === 0) {
-              self.ValidUser = res.root;
-              var users = [];
-              _(res.root).each(function (item, index) {
-                users.push(item.userName);
-              })
-              return process(users);
-            }
-          });
-        },
-        items: 5,
-        minlength: 1,
-        matcher: function (item) {
-          if (item && item.toLowerCase().indexOf(this.query.trim().toLowerCase()) != -1) {
-            return true;
-          }
-        },
-        updater: function (item) {
-          setTimeout(500, self.$form.parsley());
-          if (self.ValidUser) {
-            var user = _(self.ValidUser).find(function (userItem) {
-              return userItem.userName == item;
-            });
-            // self.$('.js-ac-sm-sign-userid').val(user.userId);
-          }
-          return item;
-        }
-      });
-    })
-  },
-
-  getSubLevelXhr: function (subAcctId) {
-    return Global.sync.ajax({
-      url: '/acct/subacctinfo/getsubacctnamebyid.json',
-      data: {
-        subAcctId: subAcctId
-      }
-    });
-  },
-
-  checkSubLevelXhr: function (username) {
-    return Global.sync.ajax({
-      url: '/acct/subaccount/isdirectsub.json',
-      data: {
-        username: username
-      }
-    });
-  },
-
 
   addLowLevelHandler: function (user, firstInitialize) {
-    var self = this;
     var length = this.$('.js-ac-lm-tf-row').length;
-
     var user = (typeof (user) == "string" ? user : '');
 
     var amount = 0;
@@ -199,6 +147,7 @@ var TransferView = Base.ItemView.extend({
     }
 
     var $row = $(this.lowLevelTpl({
+      index: length ,
       amount: amount,
       subUser: user,
       minMoney: this.minMoney,
@@ -228,7 +177,7 @@ var TransferView = Base.ItemView.extend({
     }
 
     this.$addRowBtm.before($row);
-    if (length === 7) {
+    if (length === 6) {
       this.$addRowBtm.addClass('hidden');
     }
     this._calculateAmount();
@@ -266,7 +215,7 @@ var TransferView = Base.ItemView.extend({
     }
     var $target = $(e.currentTarget);
     $target.closest('.js-ac-lm-tf-row').remove();
-    if ($row.length <= 6) {
+    if ($row.length <= 7) {
       this.$addRowBtm.removeClass('hidden');
     }
     this._calculateAmount();
@@ -340,15 +289,15 @@ var TransferView = Base.ItemView.extend({
     var $amountList = this.$('.js-ac-lm-tf-amount');
     var sub =  _($userList).map(function(item,index){
       return {
-        userName: item.val(),
-        amount: $amountList[index].val()
+        userName: $(item).val(),
+        amount: $amountList.eq(index).val()
       }
     });
 
     return {
       sub: sub,
-      type: type,
-      answer: this.$('.js-ac-lm-tf-answer'),
+      type: this.$('.js-ac-type-change.active').data('type'),
+      answer: this.$('.js-ac-lm-tf-answer').val(),
       securityId: this.SecurityId,
     }
   },
@@ -360,27 +309,19 @@ var TransferView = Base.ItemView.extend({
   },
   changeUnimoneyStyleHandler: function (e) {
     var $target = $(e.currentTarget);
-    var unimoney = self.$UnionAmount.val();
+    var amount = this.$UnionAmount.val();
 
-    var elm = this.$(".js-ac-lm-tf-check");
-    if (elm.prop("checked")) {
-      this.$(".Multi input[type=checkbox]").prop("checked", true)
-      this.$(".js-uninput").removeClass("hidden")
+
+    if ($target.prop("checked")) {
+      this.$UnionAmountContainer.removeClass("hidden");
+      this.$('.js-ac-lm-tf-amount').attr('readonly', true);
     }
     else {
-      this.$(".Multi input[type=checkbox]").prop("checked", false)
-      this.$(".js-uninput").addClass("hidden")
-    }
-
-    if ($target.hasClass('unimoney-on')) {
-      $target.removeClass('unimoney-on');
+      this.$UnionAmountContainer.addClass("hidden").val('');
       this.$('.js-ac-lm-tf-amount').attr('readonly', false);
-    } else {
-      $target.addClass('unimoney-on');
-      self.$('.js-ac-lm-tf-amount').val(unimoney);
-      self.$('.js-ac-lm-tf-amount').attr('readonly', true);
     }
   },
+
   goVerify: function () {
     var self = this;
     this.$form.parsley();
@@ -412,7 +353,7 @@ var TransferView = Base.ItemView.extend({
   },
   goAffirm: function () {
     var securityId = this.$('.js-ac-tf-securityId').val();
-    var answer = this.$('.answer').val();
+    var answer = this.$('.js-ac-lm-tf-answer').val();
     var self = this;
     this.checkQC(securityId, answer).done(function (res) {
       if (res && res.result == 0) {

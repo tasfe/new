@@ -420,23 +420,60 @@
 .ac-lm-transfer-dialog{
   width: 680px !important;
   margin-left: -340xp !important;
+  .ac-lm-tf-row-container{
+    position: relative;
+    margin: 15px 0 60px;
+    .ac-lm-tf-add{
+      float: right;
+      height: 36px;
+      bottom: 0px;
+      position: absolute;
+      right: 16px;
+    }
+  }
   .ac-lm-tf-row{
     width: 500px;
+    margin: 5px 0 ;
     .ac-lm-tf-select-container{
       display: inline-block;
       width: 200px;
+      float: left;
+      margin-right: 10px;
     }
-    .ac-lm-tf-amount{
-      width: 120px;
-      margin-right: 15px;
+    .ac-lm-tf-input-container{
+      height: 36px;
+      width: 175px;
+      .ac-lm-tf-amount{
+        width: 120px;
+        height: 26px;
+        margin-right: 15px;
+      }
     }
+
     .ac-lm-tf-del{
       float: right;
+      height: 36px;
+      min-width: 56px !important;
     }
   }
 
-  .ac-lm-tf-union-container{
 
+  .ac-lm-tf-amount-container{
+    height: 29px;
+
+  }
+  .ac-lm-tf-union-container{
+    line-height: 29px;
+    height: 29px;
+    width: 344px;
+    display: inline-block;
+    .ac-lm-tf-union-label{
+      line-height: 29px;
+      height: 29px;
+      .ac-lm-tf-check{
+        margin-top: -1px;
+      }
+    }
   }
 
 }
