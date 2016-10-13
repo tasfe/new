@@ -3,107 +3,83 @@
 var TransferView = Base.ItemView.extend({
   template: require('./index.html'),
 
-  lowLevelTpl: _('<div class="Multi low-level-row">' +
-    '<input type="checkbox" name="checkbox" value="">' +
-    '<div class="U-l js-lowLevel-con-<%=index %> lowLevel-cont">' +
-    '<select data-placeholder="请选择转账用户 " class="js-ac-sm-sign-username" value="<%=subUser %>" name="sub[<%=index %>].userName" data-parsley-required data-parsley-errors-container=".js-lowLevel-con-<%=index %>"></select>' +
-    '</div>' +
-    '<span class="uninput"><input type="text" class="U-cm js-ac-transfer-amount ac-transfer-amount" placeholder="输入金额" data-parsley-type="integer" data-parsley-max-message="您申请的金额超出可转账金额" required  data-parsley-range="[<%=minMoney %>,<%=maxMoney %>]"  value="<%=amount %>" name="sub[<%=index %>].amount"></span><span style="margin-left:20px;">元</span>' +
-    '<span class="js-ac-cancel-lowLevel btn-del-lowLevel" data-btn-index="<%=index %>">删除</span>' +
-    '</div>').template(),
+  lowLevelTpl: _(require('./transfer-item.html')).template(),
+
   startOnLoading: true,
+  className: 'ac-lowLevel-transfer-view',
 
   events: {
+    //切换转账方式
+    'click .js-ac-type-change': 'changeTypeStyleHandler',
+
     'click .js-ac-add-lowLevel': 'addLowLevelHandler',//添加单个下级
-    'click .js-ac-cancel-lowLevel': 'deleteLowLevelHandler',//删除单个下级
-    'keyup .js-ac-transfer-amount': 'calculateAmountHandler',//单个金额改变
-    'keypress .js-ac-transfer-amount': 'calculateAmountHandler',//单个金额改变
-    'click .js-ac-submitTransferInfo': 'submitTransferHandler',
-    'click .js-unimoney': 'setUniMoney',//点击统一金额隐显
-    'keyup .js-fc-tf-amount': 'setUnitAmountHandler', //统一金额改变触发此函数
-    'keypress .js-fc-tf-amount': 'setUnitAmountHandler', //统一金额改变触发此函数
+    'click .js-ac-lm-tf-del': 'deleteLowLevelHandler',//删除单个下级
+    //统一转账金额
+    'click .js-ac-lm-tf-check': 'changeUnimoneyStyleHandler',
+    'keyup .js-ac-lm-tf-union-amount': 'setUnitAmountHandler', //统一金额改变触发此函数
+    // 'keypress .js-ac-lm-tf-union-amount': 'setUnitAmountHandler', //统一金额改变触发此函数
+
+    'keyup .js-ac-lm-tf-amount': 'calculateAmountHandler',//单个金额改变
+    // 'keypress .js-ac-lm-tf-amount': 'calculateAmountHandler',//单个金额改变
+
+
 
     // 下一步方法
     'click .go-verify': 'goVerify',
     'click .go-sub': 'goSub',
     'click .go-affirm': 'goAffirm',
 
-    //切换转账方式
-    'click .js-ac-type-change': 'changeTypeStyleHandler',
-    //统一转账金额
-    'click .js-ac-unimoney': 'changeUnimoneyStyleHandler',
-  },
-  goVerify: function () {
-    var self = this;
-    this.$form.parsley();
-    var total = this.$total.text();
-    console.log(total);
+    'click .js-ac-submitTransferInfo': 'submitTransferHandler',
 
-    if (total > self.maxMoney) {
-      return Global.ui.notification.show('每次转账总金额不超过' + self.maxMoney + '元。');
-    }
-    if (this.$form.parsley().validate()) {
-      self.$('.js-ac-transfer-amount').removeClass('parsley-success');
-      var $tranferUsers = self.$('select.js-ac-sm-sign-username');
-      var userNoList = _($tranferUsers).map(function (user) {
-        return $(user).val();
-      });
 
-//  	if (_(userNoList).union().length !== $tranferUsers.length) {
-//  		Global.ui.notification.show('转账用户名不可重复！');
-//  	} else {
-      this.$(".U-Verify").show();
-      this.$("#Sub-none,.U-affirm").hide();
-//  	}
-    }
   },
 
-  goSub: function () {
-    this.$("#Sub-none").show();
-    this.$(".U-Verify,.U-affirm").hide();
+  getInfoXhr: function () {
+    return Global.sync.ajax({
+      url: '/acct/subacctinfo/gettradeinfo.json',
+      abort: false
+    });
   },
-  goAffirm: function () {
-    var securityId = this.$('.js-ac-transfer-securityId').val();
-    var answer = this.$('.answer').val();
-    var self = this;
-    this.checkQC(securityId, answer).done(function (res) {
-      if (res && res.result == 0) {
-        self.$(".js-tranMan").text($("select.js-ac-sm-sign-username").length);
-        self.$(".U-affirm").show();
-        self.$(".U-Verify,#Sub-none").hide();
-      } else {
-        return Global.ui.notification.show(res.msg);
+  getUserXhr: function () {
+    return Global.sync.ajax({
+      url: '/acct/subacctinfo/getuserrelation.json',
+      abort: false
+    });
+  },
+  verifyXhr: function (data) {
+    return Global.sync.ajax({
+      url: '/fund/divid/valid.json',
+      data: data
+    });
+  },
+  checkQC: function (securityId, answer) {
+    return Global.sync.ajax({
+      url: '/fund/transfer/valsec.json',
+      data: {
+        securityId: securityId,
+        answer: answer
       }
     });
-
   },
-  setUniMoney: function (e) {
-    var elm = this.$(".js-unimoney");
-    if (elm.prop("checked")) {
-      this.$(".Multi input[type=checkbox]").prop("checked", true)
-      this.$(".js-uninput").removeClass("hidden")
-    }
-    else {
-      this.$(".Multi input[type=checkbox]").prop("checked", false)
-      this.$(".js-uninput").addClass("hidden")
-    }
-  },
-  className: 'ac-lowLevel-transfer-view',
 
   initialize: function (options) {
 
   },
 
+
+
   onRender: function () {
     var self = this;
-    this.$form = this.$('.js-fc-transfer-form');
-    this.$lowLevelContainer = this.$('.js-ac-lowLevel-container');
-    this.$balance = this.$('.js-ac-transfer-balance');
-    this.$question = this.$('.js-ac-transfer-sq');
-    this.$questionId = this.$('.js-ac-transfer-securityId');
-    this.$lowLevelAdd = this.$('.js-ac-transfer-lowLevel-add');
-    this.$total = this.$('.js-ac-transfer-total');
+    this.$form = this.$('.js-fc-tf-form');
+    this.$TransferRow = this.$('.js-ac-lm-tf-row');
+    this.$balance = this.$('.js-ac-tf-balance');
+    this.$question = this.$('.js-ac-tf-sq');
+    this.$questionId = this.$('.js-ac-tf-securityId');
+    this.$total = this.$('.js-ac-lm-tf-total');
     this.$leftMoney = this.$('.js-leftMoney');
+    this.$addRowBtm = this.$('.js-ac-add-lowLevel');
+    this.$UnionSet = this.$('.js-ac-lm-tf-check');
+    this.$UnionAmount = this.$('.js-ac-lm-tf-union-amount');
 
     var getInfoXhr = this.getInfoXhr()
       .always(function () {
@@ -122,9 +98,10 @@ var TransferView = Base.ItemView.extend({
           self.$question.html(res.root.question);
           self.$leftMoney.text(res.root.leftMoney / 10000);
           self.$questionId.val(res.root.securityId);
+          self.SecurityId = res.root.securityId;
           self.minMoney = res.root.minMoney / 10000;
           self.maxMoney = res.root.maxMoney / 10000;
-          self.$(".js-fc-tf-amount").attr("data-parsley-range", "[" + self.minMoney + "," + self.maxMoney + "]");
+          self.$(".js-ac-lm-tf-amount").attr("data-parsley-range", "[" + self.minMoney + "," + self.maxMoney + "]");
           self.$(".js-maxMoney").text(self.maxMoney);
           self.$(".js-minMoney").text(self.minMoney);
         } else {
@@ -154,7 +131,7 @@ var TransferView = Base.ItemView.extend({
   blurSeach: function () {
     //配置模糊搜索
     var self = this;
-    this.$username = this.$('.js-ac-sm-sign-username');
+    this.$username = this.$('.js-ac-lm-tf-username');
     this.$username.each(function (i, d) {
       self.$(this).typeahead({
         source: function (query, process) {
@@ -207,58 +184,31 @@ var TransferView = Base.ItemView.extend({
       }
     });
   },
-  verifyXhr: function (data) {
-    return Global.sync.ajax({
-      url: '/fund/divid/valid.json',
-      data: data
-    });
-  },
-  checkQC: function (securityId, answer) {
-    return Global.sync.ajax({
-      url: '/fund/transfer/valsec.json',
-      data: {
-        securityId: securityId,
-        answer: answer
-      }
-    });
-  },
 
-  getInfoXhr: function () {
-    return Global.sync.ajax({
-      url: '/acct/subacctinfo/gettradeinfo.json',
-      abort: false
-    });
-  },
-  getUserXhr: function () {
-    return Global.sync.ajax({
-      url: '/acct/subacctinfo/getuserrelation.json',
-      abort: false
-    });
-  },
+
   addLowLevelHandler: function (user, firstInitialize) {
     var self = this;
-    var index = this.$('.Multi').length;
+    var length = this.$('.js-ac-lm-tf-row').length;
+
     var user = (typeof (user) == "string" ? user : '');
 
     var amount = 0;
-    var isUnimoney = self.$('.js-unimoney').is(':checked');
+    var isUnimoney = this.$UnionSet.prop('checked');
     if (isUnimoney) {
-      amount = this.$('.js-fc-tf-amount').val();
+      amount = this.$UnionAmount.val();
     }
 
     var $row = $(this.lowLevelTpl({
-      index: index,
       amount: amount,
       subUser: user,
       minMoney: this.minMoney,
       maxMoney: this.maxMoney
     }));
     if (isUnimoney) {
-      $row.find('.js-ac-transfer-amount').attr('readonly', true);
+      $row.find('.js-ac-lm-tf-amount').attr('readonly', true);
     }
 
-    var $select = $row.find('.js-ac-sm-sign-username');
-
+    var $select = $row.find('.js-ac-lm-tf-username');
 
     //初始化选择转账用户
     $select.selectize({
@@ -277,14 +227,15 @@ var TransferView = Base.ItemView.extend({
       selectize.setValue(this.options.username);
     }
 
-    self.$lowLevelContainer.append($row);
-    if (index === 7) {
-      self.$('.js-ac-add-lowLevel').addClass('hidden');
+    this.$addRowBtm.before($row);
+    if (length === 7) {
+      this.$addRowBtm.addClass('hidden');
     }
-    self._calculateAmount();
+    this._calculateAmount();
 
 
     function onSelectChange() {
+      //todo 可以进行去重处理
 //			var subAcctId = this.getValue();
 //			if (subAcctId !== '') {
 //				subAcctId = Number(subAcctId);
@@ -308,15 +259,15 @@ var TransferView = Base.ItemView.extend({
   },
 
   deleteLowLevelHandler: function (e) {
-    if (this.$(".low-level-row").length == 1) {
+    var $row = this.$(".js-ac-lm-tf-row");
+    if ($row.length == 1) {
       Global.ui.notification.show('至少需要一个转账用户！');
       return;
     }
     var $target = $(e.currentTarget);
-    var index = $target.data('btn-index');
-    $target.closest('.Multi').remove();
-    if (this.$(".low-level-row").length < 6) {
-      this.$('.js-ac-add-lowLevel').removeClass('hidden');
+    $target.closest('.js-ac-lm-tf-row').remove();
+    if ($row.length <= 6) {
+      this.$addRowBtm.removeClass('hidden');
     }
     this._calculateAmount();
 
@@ -324,8 +275,8 @@ var TransferView = Base.ItemView.extend({
 
   setUnitAmountHandler: function (e) {
     this.$form.parsley();//验证
-    var $moneyList = this.$('.js-ac-transfer-amount');
-    var unitAmount = this.$('.js-fc-tf-amount').val();
+    var $moneyList = this.$('.js-ac-lm-tf-amount');
+    var unitAmount = this.$UnionAmount.val();
     _($moneyList).map(function (amount) {
       $(amount).val(unitAmount);
     });
@@ -333,7 +284,7 @@ var TransferView = Base.ItemView.extend({
   },
 
   _calculateAmount: function () {
-    var $moneyList = this.$('.js-ac-transfer-amount');
+    var $moneyList = this.$('.js-ac-lm-tf-amount');
     var total = 0;
     _($moneyList).each(function (amount) {
       total += Number($(amount).val());
@@ -350,25 +301,25 @@ var TransferView = Base.ItemView.extend({
     var $target = $(e.currentTarget);
     var clpValidate = this.$form.parsley().validate();
     var totalAmount = Number(this.$total.text());
-    var userCount = this.$('select.js-ac-sm-sign-username').length;
+    var userCount = this.$('.js-ac-lm-tf-row').length;
     if (totalAmount > _(this.Balance).convert2yuan()) {
       Global.ui.notification.show('转账总金额不能超过当前可转账余额！');
       return false;
     }
-
-    if (totalAmount > self.maxMoney) {
+    if (totalAmount > this.maxMoney) {
       Global.ui.notification.show('转账总金额不能超过' + self.maxMoney + '元！');
       return false;
     }
-
-    var self = this;
+    var data = this.getFormData();
 
     if (clpValidate) {
       $target.button('loading');
       Global.sync.ajax({
         url: '/fund/transfer/transfer.json',
-        data: _(this.$form.serializeArray()).serializeObject(),
+        data: data,
         tradition: true
+      }).always(function(){
+        $target.button('reset');
       }).done(function (res) {
         if (res.result == 0) {
           $(".modal,.modal-backdrop").remove();
@@ -384,26 +335,96 @@ var TransferView = Base.ItemView.extend({
     }
 
   },
+  getFormData: function(){
+    var $userList = this.$('.js-ac-lm-tf-username');
+    var $amountList = this.$('.js-ac-lm-tf-amount');
+    var sub =  _($userList).map(function(item,index){
+      return {
+        userName: item.val(),
+        amount: $amountList[index].val()
+      }
+    });
+
+    return {
+      sub: sub,
+      type: type,
+      answer: this.$('.js-ac-lm-tf-answer'),
+      securityId: this.SecurityId,
+    }
+  },
 
   changeTypeStyleHandler: function (e) {
     var $target = $(e.currentTarget);
     $target.addClass('active');
-    $target.siblings('span').removeClass('active');
+    $target.siblings('li').removeClass('active');
   },
   changeUnimoneyStyleHandler: function (e) {
     var $target = $(e.currentTarget);
-    var self = this;
-    var unimoney = self.$('.js-fc-tf-amount').val();
-    console.log(unimoney);
+    var unimoney = self.$UnionAmount.val();
+
+    var elm = this.$(".js-ac-lm-tf-check");
+    if (elm.prop("checked")) {
+      this.$(".Multi input[type=checkbox]").prop("checked", true)
+      this.$(".js-uninput").removeClass("hidden")
+    }
+    else {
+      this.$(".Multi input[type=checkbox]").prop("checked", false)
+      this.$(".js-uninput").addClass("hidden")
+    }
+
     if ($target.hasClass('unimoney-on')) {
       $target.removeClass('unimoney-on');
-      self.$('.js-ac-transfer-amount').attr('readonly', false);
+      this.$('.js-ac-lm-tf-amount').attr('readonly', false);
     } else {
       $target.addClass('unimoney-on');
-      self.$('.js-ac-transfer-amount').val(unimoney);
-      self.$('.js-ac-transfer-amount').attr('readonly', true);
+      self.$('.js-ac-lm-tf-amount').val(unimoney);
+      self.$('.js-ac-lm-tf-amount').attr('readonly', true);
     }
-  }
+  },
+  goVerify: function () {
+    var self = this;
+    this.$form.parsley();
+    var total = this.$total.text();
+    // console.log(total);
+
+    if (total > self.maxMoney) {
+      return Global.ui.notification.show('每次转账总金额不超过' + self.maxMoney + '元。');
+    }
+    if (this.$form.parsley().validate()) {
+      self.$('.js-ac-lm-tf-amount').removeClass('parsley-success');
+      // var $tranferUsers = self.$('select.js-ac-lm-tf-username');
+      // var userNoList = _($tranferUsers).map(function (user) {
+      //   return $(user).val();
+      // });
+
+//  	if (_(userNoList).union().length !== $tranferUsers.length) {
+//  		Global.ui.notification.show('转账用户名不可重复！');
+//  	} else {
+      this.$(".js-ac-lm-tf-step-2").show();
+      this.$(".js-ac-lm-tf-step-1,.js-ac-lm-tf-step-3").hide();
+//  	}
+    }
+  },
+
+  goSub: function () {
+    this.$(".js-ac-lm-tf-step-1").show();
+    this.$(".js-ac-lm-tf-step-2,.js-ac-lm-tf-step-3").hide();
+  },
+  goAffirm: function () {
+    var securityId = this.$('.js-ac-tf-securityId').val();
+    var answer = this.$('.answer').val();
+    var self = this;
+    this.checkQC(securityId, answer).done(function (res) {
+      if (res && res.result == 0) {
+        self.$(".js-tranMan").text($("select.js-ac-lm-tf-username").length);
+        self.$(".js-ac-lm-tf-step-3").show();
+        self.$(".js-ac-lm-tf-step-1,.js-ac-lm-tf-step-2").hide();
+      } else {
+        return Global.ui.notification.show(res.msg);
+      }
+    });
+
+  },
 
 });
 

@@ -368,7 +368,7 @@ var LowLevelManageView = SearchGrid.extend({
               var transfer;
               var $dialog = Global.ui.dialog.show({
                 title: '向下级转账',
-                size: '',
+                size: 'ac-lm-transfer-dialog',
                 // body: this.rebateTpl({})
                 body: '<div class="js-ac-lowLevel-transfer-container ac-transfer-container"></div>',
               });
