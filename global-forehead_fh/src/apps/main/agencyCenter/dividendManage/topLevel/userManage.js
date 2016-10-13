@@ -37,8 +37,12 @@ var UserManageView = SearchGrid.extend({
           name: '协议生效时间',
           width: '13%'
         },
+        // {
+        //   name: '签约日志',
+        //   width: '8%'
+        // },
         {
-          name: '签约日志',
+          name: '状态',
           width: '8%'
         },
         {
@@ -140,23 +144,23 @@ var UserManageView = SearchGrid.extend({
     row.push(see);
     row.push(_(rowInfo.agreeDate).toTime());
     row.push(rowInfo.effectDay);
-    // var status = '';
-    // if (rowInfo.status == 0) {
-    //   status =  '<span class="green">待确认</span>';
-    // }
-    // else if (rowInfo.status == 1) {
-    //   status =   '<span>已签约</span>';
-    // }
-    // else if (rowInfo.status == 2) {
-    //   status =   '<span class="red">未签约</span>';
-    // }
-    // row.push(status);
-
-    var log = '<button class="js-ac-dm-um-log btn btn-link btn-link-hot" l>点击查看</button>';
-    if (rowInfo.status == 2) {
-      log =   '<span class="red">未签约</span>';
+    var status = '';
+    if (rowInfo.status == 0) {
+      status =  '<span class="green">待确认</span>';
     }
-    row.push(log);
+    else if (rowInfo.status == 1) {
+      status =   '<span>已签约</span>';
+    }
+    else if (rowInfo.status == 2) {
+      status =   '<span class="red">未签约</span>';
+    }
+    row.push(status);
+
+    // var log = '<button class="js-ac-dm-um-log btn btn-link btn-link-hot" l>点击查看</button>';
+    // if (rowInfo.status == 2) {
+    //   log =   '<span class="red">未签约</span>';
+    // }
+    // row.push(log);
     row.push(userManageConfig.getZh(rowInfo.status));
     return row;
   },
