@@ -9,7 +9,7 @@ var config = [
   },
   {
     id: 1,
-    zhName: '<button class="js-ac-modify btn btn-link btn-link-hot">修改签约</button>  <button class="js-ac-see btn btn-link btn-link-hot">查看签约</button>',
+    zhName: '<button class="js-ac-modify btn btn-link btn-link-hot">修改签约</button>  ',//<button class="js-ac-see btn btn-link btn-link-hot">查看签约</button>
     name: 'DONE'
   },
   {
