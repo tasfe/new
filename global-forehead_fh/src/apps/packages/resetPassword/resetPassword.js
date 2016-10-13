@@ -734,7 +734,7 @@ $.widget('gl.resetPassword', {
     return Global.sync.ajax({
       type: 'POST',
       // url: '/acct/usersecurity/verqesforloginpwdByName.json',
-      url: '/acct/usersecurity/verpwdforloginpwd.json',
+      url: '/acct/usersecurity/verqesforloginpwd.json',
       data: {
         'secrityList[0].securityId': self.$questionSelect.eq(0).val(),
         'secrityList[0].securityQes': self.$questionSelect.eq(0).find('option:selected').html(),
