@@ -42,9 +42,9 @@ var UserCenterController = RouterController.extend({
       parentRouter: 'gr/br',
       main: {
         subReturn: true
-      },
-      sidebar: 'pc',
-      topView: 'personal'
+      }
+      // sidebar: 'pc',
+      // topView: 'personal'
     });
   },
 
