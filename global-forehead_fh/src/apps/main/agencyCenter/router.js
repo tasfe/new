@@ -18,7 +18,6 @@ exports.install = function() {
 
     'ac/ad': 'accountDetails',
 
-    'ac/llm/message/:userId': 'sendMessage', //发消息
     'ac/llm/transfer/:userId': 'transfer', //转账
     'ac/oam': 'openAccountManage', //开户
     'ac/oam/pd/:ticket': 'openAccountManagePrice',

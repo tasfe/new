@@ -5,12 +5,7 @@ require('./misc/index.scss');
 var RouterController = require('skeleton/controllers/router');
 
 var PlatformNewsPlatformView = require('newsCenter/views/platformNews-platform');
-var PlatformNewsDetailView = require('newsCenter/views/platformNewsDetail');
 var PlatformNewsSettingView = require('newsCenter/views/platformNewsSetting');
-
-var InsideLetterDetailView = require('newsCenter/views/insideLetterDetail');
-var InsideLetterSendView = require('newsCenter/views/insideLetterSend');
-
 
 var NewsCenterController = RouterController.extend({
 
@@ -24,17 +19,6 @@ var NewsCenterController = RouterController.extend({
     });
   },
 
-  platformNewsDetail: function(noticeId) {
-    this.changeSubReginView(new PlatformNewsDetailView({
-      noticeId: noticeId
-    }), {
-      main: {
-        subReturn: true
-      }
-      //parentRouter: 'nc/pn'
-    });
-  },
-
   platformNewsSetting: function(){
    this.changeMainReginView(new PlatformNewsSettingView(), {
      main: {
@@ -44,39 +28,6 @@ var NewsCenterController = RouterController.extend({
      },
      parentRouter: 'nc/pn'
    });
-  },
-
-  //insideLetter: function() {
-  //  this.changeMainReginView(new PlatformNewsView({
-  //    triggerTab: 'insideLetter'
-  //  }), {
-  //    main: {
-  //      title: '消息中心'
-  //    }
-  //  });
-  //},
-
-  insideLetterDetail: function(titleId, letterId) {
-    this.changeMainReginView(new InsideLetterDetailView({
-      titleId: titleId,
-      letterId: letterId
-    }), {
-      main: {
-        title: '消息中心',
-        subReturn: true
-      },
-      parentRouter: 'nc/il'
-    });
-  },
-
-  insideLetterSend: function() {
-    this.changeMainReginView(new InsideLetterSendView(), {
-      main: {
-        title: '发送站内信',
-        subReturn: true
-      },
-      parentRouter: 'nc/il'
-    });
   }
 });
 

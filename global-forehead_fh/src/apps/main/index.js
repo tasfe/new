@@ -38,10 +38,10 @@ Global.m.oauth.check().done(function(res) {
     Global.ui.menu.start();
 
     //开启下雨活动监听
-    Global.m.rainActivity.start();
+    // Global.m.rainActivity.start();
 
     //开启下雨活动监听
-    Global.m.driftActivity.start();
+    // Global.m.driftActivity.start();
 
     App.start();
   }

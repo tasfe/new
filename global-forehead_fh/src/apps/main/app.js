@@ -4,7 +4,7 @@ var HeaderView = require('skeleton/bases/header');
 var NavbarView = require('skeleton/bases/navbar');
 var RechargeView = require('fundCenter/views/recharge');
 var DesktopNewsView = require('skeleton/bases/desktopNews');
-// var InsideLetterView = require('skeleton/bases/insideLetter');
+var InsideLetterView = require('skeleton/bases/insideLetter2');
 var EntryView = require('skeleton/bases/entry');
 var FooterView = require('com/footer');
 var NoticeBoardView = require('dynamicCenter/views/noticeBoardFH');
@@ -31,7 +31,7 @@ App.addRegions({
   subMainRegin: '#subMain',
   topRegin: '#topProfile',
   // newbieRegin: '#newbie',
-  //insideLetterRegion: '#insideLetter',
+  insideLetterRegion: '#insideLetter',
   desktopNewsRegion: '#desktopNews',
   footerRegin: '#footer'
 });
@@ -49,6 +49,8 @@ App.addInitializer(function(options) {
   App.entryRegion.show(new EntryView({
     model: entryModel
   }));
+
+  App.insideLetterRegion.show(new InsideLetterView());
 
   App.desktopNewsRegion.show(new DesktopNewsView());
 
@@ -168,52 +170,14 @@ function _bindRechargeHandler() {
       $(this).remove();
       rechargeView.destroy();
     });
-
-    // getInfoXhr()
-    //     .always(function() {
-    //       //self.loadingFinish();
-    //     })
-    //     .done(function(res) {
-    //       var data = res && res.root || {};
-    //       if (res && res.result === 0) {
-    //         if (data.hasMoneyPwd && data.hasBankCard) {
-    //
-    //         } else if (!data.hasMoneyPwd || !data.hasBankCard) {
-    //           if(!data.hasMoneyPwd){
-    //             //未设置则弹出链接到资金密码设置页面的提示框
-    //             $(document).securityTip({
-    //               content: '您未设置资金密码，无法进行充值操作',
-    //               showMoneyPwd: true,
-    //               hasMoneyPwd: false,
-    //               showBankCard: false,
-    //               hasBankCard: false
-    //             });
-    //           }else if (!data.hasBankCard){
-    //             //未设置则弹出链接到资金密码设置页面的提示框
-    //             $(document).securityTip({
-    //               content: '您未绑定银行卡，无法进行充值操作',
-    //               showMoneyPwd: false,
-    //               hasMoneyPwd: true,
-    //               showBankCard: true,
-    //               hasBankCard: false
-    //             });
-    //           }
-    //         }
-    //       } else {
-    //         Global.ui.notification.show('服务器异常');
-    //       }
-    //     });
   });
 }
-
-//closeRechargeDialog: function() {
-//  this.$dialogRe.modal('hide');
-//}
 
 function _bindServiceHandler() {
   $(document).off('click.service').on('click.service', '.js-gl-service', function(e) {
      var newwin = window.open(
-       'http://szzero.livechatvalue.com/chat/chatClient/chatbox.jsp?companyID=44555811&configID=47545&jid=9132657534',
+       // 'http://chat.live800.com/live800/chatClient/staticButton.js?companyID=731101&configID=2579&jid=4521278370',
+       'http://v88.live800.com/live800/chatClient/chatbox.jsp?companyID=731101&configID=2579&jid=4521278370',
        'service',
        'width=800,height=680'
      );
@@ -270,12 +234,6 @@ function onEndAnimation($el, callback) {
   } else {
     onEndCallbackFn();
   }
-}
-
-function getInfoXhr() {
-  return Global.sync.ajax({
-    url: '/fund/withdraw/info.json'
-  });
 }
 
 module.exports = App;
