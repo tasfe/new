@@ -18,7 +18,7 @@ var LowLevelDetailView = require('agencyCenter/views/lowLevelDetail');
 var OpenAccountManageView = require('agencyCenter/openAccount');
 var OpenAccountManagePriceView = require('agencyCenter/openAccount/price');
 
-var TeamDynamicView = require('agencyCenter/views/teamDynamic');
+var TeamDynamicView = require('agencyCenter/teamDynamic');
 var ReportManageView = require('agencyCenter/reportManage');
 
 var ProfitAndLossView = require('agencyCenter/profitAndLoss');
