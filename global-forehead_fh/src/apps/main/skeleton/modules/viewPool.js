@@ -33,10 +33,11 @@ var PoolingModule = Base.Module.extend({
         viewInfo.parentId = prevViewInfo.initId;
       }
 
-      Global.entryRegion.currentView.update({
-        initId: viewInfo.initId,
-        router: viewInfo.router
-      });
+      //快捷入口
+      // Global.entryRegion.currentView.update({
+      //   initId: viewInfo.initId,
+      //   router: viewInfo.router
+      // });
     } else {
       this.destroyAllNotEntryView();
       Global.entryRegion.currentView.changeActiveInfo(viewInfo.initId, viewInfo.router);

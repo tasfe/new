@@ -27,7 +27,7 @@ var SidebarView = Base.ItemView.extend({
     var self = this;
     sidebar = _(sidebar).clone();
     sidebar.sub = _(sidebar.sub).map(function(menu) {
-      var isActive = window.location.hash.indexOf(menu.router) !== -1;
+      var isActive = window.location.hash.indexOf(menu.rootRouter || menu.router) !== -1;
       //if (isActive) {
       //  self.trigger('current:menu', {
       //    sidebar: sidebar,
