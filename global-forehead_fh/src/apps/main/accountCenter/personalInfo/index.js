@@ -31,7 +31,7 @@ var PersonalManageView = Base.ItemView.extend({
           self.$('.js-uc-integral').html(res.root.integral);
           res.root.userQq && self.$('.js-uc-userQq-val-res').removeClass('hidden').html(res.root.userQq) && self.$('.js-uc-userQq').addClass('hidden').val(res.root.userQq);
           res.root.userCellphone && self.$('.js-uc-userCellphone-val-res').removeClass('hidden').html(res.root.userCellphone.replace(/(\d{3})\d{4}(\d{4})/, '$1****$2')) && self.$('.js-uc-userCellphone').addClass('hidden').val(res.root.userCellphone);
-          res.root.userBithday && self.$('.js-uc-userBithday-val-res').val(res.root.userBithday);
+          res.root.userBithday && self.$('.js-uc-userBithday-val-res').val(res.root.userBithday).removeClass('hidden');
         } else {
           Global.ui.notification.show('获取用户个人信息失败');
         }
