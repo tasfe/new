@@ -253,11 +253,11 @@ var menuConfig = [
         router: 'uc/pd',
         name: '奖金详情'
       },
-      {
-        id: 207,
-        router: 'fc/pf',
-        name: '上下级转帐'
-      },
+      // {
+      //   id: 207,
+      //   router: 'fc/pf',
+      //   name: '上下级转帐'
+      // },
       {
         id: 203,
         router: 'as/ll',

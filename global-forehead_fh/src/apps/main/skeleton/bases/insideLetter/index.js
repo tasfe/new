@@ -2,7 +2,7 @@
 
 require('./index.scss');
 
-var LowMultiSelect = require('com/lowMultiSelect3');
+var LowMultiSelect = require('com/lowMultiSelect');
 
 var Chat = require('com/chat');
 
@@ -10,6 +10,7 @@ var InsideLetterView2 = Base.ItemView.extend({
 
   template: require('./index.html'),
 
+  className: 'inside-letter',
   options: {
     pageSize: 20
   },
@@ -19,28 +20,11 @@ var InsideLetterView2 = Base.ItemView.extend({
   faceArry2: [],
 
   events: {
+    'click .js-inside-letter-title': 'toggleHandler',
     'keydown .js-single-content': 'singleContentHandler',
     'click .js-single-submit': 'sendSingleChatHandler',
     'click .js-fideInChat': 'fideInChat',
-    'click .js-face span': 'clickFace',
-    'click .js-letterList-titleLine': 'abcHandler'
-  },
-
-  abcHandler: function(e) {
-    var $target = $(e.currentTarget);
-
-    if($target.hasClass('open')) {
-      $target.removeClass('open');
-      $('.js-single-lowLevelSelect').animate({height: "0px"});
-      $target.parent().addClass('letterList-close');
-
-      $('.js-info-window').fadeOut("fast");
-      $('.js-selected-container').fadeOut("fast");
-    } else {
-      $target.addClass('open');
-      $target.parent().removeClass('letterList-close');
-      $('.js-single-lowLevelSelect').animate({height: "551px"});
-    }
+    'click .js-face span': 'clickFace'
   },
 
   clickFace: function(e) {
@@ -305,6 +289,12 @@ var InsideLetterView2 = Base.ItemView.extend({
 
   showCurrentMultiChat: function(partners) {
     this.$multiToUser.val(_(partners).pluck('id').join(','));
+  },
+
+  //event handlers
+
+  toggleHandler: function(e) {
+    this.$el.toggleClass('open');
   },
 
   singleContentHandler: function(e) {

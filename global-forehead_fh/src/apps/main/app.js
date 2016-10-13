@@ -4,7 +4,6 @@ var HeaderView = require('skeleton/bases/header');
 var NavbarView = require('skeleton/bases/navbar');
 var RechargeView = require('fundCenter/views/recharge');
 var DesktopNewsView = require('skeleton/bases/desktopNews');
-var InsideLetterView = require('skeleton/bases/insideLetter2');
 var EntryView = require('skeleton/bases/entry');
 var FooterView = require('com/footer');
 var NoticeBoardView = require('dynamicCenter/views/noticeBoardFH');
@@ -49,8 +48,6 @@ App.addInitializer(function(options) {
   App.entryRegion.show(new EntryView({
     model: entryModel
   }));
-
-  App.insideLetterRegion.show(new InsideLetterView());
 
   App.desktopNewsRegion.show(new DesktopNewsView());
 
@@ -116,7 +113,6 @@ function _bindLetterHandler() {
 
     var $dialog = Global.ui.dialog.show({
       title: '对话列表',
-      size: 'modal-info-julien',
       body: '<div class="js-nc-insideLetter"></div><div class="gl-loading js-julien-loading julien-loading-leftmenu"><div class="gl-loading-main"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div>',
       bodyClass: 'no-padding',
       footer: ''
@@ -175,9 +171,10 @@ function _bindRechargeHandler() {
 
 function _bindServiceHandler() {
   $(document).off('click.service').on('click.service', '.js-gl-service', function(e) {
+    var acctInfo = Global.memoryCache.get('acctInfo');
+    var nickName = acctInfo.uName || '';
      var newwin = window.open(
-       // 'http://chat.live800.com/live800/chatClient/staticButton.js?companyID=731101&configID=2579&jid=4521278370',
-       'http://v88.live800.com/live800/chatClient/chatbox.jsp?companyID=731101&configID=2579&jid=4521278370',
+       'http://v88.live800.com/live800/chatClient/chatbox.jsp?companyID=731101&configID=2579&jid=4521278370&name=' + encodeURI(nickName),
        'service',
        'width=800,height=680'
      );

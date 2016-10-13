@@ -29,6 +29,7 @@ Global.m.oauth.check().done(function(res) {
     Global.m.oauth.start();
 
     //开启消息监听
+    Global.ui.insideLetter.start();
     Global.m.message.start();
 
     //开启系统通知监听

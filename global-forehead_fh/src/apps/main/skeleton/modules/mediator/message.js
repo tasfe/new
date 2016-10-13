@@ -77,8 +77,6 @@ var MessageMediatorModule = Base.Module.extend({
             }
           }
           
-          // $('.js-gl-letter-unread').html('<span>'+newsNum+'</span>');
-
           if (sessionStorage.getItem('openMessage') == 1) {
             if (data.parent != null) {
               $('.js-pf-select-superior big').text(data.parent.newMsgNum);
