@@ -1,5 +1,5 @@
 "use strict";
-
+require('./index.scss');
 var TabView = require('com/tabView');
 
 var BettingRecordsView = require('./betting');

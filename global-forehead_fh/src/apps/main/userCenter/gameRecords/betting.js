@@ -49,7 +49,7 @@ var BettingRecordsView = SearchGrid.extend({
         }
       ],
       gridOps: {
-        emptyTip: '没有投注记录'
+        emptyTip: '<dl><dt><span></span></dt><dd><p>没有投注记录</p><span>去试试最热门的 <a href="javascript:void(0);">韩国1.5分彩</a> 吧！</span></dd></dl>'
       },
       ajaxOps: {
         url: '/ticket/bethistory/userbethistory.json?_t=1',
