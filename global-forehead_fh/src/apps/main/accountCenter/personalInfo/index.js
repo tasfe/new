@@ -66,7 +66,7 @@ var PersonalManageView = Base.ItemView.extend({
         userSex: this.$('.js-uc-gender-val-res').val(),
         userQq: this.$('.js-uc-userQq').val(),
         userCellphone: this.$('.js-uc-userCellphone').val(),
-        userBithday: this.$('.js-uc-userBithday-val-res').val() || ((this.$('.js-uc-select-userBithday-month').val() && this.$('.js-uc-select-userBithday-day').val()) ? this.$('.js-uc-select-userBithday-month').val() + '-' + this.$('.js-uc-select-userBithday-day').val() : null),
+        userBirthday: this.$('.js-uc-userBithday-val-res').val() || ((this.$('.js-uc-select-userBithday-month').val() && this.$('.js-uc-select-userBithday-day').val()) ? this.$('.js-uc-select-userBithday-month').val() + '-' + this.$('.js-uc-select-userBithday-day').val() : null),
       }
     })
       .always(function() {
