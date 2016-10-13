@@ -37,15 +37,11 @@
     color: $badgeColor;
     font-size: 14px;
 
-    @include sprite($sfa-ad-badge-pink);
     line-height: $badgeLineHeight;
     text-indent: 75px;
     z-index: 1;
     font-weight: bold;
 
-    &.ad-badge-over {
-      @include sprite($sfa-ad-badge-gray);
-    }
   }
 
   .ad-link {

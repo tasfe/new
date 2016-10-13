@@ -26,7 +26,7 @@ var NavbarView = Base.ItemView.extend({
 
     this.$nav.css({overflow: flag ? 'hidden' : ''})
       .animate({
-        height: flag ? 0 : 104
+        height: flag ? 0 : 90
       }, 600);
   }
 

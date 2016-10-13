@@ -7,7 +7,7 @@ var BtnGroup = require('com/btnGroup');
 
 var LowLevelDynamicView = Base.ItemView.extend({
 
-  template: require('agencyCenter/templates/teamDynamic.html'),
+  template: require('./index.html'),
 
   startOnLoading: true,
 
