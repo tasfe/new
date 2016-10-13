@@ -1,0 +1,79 @@
+<!--向下级转账1-->
+<div class="Sub-Wrapper">
+<form class="js-fc-transfer-form">
+  <div id="Sub-none">
+  <div class="Classify-Transfer">
+    <!--<p>请选择转账类型：</p>-->
+  	<input id="trans-mode-0" type="radio" name="type" value="0" checked="checked"><span class="js-ac-type-change active"><label for="trans-mode-0">普通转账</label></span>
+  	<input id="trans-mode-1" type="radio" name="type" value="1" style="margin-left:50px;"><span class="js-ac-type-change"><label for="trans-mode-1">活动转账</label></span>
+  </div>
+  <div class="Unify">
+    <input id="unimoney-box" type="checkbox" name="checkbox" class="js-unimoney" value=""><label class="unimoney-box js-ac-unimoney" for="unimoney-box">&nbsp;</label><span>统一设置金额</span>
+    <span class="js-uninput hidden" style="position: relative;display: inline-block;"><input type="text" class="U-cm js-fc-tf-amount" data-parsley-range="[50,1000]" data-parsley-max-message="您申请的金额超出可转账金额" data-parsley-type="integer" value=""><span style="margin-left:20px;">元</span></span>
+  </div>
+  <div class="js-ac-lowLevel-container">
+  </div>
+  <div class="Multi" style="display:none">
+    <input type="checkbox" name="checkbox" value="">
+    <div class="inline-block"><input type="text"/>
+    </div>
+
+    <input type="text" class="U-cm js-ac-transfer-amount-add" value="" placeholder="输入金额"><span style="margin-left:20px;">元</span>
+  </div>
+  <p class="js-ac-add-lowLevel btn-add-lowLevel">添加</p>
+  <div class="text-center">
+    <button type="button" class="go-verify btn-blue" data-loading-text="<span class='sfa sfa-btn-circle-hook vertical-middle'></span> 提交中...">
+    下一步
+    </button>
+  </div>
+  </div>
+<!--第二步-->
+  <div class="U-Verify" style="display: none; margin-top: 0px !important;">
+    <div class="U-content">
+     <p style="font-size: 14px;font-weight: bold;">请验证您的密保：</p>
+
+     <p style="font-size: 14px;">密保问题：<span class="js-ac-transfer-sq"></span></p>
+     <p style="font-size: 14px;">密保答案：<input type="text" class="answer" name="answer" style="margin-left:5px;" value=""></p>
+
+      <input type="hidden" class="js-ac-transfer-securityId" name="securityId" />
+    </div>
+    <div class="text-center" style="margin-top: 40px;">
+      <button type="button" class="btn-blue go-affirm" data-loading-text="<span class='sfa sfa-btn-circle-hook vertical-middle'></span> 提交中...">
+        	确认转账
+      </button><a href="javascript:null"><span class="go-sub" style="margin-left:10px;vertical-align: middle;font-size: 14px;">返回</span></a>
+    </div>
+  </div>
+
+  <!--第三步-->
+<div class="U-affirm" style="display: none;">
+  <p class="p1">是否确认转账？</p>
+  <div class="affirm-content">
+  	转账人数：
+  	<span class="js-tranMan">20</span>人
+    <span style="margin-right:20px;"></span>
+    	共转账：<span class="js-ac-transfer-total">10</span>元
+  </div>
+  <div class="U-cancel">
+    <a href="javascript:null"><span class="U-sure js-ac-submitTransferInfo">确认转账</span></a>
+  </div>
+</div>
+
+
+
+  <!--第四步提示信息-->
+<div></div>
+
+
+  <div class="main-balance">
+      <p style="font-weight:bold;font-size: 16px;">账户余额：<span class="js-ac-transfer-balance" style="color: red;">888.8888</span></p>
+      <div class="promt">
+      	<p class="promt-title">温馨提示</p>
+      	<p class="promt-content">
+      		1、今日您的剩余转账额度为<span class="js-leftMoney">100.00</span>元</br>
+	        2、每天转账次数不限，每次总金额不超过<span class="js-maxMoney">1000</span>元，单笔转账金额不能小于<span class="js-minMoney">50</span>元</br>
+	        3、多人转账单次支持转7人
+      	</p>
+      </div>
+  </div>
+</form>
+</div>
