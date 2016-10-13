@@ -60,7 +60,7 @@ var BettingDetailView = Base.ItemView.extend({
 
   initialize: function() {
     _(this.options).defaults({
-      detailPrevUrl: '#uc/tr/detail/'
+      detailPrevUrl: '#gr/tr/detail/'
     });
   },
 
@@ -134,6 +134,7 @@ var BettingDetailView = Base.ItemView.extend({
   renderBetGrid: function(row, data) {
     var self = this;
     this.$('.js-pa-play-detail').staticGrid({
+      tableClass: 'table table-bordered table-center',
       height: 280,
       colModel: [
         {label: '玩法群', name: 'ticketLevelName', width: '10%'},

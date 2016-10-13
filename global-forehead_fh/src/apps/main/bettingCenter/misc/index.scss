@@ -10,6 +10,8 @@
   @each $class, $val in $sfas {
     &.#{$class} {
       background: url(map_get($val, default)) no-repeat;
+      width: 120px;
+      height: 94px;
     }
   }
 }

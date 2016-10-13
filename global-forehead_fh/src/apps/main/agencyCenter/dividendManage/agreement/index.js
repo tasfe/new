@@ -70,7 +70,7 @@ var AgreementView = Base.ItemView.extend({
               return _(val).formatDiv(100) + '%';
             }},
           ],
-          height: 212,
+          height: 140,
           row: list||[],
           startOnLoading: false
         });

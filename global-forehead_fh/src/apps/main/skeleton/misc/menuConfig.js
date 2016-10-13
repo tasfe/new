@@ -24,7 +24,8 @@ var menuConfig = [
       },
       {
         id: 131,
-        router: 'ac/br',
+        rootRouter: 'tg',
+        router: 'tg/br',
         name: '团队游戏'
       },
       {
@@ -188,33 +189,34 @@ var menuConfig = [
         router: 'pm',
         name: '账户安全'
       },
-      {
-        id: 204,
-        router: 'pm/pl',
-        name: '登陆密码',
-        notShow: true
-      },
-      {
-        id: 205,
-        router: 'pm/pf',
-        name: '资金密码',
-        notShow: true
-      },
-      {
-        id: 206,
-        router: 'pm/sq',
-        name: '密保问题',
-        notShow: true
-      },
-      {
-        id: 207,
-        router: 'pm/se',
-        name: '邮箱设置',
-        notShow: true
-      },
+      // {
+      //   id: 204,
+      //   router: 'pm/pl',
+      //   name: '登陆密码',
+      //   notShow: true
+      // },
+      // {
+      //   id: 205,
+      //   router: 'pm/pf',
+      //   name: '资金密码',
+      //   notShow: true
+      // },
+      // {
+      //   id: 206,
+      //   router: 'pm/sq',
+      //   name: '密保问题',
+      //   notShow: true
+      // },
+      // {
+      //   id: 207,
+      //   router: 'pm/se',
+      //   name: '邮箱设置',
+      //   notShow: true
+      // },
 
       {
         id: 208,
+        rootRouter: 'gr',
         router: 'gr/br',
         name: '游戏记录'
       },

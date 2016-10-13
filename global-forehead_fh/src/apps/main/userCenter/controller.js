@@ -3,8 +3,7 @@
 var RouterController = require('skeleton/controllers/router');
 var BettingDetailView = require('userCenter/bettingDetail');
 
-var TrackRecordView = require('userCenter/trackRecords/team');
-var TrackDetailView = require('userCenter/views/trackDetail');
+var TrackDetailView = require('userCenter/chaseDetail');
 
 var GameRecordsView = require('userCenter/gameRecords');
 var MoneyDetailView = require('userCenter/moneyDetail');
@@ -43,32 +42,8 @@ var UserCenterController = RouterController.extend({
       main: {
         subReturn: true
       },
-      sidebar: 'pc',
+      // sidebar: 'pc',
       topView: 'personal'
-    });
-  },
-
-  reportManage:function () {
-    this.changeMainReginView(new ReportManageView(), {
-      sidebar: 'uc'
-    });
-  },
-
-  checkPayPwdXhr: function() {
-    return Global.sync.ajax({
-      url: '/fund/moneypd/checkpaypwd.json'
-    });
-  },
-
-  // bettingRecords: function() {
-  //   this.changeMainReginView(new BettingRecordView(), {
-  //     sidebar: 'uc'
-  //   });
-  // },
-
-  trackRecords: function() {
-    this.changeMainReginView(new TrackRecordView(), {
-      sidebar: 'uc'
     });
   },
 
@@ -76,8 +51,18 @@ var UserCenterController = RouterController.extend({
     this.changeSubReginView(new TrackDetailView({
       tradeNo: tradeNo
     }), {
-      parentRouter: 'uc/tr',
-      destroyDiff: false
+      parentRouter: 'gr/tr',
+      main: {
+        subReturn: true
+      },
+      // sidebar: 'pc',
+      topView: 'personal'
+    });
+  },
+
+  reportManage:function () {
+    this.changeMainReginView(new ReportManageView(), {
+      sidebar: 'uc'
     });
   },
 
@@ -146,13 +131,6 @@ var UserCenterController = RouterController.extend({
     this.changeMainReginView(new PriceDetailsView(), {
       sidebar: 'pc',
       topView: 'personal'
-    });
-  },
-  trackBetDetail: function(chaseFormId,tradeNo){
-    this.changeSubReginView(new BettingDetailView({
-      tradeNo: tradeNo
-    }), {
-      parentRouter: 'uc/tr'
     });
   },
 

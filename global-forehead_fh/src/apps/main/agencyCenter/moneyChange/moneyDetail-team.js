@@ -15,8 +15,8 @@ var MoneyDetailView = SearchGrid.extend({
 
   initialize: function() {
     _(this.options).defaults({
-      betDetailPrevUrl: '#uc/br/detail/',
-      chaseDetailPrevUrl: '#uc/tr/detail/'
+      betDetailPrevUrl: '#gr/br/detail/',
+      chaseDetailPrevUrl: '#gr/tr/detail/'
     });
 
     _(this.options).extend({

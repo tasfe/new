@@ -12,7 +12,7 @@ var trackStatusConfig = require('userCenter/misc/trackStatusConfig');
 
 var TrackRecordsView = SearchGrid.extend({
 
-  template: require('./trackRecords.html'),
+  template: require('./chaseRecords.html'),
 
   events: {},
 
@@ -166,8 +166,10 @@ var TrackRecordsView = SearchGrid.extend({
 
   formatRowData: function(rowInfo) {
     var row = [];
+    var url = _.getUrl('/detail/' + rowInfo.ticketTradeNo + '?name=' + rowInfo.userName);
+
     row.push(rowInfo.userName);
-    row.push('<a class="router btn-link" href="' + _.getUrl('/detail/' + rowInfo.ticketTradeNo) + '">' + rowInfo.ticketTradeNo + '</a>');
+    row.push('<a class="router btn-link" href="' + url + '">' + rowInfo.ticketTradeNo + '</a>');
     row.push(rowInfo.ticketName);
 
     switch(rowInfo.chaseStatus) {

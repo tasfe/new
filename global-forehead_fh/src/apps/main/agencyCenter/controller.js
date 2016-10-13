@@ -5,11 +5,9 @@ var RouterController = require('skeleton/controllers/router');
 var LowLevelManageView = require('agencyCenter/views/lowLevelManage');
 var LowLevelRebateView = require('agencyCenter/views/lowLevelManage-rebate');
 
-var LowLevelBettingRecordsView = require('userCenter/bettingRecords');
 var LowLevelBettingDetailView = require('./teamGames/bettingDetail');
 
-var LowLevelTrackRecordsView = require('userCenter/trackRecords');
-var LowLevelTrackDetailView = require('agencyCenter/views/lowLevelManage-trackDetail');
+var LowLevelTrackDetailView = require('./teamGames/chaseDetail');
 
 var LowLevelAccountDetailView =require('agencyCenter/views/lowLevelManage-accountDetail');
 var LowLevelSendMessageView =require('agencyCenter/views/lowLevelManage-sendMessage');
@@ -52,22 +50,17 @@ var AgencyCenterController = RouterController.extend({
     });
   },
 
-  accountDetails2: function() {
+  accountDetails: function() {
     this.changeMainReginView(new MoneyDetailsView(), {
-      main: {
-      	
-//      title: '账户明细'
-      },
       sidebar: 'ac',
       topView: 'team'
     });
   },
 
-  teamGames: function() {
-    this.changeMainReginView(new TeamGamesView(), {
-      main: {
-        // title: '团队游戏'
-      },
+  teamGames: function(type) {
+    this.changeMainReginView(new TeamGamesView({
+      triggerTab: type
+    }), {
       sidebar: 'ac',
       topView: 'team'
     });
@@ -78,6 +71,14 @@ var AgencyCenterController = RouterController.extend({
       tradeNo: betId
     }), {
       parentRouter: 'ac/br'
+    });
+  },
+
+  chaseDetail: function(tradeNo) {
+    this.changeSubReginView(new LowLevelTrackDetailView({
+      tradeNo: tradeNo
+    }), {
+      parentRouter: 'ac/llm'
     });
   },
 
@@ -105,50 +106,6 @@ var AgencyCenterController = RouterController.extend({
     }), {
       main: {
         title: '查看' + _.getUrlParam('name') + '的详情'
-      },
-      parentRouter: 'ac/llm'
-    });
-  },
-
-  bettingRecords: function(userId , tabName) {
-    var userName = _.getUrlParam('name');
-    this.changeSubReginView(new LowLevelBettingRecordsView({
-      triggerTab: tabName,
-      reqData: {
-        //userId: userId,
-        username: userName
-      }
-    }), {
-      main: {
-        title: '查看' + userName + '的投注记录'
-      },
-      parentRouter: 'ac/llm'
-    });
-  },
-
-  trackRecords: function(userId, tabName) {
-    var userName = _.getUrlParam('name');
-    this.changeSubReginView(new LowLevelTrackRecordsView({
-      triggerTab: tabName,
-      reqData: {
-        //userId: userId,
-        username: userName
-      }
-    }), {
-      main: {
-        title: '查看' + userName + '的追号记录'
-      },
-      parentRouter: 'ac/llm'
-    });
-  },
-
-  trackDetail: function(userId, tabName,tradeNo) {
-    this.changeSubReginView(new LowLevelTrackDetailView({
-      userId: userId,
-      tradeNo: tradeNo
-    }), {
-      main: {
-        title: '查看' + _.getUrlParam('name') + '的追号详情'
       },
       parentRouter: 'ac/llm'
     });
@@ -211,25 +168,6 @@ var AgencyCenterController = RouterController.extend({
       userId: userId
     }), {
       parentRouter: 'ac/llm'
-    });
-  },
-
-  bettingRecords4Report: function(tabName) {
-    var startTime = _.getUrlParam('startTime');
-    var endTime = _.getUrlParam('endTime');
-    var userName = _.getUrlParam('userName');
-    this.changeSubReginView(new LowLevelBettingRecordsView({
-      triggerTab: tabName,
-      reqData: {
-        username: userName,
-        startTime: startTime,
-        endTime: endTime
-      }
-    }), {
-      main: {
-        title: '查看' + userName + '的投注记录'
-      },
-      parentRouter: 'ac/rm'
     });
   },
 
