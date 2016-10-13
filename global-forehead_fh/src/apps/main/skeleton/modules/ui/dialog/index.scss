@@ -47,10 +47,7 @@
 
 
   &.modal-notification {
-    .modal-dialog {
-    }
     .modal-body {
-      font-weight:bold;
       padding: 24px 12px;
     }
 
@@ -61,6 +58,7 @@
 
   &.modal-notification-tip {
     .modal-content {
+      font-weight:bold;
       background: rgba(0, 0, 0, 0.6);
       color: $white-color;
     }
