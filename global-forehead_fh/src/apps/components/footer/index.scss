@@ -4,6 +4,14 @@
 "~base/styles/imports";
 .footer {
   position: relative;
+
+  .footer-fixed {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
   .footer-main {
     background: #242424;
     padding: 10px 0;

@@ -53,12 +53,12 @@ var StatisticView = Base.ItemView.extend({
       colModel: [
         {
           label: '团队投注额（日）平均', name: 'betTotal', width: '50%', formatter: function(val) {
-            return _(val).convert2yuan();
+            return _(val).convert2yuan()+'元';
           }
         },
         {
           label: '分红比例', name: 'divid', width: '50%', formatter: function(val, index, info) {
-            return _(val).formatDiv(100);
+            return _(val).formatDiv(100) + '%';
           }
         }
       ],

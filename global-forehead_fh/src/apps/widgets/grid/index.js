@@ -331,7 +331,7 @@ $.widget('gl.grid', {
     if (this.options.emptyTip) {
       html.push('<div class="js-wt-empty-container empty-container text-center hidden">');
       html.push('<div class="empty-container-main">');
-      html.push('<div class="sfa-grid-empty"></div>');
+      // html.push('<div class="sfa-grid-empty"></div>');
       html.push(this.options.emptyTip);
       html.push('</div>');
       html.push('</div>');

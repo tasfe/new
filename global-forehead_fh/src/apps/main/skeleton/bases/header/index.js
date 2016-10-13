@@ -6,31 +6,17 @@ var ticketConfig = require('skeleton/misc/ticketConfig');
 
 var WithdrawView = require('fundCenter/views/withdraw');
 
-var InsideLetterView2 = require('skeleton/bases/insideLetter2');
-
 var HeaderView = Base.ItemView.extend({
 
   template: require('./index.html'),
-
-  isBindQQ: 0,
-
-  itemTpl:_.template(require('dynamicCenter/templates/noticeBoard-item.html')),
-  AfficheTpl:_.template(require('dynamicCenter/templates/noticeDetail.html')),
   dialog: _.template(require('skeleton/bases/header/indexmostDialog.html')),
   noticeItemTpl: _(require('./notice-item-header.html')).template(),
 
   events: {
-    'click .js-gl-h-ticket-main': 'clickEmptyTicketMainHandler',
     'click .js-gl-hd-refresh': 'refreshHandler',
     'click .js-fc-wd': 'withdrawHandler',
     'click .js-gl-hd-logout': 'logoutHandler',
-    'mouseover .js-bc-lottery-list': 'lotteryListHandler',
-    'mouseout .js-bet-lottery-menu': 'outlotteryListHandler',
-
-    //'click .js-letterList-titleLine': 'bindMessageUserList',
-
     'click  .js-h-security': 'accountSecurityHandler',
-    // 'click  .js-system-notice': 'platformNewsHandler',
     'click  .js-head-info-close': 'headInfoCloseHandler'
   },
 
@@ -40,172 +26,31 @@ var HeaderView = Base.ItemView.extend({
     });
   },
 
-  headInfoCloseHandler: function () {
+  headInfoCloseHandler: function() {
     this.$('.js-gl-head-main-menu').toggleClass('h-head-info-hide');
-  },
-
-  bindMessageUserList: function (e) {
-    var $target = $(e.currentTarget);
-
-    if (this.isBindQQ == 0) {
-      this.isBindQQ = 1;
-      $target.parent().removeClass('letterList-close');
-      var insideLetterView2 = new InsideLetterView2({
-        el: $('.js-nc-insideLetter2'),
-        reqData: {
-          userId: '',
-          name: ''
-        }
-      }).render();
-      $('.js-single-lowLevelSelect').animate({height:"551px"});
-    }
-    else if (this.isBindQQ == 1) {
-      this.isBindQQ = 2;
-      $('.js-single-lowLevelSelect').animate({height:"0px"});
-      $target.parent().addClass('letterList-close');
-
-      $('.js-info-window').fadeOut("fast");
-      $('.js-selected-container').fadeOut("fast");
-    }
-    else{
-      this.isBindQQ = 1;
-      $target.parent().removeClass('letterList-close');
-      $('.js-single-lowLevelSelect').animate({height:"551px"});
-    }
   },
 
   accountSecurityHandler:function(e) {
     var $target = $(e.currentTarget);
-    if($target.hasClass('sfa-h-security-off')){
+    if($target.hasClass('sfa-h-security-off')) {
       this.$('.js-h-security').removeClass('sfa-h-security-off').addClass('sfa-h-security');
       this.$('.js-gl-hd-balance').text('******');
-    }else{
+    } else {
       var acctInfo = Global.memoryCache.get('acctInfo');
       this.$('.js-h-security').removeClass('sfa-h-security').addClass('sfa-h-security-off');
       this.$('.js-gl-hd-balance').text(acctInfo.fBalance);
     }
   },
 
-  startLoadAfficheDetail:function (afficheId) {
-    var self = this;
-    Global.sync.ajax({
-          url: '/info/activitylist/userGetbulletindetail.json',
-          data: {
-            bulletinId: afficheId
-          }
-        })
-        .always(function() {
-          self.loadingFinish();
-        })
-        .done(function(res) {
-          if (res && res.result === 0) {
-            self.renderAfficheDetail(res.root);
-          } else {
-            Global.ui.notification.show('通知详情获取失败');
-          }
-        });
-
-  },
-
-  renderAfficheDetail:function (rootInfo) {
-    this.$gridDetail.html(this.AfficheTpl());
-    this.$gridDetail.find('.js-nc-noticeDetailTitle').html(rootInfo.title);
-    this.$gridDetail.find('.js-nc-noticeDetailDate').html(_(rootInfo.time).toTime());
-    this.$gridDetail.find('.js-nc-noticeDetailContext').html(rootInfo.content);
-  },
-
-  startLoadAfficheList:function () {
-    var self = this;
-    Global.sync.ajax({
-      url: '/info/activitylist/getbulletinlist.json',
-      data: {
-        'pageSize': 20,
-        'pageIndex': 0
-      }
-    }).always(function(){
-      //开始加载
-
-    })
-    .done(function(res) {
-      var data = res.root || {};
-      if (res && res.result === 0) {
-        self.renderGrid(data.buList);
-      } else {
-        Global.ui.notification.show('加载失败，请稍后再试');
-      }
-    })
-    .fail(function () {
-      Global.ui.notification.show('网络报错！');
-    });
-  },
-
-  renderGrid: function(rowList) {
-    var self = this;
-    self.startLoadAfficheDetail(_.first(rowList).bulletionId);
-
-    if (_.isEmpty(rowList)) {
-      this.$grid.html(this.getEmptyHtml('暂时没有动态'));
-    } else {
-      this.$grid.html(_(rowList).map(function(rowInfo) {
-        var date = new Date(rowInfo.time);
-        return this.itemTpl({
-          title: rowInfo.title,
-          date: date.getFullYear() +
-          '-' + (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) +
-          '-' + (date.getDate() < 10 ? '0'+ date.getDate() : date.getDate()) ,
-          afficheId: rowInfo.bulletionId,
-          desc: rowInfo.desc
-        });
-      }, this));
-    }
-  },
-
-  getEmptyHtml: function(emptyTip) {
-    var html = [];
-    if (emptyTip) {
-      html.push('<div class="js-wt-empty-container empty-container text-center">');
-      html.push('<div class="empty-container-main">');
-      html.push('<div class="sfa-grid-empty"></div>');
-      html.push(emptyTip);
-      html.push('</div>');
-      html.push('</div>');
-    }
-    return html.join('');
-  },
-  
-
-  lotteryListHandler: function() {
-    this.$('.js-bet-lottery-menu').show();
-
-  },
-
-  outlotteryListHandler: function() {
-    this.$('.js-bet-lottery-menu').hide();
-  },
-
-  checkPayPwdXhr: function() {
-    return Global.sync.ajax({
-      url: '/fund/moneypd/checkpaypwd.json'
-    });
-  },
   getWithDrawInfoXhr: function() {
     return Global.sync.ajax({
       url: '/fund/withdraw/info.json'
     });
   },
 
-  serializeData: function() {
-    return {
-      ticketList: ticketConfig.getCompleteAll()
-    };
-  },
-
   onRender: function() {
     var self = this;
 
-    this.$ticketDropdown = this.$('.js-gl-h-ticket-dropdown');
-    this.$dividend = this.$('.js-gl-dividend');
-    this.$rush = this.$('.js-gl-rush');
     this.$noticeList = this.$('.js-h-notice-inner');
     this.$letterUnread = this.$('.js-h-letter-unread');
 
@@ -221,16 +66,6 @@ var HeaderView = Base.ItemView.extend({
     this.$('.js-gl-head-main-menu').dropMenu();
     this.$('.js-gl-head-money-menu').dropMenu();
 
-    var acctInfo = Global.memoryCache.get('acctInfo');
-    this.$('.js-vipFlag').html('V'+acctInfo.memberLevel);
-
-    this.$('.athena-asdf').find('.js-lottery-id').on('click',function () {
-      self.clearClick();
-      self.$('.js-athena_st_02').removeClass('athnea-cp_01').removeClass('athnea-cp_02').removeClass('athnea-cp_03');
-      self.$('.js-athena_st_02').addClass('athnea-cp_03');
-
-    });
-
     this.renderNotice();
     setInterval(function() {
       self.renderNotice();
@@ -241,15 +76,14 @@ var HeaderView = Base.ItemView.extend({
     var self = this;
     this.getNoticeInfoXhr()
       .done(function(res) {
-        //console.log("renderNotice res:"+JSON.stringify(res));
         var data;
-        if (res.result === 0) {
+        if(res.result === 0) {
           data = res.root || [];
 
           self.$noticeList.html('<marquee  behavior="scroll" id="scrollText" onmouseover="scrollText.stop();"' +
-            ' onmouseout="scrollText.start();" scrollAmount="2" direction="left">'+_(data).map(function(info) {
+            ' onmouseout="scrollText.start();" scrollAmount="2" direction="left">' + _(data).map(function(info) {
               return self.noticeItemTpl(info);
-            }).join('')+'</marquee>');
+            }).join('') + '</marquee>');
         }
       });
   },
@@ -270,24 +104,7 @@ var HeaderView = Base.ItemView.extend({
 
   },
 
-  toggleDividend: function(auth) {
-    this.$dividend.toggleClass('hidden', !auth);
-  },
-
-  toggleRush: function(auth) {
-    this.$rush.toggleClass('hidden', !auth);
-  },
-
   //event handlers
-
-  clickEmptyTicketMainHandler: function(e) {
-    var $target = $(e.target);
-    if ($target.hasClass('js-gl-h-ticket-entry') || $target.closest('.js-gl-h-ticket-entry').length) {
-      this.$ticketDropdown.dropdown('toggle');
-    } else {
-      return false;
-    }
-  },
 
   refreshHandler: function(e) {
     var $target = $(e.currentTarget);
@@ -309,7 +126,7 @@ var HeaderView = Base.ItemView.extend({
       type: 'exit',
       agreeCallback: function() {
         Global.oauth.logout().done(function(data) {
-          if (data && data.result === 0) {
+          if(data && data.result === 0) {
             Global.cookieCache.clear('token');
 
             window.location.href = 'login.html';
@@ -326,68 +143,64 @@ var HeaderView = Base.ItemView.extend({
   withdrawHandler: function() {
     var self = this;
     var acctInfo = Global.memoryCache.get('acctInfo');
-    if (!acctInfo || acctInfo.userStatus === 100) {
+    if(!acctInfo || acctInfo.userStatus === 100) {
       // alert('用户已被冻结，无法进行充值操作。');
       Global.ui.notification.show('用户已被冻结，无法进行提现操作。');
       return false;
     }
 
     this.getWithDrawInfoXhr()
-        .always(function() {
-          //self.loadingFinish();
-        })
-        .done(function(res) {
-          var data = res && res.root || {};
-          if (res && res.result === 0) {
-            if (data.hasMoneyPwd && data.hasBankCard && data.hasSecurity) {
-              //设置了则弹出验证框
-              // $(document).verifyFundPwd({parentView:self});
-              self.verifySuccCallBack();
-            } else if (!data.hasMoneyPwd || !data.hasBankCard || !data.hasSecurity) {
-              if(!data.hasMoneyPwd){
-                //未设置则弹出链接到资金密码设置页面的提示框
-                $(document).securityTip({
-                  content: '您未设置资金密码，无法进行提现操作',
-                  showMoneyPwd: true,
-                  hasMoneyPwd: false,
-                  showBankCard: false,
-                  hasBankCard: false
-                });
-              }else if (!data.hasBankCard){
-                //未设置则弹出链接到资金密码设置页面的提示框
-                $(document).securityTip({
-                  content: '您未绑定银行卡，无法进行提现操作',
-                  showMoneyPwd: false,
-                  hasMoneyPwd: true,
-                  showBankCard: true,
-                  hasBankCard: false
-                });
-              }else if(!data.hasSecurity){
-                //未设置则弹出链接到密保问题设置页面的提示框
-                $(document).securityTip({
-                  content: '请补充完您的安全信息后再提现',
-                  showMoneyPwd: true,
-                  hasMoneyPwd: data.hasMoneyPwd,
-                  showBankCard: true,
-                  hasBankCard: data.hasBankCard,
-                  hasSecurity: data.hasSecurity
-                });
-              }
+      .done(function(res) {
+        var data = res && res.root || {};
+        if(res && res.result === 0) {
+          if(data.hasMoneyPwd && data.hasBankCard && data.hasSecurity) {
+            //设置了则弹出验证框
+            // $(document).verifyFundPwd({parentView:self});
+            self.verifySuccCallBack();
+          } else if(!data.hasMoneyPwd || !data.hasBankCard || !data.hasSecurity) {
+            if(!data.hasMoneyPwd) {
+              //未设置则弹出链接到资金密码设置页面的提示框
+              $(document).securityTip({
+                content: '您未设置资金密码，无法进行提现操作',
+                showMoneyPwd: true,
+                hasMoneyPwd: false,
+                showBankCard: false,
+                hasBankCard: false
+              });
+            } else if(!data.hasBankCard) {
+              //未设置则弹出链接到资金密码设置页面的提示框
+              $(document).securityTip({
+                content: '您未绑定银行卡，无法进行提现操作',
+                showMoneyPwd: false,
+                hasMoneyPwd: true,
+                showBankCard: true,
+                hasBankCard: false
+              });
+            } else if(!data.hasSecurity) {
+              //未设置则弹出链接到密保问题设置页面的提示框
+              $(document).securityTip({
+                content: '请补充完您的安全信息后再提现',
+                showMoneyPwd: true,
+                hasMoneyPwd: data.hasMoneyPwd,
+                showBankCard: true,
+                hasBankCard: data.hasBankCard,
+                hasSecurity: data.hasSecurity
+              });
             }
-          } else {
-            Global.ui.notification.show('服务器异常');
           }
-        });
-
+        } else {
+          Global.ui.notification.show('服务器异常');
+        }
+      });
   },
 
-  verifySuccCallBack: function(payPwd){
-    var withdrawView = new WithdrawView({parentView: this,payPwd:payPwd});
+  verifySuccCallBack: function(payPwd) {
+    var withdrawView = new WithdrawView({parentView: this, payPwd: payPwd});
     this.$dialogWd = Global.ui.dialog.show({
       id: _.now(),
       title: '提现',
       size: 'modal-lg',
-      body:  '<div class="js-fc-wd-container"></div>'
+      body: '<div class="js-fc-wd-container"></div>'
     });
 
     this.$dialogWd.find('.modal-body').addClass('fc-wd-bg');
@@ -395,7 +208,7 @@ var HeaderView = Base.ItemView.extend({
 
     this.$dialogWd.find('.js-fc-wd-container').html(withdrawView.render().el);
 
-    this.$dialogWd.on('hidden.modal', function () {
+    this.$dialogWd.on('hidden.modal', function() {
       $(this).remove();
     });
   }

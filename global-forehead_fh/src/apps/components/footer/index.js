@@ -13,6 +13,7 @@ var FooterView = Base.ItemView.extend({
   },
 
   render: function() {
+    var self = this;
     this.$el.html(_(this.template).template()(this.options));
     this.$qrcodebig = this.$(".js-qrcode-big");
     // this.$('.footer-title-wechat').popover({
@@ -23,6 +24,12 @@ var FooterView = Base.ItemView.extend({
     //   placement: 'top'
     // });
 
+    var $body = $('body');
+    var $html = $('html');
+    setInterval(function() {
+      self.$el.removeClass('footer-fixed');
+      self.$el.toggleClass('footer-fixed', $body.height() < ($html.height()));
+    }, 100);
   },
   showBigQrcode: function(){
     this.$qrcodebig.removeClass("hidden");

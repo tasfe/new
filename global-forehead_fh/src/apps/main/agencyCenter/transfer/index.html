@@ -1,0 +1,85 @@
+<!--向下级转账1-->
+<div class="Sub-Wrapper">
+  <form class="js-fc-tf-form">
+    <div class="js-ac-lm-tf-step-1">
+      <div class="Classify-Transfer">
+        <!--<p>请选择转账类型：</p>-->
+        <ul class=" view-tabs nav nav-tabs nav-tabs-special">
+          <li class="js-ac-type-change active" data-type="0"><a href="javascript:void(0)">普通转账</a></li>
+          <li class="js-ac-type-change " data-type="1"><a href="javascript:void(0)">活动转账</a></li>
+        </ul>
+        <!--<div class="nav-tab-bottom-bar"></div>-->
+      </div>
+
+      <div class="main-balance">
+        <div class="alert">
+              温馨提示</br>
+              1、今日您的剩余转账额度为<span class="js-leftMoney">-</span>元</br>
+              2、每天转账次数不限，每次总金额不超过<span class="js-maxMoney">-</span>元，单笔转账金额不能小于<span class="js-minMoney">-</span>元</br>
+              3、多人转账单次支持转7人
+        </div>
+      </div>
+      <p style="font-weight:bold;font-size: 16px;">账户余额：<span class="js-ac-tf-balance" style="color: red;"></span>
+
+      <div class="ac-lm-tf-union-container">
+        <label class=" inline-block" >
+          <input type="checkbox" name="checkbox" class="js-ac-lm-tf-check js-unimoney"
+                 value="">&nbsp;统一设置金额
+        </label>
+        <input type="text" class=" js-ac-lm-tf-union-amount ac-lm-tf-union-amount" data-parsley-range="[50,1000]"
+               data-parsley-max-message="您申请的金额超出可转账金额" data-parsley-type="integer" value="">元
+      </div>
+
+      <div class="">
+        <button class="js-ac-add-lowLevel ac-lm-tf-add">添加</button>
+      </div>
+
+
+      <div class="text-center">
+        <button type="button" class="go-verify btn btn-pink btn-liner"
+                data-loading-text="<span class='sfa sfa-btn-circle-hook vertical-middle'></span> 提交中...">
+          下一步
+        </button>
+      </div>
+    </div>
+    <!--第二步-->
+    <div class="js-ac-lm-tf-step-2" style="display: none; margin-top: 0px !important;">
+      <div class="U-content">
+        <p style="font-size: 14px;font-weight: bold;">请验证您的密保：</p>
+
+        <p style="font-size: 14px;">密保问题：<span class="js-ac-tf-sq"></span></p>
+        <p style="font-size: 14px;">密保答案：<input type="text" class="answer" name="answer" style="margin-left:5px;"
+                                                value=""></p>
+
+        <input type="hidden" class="js-ac-tf-securityId" name="securityId"/>
+      </div>
+      <div class="text-center" style="margin-top: 40px;">
+        <button type="button" class="btn-blue go-affirm"
+                data-loading-text="<span class='sfa sfa-btn-circle-hook vertical-middle'></span> 提交中...">
+          确认转账
+        </button>
+        <a href="javascript:null"><span class="go-sub" style="margin-left:10px;vertical-align: middle;font-size: 14px;">返回</span></a>
+      </div>
+    </div>
+
+    <!--第三步-->
+    <div class="js-ac-lm-tf-step-3" style="display: none;">
+      <p class="p1">是否确认转账？</p>
+      <div class="affirm-content">
+        转账人数：
+        <span class="js-tranMan">-</span>人
+        <span style="margin-right:20px;"></span>
+        共转账：<span class="js-ac-lm-tf-total">-</span>元
+      </div>
+      <div class="U-cancel">
+        <a href="javascript:null"><span class="U-sure js-ac-submitTransferInfo">确认转账</span></a>
+      </div>
+    </div>
+
+
+    <!--第四步提示信息-->
+    <div></div>
+
+
+  </form>
+</div>
