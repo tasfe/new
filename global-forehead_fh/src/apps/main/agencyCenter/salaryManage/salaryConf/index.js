@@ -74,7 +74,7 @@ var WatchView = Base.ItemView.extend({
           return val?'是':'否';
         }},
       ],
-      height: 37,
+      height: 34,
       row: list||[],
       startOnLoading: false
     });

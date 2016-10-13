@@ -10,6 +10,8 @@ var QuotaTransferView = require('agencyCenter/lowLevelManage/quotaTransfer');
 
 var RebateView = require('agencyCenter/lowLevelManage/rebate');
 
+var TransferView = require('../transfer');
+
 var LowLevelManageView = SearchGrid.extend({
 
   template: require('agencyCenter/templates/lowLevelManage.html'),
@@ -39,6 +41,19 @@ var LowLevelManageView = SearchGrid.extend({
       data:{
         subAcctId: userId
       }
+    });
+  },
+
+  checkPayPwdXhr: function() {
+    return Global.sync.ajax({
+      url: '/fund/moneypd/checkpaypwd.json'
+    });
+  },
+
+  checkSqXhr: function() {
+    return Global.sync.ajax({
+      url: '/acct/subacctinfo/gettradeinfo.json',
+      abort: false
     });
   },
 
@@ -337,44 +352,63 @@ var LowLevelManageView = SearchGrid.extend({
   },
 
   checkPayPwdSetHandler: function(e) {
+    var self = this;
     var $target = $(e.currentTarget);
-
+    var rowInfo = this.grid.getRowData($target);
     var acctInfo = Global.memoryCache.get('acctInfo');
     if(!acctInfo || acctInfo.userStatus === 100) {
       this.$dialog.modal('hide');
       Global.ui.notification.show('用户已被冻结，无法进行转账操作。');
     }
-    else {
-      this.getInfoXhr().fail(function() {
-        Global.ui.notification.show('网络报错！');
-      })
-        .done(function(res) {
-          if(res.root.hasMoneyPwd && res.root.hasSecurity) {
-            $(document).transfer({
-              title: $target.data('username'),
-              userId: $target.data('subacctid'),
-              data: res
-            });
-          }
-          else {
-            $(document).securityTip({
-              content: '请补充完您的安全信息后再转账',
-              showMoneyPwd: !res.root.hasMoneyPwd,
-              showBankCard: false,
-              showSecurity: !res.root.hasSecurity
-            });
-          }
-        });
-    }
+    this.checkPayPwdXhr()
+      .done(function(res) {
+        if (res && res.result === 0) {
+          self.checkSqXhr().done(function(res) {
+            if (res && res.result === 0 && res.root.hasSecurity) {
+              var transfer;
+              var $dialog = Global.ui.dialog.show({
+                title: '向下级转账',
+                size: 'ac-lm-transfer-dialog',
+                // body: this.rebateTpl({})
+                body: '<div class="js-ac-lowLevel-transfer-container ac-transfer-container"></div>',
+              });
+              $dialog.on('hidden.modal', function() {
+                $(this).remove();
+                transfer.destroy();
+              });
+              var $transferContainer = $dialog.find('.js-ac-lowLevel-transfer-container');
+              transfer = new TransferView({
+                el: $transferContainer,
+                userId: rowInfo.userId,
+                username: rowInfo.userName
+              }).render();
+            } else {
+              $(document).securityTip({
+                content: '请补充完您的安全信息后再转账',
+                hasMoneyPwd: true,
+                hasSecurity: false,
+                hasBankCard: false,
+                showBankCard: false,
+                showSecurity: true,
+                showMoneyPwd: false
+              });
+            }
+          });
+        } else if (res && res.result === 1) {
+          //未设置则弹出链接到资金密码设置页面的提示框
+          $(document).securityTip({
+            content: '请补充完您的安全信息后再转账',
+            hasMoneyPwd: false,
+            hasSecurity: false,
+            hasBankCard: false,
+            showBankCard: false,
+            showSecurity: false,
+            showMoneyPwd: true
+          });
+        }
+      });
   },
 
-  //获取转账信息
-  getInfoXhr: function() {
-    return Global.sync.ajax({
-      url: '/acct/subacctinfo/gettradeinfo.json',
-      abort: false
-    });
-  }
 });
 
 module.exports = LowLevelManageView;

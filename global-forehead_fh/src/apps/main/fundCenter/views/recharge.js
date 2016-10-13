@@ -47,7 +47,6 @@ var RechargeView = TabView.extend({
     this.$paymentContainer = this.$('.js-fc-re-tabs');
     this.$bankContainer = this.$('.js-fc-re-bankList');
     this.$quickAmountContainer = this.$('.js-fc-re-quickAmounts');
-    this.$paymentCaptions = this.$('.js-fc-caption');
     this.$fareResult = this.$('.js-fare-result');
     this.$amountResult = this.$('.js-jine-result');
     this.$fareAlert = this.$('.js-fare-alert');
@@ -102,7 +101,6 @@ var RechargeView = TabView.extend({
   generateTab: function(paymentList) {
     var paymentInfoArr = [];
     var html = [];
-    var captions = [];
 
     _(paymentList).map(function (payment) {
       var paymentInfo = quickPayConfig.get(payment.paymentType);
@@ -123,14 +121,11 @@ var RechargeView = TabView.extend({
       html.push('</a>');
       html.push('</li>');
 
-      //captions.push('<p class="js-caption-type-' + payment.paymentType + ' ' + (index === 0 ? '' : 'hidden') + '">');
-      //captions.push('<span class="' + payment.className + '">' + payment.zhName + '</span>');
-      //captions.push('</p>');
+
 
     });
 
     this.$paymentContainer.html(html.join(''));
-    this.$paymentCaptions.html(captions.join(''));
   },
 
   generateBankTab: function(payment) {
@@ -188,16 +183,13 @@ var RechargeView = TabView.extend({
     });
     this.$quickAmountContainer.html(html.join(''));
   },
+
   paymentTypeChangeHandler: function(e) {
-
     var $target = $(e.currentTarget);
-    var $currentCaption = this.$paymentCaptions.find('.js-caption-type-' + $target.data('paymentType'));
-
     $target.addClass('active').siblings().removeClass('active');
-    $currentCaption.removeClass('hidden').siblings().addClass('hidden');
-
     this.initPaymentPage(e);
   },
+
   formatAmount: function(amount) {
     var str = String(amount);
     var l = str.length;
