@@ -7,7 +7,8 @@ var LowLevelBettingDetailView = BettingDetailView.extend({
   initialize: function(options) {
     BettingDetailView.prototype.initialize.apply(this, arguments);
 
-    this.options.detailPrevUrl = '#ac/tr/' + this.options.userId + '/detail/';
+    // this.options.detailPrevUrl = '#tg/tr/' + this.options.userId + '/detail/';
+    this.options.detailPrevUrl = '#tg/tr/detail/';
   },
 
   onRender: function() {
