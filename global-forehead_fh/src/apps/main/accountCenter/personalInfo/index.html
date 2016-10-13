@@ -49,7 +49,7 @@
     <div class="control-group">
       <label class="control-label">QQ：</label>
       <div class="controls">
-        <input type="text" class="js-uc-userQq input-lg" name="userQq" data-parsley-QQ data-parsley-length="[4,15]" placeholder="请输入4-15位阿拉伯数字"/>
+        <input type="text" class="js-uc-userQq input-lg" name="userQqNum" data-parsley-QQ data-parsley-length="[4,15]" placeholder="请输入4-15位阿拉伯数字"/>
         <!--<span class="help-inline">请输入4-15位阿拉伯数字</span>-->
         <span class="js-uc-userQq-val-res hidden controls-span"></span>
       </div>
@@ -70,12 +70,14 @@
       <div class="controls">
         <select class="js-uc-select-userBithday-month uc-birthday-width-sm m-right-xs">
           <option value="" selected>请选择</option>
-        </select>月
+        </select>
+        <span class="js-uc-helpBlock">月</span>
         <select class="js-uc-select-userBithday-day uc-birthday-width-sm m-right-xs m-left-xs">
           <option value="" selected>请选择</option>
-        </select>日
-        <div class="help-block">一旦填写不能修改</div>
+        </select>
+        <span class="js-uc-helpBlock">日</span>
         <input class="js-uc-userBithday-val-res hidden" name="userBithday" readonly>
+        <div class="help-block js-uc-helpBlock">一旦填写不能修改</div>
       </div>
     </div>
 

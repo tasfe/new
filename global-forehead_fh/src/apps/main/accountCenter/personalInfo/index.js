@@ -31,7 +31,7 @@ var PersonalManageView = Base.ItemView.extend({
           self.$('.js-uc-integral').html(res.root.integral);
           res.root.userQq && self.$('.js-uc-userQq-val-res').removeClass('hidden').html(res.root.userQq) && self.$('.js-uc-userQq').addClass('hidden').val(res.root.userQq);
           res.root.userCellphone && self.$('.js-uc-userCellphone-val-res').removeClass('hidden').html(res.root.userCellphone.replace(/(\d{3})\d{4}(\d{4})/, '$1****$2')) && self.$('.js-uc-userCellphone').addClass('hidden').val(res.root.userCellphone);
-          res.root.userBithday && self.$('.js-uc-userBithday-val-res').val(res.root.userBithday).removeClass('hidden');
+          res.root.userBithday && self.$('.js-uc-userBithday-val-res').val(res.root.userBithday).removeClass('hidden') && self.$('.js-uc-select-userBithday-month').addClass('hidden') && self.$('.js-uc-select-userBithday-day').addClass('hidden') && self.$('.js-uc-helpBlock').addClass('hidden');
         } else {
           Global.ui.notification.show('获取用户个人信息失败');
         }
@@ -64,7 +64,7 @@ var PersonalManageView = Base.ItemView.extend({
       url: '/acct/userinfo/saveuser.json',
       data: {
         userSex: this.$('.js-uc-gender-val-res').val(),
-        userQq: this.$('.js-uc-userQq').val(),
+        userQqNum: this.$('.js-uc-userQq').val(),
         userCellphone: this.$('.js-uc-userCellphone').val(),
         userBirthday: this.$('.js-uc-userBithday-val-res').val() || ((this.$('.js-uc-select-userBithday-month').val() && this.$('.js-uc-select-userBithday-day').val()) ? this.$('.js-uc-select-userBithday-month').val() + '-' + this.$('.js-uc-select-userBithday-day').val() : null),
       }
@@ -77,6 +77,7 @@ var PersonalManageView = Base.ItemView.extend({
           Global.ui.notification.show('修改个人信息成功', {
             type: 'success'
           });
+          self.render();
         } else {
           Global.ui.notification.show('修改个人信息失败');
         }
