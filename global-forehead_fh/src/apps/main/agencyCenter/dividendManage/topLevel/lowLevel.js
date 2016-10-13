@@ -273,6 +273,7 @@ var LowLevelView = SearchGrid.extend({
 
           $detail.staticGrid({
             wrapperClass: 'm-top-md',
+            tableClass: 'table table-bordered table-no-lr table-center',
             height: '310',
             colModel: [
               {label: '日期', name: 'cycle', merge: false, width: 100},

@@ -1,12 +1,7 @@
-.ac-sm-agree-leftTime{
-
-
-}
 
 .ac-sm-agree-notice{
-  color: #da5144;
-  font-size: 17px;
-  padding: 10px;
+  color: #666;
+  font-size: 12px;
   font-weight: 500;
 }
 
@@ -16,7 +11,6 @@
   padding: 5px;
   font-weight: 500;
   border: 1px solid #ccc;
-  width: 788px;
   text-align: center;
   border-bottom:0px;
 }
@@ -33,7 +27,6 @@
   font-weight: 500;
   border: 1px solid #ccc;
   border-bottom:0px;
-  width: 788px;
   text-align: center;
 
 }
@@ -45,7 +38,6 @@
   padding: 5px;
   //font-weight: 300;
   border: 1px solid #ccc;
-  width: 788px;
   text-align: left;
   p{
     line-height: 21px;
@@ -63,9 +55,35 @@
   color: #fff;
   padding: 4px !important;
 }
+
 .ac-sm-sign-table{
   width: 800px;
   height: 286px;
+  .ac-sm-sign-saleAmount{
+    width: 80px;
+  }
+  .ac-sm-sign-select-div{
+    width: 100%;
+    //text-align: left;
+    .ac-sm-sign-select{
+      //margin-left: 80px;
+      width: 60px;
+    }
+    .ac-sm-sign-lossLimit{
+      width: 80px;
+    }
+  }
+
+  .ac-sm-sign-salary{
+    width: 80px;
+  }
+  .ac-sm-sign-delete{
+    button{
+      background-color: #e25d47;
+      border: 0px;
+      color: #fff;
+    }
+  }
 }
 .ac-sm-sign-special-table{
   width: 800px;

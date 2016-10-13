@@ -31,6 +31,9 @@ var SignedView = Base.ItemView.extend({
     var self = this;
     this.$table = this.$('.js-ac-sm-sign-table');
     this.$form = this.$('.js-ac-signed-form');
+    var dividMax = _(this.options.dividConf.dividMax).formatDiv(100);
+    var dividMin = _(this.options.dividConf.dividMin).formatDiv(100);
+    var rebateLimit = _(this.options.dividConf.rebateLimit).formatDiv(10);
 
     this.$username = this.$('.js-ac-sm-sign-username');
     if(this.options.username){
@@ -99,6 +102,7 @@ var SignedView = Base.ItemView.extend({
     }, '/fund/divid/valid.json');
 
     this.$table.staticGrid({
+      tableClass: 'table table-bordered table-no-lr table-center',
       colModel: [
         {label: '分红要求1：日量标准', name: 'betTotal', key: true, width: '50%', formatter: function(val) {
           return '≥&nbsp;' +
@@ -109,11 +113,11 @@ var SignedView = Base.ItemView.extend({
 
         {label: '分红比例', name: 'divid', width: '50%', formatter: function(val,index,rowInfo) {
           return '<input type="text" class="form-control js-ac-sm-sign-salary ac-sm-sign-salary  m-right-sm" name="salaryAmount" ' +
-            'value="'+val+'" required data-parsley-range="[0, 100000000]"  data-parsley-type="integer" />%' +
+            'value="'+val+'" required data-parsley-range="['+dividMin+', '+dividMax+']"  data-parsley-oneDecimal />%' +
             '<div class="js-ac-sm-sign-delete ac-sm-sign-delete inline-block m-left-sm"><button>X</button></div>';
         }},
       ],
-      height: 270,
+      height: 248,
       row:this.options.agreementList||[],
       startOnLoading: false
     });

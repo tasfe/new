@@ -1389,7 +1389,7 @@ var BettingCenterView = Base.ItemView.extend({
 
       //显示中奖div,显示金额
       this.$CurrPrize.removeClass('hidden');
-      this.$CurrPrize.html('恭喜您，中奖金额为'+prize+'元');
+      this.$CurrPrize.html('恭喜您，中奖金额为'+_(prize).convert2yuan()+'元');
     }else {
       //隐藏中奖div，清空金额
       this.$CurrPrize.addClass('hidden');

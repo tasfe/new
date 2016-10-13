@@ -91,8 +91,8 @@ var TopLevelView = TabView.extend({
       size: 'modal-lg',
       footer: ''
     }).on('hidden.modal', function () {
-      self.render();
-      $(this).remove()
+      // self.render();
+      $(this).remove();
     });
 
     var $container = $dialog.find('.js-ac-add-container');

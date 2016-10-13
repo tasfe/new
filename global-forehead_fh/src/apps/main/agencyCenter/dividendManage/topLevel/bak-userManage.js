@@ -44,12 +44,12 @@ var UserManageView = Base.ItemView.extend({
       tradition: true
     });
   },
-  //搜索
-  getSubUser: function () {
-    var username = this.$(".username").val();
-    var status = Number(this.$(".status").val());
-    this.initGrid({ 'userName': username, 'status': status, pageSize: 100 })
-  },
+  // //搜索
+  // getSubUser: function () {
+  //   var username = this.$(".username").val();
+  //   var status = Number(this.$(".status").val());
+  //   this.initGrid({ 'userName': username, 'status': status, pageSize: 100 })
+  // },
   // 表格填充
   initGrid: function (data) {
     console.log(data)
@@ -141,7 +141,7 @@ var UserManageView = Base.ItemView.extend({
       size: 'modal',
       footer: ''
     }).on('hidden.modal', function () {
-      self.getSubUser();
+      // self.getSubUser();
       $(this).remove()
     });
     var $container = $dialog.find('.js-ac-add-container');
@@ -193,7 +193,7 @@ var UserManageView = Base.ItemView.extend({
       size: 'modal-lg',
       footer: ''
     }).on('hidden.modal', function () {
-      self.getSubUser();
+      // self.getSubUser();
       //self.$grid.staticGrid('update');
       // self.render();
       $(this).remove()
@@ -289,7 +289,7 @@ var UserManageView = Base.ItemView.extend({
         .done(function (res) {
           if (res && res.result === 0) {
             Global.ui.notification.show('操作成功！等待审核。');
-            self.getSubUser();
+            // self.getSubUser();
             // self.$grid.staticGrid('update');
             $dialog.modal('hide');
           } else {

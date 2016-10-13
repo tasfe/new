@@ -108,7 +108,7 @@ var UserCenterController = RouterController.extend({
   });
 },
 
-  cardManage: function() {
+  /*cardManage: function() {
     //判断是否设置资金密码
 
     var self  = this;
@@ -128,11 +128,12 @@ var UserCenterController = RouterController.extend({
             });
           }
         });
-  },
+  },*/
 
-  verifySuccCallBack: function(){
+  cardManage: function(){
     this.changeMainReginView(new CardManageView(), {
-      sidebar: 'pc'
+      sidebar: 'pc',
+      topView: 'personal'
     });
   },
   cardBinding: function() {
