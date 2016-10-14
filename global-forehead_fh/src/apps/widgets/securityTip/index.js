@@ -29,7 +29,7 @@ $.widget('gl.securityTip', {
       body.push('<div class="security-notice-type-div">');
       var fundPasswordHmtl = '<span class="security-notice-span text-left">资金密码已设置完毕</span>';
       if (!this.options.hasMoneyPwd) {
-        fundPasswordHmtl = '<span class="security-notice-span text-left">建议您</span><a class="js-fc-aHref btn-link text-pleasant" href="#as/pf" >去设置资金密码</a>';
+        fundPasswordHmtl = '<span class="security-notice-span text-left">建议您</span><a class="js-fc-aHref btn-link text-pleasant" href="#pm/pf" >去设置资金密码</a>';
       }
       body.push(fundPasswordHmtl+'</div>');
     }
@@ -49,7 +49,7 @@ $.widget('gl.securityTip', {
       var securityHtml = '<span class="security-notice-span text-left">安全问题已绑定</span>';
       
       if (!this.options.hasSecurity) {
-        securityHtml = '<span class="security-notice-span text-left">建议您</span><a class="js-fc-aHref  btn-link text-pleasant " href="#as/sq" >去绑定安全问题</a>';
+        securityHtml = '<span class="security-notice-span text-left">建议您</span><a class="js-fc-aHref  btn-link text-pleasant " href="#pm/sq" >去绑定安全问题</a>';
       }
       body.push(securityHtml+'</div>');
     }
