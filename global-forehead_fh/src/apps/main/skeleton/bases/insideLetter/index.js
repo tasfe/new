@@ -178,6 +178,7 @@ var InsideLetterView = Base.ItemView.extend({
     } else {
       this.singleChat.render(chatList.toJSON());
       this.$singleChat.scrollTop(this.singleChat.height());
+      Global.m.message.fetch();
     }
   },
 
