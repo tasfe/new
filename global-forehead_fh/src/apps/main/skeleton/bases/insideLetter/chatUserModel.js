@@ -100,7 +100,7 @@ var ChatUserModel = Model.extend({
 
   getHistory: function() {
     if (!this.get('last')) {
-      this.fetchChatInfo(this.get('chatList')[0].id);
+      this.fetchChatInfo(this.get('chatList').first().get('messageId'));
     }
   },
 
