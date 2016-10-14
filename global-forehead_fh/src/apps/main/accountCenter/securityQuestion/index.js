@@ -9,7 +9,7 @@ var SecurityQuestionView = Base.ItemView.extend({
   //构造修改密保问题页面
   updateSQTpl: _.template(require('./securityQuestion-update.html')),
 
-  className: 'as-securityQuestion',
+  className: 'as-personalManage',
 
   startOnLoading: true,
 

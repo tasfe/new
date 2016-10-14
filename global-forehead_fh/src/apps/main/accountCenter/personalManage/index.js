@@ -6,6 +6,7 @@ var viewList = {
   info: require('accountCenter/personalInfo'),
   loginPwd: require('accountCenter/loginPwd'),
   fundPwd: require('accountCenter/fundPwd'),
+  forgetFundPwd: require('accountCenter/fundPwd/forgetFundPwd'),
   emailBinding: require('accountCenter/emailBinding'),
   securityQuestion: require('accountCenter/securityQuestion')
 };
