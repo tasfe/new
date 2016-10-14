@@ -294,6 +294,20 @@
 .blur {
   filter: blur(2px);
 }
+.gray {
+  filter: grayscale(100%);
+  filter: gray;
+  filter:progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);
+}
+.flash {
+  animation: flash 1s infinite steps(1);
+}
+
+@keyframes flash {
+  50%  {
+    opacity: 0;
+  }
+}
 
 .shadow-block {
   position: relative;
@@ -348,3 +362,29 @@
 }
 
 @include sprites($spritesheet-sprites);
+
+//backup component
+.spot {
+  display: inline-block;
+  width:16px;
+  height:16px;
+  line-height: 15px;
+  border-radius: 50%;
+  background: #333333;
+  color: $light-color;
+  text-align: center;
+  &.spot-hot {
+    background: $color-hot;
+    color: $gray-color;
+  }
+  &.spot-pink {
+    background: $pink-color;
+    color: $white-color;
+  }
+
+  &.spot-lg {
+    width:19px;
+    height:19px;
+    line-height: 19px;
+  }
+}

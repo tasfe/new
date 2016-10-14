@@ -1,7 +1,6 @@
 @charset "UTF-8";
 
-@import
-"~base/styles/imports";
+@import "~base/styles/imports";
 
 .inside-letter {
   position: fixed;
@@ -13,7 +12,6 @@
   border: 1px solid $gray-color;
   border-radius: $globalBoxRadius;
   font-size: 12px;
-
 
   .titleLine {
     height: 30px;
@@ -31,8 +29,8 @@
       background: $gray-color;
       border-radius: 10px;
 
-      &:after{
-        content:'';
+      &:after {
+        content: '';
         display: block;
         border-style: dashed dashed solid dashed;
         border-color: transparent transparent $white-color transparent;
@@ -47,9 +45,9 @@
   }
 
   &.open {
-    .titleLine{
+    .titleLine {
       .letter-caret {
-        &:after{
+        &:after {
           border-style: solid dashed dashed dashed;
           border-color: $white-color transparent transparent transparent;
           top: 8px;
@@ -68,130 +66,52 @@
     transition: height 0.5s ease-out;
   }
 
-  .julien-send-info{
-    margin:0;
-    bottom: 0;
-    width: 418px;
-    background-color: #ebebeb;
-    background-image:-webkit-linear-gradient(180deg, #fff, #ebebeb);
-    background-image:linear-gradient(180deg,#fff,#ebebeb);
-
-    i{
-      width: 35px;
-      height: 40px;
-      background: url(~base/images/face/14.png) no-repeat 0px 8px;
-      background-size: 100%;
-      margin-right: 0px;
-      margin-top: -11px;
-      position: relative;
-
-      &:hover{
-        border: 1px solid #cacaca;
-        border-top: 0px;
-        width: 33px;
-        height: 39px;
-
-        div{
-          display: block;
-        }
-      }
-
-      div{
-        position: absolute;
-        display: none;
-        top: -80px;
-        left: -1px;
-        width: 369px;
-        height: 81px;
-        border: 1px solid #cacaca;
-        border-right: 0px;
-        border-bottom: 0px;
-        background-color: #fff;
-
-        span{
-          width: 40px;
-          height: 40px;
-          border: 1px solid #cacaca;
-          border-left: 0px;
-          border-top: 0px;
-          float: left;
-        }
-      }
-    }
-
-    input{
-      width: 224px;
-      height: 27px;
-      border-radius: 0px;
-      color: #999999;
-      background-color: #e7e7e7;
-      padding: 0px 8px;
-      border: 1px solid #ccc;
-    }
-
-    button{
-      border-radius: 0px;
-      height: 29px;
-      background-color: #990000;
-    }
-
-    >span{
-      font-size: 12px;
-      font-family: 'Arial';
-      display: inline-block;
-      margin-top: 10px;
-      line-height: 14px;
-    }
-
-
-  }
-
-  .chat-content{
+  .chat-content {
     padding: 5px 10px;
-    height: 235px;
+    height: 245px;
     overflow-y: auto;
 
-    ul{
-      li{
-        i{
+    ul {
+      li {
+        i {
           width: 29px;
           height: 29px;
         }
 
-        b{
+        b {
           border-width: 5px;
           margin-top: 10px;
           position: absolute;
         }
 
-        p{
+        p {
           margin-bottom: 5px;
           color: #999999;
         }
 
-        span{
+        span {
           padding: 5px 10px;
         }
 
-        &.other{
-          
-          b{
+        &.other {
+
+          b {
             right: -10px;
           }
 
-          div{
+          div {
             position: relative;
             max-width: 320px;
             margin-right: 5px;
             line-height: 25px;
 
-            >span{
+            > span {
               background-color: #f378a1;
-              background-image:-webkit-linear-gradient(270deg, #f378a1, #d85c8b);
-              background-image:linear-gradient(270deg, #f378a1, #d85c8b);
-              border:0px;
+              background-image: -webkit-linear-gradient(270deg, #f378a1, #d85c8b);
+              background-image: linear-gradient(270deg, #f378a1, #d85c8b);
+              border: 0px;
 
-              span{
+              span {
                 border-radius: 0px;
                 border: 0px;
                 margin: 0px;
@@ -201,40 +121,40 @@
                 background-size: cover;
               }
             }
-            b{
+            b {
               border-color: transparent transparent transparent #f378a1;
             }
           }
 
-          p{
+          p {
             text-align: right;
           }
         }
 
-        &.me{
+        &.me {
 
-          b{
+          b {
             left: -10px;
           }
 
-          div{
+          div {
             position: relative;
             max-width: 320px;
             margin-right: 5px;
             float: left;
             line-height: 25px;
 
-            b{
+            b {
               border-color: transparent #3c94b7 transparent transparent;
             }
 
-            >span{
+            > span {
               background-color: #3fc7db;
-              background-image:-webkit-linear-gradient(270deg, #3fc7db, #3c94b7);
-              background-image:linear-gradient(270deg, #3fc7db, #3c94b7);
-              border:0px;
+              background-image: -webkit-linear-gradient(270deg, #3fc7db, #3c94b7);
+              background-image: linear-gradient(270deg, #3fc7db, #3c94b7);
+              border: 0px;
 
-              span{
+              span {
                 border-radius: 0px;
                 border: 0px;
                 margin: 0px;
@@ -249,121 +169,151 @@
       }
     }
   }
+}
 
-  .julien-low-multi-selected2{
-    left: -547px;
-    top: 287px;
-    z-index: 100;
+.low-multi-avatar {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.chat-box {
+  width: 548px;
+  height: 340px;
+  left: -570px;
+  bottom: 0;
+  border: 1px solid $gray-color;
+  position: absolute;
+  border-radius: $globalBoxRadius;
+  overflow: hidden;
+
+  .chat-user-list {
     width: 128px;
-    height: 306px;
-    position: absolute;
-
-    ul{
-      li{
-        height: 38px;
-        line-height: 38px;
-        padding-left: 13px;
-        display: block;
-        border-bottom: 1px solid #ccc;
-        color: #999999;
-        position: relative;
-
-        &.sd{
-          border-left: 5px solid #990000;
-          padding-left: 8px;
-          color: #333333;
-          background-color: #fff;
-        }
-
-        &:hover{
-          i{
-            display: block;
-            color: #990000;
-          }
-        }
-
-        
-        i{
-          position: absolute;
-          right: 10px;
-          top: 12px;
-          cursor: pointer;
-          display: none;
-        }
-
-        span{
-          display: block;
-          cursor: pointer;
-        }
-      }
-    }
-  }
-
-  .cat{
-    margin: 6px 0;
-  }
-
-  .nc-ilSend-sendTo-content{
-    left: -548px;
-    bottom: 0px;
-    width: 548px;
     height: 338px;
-    border: 1px solid #cccccc;
-    position: absolute;
+    float: left;
+    background-color: #cb6798;
+    border-right: 1px solid $pink-color;
+  }
 
-    .left{
-      width: 128px;
-      height: 338px;
-      float: left;
-      background-color: #f6f6f6;
-      border-right: 1px solid #ccc;
+  .chat-user {
+    display: block;
+    padding: 8px 8px;
+    margin: 5px;
+    font-size: $font-sm;
+    line-height: 30px;
+    color: $gray-color;
+    border-radius: $globalBoxRadius;
 
-      span{
-        height: 38px;
-        line-height: 38px;
-        padding-left: 10px;
-        display: block;
-        border-bottom: 1px solid #ccc;
-        background-color: #fff;
-        color: #333333;
+    &.active {
+      color: $white-color;
+      background: #da86b7;
+    }
+    &.new-msg {
+      background: #b85787;
+    }
+  }
+  .chat-username {
+    vertical-align: bottom;
+    width: 55px;
+    display: inline-block;
+    overflow: hidden;
+  }
+
+  .chat-avatar {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .chat-box-main {
+    width: 419px;
+    height: 338px;
+    float: left;
+    background-color: $white-color;
+  }
+
+  .chat-current-title {
+    height: 38px;
+    line-height: 38px;
+    padding: 0 5px 0 10px;
+    border-bottom: 1px solid $gray-color;
+    background: linear-gradient(to bottom, #ffffff, #f8f8f8);
+
+    .chat-close {
+      width: 22px;
+      height: 22px;
+      display: block;
+      background-color: $gray-color;
+      border-radius: 20px;
+      color: $white-color;
+      font-style: normal;
+      float: right;
+      line-height: 22px;
+      text-align: center;
+      font-size: 16px;
+      font-family: cursive;
+      margin-top: 7px;
+      cursor: pointer;
+
+      &:hover {
+        color: $color-amber;
       }
     }
+  }
 
-    .right{
-      width: 419px;
-      height: 338px;
+  .chat-input-bar {
+    border-top: 1px solid $gray-color;
+    padding: 5px 0 5px 5px;
+    background-image: linear-gradient(to bottom, $white-color, #f8f8f8);
+
+    .chat-exp-pack {
+      width: 35px;
+      height: 35px;
+      background: url(~base/images/face/14.png) no-repeat;
+      background-size: 100%;
+      position: relative;
+      display: inline-block;
+      vertical-align: middle;
+
+    }
+
+    .chat-exp-pack-inner {
+      position: absolute;
+      top: -88px;
+      left: -1px;
+      width: 369px;
+      height: 81px;
+      border: 1px solid $gray-color;
+      border-right: 0;
+      border-bottom: 0;
+      background-color: $white-color;
+    }
+
+    .chat-exp {
+      width: 40px;
+      height: 40px;
+      border: 1px solid $gray-color;
+      border-left: 0;
+      border-top: 0;
       float: left;
-      background-color: #fff;
+    }
 
-      .title{
-        height: 38px;
-        line-height: 38px;
-        padding: 0 5px 0 10px;
-        border-bottom: 1px solid #ccc;
-        background-color: #990000;
-        color: #fff;
+    .chat-input {
+      width: 222px;
+      height: 18px;
+      margin-right: 6px;
+    }
 
-        i{
-          width: 22px;
-          height: 22px;
-          display: block;
-          background-color: #fff;
-          border: 1px solid #ccc;
-          color: #ccc;
-          font-style: normal;
-          float: right;
-          line-height: 22px;
-          text-align: center;
-          font-size: 16px;
-          font-family: cursive;
-          margin-top: 7px;
-          cursor: pointer;
-
-          &:hover{
-            color:#666;
-          }
-        }
-      }
+    .chat-statistics {
+      display: inline-block;
+      vertical-align: bottom;
+      margin: 15px 5px 0 0;
+      float: right;
+      color: $color-amber;
     }
   }
 }

@@ -1,0 +1,44 @@
+{
+  "result": 0,
+  "msg": "ok",
+  "sign": null,
+  "root": {
+    "parent": {
+      "userId": 709,
+      "username": null,
+      "online": false,
+      "newMsgNum": 1,
+      "headId": 10
+    },
+    "subList": [
+      {
+        "userId": 755,
+        "username": "asdfasd",
+        "online": false,
+        "newMsgNum": 0,
+        "headId": 8
+      },
+      {
+        "userId": 790,
+        "username": "sdafasd",
+        "online": true,
+        "newMsgNum": 0,
+        "headId": 8
+      },
+      {
+        "userId": 791,
+        "username": "ssss",
+        "online": false,
+        "newMsgNum": 1,
+        "headId": 8
+      },
+      {
+        "userId": 792,
+        "username": "dsfsdfdsfasdfsdf",
+        "online": false,
+        "newMsgNum": 10,
+        "headId": 8
+      }
+    ]
+  }
+}

@@ -9,70 +9,18 @@ var LowMultiSelect = Base.PrefabView.extend({
   className: 'low-multi-select',
 
   options: {
-    prevClass: 'js-pf'
+    prevClass: 'js-pf',
+    useMediator: true,
+    showUnread: false,
+    selectAll: true,
+    select: true
   },
 
   events: {
     'keyup .js-pf-input-search-user': 'searchHandler',
-    'click .js-pf-select-search-user': 'selectUserHandler',
-    'click .js-pf-select-superior-close': 'selectUserHandlerClose',
-    'click .js-pf-selected-user': 'selectedUsersMessage',
-    'click .js-pf-close-user': 'cancelSelectHandler',
-    'click .js-subordinate': 'subordinate'
-  },
-
-  selectedUsersMessage: function (e) {
-    var self = this;
-    var $target = $(e.currentTarget);
-
-    sessionStorage.setItem('selectUserId', $target.parent().data('id'));
-    $('.js-single-to-user').change();
-  },
-
-  subordinate: function () {
-    var obj = $('.julien-user-list ul li a');
-    var num = this.selectedUsers.length;
-    sessionStorage.setItem('selectUserId', -1);
-
-    $('.js-pf-select-superior b').addClass('hidden');
-
-    if ($('.js-pf-select-superior').hasClass('pf-select-superior-sd')) {
-      num--;
-    }
-
-    if (num == obj.length) {
-      if ($('.js-pf-select-superior').hasClass('pf-select-superior-sd')) {
-        this.selectedUsers = _.filter(this.selectedUsers, function(obj){ return obj.id == $('.js-pf-select-superior').data('id'); });
-      }
-      else{
-        this.selectedUsers = [];
-        $('.julien-low-multi-selected2 h3').removeClass('hidden');
-      }
-      $('.low-multi-select .subordinate').removeClass('subordinate-sd');
-      $('.js-pf-jstree ul li a').removeClass('sd');
-      $('.js-wt-title-close').addClass('hidden');
-    }
-    else{
-      if ($('.js-pf-select-superior').hasClass('pf-select-superior-sd')) {
-        this.selectedUsers = _.filter(this.selectedUsers, function(obj){ return obj.id == $('.js-pf-select-superior').data('id'); });
-      }
-      else{
-        this.selectedUsers = [];
-      }
-
-      for (var i = 0; i < obj.length; i++) {
-        this.selectedUsers.push({
-          id: obj.eq(i).data('no'),
-          name: obj.eq(i).data('data').text
-        })
-      }
-      $('.julien-low-multi-selected2 h3').addClass('hidden');
-      $('.low-multi-select .subordinate').addClass('subordinate-sd');
-      $('.js-wt-title').addClass('sd');
-      $('.js-wt-title-close').removeClass('hidden');
-    }
-
-    this.renderSelectedUsers();
+    // 'click .js-pf-select-search-user': 'toggleSelectUserHandler',
+    'click .js-wt-title': 'toggleSelectUserHandler',
+    'click .js-pf-selectAll': 'toggleSelectAllHandler'
   },
 
   getSearchXhr: function(data) {
@@ -89,19 +37,25 @@ var LowMultiSelect = Base.PrefabView.extend({
     });
   },
 
-  getLowLevelByIdXhr: function(data) {
-    return Global.sync.ajax({
-      url: '/acct/subacctinfo/getsubacctnamebyid.json',
-      data: data
-    });
-  },
+  // getLowLevelByIdXhr: function(data) {
+  //   return Global.sync.ajax({
+  //     url: '/acct/subacctinfo/getsubacctnamebyid.json',
+  //     data: data
+  //   });
+  // },
 
   initialize: function() {
     this.selectedUsers = [];
   },
 
   onRender: function() {
-    this.$selectedContainer = this.$('.js-selected-container');
+    this.$searchContainer = this.$('.js-pf-search-container');
+    this.$selectContainer = this.$('.js-pf-select-container');
+    this.$selectAll = this.$('.js-pf-selectAll');
+
+    if (this.options.selectAll) {
+      this.$selectAll.removeClass('hidden');
+    }
 
     this._initLowLevelTree();
 
@@ -115,229 +69,184 @@ var LowMultiSelect = Base.PrefabView.extend({
   _initLowLevelTree: function() {
     var self = this;
 
-    this.treeView2 = this.$('.js-pf-jstree').treeView2({
-      onClick: function(e, id, data,iIs) {
-        if(iIs == 1){
-          $('.low-multi-select .subordinate').addClass('subordinate-sd');
-          self.selectUser(id, data.text);
-        }
-        else{
-          sessionStorage.setItem('selectUserId', id );
-          $('.js-single-to-user').change();
-        }
-      },
-      onClick2: function(e, id, data) {
-        $('.low-multi-select .subordinate').removeClass('subordinate-sd');
-        self.deleteUser(id, data.text);
-      },
-      onCollapsed: function(e, id, data, collapsed) {
-        if (!collapsed) {
-          self.renderLowLevel(e, id);
-        }
+    this.treeView = this.$('.js-pf-jstree').treeView({
+      onClick: function(e, id, data) {
+        self.selectUser(id, data);
       }
-    }).treeView2('instance');
+    }).treeView('instance');
 
-    this.getLowLevelXhr()
-    .always(function() {
-      $('.js-julien-loading').addClass('hidden');
-      $('.js-julien-loading').addClass('julien-loading-content');
-    })
-    .done(function(res) {
-      var data = res.root || {};
-      if (res && res.result === 0) {
-        if(res.root.parent != null) {
-          self.$('.js-fc-parent').removeClass('hidden');
-          self.$('.js-pf-select-superior').attr('data-id',data.parent.userId);
-          self.$('.js-pf-select-superior').attr('data-headid',data.parent.headId);
-          self.$('input[name=parentId]').val(data.parent.userId);
-
-          if (data.parent.newMsgNum == 0) {
-            self.$('.js-pf-select-superior big').addClass('hidden');
+    if (!this.options.useMediator) {
+      this.getLowLevelXhr()
+        .done(function(res) {
+          var data = res.root || {};
+          if (res && res.result === 0) {
+            self.refresh(data);
           }
-          if (data.parent != null) {
-            self.$('.js-pf-select-superior big').text(data.parent.newMsgNum);
-          }
-        }
-
-        if(res.root.subList != null){
-          self.$('.js-pf-input-search-user').removeClass('hidden');
-          self.treeView2.insertNode(_(data.subList).map(function (sub) {
-            return {
-              text: sub.username,
-              value: sub.userId,
-              subItem: false,
-              online: sub.online,
-              headId: sub.headId,
-              newMsgNum: sub.newMsgNum
-            };
-          }));
-        }
-      }
-
-      if ($('.js-selected-container li').length == 1) {
-        var id = $('.js-selected-container li').eq(0).data('id');
-
-        for (var i = $('.js-wt-title').length - 1; i >= 0; i--) {
-          if ($('.js-wt-title').eq(i).data('no') == id) {
-            $('.js-wt-title').eq(i).addClass('sd');
-            $('.js-wt-title-close').eq(i).removeClass('hidden');
-          }
-        }
-      }
-    });
+        });
+    } else {
+      this.subscribe('message', 'message:updating', function(model) {
+        self.refresh(model.toJSON());
+      });
+    }
   },
 
-  renderLowLevel: function(e, parentId) {
+  refresh: function(data) {
     var self = this;
 
-    this.getLowLevelByIdXhr({
-      subAcctId: parentId
-    })
-    .done(function(res) {
-      var data = res.root || {};
-      if (res && res.result === 0) {
-        self.treeView2.insertNode(_(data).map(function(sub) {
-          return {
-            text: sub.subAcctName+ ((sub.subNo !== 0)? ('('+sub.subNo+')') :''),
-            value: sub.subAcctId,
-            subItem: sub.subNo !== 0
-          };
-        }), e.currentTarget);
-      }
-    });
-  },
+    if (data.parent) {
+      var parent = data.parent;
+      this.$('.js-fc-parent').removeClass('hidden');
+      this.$('.js-pf-select-superior').data('no', parent.userId);
+      this.$('input[name=parentId]').val(parent.userId);
 
-  selectUser: function(id, name) {
-    $('.julien-low-multi-selected2 h3').addClass('hidden');
-    var user = {
-      id: id,
-      name: name
-    };
+      // if (parent.online) {
+      //   this.$('.online-tip').removeClass('hidden');
+      // }
+    }
+    if(data.subList) {
+      this.$('.js-pf-input-search-user').removeClass('hidden');
+      this.treeView.insertNode(_(data.subList).chain().sortBy(function(sub) {
+        return sub.newMsgNum ? 0 : sub.online ? 1 : 2;
+      }).map(function(sub) {
+        var nameHtml = ['<span class="low-multi-avatar avatar-' + sub.headId];
+        if (!sub.online) {
+          nameHtml.push(' gray');
+        }
 
-    sessionStorage.setItem('selectUserId', id);
+        if (sub.newMsgNum) {
+          nameHtml.push(' flash');
+        }
 
-    var find = _(this.selectedUsers).findWhere(user);
-    if (!find) {
-      this.selectedUsers.push(user);
+        nameHtml.push('"></span><span class="low-username ellipsis" title="' + sub.username + '">' + sub.username + '</span>');
 
+        return {
+          text: nameHtml.join(''),
+          value: sub.userId,
+          subItem: false,
+          extra: (self.options.showUnread && sub.newMsgNum !== 0) ? '<span class="spot spot-lg spot-pink">' + sub.newMsgNum + '</span>' : '',
+          data: sub
+        };
+      }).value());
       this.renderSelectedUsers();
     }
-
   },
 
-  deleteUser: function(id, name) {
-    var user = {
-      id: id,
-      name: name
-    };
+  selectUser: function(id, data) {
 
-    if ( sessionStorage.getItem('selectUserId') ==  id) {
-      sessionStorage.setItem('selectUserId', 0);
-    }
-
-    var find = _(this.selectedUsers).findWhere(user);
-    if (find) {
-      var num =_.findIndex(this.selectedUsers, user);
-      this.selectedUsers.splice(num,1);
-      if (this.selectedUsers.length == 0) {
-        $('.julien-low-multi-selected2 h3').removeClass('hidden');
-        $('.low-multi-select .subordinate').removeClass('subordinate-sd');
+    if (this.options.select) {
+      var find = _(this.selectedUsers).findWhere(user);
+      if (!find) {
+        this.selectedUsers.push(data);
+        if (!treeview) {
+          this.renderSelectedUsers();
+        }
       }
-      this.renderSelectedUsers();
+    } else {
+      this.selectedUsers = [data];
+
+      this.trigger('select:change', this.selectedUsers);
     }
   },
 
   renderSelectedUsers: function() {
+    var $tree = this.$('.js-pf-jstree');
 
-    if(_(this.selectedUsers).size()<1){
-      this.$selectedContainer.html('');
-    }else{
-      this.$selectedContainer.html(_(this.selectedUsers).map(function(user) {
-        return '<li data-id="' + user.id + '"><b></b><span class="js-pf-selected-user" >' + user.name + '</span><i class="js-pf-close-user fa fa-remove" ></i></li>';
-      }));
+    if(_(this.selectedUsers).size() > 0 && this.options.select) {
+      _(this.selectedUsers).each(function(user) {
+        $tree.find('a[data-no='+ user.id + '] .js-wt-title').addClass('selected-user');
+      });
+    } else {
+      $tree.find('.js-wt-title').removeClass('selected-user');
     }
-
-    $('.js-single-to-user').change();
   },
 
   //event handlers
+
   searchHandler: function(e) {
-   
     var self = this;
     var $target = $(e.currentTarget);
+
     var val = _($target.val()).trim();
 
-    var obj = $('.julien-user-list ul li span');
-    if (obj.length != 0) {
-      var myReg = new RegExp(val)
-      $('.julien-user-list ul li').addClass('hidden');
+    if (val) {
+      this.$searchContainer.removeClass('hidden');
+      this.$selectContainer.addClass('hidden');
 
-      for (var i = 0; i < obj.length; i++) {
-        if (myReg.test(obj.eq(i).text())) {
-          $('.julien-user-list ul li').eq(i).removeClass('hidden');
-        }
-      }
+      this.getSearchXhr({
+        subAcctName: val
+      })
+        .done(function(res) {
+          var data = res.root || [];
+          if (res && res.result === 0) {
+            if (_(data).isEmpty()) {
+              self.$searchContainer.html('没有匹配用户');
+            } else {
+              self.$searchContainer.html('<a href="javascript:void(0);" ' +
+                'data-no="' + data.subAcctId + '" data-name="' + data.subAcctName + '">' +
+                '<span class="js-wt-title">' + data.subAcctName + '</span></a>');
+            }
+          } else {
+            self.$searchContainer.html('没有匹配用户');
+          }
+        });
+    } else {
+      this.$searchContainer.addClass('hidden');
+      this.$selectContainer.removeClass('hidden');
     }
-    else{
-      $('.julien-user-list ul li').removeClass('hidden');
-    }
-  },
-
-  selectUserHandler: function(e) {
-    var $target = $(e.currentTarget);
-
-    $('.js-pf-select-superior big').addClass('hidden');
-    $('.js-info-window').fadeIn("slow");
-    $('.js-selected-container').fadeIn("slow");
-    
-    if ($target.parent().hasClass('pf-select-superior-sd')) {
-      sessionStorage.setItem('selectUserId', $target.parent().data('id') );
-      $('.js-single-to-user').change();
-    }
-    else{
-      $target.parent().addClass('pf-select-superior-sd');
-      this.selectUser($target.parent().data('id'), $target.parent().data('name'));
-    }
-  },
-
-  selectUserHandlerClose: function(e) {
-    var $target = $(e.currentTarget);
-    
-    if ($target.parent().hasClass('pf-select-superior-sd')) {
-      $target.parent().removeClass('pf-select-superior-sd');
-      this.deleteUser($target.parent().data('id'), $target.parent().data('name'));
-    }
-  },
-
-  cancelSelectHandler: function(e) {
-    var $target = $(e.currentTarget);
-
-    if ( $target.parent().data('id') == $('.js-selected-container .sd').data('id') ) {
-      sessionStorage.setItem('selectUserId',0);
-    }
-
-    this.selectedUsers = _(this.selectedUsers).without(_(this.selectedUsers).findWhere({
-      id: $target.parent().data('id')
-    }));
-
+    this.selectedUsers = [];
+    $('.js-pf-selectAll-input').prop('checked', false);
     this.renderSelectedUsers();
+  },
 
-    if ($target.parent().children('span').text() == '我的上级') {
-      $('.js-pf-select-superior').removeClass('pf-select-superior-sd');
-    }
-    else{
-      var obj = $('.js-pf-jstree ul li a');
-      for (var i = 0; i < obj.length; i++) {
-        if ($target.parent().data('id') == $('.js-pf-jstree ul li a').eq(i).data('no')) {
-          $('.js-wt-title').eq(i).removeClass('sd');
-          $('.js-wt-title-close').eq(i).addClass('hidden');
-        }
-      }
+  // toggleSelectUserHandler: function(e) {
+  //   var $target = $(e.currentTarget);
+  //
+  //   if (this.options.select) {
+  //     if ($target.hasClass('selected-user')) {
+  //
+  //       $target.removeClass('selected-user');
+  //       $('.js-pf-selectAll-input').prop('checked', false);
+  //       this.selectedUsers = _(this.selectedUsers).without(_(this.selectedUsers).findWhere({
+  //         id: $target.closest('a').data('no')
+  //       }));
+  //     } else {
+  //       $target.addClass('selected-user');
+  //     }
+  //   } else {
+  //     var data = $target.closest('a').data();
+  //     this.selectedUsers = [{
+  //       name: data.name || data.data.name,
+  //       id: data.no
+  //     }];
+  //   }
+  //
+  //   this.trigger('select:change', this.selectedUsers);
+  // },
 
-      if ($('.js-wt-title sd').length == 0) {
-        $('.js-subordinate').removeClass('subordinate-sd');
-      }
+  toggleSelectAllHandler: function(e) {
+    var self = this;
+    var $target = $(e.currentTarget);
+    var $tree = this.$('.js-pf-jstree');
+
+    if ($target.find('.js-pf-selectAll-input:checked').length) {
+
+      _($tree.find('.js-wt-title')).each(function(user) {
+        $(user).removeClass('selected-user');
+        self.selectedUsers = [];
+      });
+      $target.find('.js-pf-selectAll-input').prop('checked', false);
+
+    } else {
+      _($tree.find('.js-wt-title')).each(function(user) {
+        $(user).addClass('selected-user');
+        self.selectUser($(user).closest('a').data('no'), $(user).data('data'));
+      });
+
+      $target.find('.js-pf-selectAll-input').prop('checked', true);
     }
+
+    this.trigger('select:change', this.selectedUsers);
+    return false;
   }
 });
 

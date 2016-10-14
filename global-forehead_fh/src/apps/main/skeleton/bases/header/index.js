@@ -91,7 +91,7 @@ var HeaderView = Base.ItemView.extend({
   renderUpdateUnread: function(model) {
     var unRead = model.getUnreadCount();
     unRead = unRead > 99 ? 99 : unRead;
-    this.$letterUnread.html(unRead).toggleClass('h-no-letter', !unRead);
+    this.$letterUnread.html(unRead).toggleClass('spot-hot', !!unRead);
   },
 
   renderAcctInfo: function() {
