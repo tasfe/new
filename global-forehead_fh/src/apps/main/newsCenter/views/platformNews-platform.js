@@ -27,7 +27,7 @@ var PlatformNewsPlatformView = Base.ItemView.extend({
     });
   },
 
-  initialize: function () {
+  initialize: function() {
     _(this.options).extend({
       columns: [
         {
@@ -63,8 +63,8 @@ var PlatformNewsPlatformView = Base.ItemView.extend({
   initGrid: function($grid) {
     var self = this;
     $grid.grid({
-      tableClass: 'table table-unbordered  no-margin nc-platform-table' ,
-      height:470,
+      tableClass: 'table table-bottom-bordered no-margin',
+      height: 470,
       checkable: true,
       checkableWidth: '40px',
       tip: this.options.tip,
@@ -91,7 +91,7 @@ var PlatformNewsPlatformView = Base.ItemView.extend({
       };
     }, this);
 
-    if (gridData.noticeList && gridData.noticeList.length) {
+    if(gridData.noticeList && gridData.noticeList.length) {
       this.grid.hideEmpty();
     } else {
       this.grid.renderEmpty();
@@ -118,13 +118,13 @@ var PlatformNewsPlatformView = Base.ItemView.extend({
       data: _(filters).extend(this.options.reqData)
     })
       .fail(function(def, type) {
-        if (type !== 'abort') {
+        if(type !== 'abort') {
           //Global.ui.notification.show('服务器异常，无法加载列表');
           self.grid.hideLoading();
         }
       })
       .done(function(res) {
-        if (res && res.result === 0) {
+        if(res && res.result === 0) {
           self.renderGrid(res.root, res);
           //Global.m.news.updateUnReadNum({unReadNotice:res.root.unReadNotice});
         }
@@ -142,21 +142,21 @@ var PlatformNewsPlatformView = Base.ItemView.extend({
 
     title.push('<span>');
 
-    switch (rowInfo.type) {
+    switch(rowInfo.type) {
       case 0:
-        if (rowInfo.isRead){
-          title.push('<i class="sfa sfa-mes-read font-md font-bold"></i><span class="np-message-des-read">'+rowInfo.title+'</span>');
-        }else{
-          title.push('<i class="sfa sfa-mes-unRead font-md font-bold"></i>'+rowInfo.title);
+        if(rowInfo.isRead) {
+          title.push('<i class="sfa sfa-mes-read font-md font-bold"></i><span class="np-message-des-read">' + rowInfo.title + '</span>');
+        } else {
+          title.push('<i class="sfa sfa-mes-unRead font-md font-bold"></i>' + rowInfo.title);
         }
 
         break;
       case 2:
-          if (rowInfo.isRead){
-            title.push('<i class="sfa sfa-mes-read font-md font-bold"></i><span class="np-message-des-read">'+rowInfo.title+'</span><a href="#as/ll" class="js-nc-link message-log-read router btn-link">登录日志</a>');
-          }else{
-            title.push('<i class="sfa sfa-mes-unRead font-md font-bold"></i><span>'+rowInfo.title+'</span><a href="#as/ll" class="js-nc-link message-log-unRead router btn-link">登录日志</a>');
-          }
+        if(rowInfo.isRead) {
+          title.push('<i class="sfa sfa-mes-read font-md font-bold"></i><span class="np-message-des-read">' + rowInfo.title + '</span><a href="#as/ll" class="js-nc-link message-log-read router btn-link">登录日志</a>');
+        } else {
+          title.push('<i class="sfa sfa-mes-unRead font-md font-bold"></i><span>' + rowInfo.title + '</span><a href="#as/ll" class="js-nc-link message-log-unRead router btn-link">登录日志</a>');
+        }
 
         break;
       default:
@@ -178,9 +178,9 @@ var PlatformNewsPlatformView = Base.ItemView.extend({
     var model = Global.data.get('newsModel');
     var xhr = model.setReadNoticeXhr(idList);
 
-    if (xhr) {
-     xhr.done(function() {
-       self._getGridXhr();
+    if(xhr) {
+      xhr.done(function() {
+        self._getGridXhr();
       });
     }
   },
@@ -190,7 +190,7 @@ var PlatformNewsPlatformView = Base.ItemView.extend({
   readHandler: function(e) {
     var idList = this.grid.getChk().ids;
 
-    if (_.isEmpty(idList)) {
+    if(_.isEmpty(idList)) {
       return false;
     }
 
@@ -207,23 +207,23 @@ var PlatformNewsPlatformView = Base.ItemView.extend({
     var self = this;
     var idList = this.grid.getChk().ids;
 
-    if (_.isEmpty(idList)) {
+    if(_.isEmpty(idList)) {
       return false;
     }
 
     var model = Global.data.get('newsModel');
 
-   $(document).confirm({
+    $(document).confirm({
       agreeCallback: function() {
         var xhr = model.deleteNoticeXhr(idList);
 
-        if (xhr) {
+        if(xhr) {
           xhr.done(function() {
-           self._getGridXhr();
+            self._getGridXhr();
           });
-       }
+        }
       }
-   });
+    });
   },
   inSettingHandler: function(e) {
     var $target = $(e.currentTarget);
@@ -275,16 +275,16 @@ var PlatformNewsPlatformView = Base.ItemView.extend({
           $target.button('reset');
         })
         .done(function(res) {
-          if (res.result === 0) {
-            Global.ui.notification.show('通知设置保存成功', {
-              type: 'success'
-            });
-            $dialog.modal('hide');
-          } else {
-            Global.ui.notification.show('通知设置保存失败');
+            if(res.result === 0) {
+              Global.ui.notification.show('通知设置保存成功', {
+                type: 'success'
+              });
+              $dialog.modal('hide');
+            } else {
+              Global.ui.notification.show('通知设置保存失败');
+            }
           }
-        }
-      );
+        );
     });
 
   }
