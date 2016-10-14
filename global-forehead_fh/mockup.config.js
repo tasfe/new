@@ -1,7 +1,7 @@
 module.exports = {
   routers: {
     '/info/activitylist/getbroadcastlist.json': 'mockup/getBroadcast.json',
-    '/acct/usermsg/msgstat.json': 'mockup/msg-stat.json',
+    // '/acct/usermsg/msgstat.json': 'mockup/msg-stat.json',
     // '/acct/usermsg/msglist.json': 'mockup/msg-list.json'
     //'/acct/login/doauth.json': 'mockup/oauth.json',
     //'/fund/redenvelope/info.json': 'mockup/redenvelope.json',

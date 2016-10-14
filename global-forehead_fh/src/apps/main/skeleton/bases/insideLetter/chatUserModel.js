@@ -27,7 +27,7 @@ var ChatUserModel = Model.extend({
       chatList = _(res.root || []).reduceRight(function(chatData, chat) {
         chatData.push({
           messageId: chat.messageId,
-          content: chat.content,
+          content: chat.content.replace(/\[\-f(\w+)\-\]/g, '<span class="chat-exp face-$1"></span>'),
           sendTime: chat.sendTime,
           isSender: chat.sendId === Global.memoryCache.get('acctInfo').userId
         });

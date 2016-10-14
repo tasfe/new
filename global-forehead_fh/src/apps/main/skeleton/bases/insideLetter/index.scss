@@ -89,10 +89,6 @@
           color: #999999;
         }
 
-        span {
-          padding: 5px 10px;
-        }
-
         &.other {
 
           b {
@@ -216,7 +212,7 @@
   }
   .chat-username {
     vertical-align: bottom;
-    width: 55px;
+    width: 56px;
     display: inline-block;
     overflow: hidden;
   }
@@ -263,6 +259,12 @@
         color: $color-amber;
       }
     }
+  }
+
+  .chat-exp {
+    width: 30px;
+    height: 30px;
+    display: inline-block;
   }
 
   .chat-input-bar {
@@ -318,3 +320,13 @@
   }
 }
 
+
+.chat-exp {
+  background-size: 100%;
+
+  @for $i from 1 through 18 {
+    &.face-#{$i} {
+      background-image: url(~base/images/face/#{$i}.png);
+    }
+  }
+}

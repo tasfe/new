@@ -68,27 +68,6 @@ var InsideLetterView = Base.ItemView.extend({
 
   initialize: function() {
     this.collection = new ChatUsersCollection();
-
-    for(var i = 0; i < 18; i++) {
-      j = i + 1;
-      if(i < 9) {
-        this.faceArry[i] = '[-f0' + j + '-]';
-      }
-      else {
-        this.faceArry[i] = '[-f' + j + '-]';
-      }
-    }
-
-    var j = 0;
-    for(var i = 0; i < 18; i++) {
-      j = i + 1;
-      if(i < 9) {
-        this.faceArry2[i] = '<span class="face0' + j + '"></span>';
-      }
-      else {
-        this.faceArry2[i] = '<span class="face' + j + '"></span>';
-      }
-    }
   },
 
   sendChatXhr: function(data) {
@@ -170,6 +149,7 @@ var InsideLetterView = Base.ItemView.extend({
         if(!model.get('active')) {
           model.set('scrollTop', this.$singleChat.scrollTop());
         } else {
+          this.setCurrentChat(chatModel.id);
           this.$singleChat.scrollTop(model.get('scrollTop') || this.singleChat.height());
         }
       }, this);
@@ -186,8 +166,9 @@ var InsideLetterView = Base.ItemView.extend({
     }
 
     this.currentChatModel = this.collection.get(modelId);
+    var chatListCollection = this.currentChatModel.get('chatList');
 
-    this.currentChatModel.get('chatList').on('update', this.showCurrentChat, this);
+    chatListCollection.on('update', this.showCurrentChat, this).trigger('update', chatListCollection);
   },
 
   showCurrentChat: function(chatList) {
@@ -202,17 +183,6 @@ var InsideLetterView = Base.ItemView.extend({
 
   toggleChatBox: function(show) {
     this.$chatBox.toggleClass('hidden', !show);
-  },
-
-  getFace: function(content) {
-    var strContent = content;
-    for(var i = 0; i < 18; i++) {
-      strContent = strContent.replace(this.faceArry[i], this.faceArry2[i]);
-      while(strContent.indexOf(this.faceArry[i]) > 0) {
-        strContent = strContent.replace(this.faceArry[i], this.faceArry2[i]);
-      }
-    }
-    return strContent;
   },
 
   showCurrentMultiChat: function(partners) {
