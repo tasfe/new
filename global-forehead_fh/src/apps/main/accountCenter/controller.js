@@ -41,6 +41,15 @@ var AccountCenterController = RouterController.extend({
     });
   },
 
+  forgetFundPwd: function() {
+    this.changeMainReginView(new PersonalManageView({
+      type: 'forgetFundPwd'
+    }), {
+      sidebar: 'pc',
+      topView: 'personal'
+    });
+  },
+
   securityQuestion: function() {
     this.changeMainReginView(new PersonalManageView({
       type: 'securityQuestion'
