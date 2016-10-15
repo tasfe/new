@@ -58,7 +58,7 @@ var menuConfig = [
       {
         id: 136,
         router: 'ac/salary',
-        name: '日工资管理',
+        name: '日薪管理',
         needAuth: true
       },
       {

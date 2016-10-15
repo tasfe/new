@@ -2,11 +2,15 @@
 
 require('./index.scss');
 
+var comingSoon =  require('base/images/coming-soon.png');
+
 var TopProfileView = Base.ItemView.extend({
 
   template: require('./index.html'),
 
   updateUNameTpl: _(require('./updateUName.html')).template(),
+
+
 
   events: {
     'click .js-personal-uname-edit': 'editUNameHandler',
@@ -28,6 +32,7 @@ var TopProfileView = Base.ItemView.extend({
     this.$loginLoc = this.$('.js-personal-login-loc');
     this.$regTime = this.$('.js-personal-reg-time');
     this.$avatar = this.$('.js-personal-avatar');
+    this.$('.js-uc-personal-profile-vip-coming-soon').attr('src',comingSoon);
 
     this.subscribe('acct', 'acct:updating', function() {
       self.checkState();
