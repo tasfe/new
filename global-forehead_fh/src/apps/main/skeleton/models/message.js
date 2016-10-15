@@ -15,7 +15,8 @@ var MessageModel = Model.extend({
         url: '/acct/usermsg/read.json',
         data: {
           userId: userId
-        }
+        },
+        abort: false
       })
         .always(function() {
           Global.m.message.fetch();

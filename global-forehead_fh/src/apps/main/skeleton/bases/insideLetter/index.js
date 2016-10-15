@@ -180,8 +180,8 @@ var InsideLetterView = Base.ItemView.extend({
       this.singleChat.render(chatList.toJSON(), info.last);
       if (info.hasNew) {
         this.$singleChat.scrollTop(this.singleChat.height());
+        Global.m.message.setRead(this.currentChatModel.id);
       }
-      Global.m.message.setRead(this.currentChatModel.id);
     }
   },
 
