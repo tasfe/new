@@ -13,36 +13,49 @@ var Chat = Base.PrefabView.extend({
     prevClass: 'js-pf'
   },
 
+  events: {
+    'click .js-chat-get-history': 'getHistoryHandler'
+  },
+
   initialize: function() {
     this._chatData = [];
   },
 
-  render: function(chatData) {
-    if (chatData) {
-      this.$el.html(_(this.template).template()({
-        chatData: this._push(chatData)
-      }));
-    }
+  render: function(chatData, isLastMsg) {
+    this.renderChatContent(chatData, isLastMsg);
 
     return this;
+  },
+
+  renderChatContent: function(chatList, isLastMsg, prepend) {
+    var html;
+    if (chatList) {
+      html = _(this.template).template()({
+        chatData: this._push(chatList),
+        isLastMsg: isLastMsg
+      });
+
+      if (!prepend) {
+        this.$el.html(html);
+      } else {
+        this.$el.prepend(html);
+      }
+    }
   },
 
   add: function(chatInfo) {
-    if (chatInfo) {
-      this.$el.append(_(this.template).template()({
-        chatData: [this._push(chatInfo)]
-      }));
-    }
+    this.renderChatContent([chatInfo]);
 
     return this;
   },
 
-  prepend: function(chatData) {
-    if (chatData) {
-      this.$el.prepend(_(this.template).template()({
-        chatData: this._push(chatData)
-      }));
-    }
+  prepend: function(chatData, isLastMsg) {
+    this.renderChatContent(chatData, isLastMsg, true);
+    // if (chatData) {
+    //   this.$el.prepend(_(this.template).template()({
+    //     chatData: this._push(chatData)
+    //   }));
+    // }
 
     return this;
   },
@@ -73,6 +86,10 @@ var Chat = Base.PrefabView.extend({
     }
 
     return chatData;
+  },
+
+  getHistoryHandler: function() {
+    this.trigger('get:history');
   }
 });
 

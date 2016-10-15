@@ -1,18 +1,21 @@
+<% if(!isLastMsg) { %>
+<div class="text-center">
+  <button class="js-chat-get-history btn btn-link text-gray chat-get-history">查看更多历史消息</button>
+</div>
+<% } %>
 <% _(chatData).each(function(chat) { %>
 <li class="<% if (chat.isSender) { %>right<% } else { %>left<% } %> clearfix">
   <!--<span class="chat-img pull-right"></span>-->
   <% if (chat.hasTitle) { %>
   <div class="chat-title">
-    <!--<% if (!chat.isSender) { %><div class="chat-name"><%=chat.sender %></div><% } %>-->
-    <div class="chat-date"><%=_(chat.sendTime).toTime() %></div>
-    <!--<% if (chat.isSender) { %><div class="chat-name"><%=chat.sender %></div><% } %>-->
+    <div class="chat-name"><%=chat.sender %></div>
+    <div class="chat-date"><%=_(chat.sendTime).toTime('H:mm') %></div>
   </div>
   <% } %>
+  <div class="chat-avatar avatar-<%=chat.headId %>"></div>
   <div class="chat-body clearfix">
-    <!--<div class="header">-->
-      <!--<small class="pull-right"><%=_(chat.sendTime).toTime() %></small>-->
-    <!--</div>-->
     <p><%=chat.content %></p>
   </div>
+  <!--<% if (chat.isSender) { %><div class="chat-avatar avatar-<%=chat.headId %>"></div><% } %>-->
 </li>
 <% }); %>

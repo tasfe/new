@@ -16,18 +16,13 @@ var LowMultiSelect = Base.PrefabView.extend({
     select: true
   },
 
+  isSearching: false,
+
   events: {
     'keyup .js-pf-input-search-user': 'searchHandler',
     'click .js-pf-select-superior': 'toggleSelectUserHandler',
     'click .js-wt-title': 'toggleSelectUserHandler',
     'click .js-pf-selectAll': 'toggleSelectAllHandler'
-  },
-
-  getSearchXhr: function(data) {
-    return Global.sync.ajax({
-      url: '/acct/subacctinfo/getsubacctnamebyname.json',
-      data: data
-    });
   },
 
   getLowLevelXhr: function() {
@@ -37,20 +32,14 @@ var LowMultiSelect = Base.PrefabView.extend({
     });
   },
 
-  // getLowLevelByIdXhr: function(data) {
-  //   return Global.sync.ajax({
-  //     url: '/acct/subacctinfo/getsubacctnamebyid.json',
-  //     data: data
-  //   });
-  // },
-
   initialize: function() {
     this.selectedUsers = [];
   },
 
   onRender: function() {
-    this.$searchContainer = this.$('.js-pf-search-container');
+    // this.$searchContainer = this.$('.js-pf-search-container');
     this.$selectContainer = this.$('.js-pf-select-container');
+    this.$searchUser = this.$('.js-pf-input-search-user');
     this.$selectAll = this.$('.js-pf-selectAll');
 
     if (this.options.selectAll) {
@@ -86,6 +75,10 @@ var LowMultiSelect = Base.PrefabView.extend({
     } else {
       this.subscribe('message', 'message:updating', function(model) {
         self.refresh(model.toJSON());
+
+        if (self.isSearching) {
+          self.$searchUser.trigger('keyup');
+        }
       });
     }
   },
@@ -99,6 +92,9 @@ var LowMultiSelect = Base.PrefabView.extend({
       this.$('.js-fc-parent').removeClass('hidden');
       this.$('.js-pf-select-superior').data('data', parent);
 
+      if (parent.newMsgNum) {
+        this.$('.js-pf-superior-unread').text(parent.newMsgNum).removeClass('hidden');
+      }
       // if (parent.online) {
       //   this.$('.online-tip').removeClass('hidden');
       // }
@@ -163,35 +159,22 @@ var LowMultiSelect = Base.PrefabView.extend({
   //event handlers
 
   searchHandler: function(e) {
-    var self = this;
     var $target = $(e.currentTarget);
+    var $allSubUsers;
 
     var val = _($target.val()).trim();
 
     if (val) {
-      this.$searchContainer.removeClass('hidden');
-      this.$selectContainer.addClass('hidden');
-
-      this.getSearchXhr({
-        subAcctName: val
-      })
-        .done(function(res) {
-          var data = res.root || [];
-          if (res && res.result === 0) {
-            if (_(data).isEmpty()) {
-              self.$searchContainer.html('没有匹配用户');
-            } else {
-              self.$searchContainer.html('<a href="javascript:void(0);" ' +
-                'data-no="' + data.subAcctId + '" data-name="' + data.subAcctName + '">' +
-                '<span class="js-wt-title">' + data.subAcctName + '</span></a>');
-            }
-          } else {
-            self.$searchContainer.html('没有匹配用户');
-          }
-        });
+      this.isSearching = true;
+      this.$selectContainer.find('.js-wt-title').addClass('hidden');
+      $allSubUsers = this.$selectContainer.find('.js-wt-title').filter(function() {
+        var username = $(this).data('data').username;
+        return username.indexOf(val) !== -1;
+      });
+      $allSubUsers.removeClass('hidden');
     } else {
-      this.$searchContainer.addClass('hidden');
-      this.$selectContainer.removeClass('hidden');
+      this.isSearching = false;
+      this.$selectContainer.find('.js-wt-title').removeClass('hidden');
     }
     this.selectedUsers = [];
     $('.js-pf-selectAll-input').prop('checked', false);

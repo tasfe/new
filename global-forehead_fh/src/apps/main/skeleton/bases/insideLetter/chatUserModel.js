@@ -16,20 +16,26 @@ var ChatUserModel = Model.extend({
 
   chatTimer: null,
 
-  pageSize: 5,
+  pageSize: 20,
 
   parse: function(res, remoteOptions) {
+    var self = this;
     var hasNew = false;
     var chatList;
-    var last = true;
+    var last = false;
+    var results = {};
+
     res.root = res.root || {};
+
     if(res && res.result === 0) {
       chatList = _(res.root || []).reduceRight(function(chatData, chat) {
         chatData.push({
           messageId: chat.messageId,
           content: chat.content.replace(/\[\-f(\w+)\-\]/g, '<span class="chat-exp face-$1"></span>'),
           sendTime: chat.sendTime,
-          isSender: chat.sendId === Global.memoryCache.get('acctInfo').userId
+          isSender: chat.sendId === Global.memoryCache.get('acctInfo').userId,
+          headId: self.get('headId'),
+          sender: self.get('username')
         });
         return chatData;
       }, []);
@@ -37,48 +43,65 @@ var ChatUserModel = Model.extend({
       var currentChatCollection = this.get('chatList');
 
       if (currentChatCollection.isEmpty()) {
-        currentChatCollection.set(chatList);
+        currentChatCollection.set(chatList, {
+          silent: true
+        });
         hasNew = true;
+        results.last = chatList.length < this.pageSize;
       } else {
         _(chatList).each(function(info) {
           var find = currentChatCollection.findWhere({
             messageId: info.messageId
           });
           if (!find) {
-            currentChatCollection.add(info);
+            currentChatCollection.add(info, {
+              silent: true
+            });
             hasNew = true;
           }
         }, this);
 
-        currentChatCollection.sortBy('sendTime');
-      }
-
-      if (chatList.length >= this.pageSize) {
-        last = false;
+        // currentChatCollection.sortBy('sendTime', {
+        //   silent: true
+        // });
       }
     }
 
-    if (hasNew) {
-      return {
-        lastMsgId: remoteOptions.data.lastMsgId,
-        // chatList: currentChatCollection,
-        hasNew: hasNew,
-        last: last
-      };
-    } else {
-      return {
-        lastMsgId: remoteOptions.data.lastMsgId,
-        // chatList: currentChatCollection,
-        last: last
-      };
+    if (chatList.length < this.pageSize) {
+      last = true;
     }
+
+    results.lastMsgId = remoteOptions.data.lastMsgId;
+    results.hasNew = hasNew;
+
+    if (last) {
+      results.last = true;
+    }
+
+    return results;
+    // } else {
+    //   return {
+    //     lastMsgId: remoteOptions.data.lastMsgId,
+    //     // chatList: currentChatCollection,
+    //     last: last
+    //   };
+    // }
   },
 
   initialize: function() {
     var self = this;
 
-    this.set('chatList', new Collection(), {
+    var chatCollection = new Collection();
+
+    chatCollection.comparator = 'sendTime';
+
+    this.set('chatList', chatCollection, {
       silent: true
+    });
+
+    this.on('sync', function() {
+      var chatListCollection = this.get('chatList');
+      chatListCollection.trigger('update', chatListCollection);
     });
 
     this.on('change:active', function(currentModel, active) {
