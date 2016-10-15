@@ -112,6 +112,10 @@ var InsideLetterView = Base.ItemView.extend({
 
     this.singleChat = new Chat();
 
+    this.singleChat.on('get:history', function() {
+      this.currentChatModel.getHistory();
+    }, this);
+
     this.$singleChat.html(this.singleChat.render().el);
 
     this.singleSelect.on('select:change', function() {
@@ -121,10 +125,6 @@ var InsideLetterView = Base.ItemView.extend({
     if(this.options.reqData && this.options.reqData.userId) {
       this.singleSelect.selectUser(this.options.reqData.userId, this.options.reqData.name);
     }
-
-    this.$singleChat.on('scroll', _(function(e) {
-      self.scrollToPrevHandler(e);
-    }).debounce(1000));
   },
 
   selectChatUser: function(selectedUsers) {
@@ -172,13 +172,16 @@ var InsideLetterView = Base.ItemView.extend({
   },
 
   showCurrentChat: function(chatList) {
+    var info = this.currentChatModel.pick('last', 'hasNew');
     if(this.currentChatModel.get('lastMsgId')) {
-      this.singleChat.prepend(chatList.toJSON());
+      this.singleChat.render(chatList.toJSON(), info.last);
       this.$singleChat.scrollTop(0);
     } else {
-      this.singleChat.render(chatList.toJSON());
-      this.$singleChat.scrollTop(this.singleChat.height());
-      Global.m.message.fetch();
+      this.singleChat.render(chatList.toJSON(), info.last);
+      if (info.hasNew) {
+        this.$singleChat.scrollTop(this.singleChat.height());
+      }
+      Global.m.message.setRead(this.currentChatModel.id);
     }
   },
 
@@ -216,14 +219,6 @@ var InsideLetterView = Base.ItemView.extend({
     var expId = $target.data('id');
     this.$singleContent.val(this.$singleContent.val() + expId)
       .trigger('input').trigger('propertychange');
-  },
-
-  scrollToPrevHandler: function(e) {
-    var $target = $(e.currentTarget);
-
-    if($target.scrollTop() <= 0) {
-      this.currentChatModel.getHistory();
-    }
   },
 
   sendSingleChatHandler: function(e) {

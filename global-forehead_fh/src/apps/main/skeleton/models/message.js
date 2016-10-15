@@ -9,12 +9,12 @@ var MessageModel = Model.extend({
     subList: []
   },
 
-  setReadLetterXhr: function(id) {
-    if (id) {
+  setReadLetterXhr: function(userId) {
+    if (userId) {
       return Global.sync.ajax({
         url: '/acct/usermsg/read.json',
         data: {
-          userId: id
+          userId: userId
         }
       })
         .always(function() {
