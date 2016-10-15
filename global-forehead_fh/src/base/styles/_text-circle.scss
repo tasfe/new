@@ -1,13 +1,6 @@
 .text-circle {
   display: inline-block;
   text-align: center;
-  background: url(~base/images/text-circle.png) no-repeat;
-  color: #fff;
-  font-size: 24px;
-  width: 52px;
-  height: 52px;
-  line-height: 46px;
-  margin-right: 7px;
 
   &:last-of-type {
     margin-right: 0;
@@ -15,5 +8,16 @@
 
   @include text-circle-sizes($text-circle-sizes);
 
-  //@include text-circle-colors($text-circle-colors);
+  @include text-circle-colors($text-circle-colors);
+
+  &.text-circle-bet-ball {
+    background: url(~base/images/text-circle.png) no-repeat;
+    color: #fff;
+    font-size: 24px;
+    width: 52px;
+    height: 52px;
+    line-height: 46px;
+    margin-right: 7px;
+    border: none;
+  }
 }

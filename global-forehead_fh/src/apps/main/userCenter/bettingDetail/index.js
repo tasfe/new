@@ -113,7 +113,7 @@ var BettingDetailView = Base.ItemView.extend({
     var openNum = betInfo.openNum ? betInfo.openNum : '等,待,开,奖';
 
     this.$('#jsPaOpenNum').html(_(openNum.split(',')).map(function(openNum) {
-      return '<span class="text-circle m-right-xs">' + openNum + '</span>';
+      return '<span class="text-circle text-circle-bet-ball m-right-xs">' + openNum + '</span>';
     }).join(''));
 
     if(betInfo.canCancel && this.isSelf){

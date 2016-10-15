@@ -67,6 +67,7 @@
         .ac-activity-image {
           filter: grayscale(100%);
           filter: gray;
+          filter:progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);
         }
       }
     }

@@ -1,20 +1,19 @@
 $.widget('gl.treeView', {
 
   template: '' +
-    '<div class="tree-view2 font-16 clearfix"></div>',
+  '<div class="tree-view font-16 clearfix"></div>',
 
   options: {
     namespace: 'treeView',
     onClick: _.noop,
-    onClick2: _.noop,
     onDblclick: _.noop,
     onCollapsed: _.noop
   },
 
   _addEventHandler: function() {
     this._on({
+      'dblclick li .js-wt-title': 'dblNodeCheckHandler',
       'click li .js-wt-title': 'nodeCheckHandler',
-      'click li .js-wt-title-close': 'nodeCheckHandler2',
       'click li .js-wt-collapse': 'collapseHandler',
       'click li .custom-checkbox': 'checkboxHandler'
     });
@@ -44,12 +43,12 @@ $.widget('gl.treeView', {
   insertNode: function(data, target, position) {
     var $target;
     if (_.isNumber(target)) {
-      $target = this.element.find('.tree-view2 li').eq(target);
+      $target = this.element.find('.tree-view li').eq(target);
 
     } else if (_.isObject(target)) {
       $target = $(target).closest('li').find('.subtree');
     } else {
-      $target = this.element.find('.tree-view2 ul');
+      $target = this.element.find('.tree-view ul');
     }
 
     position = position || 'html'; // ['before' | 'after' | 'prepend' | 'append']
@@ -74,7 +73,7 @@ $.widget('gl.treeView', {
       if ($target.length) {
         $target[position](nodeHtml);
       } else {
-        this.element.find('.tree-view2 ul').prepend(nodeHtml);
+        this.element.find('.tree-view ul').prepend(nodeHtml);
       }
 
       this._updateLastItemClass($target);
@@ -101,7 +100,7 @@ $.widget('gl.treeView', {
   },
 
 
-  _getTreeViewLiOpenTag: function(hasSubTree, isLast, text, value, data, extra,online,headId,newMsgNum) {
+  _getTreeViewLiOpenTag: function(hasSubTree, isLast, text, value, data, extra) {
     var openable = (hasSubTree ? 'openable ' : '');
 
     var type = (hasSubTree ? 'group' : 'item');
@@ -127,28 +126,10 @@ $.widget('gl.treeView', {
         '</div>';
     }
 
-    var onlineCss = '';
-    if (online) {
-      onlineCss = 'online';
-    }
-
-    var strNewMsgNum = '';
-    var strStrong = '';
-    if (newMsgNum != undefined) {
-      strStrong = ' <strong class="js-wt-title-close hidden">x</strong>';
-
-      if (newMsgNum == 0) {
-        strNewMsgNum = '<b class="hidden">' + newMsgNum + '</b>';
-      }
-      else{
-        strNewMsgNum = '<b>' + newMsgNum + '</b>';
-      }
-    }
-    
-
     var liOpenTagHtml = '<li class="' + openable + isLastLink + '">' +
-      '<a href="javascript:void 0;" data-data=\'' + (JSON.stringify(data) || '{}') + '\' data-no="' + value + '" data-headId="' + headId + '" data-name="' + text + '" class="js-wt-title ' + onlineCss + '">' +
-      checkboxHtml + icon + extraContent + '<span>' + text + '</span>' + strNewMsgNum + '</a>' + strStrong + '</li>';
+      '<a class="js-wt-title" href="javascript:void 0;" data-data=\'' + (JSON.stringify(data) || '{}') + '\' data-no="' + value + '">' +
+      checkboxHtml + icon + '<span class="m-right-sm">' + text + '</span>' + extraContent +
+      '</a>';
 
     return liOpenTagHtml;
   },
@@ -162,19 +143,16 @@ $.widget('gl.treeView', {
     var it = this;
 
     function _doRecursion(list) {
-      var list2 = _(list).sortBy('online');
-      list2 = _(list2).sortBy('newMsgNum');
-      list2 = list2.reverse();
-
       var html = '';
-      _.each(list2, function(item, index) {
+
+      _.each(list, function(item, index) {
         var hasSubTree = !!item.subItem;
 
         var isLast = (1 + index === list.length);
 
         var extra = item.extra || '';
 
-        html += it._getTreeViewLiOpenTag(hasSubTree, isLast, item.text, item.value, item.data, extra,item.online,item.headId,item.newMsgNum);
+        html += it._getTreeViewLiOpenTag(hasSubTree, isLast, item.text, item.value, item.data, extra);
 
         if (hasSubTree) {
           html += '<ul class="subtree">';
@@ -206,26 +184,17 @@ $.widget('gl.treeView', {
 
   nodeCheckHandler: function(e) {
     var $target = $(e.currentTarget);
-    var iIs = 0;
-    if ($target.hasClass('sd')) {
-    }
-    else{
-      iIs = 1;
-      $target.addClass('sd');
-      $target.next().removeClass('hidden');
-    }
-    
-    this.options.onClick.call(this, e, $target.data('no'), $target.data('data'),iIs);
+
+    this.options.onClick.call(this, e, $target.data('no'), $target.data('data'));
+
     //return false;
   },
 
-  nodeCheckHandler2: function(e) {
+  dblNodeCheckHandler: function(e) {
     var $target = $(e.currentTarget);
-    
-    $target.prev().removeClass('sd');
-    $target.addClass('hidden');
-    
-    this.options.onClick2.call( this, e, $target.prev().data('no'), $target.prev().data('data') );
+
+    this.options.onDblclick.call(this, e, $target.data('no'), $target.data('data'));
+
     //return false;
   },
 

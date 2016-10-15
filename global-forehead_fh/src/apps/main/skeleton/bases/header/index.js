@@ -35,10 +35,14 @@ var HeaderView = Base.ItemView.extend({
     if($target.hasClass('sfa-h-security-off')) {
       this.$('.js-h-security').removeClass('sfa-h-security-off').addClass('sfa-h-security');
       this.$('.js-gl-hd-balance').text('******');
+      this.$('.js-gl-ag-balance').text('******');
+      this.$('.js-gl-total-balance').text('******');
     } else {
       var acctInfo = Global.memoryCache.get('acctInfo');
       this.$('.js-h-security').removeClass('sfa-h-security').addClass('sfa-h-security-off');
       this.$('.js-gl-hd-balance').text(acctInfo.fBalance);
+      this.$('.js-gl-ag-balance').text(acctInfo.agBalance);
+      this.$('.js-gl-total-balance').text(acctInfo.fBalance + acctInfo.agBalance);
     }
   },
 
@@ -91,7 +95,7 @@ var HeaderView = Base.ItemView.extend({
   renderUpdateUnread: function(model) {
     var unRead = model.getUnreadCount();
     unRead = unRead > 99 ? 99 : unRead;
-    this.$letterUnread.html(unRead).toggleClass('h-no-letter', !unRead);
+    this.$letterUnread.html(unRead).toggleClass('spot-hot', !!unRead);
   },
 
   renderAcctInfo: function() {

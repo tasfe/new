@@ -310,7 +310,7 @@ var BettingCenterView = Base.ItemView.extend({
     $('.js-bc-last-planId').html('第' + planInfo.lastOpenId  + '期');
 
     this.$lastResults.html(_(model.get('lastOpenNum')).map(function(num) {
-      return '<span class="text-circle">' + num + '</span>';
+      return '<span class="text-circle text-circle-bet-ball">' + num + '</span>';
     }));
 
     //目前只有韩国1.5分彩需要显示

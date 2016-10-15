@@ -5,8 +5,8 @@
 @for $i from 1 through 12 {
   .avatar-#{$i} {
     color: #fff;
-    background: url(~base/images/avatars/#{13 - $i}.jpg) no-repeat;
-    background-size:100% auto;
+    background: url(~base/images/avatars/#{13 - $i}.png) no-repeat;
+    background-size: 100%;
   }
 }
 
@@ -20,7 +20,7 @@
     cursor: pointer;
     border-radius: $globalBoxRadius;
 
-    &.sd{
+    &.sd {
       width: 106px;
       height: 106px;
       margin: -6px 9px 24px 9px;

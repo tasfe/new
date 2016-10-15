@@ -8,6 +8,7 @@ exports.install = function() {
     'pm': 'personalInfo', // 个人信息
     'pm/pl': 'loginPwd', // 登陆密码
     'pm/pf': 'fundPwd', // 资金密码
+    'pm/pff': 'forgetFundPwd', // 忘记资金密码
     'pm/pz': 'findPwd', // 找到密码
     'pm/sq': 'securityQuestion', // 密保问题
     'pm/se':'emailBinding', //邮箱绑定
