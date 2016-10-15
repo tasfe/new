@@ -1,0 +1,15 @@
+<div class="hc-hot-prod-header">
+  <span class="sfa sfa-help-hot-prod"></span>热门彩种
+</div>
+<ul class="hc-hot-prod-list">
+  <%_(hotProducts).each(function(item,index){%>
+  <li class="hc-hot-prod-item">
+    <a href="#bc/<%=item.id%>">
+      <div class="hc-hot-prod-icon">
+        <span class="sfa <%=item.iconClass%>"></span>
+      </div>
+    </a>
+
+  </li>
+  <% }) %>
+</ul>

@@ -1,7 +1,7 @@
 //accordion
 $accordion: (
-  group-border: 1px dashed $main-deep-color,
-  inner-border: 1px dashed $main-deep-color
+  group-border: 1px solid $deep-gray-color,
+  inner-border: 1px solid $deep-gray-color
 );
 
 .accordion {
@@ -9,18 +9,20 @@ $accordion: (
 }
 
 .accordion-group {
-  margin-bottom: 2px;
-  border-bottom: map_get($accordion, group-border);
+  margin-bottom: 1px;
+  //border-bottom: map_get($accordion, group-border);
+
   //border: 1px solid #e5e5e5;
 }
 
 .accordion-heading {
-  border-bottom: 0;
+  border-bottom: map_get($accordion, group-border);
+  box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.2);
 }
 
 .accordion-heading .accordion-toggle {
   display: block;
-  padding: 13px 15px;
+  padding: 6px 15px;
 }
 
 .accordion-toggle {
@@ -44,7 +46,7 @@ $accordion: (
       height: 20px;
       font-size: 13px;
       color: $dark-color;
-      background-color: $color-pleasant;
+      background:linear-gradient(to bottom,#df3539,#a73d66);
       display: inline-block;
       text-align: center;
       line-height: 18px;
@@ -55,7 +57,7 @@ $accordion: (
 
 .accordion-inner {
   padding: 13px 15px;
-  border-top: map_get($accordion, inner-border);
+
 
   &.accordion-answer {
     padding-left: 50px;
@@ -66,12 +68,18 @@ $accordion: (
       width: 20px;
       color: $dark-color;
       height: 20px;
-      background-color: $new-main-deep-color;
+      font-size: 13px;
+      background:linear-gradient(to bottom,#6db4cb,#3f89c9);
       display: inline-block;
       text-align: center;
-      line-height: 20px;
+      line-height: 18px;
       border-radius: 4px;
     }
+  }
+}
+.accordion-body.in{
+  .accordion-inner{
+    border-bottom: map_get($accordion, inner-border);
   }
 }
 

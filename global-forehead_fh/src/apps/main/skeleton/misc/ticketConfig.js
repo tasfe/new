@@ -4,43 +4,16 @@ var defaultSelectSSC = '4';
 var defaultSelect115 = '4,4';
 var defaultSelectDPC = '0';
 
-var newestConfig = {
-  id: 'ne',
-  title: '繁华最新',
-  icon: 'ne',
-  list: [
-    {
-      id: 20,
-      type: 'ssc',
-      mark: 'ssc-smmc',
-      zhName: "老虎机秒秒彩",
-      optional: true,
-      desc: '全天24小时 即投即开',
-      defaultSelectPlay: defaultSelectSSC,
-      board: true,
-      badge: 'purple',
-      specialClass: 'gl-ticket-smmc-title'
-    }
-  ]
-};
 
 
+
+//繁华专享
 var specialConfig = {
   id: 'sp',
   title: '繁华专享',
   icon: 'sp',
   list: [
-    {
-      id: 19,
-      type: 'ssc',
-      mark: 'ssc-ffc',
-      zhName: "繁华秒秒彩",
-      optional: true,
-      desc: '全天24小时 即投即开',
-      defaultSelectPlay: defaultSelectSSC,
-      board: true,
-      badge: 'hot'
-    },
+
     {
       id: 10,
       type: 'ssc',
@@ -52,18 +25,6 @@ var specialConfig = {
       desc: '全天24小时 共1440期',
       board: true,
       isSuper: false,
-      badge: 'hot'
-    },
-    {
-      id: 13,
-      type: 'ssc',
-      mark: 'ssc-sfc',
-      zhName: "繁华三分彩",
-      quickShowName: "繁华三分彩",
-      optional: true,
-      isSuper: false,
-      defaultSelectPlay: defaultSelectSSC,
-      desc: '全天24小时 共480期',
       badge: 'hot'
     },
     {
@@ -80,49 +41,44 @@ var specialConfig = {
       badge: 'hot'
     },
     {
-      id: 14,
-      type: 'num',
-      mark: 'num-ffc',
-      zhName: "11选5分分彩",
-      optional: false,
-      desc: '全天24小时 共1440期',
-      defaultSelectPlay: defaultSelect115,
-      hot: true
-    },
-    //{
-    //  id: 15,
-    //  type: 'num',
-    //  mark: 'num-sfc',
-    //  zhName: "11选5三分彩",
-    //  optional: false,
-    //  desc: '全天24小时 共480期',
-    //  defaultSelectPlay: defaultSelect115,
-    //  hot: true
-    //},
-    //
-    {
-      id: 16,
-      type: '3d',
-      mark: '3d-ffc',
-      zhName: "繁华3D分分彩",
-      optional: false,
+      id: 13,
+      type: 'ssc',
+      mark: 'ssc-sfc',
+      zhName: "繁华三分彩",
+      quickShowName: "繁华三分彩",
+      optional: true,
       isSuper: false,
-      desc: '全天24小时 共1440期',
-      defaultSelectPlay: defaultSelectDPC
+      defaultSelectPlay: defaultSelectSSC,
+      desc: '全天24小时 共480期',
+      badge: 'hot'
     },
-    //{
-    //  id: 17,
-    //  type: '3d',
-    //  mark: '3d-wfc',
-    //  zhName: "3D五分彩",
-    //  optional: false,
-    //  desc: '全天24小时 共288期',
-    //  defaultSelectPlay: defaultSelectDPC
-    //},
+    {
+      id: 19,
+      type: 'ssc',
+      mark: 'ssc-mmc',
+      zhName: "繁华秒秒彩",
+      optional: true,
+      desc: '全天24小时 即投即开',
+      defaultSelectPlay: defaultSelectSSC,
+      board: true,
+      badge: 'hot'
+    },
+    {
+      id: 20,
+      type: 'ssc',
+      mark: 'ssc-smmc',
+      zhName: "老虎机秒秒彩",
+      optional: true,
+      desc: '全天24小时 即投即开',
+      defaultSelectPlay: defaultSelectSSC,
+      board: true,
+      badge: 'purple',
+    }
 
   ]
 };
 
+//时时彩
 var sscConfig = {
   id: 'ssc',
   title: '时时彩',
@@ -141,13 +97,6 @@ var sscConfig = {
       badge: 'hot'
       //badge: 'recommend'
     },
-    //{
-    //  id: 2,
-    //  mark: 'jx',
-    //  zhName: "江西时时彩",
-    //  quickShowName: "江西<br/>时时彩",
-    //  defaultSelectPlay: defaultSelectSSC
-    //},
     {
       id: 3,
       mark: 'xj',
@@ -189,17 +138,59 @@ var sscConfig = {
       optional: true,
       isSuper: true,
       desc: '',
-      //board: true,
       defaultSelectPlay: defaultSelectSSC
+    },
+    {
+      id: 24,
+      mark: 'tw',
+      zhName: "台湾5分彩",
+      quickShowName: "台湾<br/>5分彩",
+      optional: true,
+      isSuper: true,
+      desc: '',
+      defaultSelectPlay: defaultSelectSSC
+    },
+    {
+      id: 25,
+      mark: 'xjp',
+      zhName: "新加坡2分彩",
+      quickShowName: "新加坡<br/>2分彩",
+      optional: true,
+      isSuper: true,
+      desc: '',
+      defaultSelectPlay: defaultSelectSSC,
+
+    },
+    {
+      id: 26,
+      mark: 'jnd',
+      zhName: "加拿大3.5分彩",
+      quickShowName: "加拿大<br/>3.5分彩",
+      optional: true,
+      isSuper: true,
+      desc: '',
+      defaultSelectPlay: defaultSelectSSC,
+
     }
   ]
 };
 
+//11选5
 var oneFiveConfig = {
   id: 'num',
   title: '11选5',
   icon: 'num',
   list: [
+    {
+      id: 4,
+      mark: 'gd',
+      zhName: "广东11选5",
+      optional: false,
+      isSuper: false,
+      desc: '09:10－23:00 共84期',
+      board: true,
+      defaultSelectPlay: defaultSelect115
+    },
     {
       id: 5,
       mark: 'sd',
@@ -212,16 +203,6 @@ var oneFiveConfig = {
       hot: true
     },
     {
-      id: 4,
-      mark: 'gd',
-      zhName: "广东11选5",
-      optional: false,
-      isSuper: false,
-      desc: '09:10－23:00 共84期',
-      board: true,
-      defaultSelectPlay: defaultSelect115
-    },
-    {
       id: 11,
       mark: 'jx',
       zhName: "江西11选5",
@@ -230,9 +211,21 @@ var oneFiveConfig = {
       desc: '09:10－23:00 共84期',
       board: true,
       defaultSelectPlay: defaultSelect115
-    }
+    },
+    {
+      id: 14,
+      type: 'num',
+      mark: 'ffc',
+      zhName: "11选5分分彩",
+      optional: false,
+      desc: '全天24小时 共1440期',
+      defaultSelectPlay: defaultSelect115,
+      hot: true
+    },
   ]
 };
+
+//3D
 var threeDConfig = [
   {
     id: 6,
@@ -243,9 +236,20 @@ var threeDConfig = [
     desc: '00:00－20:20  共1期',
     board: true,
     defaultSelectPlay: defaultSelectDPC
-  }
+  },
+  {
+    id: 16,
+    type: '3d',
+    mark: '3d-ffc',
+    zhName: "繁华3D分分彩",
+    optional: false,
+    isSuper: false,
+    desc: '全天24小时 共1440期',
+    defaultSelectPlay: defaultSelectDPC
+  },
 ];
 
+//p5p3
 var p5p3Config = [
   {
     id: 7,
@@ -286,15 +290,15 @@ var happyConfig = {
   ]
 };
 
-var allConfig = specialConfig.list.concat(newestConfig.list, sscConfig.list, oneFiveConfig.list, threeDConfig.list,threeDConfig, p5p3Config);
+var allConfig = specialConfig.list.concat( sscConfig.list, oneFiveConfig.list, threeDConfig.list,threeDConfig, p5p3Config);
 
-var completeAllConfig = [newestConfig, specialConfig, sscConfig, oneFiveConfig, lowConfig,happyConfig];
+var completeAllConfig = [ specialConfig, sscConfig, oneFiveConfig, lowConfig,happyConfig];
 
 module.exports = {
   getSccList: function() {
     return sscConfig.list.concat(_(specialConfig.list).where({
       type: 'ssc'
-    })).concat(newestConfig.list);
+    }));
   },
 
   getCompleteSccList: function() {
