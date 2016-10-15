@@ -6,9 +6,35 @@ var helpConfig = {
   router: 'hc',
   sub: [
     {
-      name: '常见问题',
-      icon: require('./help-question.png'),
+      name: '新手上路',
+      icon: require('./help-new.png'),
       sub: [
+        {
+          args: 'page=newbie',
+          name: '关于繁华',
+          html: require('helpCenter/faq/newbie.html')
+        },
+        {
+          args: 'page=charge-withdrawal',
+          name: '注册和购彩',
+          html: require('helpCenter/faq/charge-withdrawal.html')
+        },
+        {
+          args: 'page=game',
+          name: '平台功能',
+          html: require('helpCenter/faq/game.html')
+        },
+        {
+          args: 'page=safe',
+          name: '繁华特色',
+          html: require('helpCenter/faq/safe.html')
+        },
+        {
+          args: 'page=safe',
+          name: '代理繁华',
+          html: require('helpCenter/faq/safe.html')
+        },
+        //todo 分割
         {
           args: 'page=newbie',
           name: '新手类',
@@ -32,9 +58,35 @@ var helpConfig = {
       ]
     },
     {
-      name: '充值相关',
-      icon: require('./help-coins.png'),
+      name: '玩法介绍',
+      icon: require('./help-introduce.png'),
       sub: [
+        {
+          args: 'page=ssc',
+          name: '时时彩玩法介绍',
+          html: require('helpCenter/tickets/ssc.html')
+        },
+        {
+          args: 'page=num',
+          name: '11 选 5 玩法介绍',
+          html: require('helpCenter/tickets/num.html')
+        },
+        {
+          args: 'page=low',
+          name: '低频彩玩法介绍',
+          html: require('helpCenter/tickets/low.html')
+        },
+        {
+          args: 'page=ssc',
+          name: '繁华专享彩种玩法介绍',
+          html: require('helpCenter/tickets/ssc.html')
+        },
+        {
+          args: 'page=happy',
+          name: '快乐彩玩法介绍',
+          html: require('helpCenter/tickets/happy.html')
+        },
+        //todo 分割
         //{
         //  args: 'page=gh-recharge',
         //  name: '工行在线充值流程',
@@ -63,9 +115,30 @@ var helpConfig = {
       ]
     },
     {
-      name: '提现相关',
-      icon: require('./help-yan.png'),
+      name: '游戏说明',
+      icon: require('./help-description.png'),
       sub: [
+        {
+          args: 'page=withdrawal-flow',
+          name: '开奖异常',
+          html: require('helpCenter/withdrawal/flow.html')
+        },
+        {
+          args: 'page=withdrawal-question',
+          name: '追号投注',
+          html: require('helpCenter/withdrawal/question.html')
+        },
+        {
+          args: 'page=withdrawal-flow',
+          name: '撤单功能',
+          html: require('helpCenter/withdrawal/flow.html')
+        },
+        {
+          args: 'page=withdrawal-question',
+          name: '恶投和冷热号',
+          html: require('helpCenter/withdrawal/question.html')
+        },
+        //todo 分割
         {
           args: 'page=withdrawal-flow',
           name: '平台提款流程',
@@ -79,9 +152,41 @@ var helpConfig = {
       ]
     },
     {
-      name: '账号相关',
-      icon: require('./account.png'),
+      name: '充提类',
+      icon: require('./help-yan.png'),
       sub: [
+        {
+          args: 'page=forget-pwd',
+          name: '充提方式',
+          html: require('helpCenter/account/forget-pwd.html')
+        },
+        {
+          args: 'page=forget-fund-pwd',
+          name: '充提流程',
+          html: require('helpCenter/account/forget-fund-pwd.html')
+        },
+        {
+          args: 'page=security-question',
+          name: '充提说明',
+          html: require('helpCenter/account/security-question.html')
+        },
+        {
+          args: 'page=forget-question',
+          name: '充提异常',
+          html: require('helpCenter/account/forget-question.html')
+        },
+        {
+          args: 'page=contact-superior',
+          name: '银联回单查询',
+          html: require('helpCenter/account/contact-superior.html')
+        },
+        {
+          args: 'page=contact-inferior',
+          name: '微信回单查询',
+          html: require('helpCenter/account/contact-inferior.html')
+        },
+        //todo
+
         {
           args: 'page=forget-pwd',
           name: '忘记登录密码怎么办？',
@@ -125,29 +230,42 @@ var helpConfig = {
       ]
     },
     {
-      name: '玩法介绍',
-      icon: require('./tickets.png'),
+      name: '安全类',
+      icon: require('./help-security.png'),
       sub: [
         {
           args: 'page=ssc',
-          name: '时时彩玩法介绍',
+          name: '忘记密码',
           html: require('helpCenter/tickets/ssc.html')
         },
         {
           args: 'page=num',
-          name: '11 选 5 玩法介绍',
+          name: '账户安全',
           html: require('helpCenter/tickets/num.html')
         },
         {
           args: 'page=low',
-          name: '低频彩玩法介绍',
+          name: '管理银行卡',
           html: require('helpCenter/tickets/low.html')
         },
+
+      ]
+    },
+    {
+      name: '客户端',
+      icon: require('./help-client.png'),
+      sub: [
         {
-          args: 'page=happy',
-          name: '快乐彩玩法介绍',
-          html: require('helpCenter/tickets/happy.html')
-        }
+          args: 'page=client',
+          name: ' PC客户端',
+          html: require('helpCenter/tickets/ssc.html')
+        },
+        {
+          args: 'page=num',
+          name: '手机移动端',
+          html: require('helpCenter/tickets/num.html')
+        },
+
       ]
     }
   ],
