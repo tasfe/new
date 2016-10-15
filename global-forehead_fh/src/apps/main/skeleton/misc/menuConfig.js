@@ -168,8 +168,9 @@ var menuConfig = [
     router: 'hc',
     titleClass: 'hidden',
     //router: 'hc?page=newbie',
-    name: '帮助中心'
+    name: '帮助中心',
     //icon: 'help'
+    noTitle: true
   },
   //{
   //  router: 'javascript:void(0)',
