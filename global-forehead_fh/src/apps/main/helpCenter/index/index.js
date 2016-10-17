@@ -78,6 +78,8 @@ var HelpCenterView = Base.ItemView.extend({
     var page = _.getUrlParam('page');
     if (page) {
       this.multiSidebarView.goTo('page=' + page, 'goTo');
+    }else{
+      this.multiSidebarView.goTo('page=gr-aboutUs', 'goTo');
     }
   }
 });
