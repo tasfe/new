@@ -1,58 +1,84 @@
-.tree-view > ul {
-  position: relative;
-  list-style: none;
-  li {
+.tree-view  {
+  > ul {
     position: relative;
-    a {
-      display: block;
-      padding: 8px 13px;
-      font-size: 14px;
-      line-height: 30px;
-      border-bottom: 1px solid $gray-color;
-    }
-    .fa {
-      font-size: 17px;
-      vertical-align: bottom;
-    }
-    &.open > a .folder-icon:before {
-      content: "\f07c";
-    }
-    .subtree {
-      display: none;
+    list-style: none;
+    li {
       position: relative;
-      list-style: none;
-      padding-left: 20px;
-      li {
-        a {
-          position: relative;
-          &.last-link:before {
-            bottom: 17px;
+      a {
+        display: block;
+        padding: 8px 13px;
+        font-size: 14px;
+        line-height: 30px;
+        border-bottom: 1px solid $gray-color;
+
+        .selected {
+          display: none;
+        }
+      }
+      .fa {
+        font-size: 17px;
+        vertical-align: bottom;
+      }
+      &.open > a .folder-icon:before {
+        content: "\f07c";
+      }
+      .subtree {
+        display: none;
+        position: relative;
+        list-style: none;
+        padding-left: 20px;
+        li {
+          a {
+            position: relative;
+            &.last-link:before {
+              bottom: 17px;
+            }
+          }
+          &.last-link:after {
+            top: 0;
+            height: 19px;
+            bottom: auto;
           }
         }
-        //&:before {
-        //  position: absolute;
-        //  content: '';
-        //  display: block;
-        //  height: 1px;
-        //  width: 10px;
-        //  top: 18px;
-        //  left: -12px;
-        //  background-color: $light-color;
-        //}
-        //&:after {
-        //  position: absolute;
-        //  content: '';
-        //  display: block;
-        //  width: 1px;
-        //  top: 0;
-        //  bottom: 0;
-        //  left: -5px;
-        //  background-color: $light-color;
-        //}
-        &.last-link:after {
-          top: 0;
-          height: 19px;
-          bottom: auto;
+      }
+    }
+  }
+
+  &.tree-view-select {
+    .circle-un-select {
+      width: 20px;
+      height: 20px;
+      line-height: 20px;
+      display: none;
+      background-color: #d98ab2;
+      border-radius: 20px;
+      color: $white-color;
+      font-style: normal;
+      font-size: 12px;
+      float: right;
+      text-align: center;
+      font-family: cursive;
+      cursor: pointer;
+      margin-top: 4px;
+    }
+
+    > ul {
+      li {
+        a {
+          &:hover {
+            background: #f5f5f5;
+          }
+
+          &.selected {
+            color: $white-color;
+            background: #cb6798;
+            border-bottom-color: #be5c8c;
+            &:hover {
+              .circle-un-select {
+                display: block;
+              }
+            }
+          }
         }
       }
     }

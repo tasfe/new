@@ -8,6 +8,8 @@ var Chat = require('com/chat');
 
 var ChatUsersCollection = require('./chatUsersCollection');
 
+var GroupLetterView = require('./groupLetter');
+
 var SingleChatView = Base.ItemView.extend({
   template: require('./chatUser.html'),
 
@@ -50,7 +52,7 @@ var InsideLetterView = Base.ItemView.extend({
 
   template: require('./index.html'),
 
-  className: 'inside-letter',
+  className: 'inside-letter single-letter',
   options: {
     pageSize: 20
   },
@@ -104,7 +106,8 @@ var InsideLetterView = Base.ItemView.extend({
     this.singleSelect = new LowMultiSelect({
       select: false,
       showUnread: true,
-      selectAll: false
+      selectAll: false,
+      showMulti: true
     });
 
     this.$singleSelect.html(self.singleSelect.render().el);
@@ -204,8 +207,9 @@ var InsideLetterView = Base.ItemView.extend({
 
     var $dialog = Global.ui.dialog.show({
       title: '消息群发',
+      modalClass: 'modal-letter',
       body: '<div class="js-nc-group-letter"></div>',
-      bodyClass: 'no-padding',
+      bodyClass: 'padding-sm',
       footer: ''
     });
 
@@ -216,9 +220,8 @@ var InsideLetterView = Base.ItemView.extend({
       groupLetterView.destroy();
     });
 
-    groupLetterView = new GroupLetterView({
-      el: $letterContainer
-    }).render();
+    groupLetterView = new GroupLetterView().render();
+    $letterContainer.html(groupLetterView.$el);
   },
 
   toggleHandler: function(e) {

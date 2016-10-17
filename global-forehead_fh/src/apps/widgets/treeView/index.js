@@ -7,7 +7,8 @@ $.widget('gl.treeView', {
     namespace: 'treeView',
     onClick: _.noop,
     onDblclick: _.noop,
-    onCollapsed: _.noop
+    onCollapsed: _.noop,
+    select: false
   },
 
   _addEventHandler: function() {
@@ -27,6 +28,10 @@ $.widget('gl.treeView', {
     var markup = this._getTreeViewHtml(data);
 
     var $wrapper = $(wrapper);
+
+    if (this.options.select) {
+      $wrapper.addClass('tree-view-select');
+    }
 
     $wrapper.html(markup);
 

@@ -71,11 +71,14 @@
 
 .nc-noticeDetail-inner {
   height: 525px;
-  width: 100%;
+  //width: 100%;
   display: inline-block;
   overflow: auto;
   float: left;
   color: $new-black-color;
+  border: 1px solid $gray-color;
+  border-bottom: 0;
+
 
   .nc-notice-top {
     padding: 0 5px 0;

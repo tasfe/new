@@ -10,9 +10,11 @@ var LowMultiSelect = Base.PrefabView.extend({
 
   options: {
     prevClass: 'js-pf',
-    useMediator: true,
+    update: true,
     showUnread: false,
+    showParent: true,
     selectAll: true,
+    showMulti: false,
     select: true
   },
 
@@ -21,6 +23,7 @@ var LowMultiSelect = Base.PrefabView.extend({
   events: {
     'keyup .js-pf-input-search-user': 'searchHandler',
     'click .js-pf-select-superior': 'toggleSelectUserHandler',
+    'click .js-pf-circle-un-select': 'unSelectUserHandler',
     'click .js-wt-title': 'toggleSelectUserHandler',
     'click .js-pf-selectAll': 'toggleSelectAllHandler'
   },
@@ -34,6 +37,10 @@ var LowMultiSelect = Base.PrefabView.extend({
 
   initialize: function() {
     this.selectedUsers = [];
+  },
+
+  serializeData: function() {
+    return this.options;
   },
 
   onRender: function() {
@@ -59,19 +66,28 @@ var LowMultiSelect = Base.PrefabView.extend({
     var self = this;
 
     this.treeView = this.$('.js-pf-jstree').treeView({
+      select: this.options.select
       // onClick: function(e, id, data) {
       //   self.selectUser(id, data);
       // }
     }).treeView('instance');
 
-    if (!this.options.useMediator) {
-      this.getLowLevelXhr()
-        .done(function(res) {
-          var data = res.root || {};
-          if (res && res.result === 0) {
-            self.refresh(data);
-          }
-        });
+    if (!this.options.update) {
+      // this.getLowLevelXhr()
+      //   .done(function(res) {
+      //     var data = res.root || {};
+      //     if (res && res.result === 0) {
+      //       self.refresh(data);
+      //     }
+      //   });
+      this.subscribe('message', 'message:updating', function onceSubscribe(model) {
+        self.refresh(model.toJSON());
+
+        if (self.isSearching) {
+          self.$searchUser.trigger('keyup');
+        }
+        self.unSubscribe('message', 'message:updating', onceSubscribe);
+      });
     } else {
       this.subscribe('message', 'message:updating', function(model) {
         self.refresh(model.toJSON());
@@ -86,7 +102,7 @@ var LowMultiSelect = Base.PrefabView.extend({
   refresh: function(data) {
     var self = this;
 
-    if (data.parent) {
+    if (this.options.showParent && data.parent) {
       var parent = data.parent;
       parent.username = '我的上级';
       this.$('.js-fc-parent').removeClass('hidden');
@@ -105,12 +121,21 @@ var LowMultiSelect = Base.PrefabView.extend({
         return sub.newMsgNum ? 0 : sub.online ? 1 : 2;
       }).map(function(sub) {
         var nameHtml = ['<span class="low-multi-avatar avatar-' + sub.headId];
+        var extraHtml = [];
         if (!sub.online) {
           nameHtml.push(' gray');
         }
 
-        if (sub.newMsgNum) {
+        if (self.options.showUnread && sub.newMsgNum) {
           nameHtml.push(' flash');
+        }
+
+        if (self.options.showUnread && sub.newMsgNum !== 0) {
+          extraHtml.push('<span class="spot spot-lg spot-pink">' + sub.newMsgNum + '</span>');
+        }
+
+        if (self.options.select) {
+          extraHtml.push('<span class="js-pf-circle-un-select circle-un-select">X</span>');
         }
 
         nameHtml.push('"></span><span class="low-username ellipsis" title="' + sub.username + '">' + sub.username + '</span>');
@@ -119,11 +144,10 @@ var LowMultiSelect = Base.PrefabView.extend({
           text: nameHtml.join(''),
           value: sub.userId,
           subItem: false,
-          extra: (self.options.showUnread && sub.newMsgNum !== 0) ? '<span class="spot spot-lg spot-pink">' + sub.newMsgNum + '</span>' : '',
+          extra: extraHtml,
           data: sub
         };
       }).value());
-      this.renderSelectedUsers();
     }
   },
 
@@ -133,26 +157,11 @@ var LowMultiSelect = Base.PrefabView.extend({
       var find = _(this.selectedUsers).findWhere(user);
       if (!find) {
         this.selectedUsers.push(data);
-        if (!treeview) {
-          this.renderSelectedUsers();
-        }
       }
     } else {
       this.selectedUsers = [data];
 
       this.trigger('select:change', this.selectedUsers);
-    }
-  },
-
-  renderSelectedUsers: function() {
-    var $tree = this.$('.js-pf-jstree');
-
-    if(_(this.selectedUsers).size() > 0 && this.options.select) {
-      _(this.selectedUsers).each(function(user) {
-        $tree.find('a[data-no='+ user.id + '] .js-wt-title').addClass('selected-user');
-      });
-    } else {
-      $tree.find('.js-wt-title').removeClass('selected-user');
     }
   },
 
@@ -180,31 +189,48 @@ var LowMultiSelect = Base.PrefabView.extend({
       this.isSearching = false;
       this.$selectContainer.find('.js-wt-title').removeClass('hidden');
     }
-    this.selectedUsers = [];
-    $('.js-pf-selectAll-input').prop('checked', false);
-    this.renderSelectedUsers();
   },
 
   toggleSelectUserHandler: function(e) {
     var $target = $(e.currentTarget);
 
+    var data = $target.data('data');
     if (this.options.select) {
-      if ($target.hasClass('selected-user')) {
+      if (!$target.hasClass('selected')) {
+        $target.addClass('selected');
 
-        $target.removeClass('selected-user');
-        $('.js-pf-selectAll-input').prop('checked', false);
-        this.selectedUsers = _(this.selectedUsers).without(_(this.selectedUsers).findWhere({
-          userId: $target.data('data').userId
-        }));
-      } else {
-        $target.addClass('selected-user');
+        var find = _(this.selectedUsers).findWhere({
+          userId: data.userId
+        });
+        if (!find) {
+          this.selectedUsers.push(data);
+        }
+        // $('.js-pf-selectAll-input').prop('checked', false);
+
+        // this.selectedUsers = _(this.selectedUsers).without(_(this.selectedUsers).findWhere({
+        //   userId: $target.data('data').userId
+        // }));
       }
     } else {
-      var data = $target.data('data');
       this.selectedUsers = [data];
     }
 
     this.trigger('select:change', this.selectedUsers);
+  },
+
+  unSelectUserHandler: function(e) {
+    var $target = $(e.currentTarget);
+    var $a = $target.closest('.js-wt-title');
+
+    $a.removeClass('selected');
+
+    this.selectedUsers = _(this.selectedUsers).without(_(this.selectedUsers).findWhere({
+      userId: $a.data('data').userId
+    }));
+
+    this.trigger('select:change', this.selectedUsers);
+
+    return false;
   },
 
   toggleSelectAllHandler: function(e) {
@@ -215,14 +241,14 @@ var LowMultiSelect = Base.PrefabView.extend({
     if ($target.find('.js-pf-selectAll-input:checked').length) {
 
       _($tree.find('.js-wt-title')).each(function(user) {
-        $(user).removeClass('selected-user');
+        $(user).removeClass('selected');
         self.selectedUsers = [];
       });
       $target.find('.js-pf-selectAll-input').prop('checked', false);
 
     } else {
       _($tree.find('.js-wt-title')).each(function(user) {
-        $(user).addClass('selected-user');
+        $(user).addClass('selected');
         self.selectUser($(user).data('no'), $(user).data('data'));
       });
 
