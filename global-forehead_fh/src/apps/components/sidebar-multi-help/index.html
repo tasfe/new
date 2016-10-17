@@ -1,0 +1,42 @@
+<div class="sidebar-multi ">
+  <!--<div class="sidebar-header">-->
+    <!--<div class="sidebar-title ">-->
+      <!--<div class="sidebar-title-inner">-->
+        <!--&lt;!&ndash;<span class="sfa sfa-sidebar-dot"></span>&ndash;&gt;-->
+        <!--&lt;!&ndash;<span class="sfa sfa-sidebar-<%=menus.icon %> block m-center"></span>&ndash;&gt;-->
+        <!--<%=menus.name %>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+  <div class="shadow-block bg- deep">
+    <div class="js-com-multi-main">
+      <ul class="multi-slide">
+        <% _(menus.sub).each(function(menu) { %>
+        <li role="presentation">
+          <a
+          <% if (menu.args) { %>
+          class="js-com-multi-item multi-title"
+          data-args="<%=menu.args %>"
+          href="#<%=menus.router %>?<%=menu.args %>"
+          <% } else { %>
+          class="multi-title"
+          href="javascript:void(0)"
+          <% } %>>
+          <% if (menu.icon) { %>
+          <img class="" src="<%=menu.icon %>" />
+          <% } %>
+          <%=menu.name %>
+          </a>
+          <ul class="multi-slide-inner">
+            <% _(menu.sub).each(function(subMenu) { %>
+            <li>
+              <a class="js-com-multi-item" data-args="<%=subMenu.args %>" href="#<%=menus.router %>?<%=subMenu.args %>"><i class="fa fa-caret-right" aria-hidden="true"></i><%=subMenu.name %></a>
+            </li>
+            <% }); %>
+          </ul>
+        </li>
+        <% }); %>
+      </ul>
+    </div>
+  </div>
+</div>

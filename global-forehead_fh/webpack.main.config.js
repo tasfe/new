@@ -173,7 +173,6 @@ module.exports = {
       'helpCenter': 'apps/main/helpCenter',
       'gameCenter': 'apps/main/gameCenter',
       'bettingButler': 'apps/main/bettingButler',
-      'newHelpCenter': 'apps/main/newHelpCenter',
       'snap': 'Snap.svg/dist/snap.svg',
       'bootstrap': 'vendor/scripts/bootstrap',
       'modernizr': 'vendor/scripts/modernizr'

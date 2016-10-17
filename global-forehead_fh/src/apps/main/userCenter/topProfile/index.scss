@@ -43,8 +43,16 @@
     padding: 20px 0 0 80px;
     float: left;
     width: 40%;
+    position: relative;
   }
   .personal-vip-progress {
     height: 10px;
+  }
+
+  .personal-profile-vip-coming-soon{
+    position: absolute;
+    margin: 20px 20px;
+    top: -17px;
+    left: 347px;
   }
 }

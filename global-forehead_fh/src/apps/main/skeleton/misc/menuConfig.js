@@ -58,7 +58,7 @@ var menuConfig = [
       {
         id: 136,
         router: 'ac/salary',
-        name: '日工资管理',
+        name: '日薪管理',
         needAuth: true
       },
       {
@@ -168,8 +168,9 @@ var menuConfig = [
     router: 'hc',
     titleClass: 'hidden',
     //router: 'hc?page=newbie',
-    name: '帮助中心'
+    name: '帮助中心',
     //icon: 'help'
+    noTitle: true
   },
   //{
   //  router: 'javascript:void(0)',
