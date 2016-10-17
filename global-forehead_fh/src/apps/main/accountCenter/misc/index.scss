@@ -142,11 +142,11 @@
 //  background-repeat: no-repeat;
 //}
 
-.ac-reset-div{
-  .passwdSafetyTips{
-    padding: 0px 0px 10px 40px;
-  }
-}
+//.ac-reset-div{
+//  .passwdSafetyTips{
+//    padding: 0px 0px 10px 40px;
+//  }
+//}
 
 .login-table{
   margin:0px 10px;
@@ -330,6 +330,16 @@
   color: #999999;
   line-height: 8px;
 
+  div {
+    line-height: 20px;
+    padding-top: 5px;
+  }
+  b {
+    color: #fff;
+    border-radius: 2px;
+    padding: 1px 3px;
+  }
+
   span{
     display: inline-block;
     width: 69px;
@@ -341,27 +351,18 @@
   }
 
   &.level1 {
-    span:first-child {
+    span:first-child, b {
       background-color: #cb3432;
-    }
-    b {
-      color: #cb3432;
     }
   }
   &.level2 {
-    span:first-child, span:nth-child(2) {
-      background-color: #ff9900;
-    }
-    b {
-      color: #ff9900;
+    span:first-child, span:nth-child(2), b {
+      background-color: #ff9a00;
     }
   }
   &.level3 {
-    span {
-      background-color: #99cc33;
-    }
-    b {
-      color: #99cc33;
+    span, b {
+      background-color: #65ce63;
     }
   }
 }
@@ -427,4 +428,34 @@
       padding-top: 10px;
     }
   }
+}
+
+.pm-complete-form {
+  .control-group {
+    position: relative;
+    top: 100px;
+
+    &.pm-confirm {
+      top: 200px;
+    }
+  }
+  .pm-complete-text {
+    //line-height: 50px;
+  }
+  .pm-complete-img {
+    position: relative;
+    top: -10px;
+    background: #c66293;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    padding: 8px;
+
+    img {
+      width: 20px;
+    }
+  }
+}
+.ac-forgetPwd {
+  text-decoration: underline;
 }

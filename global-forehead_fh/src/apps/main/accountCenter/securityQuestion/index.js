@@ -22,7 +22,9 @@ var SecurityQuestionView = Base.ItemView.extend({
     'change .js-as-question': 'userQuestionSelectChangeHandler',//控制三个下拉框的值不能重复选择
 
     //2 修改密保问题
-    'click .js-as-answerQuestion-submit': 'verifySecurityQuestionHandler'//验证密保问题
+    'click .js-as-answerQuestion-submit': 'verifySecurityQuestionHandler',//验证密保问题
+    'click .js-pm-confirm': 'refreshPageHandler'
+
   },
 
   initialize: function() {
@@ -164,18 +166,16 @@ var SecurityQuestionView = Base.ItemView.extend({
         'securityToken': this.security_queToken
       }
     }).always(function () {
-
       $target.button('reset');//恢复确认按钮的状态
-
     }).done(function (res) {
       if (res && res.result === 0) {
-        Global.ui.notification.show('密保问题保存成功', {
-          type: 'success',
-          event: function() {
-            Global.router.goTo('#as/sq');
-          },
-          btnContent: '确定'
-        });
+        // Global.ui.notification.show('密保问题保存成功', {
+        //   type: 'success',
+        //   event: function() {
+        //     Global.router.goTo('#as/sq');
+        //   },
+        //   btnContent: '确定'
+        // });
         var $currentContainer = $target.closest('.js-as-stepContainer');//找到最近的该class节点
         $currentContainer.steps('next');
       } else {
@@ -254,6 +254,10 @@ var SecurityQuestionView = Base.ItemView.extend({
 
     var $currentContainer = $target.closest('.js-as-stepContainer');//找到最近的该class节点
     $currentContainer.steps('goTo', type);
+  },
+
+  refreshPageHandler: function () {
+    this.render();
   }
 });
 
