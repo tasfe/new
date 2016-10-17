@@ -39,8 +39,6 @@ var EntryView = Base.ItemView.extend({
           Global.ui.notification.show('获取快捷入口设置失败');
         }
       });
-
-    sessionStorage.setItem('openMessage', 0);
   },
   
   onRender: function() {

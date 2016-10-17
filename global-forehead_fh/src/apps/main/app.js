@@ -108,32 +108,7 @@ function _bindNoticeHandler() {
 function _bindLetterHandler() {
   $(document).off('click.letter').on('click.letter', '.js-gl-letter', function(e) {
     var $target = $(e.currentTarget);
-
-    var insideLetterView;
-
-    var $dialog = Global.ui.dialog.show({
-      title: '对话列表',
-      body: '<div class="js-nc-insideLetter"></div><div class="gl-loading js-julien-loading julien-loading-leftmenu"><div class="gl-loading-main"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div>',
-      bodyClass: 'no-padding',
-      footer: ''
-    });
-
-    var $letterContainer = $dialog.find('.js-nc-insideLetter');
-
-    $dialog.on('hidden.modal', function() {
-      $(this).remove();
-      insideLetterView.destroy();
-    });
-
-    insideLetterView = new InsideLetterView({
-      el: $letterContainer,
-      reqData: {
-        userId: $target.data('userId'),
-        name: $target.data('name')
-      }
-    }).render();
-
-    sessionStorage.setItem('openMessage', 1);
+    Global.ui.insideLetter.openChat($target.data('userId'), $target.data('name'));
   });
 }
 

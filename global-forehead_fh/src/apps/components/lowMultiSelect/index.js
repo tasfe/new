@@ -156,6 +156,10 @@ var LowMultiSelect = Base.PrefabView.extend({
     }
   },
 
+  openByUserId: function(userId) {
+    this.treeView.clickByNo(userId);
+  },
+
   //event handlers
 
   searchHandler: function(e) {
