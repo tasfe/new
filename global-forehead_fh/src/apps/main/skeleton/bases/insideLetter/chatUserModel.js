@@ -27,15 +27,17 @@ var ChatUserModel = Model.extend({
 
     res.root = res.root || {};
 
+    var acctInfo = Global.memoryCache.get('acctInfo');
+
     if(res && res.result === 0) {
       chatList = _(res.root || []).reduceRight(function(chatData, chat) {
         chatData.push({
           messageId: chat.messageId,
           content: chat.content.replace(/\[\-f(\w+)\-\]/g, '<span class="chat-exp face-$1"></span>'),
           sendTime: chat.sendTime,
-          isSender: chat.sendId === Global.memoryCache.get('acctInfo').userId,
+          isSender: chat.sendId === acctInfo.userId,
           headId: self.get('headId'),
-          sender: self.get('username')
+          sender: chat.sendId !== acctInfo.userId ? self.get('username') : acctInfo.username
         });
         return chatData;
       }, []);

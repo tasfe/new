@@ -108,9 +108,7 @@ var LowMultiSelect = Base.PrefabView.extend({
       this.$('.js-fc-parent').removeClass('hidden');
       this.$('.js-pf-select-superior').data('data', parent);
 
-      if (parent.newMsgNum) {
-        this.$('.js-pf-superior-unread').text(parent.newMsgNum).removeClass('hidden');
-      }
+      this.$('.js-pf-superior-unread').text(parent.newMsgNum).toggleClass('hidden', !parent.newMsgNum);
       // if (parent.online) {
       //   this.$('.online-tip').removeClass('hidden');
       // }
