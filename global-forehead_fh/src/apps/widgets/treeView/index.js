@@ -7,7 +7,8 @@ $.widget('gl.treeView', {
     namespace: 'treeView',
     onClick: _.noop,
     onDblclick: _.noop,
-    onCollapsed: _.noop
+    onCollapsed: _.noop,
+    select: false
   },
 
   _addEventHandler: function() {
@@ -27,6 +28,10 @@ $.widget('gl.treeView', {
     var markup = this._getTreeViewHtml(data);
 
     var $wrapper = $(wrapper);
+
+    if (this.options.select) {
+      $wrapper.addClass('tree-view-select');
+    }
 
     $wrapper.html(markup);
 
@@ -127,7 +132,7 @@ $.widget('gl.treeView', {
     }
 
     var liOpenTagHtml = '<li class="' + openable + isLastLink + '">' +
-      '<a class="js-wt-title" href="javascript:void 0;" data-data=\'' + (JSON.stringify(data) || '{}') + '\' data-no="' + value + '">' +
+      '<a class="js-wt-title js-wt-title-' + value + '" href="javascript:void 0;" data-data=\'' + (JSON.stringify(data) || '{}') + '\' data-no="' + value + '">' +
       checkboxHtml + icon + '<span class="m-right-sm">' + text + '</span>' + extraContent +
       '</a>';
 
@@ -178,6 +183,12 @@ $.widget('gl.treeView', {
     html += this._getTreeViewNodeHtml(data);
 
     return html += '</ul>'; // close root ul
+  },
+
+  //common APIs
+
+  clickByNo: function(no) {
+    this.element.find('.js-wt-title-' + no).click();
   },
 
   //event handlers

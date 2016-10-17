@@ -295,8 +295,8 @@
   filter: blur(2px);
 }
 .gray {
-  filter: grayscale(100%);
   filter: gray;
+  filter: grayscale(100%);
   filter:progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);
 }
 .flash {

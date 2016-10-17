@@ -500,7 +500,8 @@ $modals: (
   smd: 350px,
   md: 520px,
   md2: 560px,
-  lg: 876px
+  lg: 876px,
+  letter: 1016px
 );
 
 $tables: (
@@ -613,7 +614,7 @@ $navTabs: (
     border-color: $color-sunshine,
     color: $font-color-coffee,
     //bg-color: #f7f7f7,
-    active-color: $hot-color,
+    active-color: #cc3333,
     active-bg-color: $white-linear-color
   ),
   hot: (

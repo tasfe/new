@@ -17,6 +17,14 @@ var ChatUsersCollection = Collection.extend({
     });
   },
 
+  destroyAllChat: function() {
+    var model;
+
+    while (model = this.shift()) {
+      model.destroy();
+    }
+  },
+
   updateChat: function(userId) {
     this.findWhere({
       userId: userId

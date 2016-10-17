@@ -140,7 +140,7 @@
 
   .bc-mmc-sort-container{
     position: absolute;
-    bottom: -2px;
+    bottom: -3px;
     left: 556px;
     text-align: center;
     font-size: 12px;
@@ -162,6 +162,7 @@
       line-height: 34px;
     }
     .nav-tabs{
+      padding-bottom: 3px;
       border-bottom: 2px solid #802420;
       padding-left: 10px;
     }

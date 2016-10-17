@@ -73,12 +73,15 @@
       position: relative;
 
       > a {
+        font-family: fzfys;
         padding-right: 30px;
         padding-left: 10px;
         height: 38px;
-        line-height: 32px;
+        line-height: 38px;
         text-align: center;
         display: inline-block;
+        color: #333333;
+        font-size: 18px;
       }
 
       &:first-child {

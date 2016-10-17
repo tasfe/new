@@ -71,11 +71,13 @@
 
 .nc-noticeDetail-inner {
   height: 525px;
-  width: 100%;
+  //width: 100%;
   display: inline-block;
   overflow: auto;
   float: left;
   color: $new-black-color;
+  border-bottom: 0;
+
 
   .nc-notice-top {
     padding: 0 5px 0;
@@ -90,7 +92,6 @@
   .nc-notice-main {
     margin: 10px 30px;
   }
-
 }
 
 
@@ -105,7 +106,7 @@
     padding: 0 10px 10px 8px;
 
     .head-bulletin-left-title{
-      color: #999;
+      color: #666;
       line-height: 28px;
       border: 1px solid #ccc;
       border-radius: 5px 5px 0 0;
@@ -117,12 +118,15 @@
       border-top:  0;
       border-radius: 0 0 5px 5px;
       position: relative;
+      background-color:#f8f8f8;
+      box-shadow:0 1px 1px #cecece;
+
       .header-bulletin-list{
         li{
           position: relative;
           border-bottom: 1px solid #ccc;
           height: 35px;
-          padding: 0px 8px 0px 14px;
+          padding: 0 8px 0 14px;
           display: block;
           cursor: pointer;
           font-size: 12px;
@@ -195,7 +199,7 @@
         height: 24px;
         font-size: 14px;
         background-color: #fff;
-        color: #c2c2c2;
+        color: #666666;
         &:focus{
           outline: none;
         }
@@ -205,11 +209,13 @@
         border-right: 0;
         border-radius: 12px 0 0 12px;
         margin: 8px 0 8px 0;
+        background:linear-gradient(to bottom,#ffffff,#e3e3e3);
       }
       .pn-next{
         border: 1px solid #ccc;
         border-radius:0 12px 12px 0;
         margin: 8px 0 8px 0;
+        background:linear-gradient(to bottom,#ffffff,#e3e3e3);
       }
       button.active{
         color: #000;
@@ -230,11 +236,12 @@
     height: 555px;
     //overflow: hidden;
     .head-bulletin-right-title{
-      color: #999;
+      color: #666;
       line-height: 28px;
       border: 1px solid #ccc;
       border-radius: 5px 5px 0 0;
       padding-left: 10px;
+      box-shadow:0 1px 1px #cecece;
     }
   }
 }
