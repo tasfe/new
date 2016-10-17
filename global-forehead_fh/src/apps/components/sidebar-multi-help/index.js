@@ -25,7 +25,7 @@ var MultiSidebarView = Base.ItemView.extend({
 
     this.$multiMain.slimScroll({
       height: this.options.height,
-      alwaysVisible: true
+      alwaysVisible: false
     });
     this.$('.js-com-multi-item').eq(0).trigger('click');
   },
