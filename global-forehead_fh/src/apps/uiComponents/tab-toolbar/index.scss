@@ -185,7 +185,10 @@ $tab-toolbar-circle-colors: (
 .bc-result-container3 {
   .tab-toolbar.tab-border .tab{
     margin-top: 0;
-    line-height: 26px;
+    height: 24px;
+    width: 24px;
+    line-height: 24px;
+    border: 1px solid #cccccc;
     &:hover{
       border: 1px solid #e67eb2 !important;
       color: #e67eb2;
