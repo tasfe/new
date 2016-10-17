@@ -140,6 +140,7 @@ var ChatUserModel = Model.extend({
 
   destroy: function() {
     window.clearInterval(this.chatTimer);
+    this.trigger('destroy', this, this.collection);
   }
 });
 

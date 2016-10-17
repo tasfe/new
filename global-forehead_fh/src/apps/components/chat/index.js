@@ -27,7 +27,8 @@ var Chat = Base.PrefabView.extend({
     return this;
   },
 
-  renderChatContent: function(chatList, isLastMsg, prepend) {
+  renderChatContent: function(chatList, isLastMsg, action) {
+    action = action || 'html';
     var html;
     if (chatList) {
       html = _(this.template).template()({
@@ -35,22 +36,19 @@ var Chat = Base.PrefabView.extend({
         isLastMsg: isLastMsg
       });
 
-      if (!prepend) {
-        this.$el.html(html);
-      } else {
-        this.$el.prepend(html);
-      }
+      this.$el[action](html);
     }
   },
 
-  add: function(chatInfo) {
-    this.renderChatContent([chatInfo]);
+  add: function(chatInfo, isLastMsg) {
+    isLastMsg = isLastMsg || true;
+    this.renderChatContent(chatInfo, isLastMsg, 'append');
 
     return this;
   },
 
   prepend: function(chatData, isLastMsg) {
-    this.renderChatContent(chatData, isLastMsg, true);
+    this.renderChatContent(chatData, isLastMsg, 'prepend');
     // if (chatData) {
     //   this.$el.prepend(_(this.template).template()({
     //     chatData: this._push(chatData)
@@ -76,10 +74,13 @@ var Chat = Base.PrefabView.extend({
       }, 0);
       this._chatData = chatData;
     } else {
+      chatData = [chatData];
       var prevInfo = _(this._chatData).last();
 
       if (prevInfo) {
         chatData.hasTitle = Math.abs(chatData.sendTime - prevInfo.sendTime) > 60000;
+      } else {
+        chatData.hasTitle = true;
       }
 
       this._chatData.push(chatData);

@@ -7,7 +7,12 @@ var InsideLetterModule = Base.Module.extend({
   startWithParent: false,
 
   onStart: function() {
-    Global.insideLetterRegion.show(new InsideLetterView());
+    this.insideLetterView = new InsideLetterView();
+    Global.insideLetterRegion.show(this.insideLetterView);
+  },
+
+  openChat: function(userId, username) {
+    this.insideLetterView.openChat(userId, username);
   }
 });
 

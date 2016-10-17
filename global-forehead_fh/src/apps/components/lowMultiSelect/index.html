@@ -1,6 +1,8 @@
-<div class="input-append low-multi-append">
-  <input type="text" class="js-pf-input-search-user pf-input-search-user" placeholder="输入用户名" />
-  <span class="add-on"><i class="fa fa-search"></i></span>
+<div class="low-multi-append-container">
+  <div class="input-append low-multi-append">
+    <input type="text" class="js-pf-input-search-user pf-input-search-user" placeholder="输入用户名" />
+    <span class="add-on"><i class="fa fa-search"></i></span>
+  </div>
 </div>
 <div class="js-pf-select-container pf-select-container">
   <div class="js-fc-parent control-group no-m-bottom hidden">
@@ -14,7 +16,7 @@
   <div class="pf-select-superior">
     <i class="caret caret-bottom"></i>
     <span>我的下级</span>
-    <div class="js-gl-letter btn btn-link text-amber pull-right no-padding">
+    <div class="js-pf-group-letter btn btn-link text-amber pull-right no-padding <% if (!showMulti) { %>hidden<% } %>">
       群发消息
     </div>
   </div>
