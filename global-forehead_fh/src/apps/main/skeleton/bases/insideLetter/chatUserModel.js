@@ -36,7 +36,7 @@ var ChatUserModel = Model.extend({
           content: chat.content.replace(/\[\-f(\w+)\-\]/g, '<span class="chat-exp face-$1"></span>'),
           sendTime: chat.sendTime,
           isSender: chat.sendId === acctInfo.userId,
-          headId: self.get('headId'),
+          headId: chat.sendId !== acctInfo.userId ? self.get('headId') : acctInfo.headId,
           sender: chat.sendId !== acctInfo.userId ? self.get('username') : acctInfo.username
         });
         return chatData;

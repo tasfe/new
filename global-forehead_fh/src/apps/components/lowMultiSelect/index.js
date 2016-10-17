@@ -147,6 +147,7 @@ var LowMultiSelect = Base.PrefabView.extend({
         };
       }).value());
     }
+    this.trigger('refresh:complete', data);
   },
 
   selectUser: function(id, data) {
