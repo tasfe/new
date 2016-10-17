@@ -122,14 +122,14 @@
   &.nav-tabs-border {
     //background: $white-color;
     li {
-      margin-top: 10px;
-      margin-bottom: -2px;
+      margin-top: 5px;
+      margin-bottom: -3px;
       > a {
         border-top-right-radius: $globalBtnRadius;
         border-top-left-radius: $globalBtnRadius;
         position: relative;
         font-size: $font-md;
-        line-height: 34px;
+        line-height: 38px;
         padding: 0 10px;
         overflow: hidden;
 
@@ -189,6 +189,9 @@
           border-bottom: 1px solid #ececec;
           color: $hot-color;
         }
+      }
+      &.active {
+        font-weight: bold;
       }
     }
   }
