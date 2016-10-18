@@ -415,6 +415,25 @@ $btns: (
       bg-color: $pink-color
     )
   ),
+  light-blue: (
+    color: $white-color,
+    bg-color: $blue-color,
+    border: 1px solid #4da0c5,
+    border-radius: 15px,
+    linear-color: linear-gradient(to bottom, $white-color, #66b3c7 5%, #5499bd),
+    hover: (
+      color: $white-color,
+      bg-color: $blue-color
+    ),
+    focus: (
+      color: $white-color,
+      bg-color: $blue-color
+    ),
+    active: (
+      color: $white-color,
+      bg-color: $blue-color
+    )
+  ),
   pure: (
     color: $gray-color,
     bg-color: $white-color,
