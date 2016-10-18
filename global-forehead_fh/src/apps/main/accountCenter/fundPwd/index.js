@@ -4,11 +4,14 @@ var FundPwdView = Base.ItemView.extend({
 
   template: require('./index.html'),
 
+  completeTpl: _.template(require('../templates/completePage.html')),
+
   startOnLoading: true,
 
   events: {
     'click .js-ac-setFundPassword-submit': 'setFundPasswordHandler',
-    'keyup #newUpdateFundPassword': 'validatePwdHandler'
+    'keyup #newUpdateFundPassword': 'validatePwdHandler',
+    'click .js-pm-confirm': 'refreshPageHandler'
   },
 
   validatePwdHandler: function (e) {
@@ -83,6 +86,7 @@ var FundPwdView = Base.ItemView.extend({
 
           self.$('.js-ac-setFundPassword-submit').data('type', 'update');//设置按钮点击时触发事件的类型标示
           self.$('.portlet-title').html('修改资金密码');
+          self.$('.js-ac-forgetPwd').removeClass('hidden');
         } else if (res && res.result === 1) {
           //1表示未设置资金密码，则需要展示设置资金密码页面
           //隐藏输入框，并将其中的input置为失效状态
@@ -116,8 +120,12 @@ var FundPwdView = Base.ItemView.extend({
           $target.button('reset');
         }).done(function (res) {
           if (res && res.result === 0) {
-            Global.ui.notification.show('设置密码成功');
-            self.render();
+            // Global.ui.notification.show('设置密码成功');
+            // self.render();
+            self.$el.html(self.completeTpl({
+              title: '设置成功',
+              content: '资金密码设置成功'
+            }));
           } else {
             Global.ui.notification.show(res.msg);
           }
@@ -133,10 +141,14 @@ var FundPwdView = Base.ItemView.extend({
           $target.button('reset');
         }).done(function (res) {
           if (res && res.result === 0) {
-            Global.ui.notification.show('修改资金密码成功', {
-              type: 'success'
-            });
-            self.render();
+            // Global.ui.notification.show('修改资金密码成功', {
+            //   type: 'success'
+            // });
+            // self.render();
+            self.$el.html(self.completeTpl({
+              title: '修改成功',
+              content: '资金密码修改成功'
+            }));
           } else {
             if(_(res.root).isNumber && res.root > 0){
               Global.ui.notification.show(res.msg + ',验证失败，剩余&nbsp;' + res.root + '&nbsp;次机会');
@@ -147,6 +159,10 @@ var FundPwdView = Base.ItemView.extend({
         });
       }
     }
+  },
+
+  refreshPageHandler: function () {
+    this.render();
   }
 });
 
