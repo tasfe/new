@@ -207,7 +207,7 @@ var BettingCenterView = Base.ItemView.extend({
         //{label: '奖金模式', name: 'bonusMode', width: '20%'},
         {label: '注数', name: 'mode', width: '60px'},
         {label: '投注金额', name: 'mode2', width: '20%'},
-        {label: '<i class="js-bc-lottery-clear fa fa-trash "></i>', name: 'mode3', width: '10%'}
+        {label: '<i class="js-bc-lottery-clear fa fa-trash font-sm"></i>', name: 'mode3', width: '10%'}
         //{label: '注数/倍数/模式', name: 'mode', width: '20%'}
         //{label: '投注金额', name: 'bettingMoney', width: '17%'}
       ],
