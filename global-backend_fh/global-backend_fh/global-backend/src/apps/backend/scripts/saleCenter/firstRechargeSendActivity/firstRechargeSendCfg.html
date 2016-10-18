@@ -1,0 +1,48 @@
+<div class="panel padding-md">
+    <form class="js-sc-rbac-form form-horizontal form-inline" action="javascript:void(0)">
+        <input type="hidden" class="js-sc-rbac-activityId" value="38" name ="activityId">
+        <div class="row m-bottom-sm" style="margin-left: 93px">
+            <div class="col-sm-12 m-left-lg">
+                <div class="form-group form-inline">
+                    <label class=" control-label">活动时间：</label>
+                    <span class="js-sc-rbac-timeset"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row m-bottom-sm " style="margin-left: 93px">
+            <div class="col-sm-12 m-left-lg">
+                <div class="js-sc-rbac-btnContainer form-group form-inline">
+                    <label class=" control-label m-right-sm" >用户类型：</label>
+                    <label class="radio-inline control-label">
+                        <input class="js-sc-rbac-type" type="radio" name="userType"  value="0" checked><label style="margin-top:1px;">全部用户</label>
+                    </label>
+                    <label class="radio-inline control-label">
+                        <input class="js-sc-rbac-type" type="radio" name="userType"  value="1" style="margin-top: 7px;"><label style="margin-top: 5px;">活动开始时间注册的用户</label>
+                    </label>
+                </div>
+            </div>
+            </div>
+        <div class="row m-bottom-sm" style="margin-left: 93px">
+
+            <div class=" col-sm-12 m-left-lg">
+                <div class="form-group form-inline">
+                        <label class=" control-label m-right-sm" >奖励份数：</label>
+                        <input type="text" name="count" class="js-sc-rbac-count form-control" data-parsley-range="[0, 10000000]" data-parsley-interger style="margin-left:5px;margin-right:5px;width:90px;" required>
+                </div>
+            </div>
+        </div>
+        <div class="row m-bottom-sm">
+            <div class="">
+                <div class="col-sm-10 col-sm-offset-1">
+                    <button class="js-sc-add btn btn-primary" style="margin-right: 50px;"><i class="fa fa-plus"></i> 增加活动区间</button>
+                    <div class="js-sc-cfgDetail" style="margin-top: 10px;"></div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center">
+            <input type="hidden" name="status"  value="0">
+            <button class=" js-sc-rbac-submit btn btn-primary" type="submit"  style="width: 100px; margin-right: 20px;" data-loading-text="发送中">确定</button>
+            <button style="width: 100px;" class="js-sc-rbac-cancel btn" data-dismiss="modal" type="reset">取消</button>
+        </div>
+    </form>
+</div>

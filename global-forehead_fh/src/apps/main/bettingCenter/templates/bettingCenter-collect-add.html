@@ -1,0 +1,18 @@
+<div class="alert">
+  收藏后可以方便快捷“导入”，使用收藏过的好吗投注您的计划。
+</div>
+<form class="js-bc-form" action="javascript:void(0)">
+  <dl class="clearfix m-LR-md no-padding-bottom">
+    <dt class="pull-left m-right-md">
+      <span class="sfa sfa-d-<%=ticketInfo.id %>-<%=ticketInfo.info.mark %>"></span>
+    </dt>
+    <dd class="overflow-hidden m-top-lg">
+      <input type="text" name="schemeName" value="<%=ticketInfo.info.zhName %>收藏<%=++collectId %>" required data-parsley-zhlength="[0, 20]">
+      <div class="help-inline">（最多20个字符）</div>
+    </dd>
+  </dl>
+  <div class="text-center">
+    <button type="submit" class="js-confirm-agree btn btn-pink btn-linear" data-loading-text="保存中">确定</button>
+    <button type="button" class="js-confirm-reject btn btn-linear" data-dismiss="modal">取消</button>
+  </div>
+</form>

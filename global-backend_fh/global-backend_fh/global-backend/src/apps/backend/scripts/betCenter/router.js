@@ -28,7 +28,8 @@ define(function (require, exports, module) {
       'bc/cr': 'chaseRecord',
       'bc/cr/detail/:tradeNo': 'chaseRecordDetail',
       'bc/ac': 'abnormalBettingCheck',
-      'bc/am': 'abnormalBettingManage'
+      'bc/am': 'abnormalBettingManage',
+      'bc/bhk':'betHouseKeeperView'
 
     });
 

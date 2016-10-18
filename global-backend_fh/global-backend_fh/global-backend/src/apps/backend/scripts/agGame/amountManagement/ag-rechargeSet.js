@@ -3,6 +3,7 @@ define(function (require, exports, module) {
 
     var NewLevelsView = require('agGame/amountManagement/ag-rechargeLevelSet');
     var NewNumView = require('agGame/amountManagement/ag-rechargeNumSet');
+    var NewBetView = require('agGame/amountManagement/ag-rechargeBetSet');
     var AgRechargeSetView = Base.Prefab.TabView.extend({
         initialize: function() {
             _(this.options).extend({
@@ -18,6 +19,12 @@ define(function (require, exports, module) {
                         name: 'Num',
                         id: 'jsSpNum',
                         view: NewNumView
+                    },
+                    {
+                        label: '提现流水设置',
+                        name: 'bet',
+                        id: 'jsSpBet',
+                        view: NewBetView
                     }
                 ]
             });

@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "dependencies": {
     "bower": "^1.5.3",
+    "fontmin": "^0.9.6",
     "gulp": "^3.9.0"
   },
   "scripts": {
