@@ -500,7 +500,8 @@ $modals: (
   smd: 350px,
   md: 520px,
   md2: 560px,
-  lg: 876px
+  lg: 876px,
+  letter: 1016px
 );
 
 $tables: (
@@ -613,7 +614,7 @@ $navTabs: (
     border-color: $color-sunshine,
     color: $font-color-coffee,
     //bg-color: #f7f7f7,
-    active-color: $hot-color,
+    active-color: #cc3333,
     active-bg-color: $white-linear-color
   ),
   hot: (
@@ -663,45 +664,21 @@ $validate: (
 );
 
 $sfa-d-tickets: (
-  sfa-d-ne-ssc-smmc: (
-  default: '~base/images/tickets/d-ne-ssc-smmc.png'
-  ),
-  sfa-d-sp-ssc-ffc: (
-    default: '~base/images/tickets/d-sp-ssc-ffc.png'
-  ),
-  sfa-d-sp-ssc-sfc: (
-    default: '~base/images/tickets/d-sp-ssc-sfc.png'
-  ),
-  sfa-d-sp-ssc-wfc: (
-    default: '~base/images/tickets/d-sp-ssc-wfc.png'
-  ),
-  sfa-d-sp-num-ffc: (
-    default: '~base/images/tickets/d-sp-num-ffc.png'
-  ),
-  sfa-d-sp-num-sfc: (
-    default: '~base/images/tickets/d-sp-num-sfc.png'
-  ),
-  sfa-d-sp-3d-ffc: (
-    default: '~base/images/tickets/d-sp-3d-ffc.png'
-  ),
-  sfa-d-sp-3d-wfc: (
-    default: '~base/images/tickets/d-sp-3d-wfc.png'
-  ),
 
-  sfa-d-ssc-cq: (
-    default: '~base/images/tickets/d-ssc-cq.png'
+  sfa-d-happy-pk10: (
+    default: '~base/images/tickets/d-happy-pk10.png'
   ),
-  sfa-d-ssc-jx: (
-    default: '~base/images/tickets/d-ssc-jx.png'
+  sfa-d-low-3d: (
+    default: '~base/images/tickets/d-low-3d.png'
   ),
-  sfa-d-ssc-hlj: (
-    default: '~base/images/tickets/d-ssc-hlj.png'
+  sfa-d-low-3d-ffc: (
+    default: '~base/images/tickets/d-low-3d-ffc.png'
   ),
-  sfa-d-ssc-xj: (
-    default: '~base/images/tickets/d-ssc-xj.png'
+  sfa-d-low-p5p3: (
+    default: '~base/images/tickets/d-low-p5p3.png'
   ),
-  sfa-d-ssc-tj: (
-    default: '~base/images/tickets/d-ssc-tj.png'
+  sfa-d-num-ffc: (
+    default: '~base/images/tickets/d-num-ffc.png'
   ),
   sfa-d-num-gd: (
     default: '~base/images/tickets/d-num-gd.png'
@@ -712,16 +689,37 @@ $sfa-d-tickets: (
   sfa-d-num-sd: (
     default: '~base/images/tickets/d-num-sd.png'
   ),
-  sfa-d-low-3d: (
-    default: '~base/images/tickets/d-low-3d.png'
+  sfa-d-sp-ssc-ffc: (
+    default: '~base/images/tickets/d-sp-ssc-ffc.png'
   ),
-  sfa-d-low-p5p3: (
-    default: '~base/images/tickets/d-low-p5p3.png'
+  sfa-d-sp-ssc-sfc: (
+    default: '~base/images/tickets/d-sp-ssc-sfc.png'
+  ),
+  sfa-d-sp-ssc-wfc: (
+    default: '~base/images/tickets/d-sp-ssc-wfc.png'
+  ),
+  sfa-d-ssc-cq: (
+    default: '~base/images/tickets/d-ssc-cq.png'
   ),
   sfa-d-ssc-hg: (
-    default: '~base/images/tickets/logo-hg-15.png'
+    default: '~base/images/tickets/d-ssc-hg.png'
   ),
-  sfa-d-happy-pk10: (
-    default: '~base/images/tickets/logo-bj-px10.png'
-  )
+  sfa-d-ssc-hlj: (
+    default: '~base/images/tickets/d-ssc-hlj.png'
+  ),
+  sfa-d-ssc-jnd: (
+    default: '~base/images/tickets/d-ssc-jnd.png'
+  ),
+  sfa-d-ssc-tj: (
+    default: '~base/images/tickets/d-ssc-tj.png'
+  ),
+  sfa-d-ssc-tw: (
+    default: '~base/images/tickets/d-ssc-tw.png'
+  ),
+  sfa-d-ssc-xj: (
+    default: '~base/images/tickets/d-ssc-xj.png'
+  ),
+  sfa-d-ssc-xjp: (
+    default: '~base/images/tickets/d-ssc-xjp.png'
+  ),
 );

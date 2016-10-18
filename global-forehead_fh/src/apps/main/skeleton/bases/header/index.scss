@@ -36,21 +36,6 @@
   }
 }
 
-.h-letter{
-  display: inline-block;
-  width:16px;
-  height:16px;
-  line-height: 15px;
-  border-radius: 50%;
-  background: $color-hot;
-  color: $light-color;
-  text-align: center;
-  &.h-no-letter {
-    background: #333333;
-    color: $gray-color;
-  }
-}
-
 .menuspan{
   display:none;
 }

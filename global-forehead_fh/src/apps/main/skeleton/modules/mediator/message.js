@@ -6,7 +6,7 @@ var MessageMediatorModule = Base.Module.extend({
 
   startWithParent: false,
 
-  interval: 30000,
+  interval: 15000,
 
   initialize: function() {
     _.bindAll(this, 'fetch');
@@ -26,8 +26,8 @@ var MessageMediatorModule = Base.Module.extend({
     });
   },
 
-  setRead: function(id) {
-    return this.model.setReadLetterXhr(id);
+  setRead: function(userId) {
+    return this.model.setReadLetterXhr(userId);
   },
 
   fetch: function() {
@@ -47,51 +47,6 @@ var MessageMediatorModule = Base.Module.extend({
           }, {
             parse: true
           });
-
-          var newsNum = 0;
-
-          if (data.parent != null) {
-            newsNum += data.parent.newMsgNum;
-          }
-
-          var msgArry = [];
-          var j = 0;
-          if (data.subList != null) {
-            for (var i = data.subList.length - 1; i >= 0; i--) {
-              newsNum += data.subList[i].newMsgNum;
-              j = data.subList[i].userId;
-              msgArry[j] = data.subList[i].newMsgNum;
-            }
-          }
-          
-
-          var num = 0;
-          for (var i = $('.js-wt-title').length - 1; i >= 0; i--) {
-            num = msgArry[$('.js-wt-title').eq(i).data('no')];
-            $('.js-wt-title b').eq(i).text(num);
-            if (num == 0) {
-              $('.js-wt-title b').eq(i).addClass('hidden');
-            }
-            else{
-              $('.js-wt-title b').eq(i).removeClass('hidden');
-            }
-          }
-          
-          // $('.js-gl-letter-unread').html('<span>'+newsNum+'</span>');
-
-          if (sessionStorage.getItem('openMessage') == 1) {
-            if (data.parent != null) {
-              $('.js-pf-select-superior big').text(data.parent.newMsgNum);
-            }
-            
-            if ( $('.js-pf-select-superior big').text() == 0 ) {
-              $('.js-pf-select-superior big').addClass('hidden');
-            }
-            else{
-              $('.js-pf-select-superior big').removeClass('hidden');
-            }
-          }
-
 
           Global.m.publish('message:updating', self.model);
         }

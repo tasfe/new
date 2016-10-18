@@ -71,19 +71,3 @@
     }
   }
 }
-
-.genderation {
-  padding: 4px 15px;
-  border-radius: 30px;
-  display: inline-block;
-  border: 1px solid $gray-color;
-  & {
-    .sel, :hover {
-      background: #5f91b7;
-      .fa {
-        color: #fff;
-      }
-    }
-  }
-}
-

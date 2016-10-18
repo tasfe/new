@@ -58,7 +58,7 @@
 
   &.modal-notification-tip {
     .modal-content {
-      font-weight:bold;
+      //font-weight:bold;
       background: rgba(0, 0, 0, 0.6);
       color: $white-color;
     }
@@ -102,7 +102,7 @@
   .close {
     width: 20px;
     height: 20px;
-    margin-right: 2px;
+    margin-right: -1px;
   }
   h4 {
     margin-bottom: 3px;

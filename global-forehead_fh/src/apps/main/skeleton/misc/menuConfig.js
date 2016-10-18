@@ -58,7 +58,7 @@ var menuConfig = [
       {
         id: 136,
         router: 'ac/salary',
-        name: '日工资管理',
+        name: '日薪管理',
         needAuth: true
       },
       {
@@ -168,8 +168,9 @@ var menuConfig = [
     router: 'hc',
     titleClass: 'hidden',
     //router: 'hc?page=newbie',
-    name: '帮助中心'
+    name: '帮助中心',
     //icon: 'help'
+    noTitle: true
   },
   //{
   //  router: 'javascript:void(0)',
@@ -253,11 +254,11 @@ var menuConfig = [
         router: 'uc/pd',
         name: '奖金详情'
       },
-      {
-        id: 207,
-        router: 'fc/pf',
-        name: '上下级转帐'
-      },
+      // {
+      //   id: 207,
+      //   router: 'fc/pf',
+      //   name: '上下级转帐'
+      // },
       {
         id: 203,
         router: 'as/ll',

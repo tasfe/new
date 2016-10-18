@@ -6,7 +6,6 @@ require('./staticGrid');
 require('./textCopy');
 require('./statistics');
 require('./treeView');
-require('./treeView2');
 require('./fileLoad');
 require('./numRange');
 require('./dropMenu');

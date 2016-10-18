@@ -4,12 +4,15 @@ var LoginPwdView = Base.ItemView.extend({
 
   template: require('./index.html'),
 
+  completeTpl: _.template(require('../templates/completePage.html')),
+
   className: 'as-loginPwd',
 
   //绑定事件
   events: {
     'click .js-changeLoginPassword-submit': 'changeLoginPasswordHandler',    //修改登陆密码
-    'keyup #newLoginPassword': 'validatePwdHandler'
+    'keyup #newLoginPassword': 'validatePwdHandler',
+    'click .js-pm-confirm': 'reloginHandler'
   },
 
   onRender: function () {
@@ -90,17 +93,14 @@ var LoginPwdView = Base.ItemView.extend({
       })
       .done(function (res) {
         if (res && res.result === 0) {
-          Global.ui.notification.show('修改密码成功', {
-            type: 'success'
-          });
-          self.render();
-          
-          //var LoginOutTips = require('com/loginOutTips');
-          //this.loginOutTips = new LoginOutTips();
-          //this.loginOutTips.checkState();
-
-          Global.sync.setLogout();
-      
+          // Global.ui.notification.show('修改密码成功', {
+          //   type: 'success'
+          // });
+          // self.render();
+          self.$el.html(self.completeTpl({
+            title: '修改成功',
+            content: '登录密码修改成功，请重新登录'
+          }));
         } else {
           if(res.msg=="fail"&&(res.root!=null)){
           Global.ui.notification.show("验证失败，"+res.root);
@@ -110,6 +110,10 @@ var LoginPwdView = Base.ItemView.extend({
         }
       });
     }
+  },
+  reloginHandler: function () {
+    Global.sync.setLogout();
+    window.location.href = 'login.html';
   }
 });
 

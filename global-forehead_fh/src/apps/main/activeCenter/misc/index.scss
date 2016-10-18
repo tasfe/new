@@ -3,7 +3,7 @@
 @import "~base/styles/imports";
 
 .main-active-container {
-  padding-top: 15px;
+  padding-top: 0px;
   .active-context {
     height: 600px;
   }
@@ -28,9 +28,9 @@
         font-size: 12px;
         border: solid 1px #c7343a;
         border-radius: 20px;
-        height: 24px;
-        line-height: 24px;
-        padding: 0 10px;
+        height: 22px;
+        line-height: 22px;
+        padding: 0 8px;
       }
 
       &.ac-activity-coming {
@@ -39,7 +39,7 @@
           border: 1px solid #fb6834;
         }
         .ac-activity-word {
-          color: $color-amber;
+          color: #333;
         }
       }
 
@@ -67,6 +67,7 @@
         .ac-activity-image {
           filter: grayscale(100%);
           filter: gray;
+          filter:progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);
         }
       }
     }
@@ -75,7 +76,7 @@
       overflow: hidden;
       .ac-activity-title {
         margin-left: 10px;
-        font-size: 18px;
+        font-size: 16px;
         display: inline-block;
         line-height: 28px;
         float: left;
@@ -93,6 +94,7 @@
 .activityDetail-context {
   height: 500px;
   padding-top: 10px;
+  padding-left: 10px;
 }
 .activityDetail-container-header {
   padding-bottom: 10px;

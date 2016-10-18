@@ -3,74 +3,59 @@
 @import
 "~base/styles/imports";
 
-.hc-return-btn {
-  position: absolute;
-  top: 5px;
-  right: 10px;
-  padding: 5px 10px;
-  font-size: 14px;
+
+.hc-hot-prod-header{
+  border-bottom: 1px solid $deep-gray-color;
+  height: 34px;
+  line-height: 34px;
+  padding-left: 17px;
+  font-size: 13px;
+  .sfa{
+    margin: 7px 7px 0 0;
+    float: left;
+  }
 }
+.hc-hot-prod-list{
+  .hc-hot-prod-item{
+    height: 99px;
 
-.hc-catalog {
-  list-style: none;
-  height: 580px;
-  overflow: auto;
-  > li {
-    border-bottom: 1px solid $gray-color;
-    margin: 0 30px;
-    padding: 15px 0;
-
-    &:last-of-type {
-      border-bottom: 0;
-    }
-  }
-
-  .hc-catalog-title {
-    display: table-cell;
-    width: 140px;
-    margin: 20px 0;
-    text-align: center;
-    vertical-align: middle;
-  }
-  .hc-catalog-title-icon {
-    margin-bottom: 10px;
-  }
-  .hc-catalog-title-inner {
-    font-size: $font-md;
-  }
-
-  .hc-catalog-contents {
-    display: table-cell;
     list-style: none;
-    width: 755px;
-    padding: 10px 0 10px 40px;
-    border-left: 1px solid $gray-color;
-    vertical-align: middle;
-    min-width: 75px;
-    > li {
-      float: left;
-      > a {
-        display: inline-block;
-        margin: 7px 15px 7px 0;
-        min-width: 145px;
-        text-align: center;
-        height: 25px;
-        line-height: 25px;
-        border: 1px solid $gray-color;
-        padding: 0 10px;
-      }
+
+    border-bottom: 1px solid $deep-gray-color;
+    .hc-hot-prod-icon{
+      padding: 0px 45px;
+    }
+
+    .hc-hot-prod-name{
+      height: 12px;
+      margin-top: 28px;
+      margin-bottom: 10px;
+    }
+
+    .hc-hot-prod-desc{
+      height: 12px;
+      margin-bottom: 28px;
+    }
+    &:hover{
+      background-color: #f6f6f6;
     }
   }
 }
 
-.hc-container {
-  height: 579px;
-  .sidebar {
-    margin-left: -1px;
+.hc-main{
+  p{
+    line-height: 22px;
+    text-indent: 24px;
   }
-  .hc-p {
-    p {
-      text-indent: 20px;
-    }
+
+  .hc-title-lg{
+    font-size: 16px;
   }
+  .hc-title-md{
+    font-size: 14px;
+  }
+  .hc-title-sm{
+    font-size: 12px;
+  }
+
 }

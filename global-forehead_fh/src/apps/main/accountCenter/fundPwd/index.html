@@ -1,53 +1,42 @@
 <div class="portlet-header">
-  <div class="portlet-title">资金密码</div>
+  <div class="portlet-title">设置资金密码</div>
 </div>
 <div class="portlet-body">
-  <!--<div class="alert as-fund-pwd-head">-->
-    <!--&lt;!&ndash;<i class="fa fa-exclamation-circle font-md"></i>&ndash;&gt;-->
-    <!--<span class="text-bold-dark">温馨提示：</span>请在下面重新设置您的资金密码并妥善保管！-->
-  <!--</div>-->
   <form action="javascript:void(0);" class="js-ac-setFundPassword-form form-horizontal m-top-lg">
-    <!--<div class="js-ac-noFundPasswordNoticeBar alert">-->
-      <!--<strong>提示：</strong>您还未设置资金密码，请在下面设置 。-->
-    <!--</div>-->
     <div class="js-ac-oldFundPwdContainer control-group">
       <label class="control-label">当前密码：</label>
-
       <div class="controls">
-        <input type="password" class="input1 js-ac-oldFundPwdContainer"  id="oldFundPassword" data-parsley-length="[6, 20]" required>
+        <input type="password" class="js-ac-oldFundPwdContainer"  id="oldFundPassword" data-parsley-length="[6, 20]" required>
       </div>
     </div>
     <div class="control-group">
-      <label class="control-label line-height30">新密码：</label>
-
+      <label class="control-label">新密码：</label>
       <div class="controls">
-        <input type="password" class="input1"  id="newUpdateFundPassword" data-parsley-length="[6, 20]"
+        <input type="password"  id="newUpdateFundPassword" data-parsley-length="[6, 20]"
                data-parsley-notEqualTo="oldFundPassword" data-parsley-notEqualTo-message="新旧密码不能一致" required>
-        <span class="js-help-inline2 help-inline">&nbsp;&nbsp;长度6-20位字符，支持数字，大小写字母和符号组合（不含空格）,不能是9位以下的纯数字</span>
+        <div class="help-block">长度6-20位字符，支持数字，大小写字母和符号组合（不含空格）,不能是9位以下的纯数字</div>
       </div>
     </div>
-    <div class="js-passwdSafetyTips2 passwdSafetyTips hide">
-      <span></span> <span></span> <span></span> <b class="s1">弱</b>
-      <p>连续字符密码易被破解，请用多组合的密码</p>
+    <div class="js-passwdSafetyTips passwdSafetyTips hidden">
+      <span></span> <span></span> <span></span> <b class="m-left-xs">弱</b>
+      <div>连续字符密码易被破解，请用多组合的密码</div>
     </div>
     <div class="control-group">
-      <label class="control-label" style="width: 85px;">确认新密码：</label>
-
+      <label class="control-label">确认新密码：</label>
       <div class="controls">
-        <input type="password" class="input1"  id="newUpdateFundPassword1" data-parsley-length="[6, 20]"
-               data-parsley-equalto="#newUpdateFundPassword" required>
-        <span class="help-inline">&nbsp;&nbsp;再次输入密码</span>
+        <input type="password" id="newUpdateFundPassword1" data-parsley-length="[6, 20]" data-parsley-equalto="#newUpdateFundPassword" required>
+        <div class="help-block">再次输入密码</div>
       </div>
     </div>
 
-    <div class="js-tip2 tip hide"></div>
-
-    <div class="m-bottom-md rc-seperate-line"></div>
+    <div class="js-invalid-pwd-tip invalid-pwd-tip hidden"></div>
 
     <div class="control-group">
-      <div class="controls control-confirm">
-        <button type="button" class="btn btn-sun btn-linear input2 js-forbidden-button2" >修改</button>
-        <button type="submit" class="btn btn-sun btn-linear input1 m-right-sm js-ac-setFundPassword-submit hide" data-loading-text="加载中" >修改</button>
+      <div class="controls">
+        <button type="submit" class="btn btn-pink btn-linear js-ac-setFundPassword-submit" data-loading-text="保存中" disabled>保存</button>
+      </div>
+      <div class="controls m-top-sm">
+        <a href="#pm/pff" class="text-hot js-ac-forgetPwd ac-forgetPwd hidden">忘记资金密码？</a>
       </div>
     </div>
   </form>

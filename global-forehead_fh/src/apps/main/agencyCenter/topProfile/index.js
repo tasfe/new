@@ -43,7 +43,7 @@ var TopProfileView = Base.ItemView.extend({
         var data = res && res.root || {};
         if (res && res.result === 0) {
           self.$betTotal.text(_(data.todayBetTotal).convert2yuan());
-          self.$bonusTotal.text(_(data.todayBonusTotal).convert2yuan());
+          self.$bonusTotal.text(_(data.todayPrizeTotal).convert2yuan());
           self.$activityTotal.text(_(data.todayActivityTotal).convert2yuan());
           self.$profitTotal.text(_(data.todayProfitTotal).convert2yuan());
         }

@@ -6,7 +6,7 @@
   $activeColor: map_get($props, active-color);
   $activeBgColor: map_get($props, active-bg-color);
 
-  border-bottom: 2px solid $borderColor;
+  border-bottom: 3px solid $borderColor;
 
   > {
     li {

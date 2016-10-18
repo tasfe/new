@@ -1,89 +1,90 @@
 @import
 "src/base/styles/imports";
 
-.low-multi-select {
-  width: 900px;
-  height: 320px;
-  $bgColor: $gray-color;
-  overflow: hidden;
-  border: 1px solid $gray-color;
-  margin: 20px;
+.low-multi-select{
+  .pf-input-search-user {
+    background: #ededed;
+    width: 80%;
+  }
+  .add-on {
+    background: linear-gradient(to bottom, #e13c3d, #aa3e6a);
+    color: white;
+    font-size: 16px;
+  }
 
-  .low-multi-select-main {
-    width: 330px;
-    height: 300px;
-    padding: 10px;
+  .low-multi-append {
+    margin-left: 10px;
+  }
+
+  .low-multi-avatar {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
     display: inline-block;
-    vertical-align: top;
+    vertical-align: middle;
+  }
 
+  .pf-select-container {
+    border-top: 1px solid $gray-color;
+    position: relative;
 
-    .pf-select-container {
-      height: 270px;
-      overflow: auto;
+    .julien-user-list {
+      height: 417px;
+      overflow-y: auto;
+    }
+
+    .low-username {
+      vertical-align: bottom;
+      width: 100px;
+      display: inline-block;
+      overflow: hidden;
+    }
+
+    .pf-select-superior {
+      padding: 5px 10px;
+      border-bottom: 1px solid $gray-color;
+      color: $color-amber;
+      font-size: $font-sm;
+      position: relative;
+      cursor: pointer;
+      background-image: linear-gradient(to bottom, #ffffff, #f6f6f6);
+
+      .caret {
+        float: left;
+        position: relative;
+        width: 18px;
+        height: 18px;
+        background-color: $white-color;
+        border: 1px solid $gray-color;
+        border-radius: 18px;
+        margin-right: 8px;
+
+        &:after {
+          display: block;
+          content: '';
+          width: 0;
+          height: 0;
+          border-width: 4px;
+          border-style: dashed dashed dashed solid;
+          position: absolute;
+        }
+
+        &.caret-right {
+          &:after {
+            border-color: transparent transparent transparent #999999;
+            left: 8px;
+            top: 5px;
+          }
+        }
+
+        &.caret-bottom {
+          &:after {
+            border-color: #999999 transparent transparent transparent;
+            left: 5px;
+            top: 8px;
+          }
+        }
+      }
     }
   }
-
-  .low-multi-search-area {
-    margin: 10px 15px;
-  }
-
-  .low-multi-select-go-to {
-    //margin-top: 10px;
-    width: 180px;
-    height: 300px;
-    //display: inline-block;
-    //text-align: center;
-    //line-height: 300px;
-    //vertical-align: top;
-    border-left: 2px solid #e2e2e2;
-    border-right: 2px solid #e2e2e2;
-  }
-
-  .low-multi-selected {
-    width: 330px;
-    height: 300px;
-    padding: 10px;
-    //background-color: $bgColor;
-    display: inline-block;
-    overflow: auto;
-  }
-
-  .tree-view {
-    >ul{
-      //background-color: orange;
-    }
-    >ul li a {
-      color: $dark-color;
-    }
-  }
-  .selected-user {
-    color: $color-pleasant;
-  }
-
-  .selectAll-btn {
-    width: 60px;
-    display: inline-block;
-  }
-}
-
-.low-multi-search {
-  width: 250px;
-  margin-bottom: 10px;
-}
-
-.online-tip {
-  margin-right: 5px;
-  margin-left: -12px;
-}
-
-.low-multi-transfor-object{
-  position: relative;
-  line-height: 30px;
-  text-align: right;
-  width: 160px;
-  height: 30px;
-}
-
-.low-multi-transfor-image{
-  margin-top: -40px;
 }

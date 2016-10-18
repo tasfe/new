@@ -10,6 +10,9 @@
   .form-horizontal .control-label {
     width: 180px;
   }
+  .portlet-header {
+    border-bottom-style: dashed;
+  }
 }
 
 .as-passwordManage {
@@ -44,25 +47,25 @@
     }
   }
 }
+//
+//.as-step-container {
+//  width: 600px;
+//  margin: 0 auto;
+//  margin-top: 15px;
+//  .content {
+//    height: 470px;
+//  }
+//}
 
-.as-step-container {
-  width: 600px;
-  margin: 0 auto;
-  margin-top: 15px;
-  .content {
-    height: 470px;
-  }
-}
-
-.as-step-container-short {
-  width: 600px;
-  margin: 0 auto;
-  margin-top: 30px;
-  .content {
-    height: 450px;
-    margin: 15px 0px;
-  }
-}
+//.as-step-container-short {
+//  width: 600px;
+//  margin: 0 auto;
+//  margin-top: 30px;
+//  .content {
+//    height: 450px;
+//    margin: 15px 0px;
+//  }
+//}
 
 .step-inner-find {
   border: 1px solid #c2c2c2;
@@ -102,24 +105,6 @@
   margin: 0 auto;
 }
 
-.security-question {
-  .control-confirm {
-    margin-top: 20px;
-    .btn {
-      width: 166px;
-      height: 32px;
-      margin-left: 30px;
-    }
-    .btn-right {
-      margin-left: 13px;
-    }
-  }
-
-  .control-group {
-    margin-bottom: 10px;
-  }
-}
-
 .find-select {
   padding-top: 35px;
   overflow: hidden;
@@ -141,19 +126,14 @@
 }
 
 .as-security-add-notice {
-  width: 385px;
-  padding: 5px 10px;
-  margin: 10px auto;
-  border-radius: 20px;
-  text-align: center;
-  background-color: #CC0002;
-  color: white;
+  font-size: 12px;
+  color: $font-amber;
 }
 
-.as-securityQuestion-step1-div {
-  width: 400px;
-  margin: 0 auto;
-}
+//.as-securityQuestion-step1-div {
+//  width: 400px;
+//  margin: 0 auto;
+//}
 
 .ac-securityQuestion-divider {
   width: 380px;
@@ -165,11 +145,11 @@
 //  background-repeat: no-repeat;
 //}
 
-.ac-reset-div{
-  .passwdSafetyTips{
-    padding: 0px 0px 10px 40px;
-  }
-}
+//.ac-reset-div{
+//  .passwdSafetyTips{
+//    padding: 0px 0px 10px 40px;
+//  }
+//}
 
 .login-table{
   margin:0px 10px;
@@ -344,16 +324,29 @@
 .uc-memberLevel {
   line-height: 26px;
 }
+.uc-birthday-width-sm {
+  width: 80px;
+}
 
 .passwdSafetyTips{
   padding: 0 0 10px 185px;
   color: #999999;
-  line-height: 10px;
+  line-height: 8px;
+
+  div {
+    line-height: 20px;
+    padding-top: 5px;
+  }
+  b {
+    color: #fff;
+    border-radius: 2px;
+    padding: 1px 3px;
+  }
 
   span{
     display: inline-block;
     width: 69px;
-    height: 8px;
+    height: 6px;
     margin: 0;
     border: 1px solid #ffffff;
     background-color: #dddddd;
@@ -361,33 +354,111 @@
   }
 
   &.level1 {
-    span:first-child {
-      background-color: #ff6600;
-    }
-    b {
-      color: #ff6600;
+    span:first-child, b {
+      background-color: #cb3432;
     }
   }
   &.level2 {
-    span:first-child, span:nth-child(2) {
-      background-color: #ff9900;
-    }
-    b {
-      color: #ff9900;
+    span:first-child, span:nth-child(2), b {
+      background-color: #ff9a00;
     }
   }
   &.level3 {
-    span {
-      background-color: #99cc33;
-    }
-    b {
-      color: #99cc33;
+    span, b {
+      background-color: #65ce63;
     }
   }
 }
-.as-loginPwd {
-  .invalid-pwd-tip{
-    padding: 0 0 10px 185px;
-    color: rgb(226, 41, 25);
+
+.invalid-pwd-tip{
+  padding: 0 0 10px 185px;
+  color: #cb3432;
+}
+
+.as-personalManage {
+  .as-step-container-short {
+    width: 540px;
+    margin: 0 auto;
   }
+  .wizard > .steps {
+    margin-top: 5px;
+  }
+  .wizard ul, .tabcontrol ul {
+    width: 100%;
+    height: 3px;
+    background: #cccccc;
+    top: -20px;
+  }
+  .wizard > .steps > ul > li:after {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: #cccccc;
+    top: -8px;
+    border-radius: 50%;
+    margin: 0 15%;
+    border: 3px solid #fff;
+  }
+  .wizard > .steps > ul > li.current:after {
+    background: #cc6899;
+  }
+  .wizard > .steps > ul > li .number, .wizard > .steps > ul > li .title {
+    color: #cccccc;
+    font-size: 12px;
+    font-weight: normal;
+    position: relative;
+    line-height: 25px;
+    top: 5px;
+  }
+  .wizard > .steps > ul > li.current .number, .wizard > .steps > ul > li.current .title {
+    color: #202020;
+    font-size: 12px;
+    font-weight: normal;
+    position: relative;
+    line-height: 25px;
+    top: 5px;
+  }
+  .wizard > .content {
+    min-height: 300px;
+  }
+  .wizard > .content > .body input {
+    width: 161px;
+  }
+  .step-inner {
+    height: 80px;
+    .step-inner-main {
+      padding-top: 10px;
+    }
+  }
+}
+
+.pm-complete-form {
+  .control-group {
+    position: relative;
+    top: 100px;
+
+    &.pm-confirm {
+      top: 200px;
+    }
+  }
+  .pm-complete-text {
+    //line-height: 50px;
+  }
+  .pm-complete-img {
+    position: relative;
+    top: -10px;
+    background: #c66293;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    padding: 8px;
+
+    img {
+      width: 20px;
+    }
+  }
+}
+.ac-forgetPwd {
+  text-decoration: underline;
 }

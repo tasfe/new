@@ -10,6 +10,9 @@ var del = require('del');
 var imagemin = require('gulp-imagemin');
 var pngquant = require('imagemin-pngquant');
 var cache = require('gulp-cache');
+var Fontmin = require('fontmin');
+var svgo = require('imagemin-svgo');
+var fs = require('fs');
 
 var _ = require('underscore');
 
@@ -23,6 +26,7 @@ var spritesmith = require('gulp.spritesmith');
 
 var webpack = require('webpack');
 var WebpackDevServer = require("webpack-dev-server");
+var rename = require('gulp-rename');
 
 var argv = require('minimist')(process.argv.slice(2));
 
@@ -31,6 +35,8 @@ var productionFactory = require('./webpack.production.factory');
 
 var mainConfig = require('./webpack.main.config');
 var externalConfig = require('./webpack.external.config');
+
+var fontConfig = require('./font-config.json');
 
 var serverIP = 'http://forehead.highborn.cn';
 
@@ -157,6 +163,7 @@ gulp.task("webpack", function(callback) {
   });
 });
 
+//图片压缩
 gulp.task('image.min', function() {
   del('./minImages');
   gulp.src('./src/**/*.{png,jpg,ico}')
@@ -170,15 +177,79 @@ gulp.task('image.min', function() {
     .pipe(gulp.dest('./src/'));
 });
 
-gulp.task('image.merchants', function() {
-  del('./minImages');
-  gulp.src('./src/apps/packages/merchants/**/*.{png,jpg,gif,ico}')
-    .pipe(cache(imagemin({
-      progressive: true,
-      svgoPlugins: [{removeViewBox: false}],
-      use: [pngquant()]
-    })))
-    .pipe(gulp.dest('./src/apps/packages/merchants/'));
+//字体提取格式转换，原生字体推荐ttf原生格式
+gulp.task('font.min', function(callback) {
+  runSequence(
+    'font.minimal',
+    'font.dest',
+    callback
+  );
+});
+
+gulp.task('font.minimal', function(cb) {
+  _(fontConfig).each(function(fontConfig) {
+    var fontmin = new Fontmin()
+      .src('./src/base/fonts/origins/' + fontConfig.font)
+      .use(Fontmin.glyph({
+        text: fontConfig.text,
+        hinting: false
+      }));
+
+    if (_(fontConfig.targets).contains('eot')) {
+      fontmin.use(Fontmin.ttf2eot());
+    }
+
+    if (_(fontConfig.targets).contains('woff')) {
+      fontmin.use(Fontmin.ttf2woff({
+        deflate: true           // deflate woff. default = false
+      }));
+    }
+
+    if (_(fontConfig.targets).contains('svg')) {
+      fontmin.use(Fontmin.ttf2svg())
+        .use(svgo());
+    }
+
+    fontmin.use(Fontmin.css({
+      fontPath: '~base/fonts/',         // location of font file
+      // base64: true,           // inject base64 data:application/x-font-ttf; (gzip font with css).
+      //                         default = false
+      // glyph: true,            // generate class for each glyph. default = false
+      // iconPrefix: 'my-icon',  // class prefix, only work when glyph is `true`. default to "icon"
+      // fontFamily: 'myfont',   // custom fontFamily, default to filename or get from analysed ttf file
+      asFileName: true,      // rewrite fontFamily as filename force. default = false
+      local: true             // boolean to add local font. default = false
+    }))
+      .dest('./src/base/fonts');
+
+    fontmin.run(function (err, files) {
+      if (err) {
+        throw err;
+      }
+      console.log(files[0]);
+
+      //此处有bug
+      cb();
+      // => { contents: <Buffer 00 01 00 ...> }
+    });
+  });
+
+});
+
+gulp.task('font.dest', function(callback) {
+   var imports = [];
+  _(fontConfig).each(function(fontConfig) {
+    gulp.src('./src/base/fonts/' + fontConfig.target + '.css')
+      .pipe(rename(fontConfig.target + '.scss'))
+      .pipe(gulp.dest('./src/base/styles/fonts'));
+
+    del(['./src/base/fonts/' + fontConfig.target + '.css']);
+    console.log('./src/base/fonts/' + fontConfig.target + '.css');
+
+    imports.push('"fonts/' + fontConfig.target + '"');
+  });
+
+  fs.writeFile('./src/base/styles/_fonts.scss', '@charset "UTF-8";\n@import\n' + imports.join(',\n') + ';', callback);
 });
 
 gulp.task('build.sprite', function(callback) {

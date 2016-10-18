@@ -87,7 +87,7 @@ var ReportManageView = SearchGrid.extend({
       }
     });
     var acctInfo = Global.memoryCache.get('acctInfo');
-    if(acctInfo.salaryStatus !=2 && ( acctInfo.userGroupLevel !== 0 && acctInfo.userGroupLevel !== 1)) {
+    if(acctInfo.salaryStatus !=2 &&  acctInfo.userGroupLevel !== 0 ) {
       this.options.columns.splice(7,1);
     }
   },
@@ -198,7 +198,7 @@ var ReportManageView = SearchGrid.extend({
       ]
     };
     var acctInfo = Global.memoryCache.get('acctInfo');
-    if(acctInfo.salaryStatus !==2 && ( acctInfo.userGroupLevel !== 0 && acctInfo.userGroupLevel !== 1)){
+    if(acctInfo.salaryStatus !==2 &&  acctInfo.userGroupLevel !== 0 ){
       foot.columnEls.splice(7,1);
     }
     this.grid.addFooterRows(foot)
@@ -223,7 +223,7 @@ var ReportManageView = SearchGrid.extend({
     row.push(_(rowInfo.activity).convert2yuan({clear: false}));
 
     var acctInfo = Global.memoryCache.get('acctInfo');
-    if(acctInfo.salaryStatus ===2 ||  acctInfo.userGroupLevel == 0 || acctInfo.userGroupLevel == 1){
+    if(acctInfo.salaryStatus ===2 ||  acctInfo.userGroupLevel == 0 ){
       row.push(_(rowInfo.salary).convert2yuan());
     }
     row.push(_(rowInfo.profitAndLoss).convert2yuan());

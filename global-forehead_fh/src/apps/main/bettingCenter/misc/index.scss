@@ -10,8 +10,8 @@
   @each $class, $val in $sfas {
     &.#{$class} {
       background: url(map_get($val, default)) no-repeat;
-      width: 120px;
-      height: 94px;
+      width: 149px;
+      height: 98px;
     }
   }
 }
@@ -1136,8 +1136,8 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
     font-size: 14px;
 
     .bc-banner{
-      width: 120px;
-      height: 94px;
+      //width: 120px;
+      //height: 94px;
       display: block;
       margin: 10px 40px 0 26px;
       position: relative;
@@ -1206,6 +1206,7 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
         div{
           width: 60px;
           height: 40px;
+          line-height: 40px;
           background: url(julien/numbg.jpg) no-repeat;
           float: left;
           margin-right: 10px;
@@ -1217,7 +1218,7 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
           span{
             width: 30px;
             float: left;
-            margin-top: 5px;
+
           }
         }
       }
@@ -1365,13 +1366,13 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
     border: 1px solid #ccc;
     background-color: #fff;
     border-radius: 8px;
-    padding: 8px 0;
+    padding: 5px 0;
     text-align: center;
     color: #333333;
 
     .bc-title{
-      height: 34px;
-      line-height: 34px;
+      height: 35px;
+      line-height: 35px;
       padding: 0 8px;
       border-bottom: 2px solid #a83d6b;
       font-size: 14px;
@@ -1379,7 +1380,7 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
       a{
         display: block;
         float: left;
-        height: 34px;
+        height: 35px;
         width: 142px;
         color: #666666;
 
@@ -1454,13 +1455,12 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
       .collect{
         width: 31px;
         height: 33px;
-        display: block;
-        float: left;
         background:url(julien/collect.png) no-repeat;
-        position: absolute;
-        left: 5px;
-        top: 5px;
         cursor: pointer;
+        margin-bottom: 5px;
+        margin-right: 5px;
+        margin-left: -33px;
+        vertical-align: bottom;
 
       }
     }
@@ -1507,8 +1507,8 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
     display: inline-block;
     label{
       display: inline-block;
-      padding: 0px 10px;
-      border: 1px solid #ccc;
+      padding: 0 10px;
+      border: 1px solid $gray-color;
       background-color: #fff;
       border-radius: 30px;
 
@@ -1541,7 +1541,7 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
   position: absolute;
   right: 0;
   top: 0;
-
+  color: #cc6699;
   .infor-tip{
     display: none;
   }
@@ -1549,7 +1549,7 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
   &:hover{
     background-color: #cc6699;
     border: 1px solid #cc6699;
-    color: #fff;
+    color: $white-color;
     span{
       display: none;
     }
@@ -1665,7 +1665,7 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
     }
 
     th:first-child, td:first-child {
-      padding-left: 5px;
+      padding-left: 15px;
     }
   }
   .table {

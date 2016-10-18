@@ -88,6 +88,18 @@ table {
     }
   }
 
+  &.table-bottom-bordered {
+    td {
+      border-top-width: 1px;
+      border-top-style: solid;
+    }
+    tr:first-of-type {
+      td {
+        border-top-width: 0;
+      }
+    }
+  }
+
   &.table-fixed {
     table-layout: fixed;
   }
