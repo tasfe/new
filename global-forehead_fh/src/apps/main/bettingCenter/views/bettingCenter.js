@@ -137,6 +137,11 @@ var BettingCenterView = Base.ItemView.extend({
   },
 
   onRender: function() {
+
+    if (this.options.ticketInfo.info.id === 18) {
+      this.$el.addClass('pk10');
+    }
+
     this.$countdown = this.$('.js-bc-countdown');
     this.$planId = this.$('.js-bc-planId');
     this.$planIdStop = this.$('.js-bc-planId-stop');
@@ -309,8 +314,8 @@ var BettingCenterView = Base.ItemView.extend({
 
     $('.js-bc-last-planId').html('第' + planInfo.lastOpenId  + '期');
 
-    this.$lastResults.html(_(model.get('lastOpenNum')).map(function(num) {
-      return '<span class="text-circle text-circle-bet-ball">' + num + '</span>';
+    this.$lastResults.html(_(model.get('lastOpenNum')).map(function(num, index, nums) {
+      return '<span class="text-circle text-circle-bet-ball' + (nums.length > 5 ? ' text-circle-bet-ball-sm' : '') + '">' + num + '</span>';
     }));
 
     //目前只有韩国1.5分彩需要显示

@@ -66,12 +66,6 @@ var EntryView = Base.ItemView.extend({
     }
     
     var strType = strHash.slice(0,3);
-    if ( strHash.slice(0,6) == '#bc/18' ) {
-      $('body').addClass('pk10');
-    }
-    else{
-      $('body').removeClass('pk10');
-    }
 
     if (strType == '#ac' || strType == '#uc') {
       if ( strType == '#uc' ) {
