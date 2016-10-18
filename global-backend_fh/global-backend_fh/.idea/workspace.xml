@@ -22,40 +22,70 @@
   <component name="FileEditorManager">
     <leaf>
       <file leaf-file-name="router.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/messageCenter/router.js">
+        <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/agGame/router.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.5">
-              <caret line="14" column="31" selection-start-line="14" selection-start-column="15" selection-end-line="14" selection-end-column="31" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="userFeedbackList.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/messageCenter/views/userFeedbackList.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6368715">
-              <caret line="30" column="34" selection-start-line="30" selection-start-column="34" selection-end-line="30" selection-end-column="34" />
+            <state vertical-scroll-proportion="-3.8644068">
+              <caret line="12" column="40" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="40" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="controller.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/messageCenter/controller.js">
+        <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/agGame/controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.142858">
-              <caret line="12" column="22" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="22" />
+            <state vertical-scroll-proportion="-8.050847">
+              <caret line="26" column="21" selection-start-line="26" selection-start-column="4" selection-end-line="26" selection-end-column="21" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="userFeedbackList.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/messageCenter/templates/userFeedbackList.html">
+      <file leaf-file-name="ag-rechargeSet.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/agGame/amountManagement/ag-rechargeSet.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.464286">
-              <caret line="22" column="58" selection-start-line="22" selection-start-column="58" selection-end-line="22" selection-end-column="58" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="5" column="18" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="18" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ag-rechargeBetSet.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/agGame/amountManagement/ag-rechargeBetSet.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-3.392857">
+              <caret line="5" column="34" selection-start-line="5" selection-start-column="34" selection-end-line="5" selection-end-column="53" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ag-rechargeBetSet.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/agGame/amountManagement/ag-rechargeBetSet.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.7217877">
+              <caret line="61" column="65" selection-start-line="61" selection-start-column="65" selection-end-line="61" selection-end-column="65" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ag-rechargeLevelSet.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/agGame/amountManagement/ag-rechargeLevelSet.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="45" column="40" selection-start-line="45" selection-start-column="40" selection-end-line="45" selection-end-column="40" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ag-rechargeNumSet.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/agGame/amountManagement/ag-rechargeNumSet.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="44" column="40" selection-start-line="44" selection-start-column="40" selection-end-line="44" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -74,39 +104,14 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/global-backend/src/apps/backend/scripts/userCenter/templates/quotaManage-openSet.html" />
-        <option value="$PROJECT_DIR$/global-backend/src/apps/backend/scripts/userCenter/views/quotaManage-openSet.js" />
-        <option value="$PROJECT_DIR$/global-backend/src/apps/backend/scripts/userCenter/templates/user-userList.html" />
-        <option value="$PROJECT_DIR$/global-backend/src/apps/backend/scripts/components/rebateRight/rebate-Right-Config-css.html" />
-        <option value="$PROJECT_DIR$/global-backend/src/apps/backend/scripts/components/rebateRight/rebate-Right-Config.html" />
-        <option value="$PROJECT_DIR$/global-backend/src/apps/backend/scripts/userCenter/router.js" />
-        <option value="$PROJECT_DIR$/global-backend/src/apps/backend/scripts/userCenter/controller.js" />
-        <option value="$PROJECT_DIR$/global-backend/src/apps/backend/scripts/userCenter/views/user-newMerMaster.js" />
-        <option value="$PROJECT_DIR$/global-backend/src/apps/backend/scripts/userCenter/templates/user-newMerMaster.html" />
-        <option value="$PROJECT_DIR$/global-backend/src/apps/backend/scripts/globalCenter/router.js" />
-        <option value="$PROJECT_DIR$/global-backend/src/apps/backend/scripts/globalCenter/controller.js" />
-        <option value="$PROJECT_DIR$/global-backend/src/apps/backend/scripts/globalCenter/templates/domainNameManagement.html" />
-        <option value="$PROJECT_DIR$/global-backend/src/apps/backend/scripts/globalCenter/views/newDomainName.js" />
-        <option value="$PROJECT_DIR$/global-backend/src/apps/backend/scripts/prefab/views/searchGrid.js" />
-        <option value="$PROJECT_DIR$/global-backend/src/apps/backend/scripts/globalCenter/templates/newDomainName.html" />
-        <option value="$PROJECT_DIR$/global-backend/src/apps/backend/scripts/globalCenter/views/domainNameManagement.js" />
-        <option value="$PROJECT_DIR$/global-backend/src/apps/backend/scripts/userCenter/views/quotaManage-levelTwo.js" />
-        <option value="$PROJECT_DIR$/global-backend/src/apps/backend/scripts/userCenter/views/quotaManage-levelFour.js" />
-        <option value="$PROJECT_DIR$/global-backend/src/apps/backend/scripts/userCenter/views/quotaManage-levelSix.js" />
-        <option value="$PROJECT_DIR$/global-backend/src/apps/backend/scripts/saleCenter/views/bonusConf.js" />
-        <option value="$PROJECT_DIR$/global-backend/src/apps/backend/scripts/saleCenter/views/bonusManager-manager.js" />
-        <option value="$PROJECT_DIR$/global-backend/src/apps/backend/scripts/saleCenter/templates/bonusManager-manager.html" />
         <option value="$PROJECT_DIR$/global-backend/src/apps/backend/scripts/saleCenter/templates/newActivity.html" />
         <option value="$PROJECT_DIR$/global-backend/src/apps/backend/scripts/saleCenter/views/newActivity.js" />
         <option value="$PROJECT_DIR$/global-backend/src/apps/backend/scripts/saleCenter/templates/editActivityDetail.html" />
         <option value="$PROJECT_DIR$/global-backend/src/apps/backend/scripts/saleCenter/views/editActivityDetail.js" />
         <option value="$PROJECT_DIR$/global-backend/src/apps/backend/scripts/saleCenter/views/activityManage.js" />
-        <option value="$PROJECT_DIR$/global-backend/src/apps/backend/scripts/saleCenter/router.js" />
-        <option value="$PROJECT_DIR$/global-backend/src/apps/backend/scripts/saleCenter/controller.js" />
         <option value="$PROJECT_DIR$/global-backend/src/apps/backend/scripts/saleCenter/templates/games-dailySalaryCfg.html" />
         <option value="$PROJECT_DIR$/global-backend/src/apps/backend/scripts/saleCenter/templates/games-dailySalaryDetail.html" />
         <option value="$PROJECT_DIR$/global-backend/src/apps/backend/scripts/saleCenter/views/games-dailySalaryDetail.js" />
-        <option value="$PROJECT_DIR$/global-backend/src/apps/backend/scripts/saleCenter/views/games-dailySalaryCfg.js" />
         <option value="$PROJECT_DIR$/global-backend/src/apps/backend/scripts/fundCenter/router.js" />
         <option value="$PROJECT_DIR$/global-backend/src/apps/backend/scripts/fundCenter/controller.js" />
         <option value="$PROJECT_DIR$/global-backend/src/apps/backend/scripts/fundCenter/templates/dividCfg.html" />
@@ -117,7 +122,6 @@
         <option value="$PROJECT_DIR$/global-backend/src/apps/backend/scripts/fundCenter/views/bonus-salesAccountManagement.js" />
         <option value="$PROJECT_DIR$/global-backend/src/apps/backend/scripts/fundCenter/views/bonus-GeneralAgentManagement.js" />
         <option value="$PROJECT_DIR$/global-backend/src/apps/backend/scripts/agGame/dataManagement/agProfitAndLossReport.js" />
-        <option value="$PROJECT_DIR$/global-backend/src/apps/backend/scripts/agGame/betManagement/ag-BettingRecord.js" />
         <option value="$PROJECT_DIR$/global-backend/src/apps/backend/scripts/fundCenter/views/recharge-RechargeSet.js" />
         <option value="$PROJECT_DIR$/global-backend/src/apps/backend/scripts/fundCenter/views/recharge-RechargeSet-Range.js" />
         <option value="$PROJECT_DIR$/global-backend/src/apps/backend/scripts/fundCenter/templates/recharge-RechargeSet-Range.html" />
@@ -125,6 +129,32 @@
         <option value="$PROJECT_DIR$/global-backend/src/apps/backend/scripts/messageCenter/controller.js" />
         <option value="$PROJECT_DIR$/global-backend/src/apps/backend/scripts/messageCenter/templates/userFeedbackList.html" />
         <option value="$PROJECT_DIR$/global-backend/src/apps/backend/scripts/messageCenter/views/userFeedbackList.js" />
+        <option value="$PROJECT_DIR$/global-backend/src/apps/backend/scripts/betCenter/router.js" />
+        <option value="$PROJECT_DIR$/global-backend/src/apps/backend/scripts/betCenter/controller.js" />
+        <option value="$PROJECT_DIR$/global-backend/src/apps/backend/scripts/betCenter/templates/bet-houseKeeper.html" />
+        <option value="$PROJECT_DIR$/global-backend/src/apps/backend/scripts/betCenter/views/bet-houseKeeper.js" />
+        <option value="$PROJECT_DIR$/global-backend/src/apps/backend/scripts/saleCenter/openSendActivity/openSendCfg.html" />
+        <option value="$PROJECT_DIR$/global-backend/src/apps/backend/scripts/saleCenter/openSendActivity/openSendReport.js" />
+        <option value="$PROJECT_DIR$/global-backend/src/apps/backend/scripts/saleCenter/openSendActivity/openSendReport.html" />
+        <option value="$PROJECT_DIR$/global-backend/src/apps/backend/scripts/saleCenter/openSendActivity/openSendCfg.js" />
+        <option value="$PROJECT_DIR$/global-backend/src/apps/backend/scripts/saleCenter/views/games-dailySalaryCfg.js" />
+        <option value="$PROJECT_DIR$/global-backend/src/apps/backend/scripts/saleCenter/firstRechargeSendActivity/firstRechargeSendCfg.js" />
+        <option value="$PROJECT_DIR$/global-backend/src/apps/backend/scripts/saleCenter/firstRechargeSendActivity/firstRechargeSendCfg.html" />
+        <option value="$PROJECT_DIR$/global-backend/src/apps/backend/scripts/saleCenter/firstRechargeSendActivity/firstRechargeSendReport.js" />
+        <option value="$PROJECT_DIR$/global-backend/src/apps/backend/scripts/saleCenter/firstRechargeSendActivity/firstRechargeSendReport.html" />
+        <option value="$PROJECT_DIR$/global-backend/src/apps/backend/scripts/saleCenter/controller.js" />
+        <option value="$PROJECT_DIR$/global-backend/src/apps/backend/scripts/saleCenter/router.js" />
+        <option value="$PROJECT_DIR$/global-backend/src/apps/backend/scripts/userCenter/views/user-userList.js" />
+        <option value="$PROJECT_DIR$/global-backend/src/apps/backend/scripts/agGame/userManagement/ag-userList.js" />
+        <option value="$PROJECT_DIR$/global-backend/src/apps/backend/scripts/agGame/betManagement/ag-BettingRecord.html" />
+        <option value="$PROJECT_DIR$/global-backend/src/apps/backend/scripts/agGame/betManagement/ag-BettingRecord.js" />
+        <option value="$PROJECT_DIR$/global-backend/src/apps/backend/scripts/agGame/userManagement/ag-userRebate.html" />
+        <option value="$PROJECT_DIR$/global-backend/src/apps/backend/scripts/agGame/userManagement/ag-userRebate.js" />
+        <option value="$PROJECT_DIR$/global-backend/src/apps/backend/scripts/agGame/amountManagement/ag-rechargeSet.js" />
+        <option value="$PROJECT_DIR$/global-backend/src/apps/backend/scripts/agGame/amountManagement/ag-rechargeBetSet.html" />
+        <option value="$PROJECT_DIR$/global-backend/src/apps/backend/scripts/agGame/amountManagement/ag-rechargeBetSet.js" />
+        <option value="$PROJECT_DIR$/global-backend/src/apps/backend/scripts/agGame/amountManagement/ag-rechargeLevelSet.js" />
+        <option value="$PROJECT_DIR$/global-backend/src/apps/backend/scripts/agGame/amountManagement/ag-rechargeNumSet.js" />
       </list>
     </option>
   </component>
@@ -165,6 +195,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -292,7 +323,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="messageCenter" />
+              <option name="myItemId" value="saleCenter" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -326,7 +357,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="messageCenter" />
+              <option name="myItemId" value="saleCenter" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -364,7 +395,79 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="messageCenter" />
+              <option name="myItemId" value="globalCenter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="global-backend_yb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="global-backend_fh" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="global-backend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="backend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="globalCenter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="global-backend_yb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="global-backend_fh" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="global-backend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="backend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="globalCenter" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -372,13 +475,270 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="global-backend_yb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="global-backend_fh" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="global-backend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="backend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="betCenter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="global-backend_yb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="global-backend_fh" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="global-backend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="backend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="betCenter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="global-backend_yb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="global-backend_fh" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="global-backend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="backend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="betCenter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="global-backend_yb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="global-backend_fh" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="global-backend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="backend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="agGame" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="global-backend_yb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="global-backend_fh" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="global-backend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="backend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="agGame" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="userManagement" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="global-backend_yb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="global-backend_fh" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="global-backend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="backend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="agGame" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="betManagement" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="global-backend_yb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="global-backend_fh" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="global-backend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="backend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="agGame" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amountManagement" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../global-forehead_fh" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="FullScreen" value="false" />
@@ -389,11 +749,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="F:\GIT\global-ui-fh\global-backend_fh\global-backend_fh\global-backend\src\apps\backend\scripts\messageCenter\templates" />
-      <recent name="F:\GIT\global-ui-fh\global-backend_fh\global-backend_fh\global-backend\src\apps\backend\scripts\messageCenter\views" />
-      <recent name="F:\GIT\global-ui-fh\global-backend_fh\global-backend_fh\global-backend\src\apps\backend\scripts\fundCenter" />
-      <recent name="F:\GIT\global-ui-fh\global-backend_fh\global-backend_fh\global-backend\src\apps\backend\scripts\fundCenter\templates" />
-      <recent name="F:\GIT\global-ui-fh\global-backend_fh\global-backend_fh\global-backend\src\apps\backend\scripts\fundCenter\views" />
+      <recent name="F:\GIT\global-ui-fh\global-backend_fh\global-backend_fh\global-backend\src\apps\backend\scripts\agGame\amountManagement" />
+      <recent name="F:\GIT\global-ui-fh\global-backend_fh\global-backend_fh\global-backend\src\apps\backend\scripts\saleCenter" />
+      <recent name="F:\GIT\global-ui-fh\global-backend_fh\global-backend_fh\global-backend\src\apps\backend\scripts\agGame\userManagement" />
+      <recent name="F:\GIT\global-ui-fh\global-backend_fh\global-backend_fh\global-backend\src\apps\backend\scripts\saleCenter\firstRechargeSendActivity" />
+      <recent name="F:\GIT\global-ui-fh\global-backend_fh\global-backend_fh\global-backend\src\apps\backend\scripts\saleCenter\openSendActivity" />
     </key>
   </component>
   <component name="RunManager">
@@ -473,26 +833,26 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27818757" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27871445" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32983193" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -501,8 +861,8 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24920969" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32983193" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27877507" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -527,367 +887,436 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/dataCenter/views/agencyProfitAndLossReport.js">
+    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/vipCenter/router.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5094972">
-          <caret line="138" column="6" selection-start-line="138" selection-start-column="6" selection-end-line="141" selection-end-column="9" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="11" column="37" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="37" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/skeleton/misc/filterHelper.js">
+    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/saleCenter/views/editAdvertisementDetail.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.12513967">
+        <state vertical-scroll-proportion="0.15083799">
+          <caret line="97" column="15" selection-start-line="97" selection-start-column="15" selection-end-line="97" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/vipCenter/vipWelfareManagement/vipWelfareGifts.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="61" column="0" selection-start-line="61" selection-start-column="0" selection-end-line="92" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/userCenter/views/user-userDisable.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.16759777">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/prefab/views/searchGrid.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3329208">
-          <caret line="139" column="119" selection-start-line="139" selection-start-column="119" selection-end-line="139" selection-end-column="119" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/globalCenter/views/newDomainName.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.14860335">
-          <caret line="7" column="10" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/globalCenter/templates/newDomainName.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.24106114">
-          <caret line="11" column="44" selection-start-line="11" selection-start-column="44" selection-end-line="11" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/globalCenter/views/domainNameManagement.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.22727273">
-          <caret line="206" column="30" selection-start-line="206" selection-start-column="30" selection-end-line="206" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/userCenter/templates/quotaManage-levelTwo.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.41637832">
-          <caret line="19" column="29" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/userCenter/views/quotaManage-levelTwo.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.20446928">
-          <caret line="41" column="66" selection-start-line="41" selection-start-column="66" selection-end-line="41" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/userCenter/views/quotaManage-levelFour.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.25698325">
-          <caret line="41" column="66" selection-start-line="41" selection-start-column="66" selection-end-line="41" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/userCenter/views/quotaManage.js">
+    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/userCenter/views/user-userEnable.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="61" column="35" selection-start-line="61" selection-start-column="15" selection-end-line="61" selection-end-column="35" />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/userCenter/views/quotaManage-levelSix.js">
+    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/saleCenter/templates/editAdvertisementDetail.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.31843576">
-          <caret line="24" column="21" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="21" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="1" column="15" selection-start-line="1" selection-start-column="15" selection-end-line="1" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/saleCenter/templates/newAdvertisement.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/saleCenter/views/newAdvertisement.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="96" column="23" selection-start-line="96" selection-start-column="23" selection-end-line="96" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/betCenter/templates/bet-houseKeeper.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.60553634">
+          <caret line="58" column="64" selection-start-line="58" selection-start-column="49" selection-end-line="58" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/betCenter/views/bet-houseKeeper.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7217877">
+          <caret line="117" column="11" selection-start-line="117" selection-start-column="11" selection-end-line="117" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/saleCenter/openSendActivity/openSendCfg.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-18.75">
+          <caret line="62" column="40" selection-start-line="62" selection-start-column="40" selection-end-line="62" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/saleCenter/openSendActivity/openSendReport.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="94" column="23" selection-start-line="94" selection-start-column="23" selection-end-line="94" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/saleCenter/openSendActivity/openSendReport.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-24.857143">
+          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/saleCenter/openSendActivity/openSendCfg.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.44617224">
+          <caret line="69" column="7" selection-start-line="69" selection-start-column="7" selection-end-line="69" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/saleCenter/dailyActivity/config.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="82.35714">
+          <caret line="25" column="25" selection-start-line="25" selection-start-column="25" selection-end-line="25" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/saleCenter/firstRechargeSendActivity/firstRechargeSendCfg.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.196428">
+          <caret line="33" column="37" selection-start-line="33" selection-start-column="37" selection-end-line="33" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/saleCenter/firstRechargeSendActivity/firstRechargeSendCfg.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.375">
+          <caret line="66" column="52" selection-start-line="66" selection-start-column="52" selection-end-line="66" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/saleCenter/templates/games-dailySalaryCfg.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5697808">
+          <caret line="26" column="44" selection-start-line="26" selection-start-column="44" selection-end-line="26" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/saleCenter/views/games-dailySalaryCfg.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1507177">
+          <caret line="105" column="6" selection-start-line="105" selection-start-column="6" selection-end-line="134" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/saleCenter/firstRechargeSendActivity/firstRechargeSendReport.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.2078211">
+          <caret line="104" column="34" selection-start-line="104" selection-start-column="34" selection-end-line="104" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/saleCenter/firstRechargeSendActivity/firstRechargeSendReport.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.47404844">
+          <caret line="23" column="10" selection-start-line="23" selection-start-column="10" selection-end-line="23" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/saleCenter/controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="79" column="108" selection-start-line="79" selection-start-column="108" selection-end-line="79" selection-end-column="108" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/saleCenter/router.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7251397">
+          <caret line="78" column="40" selection-start-line="78" selection-start-column="20" selection-end-line="78" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/agGame/userManagement/ag-userList.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/userCenter/templates/user-userDisable.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/userCenter/views/user-userList.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="330" column="51" selection-start-line="330" selection-start-column="51" selection-end-line="330" selection-end-column="70" />
+          <folding>
+            <marker date="1476791170505" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1476791170505" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1476791170505" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1476791170505" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1476791170505" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1476791170505" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1476791170505" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1476791170505" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1476791170505" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1476791170505" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1476791170505" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1476791170505" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1476791170505" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1476791170505" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1476791170505" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1476791170505" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1476791170505" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1476791170505" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/globalCenter/templates/blackListOfIPManage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.43829295">
+          <caret line="20" column="62" selection-start-line="20" selection-start-column="62" selection-end-line="20" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/saleCenter/views/activity-betRebateDetail.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.5094972">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/saleCenter/views/activity-betRewardDetail.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.70055866">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/saleCenter/views/activityManage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7430168">
+          <caret line="80" column="45" selection-start-line="80" selection-start-column="38" selection-end-line="80" selection-end-column="45" />
+          <folding>
+            <marker date="1475914471774" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1475914471774" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1475914471774" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1475914471774" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/saleCenter/views/bonusConf.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="3" column="71" selection-start-line="3" selection-start-column="71" selection-end-line="3" selection-end-column="71" />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/saleCenter/views/bonusManager-manager.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/saleCenter/templates/bonusManager-manager.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.46085998">
-          <caret line="22" column="6" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/saleCenter/templates/newActivity.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5810364">
-          <caret line="48" column="88" selection-start-line="48" selection-start-column="88" selection-end-line="48" selection-end-column="88" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/saleCenter/templates/editActivityDetail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.72767365">
-          <caret line="55" column="74" selection-start-line="55" selection-start-column="74" selection-end-line="55" selection-end-column="87" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/saleCenter/views/editActivityDetail.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="37" column="21" selection-start-line="37" selection-start-column="21" selection-end-line="37" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/saleCenter/views/newActivity.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="62" column="59" selection-start-line="62" selection-start-column="54" selection-end-line="62" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/messageCenter/views/bulletin-BulletinManage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="152" column="28" selection-start-line="152" selection-start-column="28" selection-end-line="152" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/saleCenter/views/activityManage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.34545454">
-          <caret line="243" column="80" selection-start-line="243" selection-start-column="80" selection-end-line="243" selection-end-column="80" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/saleCenter/templates/games-dailySalaryCfg.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.52595156">
-          <caret line="24" column="26" selection-start-line="24" selection-start-column="26" selection-end-line="24" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/saleCenter/templates/games-dailySalaryDetail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/saleCenter/router.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-27.285715">
-          <caret line="73" column="39" selection-start-line="73" selection-start-column="22" selection-end-line="73" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/saleCenter/controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.2413793">
-          <caret line="73" column="23" selection-start-line="73" selection-start-column="6" selection-end-line="73" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/saleCenter/views/games-ShowAgreementDetail.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/saleCenter/templates/games-ShowAgreementDetail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.043829296">
-          <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/saleCenter/views/games-dailySalaryDetail.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.16983241">
-          <caret line="8" column="55" selection-start-line="8" selection-start-column="55" selection-end-line="8" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/skeleton/widgets/staticGrid.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4960894">
-          <caret line="160" column="21" selection-start-line="160" selection-start-column="21" selection-end-line="160" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/skeleton/widgets/grid.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8357542">
-          <caret line="187" column="11" selection-start-line="187" selection-start-column="11" selection-end-line="187" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/saleCenter/views/games-dailySalaryCfg.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.79950494">
-          <caret line="85" column="7" selection-start-line="85" selection-start-column="7" selection-end-line="85" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/fundCenter/templates/dividCfg.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.392857">
-          <caret line="5" column="130" selection-start-line="5" selection-start-column="130" selection-end-line="5" selection-end-column="130" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/fundCenter/views/dividCfg.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-22.821428">
-          <caret line="65" column="58" selection-start-line="65" selection-start-column="58" selection-end-line="65" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/fundCenter/templates/bonus-salesAccountManagement.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.95524144">
-          <caret line="103" column="6" selection-start-line="103" selection-start-column="6" selection-end-line="103" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/fundCenter/views/bonus-GeneralAgentSet.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.3249715">
-          <caret line="45" column="9" selection-start-line="45" selection-start-column="9" selection-end-line="45" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/fundCenter/templates/bonus-GeneralAgentSet.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.55948174">
-          <caret line="52" column="63" selection-start-line="52" selection-start-column="63" selection-end-line="52" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/fundCenter/views/bonus-salesAccountManagement.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5199544">
-          <caret line="144" column="59" selection-start-line="144" selection-start-column="59" selection-end-line="144" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/fundCenter/controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.32549506">
-          <caret line="30" column="75" selection-start-line="30" selection-start-column="60" selection-end-line="30" selection-end-column="75" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/fundCenter/router.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.183908">
-          <caret line="26" column="38" selection-start-line="26" selection-start-column="16" selection-end-line="26" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/fundCenter/views/bonus-GeneralAgentManagement.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.65909094">
-          <caret line="161" column="12" selection-start-line="161" selection-start-column="12" selection-end-line="161" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/fundCenter/views/recharge-RechargeSet-Range-Mobile.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/fundCenter/templates/recharge-RechargeSet-Range.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7151096">
-          <caret line="128" column="15" selection-start-line="128" selection-start-column="15" selection-end-line="128" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/fundCenter/views/recharge-RechargeSet-Range.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9575419">
-          <caret line="134" column="3" selection-start-line="134" selection-start-column="3" selection-end-line="134" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/fundCenter/views/recharge-RechargeSet.js">
-      <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5731844">
-          <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+          <caret line="27" column="59" selection-start-line="27" selection-start-column="59" selection-end-line="27" selection-end-column="59" />
+          <folding>
+            <marker date="1473093986441" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1473093986441" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1473093986441" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1473093986441" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/globalCenter/views/domainNameManagement.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.70055866">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1475897869136" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1475897869136" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1475897869136" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1475897869136" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1475897869136" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1475897869136" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/globalCenter/views/newBlackIp.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.48826817">
+          <caret line="23" column="12" selection-start-line="23" selection-start-column="12" selection-end-line="30" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/globalCenter/views/blackListOfIPManage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.108379886">
+          <caret line="68" column="6" selection-start-line="68" selection-start-column="6" selection-end-line="71" selection-end-column="7" />
+          <folding>
+            <marker date="1470466242693" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1470466242693" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1470466242693" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1470466242693" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/betCenter/router.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.050847">
+          <caret line="25" column="29" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/betCenter/views/ticket-BettingRecord.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.118644">
+          <caret line="19" column="25" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/prefab/views/ticketSelectGroup.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="11" column="19" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/agGame/betManagement/ag-BettingRecord.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.35063437">
+          <caret line="16" column="41" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/betCenter/templates/ticket-BettingRecord.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.892858">
+          <caret line="73" column="21" selection-start-line="73" selection-start-column="21" selection-end-line="73" selection-end-column="46" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/agGame/betManagement/ag-BettingRecord.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.59664804">
-          <caret line="140" column="34" selection-start-line="140" selection-start-column="34" selection-end-line="140" selection-end-column="34" />
+        <state vertical-scroll-proportion="0.575419">
+          <caret line="215" column="31" selection-start-line="215" selection-start-column="31" selection-end-line="215" selection-end-column="31" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/agGame/dataManagement/agProfitAndLossReport.js">
+    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/agGame/userManagement/ag-userRebate.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7151096">
-          <caret line="153" column="14" selection-start-line="153" selection-start-column="14" selection-end-line="153" selection-end-column="14" />
+        <state vertical-scroll-proportion="0.23351955">
+          <caret line="11" column="62" selection-start-line="11" selection-start-column="62" selection-end-line="11" selection-end-column="62" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/fundCenter/rwManagement/edit.js">
+    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/agGame/userManagement/ag-userList.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33966482">
-          <caret line="35" column="65" selection-start-line="35" selection-start-column="65" selection-end-line="35" selection-end-column="65" />
+        <state vertical-scroll-proportion="0.51173186">
+          <caret line="179" column="35" selection-start-line="179" selection-start-column="35" selection-end-line="179" selection-end-column="35" />
+          <folding>
+            <marker date="1476791241308" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1476791241308" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/agGame/userManagement/ag-userRebate.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.61361015">
+          <caret line="28" column="26" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="36" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/agGame/router.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.23351955">
-          <caret line="11" column="43" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="43" />
+        <state vertical-scroll-proportion="-3.8644068">
+          <caret line="12" column="40" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="40" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/messageCenter/router.js">
+    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/agGame/controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.5">
-          <caret line="14" column="31" selection-start-line="14" selection-start-column="15" selection-end-line="14" selection-end-column="31" />
+        <state vertical-scroll-proportion="-8.050847">
+          <caret line="26" column="21" selection-start-line="26" selection-start-column="4" selection-end-line="26" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/messageCenter/templates/userFeedbackList.html">
+    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/agGame/amountManagement/ag-rechargeSet.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.464286">
-          <caret line="22" column="58" selection-start-line="22" selection-start-column="58" selection-end-line="22" selection-end-column="58" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="5" column="18" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/messageCenter/controller.js">
+    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/agGame/amountManagement/ag-rechargeBetSet.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.142858">
-          <caret line="12" column="22" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="22" />
+        <state vertical-scroll-proportion="-3.392857">
+          <caret line="5" column="34" selection-start-line="5" selection-start-column="34" selection-end-line="5" selection-end-column="53" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/messageCenter/views/userFeedbackList.js">
+    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/agGame/amountManagement/ag-rechargeNumSet.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6368715">
-          <caret line="30" column="34" selection-start-line="30" selection-start-column="34" selection-end-line="30" selection-end-column="34" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="44" column="40" selection-start-line="44" selection-start-column="40" selection-end-line="44" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/agGame/amountManagement/ag-rechargeLevelSet.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="45" column="40" selection-start-line="45" selection-start-column="40" selection-end-line="45" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/agGame/amountManagement/ag-rechargeBetSet.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7217877">
+          <caret line="61" column="65" selection-start-line="61" selection-start-column="65" selection-end-line="61" selection-end-column="65" />
           <folding />
         </state>
       </provider>

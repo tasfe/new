@@ -44,6 +44,14 @@ var DashboardView = Base.ItemView.extend({
     'mousedown  .js-athena_st_10': 'tempClick',
   },
 
+  getTicketStatXhr: function(ticketId) {
+    return Global.sync.ajax({
+      abort: false,
+      url: '/ticket/ticketmod/getticketendtime.json',
+      data: {ticketId: ticketId}
+    });
+  },
+
   dynamicItemShowHandler: function (e) {
 
     this.$afficheIndex = $(e.currentTarget).data('bulletionid');
@@ -302,7 +310,7 @@ var DashboardView = Base.ItemView.extend({
 
   onRender: function () {
     var self = this;
-
+    this.TimmerList = [];
     this.$('#jsDbCarousel').carousel({
       interval: 5000
     });
@@ -419,6 +427,69 @@ var DashboardView = Base.ItemView.extend({
     var $fiveHtml = this.$('.js-db-ticketList').find('.js-db-ticketList-item-12');
     var $cqHtml = this.$('.js-db-ticketList').find('.js-db-ticketList-item-1')
     this.exchange($fiveHtml, $cqHtml);
+    this.renderTicketCountDown();
+  },
+  renderTicketCountDown: function(){
+    var self = this;
+    var $ticketItem = this.$('.js-db-ticket-item');
+    _(this.TimmerList).each(function(timmer){
+      clearInterval(timmer);
+    });
+    _($ticketItem).each(function(item,index){
+      self.getTicketStat($(item));
+    });
+
+  },
+
+  getTicketStat: function($ticket){
+    var item = {
+      id:$ticket.data('id')
+    }
+    var self = this;
+    this.getTicketStatXhr(item.id)
+      .done(function(res){
+        if (res.result === 0) {
+          // item.player = res.root.player;
+          var data = res.root.dataList;
+          if(data && data.length===1){
+            item.leftSecond = data[0].leftSeconds;
+
+            if(item.leftSecond < 3600){
+              $ticket.find('.js-bc-countdown .count_h_hide').addClass('hidden');
+            }
+            var timmer1;
+            timmer1 = setInterval(function() {
+              self.renderCountdown($ticket,item.leftSecond,item.id)
+              item.leftSecond--;
+              if(item.leftSecond < 0){
+                clearInterval(timmer1);
+                self.getTicketStat($ticket);
+              }
+            }, 1000);
+            self.TimmerList.push(timmer1);
+          }else{
+            return ;
+          }
+        }
+      });
+  },
+  renderCountdown: function($ticket,leftTime,id) {
+    var hours = Math.floor(leftTime/(60*60));
+    var minutes = Math.floor((leftTime%(60*60))/60);
+    var seconds = leftTime%60;
+    $ticket.find('.js-bc-countdown .count_h').html(this.checkTime(hours));
+    $ticket.find('.js-bc-countdown .count_m').html(this.checkTime(minutes));
+    $ticket.find('.js-bc-countdown .count_s').html(this.checkTime(seconds));
+
+  },
+  checkTime: function (i){
+    if (i<10){i="0" + i}
+    return i
+  },
+  destroy: function(){
+    _(this.TimmerList).each(function(timmer){
+      clearInterval(timmer);
+    });
   },
   exchange: function (a, b) {
     var n = a.prev();

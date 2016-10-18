@@ -7,7 +7,9 @@ define(function (require, exports, module) {
 
         template: require('text!agGame/betManagement/ag-BettingRecord.html'),
 
-        events: {},
+        events: {
+            'change .js-ag-platform':'selectAgGameType'
+        },
 
         initialize: function () {
             _(this.options).extend({
@@ -69,7 +71,18 @@ define(function (require, exports, module) {
                 }
             });
         },
-
+        checkAgPlatformXhr:function(data){
+            return Global.sync.ajax({
+                url: '/intra/agmanager/aghalllist.json',
+                data: data
+            });
+        },
+        checkAgGameTypeXhr:function(data){
+            return Global.sync.ajax({
+                url: '/intra/agmanager/aggametype.json',
+                data: data
+            });
+        },
         onRender: function () {
             //初始化时间选择
             this.timeset = new Global.Prefab.Timeset({
@@ -116,6 +129,7 @@ define(function (require, exports, module) {
                     }
                 ]
             }).render();
+            this.platform = 0;
             Base.Prefab.SearchGrid.prototype.onRender.apply(this, arguments);
         },
 
@@ -149,6 +163,21 @@ define(function (require, exports, module) {
                 ]
             })
                 .hideLoading();
+            this.checkAgPlatformXhr().fail(function(){
+            }).done(function(res){
+                if(res.result===0){
+                    var userData = _(res.root).map(function (name) {
+                        return '<option value="' + name.hallId + '">' + name.hallName + '</option>';
+                    });
+                    if (self.platform === 0) {
+                        self.$('.js-ag-platform').html('<option value="">全部</option>' + userData.join(''));
+                        self.platform = 1;
+                    }
+                }else{
+                    self.$('.js-ag-platform').html('<option value="">全部</option>');
+                }
+            });
+
         },
 
         formatRowData: function (rowInfo) {
@@ -179,7 +208,23 @@ define(function (require, exports, module) {
 
             return row;
         },
-
+        selectAgGameType:function(e){
+            var self=this;
+            var pId= $(e.currentTarget).val();
+            this.checkAgGameTypeXhr({
+                hallId:pId
+            }).fail(function(){
+            }).done(function(res){
+                if(res.result===0){
+                    var userData = _(res.root).map(function (name) {
+                        return '<option value="' + name.typeId + '">' + name.typeName + '</option>';
+                    });
+                    self.$('.js-ag-type').html('<option value="">全部</option>' + userData.join(''));
+                }else{
+                    self.$('.js-ag-type').html('<option value="">全部</option>');
+                }
+            });
+        }
     });
 
     module.exports = AgBetRecordView;
