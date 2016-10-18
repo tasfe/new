@@ -1,10 +1,10 @@
 <div class="titleLine js-inside-letter-title font-sm">
   <i class="fa fa-envelope text-pink"></i>
   消息管理
+  <span class="js-chat-notice spot spot-lg spot-pink hidden">0</span>
   <i class="letter-caret"></i>
 </div>
 <div class="js-nc-insideLetter">
-
   <div class="js-single-lowLevelSelect inside-letter-select-user"></div>
 
   <div class="js-chat-box chat-box hidden">
@@ -14,58 +14,43 @@
         <span class="js-chat-current-user"></span>
         <i class="js-chat-close chat-close">X</i>
       </div>
-      <div class="js-single-detail-form julien-info-window">
+      <div class="js-single-detail-form">
         <div class="js-chat-title nc-chat-title hidden">
           正在与 <span class="js-chat-partner font-bold"></span> 聊天……
         </div>
         <div class="js-single-container chat-content"></div>
-      </div>
-      <div class="border-cat"></div>
-      <div class="cat-border-bottom"></div>
-      <div class="bottom-bg"></div>
-      <form class="js-chat-form chat-input-bar no-margin" action="javascript:void(0)">
-        <div class="js-chat-exp-pack chat-exp-pack cursor-pointer">
-          <div class="js-chat-exp-pack-inner chat-exp-pack-inner hidden">
-            <span class="js-chat-exp chat-exp face-1" data-id="[-f1-]"></span>
-            <span class="js-chat-exp chat-exp face-2" data-id="[-f2-]"></span>
-            <span class="js-chat-exp chat-exp face-3" data-id="[-f3-]"></span>
-            <span class="js-chat-exp chat-exp face-4" data-id="[-f4-]"></span>
-            <span class="js-chat-exp chat-exp face-5" data-id="[-f5-]"></span>
-            <span class="js-chat-exp chat-exp face-6" data-id="[-f6-]"></span>
-            <span class="js-chat-exp chat-exp face-7" data-id="[-f7-]"></span>
-            <span class="js-chat-exp chat-exp face-8" data-id="[-f8-]"></span>
-            <span class="js-chat-exp chat-exp face-9" data-id="[-f9-]"></span>
-            <span class="js-chat-exp chat-exp face-10" data-id="[-f10-]"></span>
-            <span class="js-chat-exp chat-exp face-11" data-id="[-f11-]"></span>
-            <span class="js-chat-exp chat-exp face-12" data-id="[-f12-]"></span>
-            <span class="js-chat-exp chat-exp face-13" data-id="[-f13-]"></span>
-            <span class="js-chat-exp chat-exp face-14" data-id="[-f14-]"></span>
-            <span class="js-chat-exp chat-exp face-15" data-id="[-f15-]"></span>
-            <span class="js-chat-exp chat-exp face-16" data-id="[-f16-]"></span>
-            <span class="js-chat-exp chat-exp face-17" data-id="[-f17-]"></span>
-            <span class="js-chat-exp chat-exp face-18" data-id="[-f18-]"></span>
-          </div>
-        </div>
-        <input class="js-single-content chat-input" autocomplete="off" name="content" type="text" placeholder="按回车键发送" value="">
-        <button type="submit" class="js-single-submit btn btn-pink btn-linear" data-loading-text="发送">
-          <i class="fa fa-sign-out" aria-hidden="true"></i>
-          发送
-        </button>
-        <span class="js-single-statistics chat-statistics"></span>
-      </form>
-    </div>
-  </div>
 
-</div>
-<div class="gl-loading js-julien-loading julien-loading-leftmenu hidden">
-  <div class="gl-loading-main">
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
+        <form class="js-chat-form chat-input-bar no-margin" action="javascript:void(0)">
+          <div class="js-chat-exp-pack chat-exp-pack cursor-pointer">
+            <div class="js-chat-exp-pack-inner chat-exp-pack-inner hidden">
+              <span class="js-chat-exp chat-exp face-1" data-id="[-f1-]"></span>
+              <span class="js-chat-exp chat-exp face-2" data-id="[-f2-]"></span>
+              <span class="js-chat-exp chat-exp face-3" data-id="[-f3-]"></span>
+              <span class="js-chat-exp chat-exp face-4" data-id="[-f4-]"></span>
+              <span class="js-chat-exp chat-exp face-5" data-id="[-f5-]"></span>
+              <span class="js-chat-exp chat-exp face-6" data-id="[-f6-]"></span>
+              <span class="js-chat-exp chat-exp face-7" data-id="[-f7-]"></span>
+              <span class="js-chat-exp chat-exp face-8" data-id="[-f8-]"></span>
+              <span class="js-chat-exp chat-exp face-9" data-id="[-f9-]"></span>
+              <span class="js-chat-exp chat-exp face-10" data-id="[-f10-]"></span>
+              <span class="js-chat-exp chat-exp face-11" data-id="[-f11-]"></span>
+              <span class="js-chat-exp chat-exp face-12" data-id="[-f12-]"></span>
+              <span class="js-chat-exp chat-exp face-13" data-id="[-f13-]"></span>
+              <span class="js-chat-exp chat-exp face-14" data-id="[-f14-]"></span>
+              <span class="js-chat-exp chat-exp face-15" data-id="[-f15-]"></span>
+              <span class="js-chat-exp chat-exp face-16" data-id="[-f16-]"></span>
+              <span class="js-chat-exp chat-exp face-17" data-id="[-f17-]"></span>
+              <span class="js-chat-exp chat-exp face-18" data-id="[-f18-]"></span>
+            </div>
+          </div>
+          <input class="js-single-content chat-input" autocomplete="off" name="content" type="text" placeholder="按回车键发送" value="">
+          <button type="submit" class="js-single-submit btn btn-pink btn-linear" data-loading-text="发送">
+            <i class="fa fa-sign-out" aria-hidden="true"></i>
+            发送
+          </button>
+          <span class="js-single-statistics chat-statistics"></span>
+        </form>
+      </div>
+    </div>
   </div>
 </div>

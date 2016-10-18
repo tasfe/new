@@ -8,6 +8,8 @@ var Chat = require('com/chat');
 
 var ChatUsersCollection = require('./chatUsersCollection');
 
+var GroupLetterView = require('./groupLetter');
+
 var SingleChatView = Base.ItemView.extend({
   template: require('./chatUser.html'),
 
@@ -33,6 +35,8 @@ var SingleChatView = Base.ItemView.extend({
         model.set('hasNew', false);
       }
     });
+
+    this.listenTo(this.model, 'destroy', this.destroy);
   },
 
   onRender: function() {
@@ -48,19 +52,16 @@ var InsideLetterView = Base.ItemView.extend({
 
   template: require('./index.html'),
 
-  className: 'inside-letter',
+  className: 'inside-letter single-letter',
   options: {
     pageSize: 20
   },
-
-  faceArry: [],
-
-  faceArry2: [],
 
   events: {
     'click .js-inside-letter-title': 'toggleHandler',
     'keydown .js-single-content': 'singleContentHandler',
     'submit .js-chat-form': 'sendSingleChatHandler',
+    'click .js-pf-group-letter': 'openGroupLetterHandler',
     'click .js-chat-close': 'closeChatHandler',
     'click .js-chat-exp-pack': 'toggleExpPackHandler',
     'click .js-chat-exp': 'selectExpHandler'
@@ -81,6 +82,7 @@ var InsideLetterView = Base.ItemView.extend({
   onRender: function() {
     var self = this;
 
+    this.$chatNotice = this.$('.js-chat-notice');
     //单聊
     this.$singleSelect = this.$('.js-single-lowLevelSelect');
     this.$singleContent = this.$('.js-single-content');
@@ -105,7 +107,18 @@ var InsideLetterView = Base.ItemView.extend({
     this.singleSelect = new LowMultiSelect({
       select: false,
       showUnread: true,
-      selectAll: false
+      selectAll: false,
+      showMulti: true
+    }).on('refresh:complete', function(data) {
+      var newMsg = 0;
+      if (data.parent) {
+        newMsg += data.parent.newMsgNum;
+      }
+      _(data.subList).reduce(function(newMsg, subInfo) {
+        return newMsg += subInfo.newMsgNum;
+      }, newMsg);
+
+      self.$chatNotice.text(newMsg).toggleClass('hidden', !newMsg);
     });
 
     this.$singleSelect.html(self.singleSelect.render().el);
@@ -193,7 +206,34 @@ var InsideLetterView = Base.ItemView.extend({
     this.$multiToUser.val(_(partners).pluck('id').join(','));
   },
 
+  //common APIs
+  openChat: function(userId, username) {
+    this.singleSelect.openByUserId(userId);
+  },
+
   //event handlers
+
+  openGroupLetterHandler: function() {
+    var groupLetterView;
+
+    var $dialog = Global.ui.dialog.show({
+      title: '消息群发',
+      modalClass: 'modal-letter',
+      body: '<div class="js-nc-group-letter"></div>',
+      bodyClass: 'padding-sm',
+      footer: ''
+    });
+
+    var $letterContainer = $dialog.find('.js-nc-group-letter');
+
+    $dialog.on('hidden.modal', function() {
+      $(this).remove();
+      groupLetterView.destroy();
+    });
+
+    groupLetterView = new GroupLetterView().render();
+    $letterContainer.html(groupLetterView.$el);
+  },
 
   toggleHandler: function(e) {
     this.$el.toggleClass('open');
@@ -201,6 +241,7 @@ var InsideLetterView = Base.ItemView.extend({
 
   closeChatHandler: function() {
     this.$chatBox.addClass('hidden');
+    this.collection.destroyAllChat();
   },
 
   toggleExpPackHandler: function(e) {
