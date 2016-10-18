@@ -1,0 +1,13 @@
+[
+  {
+    "font": "fzfys.ttf",
+    "dest": "./src/base/fonts",
+    "target": "fzfys",
+    "text": "首页 彩票游戏 真人娱乐 优惠活动 平台公告",
+    "targets": [
+      "woff",
+      "eot",
+      "svg"
+    ]
+  }
+]
