@@ -24,9 +24,10 @@
   }
   .control-label {
     float: left;
-    width: 80px;
+    width: 85px;
     text-align: right;
     margin-top: 2px;
+    color: $color-amber;
   }
   .controls {
     *display: inline-block;
