@@ -82,6 +82,7 @@ var InsideLetterView = Base.ItemView.extend({
   onRender: function() {
     var self = this;
 
+    this.$chatNotice = this.$('.js-chat-notice');
     //单聊
     this.$singleSelect = this.$('.js-single-lowLevelSelect');
     this.$singleContent = this.$('.js-single-content');
@@ -108,6 +109,16 @@ var InsideLetterView = Base.ItemView.extend({
       showUnread: true,
       selectAll: false,
       showMulti: true
+    }).on('refresh:complete', function(data) {
+      var newMsg = 0;
+      if (data.parent) {
+        newMsg += data.parent.newMsgNum;
+      }
+      _(data.subList).reduce(function(newMsg, subInfo) {
+        return newMsg += subInfo.newMsgNum;
+      }, newMsg);
+
+      self.$chatNotice.text(newMsg).toggleClass('hidden', !newMsg);
     });
 
     this.$singleSelect.html(self.singleSelect.render().el);

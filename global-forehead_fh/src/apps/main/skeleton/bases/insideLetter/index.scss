@@ -56,7 +56,7 @@
     }
 
     .inside-letter-select-user {
-      height: 550px;
+      height: 438px;
     }
   }
 
@@ -94,7 +94,8 @@
 .chat-box {
   .chat-user-list {
     width: 128px;
-    height: 338px;
+    height: 340px;
+    overflow: auto;
     float: left;
     background-color: #cb6798;
     border-right: 1px solid $pink-color;
@@ -119,7 +120,7 @@
   }
   .chat-username {
     vertical-align: bottom;
-    width: 56px;
+    width: 50px;
     display: inline-block;
     overflow: hidden;
   }
@@ -253,7 +254,7 @@
   }
 
   .tree-view {
-    height: 455px;
+    height: 342px;
     overflow: auto;
   }
 }

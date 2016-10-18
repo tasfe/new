@@ -68,10 +68,14 @@ var Chat = Base.PrefabView.extend({
 
   _push: function(chatData) {
     if (_(chatData).isArray()) {
-      _(chatData).reduce(function(prevTime, chatInfo) {
-        chatInfo.hasTitle = Math.abs(chatInfo.sendTime - prevTime) > 60000;
-        return chatInfo.sendTime;
-      }, 0);
+      _(chatData).reduce(function(prevInfo, chatInfo) {
+        if (!_(chatInfo).isEmpty()) {
+          chatInfo.hasTitle = Math.abs(chatInfo.sendTime - prevInfo.prevTime) > 60000 || prevInfo.sender !== chatInfo.sender;
+        } else {
+          chatInfo.hasTitle = true;
+        }
+        return chatInfo;
+      }, {});
       this._chatData = chatData;
     } else {
       chatData = [chatData];
