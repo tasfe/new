@@ -73,6 +73,12 @@ define(function(require, exports, module) {
   var DailySalaryCfgView = require('saleCenter/views/games-dailySalaryCfg');
   var DailySalaryDetailView = require('saleCenter/views/games-dailySalaryDetail');
 
+  var OpenSendCfgView = require('saleCenter/openSendActivity/openSendCfg');
+  var OpenSendReportView = require('saleCenter/openSendActivity/openSendReport');
+
+  var FirstRechargeSendCfgView = require('saleCenter/firstRechargeSendActivity/firstRechargeSendCfg');
+  var FirstRechargeSendReportView = require('saleCenter/firstRechargeSendActivity/firstRechargeSendReport');
+
   var SaleCenterController = RouterController.extend({
 
     advertisementManagement: function() {
@@ -258,6 +264,21 @@ define(function(require, exports, module) {
 
     dailySalaryDetail:function(){
       this.changeMainReginView(new DailySalaryDetailView());
+    },
+
+    openSendCfg:function(){
+      this.changeMainReginView(new OpenSendCfgView());
+    },
+
+    openSendReport:function(){
+      this.changeMainReginView(new OpenSendReportView());
+    },
+
+    firstRechargeSendCfg:function(){
+      this.changeMainReginView(new FirstRechargeSendCfgView());
+    },
+    firstRechargeSendRecord:function(){
+      this.changeMainReginView(new FirstRechargeSendReportView());
     }
 
   });

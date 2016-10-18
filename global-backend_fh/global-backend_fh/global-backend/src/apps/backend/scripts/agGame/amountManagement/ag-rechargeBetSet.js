@@ -1,12 +1,12 @@
 define(function (require, exports, module) {
 
-    var NewNumView = Base.ItemView.extend({
+    var NewBetView = Base.ItemView.extend({
 
-        template: require('text!agGame/amountManagement/ag-rechargeNumSet.html'),
+        template: require('text!agGame/amountManagement/ag-rechargeBetSet.html'),
 
         events: {
-            'click .js-ag-recharge-num-btn-submit': 'rechargeNumHandler',
-            'click .js-ag-recharge-num-btn-cancel': 'formCancelHandler'
+            'click .js-ag-recharge-bet-btn-submit': 'rechargeBetHandler',
+            'click .js-ag-recharge-bet-btn-cancel': 'formCancelHandler'
         },
         getLevelConfXhr: function () {
             return Global.sync.ajax({
@@ -20,19 +20,18 @@ define(function (require, exports, module) {
                 // 处理失败
             }).done(function (res) {
                 if (res && res.result === 0) {
-                    self.$('.js-ag-ticketTransferTimes').val(res.root.ticketTransferTimes);
-                    self.$('.js-ag-agTransferTimes').val(res.root.agTransferTimes);
+                    self.$('.js-ag-withdrawLimit').val(res.root.withdrawLimit);
                 } else {
                     Global.ui.notification.show('数据异常。');
                 }
 
             });
         },
-        rechargeNumHandler: function (e) {
+        rechargeBetHandler: function (e) {
             var self = this;
             var $target = $(e.currentTarget);
             $target.button('loading');
-            var $currContainer = $('.js-ag-recharge-num-form');
+            var $currContainer = $('.js-ag-recharge-bet-form');
             var clpValidate = $currContainer.parsley().validate();
             if (clpValidate) {
                 Global.sync.ajax({
@@ -40,9 +39,9 @@ define(function (require, exports, module) {
                     data: {
                         minAmount: '',
                         maxAmount: '',
-                        agTransferTimes: this.$('.js-ag-agTransferTimes').val(),
-                        ticketTransferTimes: this.$('.js-ag-ticketTransferTimes').val(),
-                        withdrawLimit:''
+                        agTransferTimes: '',
+                        ticketTransferTimes: '',
+                        withdrawLimit: this.$('.js-ag-withdrawLimit').val()
                     }
                 })
                     .always(function () {
@@ -73,5 +72,5 @@ define(function (require, exports, module) {
 
     });
 
-    module.exports = NewNumView;
+    module.exports = NewBetView;
 });

@@ -1,5 +1,5 @@
 define(function (require, exports, module) {
-
+    var AgUserRebateView = require('agGame/userManagement/ag-userRebate');
     require('prefab/views/searchGrid');
 
     var AgUserDetailView = Base.Prefab.SearchGrid.extend({
@@ -7,7 +7,8 @@ define(function (require, exports, module) {
         template: require('text!agGame/userManagement/ag-userList.html'),
 
         events: {
-            'click .js-ul-bet': 'userBetHandler'
+            'click .js-ul-bet': 'userBetHandler',
+            'click .js-ul-rebate':'userRebateHandler'
         },
         initialize: function () {
 
@@ -41,6 +42,10 @@ define(function (require, exports, module) {
                         width: '10%',
                         sortable: true,
                         id: 5
+                    },
+                    {
+                        name: '操作',
+                        width: '10%'
                     }
                 ],
                 gridOps: {
@@ -121,6 +126,12 @@ define(function (require, exports, module) {
             row.push(_(rowInfo.balance).formatDiv(10000, {fixed: 4}));
             row.push(_(rowInfo.regTime).toTime());
             row.push(rowInfo.uDays);
+            if(rowInfo.agName){
+                row.push('<button type="button" data-id="' + rowInfo.userId + '" data-type="' + rowInfo.username + '" data-rebate="'+rowInfo.rebateOpen+'" class="js-ul-rebate btn btn-link">返水</button>');
+            }else{
+                row.push('');
+            }
+
             return row;
         },
         _formatOperation: function (rowInfo) {
@@ -132,6 +143,65 @@ define(function (require, exports, module) {
                     }) + '" class="router btn btn-link">详情</a>');
             }
             return cell.join('');
+        },
+        //编辑返水
+        userRebateHandler: function (e) {
+            var self = this;
+
+            var $target = $(e.currentTarget);
+            var userId = $target.data('id');
+            var name = $target.data('type');
+            var open=$target.data('rebate');
+            var $dialog = Global.ui.dialog.show(
+                {
+                    title: 'AG返水设置',
+                    body: '<div class="js-ag-user-rebate"></div>',
+                    footer: '<button class="js-ag-userRebate-confirm btn btn-primary" style="width: 100px; margin-right: 20px;" type="commit">确定</button><button class="btn" style="width: 100px;" data-dismiss="modal">取消</button>'
+                }
+            );
+
+            var $selectContainer = $dialog.find('.js-ag-user-rebate');
+
+            var agUserRebateView = new AgUserRebateView({userId: userId, name: name,open:open});
+            $selectContainer.html(agUserRebateView.render().el);
+
+            $dialog.on('hidden.bs.modal', function (e) {
+                $(this).remove();
+                agUserRebateView.destroy();
+            });
+
+            $dialog.off('click.agUserDisable')
+                .on('click.agUserDisable', '.js-ag-userRebate-confirm', function (ev) {
+                    var $target2 = $(ev.currentTarget);
+                    var clpValidate = $dialog.find('.js-ag-userRebate-form').parsley();
+                    if (clpValidate) {
+                        $target2.button('loading');
+                        Global.sync.ajax({
+                            url: '/intra/agmanager/rebtaeopenset.json',
+                            data: {
+                                userId: userId,
+                                open: $dialog.find('.js-ag-open:checked').val()
+                            },
+                            tradition: true
+                        })
+                            .always(function () {
+                                $target2.button('reset');
+                            })
+                            .fail(function () {
+                                // 处理失败
+                            })
+                            .done(function (res) {
+                                if (res && res.result === 0) {
+                                    Global.ui.notification.show('操作成功。');
+                                    self._getGridXhr();
+                                    $dialog.modal('hide');
+                                } else {
+                                    Global.ui.notification.show('操作失败。');
+                                }
+                            });
+                    }
+                });
+
         }
     });
 
