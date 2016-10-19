@@ -76,11 +76,19 @@
   font-size: 12px;
 }
 
+.btn-circle {
+  border-radius: 30px;
+}
+
 .btn-xs {
   padding: 4px 6px;
   font-size: 12px;
   min-width: 50px;
   line-height: 15px;
+}
+
+.btn-xs-long-p {
+  padding: 4px 15px;
 }
 
 .btn-xxs {

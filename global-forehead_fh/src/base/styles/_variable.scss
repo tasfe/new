@@ -415,6 +415,30 @@ $btns: (
       bg-color: $pink-color
     )
   ),
+  blue: (
+    color: $white-color,
+    bg-color: $blue-color,
+    border-color: #4a8fb4,
+    linear-color: linear-gradient(to bottom, $white-color, #93bade 5%, #6ea3c6),
+  //light-blue: (
+  //  color: $white-color,
+  //  bg-color: $blue-color,
+  //  border: 1px solid #4da0c5,
+  //  border-radius: 15px,
+  //  linear-color: linear-gradient(to bottom, $white-color, #66b3c7 5%, #5499bd),
+    hover: (
+      color: $white-color,
+      bg-color: $blue-color
+    ),
+    focus: (
+      color: $white-color,
+      bg-color: $blue-color
+    ),
+    active: (
+      color: $white-color,
+      bg-color: $blue-color
+    )
+  ),
   pure: (
     color: $gray-color,
     bg-color: $white-color,
@@ -468,6 +492,26 @@ $btns: (
       color: $color-amber,
       bg-color: $white-color
       //box-shadow: none
+    ),
+  ),
+  group-pink: (
+    color: $color-amber,
+    bg-color: $white-color,
+    border-color: $gray-color,
+    hover: (
+      color: $pink-color,
+      bg-color: $white-color,
+      border-color: $pink-color
+    ),
+    focus: (
+      color: $white-color,
+      bg-color: $pink-color,
+      border-color: #4a8fb4
+    ),
+    active: (
+      color: $white-color,
+      bg-color: $pink-color,
+      border-color: #4a8fb4
     )
   )
 );

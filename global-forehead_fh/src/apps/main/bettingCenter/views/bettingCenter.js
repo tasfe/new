@@ -10,7 +10,6 @@ var BettingChaseView = require('bettingCenter/views/bettingCenter-chase');
 var RecordsOpenView = require('bettingCenter/views/bettingCenter-records-open');
 var RecordsRecentView = require('bettingCenter/views/bettingCenter-records-recent');
 
-
 var ticketConfig = require('skeleton/misc/ticketConfig');
 var betRulesConfig = require('bettingCenter/misc/betRulesConfig');
 
@@ -137,7 +136,6 @@ var BettingCenterView = Base.ItemView.extend({
   },
 
   onRender: function() {
-
     if (this.options.ticketInfo.info.id === 18) {
       this.$el.addClass('pk10');
     }

@@ -6,7 +6,7 @@ var RouterController = require('skeleton/controllers/router');
 
 var PersonalManageView = require('./personalManage');
 
-var PasswordManageView = require('accountCenter/views/passwordManage');
+// var PasswordManageView = require('accountCenter/views/passwordManage');
 
 var MoneyTransferView = require('fundCenter/views/moneyTransfer');
 
@@ -75,14 +75,14 @@ var AccountCenterController = RouterController.extend({
     });
   },
 
-  findPwd: function() {
-    this.changeMainReginView(new PasswordManageView({
-      triggerTab: 'modifyFindPwd'
-    }), {
-      sidebar: 'pc',
-      topView: 'personal'
-    });
-  },
+  // findPwd: function() {
+  //   this.changeMainReginView(new PasswordManageView({
+  //     triggerTab: 'modifyFindPwd'
+  //   }), {
+  //     sidebar: 'pc',
+  //     topView: 'personal'
+  //   });
+  // },
 
   loginLog: function() {
     this.changeMainReginView(new LoginLogView(), {
