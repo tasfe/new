@@ -1247,15 +1247,12 @@ var BettingCenterView = Base.ItemView.extend({
               $(this).remove();
             });
 
-
             $dialog.modal('hide');
           } else {
             Global.ui.notification.show('收藏失败！错误原因：' + res.msg || '');
           }
         });
     });
-
-
   }
 
 });
