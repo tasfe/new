@@ -1,107 +1,13 @@
 "use strict";
-var Collection = require('skeleton/collection');
 
-var Model = require('skeleton/model');
-
-
-var TicketSelectGroup = require('com/ticketSelectGroup');
-
-var PlanModel = Model.extend({
-  url: '/ticket/betManager/schemelist.json',
-
-  idAttribute: 'ticketId',
-
-  parse: function(res) {
-    var data;
-    if (res && res.result === 0) {
-      data = res.root;
-    }
-
-    return data;
-  },
-
-  getList: function() {
-    if (this.fetched) {
-      this.trigger('getList:complete', this);
-    } else {
-      this.fetch({
-        data: {
-          ticketId: this.id
-        }
-      });
-      this.once('sync', function() {
-        this.trigger('getList:complete', this);
-        this.fetched = true;
-      });
-    }
-  },
-
-  updateSchemeXhr: function(reqData) {
-    var self = this;
-
-    return Global.sync.ajax({
-      url: '/ticket/betManager/updscheme.json',
-      data: reqData
-    }).done(function(res) {
-      if(res && res.result === 0) {
-        var schemeDetail = self.getCurrentPlan(Number(reqData.schemeId));
-        schemeDetail.schemeName = reqData.schemeName;
-        self.trigger('getList:change', self);
-      }
-    });
-  },
-
-  deleteSchemePlayXhr: function(reqData) {
-    var self = this;
-
-    return Global.sync.ajax({
-      url: '/ticket/betManager/delscheme.json',
-      data: reqData
-    }).done(function(res) {
-      if(res && res.result === 0) {
-        var schemeDetail = self.getCurrentPlan(Number(reqData.schemeId));
-
-        schemeDetail.playList = _(schemeDetail.playList).filter(function(playInfo) {
-          return playInfo.schemePlayId !== reqData.schemePlayId;
-        });
-        if (_(schemeDetail.playList).isEmpty()) {
-          self.deleteCurrentPlanLocal(schemeDetail);
-          self.trigger('currentList:empty', self);
-        } else {
-          self.trigger('getList:change', self);
-        }
-      }
-    });
-  },
-
-  deleteCurrentPlanLocal: function(schemeDetail) {
-    var planList = this.get('dateList');
-    this.set('dateList', _(planList).without(schemeDetail));
-  },
-
-  getCurrentPlan: function(schemeId) {
-    var planList = this.get('dateList');
-    return _(planList).findWhere({
-      schemeId: schemeId
-    });
-  }
-});
-
-var PlanCollection = Collection.extend({
-  model: PlanModel,
-
-  modelId: function(ticketInfo) {
-    return ticketInfo.ticketId;
-  }
-});
+var PlanCollection = require('../collections/PlanCollection');
 
 var MyCollectionsView = Base.ItemView.extend({
 
   template: require('./index.html'),
-  dialog: _.template(require('./collectedDialog.html')),
 
   events: {
-    'change .js-pf-select-ticket-list': 'getCollectionHandler',
+    'change .js-bb-ticket-list': 'getCollectionHandler',
     'change .js-bb-collection-list': 'changePlanDetailsHandler',
     'click .js-bb-scheme-name-change': 'changeSchemeNameHandler',
     'click .js-bb-plan-delete': 'deleteSchemeHandler'
@@ -113,7 +19,16 @@ var MyCollectionsView = Base.ItemView.extend({
     this.maxLength = 20;
   },
 
+  getTicketListxhr: function() {
+    return Global.sync.ajax({
+      url: '/ticket/ticketmod/bmticketlist.json'
+    });
+  },
+
   onRender: function() {
+    var self = this;
+
+    this.$ticketList = this.$('.js-bb-ticket-list');
     this.$planDetails = this.$('.js-bb-plan-details');
     this.$collectionStauts = this.$('.js-bb-collection-status');
     this.$collectionList = this.$('.js-bb-collection-list');
@@ -121,11 +36,14 @@ var MyCollectionsView = Base.ItemView.extend({
     this.$planGrid = this.$('.js-bb-plan-grid');
 
 
-    //初始化彩种选择
-    new TicketSelectGroup({
-      el: this.$('.js-bb-ticket-list'),
-      without: '秒秒彩'
-    });
+    this.getTicketListxhr()
+      .done(function(res) {
+        if (res && res.result === 0) {
+          self.$ticketList.html('<option>请选择</option>' + _(res.root).map(function(ticketInfo) {
+            return '<option value="' + ticketInfo.ticketId + '">' + ticketInfo.ticketName + '</option>';
+          }).join(''));
+        }
+      });
   },
 
   renderCurrentList: function(model) {

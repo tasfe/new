@@ -14,14 +14,17 @@
   &:hover {
     color: map_get($hover, color);
     background: map_get($hover, bg-color);
+    border-color: map_get($hover, border-color);
   }
   &:focus{
     color: map_get($focus, color);
     background: map_get($focus, bg-color);
+    border-color: map_get($focus, border-color);
   }
   &.active, &:active {
     color: map_get($active, color);
     background: map_get($active, bg-color);
+    border-color: map_get($active, border-color);
   }
 
   &.btn-linear {
