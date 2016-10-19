@@ -34,7 +34,7 @@ export default (config, WATCH, DEBUG, VERBOSE) => {
 
     // Choose a developer tool to enhance debugging
     // http://webpack.github.io/docs/configuration.html#devtool
-    devtool: DEBUG ? 'cheap-module-eval-source-map' : false,
+    devtool: DEBUG ? 'eval' : false,
     plugins: [
       ...config.plugins,
       ...(!DEBUG ? [
