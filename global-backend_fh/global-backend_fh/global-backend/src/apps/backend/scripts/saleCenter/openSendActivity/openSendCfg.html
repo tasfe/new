@@ -1,0 +1,75 @@
+<div class="panel padding-md">
+  <form class="js-sc-bcac-form form-horizontal form-inline" action="javascript:void(0)">
+    <input type="hidden" class="js-sc-bcac-activityId" value="35" name="activityId">
+    <div class="row m-bottom-sm" style="margin-left: 93px">
+      <div class="col-sm-12 m-left-lg">
+        <div class="form-group form-inline">
+          <label class=" control-label">活动起止时间：</label>
+          <span class="js-sc-bcac-timeset"></span>
+        </div>
+      </div>
+    </div>
+    <div class="row m-bottom-sm" style="margin-left: 93px">
+      <div class="col-sm-12 m-left-lg">
+        <div class="form-group form-inline">
+          <label class=" control-label">用户注册时间：</label>
+          <input type="text" class="js-sp-time input-medium form-control" name="regTime" required>
+        </div>
+      </div>
+    </div>
+    <div class="row m-bottom-sm " style="margin-left: 93px">
+      <div class="col-sm-12 m-left-lg">
+        <div class="js-sc-bcac-btnContainer form-group form-inline">
+          <label class=" control-label m-right-sm">绑定银行卡要求：</label>
+          <label class="radio-inline control-label">
+            <input class="js-sc-bcac-bind" type="radio" name="cardBind" value="0" checked><label
+            style="margin-top:1px;">绑定</label>
+          </label>
+          <label class="radio-inline control-label">
+            <input class="js-sc-bcac-bind" type="radio" name="cardBind" value="1" style="margin-top: 7px;"><label
+            style="margin-top: 5px;">不绑定</label>
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="row m-bottom-sm " style="margin-left: 93px">
+      <div class="col-sm-12 m-left-lg">
+        <div class="js-sc-bcac-btnContainer form-group form-inline">
+          <label class=" control-label m-right-sm">锁定银行卡要求：</label>
+          <label class="radio-inline control-label">
+            <input class="js-sc-bcac-lock" type="radio" name="cardLock" value="0" checked><label
+            style="margin-top:1px;">绑定</label>
+          </label>
+          <label class="radio-inline control-label">
+            <input class="js-sc-bcac-lock" type="radio" name="cardLock" value="1" style="margin-top: 7px;"><label
+            style="margin-top: 5px;">不绑定</label>
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="row m-bottom-sm" style="margin-left: 93px">
+      <div class=" col-sm-12 m-left-lg">
+        <div class="form-group form-inline">
+          <label class=" control-label m-right-sm">奖金：</label>
+          <input type="text" name="bonus" class="js-sc-bcac-bonus form-control" data-parsley-range="[0, 10000000]"
+                 data-parsley-interger style="margin-left:33px;margin-right:5px;width:90px;" required>
+        </div>
+      </div>
+    </div>
+    <div class="row m-bottom-sm" style="margin-left: 93px">
+      <div class=" col-sm-12 m-left-lg">
+        <div class="form-group form-inline">
+          <label class=" control-label m-right-sm">奖励份数：</label>
+          <input type="text" name="count" class="js-sc-bcac-num form-control" data-parsley-range="[0, 100000]"
+                 data-parsley-interger style="margin-left:5px;margin-right:5px;width:90px;" required>
+        </div>
+      </div>
+    </div>
+    <div class="text-center">
+      <button class=" js-sc-rpg-submit btn btn-primary" type="submit" style="width: 100px; margin-right: 20px;"
+              data-loading-text="发送中">确定
+      </button>
+      <button style="width: 100px;" class="js-sc-bcac-cancel btn" data-dismiss="modal" type="reset">取消</button>
+    </div>
+  </form>
+</div>

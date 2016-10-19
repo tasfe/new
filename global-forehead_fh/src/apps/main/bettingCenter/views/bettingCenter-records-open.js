@@ -48,6 +48,26 @@ var BettingRecordsView = Base.ItemView.extend({
           return val.substring(4);
         }
       ]
+    },
+    pk10: {
+      pageSize: 20,
+      formats: [
+        null,
+        function(val) {
+          var nums = val.split('\,');
+          if(nums.length === 10) {
+            nums = _(nums).map(function(item) {
+              if(item.indexOf('0') === 0) {
+                return item.substr(1);
+              } else {
+                return item;
+              }
+            })
+          }
+          val = nums.join(',');
+          return val;
+        }
+      ]
     }
   },
 
@@ -61,13 +81,17 @@ var BettingRecordsView = Base.ItemView.extend({
       var sscTicketIdArr = _(ticketConfig.getSccList()).pluck('id');
       var c115TicketIdArr = _(ticketConfig.getChoose5List()).pluck('id');
       var dpcTicketIdArr = _(ticketConfig.getLowList()).pluck('id');
+      var bjpk10TicketIdArr = _(ticketConfig.getHappyList()).pluck('id');
+
       if (_(sscTicketIdArr).contains(this.options.ticketId)) {
         this.gridOps = this.GridOps['ssc'];
       } else if(_(c115TicketIdArr).contains(this.options.ticketId)){
         this.gridOps = this.GridOps['115'];
       } else if(_(dpcTicketIdArr).contains(this.options.ticketId)){
         this.gridOps = this.GridOps['DPC'];
-      }
+      } else if(_(bjpk10TicketIdArr).indexOf(this.options.ticketId)!==-1) {
+        this.gridOps = this.GridOps['pk10'];
+    }
       gridTable = this.generateGridOptions(this.gridOps);
       this.drawRecords = this.$el.staticGrid(gridTable).staticGrid('instance');
     } else {

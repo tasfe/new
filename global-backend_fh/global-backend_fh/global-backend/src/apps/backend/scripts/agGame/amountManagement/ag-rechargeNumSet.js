@@ -41,7 +41,8 @@ define(function (require, exports, module) {
                         minAmount: '',
                         maxAmount: '',
                         agTransferTimes: this.$('.js-ag-agTransferTimes').val(),
-                        ticketTransferTimes: this.$('.js-ag-ticketTransferTimes').val()
+                        ticketTransferTimes: this.$('.js-ag-ticketTransferTimes').val(),
+                        withdrawLimit:''
                     }
                 })
                     .always(function () {

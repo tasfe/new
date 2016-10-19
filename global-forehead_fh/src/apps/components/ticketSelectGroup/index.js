@@ -25,7 +25,8 @@ var TicketSelectGroup = Base.PrefabView.extend({
         label: '所有玩法',
         value: ''
       }
-    }
+    },
+    without: null
   },
 
   events: function() {
@@ -86,6 +87,11 @@ var TicketSelectGroup = Base.PrefabView.extend({
     this._initListXhr()
       .done(function(res) {
         if (res && res.result === 0) {
+          if (self.options.without) {
+            res.root = _(res.root).filter(function(ticketInfo) {
+              return ticketInfo.ticketName.indexOf(self.options.without) === -1;
+            });
+          }
           self.$('.' + self.options.listClass).html(_(res.root).reduce(function(html, ticket) {
             html.push('<option value="' + ticket.ticketId + '">' + ticket.ticketName + '</option>');
             return html;

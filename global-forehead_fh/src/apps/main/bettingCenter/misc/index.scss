@@ -1455,13 +1455,12 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
       .collect{
         width: 31px;
         height: 33px;
-        display: block;
-        float: left;
         background:url(julien/collect.png) no-repeat;
-        position: absolute;
-        left: 5px;
-        top: 5px;
         cursor: pointer;
+        margin-bottom: 5px;
+        margin-right: 5px;
+        margin-left: -33px;
+        vertical-align: bottom;
 
       }
     }
@@ -1550,7 +1549,7 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
   &:hover{
     background-color: #cc6699;
     border: 1px solid #cc6699;
-    color: #d488ae;
+    color: $white-color;
     span{
       display: none;
     }

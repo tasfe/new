@@ -6,6 +6,10 @@
     <file url="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/fundCenter/rwManagement/bankList-tab.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/fundCenter/templates/dividCfg.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/fundCenter/views/dividCfg.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/saleCenter/firstRechargeSendActivity/firstRechargeSendCfg.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/saleCenter/firstRechargeSendActivity/firstRechargeSendCfg.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/saleCenter/openSendActivity/openSendReport.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/saleCenter/openSendActivity/openSendReport.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/saleCenter/templates/bonusManager-manager.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/saleCenter/templates/games-ShowAgreementDetail.html" charset="GBK" />
     <file url="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/saleCenter/templates/games-dailySalaryCfg.html" charset="UTF-8" />

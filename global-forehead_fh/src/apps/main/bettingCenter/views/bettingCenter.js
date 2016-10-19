@@ -10,10 +10,8 @@ var BettingChaseView = require('bettingCenter/views/bettingCenter-chase');
 var RecordsOpenView = require('bettingCenter/views/bettingCenter-records-open');
 var RecordsRecentView = require('bettingCenter/views/bettingCenter-records-recent');
 
-
 var ticketConfig = require('skeleton/misc/ticketConfig');
 var betRulesConfig = require('bettingCenter/misc/betRulesConfig');
-var IDsSuper3 = require('bettingCenter/misc/super3k/IDsOfSuper3k');
 
 var Countdown = require('com/countdown');
 
@@ -24,6 +22,7 @@ var BettingCenterView = Base.ItemView.extend({
 
   playLevelTpl: _.template(require('bettingCenter/templates/bettingCenter-level.html')),
   rulesTpl: _.template(require('bettingCenter/templates/bettingCenter-rules.html')),
+  collectTpl: _.template(require('bettingCenter/templates/bettingCenter-collect-add.html')),
   confirmTpl: _.template(require('bettingCenter/templates/bettingCenter-confirm.html')),
 
   height: 310,
@@ -47,7 +46,7 @@ var BettingCenterView = Base.ItemView.extend({
     'click .js-bc-btn-lottery-confirm': 'lotteryConfirmHandler',
     'click .js-bc-records-tab': 'toggleTabHandler',
     //需要重构的代码
-    'click .js-cang02':'cangHandler'
+    'click .js-collect':'confirmCollectHandler'
   },
 
   getPersonalInfoXhr: function() {
@@ -137,6 +136,10 @@ var BettingCenterView = Base.ItemView.extend({
   },
 
   onRender: function() {
+    if (this.options.ticketInfo.info.id === 18) {
+      this.$el.addClass('pk10');
+    }
+
     this.$countdown = this.$('.js-bc-countdown');
     this.$planId = this.$('.js-bc-planId');
     this.$planIdStop = this.$('.js-bc-planId-stop');
@@ -309,8 +312,8 @@ var BettingCenterView = Base.ItemView.extend({
 
     $('.js-bc-last-planId').html('第' + planInfo.lastOpenId  + '期');
 
-    this.$lastResults.html(_(model.get('lastOpenNum')).map(function(num) {
-      return '<span class="text-circle text-circle-bet-ball">' + num + '</span>';
+    this.$lastResults.html(_(model.get('lastOpenNum')).map(function(num, index, nums) {
+      return '<span class="text-circle text-circle-bet-ball' + (nums.length > 5 ? ' text-circle-bet-ball-sm' : '') + '">' + num + '</span>';
     }));
 
     //目前只有韩国1.5分彩需要显示
@@ -1132,45 +1135,122 @@ var BettingCenterView = Base.ItemView.extend({
     });
   },
 
-  cangHandler: function() {
-    var self = this;
+  confirmCollectStatusXhr: function() {
+    return Global.sync.ajax({
+      url: '/ticket/betManager/newschemeconfirm.json',
+      tradition: true,
+      data: {
+        ticketId: this.options.ticketId
+      }
+    });
+  },
 
-    var previewList1 = this.model.get('previewList');
-
-    var previewList = _(previewList1).reduce(function(list, item) {
-
-      list.push({
-        betNum: item.bettingNumber,
-        playId: item.playId,
-        betMultiple: item.multiple,
-        moneyMethod: item.unit,
-        //0 高奖金 1 有返点
-        betMethod: item.betMethod
-      });
-
-      return list;
-    }, []);
-
-
+  sendCollectXhr: function(data) {
     return Global.sync.ajax({
       url: '/ticket/betManager/newscheme.json',
       tradition: true,
-      data: {
-        bet: previewList
-      }
+      data: data
     })
+  },
+
+  confirmCollectHandler: function() {
+    var self = this;
+
+    var previewList = this.model.get('previewList');
+    if (_(previewList).isEmpty()) {
+      Global.ui.notification.show('请先选择投注号码');
+      return false;
+    }
+
+    this.confirmCollectStatusXhr()
       .done(function(res) {
-        //if (res && res.result === 0) {
-        //  self.emptyPrevBetting();
-        //}
+        var collectId;
         if (res && res.result === 0) {
-          Global.ui.notification.show('收藏成功！', {
-            type: 'success'
-          });
+          collectId = res.root || 0;
+          self.addCollect(collectId, previewList);
         } else {
-          Global.ui.notification.show('收藏失败！错误原因：' + res.msg || '');
+          Global.ui.notification.show(res.msg);
         }
       });
+  },
+
+  addCollect: function(collectId) {
+    var self = this;
+    var $dialog = Global.ui.dialog.show({
+      title: '收藏号码',
+      body: this.collectTpl({
+        collectId: collectId,
+        ticketInfo: this.options.ticketInfo
+      }),
+      footer: ''
+    });
+
+    $dialog.on('hidden.modal', function() {
+      $(this).remove();
+    });
+
+    $dialog.on('submit', '.js-bc-form', function(e) {
+      var $form = $(e.currentTarget);
+      var $submit = $form.find('.js-confirm-agree');
+      var parsley = $form.parsley();
+
+      if (!parsley.validate()) {
+        return false;
+      }
+
+      $submit.button('loading');
+
+      var previewList = _(self.model.get('previewList')).reduce(function(list, item) {
+
+        list.push({
+          betNum: item.bettingNumber,
+          playId: item.playId,
+          betMultiple: item.multiple,
+          moneyMethod: item.unit,
+          betMethod: item.betMethod
+        });
+
+        return list;
+      }, []);
+
+      self.sendCollectXhr(_(_($form.serializeArray()).serializeObject()).extend({
+        bet: previewList
+      }))
+        .always(function() {
+          $submit.button('loading');
+        })
+        .done(function(res) {
+          if (res && res.result === 0) {
+            self.model.emptyPrevBetting();
+
+            Global.ui.notification.show('收藏成功！', {
+              type: 'success'
+            });
+            var $successDialog = Global.ui.dialog.show({
+              title: '提示',
+              body: '<div class="text-center m-LR-lg">' +
+                '<dt class="pull-left m-LR-lg">' +
+                '<span class="circle-icon"><i class="fa fa-smile-o"></i></span>' +
+                '</dt>' +
+                '<dd class="overflow-hidden m-top-sm text-left">恭喜您，收藏成功！</dd>' +
+                '<dd class="overflow-hidden m-bottom-md text-left">您可以通过<a href="#" class="router text-hot btn btn-link">收藏管理</a>查询您的收藏情况！</dd>' +
+                '</div>' +
+                '<div class="text-center">' +
+                '<button type="button" class="btn btn-pink btn-linear" data-dismiss="modal">确定</button>' +
+                '</div>'
+
+            });
+
+            $successDialog.on('hidden.modal', function() {
+              $(this).remove();
+            });
+
+            $dialog.modal('hide');
+          } else {
+            Global.ui.notification.show('收藏失败！错误原因：' + res.msg || '');
+          }
+        });
+    });
   }
 
 });

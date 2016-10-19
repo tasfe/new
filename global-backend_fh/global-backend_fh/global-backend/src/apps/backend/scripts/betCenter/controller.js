@@ -43,6 +43,8 @@ define(function (require, exports, module) {
   var RiskListView = require('betCenter/riskControl/riskList');
   var RiskDetailView = require('betCenter/riskControl/riskDetail');
 
+  var BetHouseKeeperView = require('betCenter/views/bet-houseKeeper');
+
   var BetCenterController = RouterController.extend({
 
     ticketList: function() {
@@ -184,6 +186,11 @@ define(function (require, exports, module) {
     abnormalBettingManage: function() {
       this.changeMainReginView(new AbnormalBettingManageView());
     }
+    ,
+    betHouseKeeperView: function() {
+      this.changeMainReginView(new BetHouseKeeperView());
+    }
+
 
   });
 
