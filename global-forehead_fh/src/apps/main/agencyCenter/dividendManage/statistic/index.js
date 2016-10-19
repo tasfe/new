@@ -87,7 +87,7 @@ var StatisticView = Base.ItemView.extend({
     this.$betTotal.text(_(info.betTotal).fixedConvert2yuan());
     this.$profitTotal.text(_(info.profitTotal).convert2yuan({clear: false}));
     this.$divid.text(_(info.divid).formatDiv(100));
-    this.$addDivid.text(_(info.addDivid).formatDiv(100));
+    // this.$addDivid.text(_(info.addDivid).formatDiv(100));
     this.$dividTotal.text(_(info.dividTotal).convert2yuan({clear: false}));
 
     this.$freezeContainer.toggleClass('hidden', !info.freezeTotal);
@@ -97,7 +97,7 @@ var StatisticView = Base.ItemView.extend({
     });
 
     this.$status.html(statusInfo.type === 'button' ?
-    '<button class="js-ac-status-op btn btn-sm ac-status-op" data-loading-text="' + statusInfo.loadingText + '" data-status="' + info.status +
+    '<button class=" js-ac-status-op btn btn-hot btn-linear ac-status-op" data-loading-text="' + statusInfo.loadingText + '" data-status="' + info.status +
     '" data-divid-id="' + info.dividId + '">' + statusInfo.zhName + '</button>' : statusInfo.zhName);//
 
     //日销量明细
