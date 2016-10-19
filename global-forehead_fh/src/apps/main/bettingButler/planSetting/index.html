@@ -4,7 +4,7 @@
 
 <div class="js-ac-type-group m-TB-md p-bottom-sm border-bottom"></div>
 
-<form class="form-horizontal min-height-lg" action="javascript:void(0)">
+<form class="js-bb-form form-horizontal min-height-lg" action="javascript:void(0)">
   <div class="control-group">
     <label class="control-label">选择彩种：</label>
     <div class="controls">
@@ -17,7 +17,7 @@
         <label class="control-label">开始时间：</label>
         <div class="controls">
           <div class="input-in-append inline-block">
-            <input type="text" class="js-bb-start-time input-lg" name="startTime" placeholder="开始时间" value="" required>
+            <input type="text" class="js-bb-start-time input-lg" name="startTime" placeholder="开始时间" value="" required autocomplete="off">
             <span class="add-on"><span class="sfa sfa-time-picker vertical-sub"></span></span>
           </div>
         </div>
@@ -41,8 +41,8 @@
     <div class="control-group">
       <label class="control-label">选择方案名：</label>
       <div class="controls">
-        <select class="js-bb-collection-list input-md" name="ticketId"></select>
-        <div class="help-inline"><button class="btn btn-linear btn-blue btn-circle">添加</button></div>
+        <select class="js-bb-collection-list input-md"></select>
+        <!--<div class="help-inline"><button class="btn btn-linear btn-blue btn-circle">添加</button></div>-->
       </div>
     </div>
     <div class="js-bb-plan-grid-container hidden">
@@ -56,11 +56,13 @@
         <div class="control-inline">
           <label class="control-label">追号方式：</label>
           <div class="controls">
-        <span class="custom-checkbox">
-          <input type="checkbox" id="jsBbChase" class="js-bb-chase-switch" name="suspend">
-          <label class="checkbox-label" for="jsBbChase"></label>
-        </span>
-            追中即停
+            <label class="no-margin">
+              <span class="custom-checkbox">
+                <input type="checkbox" id="jsBbChase" class="js-bb-chase-switch" name="suspend">
+                <label class="checkbox-label" for="jsBbChase"></label>
+              </span>
+              追中即停
+            </label>
           </div>
         </div>
         <div class="control-inline">
@@ -71,7 +73,7 @@
         </span>
             连投
             <div class="input-in-append inline-block">
-              <input name="times" type="text" class="js-bb-times js-gl-monitor input-sm" data-monitor-type="number" data-monitor-range="[0, 5]" value="0">
+              <input name="times" type="text" class="js-bb-times js-gl-monitor input-sm" data-monitor-type="number" data-monitor-range="[1, 5]" value="1" disabled>
               <span class="add-on">次</span>
             </div>
             <div class="help-inline">（连续投注此计划）</div>
@@ -80,7 +82,7 @@
       </div>
       <div class="form-group">
         <div class="controls">
-          <button type="submit" class="js-bb-submit btn btn-pink btn-linear m-right-sm">保存</button>
+          <button type="submit" class="js-bb-submit btn btn-pink btn-linear m-right-sm">开始计划</button>
         </div>
       </div>
     </div>

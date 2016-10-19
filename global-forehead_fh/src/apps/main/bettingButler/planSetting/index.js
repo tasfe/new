@@ -4,13 +4,19 @@ var PlanCollection = require('../collections/PlanCollection');
 
 var BtnGroup = require('com/btnGroup');
 
+var ticketConfig = require('skeleton/misc/ticketConfig');
+
 var PlanSettingView = Base.ItemView.extend({
 
   template: require('./index.html'),
 
+  confirmTpl: _(require('./confirm.html')).template(),
+
   events: {
     'change .js-bb-ticket-list': 'getCollectionHandler',
     'change .js-bb-collection-list': 'changePlanDetailsHandler',
+    'change .js-bb-times-switch': 'switchTimesHandler',
+    'submit .js-bb-form': 'submitFormHandler'
   },
 
   getTicketListxhr: function() {
@@ -31,6 +37,34 @@ var PlanSettingView = Base.ItemView.extend({
       data: {
         ticketId: ticketId
       }
+    });
+  },
+
+  confirmMoneyXhr: function(data) {
+
+    return Global.sync.ajax({
+      url: '/ticket/betManager/projectconfirm.json',
+      data: data,
+      tradition: true
+    });
+  },
+
+  submitPlanXhr: function(data) {
+
+    data.play = _(data.play).map(function(playInfo) {
+      return {
+        playId: playInfo.playId,
+        betNum: playInfo.betNum,
+        moneyMethod: playInfo.method,
+        betMethod: playInfo.modes,
+        betMultiple: playInfo.times
+      };
+    });
+
+    return Global.sync.ajax({
+      url: '/ticket/betManager/project0.json',
+      data: data,
+      tradition: true
     });
   },
 
@@ -70,6 +104,9 @@ var PlanSettingView = Base.ItemView.extend({
     this.$planGrid = this.$('.js-bb-plan-grid');
     this.$planDetails = this.$('.js-bb-plan-details');
     this.$chasePlans = this.$('.js-bb-periods');
+    this.$form = this.$('.js-bb-form');
+    this.$submit = this.$('.js-bb-submit');
+    this.$times = this.$('.js-bb-times');
 
     this.btnGroup = new BtnGroup({
       el: this.$typeGroup,
@@ -109,6 +146,8 @@ var PlanSettingView = Base.ItemView.extend({
       maxDate: moment().add(7, 'days').startOf('day').toDate(),
       keepInvalid: false
     });
+
+    this.$form.parsley();
   },
 
   renderCurrentList: function(model) {
@@ -234,9 +273,91 @@ var PlanSettingView = Base.ItemView.extend({
       });
   },
 
+  switchTimesHandler: function(e) {
+    var $target = $(e.currentTarget);
+    this.$times.prop('disabled', !$target.prop('checked'));
+  },
+
+  submitFormHandler: function(e) {
+    var self = this;
+
+    var data = _(this.$form.serializeArray())
+      .chain()
+      .serializeObject()
+      .extend({
+        play: this.currentPlanModel.getCurrentPlan(this.schemeId).playList
+      })
+      .value();
+
+    data.suspend = !data.suspend;
+    data.times = Number(data.times) || 0;
+
+    data.play = _(data.play).map(function(playInfo) {
+      return {
+        playId: playInfo.playId,
+        betNum: playInfo.betNum,
+        moneyMethod: playInfo.method,
+        betMethod: playInfo.modes,
+        betMultiple: playInfo.times
+      };
+    });
+
+    var ticketInfo = ticketConfig.getComplete(data.ticketId);
+
+    this.confirmMoneyXhr(data)
+      .done(function(res) {
+        if (res && res.result === 0) {
+          $(document).confirm({
+            title: '确认计划',
+            content: self.confirmTpl({
+              ticketInfo: ticketInfo,
+              ticketName: ticketInfo.info.zhName,
+              singleTimeMoney: res.root || 0,
+              data: data
+            }),
+            agreeCallback: function() {
+              self.$submit.button('loading');
+              self.confirmPlan(data)
+                .always(function() {
+                  self.$submit.button('reset');
+                });
+            }
+          });
+        } else {
+          Global.ui.notification.show('取得计划信息失败！错误原因：' + res.msg || '');
+        }
+      })
+  },
+
+  confirmPlan: function(data) {
+    return this.submitPlanXhr(data)
+      .done(function(res) {
+        if (res && res.result === 0) {
+          var html = '<div class="text-center">' +
+            '<p><span class="circle-icon"><i class="fa fa-check"></i></span></p>' +
+            '<p class="font-md">恭喜您，计划投注成功！</p>' +
+            '<p>您可以通过<a href="bb/pl" class="router btn btn-link text-hot" data-dismiss="modal">进行中的计划</a>查询您的投注记录！</p>' +
+            '<div class="text-center"><button class="btn btn-pink btn-linear" data-dismiss="modal">确定</button></div>' +
+            '</div>';
+
+          var $dialog = Global.ui.dialog.show({
+            title: '编辑方案名',
+            body: html
+          });
+
+          $dialog.on('hidden.modal', function() {
+            $(this).remove();
+          });
+
+        } else {
+          Global.ui.notification.show('开始计划失败！错误原因：' + res.msg || '');
+        }
+      });
+  },
+
   destroy: function() {
     clearInterval(this.updateTimer);
-    Base.ItemView.prototype.destroy.apply(this, arugments);
+    Base.ItemView.prototype.destroy.apply(this, arguments);
   }
 });
 
