@@ -180,7 +180,7 @@ var UserManageView = SearchGrid.extend({
     config = _(config).map(function (item) {
       return {
         betTotal: _(item.betTotal).convert2yuan({ fixed: 0 }),
-        divid: _(item.divid).formatDiv(10, { fixed: 0 })
+        divid: _(item.divid).formatDiv(100, { fixed: 0 })
       }});
     var $dialog = Global.ui.dialog.show({
       title: '查看签约',

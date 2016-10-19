@@ -130,6 +130,8 @@
         color: #676767;
         .ac-dm-status{
           display: inline-block;
+          height: 12px;
+          margin-top: -10px;
         }
         .ac-statics-text-sub{
           font-size: 16px;
@@ -359,7 +361,6 @@
 
 .ac-status-op{
   width: 95px;
-  height: 36px;
   border: 0px;
   background-color: #e65b45;
   color: #fff;
