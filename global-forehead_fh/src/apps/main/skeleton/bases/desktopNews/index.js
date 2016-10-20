@@ -110,7 +110,7 @@ var NoticeView = Base.ItemView.extend({
     if (notice) {
       this.rollStatus = true;
 
-      self.$content.append('<li><div class="slideIn"><a class="js-close close-notice pull-right" data-dismiss="alert" href="#">X</a><div class="notice-title text-hot">' + notice.title + '</div><div class="notice-content">'+notice.content+'</div></div></li>');
+      self.$content.append('<li><div class="slideIn"><a class="js-close close-notice pull-right" data-dismiss="alert" href="#">X</a><div class="notice-title text-hot">' + notice.title + '</div></div></li>');
 
       this.$content.animate({
         top: self.options.spacing
