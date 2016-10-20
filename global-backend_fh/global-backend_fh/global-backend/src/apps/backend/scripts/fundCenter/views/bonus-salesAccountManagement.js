@@ -68,7 +68,7 @@ define(function (require, exports, module) {
           emptyTip: '无记录'
         },
         ajaxOps: {
-          url: '/intra/dividmng/list.json'
+          url: '/intra/dividmng/masterlist.json'
         }
       });
     },

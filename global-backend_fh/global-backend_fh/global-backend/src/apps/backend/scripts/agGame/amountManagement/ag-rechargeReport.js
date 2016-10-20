@@ -75,7 +75,7 @@ define(function (require, exports, module) {
 
         renderGrid: function (gridData) {
             var self = this;
-            var rowsData = _(gridData.betList).map(function (order, index) {
+            var rowsData = _(gridData.dataList).map(function (order, index) {
                 return {
                     columnEls: this.formatRowData(order, index),
                     dataAttr: order
