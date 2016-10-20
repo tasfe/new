@@ -67,41 +67,50 @@ App.addInitializer(function(options) {
   _bindClickFeedbackHandler();
 
   this.firstLoginUpdatePasswd = new FirstLoginUpdatePasswd();
+  this.firstLoginUpdatePasswd.on('close', function() {
+    if(!Global.cookieCache.get('hasLoadBulletin')) {
+      Global.cookieCache.set('hasLoadBulletin', true);
+      openNotice();
+    }
+  });
   this.firstLoginUpdatePasswd.checkState(function(state) {
     if(state !== 1 && !Global.cookieCache.get('hasLoadBulletin')){
       Global.cookieCache.set('hasLoadBulletin', true);
-      $('.js-gl-notice').trigger('click');
+      openNotice();
     }
   });
 });
 
 function _bindNoticeHandler() {
   $(document).off('click.notice').on('click.notice', '.js-gl-notice', function(e) {
-    var noticeBoardView;
-
-    var $dialog = Global.ui.dialog.show({
-      title: '平台公告',
-      size: '',
-      body: '<div class="js-head-bulletin-container"></div>',
-      bodyClass: 'no-padding',
-      modalClass: 'header-bulletin-dialog',
-      footer: ''
-    });
-
-    var $bulletinContainer = $dialog.find('.js-head-bulletin-container');
-
-    $dialog.on('hidden.modal', function() {
-      $(this).remove();
-      noticeBoardView.destroy();
-    });
-
-    noticeBoardView = new NoticeBoardView({
-      el: $bulletinContainer,
-      reqData: {
-       bulletinId: $(e.currentTarget).data('bulletin-id')
-      }
-    }).render();
+    openNotice($(e.currentTarget).data('bulletin-id'));
   });
+}
+
+function openNotice(id) {
+  var noticeBoardView;
+  var $dialog = Global.ui.dialog.show({
+    title: '平台公告',
+    size: '',
+    body: '<div class="js-head-bulletin-container"></div>',
+    bodyClass: 'no-padding',
+    modalClass: 'header-bulletin-dialog',
+    footer: ''
+  });
+
+  var $bulletinContainer = $dialog.find('.js-head-bulletin-container');
+
+  $dialog.on('hidden.modal', function() {
+    $(this).remove();
+    noticeBoardView.destroy();
+  });
+
+  noticeBoardView = new NoticeBoardView({
+    el: $bulletinContainer,
+    reqData: {
+      bulletinId: id
+    }
+  }).render();
 }
 
 
