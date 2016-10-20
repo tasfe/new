@@ -299,7 +299,7 @@ class ResetPassword extends Page {
   }
 
   contactService() {
-    window.open('http://fh1.learnsaas.com/chat/chatClient/chatbox.jsp?companyID=673018&configID=57128&jid=9677541409&skillId=3205','service');
+    window.open('http://v88.live800.com/live800/chatClient/chatbox.jsp?companyID=731101&configID=2579&jid=4521278370','service');
   }
 
 }
