@@ -118,7 +118,23 @@ _.mixin({
 
     return format;
   },
+  formatSub:function(money,ratio,options){
+    var format;
+    options = _.extend({}, {
+      fixed: 0
+    }, options);
 
+    if (!_.isUndefined(money)) {
+
+      format = _(money).sub(ratio);
+
+      if (options.fixed) {
+        format  = format.toFixed(options.fixed);
+      }
+    }
+
+    return format;
+  },
   toLink: function(arg) {
     var href = window.location.href;
     var index = href.indexOf('/index.html');

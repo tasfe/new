@@ -208,7 +208,7 @@ var OpenAccountManageView = Base.ItemView.extend({
         '<span class="sfa sfa-tip-heart vertical-middle m-right-xs"></span>' +
         '温馨提示：您目前拥有';
       _.each(row.quotaList, function (quota) {
-        strTips += quota.quotaLevel + '配额 ' + quota.quotaLimit + '个，'
+        strTips += _(quota.quotaLevel).formatDiv(10,{fixed:1}) + '配额 ' + quota.quotaLimit + '个，'
       });
       strTips += '此后奖金组配额无限制，有配额限制请使用手动开户。</div></div>';
     }
@@ -263,7 +263,7 @@ var OpenAccountManageView = Base.ItemView.extend({
               _(info.minRebate).formatDiv(10,{fixed:1}) + '</span>～' + _(info.maxRebate>124?124:info.maxRebate).formatDiv(10,{fixed:1}) + ')</div>';
         }},
         {label: '备注', name: 'subAcctRebate', width: '31%', merge: true, formatter: function(val, index, info) {
-          return '<textarea rows="5" cols="35" class="js-ac-auto-remark no-resize" data-parsley-zhmaxlength="10" data-parsley-noSpecialChar placeholder="请输入备注" >'+row.row[0].userLinkDes+'</textarea>';
+          return '<textarea rows="5" cols="35" class="js-ac-auto-remark no-resize" data-parsley-zhmaxlength="12" maxlength="12" data-parsley-noSpecialChar placeholder="请输入备注，最多可输入12个字符，支持中英文汉字输入" >'+row.row[0].userLinkDes+'</textarea>';
         }}
       ],
       row: rebateData

@@ -151,6 +151,14 @@ var PlatformNewsPlatformView = Base.ItemView.extend({
         }
 
         break;
+      case 1:
+        if(rowInfo.isRead) {
+          title.push('<i class="sfa sfa-mes-read font-md font-bold"></i><span class="np-message-des-read">' + rowInfo.title + '</span>');
+        } else {
+          title.push('<i class="sfa sfa-mes-unRead font-md font-bold"></i>' + rowInfo.title);
+        }
+
+        break;
       case 2:
         if(rowInfo.isRead) {
           title.push('<i class="sfa sfa-mes-read font-md font-bold"></i><span class="np-message-des-read">' + rowInfo.title + '</span><a href="#as/ll" class="js-nc-link message-log-read router btn-link">登录日志</a>');

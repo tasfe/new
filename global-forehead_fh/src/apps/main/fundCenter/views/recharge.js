@@ -22,11 +22,11 @@ var RechargeView = TabView.extend({
 
     if (this.$hasFare){
       var amount = $('.js-fc-re-amount').val();
-      var fare = amount*(this.$feeLimit/100);
+      var fare = _(amount).chain().formatMul(this.$feeLimit).formatDiv(100, {fixed: 4}).value();
       if (fare>=this.$maxFeeLimit){
         fare = this.$maxFeeLimit;
       }
-      amount = amount-fare;
+      amount = _(amount).formatSub(fare,{fixed:4});
       this.$fareResult.html(isNaN(fare)?0:fare);
       this.$amountResult.html(isNaN(amount)?0:amount);
     }
