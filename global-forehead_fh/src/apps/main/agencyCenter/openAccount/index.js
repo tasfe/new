@@ -18,6 +18,9 @@ var OpenAccountView = TabView.extend({
   className: 'ac-openAccount-view',
 
   initialize: function() {
+
+    var acctInfo = Global.memoryCache.get('acctInfo');
+
    _(this.options).extend({
      tabClass: 'view-tabs nav nav-tabs nav-tabs-special',
      tabs: [
@@ -35,6 +38,11 @@ var OpenAccountView = TabView.extend({
        }
      ]
    });
+    //招商经理只需要开12.8的账号，去掉链接开户
+    if(acctInfo.userGroupLevel === 0) {
+      // this.options.tabs = this.options.tabs.slice(0,1);
+      this.options.tabs.pop();
+    }
     this.subSubAcctXhr = this.getSubAcctXhr();
   },
 

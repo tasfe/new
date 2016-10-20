@@ -60,10 +60,10 @@ var LowLevelView = SearchGrid.extend({
           name: '分红比',
           width: '8%'
         },
-        // {
-        //   name: '分红金额',
-        //   width: '13%'
-        // },
+        {
+          name: '分红金额',
+          width: '13%'
+        },
         {
           name: '状态',
           width: '8%'
@@ -172,26 +172,26 @@ var LowLevelView = SearchGrid.extend({
   formatRowData: function(rowInfo) {
     var row = [];
 
-    row.push('<button type="button" class="js-ac-dm-ll-detail btn btn-link btn-link-hot btn-sm" data-id="'+rowInfo.dividId+'"  data-name="'+rowInfo.username+'">'+rowInfo.cycle+'</button>');
+
     row.push(rowInfo.username);
+    row.push(rowInfo.cycle);
     row.push('<span class="">' + _(rowInfo.betTotal).convert2yuan({fixed: 4, clear: false})+'</span>');
-    row.push('<span class="">'+_(rowInfo.dailyBet).convert2yuan({fixed: 4, clear: false})+ '</span>');
+    // row.push('<span class="">'+_(rowInfo.dailyBet).convert2yuan({fixed: 4, clear: false})+ '</span>');
     var profitSpan='<span class="text-hot">' + _(rowInfo.profitTotal).convert2yuan({fixed: 4, clear: false}) + '</span>';
     if(rowInfo.profitTotal>0){
       profitSpan='<span class="text-green">+' + _(rowInfo.profitTotal).convert2yuan({fixed: 4, clear: false}) + '</span>';
     }
     row.push(profitSpan);
     row.push('<span class="text-hot">' + _(rowInfo.divid).formatDiv(100,{fixed: 0, clear: true}) + '%</span>');
-    row.push('<span class="text-hot">' + _(rowInfo.dividTotal).convert2yuan({fixed: 4, clear: false}) + '</span>');
+     row.push('<span class="text-hot">' + _(rowInfo.dividTotal).convert2yuan({fixed: 4, clear: false}) + '</span>');
 
     row.push(grantConfig.getZh(rowInfo.status));
 
     var operate = [];
-
+    operate.push('<button type="button" class="js-ac-dm-ll-detail btn btn-link btn-link-hot btn-sm m-right-sm" data-id="'+rowInfo.dividId+'"  data-name="'+rowInfo.username+'">查看明细</button>');
     if (rowInfo.status === grantConfig.getByName('WAIT').id) {
       operate.push('<button class="js-ac-dm-ll-grant btn btn-link btn-link-hot ac-dm-ll-detail-btn">发放</button>');
     }
-
     row.push(operate.join(''));
 
     return row;
@@ -283,7 +283,7 @@ var LowLevelView = SearchGrid.extend({
               {label: '团队销量', name: 'betTotal', merge: false, width: 100},
               {label: '盈亏', name: 'profitTotal', width: 100},
               {label: '操作', name: 'username', width: 100,formatter:function(val){
-                return '<a href="#ac/tpl?username=' + val + '" class="btn btn-link router ac-dm-ll-detail-btn" data-dismiss="modal">查看</a>';
+                return '<a href="#ac/ad?username=' + val + '" class="btn btn-link router ac-dm-ll-detail-btn" data-dismiss="modal">查看</a>';
               }}
             ],
             row: self.formatData((res.root && res.root.dividList)||[]),

@@ -53,9 +53,9 @@ var OpenAccountManageView = Base.ItemView.extend({
 
         if (res && res.result === 0) {
 
-          if(self.acctInfo.userGroupLevel === 2) {
+          if(self.acctInfo.userGroupLevel === 0) {
             // self.$rebate.attr('data-parsley-range', '[' + _(data.subRebateRange.rebateMin).formatDiv(10, {fixed: 1}) + ', ' + _(127).formatDiv(10, {fixed: 1}) + ']');
-            self.$rebate.attr('data-parsley-range', '[' + _(data.subRebateRange.rebateMin).formatDiv(10, {fixed: 1}) + ', ' + _(data.subRebateRange.rebateMax).formatDiv(10, {fixed: 1}) + ']');
+            self.$rebate.attr('data-parsley-range', '[' + _(data.subRebateRange.rebateMax).formatDiv(10, {fixed: 1}) + ', ' + _(data.subRebateRange.rebateMax).formatDiv(10, {fixed: 1}) + ']');
           } else {
             self.$rebate.attr('data-parsley-range', '[' + _(data.subRebateRange.rebateMin).formatDiv(10, {fixed: 1}) + ', ' + _(data.subRebateRange.rebateMax).formatDiv(10, {fixed: 1}) + ']');
           }
@@ -76,10 +76,10 @@ var OpenAccountManageView = Base.ItemView.extend({
           
           self.$rebate.val(Global.localCache.get('ac.openAccountRebate') || '').trigger('blur');
           
-          if(self.acctInfo.userGroupLevel==2){
-            self._parentView.renderSuperLimit(self.$limit, res.root.quotaList);
-          }else {
+          if(self.acctInfo.userGroupLevel==0){
             self._parentView.renderLimit(self.$limit, res.root.quotaList);
+          }else {
+            self._parentView.renderSuperLimit(self.$limit, res.root.quotaList);
           }
         }
       });
