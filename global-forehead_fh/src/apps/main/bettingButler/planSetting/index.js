@@ -289,7 +289,7 @@ var PlanSettingView = Base.ItemView.extend({
       })
       .value();
 
-    data.suspend = !data.suspend;
+    data.suspend = !!data.suspend;
     data.times = Number(data.times) || 0;
 
     data.play = _(data.play).map(function(playInfo) {
