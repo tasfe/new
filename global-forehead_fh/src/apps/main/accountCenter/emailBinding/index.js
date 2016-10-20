@@ -25,7 +25,6 @@ var SettingEmail = Base.ItemView.extend({
     },
     onRender: function() {
         var self = this;
-        this.$verifyCode = this.$('.js-as-email-verifyCode');
 
         this.$emailBindingontainer = this.$('.js-as-emailBinding');
         self._initSteps(self.$emailBindingontainer, function (event, currentIndex, newIndex) {
@@ -72,11 +71,12 @@ var SettingEmail = Base.ItemView.extend({
     confirmEmailHandler: function (e) {
         var self = this;
         var $target = $(e.currentTarget);
+        var $verifyCode = this.$('.js-as-email-verifyCode');
         $target.button('loading');
         Global.sync.ajax({
               url: '/acct/usermsg/validateEmailCode.json',
               data:{
-                  validateCode: self.$verifyCode.val(),
+                  validateCode: $verifyCode.val(),
                   email: self.$('.js-as-newEmail').val()
               }
         }).always(function() {
