@@ -36,10 +36,6 @@ define(function (require, exports, module) {
             width: '10%'
           },
           {
-            name: '层级关系',
-            width: '10%'
-          },
-          {
             name: '团队投注金额',
             width: '10%'
           },
@@ -142,10 +138,10 @@ define(function (require, exports, module) {
       }
       row.push(dividend.cycle);
       row.push(dividend.subUsername || '');
-      row.push(dividend.subUsername+'<'+dividend.username);
+      /*row.push(dividend.subUsername+'<'+dividend.username);*/
       row.push(_(dividend.betTotal).fixedConvert2yuan());
       row.push( _(dividend.profitTotal).convert2yuan());
-      row.push(_(dividend.divid).formatDiv(100, {fixed: 0}));
+      row.push(_(dividend.divid).formatDiv(100, {fixed: 0})+'%');
       row.push(_(dividend.dividTotal).convert2yuan());
       //status:0 // 状态：0待发放，1已发放，2不发放，3未申请
       var status = '';
