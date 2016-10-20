@@ -71,7 +71,13 @@ define(function(require, exports, module) {
       'sc/sf/conf':'bonusConf',
 
       'sc/ds/conf':'dailySalaryCfg',
-      'sc/ds/detail':'dailySalaryDetail'
+      'sc/ds/detail':'dailySalaryDetail',
+
+      'sc/os/conf':'openSendCfg',
+      'sc/os/detail':'openSendReport',
+
+      'sc/fs/conf':'firstRechargeSendCfg',
+      'sc/fs/detail':'firstRechargeSendRecord'
 
     });
 

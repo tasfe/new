@@ -350,7 +350,7 @@ module.exports = {
   getComplete: function(id) {
     for(var i = 0; i < completeAllConfig.length; ++i) {
       var find = _(completeAllConfig[i].list).findWhere({
-        id: id
+        id: Number(id)
       });
       if (find) {
         return _({
