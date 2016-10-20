@@ -29,15 +29,15 @@ var BtnGroup = Base.PrefabView.extend({
           active: true
         },
         {
-          title: '昨日',
+          title: '昨天',
           value: -1
         },
         {
-          title: '过去7天',
-          value: -7
+          title: '本半月',
+          value: -15
         },
         {
-          title: '过去30天',
+          title: '本月',
           value: -30
         }
       ],

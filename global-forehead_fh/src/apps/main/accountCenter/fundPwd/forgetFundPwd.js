@@ -82,27 +82,30 @@ var findPwdView = Base.ItemView.extend({
     var $target = $(e.currentTarget);
     var pwd= $target.val();
     var safety = 0;
+    var $pwdTip = $('.js-invalid-pwd-tip');
+    var $submitBtn = $('.js-as-resetFundPassword-submit');
+    var $saftyLevel = $('.js-passwdSafetyTips');
 
     if ( !isNaN(pwd) && pwd.length < 9 ) {
 
-      this.$pwdTip.html('*新密码不能是9位以下的纯数字（≤8个阿拉伯数字）').removeClass('hidden');
-      this.$submitBtn.attr('disabled', 'disabled');
+      $pwdTip.html('*新密码不能是9位以下的纯数字（≤8个阿拉伯数字）').removeClass('hidden');
+      $submitBtn.attr('disabled', 'disabled');
     } else if(pwd.indexOf(" ")>0){
 
-      this.$pwdTip.html('*新密码不能包含空格').removeClass('hidden');
-      this.$submitBtn.attr('disabled', 'disabled');
+      $pwdTip.html('*新密码不能包含空格').removeClass('hidden');
+      $submitBtn.attr('disabled', 'disabled');
     } else if (pwd.length < 6 || pwd.length > 20) {
 
-      this.$pwdTip.html('*新密码必须由6-20位字符组成').removeClass('hidden');
-      this.$submitBtn.attr('disabled', 'disabled');
+      $pwdTip.html('*新密码必须由6-20位字符组成').removeClass('hidden');
+      $submitBtn.attr('disabled', 'disabled');
     } else{
 
-      this.$pwdTip.addClass('hidden');
-      this.$submitBtn.removeAttr('disabled');
+      $pwdTip.addClass('hidden');
+      $submitBtn.removeAttr('disabled');
     }
 
     if ( pwd.length > 0 ) {
-      this.$saftyLevel.removeClass('hidden');
+      $saftyLevel.removeClass('hidden');
       if(/\d/gi.test(pwd)){
         safety++;
       }
@@ -113,18 +116,18 @@ var findPwdView = Base.ItemView.extend({
         safety++;
       }
     } else {
-      this.$saftyLevel.addClass('hidden');
+      $saftyLevel.addClass('hidden');
     }
 
-    this.$saftyLevel.removeClass('level1').removeClass('level2').removeClass('level3');
+    $saftyLevel.removeClass('level1').removeClass('level2').removeClass('level3');
     if (safety == 3) {
-      this.$saftyLevel.addClass('level3').find('b').html('强');
+      $saftyLevel.addClass('level3').find('b').html('强');
     }
     if (safety == 2) {
-      this.$saftyLevel.addClass('level2').find('b').html('中');
+      $saftyLevel.addClass('level2').find('b').html('中');
     }
     if (safety == 1) {
-      this.$saftyLevel.addClass('level1').find('b').html('弱');
+      $saftyLevel.addClass('level1').find('b').html('弱');
     }
   },
 
@@ -337,6 +340,7 @@ var findPwdView = Base.ItemView.extend({
           //设置验证token到页面，用于重置资金密码
           self.$('.js-as-resetFundPassword-submit').data('type', res.root);
           $findFundPasswordContainer.steps('goTo', 2);
+          self.$('#newFundPassword').bind('keyup', this, self.validatePwdHandler);
         } else {
           //fail,验证失败则提示验证失败
           if(res.root!=null&&_(res.root).isNumber()) {

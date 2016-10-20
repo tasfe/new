@@ -1,0 +1,83 @@
+<div class="alert">
+  温馨提示：设置好计划时间和重复周期后，系统将每周固定进行您的计划。
+</div>
+
+<form class="js-bb-form form-horizontal" action="javascript:void(0)">
+  <div class="control-group">
+    <label class="control-label">计划开始时间：</label>
+    <div class="controls">
+      <div class="input-in-append inline-block">
+        <input type="text" class="js-bb-start-time input-lg" name="startTime" placeholder="开始时间" value="" required autocomplete="off">
+        <span class="add-on"><span class="sfa sfa-time-picker vertical-sub"></span></span>
+      </div>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label">重复周期：</label>
+    <div class="controls">
+      <label>
+        <span class="custom-checkbox">
+          <input type="checkbox" id="jsBbCycle1" class="" name="content" value="1" required>
+          <label class="checkbox-label" for="jsBbCycle1"></label>
+        </span>
+        周一
+      </label>
+      <label>
+        <span class="custom-checkbox">
+          <input type="checkbox" id="jsBbCycle2" class="" name="content" value="2" required>
+          <label class="checkbox-label" for="jsBbCycle2"></label>
+        </span>
+        周二
+      </label>
+      <label>
+        <span class="custom-checkbox">
+          <input type="checkbox" id="jsBbCycle3" class="" name="content" value="3" required>
+          <label class="checkbox-label" for="jsBbCycle3"></label>
+        </span>
+        周三
+      </label>
+      <label>
+        <span class="custom-checkbox">
+          <input type="checkbox" id="jsBbCycle4" class="" name="content" value="4" required>
+          <label class="checkbox-label" for="jsBbCycle4"></label>
+        </span>
+        周四
+      </label>
+      <label>
+        <span class="custom-checkbox">
+          <input type="checkbox" id="jsBbCycle5" class="" name="content" value="5" required>
+          <label class="checkbox-label" for="jsBbCycle5"></label>
+        </span>
+        周五
+      </label>
+      <label>
+        <span class="custom-checkbox">
+          <input type="checkbox" id="jsBbCycle6" class="" name="content" value="6" required>
+          <label class="checkbox-label" for="jsBbCycle6"></label>
+        </span>
+        周六
+      </label>
+      <label>
+        <span class="custom-checkbox">
+          <input type="checkbox" id="jsBbCycle7" class="" name="content" value="7" required>
+          <label class="checkbox-label" for="jsBbCycle7"></label>
+        </span>
+        周日
+      </label>
+      <!--<div class="help-inline">（选定类型后，将会按照重复计划每日进行计划）</div>-->
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label">重复周期：</label>
+    <div class="controls">
+      <input type="text" class="" name="cycleName" placeholder="备注" value="" required autocomplete="off" data-parsley-zhlength="[1, 10]">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="controls">
+      <button type="submit" class="js-bb-submit btn btn-pink btn-linear m-right-sm" data-loading-text="确定">确定</button>
+      <button type="button" class="btn btn-linear" data-dismiss="modal">取消</button>
+    </div>
+  </div>
+</form>
+

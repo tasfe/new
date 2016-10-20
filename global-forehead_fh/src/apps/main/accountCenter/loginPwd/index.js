@@ -111,7 +111,7 @@ var LoginPwdView = Base.ItemView.extend({
       });
     }
   },
-  reloginHandler: function () { debugger
+  reloginHandler: function () {
     Global.sync.setLogout();
     window.location.href = 'login.html';
   }
