@@ -4,7 +4,8 @@
   "dependencies": {
     "bower": "^1.5.3",
     "fontmin": "^0.9.6",
-    "gulp": "^3.9.0"
+    "gulp": "^3.9.0",
+    "imagemin-svgo": "^5.2.0"
   },
   "scripts": {
     "dev.main": "gulp server",
