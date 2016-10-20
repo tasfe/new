@@ -80,21 +80,20 @@
 
 .modal-dialog {
   width: 100%;
-  //overflow: hidden;
-
-  border: 2px solid #474747;
-  border-radius: $globalBoxRadius;
+  overflow: hidden;
 }
 
 .modal-content {
   color: $dark-color;
   background-color: $white-color;
   outline: 0;
+  border: 2px solid #474747;
+  border-radius: $globalBoxRadius;
 }
 
 .modal-header {
   color: $new-black-color;
-  background-color: $white-color;
+  //background-color: $white-color;
 
   margin: 7px 7px 0;
   border-radius: 5px 5px 0 0;
@@ -129,7 +128,7 @@
   padding: 14px 15px 15px;
   margin-bottom: 0;
   text-align: right;
-  background-color: $white-color;
+  //background-color: $white-color;
   *zoom: 1;
   &:before {
     display: table;

@@ -63,7 +63,7 @@ var MoneyDetailView = SearchGrid.extend({
         url: '/fund/balance/history.json'
       },
       reqData: {
-        subUser: 0
+        subUser: 1
       }
       // viewType: 'team'
     });
@@ -192,7 +192,7 @@ var MoneyDetailView = SearchGrid.extend({
       row.push('<span class="">'+_(info.amount).convert2yuan()+'</span>');
     }
 
-    row.push('<span class="text-bold-cool">'+_(info.balance).convert2yuan()+'</span>');
+    row.push('<span class="text-hot">'+_(info.balance).convert2yuan()+'</span>');
 
     row.push(info.remark);
 
