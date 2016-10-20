@@ -64,6 +64,14 @@ $.widget('gl.staticGrid', {
     }
   },
 
+  //common APIs
+
+  scrollBottom: function() {
+    this.$bodyDiv.slimScroll({
+      scrollTo: this.$bodyDiv.height()
+    });
+  },
+
   update: function() {
     this.getDataXhr();
   },
