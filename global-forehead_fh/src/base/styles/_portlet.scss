@@ -9,7 +9,6 @@ $portlet-bottom: 10px;
 
   .portlet-header {
     padding: 8px 0;
-    margin: 0 $portlet-bottom;
     line-height: 26px;
   }
 
@@ -18,7 +17,7 @@ $portlet-bottom: 10px;
   }
 
   .portlet-title {
-
+    margin: 0 $portlet-bottom;
     .portlet-icon {
       vertical-align: text-top;
       margin-right: 8px;
@@ -44,9 +43,11 @@ $portlet-bottom: 10px;
   }
 
   .portlet-header-block {
+    margin: 0 $portlet-bottom;
     margin-bottom: 10px;
   }
   .portlet-header-btnGroup {
+    margin: 0 $portlet-bottom;
     text-align: center;
     border-top: 1px solid $light-color;
     margin-bottom: -$portlet-bottom + 1px;

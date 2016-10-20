@@ -66,7 +66,11 @@ module.exports = {
     },
     '4.vendor': {
       entry: ['./src/vendor/build.core.js']
-    }
+    },
+    '1.changeUrl': {
+      entry: ['./src/apps/packages/changeUrl/index.js'],
+      //hot: true
+    },
   },
   port: 3001,
   commonChunks: {
@@ -147,7 +151,12 @@ module.exports = {
       title: '繁华娱乐在线娱乐',
       template: './entry/package.html',
       chunks: ['common.1', '2.base', '1.404']
-    }
+    },
+    changeUrl: {
+      title: '繁华娱乐在线娱乐',
+      template: './entry/package.html',
+      chunks: ['common.1', '4.vendor', '2.base', '1.changeUrl']
+    },
   },
   output: {
     path: 'main',

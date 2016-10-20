@@ -21,6 +21,7 @@ var BtnGroup = Base.PrefabView.extend({
   initialize: function() {
     _.defaults(this.options, {
       inputName: 'dateOffset',
+      btnStyle: 'btn-silent btn-xs',
       btnGroup: [
         {
           title: '今日',
@@ -50,6 +51,7 @@ var BtnGroup = Base.PrefabView.extend({
     this.$el.html(_(this.template).template()(_(options).pick(
       'prevClass',
       'inputName',
+      'btnStyle',
       'btnGroup'
     )));
 

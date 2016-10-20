@@ -147,9 +147,9 @@ function _bindRechargeHandler() {
 function _bindServiceHandler() {
   $(document).off('click.service').on('click.service', '.js-gl-service', function(e) {
     var acctInfo = Global.memoryCache.get('acctInfo');
-    var nickName = acctInfo.uName || '';
+    var nickName = acctInfo.username;
      var newwin = window.open(
-       'http://v88.live800.com/live800/chatClient/chatbox.jsp?companyID=731101&configID=2579&jid=4521278370&name=' + encodeURI(nickName),
+       'http://v88.live800.com/live800/chatClient/chatbox.jsp?companyID=731101&configID=2579&jid=4521278370&info=' + encodeURIComponent('userId=' + acctInfo.userId + '&name=' + nickName),
        'service',
        'width=800,height=680'
      );

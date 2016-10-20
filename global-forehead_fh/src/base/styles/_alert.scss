@@ -76,5 +76,9 @@
   }
 
   @include alerts($alerts);
+
+  &.alert-empty {
+    padding: 0 0 10px;
+  }
 }
 
