@@ -10,16 +10,21 @@ var PlanSettingView = Base.ItemView.extend({
 
   template: require('./index.html'),
 
+  cycleAddTpl: _(require('./cycleAdd.html')).template(),
+
   confirmTpl: _(require('./confirm.html')).template(),
 
   events: {
     'change .js-bb-ticket-list': 'getCollectionHandler',
     'change .js-bb-collection-list': 'changePlanDetailsHandler',
     'change .js-bb-times-switch': 'switchTimesHandler',
+    'change .js-bb-cycle-select': 'cycleSelectHandler',
+
+    'click .js-bb-plan-cycle-add': 'cycleAddHandler',
     'submit .js-bb-form': 'submitFormHandler'
   },
 
-  getTicketListxhr: function() {
+  getTicketListXhr: function() {
     return Global.sync.ajax({
       url: '/ticket/ticketmod/bmticketlist.json'
     });
@@ -62,31 +67,37 @@ var PlanSettingView = Base.ItemView.extend({
     });
 
     return Global.sync.ajax({
-      url: '/ticket/betManager/project0.json',
+      url: this.isCycle ? '/ticket/betManager/project1.json' : '/ticket/betManager/project0.json',
       data: data,
       tradition: true
     });
   },
 
+  getCycleListXhr: function() {
+    return Global.sync.ajax({
+      url: '/ticket/betManager/cyclelist.json'
+    });
+  },
+
+  createCycleXhr: function(data) {
+    return Global.sync.ajax({
+      url: '/ticket/betManager/newcycle.json',
+      data: data
+    });
+  },
+
   initialize: function() {
-    var self = this;
-
     this.collection = new PlanCollection();
-
-    this.updateTime();
-    this.updateTimer = setInterval(function() {
-      self.updateTime();
-    }, 60000);
   },
 
   updateTime: function() {
     var self = this;
     this.getLastTimeXhr()
       .done(function(res) {
-        if (res && res.result === 0) {
+        if(res && res.result === 0) {
           self.lastTime = (moment(res.root) || moment()).add(5, 'minutes');
           self.$startTime.data('DateTimePicker').minDate(self.lastTime);
-          if (self.lastTime.isAfter(self.$startTime.data('DateTimePicker').date())) {
+          if(self.lastTime.isAfter(self.$startTime.data('DateTimePicker').date())) {
             self.$startTime.data('DateTimePicker').date(self.lastTime);
           }
         }
@@ -97,7 +108,6 @@ var PlanSettingView = Base.ItemView.extend({
     var self = this;
 
     this.$ticketList = this.$('.js-bb-ticket-list');
-    this.$startTime = this.$('.js-bb-start-time');
     this.$typeGroup = this.$('.js-ac-type-group');
     this.$collectionList = this.$('.js-bb-collection-list');
     this.$planGridContainer = this.$('.js-bb-plan-grid-container');
@@ -107,6 +117,16 @@ var PlanSettingView = Base.ItemView.extend({
     this.$form = this.$('.js-bb-form');
     this.$submit = this.$('.js-bb-submit');
     this.$times = this.$('.js-bb-times');
+
+    //期数方式
+    this.$startTime = this.$('.js-bb-start-time');
+    this.$startTimeContainer = this.$('.js-bb-start-time-container');
+
+    //周期方式
+    this.$cycleSelect = this.$('.js-bb-cycle-select');
+    this.$cycleSelectContainer = this.$('.js-bb-cycle-select-container');
+    this.$cycleDetail = this.$('.js-bb-plan-cycle-detail');
+    this.$cycleDetailInner = this.$('.js-bb-plan-cycle-detail-inner');
 
     this.btnGroup = new BtnGroup({
       el: this.$typeGroup,
@@ -123,18 +143,23 @@ var PlanSettingView = Base.ItemView.extend({
         }
       ],
       onBtnClick: function(offset) {
-        // self.timeset.$startDate.data("DateTimePicker").date(moment().add(offset, 'days').startOf('day'));
-        // self.timeset.$endDate.data("DateTimePicker").date(moment().add(offset === -1 ? -1 : 0, 'days').endOf('day'));
-        // (self.$('.js-ac-search-form') && !self.firstTime) && self.$('.js-ac-search-form').trigger('submit');
-        // return false;
+        self.isCycle = offset = !!offset;
+
+        self.$startTime.prop('disabled', offset);
+        self.$startTimeContainer.toggleClass('hidden', offset);
+
+        //周期方式
+        self.$cycleSelect.prop('disabled', !offset);
+        self.$cycleSelectContainer.toggleClass('hidden', !offset);
+        self.$cycleDetail.toggleClass('hidden', !offset);
       }
     }).render();
 
-    this.getTicketListxhr()
+    this.getTicketListXhr()
       .done(function(res) {
-        if (res && res.result === 0) {
-          self.$ticketList.html('<option>请选择</option>' + _(res.root).map(function(ticketInfo) {
-              return '<option value="' + ticketInfo.ticketId + '">' + ticketInfo.ticketName + '</option>';
+        if(res && res.result === 0) {
+          self.$ticketList.html('<option value="">请选择</option>' + _(res.root).map(function(ticketInfo) {
+              return '<option value="' + ticketInfo.ticketId + '" data-data=\'' + JSON.stringify(ticketInfo) + '\'>' + ticketInfo.ticketName + '</option>';
             }).join(''));
         }
       });
@@ -143,11 +168,38 @@ var PlanSettingView = Base.ItemView.extend({
     this.$startTime.datetimepicker({
       format: 'YYYY-MM-DD HH:mm:ss',
       useCurrent: false,
-      maxDate: moment().add(7, 'days').startOf('day').toDate(),
-      keepInvalid: false
+      minDate: moment().add(-1, 'days').startOf('day').toDate(),
+      maxDate: moment().add(7, 'days').startOf('day').toDate()
     });
 
-    this.$form.parsley();
+    this.updateTime();
+    this.updateTimer = setInterval(function() {
+      self.updateTime();
+    }, 60000);
+
+    this.renderCycleList();
+  },
+
+  renderCycleList: function() {
+    var self = this;
+    var currentValue = self.$cycleSelect.val();
+    this.getCycleListXhr()
+      .done(function(res) {
+        var dataList;
+        if(res && res.result === 0) {
+          dataList = res.root && res.root.dataList;
+          self.$cycleSelect.html('<option>请选择计划</option>' + _(dataList).map(function(cycleInfo) {
+            return '<option value="' + cycleInfo.cycleId + '" data-data=\'' + JSON.stringify(cycleInfo) + '\'>' + cycleInfo.cycleName + '</option>';
+          }));
+
+          if (currentValue) {
+            self.$cycleSelect.val(currentValue);
+          }
+          self.$cycleSelect.trigger('change');
+        } else {
+          Global.ui.notification.show('获取周期计划失败！错误原因：' + res.msg || '');
+        }
+      });
   },
 
   renderCurrentList: function(model) {
@@ -170,7 +222,7 @@ var PlanSettingView = Base.ItemView.extend({
     // var schemeDetail = _(planList).findWhere({
     //   schemeId: this.schemeId
     // });
-    if (!_(schemeDetail && schemeDetail.playList).isEmpty()) {
+    if(!_(schemeDetail && schemeDetail.playList).isEmpty()) {
       this.renderPlanGrid(schemeDetail);
       this.$planGridContainer.removeClass('hidden');
 
@@ -183,7 +235,7 @@ var PlanSettingView = Base.ItemView.extend({
     var self = this;
     var is11xuan5 = schemeDetail.schemeName.indexOf('11选5') !== -1;
 
-    if (this.$planGrid.staticGrid('instance')) {
+    if(this.$planGrid.staticGrid('instance')) {
       this.$planGrid.staticGrid('destroy');
     }
 
@@ -193,19 +245,23 @@ var PlanSettingView = Base.ItemView.extend({
       colModel: [
         {label: '收藏备注', name: 'schemeName', width: '10%', merge: true},
         {label: '玩法名', name: 'playName', width: '10%', merge: true},
-        {label: '投注内容', name: 'betNum', width: '15%', formatter: function(val, index, thisRow) {
-          var html =  is11xuan5 ? val : val.replace(/ /g,'');
-          if (thisRow.rx) {
-            html  = '<a class="js-uc-betDetail-optional-betNum btn-link btn-link-hot" data-id="'+thisRow.ticketBetPlayId+'"">详细号码</a>';
-          }else if(html.length>self.maxLength ){
-            html  = '<a class="js-uc-betDetail-betNum btn-link btn-link-hot">详细号码</a>';
+        {
+          label: '投注内容', name: 'betNum', width: '15%', formatter: function(val, index, thisRow) {
+          var html = is11xuan5 ? val : val.replace(/ /g, '');
+          if(thisRow.rx) {
+            html = '<a class="js-uc-betDetail-optional-betNum btn-link btn-link-hot" data-id="' + thisRow.ticketBetPlayId + '"">详细号码</a>';
+          } else if(html.length > self.maxLength) {
+            html = '<a class="js-uc-betDetail-betNum btn-link btn-link-hot">详细号码</a>';
           }
           return html;
-        }},
+        }
+        },
         {label: '倍数', name: 'times', width: '8%'},
-        {label: '投注模式', name: 'method', width: '10%', formatter: function(val) {
-          return val === 10000 ? '元' : val === 1000 ? '角' : val === 100 ?  '分' : '厘';
-        }}
+        {
+          label: '投注模式', name: 'method', width: '10%', formatter: function(val) {
+          return val === 10000 ? '元' : val === 1000 ? '角' : val === 100 ? '分' : '厘';
+        }
+        }
       ],
       row: _(schemeDetail.playList).map(function(playInfo) {
         playInfo.schemeName = schemeDetail.schemeName;
@@ -215,17 +271,17 @@ var PlanSettingView = Base.ItemView.extend({
 
     var no = 0;
 
-    _(schemeDetail.playList).each(function(item){
-      item.betNum = is11xuan5 ? item.betNum : item.betNum.replace(/ /g,'');
-      if(item.betNum.length>self.maxLength && !item.rx){
+    _(schemeDetail.playList).each(function(item) {
+      var betNum = is11xuan5 ? item.betNum : item.betNum.replace(/ /g, '');
+      if(betNum.length > self.maxLength && !item.rx) {
         $(self.$('.js-uc-betDetail-betNum')[no++]).popover({
           title: '详细号码',
           trigger: 'manual',
           html: true,
           container: this.$el,
-          content: '<div class="js-pf-popover"><span class="word-break">'+ item.betNum +'</span></div>',
+          content: '<div class="js-pf-popover"><span class="word-break">' + betNum + '</span></div>',
           placement: 'right'
-        }).on("click", function (e) {
+        }).on("click", function(e) {
           var _this = this;
           $(this).popover("toggle");
           e.stopPropagation();
@@ -242,7 +298,7 @@ var PlanSettingView = Base.ItemView.extend({
     var $target = $(e.currentTarget);
     var ticketId = Number($target.val());
 
-    if (!ticketId) {
+    if(!ticketId) {
       this.$planDetails.addClass('hidden');
       return false;
     }
@@ -251,7 +307,7 @@ var PlanSettingView = Base.ItemView.extend({
       ticketId: ticketId
     });
 
-    if (this.currentPlanModel) {
+    if(this.currentPlanModel) {
       this.currentPlanModel.off();
     }
 
@@ -267,10 +323,15 @@ var PlanSettingView = Base.ItemView.extend({
     //更新期数限制
     this.getChasePlanXhr(ticketId)
       .done(function(res) {
-        if (res && res.result === 0) {
+        if(res && res.result === 0) {
           self.$chasePlans.data('monitorRange', [1, res.root.length]).trigger('keyup');
         }
       });
+
+    // //更新时间限制
+    // var ticketInfo = $target.find(':selected').data('data');
+    // this.$startTime.data('DateTimePicker').maxDate(moment(ticketInfo.endTime));
+    // console.log(moment(ticketInfo.endTime));
   },
 
   switchTimesHandler: function(e) {
@@ -278,8 +339,94 @@ var PlanSettingView = Base.ItemView.extend({
     this.$times.prop('disabled', !$target.prop('checked'));
   },
 
+  cycleSelectHandler: function(e) {
+    var $target = $(e.currentTarget);
+    var data = $target.find(':checked').data('data');
+    var html = [];
+
+    if (data) {
+      html.push('<span class="m-right-sm">计划开始时间：' + data.startTime + '</span>');
+      html.push('<span class="m-right-sm">重复计划：');
+
+      _(data.content).each(function(day) {
+        var zhDay;
+        switch(day) {
+          case 1:
+            zhDay = '周一';
+            break;
+          case 2:
+            zhDay = '周二';
+            break;
+          case 3:
+            zhDay = '周三';
+            break;
+          case 4:
+            zhDay = '周四';
+            break;
+          case 5:
+            zhDay = '周五';
+            break;
+          case 6:
+            zhDay = '周六';
+            break;
+          case 7:
+            zhDay = '周日';
+            break;
+          default:
+            zhDay = day;
+        }
+        html.push(zhDay + ' ');
+      });
+
+      html.push('</span>');
+      html.push('<span><button class="js-bb-plan-cycle-delete btn btn-linear btn-blue btn-circle">删除</button></span>');
+    }
+
+    this.$cycleDetailInner.html(html.join(''));
+  },
+
+  cycleAddHandler: function(e) {
+    var self = this;
+    var $dialog = Global.ui.dialog.show({
+      title: '新建计划',
+      body: this.cycleAddTpl()
+    });
+
+    var $form = $dialog.find('.js-bb-form');
+    $form.parsley();
+
+    var $startTime = $dialog.find('.js-bb-start-time');
+    var $submit = $dialog.find('.js-bb-submit');
+
+    $startTime.datetimepicker({
+      format: 'HH:mm:ss'
+    });
+
+    $dialog.on('submit', '.js-bb-form', function() {
+      $submit.button('loading');
+      self.createCycleXhr(_($form.serializeArray()).serializeObject())
+        .done(function(res) {
+          if(res && res.result === 0) {
+            Global.ui.notification.show('创建计划成功！');
+            $dialog.modal('hide');
+            self.renderCycleList();
+          } else {
+            Global.ui.notification.show('创建计划失败！错误原因：' + res.msg || '');
+          }
+        });
+    });
+
+    $dialog.on('hidden.modal', function() {
+      $(this).remove();
+    });
+  },
+
   submitFormHandler: function(e) {
     var self = this;
+
+    if (!this.$form.parsley().validate()) {
+      return false;
+    }
 
     var data = _(this.$form.serializeArray())
       .chain()
@@ -289,7 +436,7 @@ var PlanSettingView = Base.ItemView.extend({
       })
       .value();
 
-    data.suspend = !data.suspend;
+    data.suspend = !!data.suspend;
     data.times = Number(data.times) || 0;
 
     data.play = _(data.play).map(function(playInfo) {
@@ -304,9 +451,16 @@ var PlanSettingView = Base.ItemView.extend({
 
     var ticketInfo = ticketConfig.getComplete(data.ticketId);
 
+    //周期投注
+    if (this.isCycle) {
+      var cycleData = this.$cycleSelect.find(':selected').data('data');
+      data.startTime = cycleData.startTime;
+      data.cycle = cycleData.content.join(',');
+    }
+
     this.confirmMoneyXhr(data)
       .done(function(res) {
-        if (res && res.result === 0) {
+        if(res && res.result === 0) {
           $(document).confirm({
             title: '确认计划',
             content: self.confirmTpl({
@@ -332,7 +486,7 @@ var PlanSettingView = Base.ItemView.extend({
   confirmPlan: function(data) {
     return this.submitPlanXhr(data)
       .done(function(res) {
-        if (res && res.result === 0) {
+        if(res && res.result === 0) {
           var html = '<div class="text-center">' +
             '<p><span class="circle-icon"><i class="fa fa-check"></i></span></p>' +
             '<p class="font-md">恭喜您，计划投注成功！</p>' +
