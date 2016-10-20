@@ -19,10 +19,10 @@ var TrackRecordsView = SearchGrid.extend({
   initialize: function() {
     _(this.options).extend({
       columns: [
-        {
+        /*{
           name: '账号',
           width: '10%'
-        },
+        },*/
         {
           name: '追号编号',
           width: '18%'
@@ -159,7 +159,7 @@ var TrackRecordsView = SearchGrid.extend({
     this.grid.addFooterRows({
       trClass: 'tr-footer',
       columnEls: [
-        '所有页总计', '', '', '', '',
+        '所有页总计', '', '', '',
         _(gridData.betMoneyTotal).fixedConvert2yuan(),
         '<div class="text-hot">' + _(gridData.prizeMoneyTotal).convert2yuan() + '</div>',
         ''
@@ -170,7 +170,7 @@ var TrackRecordsView = SearchGrid.extend({
 
   formatRowData: function(rowInfo) {
     var row = [];
-    row.push(rowInfo.userName);
+    /*row.push(rowInfo.userName);*/
     row.push('<a class="router btn-link" href="' + _.getUrl('/detail/' + rowInfo.ticketTradeNo) + '">' + rowInfo.ticketTradeNo + '</a>');
     row.push(rowInfo.ticketName);
 

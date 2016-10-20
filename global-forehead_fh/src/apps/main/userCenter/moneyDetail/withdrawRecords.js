@@ -153,8 +153,8 @@ var WithdrawRecordsView = SearchGrid.extend({
 
   formatRowData: function(rowInfo) {
     var row = [];
-
-    // row.push(rowInfo.userName);
+/*
+    row.push(rowInfo.userName);*/
     row.push(rowInfo.tradeNo);
     row.push(_(rowInfo.createTime).toTime());
     row.push(_(rowInfo.amount).fixedConvert2yuan());

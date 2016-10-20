@@ -348,6 +348,9 @@ $.widget('gl.grid', {
   selectInverse: function() {
     this.element.find('.inbox-check').each(function(index, checkbox) {
       var $checkbox = $(checkbox);
+      if(!$checkbox.prop('checked')){
+        $checkbox.closest('tr').addClass('active')
+      }
       $checkbox.prop('checked', !$checkbox.prop('checked'));
     });
   },

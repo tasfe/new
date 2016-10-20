@@ -17,10 +17,10 @@ var BettingRecordsView = SearchGrid.extend({
   initialize: function() {
     _(this.options).extend({
       columns: [
-        {
+        /*{
           name: '账号',
           width: '15%'
-        },
+        },*/
         {
           name: '订单编号',
           width: '15%'
@@ -149,7 +149,7 @@ var BettingRecordsView = SearchGrid.extend({
     this.grid.addFooterRows({
       trClass: 'tr-footer',
       columnEls: [
-        '所有页总计', '', '', '', '',
+        '所有页总计', '', '', '',
         '<div class="text-hot">' + _(gridData.betTotalAmount).fixedConvert2yuan() + '</div>', '', ''
       ]
     }).hideLoading();
@@ -157,7 +157,7 @@ var BettingRecordsView = SearchGrid.extend({
 
   formatRowData: function(rowInfo) {
     var row = [];
-    row.push(rowInfo.playerName);
+    /*row.push(rowInfo.playerName);*/
     row.push(rowInfo.billNo);
     row.push(rowInfo.gameName);
     row.push(rowInfo.gameCode);
