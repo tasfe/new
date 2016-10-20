@@ -105,6 +105,7 @@ var PersonalManageView = Base.ItemView.extend({
         self.$btnConfirm.button('reset');
       })
       .done(function(res) {
+        console.log('saveuser.json res：'+JSON.stringify(res));
         if (res && res.result === 0) {
           self.$('.js-bday1').attr("disabled",true);
           self.$('.js-bday2').attr("disabled",true);
