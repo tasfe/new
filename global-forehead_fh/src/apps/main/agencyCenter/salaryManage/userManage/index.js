@@ -297,7 +297,7 @@ var UserManageView = SearchGrid.extend({
     });
     var agreement = rowInfo.itemList;
     var $dialog = Global.ui.dialog.show({
-      title: '我的日薪标准',
+      title: '查看签约',
       body: '<div class="js-ac-add-container"></div>',
       modalClass: 'ten',
       size: 'modal-lg',

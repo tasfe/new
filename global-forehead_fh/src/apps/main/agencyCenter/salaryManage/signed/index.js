@@ -74,6 +74,7 @@ var SignedView = Base.ItemView.extend({
     this.$username.typeahead({
       source: function(query,process){
         self.verifyXhr({username:query}).done(function(res){
+          console.log(JSON.stringify(res));
           if(res.result===0){
             self.ValidUser = res.root;
             var users = [];
@@ -194,7 +195,8 @@ var SignedView = Base.ItemView.extend({
       needLoss: false,
       lossLimit: 0,
       salaryAmount: 0
-    }])
+    }]);
+    this.StaticGrid.scrollBottom();
   },
   delAgreementHandler: function(e) {
      $(e.currentTarget).closest('tr').remove();;

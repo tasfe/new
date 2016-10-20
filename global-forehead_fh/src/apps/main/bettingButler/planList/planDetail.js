@@ -92,20 +92,21 @@ var PlanDetailView = Base.ItemView.extend({
 
     var no = 0;
 
-    _(schemeDetail.playList).each(function(item) {
-      item.betNum = is11xuan5 ? item.betNum : item.betNum.replace(/ /g, '');
-      if(item.betNum.length > self.maxLength && !item.rx) {
+    _(schemeDetail).each(function(item) {
+      item.ticketChaseBetNum = is11xuan5 ? item.ticketChaseBetNum : item.ticketChaseBetNum.replace(/ /g, '');
+      if(item.ticketChaseBetNum.length > self.maxLength && !item.rx) {
         $(self.$('.js-uc-betDetail-betNum')[no++]).popover({
           title: '详细号码',
-          trigger: 'manual',
+          // trigger: 'toggle',
           html: true,
           container: this.$el,
-          content: '<div class="js-pf-popover"><span class="word-break">' + item.betNum + '</span></div>',
+          content: '<div class="js-pf-popover"><span class="word-break">' + item.ticketChaseBetNum + '</span></div>',
           placement: 'right'
-        }).on("click", function(e) {
-          var _this = this;
-          $(this).popover("toggle");
+        }).on('hidden', function(e) {
           e.stopPropagation();
+        //   var _this = this;
+        //   $(this).popover("toggle");
+        //   e.stopPropagation();
         });
       }
     }, this);

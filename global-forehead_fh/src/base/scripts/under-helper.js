@@ -20,7 +20,11 @@ _.mixin({
   serializeObject: function(serializeArray) {
     return _(serializeArray).reduce(function(obj, prop) {
       if (prop.name.indexOf('[]') === -1) {
-        obj[prop.name] = prop.value;
+        if (!obj[prop.name]) {
+          obj[prop.name] = prop.value;
+        } else {
+          obj[prop.name] += ',' + prop.value;
+        }
       } else {
         prop.name = prop.name.replace('[]', '');
         if (_.isArray(obj[prop.name])) {

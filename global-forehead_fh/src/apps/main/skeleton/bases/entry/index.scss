@@ -11,6 +11,9 @@ $quickEntry-active-bg-color: #057c86 !default;
 $quickEntryPaddingTop: 6px !default;
 $quickEntryPaddingX: 5px !default;
 
+$quick-activity-item-wh: 58px;
+
+
 .entry-container {
   background-color: $deep-gray-color;
 }
@@ -53,6 +56,7 @@ $quickEntryPaddingX: 5px !default;
   }
 
   .quick-setting {
+    cursor: pointer;
     background: url(~base/images/fh/nav-pic.png) no-repeat;
     display: inline-block;
     float: left;
@@ -124,6 +128,7 @@ $quickEntryPaddingX: 5px !default;
   }
 
   .quick-title {
+    cursor: pointer;
     position: relative;
     z-index: 10;
     margin-left: 4px;
@@ -274,7 +279,7 @@ $quickEntryPaddingX: 5px !default;
   height: 0px;
   position: relative;
   width: 1200px;
-  margin: 0px auto;
+  margin: 0 auto;
 
   .shortcutRight{
     position: absolute;
