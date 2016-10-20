@@ -1,0 +1,45 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+img {
+    border: none;
+    overflow: hidden;
+}
+
+a {
+    font-size: 12px;
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+    display: block;
+}
+
+table, tr, td {
+    border: none;
+}
+
+.clear_div {
+    clear: both;
+}
+
+body{
+    font-family: "微软雅黑", "黑体";
+}
+.activity_mask{
+    background: #ffc427 url("images/bg.jpg") no-repeat center;
+    overflow: hidden;
+}
+.js-accept-btn{
+    background-color: #fff;
+    display: block;
+    margin:0 auto;
+    cursor: pointer;
+    opacity: 0.1;
+  -webkit-border-radius:20px;
+  -moz-border-radius:20px;
+  border-radius:20px;
+}
