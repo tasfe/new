@@ -171,6 +171,9 @@ function _bindClosePopoverHandler() {
       });
     }
   });
+
+  // $(document).on('[data-toggle=popover]').on("hide", function (e) {
+  // });
 }
 
 function _bindClickFeedbackHandler() {
