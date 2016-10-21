@@ -10,7 +10,6 @@ var MoneyDetailView = require('userCenter/moneyDetail');
 var ProfitAndLossView = require('userCenter/profitAndLoss');
 
 var CardManageView = require('userCenter/views/cardManage');
-var CardBindingView = require('userCenter/views/cardBinding');
 var PriceDetailsView = require('userCenter/views/priceDetails');
 
 var VipPointView = require('userCenter/vipPoint');
@@ -24,7 +23,7 @@ var ReportManageView = require('agencyCenter/reportManage/teamReport');
 
 var UserCenterController = RouterController.extend({
 
-  gameRecords: function (type) {
+  gameRecords: function(type) {
     this.changeMainReginView(new GameRecordsView({
       triggerTab: type
     }), {
@@ -60,71 +59,72 @@ var UserCenterController = RouterController.extend({
     });
   },
 
-  reportManage:function () {
+  reportManage: function() {
     this.changeMainReginView(new ReportManageView(), {
       sidebar: 'uc'
     });
   },
 
-  vipPoint:function() {
+  vipPoint: function() {
     this.changeMainReginView(new VipPointView(), {
       sidebar: 'vip'
     });
   },
 
-  vipLevel:function() {
+  vipLevel: function() {
     this.changeMainReginView(new VipLevelView(), {
       sidebar: 'vip'
     });
   },
-  vipPrize:function() {
+  vipPrize: function() {
     this.changeMainReginView(new VipPrizeView(), {
       sidebar: 'vip'
     });
   },
-  vipCash:function() {
+  vipCash: function() {
     this.changeMainReginView(new VipCashView(), {
       sidebar: 'vip'
     });
   },
-  vipCredit:function() {
-  this.changeMainReginView(new VipCreditView(), {
-    sidebar: 'vip'
-  });
-},
-
-  /*cardManage: function() {
-    //判断是否设置资金密码
-
-    var self  = this;
-    this.checkPayPwdXhr()
-        .done(function(res) {
-          if (res && res.result === 0) {
-            //设置了则弹出验证框
-            $(document).verifyFundPwd({parentView:self});
-          } else if (res && res.result === 1) {
-            //未设置则弹出链接到资金密码设置页面的提示框
-            $(document).securityTip({
-              content: '您未设置资金密码，无法进行银行卡操作',
-              showMoneyPwd: true,
-              hasMoneyPwd: false,
-              showBankCard: false,
-              hasBankCard: false
-            });
-          }
-        });
-  },*/
-
-  cardManage: function(){
-    this.changeMainReginView(new CardManageView(), {
-      sidebar: 'pc',
-      topView: 'personal'
+  vipCredit: function() {
+    this.changeMainReginView(new VipCreditView(), {
+      sidebar: 'vip'
     });
   },
-  cardBinding: function() {
-    this.changeSubReginView(new CardBindingView(), {
-      parentRouter: 'uc/cm'
-    });
+
+  cardManage: function() {
+
+    var self = this;
+    Global.m.states.check()
+      .once('check:complete', function(model) {
+        var hasMoneyPwd = model.get('hasMoneyPwd');
+        if (model.get('hasMoneyPwd')) {
+          self.changeMainReginView(new CardManageView(), {
+            sidebar: 'pc',
+            topView: 'personal'
+          });
+        } else {
+          $(document).securityTip({
+            content: '您未设置资金密码，无法进行银行卡操作',
+            showMoneyPwd: true,
+            hasMoneyPwd: false,
+            showBankCard: false,
+            hasBankCard: false
+          });
+        }
+      });
+    // this.checkPayPwdXhr()
+    //   .done(function(res) {
+    //     if(res && res.result === 0) {
+    //       //设置了则弹出验证框
+    //       $(document).verifyFundPwd({
+    //         onValidated: function() {
+    //         }
+    //       });
+    //     } else if(res && res.result === 1) {
+    //       //未设置则弹出链接到资金密码设置页面的提示框
+    //     }
+    //   });
   },
 
   priceDetails: function() {
@@ -134,14 +134,14 @@ var UserCenterController = RouterController.extend({
     });
   },
 
-  moneyDetail: function () {
+  moneyDetail: function() {
     this.changeMainReginView(new MoneyDetailView(), {
       sidebar: 'pc',
       topView: 'personal'
     });
   },
 
-  profitAndLoss: function () {
+  profitAndLoss: function() {
     this.changeMainReginView(new ProfitAndLossView(), {
       sidebar: 'pc',
       topView: 'personal'

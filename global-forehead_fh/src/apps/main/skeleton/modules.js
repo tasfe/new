@@ -25,6 +25,7 @@ var InsideLetterModule = require('skeleton/modules/ui/insideLetter');
 // var RainActivityModule = require('skeleton/modules/mediator/rainActivity');
 // var DriftActivityModule = require('skeleton/modules/mediator/driftActivity');
 var NewsMediatorModule = require('skeleton/modules/mediator/news');
+var PersonalMediatorModule = require('skeleton/modules/mediator/personalStates');
 
 exports.install = function() {
   window.Global.module('viewPool', ViewPollModule);
@@ -50,6 +51,7 @@ exports.install = function() {
   window.Global.module('m.message', MessageMediatorModule);
   window.Global.module('m.news', NewsMediatorModule);
   window.Global.module('m.oauth', OauthMediatorModule);
+  window.Global.module('m.states', PersonalMediatorModule);
   // window.Global.module('m.rainActivity', RainActivityModule);
   // window.Global.module('m.driftActivity', DriftActivityModule);
 };
