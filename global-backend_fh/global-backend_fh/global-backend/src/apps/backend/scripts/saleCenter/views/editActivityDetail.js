@@ -27,10 +27,11 @@ define(function (require, exports, module) {
                     var option = {userLevel:res.root.userLevel,disabled:1};
                     var rebateRightView = new RebateRightView(option);
                     self.$('.js-cm-edit-form').prepend(rebateRightView.render().$el);
-                    if(res.root.type==0){
+                   /* if(res.root.type==0){
                         self.$('.js-cm-type').html('<span>代理活动</span>');
                     }
-                    else if(res.root.type==1){
+                    else*/
+                    if(res.root.type==1){
                     self.$('.js-cm-type').html('<span>彩票活动</span>');
                     }
                     if(res.root.type==2){
