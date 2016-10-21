@@ -9,8 +9,6 @@ var MMCBettingCenterView = require('bettingCenter/mmc');
 var SMMCBettingCenterView = require('bettingCenter/smmc');
 
 var Countdown = require('com/countdown');
-//红包大派送活动视图
-// var RedpacketActivityView = require('com/redpacket');
 
 var ticketConfig = require('skeleton/misc/ticketConfig');
 
@@ -163,10 +161,6 @@ var EntryView = Base.ItemView.extend({
         $('body').addClass('footerShow');
       }
     };
-
-    //检查红包大派送活动状态，是否显示入口
-    // this.winlossActivityView = new RedpacketActivityView();
-    // this.winlossActivityView.checkState(this.$('.js-qe-redpacket'));
   },
 
   renderSetting: function() {
@@ -490,13 +484,7 @@ var EntryView = Base.ItemView.extend({
           }
         });
     });
-  },
-
-  //点击红包活动事件
-  openRedpacketActivityHandler: function(){
-
   }
-
 
 });
 
