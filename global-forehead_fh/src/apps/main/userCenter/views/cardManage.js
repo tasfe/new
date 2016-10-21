@@ -258,16 +258,20 @@ var CardManageView = Base.ItemView.extend({
       this.propAddBankCardModal();
     }else{
       //弹出验证窗口
-      var type = 'addBankCard';
-      var token = this.$('.js-uc-pwdToken').val();
-      //如果token存在
-      if(token && !(_(token).isEmpty())){
-        Global.appRouter.navigate(_('#uc/cm/bind').addHrefArgs({
-          _t:_.now(),
-          pwdToken:token
-        }), {trigger: true, replace: false});
+      if(size && Number(size) >= 5){
+        Global.ui.notification.show('最多绑定 5 张银行卡');
       }else{
-        this.popValidateCardInfoModal(type);
+        var type = 'addBankCard';
+        var token = this.$('.js-uc-pwdToken').val();
+        //如果token存在
+        if(token && !(_(token).isEmpty())){
+          Global.appRouter.navigate(_('#uc/cm/bind').addHrefArgs({
+            _t:_.now(),
+            pwdToken:token
+          }), {trigger: true, replace: false});
+        }else{
+          this.popValidateCardInfoModal(type);
+        }
       }
     }
 
