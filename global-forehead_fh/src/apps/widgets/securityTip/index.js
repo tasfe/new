@@ -22,7 +22,8 @@ $.widget('gl.securityTip', {
     var self = this;
 
     var body = [];
-    body.push('<div class="text-center">');
+    body.push('<dl>');
+    body.push('<dt><div class="circle-icon"><i class="fa fa-pencil-square-o"></i></div></dt>');
     body.push('<div class="m-bottom-md font-md fc-security-notice-content">' + this.options.content + '</div>');
     body.push('<div class="fc-security-notice-link">');
     if(this.options.showMoneyPwd){

@@ -277,7 +277,7 @@ var TransferView = Base.ItemView.extend({
           });
           self.$(".U-cancel").hide();
         } else {
-          Global.ui.notification.show('转账失败,' + (res.msg || res.root || ''));
+          Global.ui.notification.show('转账失败,' + (res.root || res.msg || ''));
           self.$(".U-cancel").hide();
         }
       });

@@ -53,13 +53,17 @@ var TopProfileView = Base.ItemView.extend({
     }
 
     this.$avatar.addClass('avatar-' + acctInfo.headId);
+    this.$avatar.attr('data-type', acctInfo.headId);
   },
 
   //event handlers
 
-  editIconsHandler: function() {
+  editIconsHandler: function(e) {
     var self = this;
-    $(document).editIcons();
+    var $target = $(e.currentTarget);
+    var headId = $target.attr("data-type");
+
+    $(document).editIcons({headId:headId});
   },
 
   editUNameHandler: function() {
@@ -98,7 +102,7 @@ var TopProfileView = Base.ItemView.extend({
 
             $dialog.modal('hide');
           } else {
-            Global.ui.notification.show(res.msg);
+            Global.ui.notification.show(res.msg === 'fail' ? '昵称重复' : res.msg);
           }
         });
       });

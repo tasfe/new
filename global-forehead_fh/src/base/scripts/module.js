@@ -9,6 +9,8 @@ Base.Module = function(moduleName, app, options) {
   // 允许用户为每一个模块指定`initialize`方法
   this.initialize = options.initialize || this.initialize;
 
+  this.subsribes = [];
+
   // 用于存放子模块
   this.submodules = {};
 
@@ -132,7 +134,21 @@ _.extend(Base.Module.prototype, Backbone.Events, {
     this._finalizerCallbacks = new Base.Callbacks();
   },
 
-  triggerMethod: Base.triggerMethod
+  triggerMethod: Base.triggerMethod,
+
+  subscribe: function(subscriber, channel, callback, options) {
+    if (Base.MediatorFacade.subscribe(subscriber, channel, callback, options)) {
+      this.subsribes.push({
+        subscriber: subscriber,
+        channel: channel,
+        callback: callback
+      });
+    }
+  },
+
+  publish: Base.MediatorFacade.publish,
+
+  unSubscribe: Base.MediatorFacade.unSubscribe
 
 });
 

@@ -5,6 +5,8 @@ var NavbarView = require('skeleton/bases/navbar');
 var RechargeView = require('fundCenter/views/recharge');
 var DesktopNewsView = require('skeleton/bases/desktopNews');
 var EntryView = require('skeleton/bases/entry');
+//活动快捷入口
+var ActivityEntryView = require('skeleton/bases/activityEntry');
 var FooterView = require('com/footer');
 var NoticeBoardView = require('dynamicCenter/views/noticeBoardFH');
 
@@ -13,6 +15,7 @@ var NoticeBoardView = require('dynamicCenter/views/noticeBoardFH');
 var FirstLoginUpdatePasswd = require('com/firstLoginUpdatePasswd');
 
 var EntryModel = require('skeleton/models/entry');
+
 var NewsModel = require('skeleton/models/news');
 
 var App = new window.Base.Application();
@@ -27,6 +30,8 @@ App.addRegions({
   navbarRegion: '#navbar',
   mainRegin: '#main',
   entryRegion: '#quickEntry',
+  // 活动快捷入口
+  activityEntryRegion: '#activityEntry',
   subMainRegin: '#subMain',
   topRegin: '#topProfile',
   // newbieRegin: '#newbie',
@@ -48,6 +53,9 @@ App.addInitializer(function(options) {
   App.entryRegion.show(new EntryView({
     model: entryModel
   }));
+
+  //活动快捷入口。
+  App.activityEntryRegion.show(new ActivityEntryView({}));
 
   App.desktopNewsRegion.show(new DesktopNewsView());
 

@@ -5,7 +5,8 @@ $.widget('gl.verifyFundPwd', {
   options: {
     id: '',
     namespace: 'tip',
-    title: '验证资金密码'
+    title: '验证资金密码',
+    onValidateSuccess: _.noop
   },
 
   _create: function() {
@@ -75,10 +76,8 @@ $.widget('gl.verifyFundPwd', {
                   self.$dialog.modal('hide');
                   //self.$('.js-uc-pwdToken').val(res.root);
                   //self.$('.js-uc-cm-fundPwdInput').addClass('hidden');
-                  if(self.options.parentView && self.options.parentView.verifySuccCallBack){
 
-                    self.options.parentView.verifySuccCallBack(payPwd);
-                  }
+                  self.options.onValidated(payPwd);
                 } else {
                   if(_(res.root).isNull()) {
                     self.renderError('验证失败，' + res.msg);

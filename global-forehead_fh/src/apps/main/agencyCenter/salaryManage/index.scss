@@ -1,4 +1,6 @@
+@charset "UTF-8";
 
+@import "~base/styles/imports";
 .ac-sm-agree-notice{
   color: #666;
   font-size: 12px;
@@ -140,7 +142,7 @@
 
 .ac-sm-sign-type-container{
   vertical-align: middle;
-  height: 20px;
+  height: 17px;
   line-height: 20px;
   label{
     display: inline-block;
@@ -193,5 +195,13 @@
     margin-bottom: 0px;
     line-height: 18px;
     height: 18px;
+  }
+}
+
+.fc-sm-sign-tabs{
+  a{
+    border: 1px solid #cccccc;
+    border-bottom: 1px solid #ececec;
+    color: #c93339;
   }
 }

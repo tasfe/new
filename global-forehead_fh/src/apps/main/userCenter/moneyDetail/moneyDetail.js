@@ -14,8 +14,8 @@ var MoneyDetailView = SearchGrid.extend({
 
   initialize: function() {
     _(this.options).defaults({
-      betDetailPrevUrl: '#uc/br/detail/',
-      chaseDetailPrevUrl: '#uc/tr/detail/'
+      betDetailPrevUrl: '#gr/br/detail/',
+      chaseDetailPrevUrl: '#gr/tr/detail/'
     });
 
     _(this.options).extend({
@@ -23,11 +23,11 @@ var MoneyDetailView = SearchGrid.extend({
       columns: [
         {
          name: '交易流水号',
-         width: '20%'
+         width: '15%'
         },
         {
           name: '交易时间',
-          width: '20%'
+          width: '15%'
         },
         {
           name: '交易类型',
@@ -35,7 +35,7 @@ var MoneyDetailView = SearchGrid.extend({
         },
         {
           name: '账变',
-          width: '20%'
+          width: '15%'
         },
         //{
         //  name: '支出',
@@ -43,6 +43,10 @@ var MoneyDetailView = SearchGrid.extend({
         //},
         {
           name: '账户余额',
+          width: '15%'
+        },
+        {
+          name: '备注',
           width: '20%'
         }
       ],
@@ -144,9 +148,9 @@ var MoneyDetailView = SearchGrid.extend({
         trClass: 'tr-cool',
         columnEls: [
           '<div class="text-hot">所有页总计</div>',
-          '','',
+          '','','',
           '<div class="text-hot">' +  _(gridData.income + gridData.spending).convert2yuan() + '</div>',
-          '', ''
+          ''
         ]
       })
       .hideLoading();
@@ -173,7 +177,7 @@ var MoneyDetailView = SearchGrid.extend({
     }
 
     row.push('<span class="text-bold-cool">'+_(info.balance).convert2yuan()+'</span>');
-
+    row.push(info.remark);
     return row;
   }
 });

@@ -10,6 +10,9 @@ define(function (require, exports, module) {
   var AgRechargeReportView = require('agGame/amountManagement/ag-rechargeReport');
   var AgRebateSetView = require('agGame/amountManagement/ag-rebateSet');
 
+  var AgSubDividConfView = require('agGame/amountManagement/ag-subDividConf');
+  var AgSubDividManagementView = require('agGame/amountManagement/ag-subDividManagement');
+
   var AgGameController = RouterController.extend({
     agUserDetailView: function() {
       this.changeMainReginView(new AgUserDetailView());
@@ -32,6 +35,12 @@ define(function (require, exports, module) {
     },
     agRebateSetView: function() {
       this.changeMainReginView(new AgRebateSetView());
+    },
+    agSubDividConf: function() {
+      this.changeMainReginView(new AgSubDividConfView());
+    },
+    agSubDividManagement: function() {
+      this.changeMainReginView(new AgSubDividManagementView());
     }
   });
 

@@ -58,7 +58,7 @@ var BettingRecordsView = SearchGrid.extend({
         abort: false
       },
       reqData: {
-        subUser: 0
+        subUser: 2
       },
       listProp: 'root.data',
       tip: '',
