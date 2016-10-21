@@ -202,7 +202,6 @@ var LowLevelView = SearchGrid.extend({
 
     $(document).confirm({
       title: '提示',
-      content: '确定将分红发放至下级？',
       agreeCallback: function() {
         $target.button('loading');
         self.giveOutXhr(data)
@@ -216,7 +215,8 @@ var LowLevelView = SearchGrid.extend({
               Global.ui.notification.show(res.msg || '');
             }
           });
-      }
+      },
+      content: '确定将分红发放至下级？'
     });
   },
 
