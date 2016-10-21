@@ -68,7 +68,7 @@ $.widget('gl.staticGrid', {
 
   scrollBottom: function() {
     this.$bodyDiv.slimScroll({
-      scrollTo: this.$bodyDiv.height()
+      scrollTo: this.$tbody.height()
     });
   },
 

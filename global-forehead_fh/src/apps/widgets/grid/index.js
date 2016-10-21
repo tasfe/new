@@ -7,7 +7,7 @@ $.widget('gl.grid', {
 
   options: {
     checkable: true,
-    checkableWidth: '1%',
+    checkableWidth: '2.5%',
     chkAllId: 'chkAll',
     namespace: 'glGrid',
     tableClass: 'table table-bordered ',
@@ -385,6 +385,7 @@ $.widget('gl.grid', {
       id = rowData.id || _.uniqueId(this.options.namespace + 'chk'),
       columnEls = rowData.columnEls || [],
       dataAttr = rowData.dataAttr || {},
+      needCheck =  _(rowData.needCheck).isBoolean() ? rowData.needCheck : true ,
       i;
 
     html.push('<tr');
@@ -402,7 +403,7 @@ $.widget('gl.grid', {
     if (this.options.checkable) {
       html.push('<td>');
 
-      if (rowType !== 'footer') {
+      if (rowType !== 'footer' && needCheck ){
         html.push('<div class="custom-checkbox">');
         html.push('<input type="checkbox" id="' + id + '" class="inbox-check">');
         html.push('<label class="checkbox-label" for="' + id + '"></label>');
