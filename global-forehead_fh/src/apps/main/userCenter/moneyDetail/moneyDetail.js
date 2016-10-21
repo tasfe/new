@@ -146,7 +146,7 @@ var MoneyDetailView = SearchGrid.extend({
           '<div class="text-hot">所有页总计</div>',
           '','',
           '<div class="text-hot">' +  _(gridData.income + gridData.spending).convert2yuan() + '</div>',
-          '', ''
+          ''
         ]
       })
       .hideLoading();
