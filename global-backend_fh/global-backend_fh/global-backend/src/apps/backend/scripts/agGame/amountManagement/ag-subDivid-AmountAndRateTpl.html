@@ -1,0 +1,42 @@
+<div class="form-group form-inline js-ag-sub-Set ">
+  <div class="col-sm-12 form-group form-inline border-all padding-sm m-left-sm">
+    <label class="col-sm-2 control-label m-bottom-sm ">团队投注额(月)≥：</label>
+
+    <div class="col-sm-1 m-bottom-sm ">
+      <div class="form-group form-inline">
+        <div class="input-group">
+          <input type="text" class="form-control js-ag-sub-betAmount" data-parsley-range="[0, 1000000000]"
+                 data-parsley-type="integer" value="<%=amount %>" required>
+
+          <div class="input-group-addon">元</div>
+        </div>
+      </div>
+    </div>
+
+    <label class="col-sm-2 control-label m-bottom-sm ">分红比例：</label>
+
+    <div class="col-sm-1 m-bottom-sm ">
+      <div class="form-group form-inline">
+        <div class="col-sm-12 input-group">
+          <input type="text" class="form-control js-ag-sub-dividendRate" data-parsley-range="[0.01, 100]"
+                 data-parsley-threeDecimal value="<%=rate %>" required>
+          <div class="input-group-addon">%</div>
+        </div>
+      </div>
+    </div>
+    <label class="col-sm-2 control-label m-bottom-sm ">下级活跃要求≥：</label>
+
+    <div class="col-sm-1 m-bottom-sm ">
+      <div class="form-group form-inline">
+        <div class="col-sm-12 input-group">
+          <input type="text" class="form-control js-ag-sub-active" data-parsley-range="[0, 100000]"
+                 data-parsley-type="integer" value="<%=active %>" required>
+          <div class="input-group-addon">个</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-1 m-bottom-sm">
+      <button class="js-ag-sub-del btn btn-danger ">删&nbsp;除</button>
+    </div>
+  </div>
+</div>

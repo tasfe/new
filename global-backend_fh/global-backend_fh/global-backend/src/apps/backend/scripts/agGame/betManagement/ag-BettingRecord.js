@@ -191,9 +191,9 @@ define(function (require, exports, module) {
                 row.push("国际厅");
             }else if(rowInfo.platformType==2){
                 row.push("旗舰厅");
-            }else if(rowInfo.platformType==2){
+            }else if(rowInfo.platformType==3){
                 row.push("包桌厅");
-            }else if(rowInfo.platformType==2){
+            }else if(rowInfo.platformType==4){
                 row.push("豪华厅");
             }
             if(rowInfo.gameType==0){
