@@ -10,6 +10,9 @@ class Sidenav extends Component {
     return (
       <div className="nav-content hideNav hidden">
         <div className="nav-content-wrapper">
+          <div className="nav-shield">
+            <span></span>
+          </div>
           <div className="nav-userInfo">
             <div className="nav-userInfo-userName"><span className="js-nav-userName">{this.props.props.username}</span>(<a className="js-nav-nickName js-nav-link" href="/#/user/profile">{this.props.props.uName}</a>)<a href="/#/message/dynamic" className="js-nav-link"><img className="nav-userInfo-insideLetter" src="images/icon/fh-inside-letter.png"/></a></div>
             <div className="nav-userInfo-img">
@@ -59,9 +62,6 @@ class Sidenav extends Component {
                 </a>
               </li>
             </ul>
-          </div>
-          <div className="nav-shield">
-            <span></span>
           </div>
         </div>
       </div>
