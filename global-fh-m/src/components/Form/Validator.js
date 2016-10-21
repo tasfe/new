@@ -65,6 +65,18 @@ export default class Validator {
       noSpecialChar (value) {
         var myReg = /[~`\-\_^@\/\'\\\"#$%&\*\?\(\),\+;\[\]\{\}\|\.:：<>!！￥？（），。、—]/;
         return !myReg.test(value);
+      },
+      notIsNumAndLessThen9 (value) {
+        var myReg = /^\d{0,8}$/;
+        return !myReg.test(value);
+      },
+      noSpaceChar(value){
+        var myReg = /[\ ]/;
+        return !myReg.test(value);
+      },
+      oneDecimal(val){
+        var myReg = /^(0|[1-9][0-9]*)(.\d{1})?$/;
+        return myReg.test(value);
       }
     }
   }

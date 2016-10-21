@@ -67,7 +67,16 @@ class OpenLottery extends Page {
         self.betList = self.betList.concat(res.root.betList);
         var ldata = _(self.betList).chain().each(function(item){
           item.date = new Date(item.betTime).toString('YYYY年MM月DD');
-          item.status = _(item).checkBettingStatus();
+          item.status = _({
+            betStatus: item.ticketBetStatus,
+            hasException: item.hasException,
+            openNumbers: item.ticketResult,
+            openStatus: item.ticketOpenStatus,
+            prizing: item.prizing,
+            prizeTotalMoney: item.prizeTotalMoney,
+            betTime: item.betTime,
+            ticketPlanId: item.ticketPlanId
+          }).checkBettingStatus();
         }).groupBy(function(item){
           return item.date;
         }).map(function(item,index){
