@@ -277,16 +277,35 @@ var SignedView = Base.ItemView.extend({
     var $lossLimit = this.$('.js-ac-sm-sign-lossLimit');
     var $salary = this.$('.js-ac-sm-sign-salary');
     var salaryList = [];
+    var itempPrevious = 0;
+    var isTrue = true;
     _($saleAmount).each(function(item,index){
-      salaryList.push({
-        saleAmount: $(item).val(),
-        needLoss: $needLoss.eq(index).val(),
-        lossLimit: $lossLimit.eq(index).val(),
-        salaryAmount: $salary.eq(index).val()
-      });
+      if(index === 0){
+        salaryList.push({
+          saleAmount: $(item).val(),
+          needLoss: $needLoss.eq(index).val(),
+          lossLimit: $lossLimit.eq(index).val(),
+          salaryAmount: $salary.eq(index).val()
+        });
+      }else{
+        if(Number($salary.eq(index).val()) > Number($salary.eq(index-1).val()) && Number($(item).val()) > Number(itempPrevious)){
+          salaryList.push({
+            saleAmount: $(item).val(),
+            needLoss: $needLoss.eq(index).val(),
+            lossLimit: $lossLimit.eq(index).val(),
+            salaryAmount: $salary.eq(index).val()
+          });
+        }else{
+          Global.ui.notification.show('数据填写错误，同一列的填写数值，第二行必须大于第一行');
+          isTrue = false;
+        }
+      }
+      itempPrevious = $(item).val();
+
     });
-
-
+    if(!isTrue){
+      return false;
+    }
 
     if( _(salaryList).size()===0 && salaryType==='0' ){
       return false;
