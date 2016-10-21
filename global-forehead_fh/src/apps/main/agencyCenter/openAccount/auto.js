@@ -90,7 +90,7 @@ var OpenAccountManageView = Base.ItemView.extend({
         },
         {label: '链接生成时间', name: 'createTime', width: '15%'},
         {label: '返点等级', name: 'rank', width: '8%'},
-        {label: '点击人数', name: 'accessNum', width: '8%'},
+        // {label: '点击人数', name: 'accessNum', width: '8%'},
         {label: '已注册人数', name: 'regUserNum', width: '8%'},
         {label: '备注用途', name: 'userLinkDes', width: '8%'},
         {
