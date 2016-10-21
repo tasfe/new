@@ -7,7 +7,6 @@
   /*background: var(--main-color);*/
   background: var(--yb-dark-gray);
   position: absolute;
-  z-index: 3;
   left: 0;
   right: 0;
   height: .35rem;
@@ -17,7 +16,7 @@
   top: 0;
   text-align: center;
   color: #fff;
-
+  z-index: 3;
   button {
     font-size: .1rem;
     background: none;

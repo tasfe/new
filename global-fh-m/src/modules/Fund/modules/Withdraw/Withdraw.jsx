@@ -11,6 +11,7 @@ import { routerActions } from 'react-router-redux';
 import Tile from 'components/Tile'
 import { setTitle } from 'redux/modules/toolbar'
 import { setRightButton } from 'redux/modules/toolbar'
+import { setLeftButton } from 'redux/modules/toolbar'
 
 @connect(
   state => ({
@@ -21,6 +22,7 @@ import { setRightButton } from 'redux/modules/toolbar'
     setRightButton,
     ...actions,
     pushState: routerActions.push,
+    setLeftButton
   }
 )
 
@@ -70,6 +72,7 @@ class Withdraw extends Page {
  
   componentDidMount () {
     this.props.setTitle('提现');
+    this.props.setLeftButton(true);
     this.props.setRightButton(<a className="toolbar-rightBtn" href="/#/user/bankcard">新增绑卡</a>)
   }
 

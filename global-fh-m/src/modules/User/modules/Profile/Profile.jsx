@@ -5,11 +5,13 @@ import { setTitle } from 'redux/modules/toolbar'
 import { connect } from 'react-redux'
 import withStyles from 'with-style'
 import styles from './Profile.css'
+import { setLeftButton } from 'redux/modules/toolbar'
 
 @withStyles(styles)
 
 @connect(state => ({}), {
-  setTitle
+  setTitle,
+  setLeftButton
 })
 
 class Profile extends Page {
@@ -66,6 +68,7 @@ class Profile extends Page {
 
   componentDidMount () {
     this.props.setTitle('修改昵称');
+    this.props.setLeftButton(true);
   }
 
   render () {

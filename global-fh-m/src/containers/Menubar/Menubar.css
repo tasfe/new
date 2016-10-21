@@ -5,6 +5,7 @@
   background: #f8f8f8!important;
   border-top: 1px solid #b2b2b2;
   padding: 0!important;
+  z-index: 1;
 
   .menu-item{
     width: 20%;
