@@ -278,7 +278,7 @@ var SignedView = Base.ItemView.extend({
     var $salary = this.$('.js-ac-sm-sign-salary');
     var salaryList = [];
     var itempPrevious = 0;
-    var isTrue = true;
+    var isTrue = true;//用于判断填写日薪的数据是否有错误
     _($saleAmount).each(function(item,index){
       if(index === 0){
         salaryList.push({
