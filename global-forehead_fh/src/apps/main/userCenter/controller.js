@@ -105,11 +105,10 @@ var UserCenterController = RouterController.extend({
           });
         } else {
           $(document).securityTip({
-            content: '您未设置资金密码，无法进行银行卡操作',
-            showMoneyPwd: true,
+            content: '请补全您的安全信息后在绑定银行卡',
             hasMoneyPwd: false,
             showBankCard: false,
-            hasBankCard: false
+            showSecurity: false
           });
         }
       });

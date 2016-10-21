@@ -1,12 +1,13 @@
 module.exports = {
   routers: {
-    '/info/activitylist/getbroadcastlist.json': 'mockup/getBroadcast.json',
-    // '/acct/usermsg/msgstat.json': 'mockup/msg-stat.json',
-    // '/acct/usermsg/msglist.json': 'mockup/msg-list.json'
-    //'/acct/login/doauth.json': 'mockup/oauth.json',
-    //'/fund/redenvelope/info.json': 'mockup/redenvelope.json',
-    //'/fund/fundreport/profitreport.json': 'mockup/profitreport.json',
-    //'/fund/fundreport/profitdetail.json': 'mockup/profitdetail.json'
-    // '/acct/usernotice/getdesktopnotice.json': 'mockup/desktopNotice.json'
+    '/acct/email/newbind.json': 'mockup/email.json',
+    '/acct/email/modsend.json': 'mockup/success.json',
+    '/acct/email/modval.json': 'mockup/modval.json',
+    '/acct/email/newmodsend.json': 'mockup/email.json',
+    '/acct/email/newbind.json': 'mockup/email.json',
+    '/acct/email/newmodbind.json': 'mockup/email.json',
+    '/fund/moneypd/reset.json': 'mockup/success.json',
+    '/acct/email/mpwdsend.json': 'mockup/success.json',
+    '/acct/email/mpwdval.json': 'mockup/email.json'
   }
 };

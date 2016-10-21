@@ -1,0 +1,130 @@
+<div class="portlet-header">
+  <div class="portlet-title">
+    邮箱管理
+    <div class="pull-right as-security-add-notice">
+      温馨提示：邮箱设置成功后，有助于您找回密码相关信息
+    </div>
+  </div>
+</div>
+<div class="portlet-body">
+  <dl class="js-pm-modify-tip pm-modify-tip">
+    <dt class="pull-left m-right-sm"><span class="circle-icon bg-pink"><span class="fa fa-envelope"></span></span></dt>
+    <dd class="overflow-hidden font-md">您已经绑定了邮箱<%=email %></dd>
+    <dd class="overflow-hidden">请问您是否需要<a class="js-pm-modify btn btn-link">修改绑定邮箱？</a></dd>
+  </dl>
+  <div class="js-as-stepContainer js-as-emailBinding as-step-container-short hidden">
+    <!-- Step1 设置邮箱 -->
+    <h3>认证旧邮箱</h3>
+    <form action="javascript:void(0);" class="js-as-validateEmailForm form-horizontal">
+      <div class="step-inner">
+        <div class="step-inner-main">
+          <div class="control-group m-bottom-md">
+            <div class="text-center font-md">在更改之前，请允许繁华世界验证您是否是当前账户的拥有者。
+              请登录您绑定的<%=email %>，并将验证码填入输入框。</div>
+            <!--<div class="text-center">-->
+              <!--<span class="help-block">请找到来自“繁华世界”的验证邮件，将邮箱验证码输入到下方输入框。</span>-->
+              <!--<span class="help-block">您的激活链接在24小时内有效。</span>-->
+            <!--</div>-->
+          </div>
+          <div class="control-group m-bottom-lg">
+            <label class="control-label">邮箱验证码</label>
+            <div class="controls">
+              <input type="text" class="js-as-old-email-verifyCode" name="oldCode" required>
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="text-center">
+              <button type="button" class="js-as-old-resendEmail btn btn-hot btn-linear m-left-sm" data-loading-text="发送中">
+                发送确认邮件
+              </button>
+              (<span class="js-as-resend-countdown">0</span>s)
+              <a href="#" class="router btn btn-link">没有收到邮件？</a>
+            </div>
+          </div>
+          <div class="control-confirm text-center">
+            <button type="submit" class="js-as-confirmOldEmail-submit btn btn-pink btn-linear" data-loading-text="保存中">
+              下一步
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+    <h3>输入新邮箱</h3>
+    <form action="javascript:void(0);" class="js-as-inputEmailForm form-horizontal">
+      <div class="step-inner">
+        <div class="step-inner-main">
+          <div class="control-group m-bottom-md">
+            <div class="text-center font-md">旧邮箱验证成功，现在你可以重新设置新的邮箱了！<br />
+              您的旧邮箱是：<%=email %>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label">邮箱地址：</label>
+            <div class="controls">
+              <input type="text" class="js-as-newEmail" name="email" required data-parsley-zhemail autocomplete="off">
+              <!--<div class="help-block">请输入正确的邮箱地址（4-30位），如abc123@163.com</div>-->
+            </div>
+          </div>
+        </div>
+        <div class="control-confirm text-center">
+          <button type="sumbit" class="js-as-inputEmail-submit btn btn-pink btn-linear" data-loading-text="提交中">下一步
+          </button>
+          <!--<button type="reset" class="js-as-inputSecurityQuestion-reset btn btn-b-white input1 btn-right">重置</button>-->
+        </div>
+      </div>
+    </form>
+
+    <!-- Step2 查收验证邮件 -->
+    <h3>认证新邮箱</h3>
+    <form action="javascript:void(0);" class="js-pm-check-code form-horizontal">
+      <div class="step-inner">
+        <div class="step-inner-main">
+          <div class="control-group m-bottom-md">
+            <div class="text-center font-md">验证邮件已发送至您的邮箱：<span class="js-as-email-res text-hot"></span></div>
+            <div class="text-center">
+              <span class="help-block">请找到来自“繁华世界”的验证邮件，将邮箱验证码输入到下方输入框。</span>
+              <span class="help-block">您的激活链接在24小时内有效。</span>
+            </div>
+          </div>
+          <div class="control-group m-bottom-lg">
+            <label class="control-label">邮箱验证码</label>
+            <div class="controls">
+              <input type="text" class="js-as-email-verifyCode" name="code" required>
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="text-center">
+              <button type="button" class="js-as-resendEmail btn btn-hot btn-linear m-left-sm" data-loading-text="发送中">
+                发送确认邮件
+              </button>
+              (<span class="js-as-resend-countdown">0</span>s)
+              <a href="#" class="router btn btn-link">没有收到邮件？</a>
+            </div>
+          </div>
+          <div class="control-confirm text-center">
+            <button type="submit" class="js-as-confirmEmail-submit btn btn-pink btn-linear" data-loading-text="保存中">
+              下一步
+            </button>
+            <button type="button" class="js-as-confirmEmail-return btn btn-b-white btn-linear m-left-sm" data-type="0">
+              返回
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <!-- Step3 设置成功 -->
+    <h3>更新成功</h3>
+    <form action="javascript:void(0);" class="js-pm-complete-form form-horizontal pm-complete-form">
+      <div class="control-group text-center">
+        <div class="pm-complete-img text-center inline-block m-right-sm">
+          <img src="../misc/thumbs-up.png"/>
+        </div>
+        <div class="pm-complete-text inline-block text-left">
+          <span class="controls-span font-md">恭喜您，邮箱绑定成功</span>
+          <span class="help-block no-padding">您绑定的邮箱是<span class="js-as-email text-hot"></span></span>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
