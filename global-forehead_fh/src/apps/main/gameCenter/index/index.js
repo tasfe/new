@@ -68,29 +68,33 @@ var GameCenterView = Base.ItemView.extend({
 
   transferMoneyHandler: function() {
     var self = this;
+    if (Global.memoryCache.get('acctInfo').userGroupLevel !== 0) {
+      var $dialog = Global.ui.dialog.show({
+        title: '转账',
+        size: 'modal-lg',
+        body: '<div class="js-ag-transfer-container"></div>',
+        bodyClass: 'no-padding'
+      });
+      var $transferContainer = $dialog.find('.js-ag-transfer-container');
 
-    var $dialog = Global.ui.dialog.show({
-      title: '转账',
-      size: 'modal-lg',
-      body: '<div class="js-ag-transfer-container"></div>',
-      bodyClass: 'no-padding'
-    });
-    var $transferContainer = $dialog.find('.js-ag-transfer-container');
+      var agTransferView = new AgTransferView({
+        el: $transferContainer
+      }).render();
 
-    var agTransferView = new AgTransferView({
-      el: $transferContainer
-    }).render();
+      $dialog.on('hidden.modal', function() {
+        $(this).remove();
+        agTransferView.destroy();
+      });
 
-    $dialog.on('hidden.modal', function() {
-      $(this).remove();
-      agTransferView.destroy();
-    });
+      agTransferView.on('submit:complete', function() {
+        Global.m.oauth.check();
+        self.loadUserBalance();
+        $dialog.modal('hide');
+      });
+    } else {
+      Global.ui.notification.show('无转账权限，请联系在线客服。');
+    }
 
-    agTransferView.on('submit:complete', function() {
-      Global.m.oauth.check();
-      self.loadUserBalance();
-      $dialog.modal('hide');
-    });
   }
 });
 

@@ -102,7 +102,7 @@ var TopProfileView = Base.ItemView.extend({
 
             $dialog.modal('hide');
           } else {
-            Global.ui.notification.show(res.msg);
+            Global.ui.notification.show(res.msg === 'fail' ? '昵称重复' : res.msg);
           }
         });
       });
