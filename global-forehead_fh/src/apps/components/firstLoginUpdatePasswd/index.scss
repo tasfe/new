@@ -1,262 +1,243 @@
 @charset "UTF-8";
 
-.firstLoginUpdatePasswd{
-	font-family: '微软雅黑';
+.firstLoginUpdatePasswd {
+  font-family: '微软雅黑';
 
-	dl,dt,dd{
-		padding: 0px;
-		margin: 0px;
-	}
+  dl, dt, dd {
+    padding: 0px;
+    margin: 0px;
+  }
 
-	.mask{
-		position: fixed;
-		background: #000;
-		background: rgba(0, 0, 0, 0.5);
-		position: fixed;
-		top: 0px;
-		right: 0px;
-		bottom: 0px;
-		left: 0px;
-		z-index: 101;
-		margin-top: -50px;
-	}
-	.window2{
-		width: 700px;
-		height: 249px;
-		margin: 20% auto 0px auto;
-		background-color: #fff;
+  .mask {
+    position: fixed;
+    background: #000;
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    z-index: 101;
+    margin-top: -50px;
+  }
+  .window2 {
+    width: 700px;
+    height: 249px;
+    margin: 20% auto 0px auto;
+    background-color: #fff;
 
-		.title{
-			height: 40px;
-			padding: 0px 10px 0px 22px;
-			font-size: 16px;
-			color: #fff;
-			line-height: 40px;
+    .title {
+      height: 40px;
+      padding: 0px 10px 0px 22px;
+      font-size: 16px;
+      color: #fff;
+      line-height: 40px;
 
-  		background-image:linear-gradient(270deg,#3180c5,#be2a2a);
+      background-image: linear-gradient(270deg, #3180c5, #be2a2a);
+    }
 
-  		i{
-  			width: 24px;
-  			height: 24px;
-  			background: url(~base/images/julien/10.png) no-repeat;
-  			display: block;
-				float: right;
-				margin-top: 8px;
-				cursor: pointer;
-  		}
-		}
+    .line1 {
+      height: 62px;
+      line-height: 62px;
+      text-align: center;
+      color: #990000;
+      font-size: 18px;
+    }
 
-		.line1{
-			height: 62px;
-			line-height: 62px;
-			text-align: center;
-			color: #990000;
-			font-size: 18px;
-		}
+    .line2 {
+      color: #333333;
+      font-size: 14px;
+      text-align: center;
 
-		.line2{
-			color: #333333;
-			font-size: 14px;
-			text-align: center;
+      span {
+        color: #999999;
+        line-height: 40px;
+      }
+      a {
+        color: #0066cc;
+        text-decoration: underline;
+      }
+    }
 
-			span{
-				color: #999999;
-				line-height: 40px;
-			}
-			a{
-				color: #0066cc;
-				text-decoration: underline;
-			}
-		}
+    .line3 {
+      height: 76px;
+      border-top: 1px solid #e2e2e2;
+      margin: 0px 20px;
+      text-align: center;
+      margin-top: 15px;
 
-		.line3{
-			height: 76px;
-			border-top: 1px solid #e2e2e2;
-			margin: 0px 20px;
-			text-align: center;
-			margin-top: 15px;
+      a {
+        display: inline-block;
+        background-color: #cc0000;
+        height: 30px;
+        width: 100px;
+        color: #fff;
+        font-size: 16px;
+        border: 0px;
+        margin-top: 20px;
+        line-height: 30px;
+      }
+    }
 
-			a{
-				display: inline-block;
-				background-color: #cc0000;
-				height: 30px;
-				width: 100px;
-				color: #fff;
-				font-size: 16px;
-				border: 0px;
-				margin-top: 20px;
-				line-height: 30px;
-			}
-		}
+  }
 
-	}
+  .window {
+    width: 1020px;
+    height: 520px;
+    margin: 15% auto 0 auto;
+    background: url(bg.jpg) no-repeat right bottom #fff;
 
-	.window{
-		width: 1020px;
-		height: 520px;
-		margin: 15% auto 0 auto;
-		background: url(bg.jpg) no-repeat right bottom #fff;
+    .title {
+      height: 40px;
+      padding: 0px 10px 0px 22px;
+      font-size: 16px;
+      color: #fff;
+      line-height: 40px;
 
-		.title{
-			height: 40px;
-			padding: 0px 10px 0px 22px;
-			font-size: 16px;
-			color: #fff;
-			line-height: 40px;
+      background-image: -webkit-linear-gradient(270deg, #3180c5, #be2a2a);
+      background-image: linear-gradient(270deg, #3180c5, #be2a2a);
 
-			background-image:-webkit-linear-gradient(270deg, #3180c5, #be2a2a);
-  		background-image:linear-gradient(270deg,#3180c5,#be2a2a);
+    }
 
-  		i{
-  			width: 24px;
-  			height: 24px;
-  			background: url(~base/images/julien/10.png) no-repeat;
-  			display: block;
-				float: right;
-				margin-top: 8px;
-				cursor: pointer;
-  		}
-		}
+    .line1 {
+      height: 76px;
+      line-height: 76px;
+      border-bottom: 1px solid #e2e2e2;
+      margin: 0px 20px;
+      font-size: 18px;
+      color: #990000;
+      text-align: center;
+    }
 
-		.line1{
-			height: 76px;
-			line-height: 76px;
-			border-bottom: 1px solid #e2e2e2;
-			margin: 0px 20px;
-			font-size: 18px;
-			color: #990000;
-			text-align: center;
-		}
+    .line2 {
+      padding-top: 90px;
+      height: 190px;
+      color: #666666;
 
-		.line2{
-			padding-top: 90px;
-			height: 190px;
-			color: #666666;
+      input {
+        color: #bfbfbf;
+        border: 1px solid #ccc;
+        height: 26px;
+        width: 200px;
+        font-size: 14px;
+        background-color: #f7f7f7;
+      }
 
-			input{
-				color: #bfbfbf;
-				border: 1px solid #ccc;
-				height: 26px;
-				width: 200px;
-				font-size: 14px;
-				background-color: #f7f7f7;
-			}
+      dl {
+        margin-left: 190px;
+        margin-bottom: 19px;
 
-			dl{
-				margin-left: 190px;
-				margin-bottom: 19px;
+        dt {
+          height: 28px;
+          line-height: 28px;
+          width: 200px;
+          float: left;
+          text-align: right;
+          margin-right: 18px;
+          font-size: 14px;
+          font-weight: initial;
+        }
+        dd {
+          float: left;
+          text-align: left;
+          width: 400px;
+        }
 
-				dt{
-					height: 28px;
-					line-height: 28px;
-					width: 200px;
-					float: left;
-					text-align: right;
-					margin-right: 18px;
-					font-size: 14px;
-					font-weight: initial;
-				}
-				dd{
-					float: left;
-					text-align: left;
-					width: 400px;
-				}
+        &:after {
+          clear: both;
+          content: '';
+          display: block;
+        }
+      }
+    }
 
-				&:after{
-					clear: both;
-					content: '';
-					display: block;
-				}
-			}
-		}
+    .line3 {
+      height: 76px;
+      border-top: 1px solid #e2e2e2;
+      margin: 0px 20px;
+      text-align: center;
 
-		.line3{
-			height: 76px;
-			border-top: 1px solid #e2e2e2;
-			margin: 0px 20px;
-			text-align: center;
+      button {
+        background-color: #cc0000;
+        height: 30px;
+        width: 100px;
+        color: #fff;
+        font-size: 16px;
+        border: 0px;
+        margin-top: 40px;
+      }
+    }
 
-			button{
-				background-color: #cc0000;
-				height: 30px;
-				width: 100px;
-				color: #fff;
-				font-size: 16px;
-				border: 0px;
-				margin-top: 40px;
-			}
-		}
+    .passwdSafetyTips {
+      padding-left: 408px;
+      color: #999999;
+      text-align: left;
+      margin-top: -18px;
 
-		.passwdSafetyTips{
-	        padding-left: 408px;
-	        color: #999999;
-	        text-align: left;
-	        margin-top: -18px;
+      span {
+        display: inline-block;
+        width: 69px;
+        height: 20px;
+        margin: 0px;
+        border: 1px solid #fff;
+        background-color: #e7e7e7;
+        float: left;
+        font-size: 12px;
+        text-align: center;
+        color: #fff;
+      }
 
-	        span{
-	          display: inline-block;
-	          width: 69px;
-	          height: 20px;
-	          margin: 0px;
-	          border: 1px solid #fff;
-	          background-color: #e7e7e7;
-	          float: left;
-	          font-size: 12px;
-	          text-align: center;
-	          color: #fff;
-	        }
+      p {
+        clear: both;
+        font-size: 12px;
+      }
 
-	        p{
-	          clear: both;
-	          font-size: 12px;
-	        }
+      span.s1 {
+        background-color: #ff6600;
+      }
+      span.s2 {
+        background-color: #ff9900;
+      }
+      span.s3 {
+        background-color: #339900;
+      }
 
-	        span.s1{
-	          background-color: #ff6600;
-	        }
-	        span.s2{
-	          background-color: #ff9900;
-	        }
-	        span.s3{
-	          background-color: #339900;
-	        }
+      p.s1 {
+        padding-top: 5px;
+        color: #ff6600;
+      }
+      p.s2 {
+        color: #ff9900;
+      }
+      p.s3 {
+        color: #339900;
+      }
 
-	        p.s1{
-	          color: #ff6600;
-	        }
-	        p.s2{
-	          color: #ff9900;
-	        }
-	        p.s3{
-	          color: #339900;
-	        }
+      b {
+        margin-left: 10px;
+        color: #fff;
+        height: 20px;
+        width: 20px;
+        display: inline-block;
+        line-height: 20px;
+        text-align: center;
+        border-radius: 2px;
+      }
 
+      b.s1 {
+        background-color: #ff6600;
+      }
+      b.s2 {
+        background-color: #ff9900;
+      }
+      b.s3 {
+        background-color: #99cc33;
+      }
+    }
 
-	        b{
-	          margin-left: 10px;
-	          color: #fff;
-	          height: 20px;
-	          width: 20px;
-	          display: inline-block;
-	          line-height: 20px;
-	          text-align: center;
-	          border-radius: 2px;
-	        }
-
-	        b.s1{
-	          background-color: #ff6600;
-	        }
-	        b.s2{
-	          background-color: #ff9900;
-	        }
-	        b.s3{
-	          background-color: #99cc33;
-	        }
-	      }
-
-	  .errorTips{
-	  	color:#cc0000;
-	  	text-align:center;
-	  }
-	}
+    .errorTips {
+      color: #cc0000;
+      text-align: center;
+    }
+  }
 }

@@ -9,17 +9,22 @@ html, body {
   text-align: center;
   color: #555555;
   font-size: 20px;
+  background-color: #f8f8f8;
 }
 .main-404-div2 {
   height: 100%;
   padding-bottom: 269px;
-  background-image: url('backgroud.png') ;
+  //background-image: url('backgroud-bak.png') ;
+  background-color: #f8f8f8;
 }
 .not-found-main-div{
   position: relative;
+  width: 845px;
+  height: 420px;
   top: 50%;
   margin: 0 auto;
   margin-top: -269px;
+  background-image: url('backgroud.png');
   .not-found-404 {
     font-size: 320px;
     line-height: 100%;

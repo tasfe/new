@@ -8,7 +8,8 @@ ZeroClipboard.config({swfPath: swfUrl});
 $.widget('gl.textCopy', {
 
   options: {
-    textEl: null
+    textEl: null,
+    onCopy: _.noop
   },
 
   _create: function() {
@@ -48,6 +49,8 @@ $.widget('gl.textCopy', {
           self.element.off('hide.tooltip');
         });
       }
+
+      self.options.onCopy();
     });
   }
 });

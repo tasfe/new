@@ -114,8 +114,9 @@ var InsideLetterView = Base.ItemView.extend({
       if (data.parent) {
         newMsg += data.parent.newMsgNum;
       }
-      _(data.subList).reduce(function(newMsg, subInfo) {
-        return newMsg += subInfo.newMsgNum;
+      newMsg = _(data.subList).reduce(function(newMsg, subInfo) {
+        newMsg += subInfo.newMsgNum;
+        return newMsg;
       }, newMsg);
 
       self.$chatNotice.text(newMsg).toggleClass('hidden', !newMsg);

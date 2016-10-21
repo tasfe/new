@@ -53,13 +53,17 @@ var TopProfileView = Base.ItemView.extend({
     }
 
     this.$avatar.addClass('avatar-' + acctInfo.headId);
+    this.$avatar.attr('data-type', acctInfo.headId);
   },
 
   //event handlers
 
-  editIconsHandler: function() {
+  editIconsHandler: function(e) {
     var self = this;
-    $(document).editIcons();
+    var $target = $(e.currentTarget);
+    var headId = $target.attr("data-type");
+
+    $(document).editIcons({headId:headId});
   },
 
   editUNameHandler: function() {

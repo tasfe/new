@@ -1,0 +1,54 @@
+@charset "UTF-8";
+
+@import
+"~base/styles/imports";
+
+$quick-entry-width: 128px;
+$quick-entry-height: 30px;
+$quick-vertical-margin: 2px;
+
+$quickEntry-active-bg-color: #057c86 !default;
+$quickEntryPaddingTop: 6px !default;
+$quickEntryPaddingX: 5px !default;
+
+$activity-item-wh: 58px;
+
+.shortcut-contain{
+  height: 0px;
+  position: relative;
+  width: 1200px;
+  margin: 0 auto;
+
+  .shortcut-right{
+    position: absolute;
+    right: -60px;
+    width: $activity-item-wh;
+    top: 750px;
+  }
+  .entry-group{
+    position:relative;
+  }
+  .activity-item{
+    cursor: pointer;
+    position: absolute;
+    bottom: 0;
+    display: block;
+    width: $activity-item-wh;
+    height: $activity-item-wh;
+    background-color: #0b93d5;
+  }
+  //活动图标
+  //红包活动按钮
+  .redpacket-btn{
+    width:123px;
+    height:121px;
+    background: url("images/redpacket.gif");
+    -webkit-background-size:123px 121px;
+    background-size:123px 121px;
+  }
+  .redpacket-btn-op{
+    background:url("images/redpacket-op.png");
+    -webkit-background-size:123px 121px;
+    background-size:123px 121px;
+  }
+}

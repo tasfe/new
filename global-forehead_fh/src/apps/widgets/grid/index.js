@@ -7,7 +7,7 @@ $.widget('gl.grid', {
 
   options: {
     checkable: true,
-    checkableWidth: '1%',
+    checkableWidth: '2.5%',
     chkAllId: 'chkAll',
     namespace: 'glGrid',
     tableClass: 'table table-bordered ',
@@ -228,45 +228,10 @@ $.widget('gl.grid', {
       this.$footerBody.append(html);
     }
 
-    return this;
-  },
-
-  addFooterRows2: function(rows) {
-    $('.js-julien-floot').remove();
-    if (rows.iIs == 1) {
-      var html = '<table class="table table-bordered table-no-lr table-center js-julien-floot ' + rows.trClass + '" >';
-
-      html += '<colgroup><col width="10%"><col width="10%"><col width="10%"><col width="10%"></colgroup>';
-      html += '<tbody><tr class="tr-footer"><td class="brw"></td><td class="brw"></td><td><span>' + rows.columnEls[0] + '</span></td><td class="price">' + rows.columnEls[1] + '</td></tr></tbody></table>'
-
-      this.$bodyDiv.append(html);
+    if (this.$footerBody.height()) {
+      this.$footerDiv.css('height', this.$footerBody.height());
     }
-    return this;
-  },
 
-  addFooterRows3: function(rows) {
-    $('.js-julien-floot').remove();
-    if (rows.iIs == 1) {
-      var html = '<table class="table table-bordered table-no-lr table-center js-julien-floot ' + rows.trClass + '" >';
-
-      html += '<colgroup><col width="15%"><col width="15%"><col width="15%"><col width="15%"><col width="15%"><col width="25%"></colgroup>';
-      html += '<tbody><tr class="tr-footer"><td>' + rows.columnEls[0] + '</td><td class="price2">' + rows.columnEls[1] + '</td><td></td><td></td><td class="price">' + rows.columnEls[2] + '</td><td></td></tr></tbody></table>'
-
-      this.$bodyDiv.append(html);
-    }
-    return this;
-  },
-
-  addFooterRows4: function(rows) {
-    $('.js-julien-floot').remove();
-    if (rows.iIs == 1) {
-      var html = '<table class="table table-bordered table-no-lr table-center js-julien-floot ' + rows.trClass + '" >';
-
-      html += '<colgroup><col><col width="12%"><col width="12%"><col width="15%"><col width="15%"><col width="6%"><col width="12%"><col width="12%"><col width="12%"></colgroup>';
-      html += '<tbody><tr class="tr-footer"><td></td><td>' + rows.columnEls[0] + '</td><td></td><td></td><td></td><td></td><td class="price">' + rows.columnEls[1] + '</td><td></td><td></td></tr></tbody></table>'
-
-      this.$bodyDiv.append(html);
-    }
     return this;
   },
 
@@ -420,6 +385,7 @@ $.widget('gl.grid', {
       id = rowData.id || _.uniqueId(this.options.namespace + 'chk'),
       columnEls = rowData.columnEls || [],
       dataAttr = rowData.dataAttr || {},
+      needCheck =  _(rowData.needCheck).isBoolean() ? rowData.needCheck : true ,
       i;
 
     html.push('<tr');
@@ -437,7 +403,7 @@ $.widget('gl.grid', {
     if (this.options.checkable) {
       html.push('<td>');
 
-      if (rowType !== 'footer') {
+      if (rowType !== 'footer' && needCheck ){
         html.push('<div class="custom-checkbox">');
         html.push('<input type="checkbox" id="' + id + '" class="inbox-check">');
         html.push('<label class="checkbox-label" for="' + id + '"></label>');

@@ -32,7 +32,7 @@ exports.install = function() {
 
     'ac/dm': 'dividendManage', //分红管理
     'ac/rp': 'redPacket', //红包查询,
-    'ac/cs': 'commissionStatistics',
+    // 'ac/cs': 'commissionStatistics',
     'ac/rm/rr/:tabName': 'rechargeRecords4Report', //充值记录
     'ac/rm/wr/:tabName': 'withdrawRecords4Report', //提现记录
    // 'ac/rm/ar/:userId': 'activeRecords4Report', //活动记录
