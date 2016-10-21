@@ -1,7 +1,5 @@
 "use strict";
 
-require('./style.scss');
-
 var SearchGrid = require('com/searchGrid');
 
 
