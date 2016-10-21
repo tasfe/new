@@ -53,17 +53,6 @@
   cursor: pointer;
 }
 
-
-
-
-
-.ag-transfor-dialog{
-  background-color: #ffffff;
-  overflow: hidden;
-  height: 400px;
-  padding: 0px;
-}
-
 .ag-transfer-content{
   background: url("~skeleton/bases/header/affiche_bg.png") no-repeat 250px 0px;
   height: 390px;
@@ -145,7 +134,23 @@
     width: 62px;
     left: 40px;
     top: 12px;
-
   }
+}
 
+.ag-maintain {
+  margin: 0 10px 10px 20px;
+  .maintain-icon {
+    margin-right: 40px;
+    width:237px;
+    height: 234px;
+  }
+  .maintain-title {
+    font-size: 24px;
+    margin-top: 70px;
+    margin-bottom: 10px;
+  }
+  .maintain-content {
+    color: #b9b9b9;
+    font-size: $font-md;
+  }
 }

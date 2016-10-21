@@ -228,7 +228,9 @@ $.widget('gl.grid', {
       this.$footerBody.append(html);
     }
 
-    this.$footerDiv.css('height', this.$footerBody.height());
+    if (this.$footerBody.height()) {
+      this.$footerDiv.css('height', this.$footerBody.height());
+    }
 
     return this;
   },
