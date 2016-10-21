@@ -327,13 +327,16 @@
     }
 
     &.red-bg {
-      background: #cc3432;
+      background: #CD3333;
       color: #ffffff;
       border: none;
       opacity:0.8;
       span {
         color: #ffffff;
       }
+    }
+    &.ac-td-statistic-item-right{
+      margin-right: 0px;
     }
   }
 }

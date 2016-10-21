@@ -299,7 +299,6 @@
   .uc-bind-card-model-border{
     border-top: 1px solid #cccccc;
     margin-bottom: 20px;
-    margin-top: 10px;
     width: 570px;
     margin-left: 5px;
   }
@@ -309,6 +308,9 @@
   }
   .uc-band-card-bind{
     margin-bottom: 20px;
+  }
+  .uc-card-band-line-bigSize{
+    margin-top:20px;
   }
 }
 
@@ -952,7 +954,7 @@
     overflow: visible;
     .uc-cbCardBindingForm {
       margin: 0;
-      padding-top: 40px;
+      padding-top: 30px;
     }
   }
 

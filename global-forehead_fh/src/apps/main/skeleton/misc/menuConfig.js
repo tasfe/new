@@ -149,11 +149,6 @@ var menuConfig = [
         name: '全部活动'
       },
       {
-        id: 191,
-        router: 'at/ag',
-        name: '代理活动'
-      },
-      {
         id: 192,
         router: 'at/ti',
         name: '彩票活动'
