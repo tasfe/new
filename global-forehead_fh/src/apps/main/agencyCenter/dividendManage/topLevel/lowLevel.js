@@ -146,7 +146,8 @@ var LowLevelView = SearchGrid.extend({
       return {
         id: info.dividId,
         columnEls: this.formatRowData(info, index, list),
-        dataAttr: info
+        dataAttr: info,
+        needCheck: info.status === grantConfig.getByName('WAIT').id
       };
     }, this);
 
