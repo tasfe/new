@@ -569,6 +569,7 @@ $.widget('gl.resetPassword', {
   },
 
   openMoneyPasswdTips:function(){
+    $('.panel02').addClass('hidden');
     $('.js-moneyPasswdTips').removeClass('hidden');
   },
 
