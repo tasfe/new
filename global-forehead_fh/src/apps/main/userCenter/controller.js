@@ -97,7 +97,6 @@ var UserCenterController = RouterController.extend({
     var self = this;
     Global.m.states.check()
       .once('check:complete', function(model) {
-        var hasMoneyPwd = model.get('hasMoneyPwd');
         if (model.get('hasMoneyPwd')) {
           self.changeMainReginView(new CardManageView(), {
             sidebar: 'pc',
@@ -112,18 +111,6 @@ var UserCenterController = RouterController.extend({
           });
         }
       });
-    // this.checkPayPwdXhr()
-    //   .done(function(res) {
-    //     if(res && res.result === 0) {
-    //       //设置了则弹出验证框
-    //       $(document).verifyFundPwd({
-    //         onValidated: function() {
-    //         }
-    //       });
-    //     } else if(res && res.result === 1) {
-    //       //未设置则弹出链接到资金密码设置页面的提示框
-    //     }
-    //   });
   },
 
   priceDetails: function() {

@@ -186,9 +186,7 @@ define(function (require, exports, module) {
               Global.ui.notification.show("绑定成功。", {
                 type: 'success'
               });
-              Global.memoryCache.set('hasBeenVerified','true');
-              //Global.router.back();
-              //Global.appRouter.navigate(_('#uc/cm').addHrefArgs('_t', _.now()), {trigger: true, replace: false});
+              Global.m.states.fetch();
               $dialog.modal('hide');
               self.options.parentView.render();
             } else {

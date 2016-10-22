@@ -23,6 +23,10 @@ var findPwdView = Base.ItemView.extend({
     'click .js-as-confirmEmail-submit': 'inputEmailHandler'
   },
 
+  serializeData: function() {
+    return this.options;
+  },
+
   _getRechargeInfoXhr: function(){
     return Global.sync.ajax({
       url:'/fund/recharge/rechargetype.json'
@@ -175,7 +179,7 @@ var findPwdView = Base.ItemView.extend({
   _reverseCountDown:function () {
     var $countdown = this.$('.js-as-resend-countdown');
     var $resendBtn = this.$('.js-as-resendEmail');
-    $countdown.html(50);
+    $countdown.html(120);
     $resendBtn.attr("disabled","disabled");
 
     var emailTime = setInterval(function(){
@@ -224,7 +228,6 @@ var findPwdView = Base.ItemView.extend({
       $target.button('reset');
     }).done(function(res) {
       if (res && res.result === 0) {
-        self.$('.js-as-resetFundPassword-submit').data('type',res.root);
         $findFundPasswordContainer.steps('goTo', 2);
       }else {
         Global.ui.notification.show(res.msg);
@@ -295,8 +298,10 @@ var findPwdView = Base.ItemView.extend({
         $target.button('reset');
       }).done(function (res) {
         if (res && res.result === 0) {
+          //保存安全问题token
+          self.securityToken = res.root;
+
           //设置验证token到页面，用于重置资金密码
-          self.$('.js-as-resetFundPassword-submit').data('type', res.root);
           $findFundPasswordContainer.steps('goTo', 1);
           if (action === 'ci') {
             self.$('.js-as-securityNotice').html('为了您的账户安全，请提供最近的一次银行卡绑定信息资料');
@@ -304,15 +309,7 @@ var findPwdView = Base.ItemView.extend({
             self._sendEmail();
           }
         } else {
-          if(res.root!=null&&_(res.root).isNumber()) {
-            if(res.root>0){
-              self.$('.js-ac-valSQNotice-div').html(self._getErrorMsg('验证失败,剩余' + res.root + '次机会。'));
-            }else{
-              self.$('.js-ac-valSQNotice-div').html(self._getErrorMsg('验证失败,请一个小时后再验证！'));
-            }
-          }else{
-            self.$('.js-ac-valSQNotice-div').html(self._getErrorMsg('验证失败,' + res.msg));
-          }
+          self.$('.js-ac-sqNotice-div').html(self._getErrorMsg('验证失败,' + res.msg));
         }
       });
     }
@@ -337,21 +334,13 @@ var findPwdView = Base.ItemView.extend({
         $target.button('reset');
       }).done(function(res) {
         if (res && res.result === 0) {
+          //保存银行token
+          self.cardToken = res.root;
           //设置验证token到页面，用于重置资金密码
-          self.$('.js-as-resetFundPassword-submit').data('type', res.root);
           $findFundPasswordContainer.steps('goTo', 2);
           self.$('#newFundPassword').bind('keyup', this, self.validatePwdHandler);
         } else {
-          //fail,验证失败则提示验证失败
-          if(res.root!=null&&_(res.root).isNumber()) {
-            if(res.root>0){
-              self.$('.js-ac-valCardNotice-div').html(self._getErrorMsg('验证失败,剩余' + res.root + '次机会。'));
-            }else{
-              self.$('.js-ac-valCardNotice-div').html(self._getErrorMsg('验证失败,请一个小时后再验证！'));
-            }
-          }else{
-            self.$('.js-ac-valCardNotice-div').html(self._getErrorMsg('验证失败,' + res.msg));
-          }
+            self.$('.js-ac-sqNotice-div').html(self._getErrorMsg('验证失败,' + res.msg));
         }
       });
     }
@@ -360,7 +349,6 @@ var findPwdView = Base.ItemView.extend({
   resetFundPasswordHandler: function (e) {
     var self = this;
     var $target = $(e.currentTarget);
-    var type = $target.data('type'); //token 存放在按钮的data-type中
     var $resetForm = this.$('.js-ac-reset-form');
     var $findFundPasswordContainer = this.$('.js-as-stepContainer');
     var clpValidate = $resetForm.parsley().validate();
@@ -368,10 +356,12 @@ var findPwdView = Base.ItemView.extend({
     if (clpValidate) {
       $target.button('loading');
       Global.sync.ajax({
-        url: '/fund/moneypd/updatepaypwd.json',
+        url: '/fund/moneypd/reset.json',
         data: {
-          payPwd: self.$('#newFundPassword').val(),
-          pwdToken: type
+          passwd: self.$('#newFundPassword').val(),
+          securityToken: self.securityToken,
+          cardToken: self.cardToken,
+          emailToken: self.emailToken
         }
       }).always(function () {
         $target.button('reset');
@@ -398,9 +388,9 @@ var findPwdView = Base.ItemView.extend({
 
   //组装错误提示框
   _getErrorMsg: function (text) {
-    return '<ul class="parsley-errors-list filled font-sm text-center m-top-smd">' +
-      '<li class="login-error-message parsley-required">' + text + '</li>' +
-      '</ul>';
+    return '<div class="parsley-errors-list filled font-sm text-center m-top-smd">' +
+      '<span class="login-error-message parsley-required">' + text + '</span>' +
+      '</div>';
   }
 });
 

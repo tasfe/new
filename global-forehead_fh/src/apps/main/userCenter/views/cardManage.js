@@ -73,15 +73,7 @@ var CardManageView = Base.ItemView.extend({
 
   onRender: function() {
 
-    var self = this;
     this.$validateError = this.$('.js-uc-cmValPayPwdNotice');
-    // this.hasBeenVerified = Global.memoryCache.get('hasBeenVerified');
-
-    //if(!this.hasBeenVerified) {
-    //  //判断是否设置资金密码
-    //
-    //} else {
-    //  Global.memoryCache.clear('hasBeenVerified');
     this.initializeCardManagePage();
     this.loadingFinish();
     //}
