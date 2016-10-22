@@ -106,7 +106,7 @@ var FundPwdView = Base.ItemView.extend({
     var self = this;
     var $target = $(e.currentTarget);
     var type = $target.data('type');
-    var clpValidate = this.$setFundPasswordForm.parsley().validate();
+    var clpValidate = this.$setFundPasswordForm.parsley(Global.validator.getInlineErrorConfig()).validate();
 
     if (clpValidate) {
       $target.button('loading');

@@ -130,7 +130,7 @@ var ValidatorModule = Base.Module.extend({
   getInlineErrorConfig: function() {
     return {
       errorsWrapper: '<div class="tooltip right parsley-errors-list filled-inline tooltip-error ellipsis"><div class="tooltip-arrow"></div></div>',
-      errorTemplate: '<div class="tooltip-inner">'
+      errorTemplate: '<div class="tooltip-inner parsley-error">'
     };
   }
 });

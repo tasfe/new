@@ -10,7 +10,7 @@ var EmailBindingView = Base.ItemView.extend({
   onRender: function() {
     var self = this;
 
-    this.subscribe('states', 'states:updating', function(model) {
+    this.subscribe('states', 'states:updating', function onceSubscribe(model) {
       var states = model.toJSON();
       var view;
       if (states.hasEmail) {
@@ -21,6 +21,7 @@ var EmailBindingView = Base.ItemView.extend({
         view = new NewView().render();
       }
       self.$el.html(view.el);
+      self.unSubscribe('states', 'states:updating', onceSubscribe);
     });
   }
 });

@@ -54,6 +54,7 @@ $.widget('gl.resetPassword', {
       'click .js-rp-setLPBtn': 'setLPHandler',//设置登录密码
       'click .js-reset': 'reset',//清空登录密码
       'click .js-rp-verifyFPBtn': 'verifyFPHandler',//验证资金密码
+      'click .js-rp-verifyFPBtn-black': 'moneyPasswdTipsBlack',//安全问题返回
       'click .js-emailFind-black': 'emailFindBlack',//从安全邮箱找回页返回
       'click .js-open-safetyEmail': 'openSafetyEmail',//打开安全邮箱页
       'click .js-panel02-black': 'blackToPanel01',//返回到板块1
@@ -283,6 +284,12 @@ $.widget('gl.resetPassword', {
   safetyProblemBlack: function(){
     $('.js-safety-problem').addClass('hidden');
     $('.panel02').removeClass('hidden');
+  },
+
+  moneyPasswdTipsBlack: function(){
+    $('.js-moneyPasswdTips').addClass('hidden');
+    $('.panel02').removeClass('hidden');
+    $('.js-moneyPassord').removeClass('wrong');
   },
 
   reset: function () {
