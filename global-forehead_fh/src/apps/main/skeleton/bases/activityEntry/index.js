@@ -31,7 +31,7 @@ var ActivityEntryView = Base.ItemView.extend({
   //检查是否为博彩页面，不是隐藏活动入口
   checkEntryShow: function(){
     var strHash = document.location.hash;
-    console.log(strHash.slice(1,3));
+    // console.log(strHash.slice(1,3));
     if (strHash.slice(1,3) == 'bc') {
       $('.activity-entry-container').removeClass('hidden');
     }else{
@@ -42,7 +42,7 @@ var ActivityEntryView = Base.ItemView.extend({
   checkRedPacketState: function(){
     var self = this;
     this.getRedpacketInfoXhr().done(function(res){
-      console.log(res);
+      // console.log(res);
       if(res && res.result == 0){
         var data = res.root;
         if(data.status!=0){

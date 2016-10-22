@@ -163,77 +163,67 @@ var SettingEmail = Base.ItemView.extend({
   },
 
   _reverseOldCountDown: function() {
+    var self = this;
+
     var $countdown = this.$('.js-as-old-resend-countdown');
     var $resendBtn = this.$('.js-as-old-resendEmail');
     $countdown.html(120);
-    $resendBtn.attr("disabled", "disabled");
+    $resendBtn.prop('disabled', true).text('重新发送邮件');
 
-    var emailTime = setInterval(function() {
+    clearInterval(this.oldEmailTimer);
+
+    this.oldEmailTimer = setInterval(function(){
       var num = $countdown.html() - 1;
-      if($countdown.html() == 0) {
-        clearInterval(emailTime);
-        $resendBtn.removeAttr("disabled");
+      if ($countdown.html() == 0) {
+        clearInterval(self.oldEmailTimer);
+        $resendBtn.prop('disabled', false);
         $countdown.html(0);
-      } else {
+      }else{
         $countdown.html(num);
       }
     }, 1000);
   },
 
   _reverseCountDown: function() {
+    var self = this;
     var $countdown = this.$('.js-as-resend-countdown');
     var $resendBtn = this.$('.js-as-resendEmail');
     $countdown.html(120);
-    $resendBtn.attr("disabled", "disabled");
+    $resendBtn.prop('disabled', true).text('重新发送邮件');
 
-    var emailTime = setInterval(function() {
+    clearInterval(this.emailTime);
+
+    this.emailTimer = setInterval(function(){
       var num = $countdown.html() - 1;
-      if($countdown.html() == 0) {
-        clearInterval(emailTime);
-        $resendBtn.removeAttr("disabled");
+      if ($countdown.html() == 0) {
+        clearInterval(self.emailTimer);
+        $resendBtn.prop('disabled', false);
         $countdown.html(0);
-      } else {
+      }else{
         $countdown.html(num);
       }
     }, 1000);
   },
 
   resendOldEmailHandler: function(e) {
-    var self = this;
-    var $target = $(e.currentTarget);
-    $target.button('loading');
+    this._reverseOldCountDown();
     Global.sync.ajax({
       url: '/acct/email/modsend.json'
-    })
-      .always(function() {
-        $target.button('reset');
-      })
-      .done(function(res) {
-        if(res && res.result === 0) {
-          self._reverseOldCountDown();
-        }
-      });
+    });
   },
 
   resendEmailHandler: function(e) {
     var self = this;
-    var $target = $(e.currentTarget);
-    $target.button('loading');
+
+    self._reverseCountDown();
+
     Global.sync.ajax({
       url: '/acct/email/newmodsend.json',
       data: {
         emailToken: this.emailToken,
         email: this.email
       }
-    })
-      .always(function() {
-        $target.button('reset');
-      })
-      .done(function(res) {
-        if(res && res.result === 0) {
-          self._reverseCountDown();
-        }
-      });
+    });
   },
 
   returnHandler: function(e) {

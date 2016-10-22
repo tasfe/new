@@ -70,7 +70,6 @@ var SettingEmail = Base.ItemView.extend({
       if(res && res.result === 0) {
         self.email = email;
         self.$('.js-as-email-res').text(res.root);
-        // self._reverseCountDown();
         self.$('.js-as-stepContainer').steps('next');
       } else {
         ParsleyUI.addError(inputParsley, 'remoteError', res.msg);
@@ -89,10 +88,11 @@ var SettingEmail = Base.ItemView.extend({
     var parsley = $form.parsley(Global.validator.getInlineErrorConfig());
     var inputParsley = $form.find('[name=code]').parsley();
 
+    ParsleyUI.removeError(inputParsley, 'remoteError');
+
     if (!parsley.validate()) {
       return false;
     }
-    ParsleyUI.removeError(inputParsley, 'remoteError');
 
     $target.button('loading');
 
@@ -118,41 +118,36 @@ var SettingEmail = Base.ItemView.extend({
   },
 
   _reverseCountDown: function() {
+    var self = this;
     var $countdown = this.$('.js-as-resend-countdown');
     var $resendBtn = this.$('.js-as-resendEmail');
     $countdown.html(120);
-    $resendBtn.attr("disabled", "disabled");
+    $resendBtn.prop('disabled', true).text('重新发送邮件');
 
-    var emailTime = setInterval(function() {
+    clearInterval(this.emailTime);
+
+    this.emailTimer = setInterval(function(){
       var num = $countdown.html() - 1;
-      if($countdown.html() == 0) {
-        clearInterval(emailTime);
-        $resendBtn.removeAttr("disabled");
+      if ($countdown.html() == 0) {
+        clearInterval(self.emailTimer);
+        $resendBtn.prop('disabled', false);
         $countdown.html(0);
-      } else {
+      }else{
         $countdown.html(num);
       }
     }, 1000);
   },
 
   resendEmailHandler: function(e) {
-    var self = this;
-    var $target = $(e.currentTarget);
-    $target.button('loading');
+
+    this._reverseCountDown();
+
     Global.sync.ajax({
       url: '/acct/email/newsend.json',
       data: {
         email: this.email
       }
-    })
-      .always(function() {
-        $target.button('reset');
-      })
-      .done(function(res) {
-        if(res && res.result === 0) {
-          self._reverseCountDown();
-        }
-      });
+    });
   },
 
   returnHandler: function(e) {
