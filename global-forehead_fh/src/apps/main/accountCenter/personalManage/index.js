@@ -15,10 +15,10 @@ var PersonalManageView = Base.ItemView.extend({
 
   template: require('./index.html'),
 
-
-
   onRender: function() {
     var self = this;
+    var MainView;
+
     this.$mainContent = this.$('.js-personal-main');
     this.options.type = this.options.type ? this.options.type : 'info';
 
@@ -27,9 +27,22 @@ var PersonalManageView = Base.ItemView.extend({
     this.$security = this.$('.js-ac-security');
     this.$email = this.$('.js-ac-email');
 
-    var MainView = viewList[this.options.type];
+      Global.m.states.check()
+        .once('check:complete', function(model) {
+          if (self.options.type === 'securityQuestion') {
+            var info = model.pick('hasMoneyPwd', 'hasBankCard');
+            if (info.hasMoneyPwd && info.hasBankCard) {
+              MainView = viewList[self.options.type];
+              self.$mainContent.html(new MainView().render().$el);
+            } else {
+              $(document).securityCheck(info);
+            }
+          } else {
+            MainView = viewList[self.options.type];
+            self.$mainContent.html(new MainView(model.toJSON()).render().$el);
+          }
+        });
 
-    this.$mainContent.html(new MainView().render().$el);
 
     this.subscribe('states', 'states:updating', function(model) {
       self.renderStates(model);

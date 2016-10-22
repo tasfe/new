@@ -13,6 +13,7 @@ import * as FundAction from  'redux/modules/User/fundPwd'
 import { routerActions } from 'react-router-redux';
 import { cookie } from 'storeUtil'
 import BankConfig from 'modules/User/modules/Bankcard/bankConfig'
+import { setLeftButton } from 'redux/modules/toolbar'
 import Tile from 'components/Tile'
 
 @connect(
@@ -24,7 +25,8 @@ import Tile from 'components/Tile'
     ...actions,
     ...BankCardAction,
     ...FundAction,
-    pushState: routerActions.push
+    pushState: routerActions.push,
+    setLeftButton
   }
 )
 @WithStyles(styles)
@@ -32,19 +34,7 @@ class Recharge extends Page {
 
   constructor () {
     super()
-    this.state={paymentList: {}};
-    this.tileStyle = {
-      tile1: {
-        background: '#fbc02d',
-        color: '#fff',
-        width: '98%'
-      },
-      tile2: {
-        background: '#ffa000',
-        color: '#fff',
-        width: '98%'
-      }
-    };
+    this.state = {paymentList: {}};
   }
 
   componentWillMount() {
@@ -62,8 +52,8 @@ class Recharge extends Page {
         self.setState({
           loadSucc: res,
           paymentList: res.root.paymentList,
-          hasBankCard: res.root.hasBankCard,
-          hasMoneyPwd: res.root.hasMoneyPwd,
+          // hasBankCard: res.root.hasBankCard,
+          // hasMoneyPwd: res.root.hasMoneyPwd,
           fields: fields
         });
 
@@ -83,6 +73,7 @@ class Recharge extends Page {
  
   componentDidMount () {
     this.props.setTitle('充值')
+    this.props.setLeftButton(true);
     //this.verify(['moneyPassword'])
   }
 
@@ -94,47 +85,18 @@ class Recharge extends Page {
   render () {
     let self = this;
     let loadSucc = this.state.loadSucc;
-    let hasMoneyPwd = this.state.hasMoneyPwd;
-    let hasBankCard = this.state.hasBankCard;
     let children = this.props.children;
     let checkError = this.state.checkError;
     let dis = 'none';
 
     let token = cookie.getCookie('user_token') || '';
 
-    if (!_.isUndefined(hasBankCard) && !hasBankCard) {
-      console.log('没有银行卡');
-      this.tile1Config = {
-        title: '您还未绑定银行卡，无法进行提现操作',
-        content: '前去绑定银行卡 >',
-        onclick: () => {
-          window.setTimeout(function () {
-            self.props.pushState('/user/bankcard');
-          }, 800);
-        }
-      };
-    }
-
-    if (!_.isUndefined(hasMoneyPwd) && !hasMoneyPwd) {
-      console.log('没有资金密码');
-      this.tile2Config = {
-        title: '您还未设置资金密码，无法进行提现操作',
-        content: '前去设置资金密码 >',
-        onclick: () => {
-          window.setTimeout(function () {
-            self.props.pushState('/user/pm?tabindex=1');
-          }, 800);
-
-        }
-      };
-    }
-
     this.tabConfig = {
       fields: this.state.fields
     }
 
     return (<div>
-      {loadSucc && hasMoneyPwd && hasBankCard &&
+      {loadSucc &&
       <div>
         <div className="f-recharge-tab">
           {!_(this.tabConfig.fields).isEmpty() &&
@@ -192,24 +154,6 @@ class Recharge extends Page {
         </form>
         </div>
       }
-
-      {this.tile1Config? <Tile config={this.tile1Config} tileStyle={this.tileStyle.tile1} /> : ''}
-      {this.tile2Config? <Tile config={this.tile2Config} tileStyle={this.tileStyle.tile2} /> : ''}
-      { /*<div className="f-recharge-absolute-div">
-          {!hasMoneyPwd &&
-          <div>
-            <span className="f-recharge-setNotice-span">请先设置资金密码</span>
-            <a className="f-recharge-setNotice-a btn btn-wave border-radius waves-light" href="/#/user/pm">去设置</a>
-          </div>
-          }
-          {!hasBankCard &&
-          <div>
-            <span className="f-recharge-setNotice-span">请先绑定银行卡</span>
-            <a className="f-recharge-setNotice-a btn btn-wave " href="/#/user/bankcard">去绑定</a>
-          </div>
-          }
-        </div>*/}
-
       </div>)
   }
 

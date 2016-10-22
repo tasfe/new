@@ -94,7 +94,6 @@ var TransferView = Base.ItemView.extend({
         self.loadingFinish();
       })
       .done(function (res) {
-        console.log(res);
         if (res && res.result === 0 && res.root) {
           self.$form.removeClass('hidden');
           // if (res.root.pStatus === 1 && res.root.sStatus === 1) {

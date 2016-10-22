@@ -1,5 +1,6 @@
 require('./confirm');
 require('./securityTip');
+require('./securityCheck');
 require('./pagination');
 require('./grid');
 require('./staticGrid');

@@ -90,6 +90,7 @@ var PersonalManageView = Base.ItemView.extend({
                 title: '设置成功',
                 content: '个人资料信息设置成功'
               }));
+              Global.m.states.fetch();
               // Global.ui.notification.show('修改个人信息成功', {
               //   type: 'success'
               // });

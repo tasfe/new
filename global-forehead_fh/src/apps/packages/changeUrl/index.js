@@ -7,7 +7,7 @@ $.widget('gl.changeUrl', {
 
   template: require('./index.html'),
 
-  getServerListXdr:function () {
+  getServerListXhr:function () {
     return Global.sync.ajax({
       url: '/info/urls/list.json'
     });
@@ -56,10 +56,9 @@ $.widget('gl.changeUrl', {
     var showIndex = 0;
     var linList = [];
 
-    this.getServerListXdr()
+    this.getServerListXhr()
         .done(function (res) {
           if(res.result === 0){
-            console.log(JSON.stringify(res));
             var servers = res.root;
 
             var defer = $.Deferred()
@@ -71,7 +70,7 @@ $.widget('gl.changeUrl', {
 
             _(servers).each(function(serverInfo, index, list) {
               var start = Date.now();
-
+                serverInfo = serverInfo.indexOf('http://') > -1 ? serverInfo : 'http://'+serverInfo;
               $.ajax({
                 url: serverInfo + '/connect-test.json',
                 dataType: 'jsonp',

@@ -97,7 +97,6 @@ var UserCenterController = RouterController.extend({
     var self = this;
     Global.m.states.check()
       .once('check:complete', function(model) {
-        var hasMoneyPwd = model.get('hasMoneyPwd');
         if (model.get('hasMoneyPwd')) {
           self.changeMainReginView(new CardManageView(), {
             sidebar: 'pc',
@@ -105,26 +104,13 @@ var UserCenterController = RouterController.extend({
           });
         } else {
           $(document).securityTip({
-            content: '您未设置资金密码，无法进行银行卡操作',
-            showMoneyPwd: true,
+            content: '请补全您的安全信息后在绑定银行卡',
             hasMoneyPwd: false,
             showBankCard: false,
-            hasBankCard: false
+            showSecurity: false
           });
         }
       });
-    // this.checkPayPwdXhr()
-    //   .done(function(res) {
-    //     if(res && res.result === 0) {
-    //       //设置了则弹出验证框
-    //       $(document).verifyFundPwd({
-    //         onValidated: function() {
-    //         }
-    //       });
-    //     } else if(res && res.result === 1) {
-    //       //未设置则弹出链接到资金密码设置页面的提示框
-    //     }
-    //   });
   },
 
   priceDetails: function() {

@@ -228,7 +228,7 @@ var OpenAccountManageView = Base.ItemView.extend({
     var $dialog = Global.ui.dialog.show({
       title: '开户成功',
       size: 'modal-sm',
-      body: '<form><div class="width-smd m-center text-center">' +
+      body: '<form><div class="width-smd m-center ">' +
       '<div class="control-group"><label class="text-left">账号:&nbsp;&nbsp;' + data.userName + '</label></div>' +
       '<div class="control-group"><label class="text-left">密码:&nbsp;&nbsp;' + data.loginPwd + '</label></div>' +
       '<div class="control-group m-bottom-md"><label class="text-left">返点:&nbsp;&nbsp;' + _(data.rebate).formatDiv(10, {fixed: 1}) + '</label></div>' +
