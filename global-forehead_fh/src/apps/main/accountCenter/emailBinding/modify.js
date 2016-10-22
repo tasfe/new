@@ -12,8 +12,8 @@ var SettingEmail = Base.ItemView.extend({
     'click .js-pm-modify': 'enterModifyHandler',
     // 'click .js-modify-email': 'modifyEmailHandler'
     'click .js-as-inputEmail-submit': 'inputEmailHandler',
-    'click .js-as-confirmOldEmail-submit': 'confirmOldEmailHandler',
     'click .js-as-old-resendEmail': 'resendOldEmailHandler',
+    'click .js-as-confirmOldEmail-submit': 'confirmOldEmailHandler',
     'click .js-as-resendEmail': 'resendEmailHandler',
     'click .js-as-confirmEmail-return': 'returnHandler',
     'click .js-pm-confirm': 'refreshPageHandler',
@@ -44,7 +44,7 @@ var SettingEmail = Base.ItemView.extend({
     this.$('.js-as-emailBinding').removeClass('hidden');
     this.$('.js-pm-modify-tip').remove();
     this._initSteps(this.$emailBindingontainer, function(event, currentIndex, newIndex) {
-      return newIndex !== 3;
+      return newIndex !== 4;
     });
   },
 
@@ -79,7 +79,6 @@ var SettingEmail = Base.ItemView.extend({
       if(res && res.result === 0) {
         self.email = email;
         self.$('.js-as-email-res').text(res.root);
-        // self._reverseCountDown();
         self.$('.js-as-stepContainer').steps('next');
       } else {
         ParsleyUI.addError(inputParsley, 'remoteError', res.msg);
@@ -162,6 +161,24 @@ var SettingEmail = Base.ItemView.extend({
     });
   },
 
+  _reverseOldCountDown: function() {
+    var $countdown = this.$('.js-as-old-resend-countdown');
+    var $resendBtn = this.$('.js-as-old-resendEmail');
+    $countdown.html(120);
+    $resendBtn.attr("disabled", "disabled");
+
+    var emailTime = setInterval(function() {
+      var num = $countdown.html() - 1;
+      if($countdown.html() == 0) {
+        clearInterval(emailTime);
+        $resendBtn.removeAttr("disabled");
+        $countdown.html(0);
+      } else {
+        $countdown.html(num);
+      }
+    }, 1000);
+  },
+
   _reverseCountDown: function() {
     var $countdown = this.$('.js-as-resend-countdown');
     var $resendBtn = this.$('.js-as-resendEmail');
@@ -192,7 +209,7 @@ var SettingEmail = Base.ItemView.extend({
       })
       .done(function(res) {
         if(res && res.result === 0) {
-          self._reverseCountDown();
+          self._reverseOldCountDown();
         }
       });
   },

@@ -29,7 +29,7 @@
           <div class="control-group m-bottom-lg">
             <label class="control-label">邮箱验证码</label>
             <div class="controls">
-              <input type="text" class="js-as-old-email-verifyCode" name="oldCode" required>
+              <input type="text" class="js-as-old-email-verifyCode" name="oldCode" required autocomplete="off">
             </div>
           </div>
           <div class="control-group">
@@ -37,7 +37,7 @@
               <button type="button" class="js-as-old-resendEmail btn btn-hot btn-linear m-left-sm" data-loading-text="发送中">
                 发送确认邮件
               </button>
-              (<span class="js-as-resend-countdown">0</span>s)
+              (<span class="js-as-old-resend-countdown">0</span>s)
               <a href="#" class="router btn btn-link">没有收到邮件？</a>
             </div>
           </div>
@@ -89,7 +89,7 @@
           <div class="control-group m-bottom-lg">
             <label class="control-label">邮箱验证码</label>
             <div class="controls">
-              <input type="text" class="js-as-email-verifyCode" name="code" required>
+              <input type="text" class="js-as-email-verifyCode" name="code" required autocomplete="off">
             </div>
           </div>
           <div class="control-group">
@@ -113,7 +113,6 @@
       </div>
     </form>
 
-    <!-- Step3 设置成功 -->
     <h3>更新成功</h3>
     <form action="javascript:void(0);" class="js-pm-complete-form form-horizontal pm-complete-form">
       <div class="control-group text-center">
