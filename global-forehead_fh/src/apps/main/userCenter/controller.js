@@ -98,9 +98,13 @@ var UserCenterController = RouterController.extend({
     Global.m.states.check()
       .once('check:complete', function(model) {
         if (model.get('hasMoneyPwd')) {
-          self.changeMainReginView(new CardManageView(), {
-            sidebar: 'pc',
-            topView: 'personal'
+          $(document).verifyFundPwd({
+            onValidated: function() {
+              self.changeMainReginView(new CardManageView(), {
+                sidebar: 'pc',
+                topView: 'personal'
+              });
+            }
           });
         } else {
           $(document).securityTip({

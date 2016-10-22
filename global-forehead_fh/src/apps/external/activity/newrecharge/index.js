@@ -78,10 +78,11 @@ var NewrechargeView = Base.ItemView.extend({
 	//handler event
 	getPrizeHandler: function(){
 		this.getPrizeXhr().done(function (res) {
-			if(res && res.result == 0){
+			if(res && res.result == 0 && res.root != null){
+					var msg = '恭喜您，您成功领取'+ res.root.dataList[0].result / 10000 +'元！';
 				Global.ui.dialog.show({
 					title: '领取成功',
-					body: res.msg
+					body: msg
 				});
 			}else{
 				Global.ui.dialog.show({
