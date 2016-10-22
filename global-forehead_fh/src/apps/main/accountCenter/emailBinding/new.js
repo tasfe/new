@@ -106,6 +106,7 @@ var SettingEmail = Base.ItemView.extend({
       $target.button('reset');
     }).done(function(res) {
       if(res && res.result === 0) {
+        Global.m.states.fetch();
         var $currentContainer = $target.closest('.js-as-stepContainer');//找到最近的该class节点
         $currentContainer.steps('next');
         self.$('.js-as-email').html(res.root);

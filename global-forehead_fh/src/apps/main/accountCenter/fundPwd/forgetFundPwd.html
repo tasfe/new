@@ -14,11 +14,14 @@
         </div>
         <div class="step-inner-main">
           <span class="pull-left">通过“密保问题+银行卡信息”找回资金密码</span>
-          <button type="button" class="js-ac-findByCIBtn btn btn-light-blue btn-linear btn-round pull-right hidden">立即找回</button>
-          <div class="js-ac-findByCI-notice text-center step-inner-SQNotSet pull-right">
-            <a href="#uc/cm" class="btn btn-light-blue btn-linear btn-round">立即设置</a>
+          <% if (hasBankCard && hasSecurity) { %>
+          <button type="button" class="js-ac-findByCIBtn btn btn-blue btn-linear btn-round pull-right">立即找回</button>
+          <% } else { %>
+          <div class="js-ac-findByCI-notice text-center pull-right">
+            <!--<a href="#uc/cm" class="btn btn-blue btn-linear btn-round">立即设置</a>-->
             <div class="help-block">未设置，不可用</div>
           </div>
+          <% } %>
         </div>
       </div>
       <div class="step-inner step-inner-find m-top-sm">
@@ -28,11 +31,14 @@
         </div>
         <div class="step-inner-main">
           <span class="pull-left">通过“密保问题+验证邮箱”找回资金密码</span>
-          <button type="button" class="js-ac-findByEMBtn btn btn-light-blue btn-linear btn-round pull-right hidden">立即找回</button>
-          <div class="js-ac-findByEM-notice text-center step-inner-SQNotSet pull-right">
-            <a href="#pm/se" class="btn btn-light-blue btn-linear btn-round">立即设置</a>
+          <% if (hasEmail && hasSecurity) { %>
+          <button type="button" class="js-ac-findByEMBtn btn btn-blue btn-linear btn-round pull-right">立即找回</button>
+          <% } else { %>
+          <div class="js-ac-findByEM-notice text-center pull-right">
+            <!--<a href="#pm/se" class="btn btn-blue btn-linear btn-round">立即设置</a>-->
             <div class="help-block">未设置，不可用</div>
           </div>
+          <% } %>
         </div>
       </div>
     </div>

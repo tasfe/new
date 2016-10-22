@@ -64,9 +64,11 @@ class Main extends Component {
   }
 
   showHistory () {
-    this.offset = innerHeight * .5
+    // this.offset = innerHeight * .5
     this.incrase = 0
-    this.updatePosition(this.offset)
+    this.offset = 2.5
+    // this.updatePosition(this.offset)
+    this.$touchTarget.css('transform', `translateY(${this.offset}rem)`)
     this.props.onSwipe(!!this.offset)
   }
 

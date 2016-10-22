@@ -169,6 +169,7 @@ var SecurityQuestionView = Base.ItemView.extend({
       $target.button('reset');//恢复确认按钮的状态
     }).done(function (res) {
       if (res && res.result === 0) {
+        Global.m.states.fetch();
         // Global.ui.notification.show('密保问题保存成功', {
         //   type: 'success',
         //   event: function() {

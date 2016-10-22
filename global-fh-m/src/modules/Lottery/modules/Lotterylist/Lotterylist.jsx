@@ -14,6 +14,7 @@ import Link from 'react-router/lib/Link'
 import Header from '../../components/Header'
 import ChaseBar from './components/ChaseBar'
 import Fhmmc from './components/Fhmmc'
+import { setLeftButton } from 'redux/modules/toolbar'
 
 @withStyles(styles)
 @connect(state => ({
@@ -28,6 +29,7 @@ import Fhmmc from './components/Fhmmc'
   chase,
   resetBetting,
   resetChase,
+  setLeftButton
 })
 class Lotterylist extends Page {
   constructor () {
@@ -40,6 +42,7 @@ class Lotterylist extends Page {
 
   componentDidMount () {
     this.props.setTitle('号码篮')
+    this.props.setLeftButton(true);
   }
 
   actionRespond (done, resp) {

@@ -306,6 +306,7 @@
 .history-top-10 {
   text-align: center;
   padding: .05rem 0;
+  max-height: 0.25rem;
 
   span {
     position: relative;

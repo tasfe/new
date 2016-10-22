@@ -147,7 +147,7 @@ class FundPwd extends Page {
           //todo 输出错误提示
           window.Alert({
             title: '系统提示',
-            content: errorData.msg||'请求失败'
+            content: errorData.root||'请求失败'
           });
         }
       }

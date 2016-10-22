@@ -14,7 +14,7 @@ import { connect } from 'react-redux'
 import { set, reset, loadLottery, loadLotteryPatterns } from 'redux/modules/Lottery/lottery'
 import { reset as resetBetting } from 'redux/modules/Lottery/betting'
 import { reset  as resetChase } from 'redux/modules/Lottery/chase'
-
+import { setLeftButton } from 'redux/modules/toolbar'
 import { getComplete } from 'misc/ticketConfig'
 
 @connect(state => ({
@@ -26,6 +26,7 @@ import { getComplete } from 'misc/ticketConfig'
   resetChase,
   loadLottery,
   loadLotteryPatterns,
+  setLeftButton
 })
 @WithStyles(styles)
 class Lottery extends Page {
@@ -43,6 +44,7 @@ class Lottery extends Page {
   }
 
   componentDidMount () {
+    this.props.setLeftButton(true);
     //MMC不需要获取奖期数据
     if(this.id!=='19'){
         this.props.loadLottery({
