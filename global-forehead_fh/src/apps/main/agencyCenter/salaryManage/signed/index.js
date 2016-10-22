@@ -5,7 +5,7 @@ var SignedView = Base.ItemView.extend({
   template: require('./index.html'),
 
   events: {
-    'submit .js-ac-verify-form': 'confirmHandler',
+    //'submit .js-ac-verify-form': 'confirmHandler',
     'click .js-ac-sm-sign-aa': 'addAgreementHandler',
 
     'click .js-ac-sm-sign-delete': 'delAgreementHandler',
@@ -93,8 +93,8 @@ var SignedView = Base.ItemView.extend({
         }
       },
       updater: function (item) {
-        var salaryType = self.$salaryType.find(':checked').val();
-        if(salaryType==='0'){
+        var salaryType = self.$('.js-ac-sm-sign-type.active').data('type');
+        if(salaryType===0){
           setTimeout(500,self.$CommonForm.parsley());
         }else{
           setTimeout(500,self.$SpecialForm.parsley());
@@ -165,8 +165,8 @@ var SignedView = Base.ItemView.extend({
     this.StaticGrid = this.$table.staticGrid('instance');
 
 
-    this.$('.js-ac-sm-sign-type[value='+(this.options.salaryType=='1'?'1':'0')+']').prop('checked',true);
-    this.signTypeSelectHandler();
+    this.$('.js-ac-sm-sign-type[data-id='+(this.options.salaryType=='1'?'1':'0')+']').addClass('active');
+    this.$('.js-ac-sm-sign-type').eq(0).trigger('click');
     var minSales = this.$minSales.val(this.options.minSales || '0');
     var minSalary = this.$minSalary.val(this.options.minSalary || '0');
     var salesSpan = this.$salesSpan.val(this.options.salesSpan || '0');
@@ -244,8 +244,8 @@ var SignedView = Base.ItemView.extend({
 
 
 
-    var salaryType = this.$('.js-ac-sm-sign-type:checked').val();
-    if(salaryType==='0'){
+    var salaryType = this.$('.js-ac-sm-sign-type.active').data('type');
+    if(salaryType===0){
       var result = this.$CommonForm.parsley().validate();
       if(!result){
         return false;
@@ -329,8 +329,11 @@ var SignedView = Base.ItemView.extend({
   signTypeSelectHandler: function(e){
     this.$CommonContainer = this.$('.js-ac-sm-sign-common');
     this.$SpecialContainer = this.$('.js-ac-sm-sign-special');
-    var type = this.$('.js-ac-sm-sign-type:checked').val();
-    if(type==='0'){
+    var $target = $(e.currentTarget);
+    $target.addClass('active');
+    $target.siblings().removeClass('active');
+    var type = $target.data('type');
+    if(type===0){
       this.$CommonContainer.removeClass('hidden');
       this.$SpecialContainer.addClass('hidden');
     }else{

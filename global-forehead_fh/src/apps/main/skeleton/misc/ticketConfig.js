@@ -62,7 +62,7 @@ var specialConfig = {
       defaultSelectPlay: defaultSelectSSC,
       board: true,
       badge: 'hot'
-    },
+    }/*,
     {
       id: 20,
       type: 'ssc',
@@ -74,7 +74,7 @@ var specialConfig = {
       board: true,
       badge: 'purple',
     }
-
+*/
   ]
 };
 

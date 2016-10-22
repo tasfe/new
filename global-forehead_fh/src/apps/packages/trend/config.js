@@ -5,14 +5,14 @@ var sscOneDay = 120;
 var PK10Positions = ['第一名', '第二名', '第三名', '第四名', '第五名', '第六名', '第七名', '第八名', '第九名', '第十名'];
 
 var sscConfig = [
-  {
+  /*{
     id: 20,
     count: 5,
     num: _.range(10),
     positions: sscPositions,
     oneDay: -1,
     zhName: "老虎机秒秒彩"
-  },
+  },*/
   {
     id: 19,
     count: 5,

@@ -86,9 +86,9 @@ class Home extends Page {
           }
 
         }, err => {
-          window.Alert({
-            content: err.msg || '获取倒计时信息失败！'
-          });
+          // window.Alert({
+          //   content: err.msg || '获取倒计时信息失败！'
+          // });
         })
       })(item)
     })
@@ -116,9 +116,9 @@ class Home extends Page {
         self.TimmerList.push(timmer2);
       }
     }, err => {
-      window.Alert({
-        content: err.msg || '获取倒计时信息失败！'
-      });
+      // window.Alert({
+      //   content: err.msg || '获取倒计时信息失败！'
+      // });
     })
 
   }

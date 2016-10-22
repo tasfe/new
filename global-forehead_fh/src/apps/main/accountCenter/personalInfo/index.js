@@ -62,33 +62,47 @@ var PersonalManageView = Base.ItemView.extend({
   updatePersonalInfoHandler: function(e) {
     var self = this;
     this.$btnConfirm.button('loading');
-
-    Global.sync.ajax({
-      url: '/acct/userinfo/saveuser.json',
-      data: {
-        userSex: this.$('.js-uc-gender-val-res').val(),
-        userQqNum: this.$('.js-uc-userQq').val(),
-        userCellphone: this.$('.js-uc-userCellphone').val(),
-        userBirthday: this.$('.js-uc-userBithday-val-res').text() || ((this.$('.js-uc-select-userBithday-month').val() && this.$('.js-uc-select-userBithday-day').val()) ? this.$('.js-uc-select-userBithday-month').val() + '-' + this.$('.js-uc-select-userBithday-day').val() : null),
+    if($('.js-uc-userBithday-val-res').text() === ''){
+      if((this.$('.js-uc-select-userBithday-month').val() === '' && this.$('.js-uc-select-userBithday-day').val() === '') || (this.$('.js-uc-select-userBithday-month').val() != '' && this.$('.js-uc-select-userBithday-day').val() != '')){
+        var canSubmint = true;
+      }else{
+        var canSubmint = false;
       }
-    })
-      .always(function() {
-        self.$btnConfirm.button('reset');
-      })
-      .done(function(res) {
-        if (res && res.result === 0) {
-          self.$el.html(self.completeTpl({
-            title: '设置成功',
-            content: '个人资料信息设置成功'
-          }));
-          // Global.ui.notification.show('修改个人信息成功', {
-          //   type: 'success'
-          // });
-          // self.render();
-        } else {
-          Global.ui.notification.show('修改个人信息失败');
+    }else{
+      var canSubmint = true;
+    }
+    if(canSubmint){
+      Global.sync.ajax({
+        url: '/acct/userinfo/saveuser.json',
+        data: {
+          userSex: this.$('.js-uc-gender-val-res').val(),
+          userQqNum: this.$('.js-uc-userQq').val(),
+          userCellphone: this.$('.js-uc-userCellphone').val(),
+          userBirthday: this.$('.js-uc-userBithday-val-res').text() || ((this.$('.js-uc-select-userBithday-month').val() && this.$('.js-uc-select-userBithday-day').val()) ? this.$('.js-uc-select-userBithday-month').val() + '-' + this.$('.js-uc-select-userBithday-day').val() : null),
         }
-      });
+      })
+          .always(function() {
+            self.$btnConfirm.button('reset');
+          })
+          .done(function(res) {
+            if (res && res.result === 0) {
+              self.$el.html(self.completeTpl({
+                title: '设置成功',
+                content: '个人资料信息设置成功'
+              }));
+              // Global.ui.notification.show('修改个人信息成功', {
+              //   type: 'success'
+              // });
+              // self.render();
+            } else {
+              Global.ui.notification.show('修改个人信息失败');
+            }
+          });
+    }else {
+      self.$btnConfirm.button('reset');
+      Global.ui.notification.show('请补全生日信息');
+    }
+
   },
 
   updateGenderHandler: function (e) {

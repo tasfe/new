@@ -5,9 +5,11 @@ import * as actions from 'redux/modules/toolbar'
 import { connect } from 'react-redux'
 import withStyles from 'with-style'
 import styles from './LoginPwd.css'
+import { logout, load } from 'redux/modules/auth';
 
 @connect( state => ({}),
   {
+    logout,
     ...actions
   }
 )
@@ -26,7 +28,7 @@ class LoginPwd extends Page {
         placeHolder: '',
         readonly: false,
         validation: {
-          rules: ['required', 'minLength::6', 'maxLength::20'],
+          rules: ['required','noSpaceChar','notIsNumAndLessThen9', 'minLength::6', 'maxLength::20'],
           errorMsg: '请输入正确的当前密码'
         }
       }, {
@@ -36,7 +38,7 @@ class LoginPwd extends Page {
         tip: '6-20位字符；区分大小写；不允许空白符|9位以下纯数字|与原密码相同',
         validation: {
           //rules: ['required','noSpecialChar', 'minLength::6', 'maxLength::20','notEqualTo::{oldPwd}', 'pattern::^[^\\s]?[\\S][^\\s]?$'],
-          rules: ['required', 'minLength::6', 'maxLength::20','notEqualTo::{oldPwd}', 'pattern::^[^\\s]?[\\S]*[^\\s]?$'],
+          rules: ['required','noSpaceChar','notIsNumAndLessThen9', 'minLength::6', 'maxLength::20','notEqualTo::{oldPwd}'],
           errorMsg: '请输入正确的新密码'
         }
       }, {
@@ -60,10 +62,21 @@ class LoginPwd extends Page {
       events: {
         onSave: () => {
           //TODO 如何刷新页面
+          var self = this;
           window.Alert({
             title: '系统提示',
-            content: '密码修改成功'
-          })
+            content: '密码修改成功,请重新登录',
+            callback: () => {
+              console.log('limian1')
+              this.props.logout()
+            }
+          });
+          console.log('limian2')
+          // window.setTimeout(function(){
+          //   console.log('limian3')
+          //   self.props.logout();
+          // },1000)
+
         },
         onError: (errorData) => {
           window.Alert({

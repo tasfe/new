@@ -27,10 +27,9 @@ class PasswordManage extends Page {
           text: '新密码',
           name: 'newPassword1',
           type: 'password',
-          tip: '6-20位字符组成，区分大小写，不能使用空白符，不能和登录一致'，
+          tip: '6-20位字符；区分大小写；不允许空白符|9位以下纯数字|与原密码相同'，
           validation: {
-            //rules: ['required','noSpecialChar', 'minLength::6', 'maxLength::20','notEqualTo::{oldPwd}', 'pattern::^[^\\s]?[\\S][^\\s]?$'],
-            rules: ['required', 'minLength::6', 'maxLength::20', 'pattern::^[^\\s]?[\\S]*[^\\s]?$'],
+            rules: ['required','noSpaceChar','notIsNumAndLessThen9', 'minLength::6', 'maxLength::20'],
             errorMsg: '请输入正确的新密码'
           }
         },

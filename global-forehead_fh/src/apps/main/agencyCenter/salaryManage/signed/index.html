@@ -1,15 +1,20 @@
 
   <div>
     <div class="control-group ac-sm-sign-type-container ">
-      <label>
-        <input type="radio" class="js-ac-sm-sign-type" name="salaryType" value="0" checked>标准日薪设置
-      </label>
-      <label>
-        <input type="radio" class="js-ac-sm-sign-type" name="salaryType" value="1">快捷日薪设置
-      </label>
+      <ul class="js-fc-re-tabs view-tabs nav nav-tabs nav-tabs-special fc-sm-sign-tabs">
+        <li class="js-ac-sm-sign-type " data-type="0"><a>标准日薪设置</a></li>
+        <li  class="js-ac-sm-sign-type" data-type="1"><a>快捷日薪设置</a></li>
+      </ul>
+      <!--<label>-->
+        <!--<input type="radio" class="js-ac-sm-sign-type" name="salaryType" value="0" checked>标准日薪设置-->
+      <!--</label>-->
+      <!--<label>-->
+        <!--<input type="radio" class="js-ac-sm-sign-type" name="salaryType" value="1">快捷日薪设置-->
+      <!--</label>-->
 
     </div>
     <div class="js-ac-sm-sign-common">
+      <div class="nav-tab-bottom-bar"></div>
       <form class="js-ac-signed-common-form ac-signed-form form-horizontal" action="javascript:void(0);">
         <div class="control-group ac-sm-sign-username" >
 
@@ -33,6 +38,7 @@
       </form>
     </div>
     <div class="js-ac-sm-sign-special hidden">
+      <div class="nav-tab-bottom-bar"></div>
       <form class="js-ac-signed-special-form ac-signed-form form-horizontal" action="javascript:void(0);">
         <div class="control-group ac-sm-sign-username" >
 

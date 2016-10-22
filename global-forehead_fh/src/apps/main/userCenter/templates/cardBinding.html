@@ -22,7 +22,7 @@
     </div>
   </div>
 
-  <div class="control-group">
+  <div class="control-group uc-card-band-line-bigSize">
     <label class="control-label uc-card-band-size">支行名称：</label>
 
     <div class="uc-card-band-option-size">
@@ -40,20 +40,28 @@
     <label class="control-label uc-card-band-size">开户人姓名：</label>
 
     <div class="uc-card-band-option-size">
-      <input type="text" class="js-uc-cbAccountName uc-card-band-input2" data-parsley-length="[2,50]" data-parsley-zhAndLDBMaxLen="20" required >
+      <input type="text" class="js-uc-cbAccountName uc-card-band-input2"  onpaste="return false;" data-parsley-length="[2,50]" data-parsley-zhAndLDBMaxLen="20" required >
       <span class="uc-bind-card-word-style">只可手动输入，不可粘贴</span>
     </div>
 
   </div>
 
-  <div class="control-group">
+  <div class="control-group uc-card-band-line-bigSize">
     <label class="control-label uc-card-band-size">卡号：</label>
 
     <div class="uc-card-band-option-size">
-      <input type="text" class="js-uc-cbCardNo uc-lg-input uc-card-band-input2"  data-parsley-num data-parsley-length="[13,19]" required>
+      <input type="text" class="js-uc-cbCardNo uc-lg-input uc-card-band-input2"  onpaste="return false;" data-parsley-num data-parsley-length="[13,19]" required>
       <span class="uc-bind-card-word-style">银行卡号由13位或19位数字组成</span>
     </div>
 
+  </div>
+  <div class="control-group">
+    <label class="control-label uc-card-band-size">确认卡号：</label>
+
+    <div class="uc-card-band-option-size">
+      <input type="text" class="js-uc-cbCardNo1 uc-lg-input uc-card-band-input2"  onpaste="return false;" data-parsley-equalto=".js-uc-cbCardNo" data-parsley-num data-parsley-length="[13,19]" required>
+      <span class="uc-bind-card-word-style">只可手动输入，不可粘贴</span>
+    </div>
   </div>
   <div class="control-group uc-cm-fund-pwd-notice-div">
     <div class="uc-card-band-option-size">
