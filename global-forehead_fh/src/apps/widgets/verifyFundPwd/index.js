@@ -75,12 +75,12 @@ $.widget('gl.verifyFundPwd', {
               self.options.onValidated(payPwd);
             } else {
               if(_(res.root).isNull()) {
-                ParsleyUI.addError(inputParsley, 'required', '验证失败，' + res.msg);
+                ParsleyUI.addError(inputParsley, 'remoteError', '验证失败，' + res.msg, 'required');
               } else {
                 if(res.root > 0) {
-                  ParsleyUI.addError(inputParsley, 'required', '验证失败，剩余' + res.root + '次机会');
+                  ParsleyUI.addError(inputParsley, 'remoteError', '验证失败，剩余' + res.root + '次机会', 'required');
                 } else {
-                  ParsleyUI.addError(inputParsley, 'required', '验证失败，请一个小时后在验证！');
+                  ParsleyUI.addError(inputParsley, 'remoteError', '验证失败，请一个小时后在验证！', 'required');
                 }
               }
             }

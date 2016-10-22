@@ -128,7 +128,7 @@ var SecurityQuestionView = Base.ItemView.extend({
   inputSecurityQuestionHandler: function (e) {
     var $target = $(e.currentTarget);
     var $currContainer = this.$('.js-as-inputSQForm');
-    var clpValidate = $currContainer.parsley().validate();
+    var clpValidate = $currContainer.parsley(Global.validator.getInlineErrorConfig()).validate();
 
     if (clpValidate) {
 
@@ -214,7 +214,7 @@ var SecurityQuestionView = Base.ItemView.extend({
     var self = this;
     var $target = $(e.currentTarget);
     var $currContainer = this.$('.js-as-verifySQForm');
-    var clpValidate = $currContainer.parsley().validate();
+    var clpValidate = $currContainer.parsley(Global.validator.getInlineErrorConfig()).validate();
     if (clpValidate) {
       //设置按钮为处理中状态
       $target.button('loading');

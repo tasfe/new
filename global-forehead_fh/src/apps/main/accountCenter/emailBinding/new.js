@@ -13,8 +13,7 @@ var SettingEmail = Base.ItemView.extend({
     'click .js-as-inputEmail-submit': 'inputEmailHandler',
     'click .js-as-confirmEmail-submit': 'confirmEmailHandler',
     'click .js-as-resendEmail': 'resendEmailHandler',
-    'click .js-as-confirmEmail-return': 'returnHandler',
-    'click .js-pm-confirm': 'refreshPageHandler'
+    'click .js-as-confirmEmail-return': 'returnHandler'
   },
 
   initialize: function() {
@@ -59,7 +58,7 @@ var SettingEmail = Base.ItemView.extend({
     $target.button('loading');
 
     Global.sync.ajax({
-      url: '/acct/email/newsend.json',
+      url: '/acct/email/exist.json',
       data: {
         email: email
       }
@@ -113,7 +112,6 @@ var SettingEmail = Base.ItemView.extend({
       } else {
         ParsleyUI.addError(inputParsley, 'remoteError', res.msg);
       }
-
     });
   },
 
@@ -156,10 +154,12 @@ var SettingEmail = Base.ItemView.extend({
 
     var $currentContainer = $target.closest('.js-as-stepContainer');//找到最近的该class节点
     $currentContainer.steps('goTo', type);
-  },
 
-  refreshPageHandler: function() {
-    this.render();
+    var $countdown = this.$('.js-as-resend-countdown');
+    var $resendBtn = this.$('.js-as-resendEmail');
+    clearInterval(this.emailTime);
+    $resendBtn.prop('disabled', false);
+    $countdown.html(0);
   }
 });
 

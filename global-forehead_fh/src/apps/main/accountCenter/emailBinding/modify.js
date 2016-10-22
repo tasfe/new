@@ -67,7 +67,7 @@ var SettingEmail = Base.ItemView.extend({
     $target.button('loading');
 
     Global.sync.ajax({
-      url: '/acct/email/newmodsend.json',
+      url: '/acct/email/exist.json',
       data: {
         emailToken: this.emailToken,
         email: email
@@ -232,6 +232,19 @@ var SettingEmail = Base.ItemView.extend({
 
     var $currentContainer = $target.closest('.js-as-stepContainer');//找到最近的该class节点
     $currentContainer.steps('goTo', type);
+
+    var $countdown = this.$('.js-as-resend-countdown');
+    var $resendBtn = this.$('.js-as-resendEmail');
+    clearInterval(this.emailTime);
+    $resendBtn.prop('disabled', false);
+    $countdown.html(0);
+
+    var $oldCountdown = this.$('.js-as-old-resend-countdown');
+    var $oldResendBtn = this.$('.js-as-old-resendEmail');
+    clearInterval(this.oldEmailTimer);
+    $oldResendBtn.prop('disabled', false);
+    $oldCountdown.html(0);
+
   },
 
   refreshPageHandler: function() {

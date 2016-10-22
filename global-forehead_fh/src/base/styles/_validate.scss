@@ -38,4 +38,11 @@ input, textarea, select {
   &.filled-inline {
     display: inline-block !important;
   }
+
+  .parsley-error {
+    display: none;
+    &:first-child, &:last-child {
+      display: block;
+    }
+  }
 }

@@ -194,11 +194,25 @@ var findPwdView = Base.ItemView.extend({
     var self = this;
     var $target = $(e.currentTarget);
     var $findFundPasswordContainer = this.$('.js-as-stepContainer');
+
+    var $verifyCode = this.$('.js-as-email-verifyCode');
+    var $form = this.$('.js-ac-email-form');
+
+    var parsley = $form.parsley(Global.validator.getInlineErrorConfig());
+    var inputParsley = $form.find('[name=code]').parsley();
+
+    ParsleyUI.removeError(inputParsley, 'remoteError');
+
+    if (!parsley.validate()) {
+      return false;
+    }
+
     $target.button('loading');
+
     Global.sync.ajax({
       url: '/acct/email/mpwdval.json',
       data:{
-        validateCode: self.$('.js-as-email-verifyCode').val()
+        code: self.$('.js-as-email-verifyCode').val()
       }
     }).always(function() {
       $target.button('reset');
@@ -207,7 +221,7 @@ var findPwdView = Base.ItemView.extend({
         self.emailToken = res.root;
         $findFundPasswordContainer.steps('goTo', 2);
       }else {
-        Global.ui.notification.show(res.msg);
+        ParsleyUI.addError(inputParsley, 'remoteError', res.msg);
       }
     });
   },
@@ -258,7 +272,7 @@ var findPwdView = Base.ItemView.extend({
     var $findFundPasswordContainer = this.$('.js-as-stepContainer');
     var $sqForm = this.$('.js-ac-sq-form');
     var action = $target.data('action');
-    var clpValidate = $sqForm.parsley().validate();
+    var clpValidate = $sqForm.parsley(Global.validator.getInlineErrorConfig()).validate();
     if (clpValidate) {
       $target.button('loading');
       Global.sync.ajax({
@@ -297,7 +311,7 @@ var findPwdView = Base.ItemView.extend({
     var $target = $(e.currentTarget);
     var $findFundPasswordContainer = this.$('.js-as-stepContainer');
     var $ciForm = this.$('.js-ac-ci-form');
-    var clpValidate = $ciForm.parsley().validate();
+    var clpValidate = $ciForm.parsley(Global.validator.getInlineErrorConfig()).validate();
 
     if (clpValidate) {
       $target.button('loading');
@@ -328,9 +342,9 @@ var findPwdView = Base.ItemView.extend({
     var $target = $(e.currentTarget);
     var $resetForm = this.$('.js-ac-reset-form');
     var $findFundPasswordContainer = this.$('.js-as-stepContainer');
-    var clpValidate = $resetForm.parsley().validate();
+    var parsley = $resetForm.parsley(Global.validator.getInlineErrorConfig());
 
-    if (clpValidate) {
+    if (parsley.validate()) {
       $target.button('loading');
       Global.sync.ajax({
         url: '/fund/moneypd/reset.json',
@@ -353,7 +367,7 @@ var findPwdView = Base.ItemView.extend({
           //   btnContent: '确定'
           // });
         }else{
-          self.$('.js-ac-resetNotice-div').html(self._getErrorMsg('重置失败，' + res.msg));
+          self.$('.js-invalid-pwd-tip').html(self._getErrorMsg('重置失败，' + res.msg));
         }
       });
     }
@@ -365,7 +379,7 @@ var findPwdView = Base.ItemView.extend({
 
   //组装错误提示框
   _getErrorMsg: function (text) {
-    return '<div class="parsley-errors-list filled font-sm text-center m-top-smd">' +
+    return '<div class="parsley-errors-list filled font-sm m-top-smd">' +
       '<span class="login-error-message parsley-required">' + text + '</span>' +
       '</div>';
   }
