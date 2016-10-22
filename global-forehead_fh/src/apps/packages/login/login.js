@@ -15,6 +15,12 @@ $.widget('gl.login', {
 
   resetInput: false,
 
+  getServerListXhr:function () {
+    return Global.sync.ajax({
+      url: '/info/urls/list.json'
+    });
+  },
+
   _create: function () {
     $('body').css('display','none');
 
@@ -37,6 +43,9 @@ $.widget('gl.login', {
     this.$remember = this.element.find('#jsRemember');
 
     this.$connectText = this.element.find('.js-connect-test');
+
+    this.$tips = this.element.find('.js-tips');
+    this.$changeUrl = this.element.find('.js-changeUrl');
 
     this.$footer = this.element.find('.footer');
     new footer({
@@ -124,6 +133,63 @@ $.widget('gl.login', {
         });
     });
 
+  },
+
+   //线路比较新方法
+  // _connectTest: function() {
+  //   var self = this;
+  //   var showIndex = 0;
+  //   var linList = [];
+  //
+  //   this.getServerListXhr()
+  //       .done(function (res) {
+  //         if(res.result === 0){
+  //           var servers = res.root;
+  //           servers.push(window.location.host);
+  //
+  //           var defer = $.Deferred()
+  //               .done(function() {
+  //                 self._lineComparison(linList);
+  //               });
+  //
+  //           var contentCount = 0;
+  //
+  //           _(servers).each(function(serverInfo, index,list) {
+  //             var start = Date.now();
+  //             serverInfo = serverInfo.indexOf('http://') > -1 ? serverInfo : 'http://'+serverInfo;
+  //             $.ajax({
+  //               url: serverInfo + '/connect-test.json',
+  //               dataType: 'jsonp',
+  //               jsonpCallback: 'abc',
+  //               timeout: 2000
+  //             })
+  //                 .always(function(res) {
+  //                   // self.element.find('.js-connect-server-' + index).addClass('connect-speeds-tested connect-speeds-' + Math.floor((Date.now() - start) / 200));
+  //                   // $('body').css('display','block');
+  //                   var serverAddress = serverInfo;
+  //                   var timems = Math.floor((Date.now() - start));
+  //                   linList.push({time:timems,server:serverAddress});
+  //                   if (++contentCount === list.length) {
+  //                     defer.resolve();
+  //                     $('body').css('display','block');
+  //                   }
+  //                 });
+  //           });
+  //         }
+  //       });
+  //
+  // },
+
+  //线路比较
+  _lineComparison :function (linList) {
+    linList.sort(function (a, b) {
+      return (a.time > b.time) ? 1 : -1;
+    });
+    console.log(JSON.stringify(linList));
+    if(linList[0].server.indexOf(window.location.host) === -1){
+      this.$changeUrl.attr('href',linList[0].server);
+      this.$tips.removeClass('hidden');
+    }
   },
 
   _bindEvent: function () {

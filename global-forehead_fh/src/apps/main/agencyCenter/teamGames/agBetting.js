@@ -162,9 +162,9 @@ var BettingRecordsView = SearchGrid.extend({
     row.push(rowInfo.gameName);
     row.push(rowInfo.gameCode);
     row.push(_(rowInfo.betTime).toTime());
-    row.push(rowInfo.betAmount);
+    row.push(_.formatDiv(rowInfo.betAmount,10000));
     row.push(rowInfo.settlmentStatus);
-    row.push(rowInfo.profitLossMoney);
+    row.push(_.formatDiv(rowInfo.profitLossMoney,10000));
     return row;
   }
 });
