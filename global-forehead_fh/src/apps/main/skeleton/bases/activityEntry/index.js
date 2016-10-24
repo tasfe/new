@@ -37,14 +37,14 @@ var ActivityEntryView = Base.ItemView.extend({
       $('.activity-entry-container').addClass('hidden');
     }
   },
+
   //检查是否在红包大放送活动时间内，不是则隐藏红包大放送活动入口
   checkRedPacketState: function(){
     var self = this;
     this.getRedpacketInfoXhr().done(function(res){
-      console.log(res);
       if(res && res.result == 0){
         var data = res.root;
-        if(data.status!=1){
+        if(data.status != 1){
           self.$('.js-redpacket-btn').addClass('hidden');
         }
       }else{
@@ -82,11 +82,13 @@ var ActivityEntryView = Base.ItemView.extend({
     // $('body').append(this.redpacketActivityView.$el);
     // this.redpacketActivityView.render();
     this.getRedpacketAwardXhr().done(function(res){
-      if(res && res.result == 0){
+      if(res && res.result == 0 && res.root != null){
+        var momey = res.root.dataList[0].result/10000;
+        var msg = '恭喜您成功打开红包，您抽中了' + momey + '元！';
         self.$('js-redpacket-btn').addClass('redpacket-btn-op');
         Global.ui.dialog.show({
           title:'领取成功',
-          body:res.msg
+          body:msg
         });
       }else{
         Global.ui.dialog.show({
@@ -96,7 +98,6 @@ var ActivityEntryView = Base.ItemView.extend({
       }
     });
   }
-
 
 });
 
