@@ -8,6 +8,7 @@ math.import(require('mathjs/lib/function/arithmetic/subtract'));
 math.import(require('mathjs/lib/function/arithmetic/multiply'));
 math.import(require('mathjs/lib/function/arithmetic/divide'));
 math.import(require('mathjs/lib/function/arithmetic/floor'));
+math.import(require('mathjs/lib/function/arithmetic/mod'));
 
 _.mixin({
   //首字母大写
@@ -139,6 +140,26 @@ _.mixin({
 
     return format;
   },
+
+  formatMod: function(money, ratio, options) {
+    var format;
+
+    options = _.extend({}, {
+      fixed: 0
+    }, options);
+
+    if (!_.isUndefined(money)) {
+
+      format = _(money).mod(ratio);
+
+      if (options.fixed) {
+        format  = format.toFixed(options.fixed);
+      }
+    }
+
+    return format;
+  },
+
   toLink: function(arg) {
     var href = window.location.href;
     var index = href.indexOf('/index.html');
@@ -219,6 +240,10 @@ _.mixin({
   //减法 arg1减arg2
   sub: function(arg1, arg2) {
     return math.subtract(arg1, arg2);
+  },
+
+  mod: function(arg1, arg2) {
+    return math.mod(arg1, arg2);
   },
 
   floor: function(arg1, index) {

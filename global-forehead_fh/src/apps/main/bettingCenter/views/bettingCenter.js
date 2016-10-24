@@ -238,6 +238,13 @@ var BettingCenterView = Base.ItemView.extend({
       this.rulesCollection.reset(this.rulesCollection.parse(Global.localCache.get(sign)));
       this.rulesCollection.trigger('sync:fromCache');
     }
+
+    var customizeMoney = Global.localCache.get('customizeMoney');
+    if (customizeMoney) {
+      this.model.set({
+        customizeMoney: Number(customizeMoney)
+      });
+    }
   },
 
 
@@ -622,7 +629,7 @@ var BettingCenterView = Base.ItemView.extend({
     } else {
       canQuickBet = !!statisticsInfo.prefabMoney;
     }
-    this.$('.js-bc-quick-bet1').toggleClass('hidden', canQuickBet);
+    this.$('.js-bc-cant-quick-bet').toggleClass('hidden', canQuickBet);
     this.$('.js-bc-quick-bet').toggleClass('hidden', !canQuickBet);
     this.$('.js-bc-btn-lottery-add1').toggleClass('hidden', canAdd);
     this.$('.js-bc-btn-lottery-add').toggleClass('hidden', !canAdd);
@@ -946,6 +953,7 @@ var BettingCenterView = Base.ItemView.extend({
 
     this.bettingConfirm(info.totalInfo, info.previewList, $target, function() {
       self.currentPlayAreaView.empty();
+      Global.localCache.set('customizeMoney', self.model.get('customizeMoney'));
     });
   },
 

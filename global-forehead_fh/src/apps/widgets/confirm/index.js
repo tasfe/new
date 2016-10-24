@@ -10,6 +10,7 @@ $.widget('gl.confirm', {
     namespace: 'confirm',
     agreeCallback: _.noop,
     rejectCallback: _.noop,
+    hiddenCallback: _.noop,
     title: '操作确认',
     noFooter: false,
     content: '确定进行当前操作？',
@@ -56,6 +57,7 @@ $.widget('gl.confirm', {
     this.$dialog = Global.ui.dialog.show(data);
 
     this.$dialog.on('hidden.modal', function (e) {
+      self.options.hiddenCallback(e);
       $(this).remove();
       self.destroy();
     });
