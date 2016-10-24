@@ -14,7 +14,9 @@ var GlobalFuncModule = Base.Module.extend({
         var status = '';
         if(bet.ticketPlanId==='mmc'){
           if (bet.prizeTotalMoney > 0) {
-            status = '<span class="' + bet.prizeClass + '">' + _(bet.prizeTotalMoney).convert2yuan() + '</span>';
+            status = '<span class="' + bet.prizeClass + '">' + _(bet.prizeTotalMoney).convert2yuan({
+              fixed: bet.fixed || 4
+              }) + '</span>';
           }else{
             status = '未中奖';
           }
@@ -34,7 +36,9 @@ var GlobalFuncModule = Base.Module.extend({
               status = '等待开奖';
             }
           } else if (bet.prizeTotalMoney > 0) {
-            status = '<span class="' + bet.prizeClass + '">' + _(bet.prizeTotalMoney).convert2yuan() + '</span>';
+            status = '<span class="' + bet.prizeClass + '">' + _(bet.prizeTotalMoney).convert2yuan({
+                fixed: bet.fixed || 4
+              }) + '</span>';
           } else if (bet.prizing && bet.betTime > 1457328600000) {
             status = '正在开奖';
           } else if (bet.prizeTotalMoney === 0) {
