@@ -15,7 +15,7 @@ var Countdown = Base.PrefabView.extend({
     color: '',
     countdownAnimation: false,
     animationTime: 30,
-    animationClass: 'twinkling text-hot',
+    animationClass: 'twinkling',
     prevClass: 'js-pf'
   },
 
@@ -112,9 +112,9 @@ var Countdown = Base.PrefabView.extend({
             var firstNum;
             var secondNum;
 
-            if (self.options.countdownAnimation && label === 'seconds' && self.options.animationTime >= seconds) {
-              firstNum = '<span class="countdown-num">'+ nums[0] +'</span>';
-              secondNum = '<span class="countdown-num ' + self.options.animationClass + '">'+ nums[1] +'</span>';
+            if (self.options.countdownAnimation && label === 'seconds' && data.next.minutes === '00' && data.next.hours === '00' && self.options.animationTime >= seconds) {
+              firstNum = '<span class="countdown-num text-hot">'+ nums[0] +'</span>';
+              secondNum = '<span class="countdown-num text-hot ' + self.options.animationClass + '">'+ nums[1] +'</span>';
             } else {
               firstNum = '<span>'+ nums[0] +'</span>';
               secondNum = '<span>'+ nums[1] +'</span>';
