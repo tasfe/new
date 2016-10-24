@@ -36,7 +36,7 @@ define(function (require, exports, module) {
                     self.$('.js-nm-edit-title').val(res.root.title);
                     self.$('.js-nm-edit-starttime').val(_(res.root.onlineTime).toTime());
                     if(res.root.isUrgent == 1){
-                        self.$('.js-nm-edit-endtime').html('<label class="col-sm-2 control-label">过期时间：</label><div class="col-sm-10">' +
+                        self.$('.js-nm-edit-endtime').html('<label class="col-sm-3 control-label">过期时间：</label><div class="col-sm-9">' +
                             '<input type="text" class="js-nm-endtime input-medium form-control" name="endTime" required></div>');
                         self.$('.js-nm-endtime').val(_(res.root.offlineTime).toTime());
                     }
