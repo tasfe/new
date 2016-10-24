@@ -589,7 +589,10 @@ var BettingCenterView = Base.ItemView.extend({
     }
     switch (playRule.type) {
       case 'select':
-        this.currentPlayAreaView = new PlayAreaSelectView(playRule);
+        this.currentPlayAreaView = new PlayAreaSelectView(playRule)
+          .on('area:render', function(rowNum) {
+            this.$mainArea.toggleClass('be-main-area-more-row', rowNum > 5);
+          }, this);
         break;
       case 'input':
         this.currentPlayAreaView = new PlayAreaInputView(playRule);

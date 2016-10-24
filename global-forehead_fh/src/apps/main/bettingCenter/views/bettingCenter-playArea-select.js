@@ -13,7 +13,8 @@ var BettingCenterPlayAreaView = Base.ItemView.extend({
   events: {
     'change .js-bc-playArea-position-item': 'positionChooseHandler',
     'click .js-bc-select-item': 'selectNumberHandler',
-    'click .js-bc-select-op': 'selectOperateHandler'
+    'click .js-bc-select-op': 'selectOperateHandler',
+    'click .js-toggle-page': 'togglePageHandler'
   },
 
   initialize: function () {
@@ -30,25 +31,66 @@ var BettingCenterPlayAreaView = Base.ItemView.extend({
       }));
     }
 
-    html.push('<div class="">' + _(this.options.list).map(function(item) {
-      item.hasOp = _(item.op).some();
-      return item.isShow ? this.playItemsTpl({
-        limit: _(item.limits).pluck('name').join(' '),
-        limitProps: _(item.limits).map(function(limit) {
-          return _(limit.data).map(function(val, prop) {
-            return 'data-' + limit.name + '-' + prop + '="' + val + '"';
-          });
-        }).join(' '),
-        row: item
-      }) : '';
-    }, this).join('') + '</div>');
+    this.options.page = this.options.page || 5;
+
+    // if (this.options.page) {
+    var pageCount = Math.ceil(_.div(this.options.list.length, this.options.page));
+
+    _(pageCount).times(function(i) {
+      var newList = [];
+
+      for(var j = (i * this.options.page); j < this.options.page * (i + 1); j++) {
+        if (this.options.list[j]) {
+          newList.push(this.options.list[j]);
+        }
+      }
+
+      html.push('<div class="jc-page-content bc-page-content js-pageIndex-' + i + ' ' + (i !== 0 ? 'hidden' : '') + '">' + _(newList).map(function(item) {
+          item.hasOp = _(item.op).some();
+          return item.isShow ? this.playItemsTpl({
+            limit: _(item.limits).pluck('name').join(' '),
+            limitProps: _(item.limits).map(function(limit) {
+              return _(limit.data).map(function(val, prop) {
+                return 'data-' + limit.name + '-' + prop + '="' + val + '"';
+              });
+            }).join(' '),
+            row: item
+          }) : '';
+        }, this).join('') + '</div>');
+      }, this);
+    // }
+
+    if (pageCount > 1) {
+      html.push('<div class="tab-toolbar">');
+      html.push('<div class="tab-group">');
+      html.push('<button class="js-toggle-page btn btn-circle btn-pink m-right-md btn-xs active" data-page-index="0">第一名~第五名</button>');
+      html.push('<button class="js-toggle-page btn btn-circle m-right-md btn-xs" data-page-index="1">第六名~第十名</button>');
+      html.push('</div>');
+      html.push('</div>');
+    }
+
+    // html.push('<div class="">' + _(this.options.list).map(function(item) {
+    //   item.hasOp = _(item.op).some();
+    //   return item.isShow ? this.playItemsTpl({
+    //     limit: _(item.limits).pluck('name').join(' '),
+    //     limitProps: _(item.limits).map(function(limit) {
+    //       return _(limit.data).map(function(val, prop) {
+    //         return 'data-' + limit.name + '-' + prop + '="' + val + '"';
+    //       });
+    //     }).join(' '),
+    //     row: item
+    //   }) : '';
+    // }, this).join('') + '</div>');
 
     this.$el.html(html.join(''));
 
     this.$playAreaPosition = this.$('.js-bc-playArea-position');
     this.$rows = this.$('.js-bc-playArea-items');
+    this.$page = this.$('.jc-page-content');
 
     this.calculateCoefficient();
+
+    this.trigger('area:render', this.options.list.length);
   },
 
   statisticsLottery: function() {
@@ -246,6 +288,16 @@ var BettingCenterPlayAreaView = Base.ItemView.extend({
     //$target.addClass('active').siblings().removeClass('active');
 
     this.statisticsLottery();
+  },
+
+  togglePageHandler: function(e) {
+    var $target = $(e.currentTarget);
+    var $targetPage = this.$page.eq($target.data('pageIndex'));
+    $target.addClass('btn-pink active');
+    $target.siblings().removeClass('btn-pink active');
+
+    $targetPage.removeClass('hidden');
+    $targetPage.siblings('.jc-page-content').addClass('hidden');
   }
 });
 

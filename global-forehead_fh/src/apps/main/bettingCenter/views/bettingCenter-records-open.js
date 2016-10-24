@@ -6,7 +6,7 @@ var BettingRecordsView = Base.ItemView.extend({
 
   template: '',
 
-  height: 240,
+  height: 225,
 
   tableClass: 'table table-center',
 
