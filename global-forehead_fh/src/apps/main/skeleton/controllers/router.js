@@ -21,7 +21,7 @@ var SideMenuMainView = Base.LayoutView.extend({
   '<div class="portlet-header no-padding no-border">' +
   '<div class="js-gl-sidebar"></div>' +
   '</div>' +
-  '<div class="js-gl-main portlet-body"></div>' +
+  '<div class="js-gl-main portlet-body portlet-body-message"></div>' +
   '</div>'
 });
 
