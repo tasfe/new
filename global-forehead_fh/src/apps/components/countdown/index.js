@@ -14,7 +14,7 @@ var Countdown = Base.PrefabView.extend({
     type: 'label',
     color: '',
     countdownAnimation: false,
-    animationTime: 10,
+    animationTime: 30,
     animationClass: 'twinkling text-hot',
     prevClass: 'js-pf'
   },
