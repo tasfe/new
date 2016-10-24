@@ -93,8 +93,9 @@ define(function (require, exports, module) {
                     {
                         colspan: 3
                     },
-                    _(gridData.inComeTotal).fixedConvert2yuan(),
+
                     _(gridData.speedTotal).convert2yuan(),
+                    _(gridData.inComeTotal).fixedConvert2yuan(),
                     {
                         colspan: 3
                     }
@@ -110,15 +111,17 @@ define(function (require, exports, module) {
             row.push(_(rowInfo.createTime).toTime());
             if(rowInfo.tradeType==110){
                 row.push("转入AG");
-                row.push(_(rowInfo.amount).fixedConvert2yuan());
                 row.push("/");
+                row.push(_(rowInfo.amount).fixedConvert2yuan());
+
             }else{
                 row.push("转出AG");
-                row.push("/");
+
                 row.push(_(rowInfo.amount).fixedConvert2yuan());
+                row.push("/");
             }
             row.push(_(rowInfo.balance).fixedConvert2yuan());
-            if(rowInfo.tradeType==0){
+            if(rowInfo.status==1){
                 row.push("转账成功");
             }else{
                 row.push("转账失败");

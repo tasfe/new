@@ -59,7 +59,7 @@ $main-area-width: 870px;
   border: 1px solid #ccc;
   margin-top: 10px;
   border-radius: 8px;
-  height: 552px;
+  //height: 552px;
   overflow: hidden;
   background: url(julien/bottombg.jpg) no-repeat left bottom;
 }
@@ -788,7 +788,6 @@ $main-area-width: 870px;
     display: block;
     float: right;
     font-size: 18px;
-    font-family: '微软雅黑';
     margin-top: 10px;
     cursor: pointer;
     border: 1px solid #ba4587;
@@ -821,7 +820,6 @@ $main-area-width: 870px;
     display: block;
     float: right;
     font-size: 18px;
-    font-family: '微软雅黑';
     margin-top: 10px;
     cursor: pointer;
     border: 1px solid #d7d7d7;
@@ -880,6 +878,15 @@ $main-area-width: 870px;
           color: #bdbdbd;
         }
       }
+    }
+  }
+
+  &.be-main-area-more-row {
+    .bc-play-section {
+      height: 63px;
+    }
+    .bc-play-container {
+      height: 368px;
     }
   }
 }
@@ -1322,6 +1329,11 @@ $main-area-width: 870px;
         height: 20px;
         float: left;
         text-align: left;
+        span {
+          width: 80px;
+          display: inline-block;
+          overflow: hidden;
+        }
       }
     }
 
@@ -1500,7 +1512,7 @@ $main-area-width: 870px;
     label {
       display: inline-block;
       padding: 0 10px;
-      border: 1px solid #545454;
+      border: 1px solid $gray-color;
       background-color: #fff;
       border-radius: 30px;
 
@@ -1657,7 +1669,7 @@ $main-area-width: 870px;
     }
 
     th:first-child, td:first-child {
-      padding-left: 15px;
+      padding-left: 5px;
     }
   }
   .table {
