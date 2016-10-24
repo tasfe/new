@@ -1178,8 +1178,8 @@ $main-area-width: 870px;
           font-size: 12px;
 
           &:hover {
-            background-color: #bf5985;
-            color: #fff;
+            border-color: $pink-color;
+            color: $pink-color;
             cursor: pointer;
           }
         }
