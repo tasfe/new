@@ -207,8 +207,7 @@ var RechargeView = TabView.extend({
     $target.toggleClass('active');
     $target.siblings().removeClass('active');
     var amount = $target.data('type');
-    this.$('.js-fc-re-amount').val(amount);
-    this.keyOnChangeHandler();
+    this.$('.js-fc-re-amount').val(amount).trigger('change').trigger('keyup');
   },
 
   bankSelectHandler: function(e) {

@@ -82,6 +82,7 @@ var RouterController = Base.Controller.extend({
 
     config = _.defaults(config || {}, {
       //destroyDiff: 'low'
+      needRegion: true,
       needParent: true
     });
 

@@ -49,25 +49,28 @@ $activity-item-wh: 58px;
     background-size:123px 121px;
     .redpacket-count{
       position: absolute;
-      width:20px;
-      height:20px;
+      width:23px;
+      height:23px;
       top:0;
-      right:20px;
+      right:15px;
       border:2px solid #4a0202;
       background-color: #cd0e0e;
-      font-size:14px;
+      font-size:16px;
       color: #fff;
       font-weight:bold;
       -webkit-border-radius:50%;
       -moz-border-radius:50%;
       border-radius:50%;
       text-align: center;
-      line-height:20px;
+      line-height:22px;
     }
   }
   .redpacket-btn-op{
     background:url("images/redpacket-op.png");
     -webkit-background-size:123px 121px;
     background-size:123px 121px;
+    .redpacket-count{
+      display: none;
+    }
   }
 }

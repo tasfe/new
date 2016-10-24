@@ -70,7 +70,7 @@ $dropdown-low-color: #fbf802 !default;
     color: $font-color;
     white-space: nowrap;
     &:hover, &:focus {
-      color: #ffffff;
+      //color: #ffffff;
       text-decoration: none;
     }
   }

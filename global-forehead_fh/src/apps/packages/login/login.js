@@ -337,7 +337,7 @@ $.widget('gl.login', {
 
         } else {
           if(data.msg.indexOf('验证码')!==-1) {
-            if(self.$valCode.hasClass('hidden')){
+            if(self.$valRegion.hasClass('hidden')){
               self.$valRegion.removeClass('hidden');
               self.$valCode.removeClass('hidden');
               self.$valCode.attr('type','text');

@@ -123,7 +123,7 @@ var BettingRecordsView = SearchGrid.extend({
       onBtnClick: function(offset) {
         self.timeset.$startDate.data("DateTimePicker").date(moment().add(offset, 'days').startOf('day'));
         self.timeset.$endDate.data("DateTimePicker").date(moment().add(offset === -1 ? -1 : 0, 'days').endOf('day'));
-        // self.search();
+        self.search();
 
         return false;
       }

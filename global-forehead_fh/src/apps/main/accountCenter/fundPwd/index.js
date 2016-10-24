@@ -126,6 +126,7 @@ var FundPwdView = Base.ItemView.extend({
               title: '设置成功',
               content: '资金密码设置成功'
             }));
+            Global.m.states.fetch();
           } else {
             Global.ui.notification.show(res.msg);
           }

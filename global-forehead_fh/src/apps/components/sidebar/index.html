@@ -1,4 +1,5 @@
 <% _(sidebarList).each(function(menus) { %>
+<% if (!_(menus.sub).isEmpty()) { %>
 <div class="sidebar-container">
 
   <ul class="nav nav-tabs nav-tabs-border nav-hot no-m-bottom">
@@ -14,5 +15,6 @@
     <% }); %>
   </ul>
 </div>
+<% } %>
 <% }); %>
 

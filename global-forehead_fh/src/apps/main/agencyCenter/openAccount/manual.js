@@ -232,7 +232,7 @@ var OpenAccountManageView = Base.ItemView.extend({
       '<div class="control-group"><label class="text-left">账号:&nbsp;&nbsp;' + data.userName + '</label></div>' +
       '<div class="control-group"><label class="text-left">密码:&nbsp;&nbsp;' + data.loginPwd + '</label></div>' +
       '<div class="control-group m-bottom-md"><label class="text-left">返点:&nbsp;&nbsp;' + _(data.rebate).formatDiv(10, {fixed: 1}) + '</label></div>' +
-      '<button type="button" class="js-ac-ocm-copy btn btn-pink btn-linear" data-dismiss="modal">复制并关闭</button></div></form>'
+      '<button type="button" class="js-ac-ocm-copy btn btn-pink btn-linear m-left-lg" data-dismiss="modal">复制并关闭</button></div></form>'
     });
 
     $dialog.on('hidden.modal', function() {
