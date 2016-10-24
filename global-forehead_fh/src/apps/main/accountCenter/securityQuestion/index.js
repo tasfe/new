@@ -146,7 +146,6 @@ var SecurityQuestionView = Base.ItemView.extend({
     }
   },
 
-  //TODO 确认提交密保问题 1.3.3初始化 成功页面
   confirmSecurityQuestionHandler: function (e) {
     var $target = $(e.currentTarget);
       //设置按钮为处理中状态

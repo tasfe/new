@@ -85,7 +85,7 @@ var SelfView = Base.ItemView.extend({
       info.signList = info.dividConf;
     }else{
       // config = levelConfig.getByName('LEVEL_ONE');
-      config = levelConfig.getByName('TOP');
+      config = levelConfig.getByName('LEVEL_ONE');
     }
 
     var statisticView = new StatisticView({

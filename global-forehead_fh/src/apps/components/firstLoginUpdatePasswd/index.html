@@ -5,33 +5,56 @@
 				首次登陆
 			</div>
 			<div class="line1">
-				您好，欢迎首次登录平台，为了您的账户安全，建议您不定期修改登录密码。
+				您好，欢迎首次登录平台
 			</div>
-			<div class="line2">
-				<dl>
-					<dt>新登录密码：</dt>
-					<dd>
-						<input class="js-loginPwd" placeholder="输入新登录密码" type="password">
-					</dd>
-				</dl>
-				<div class="js-passwdSafetyTips passwdSafetyTips hidden ">
-					<div class="passwdSafetyTips-pic">
-			    <span>弱</span> <span>中</span> <span>强</span>
+			<div class="fl-up-title-2">
+				为了您的账户安全，请您及时修改您的账户密码，请切勿将密码账户信息告知他人。
+			</div>
+			<div class="fl-up-shadow">
+			</div>
+			<form class="js-fl-up-form">
+				<div class="line2">
+					<dl>
+						<dt>用户名：</dt>
+						<dd>
+							<span class="js-fl-up-username fl-up-user-uName"></span>
+						</dd>
+					</dl>
+					<dl>
+						<dt>呢称：</dt>
+						<dd>
+							<input class="js-fl-up-user-uName  " placeholder="输入昵称" type='text'><span class="help- inline m-left-sm">4-20个字符，支持中英文和数字，不能以数字开头</span>
+						</dd>
+					</dl>
+					<dl>
+						<dt>新登录密码：</dt>
+						<dd>
+							<input class="js-loginPwd" placeholder="输入新登录密码"  data-parsley-length="[6, 20]" data-parsley-notisnumandlessthen9 data-parsley-nospacechar
+											type="password"><span class="help-inline  m-left-sm">长度6-20位字符，支持数字，大小写字母和符号组合（不含空格）,不能是9位以下的纯数字</span>
+						</dd>
+					</dl>
+
+					<dl>
+						<dt>确认新登录密码：</dt>
+						<dd>
+							<input class="js-loginPwd2" placeholder="再次输入新登录密码"  data-parsley-equalto=".js-loginPwd" type="password"><span class="help- inline  m-left-sm">再次输入密码</span>
+						</dd>
+					</dl>
+					<div class="fl-up-security-grade">
+						<div class="js-passwdSafetyTips passwdSafetyTips hidden ">
+							<div class="passwdSafetyTips-pic">
+								<span>弱</span> <span>中</span> <span>强</span>
+							</div>
+							<div class="passwdSafetyTips-des">
+								<p>连续字符密码易被破解，请用多组合的密码</p></div>
+						</div>
 					</div>
-					<div class="passwdSafetyTips-des">
-			    <p>连续字符密码易被破解，请用多组合的密码</p></div>
-			  </div>
-				<dl>
-					<dt>确认新登录密码：</dt>
-					<dd>
-						<input class="js-loginPwd2" placeholder="再次输入新登录密码" type="password">
-					</dd>
-				</dl>
-				 <div class="js-tip errorTips hidden"></div>
-			</div>
-			<div class="line3">
-				<button type="button" class="js-affirm" data-loading-text="提交中">确认</button>
-			</div>
+					 <!--<div class="js-tip errorTips hidden"></div>-->
+				</div>
+				<div class="line3">
+					<button type="button" class="js-affirm btn btn-pink btn-linear" data-loading-text="提交中">确认</button>
+				</div>
+			</form>
 		</div>
 		<div class="window2 js-window2 hidden ">
 			<div class="title">
@@ -41,11 +64,15 @@
 				恭喜您登陆密码设置成功！
 			</div>
 			<div class="line2">
-				请您牢记您的登陆密码，为了您的账户和资金安全，请您切勿向他人透露您的密码信息。<br>
-				<span>现在您可以操作</span> <a href="login.html">重新登录</a>
+				请您牢记您的登陆密码，为了您的账户和资金安全，请您切勿向他人透露您的密码信息。
+			</div>
+			<div class="fl-up-shadow">
+			</div>
+			<div class="text-center fl-up-operation ">
+				<span>现在您可以操作</span> <a href="login.html" class="btn btn-link text-hot">重新登录</a>
 			</div>
 			<div class="line3">
-				<a href="login.html">确认</a>
+				<a href="login.html" class="btn btn-pink btn-linear">确认</a>
 			</div>
 		</div>
 	</div>
