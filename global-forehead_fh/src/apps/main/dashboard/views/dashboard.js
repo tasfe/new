@@ -2,7 +2,6 @@
 
 require('./../misc/index.scss');
 
-var bannerConfig = require('../misc/bannerConfig');
 var ticketConfig = require('skeleton/misc/ticketConfig');
 
 var LotteryTypeListView = require('dashboard/views/lotteryTypeList');
@@ -596,7 +595,6 @@ var DashboardView = Base.ItemView.extend({
     var liList = [];
 
     if (_(data).isEmpty()) {
-      //data = bannerConfig;
       data = "";
     }
 
