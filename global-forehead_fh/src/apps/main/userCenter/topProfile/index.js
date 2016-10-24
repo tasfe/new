@@ -99,21 +99,7 @@ TopProfileView = Base.ItemView.extend({
             Global.ui.notification.show(res.msg === 'fail' ? '昵称重复' : res.msg);
           }
 
-          $submit.button('loading');
-
-          self.updateUNameXhr(_($form.serializeArray()).serializeObject())
-              .always(function () {
-                $submit.button('reset');
-              }).done(function (res) {
-                if (res && res.result === 0) {
-                  Global.ui.notification.show('修改成功');
-                  Global.m.oauth.check();
-
-                  $dialog.modal('hide');
-                } else {
-                  Global.ui.notification.show(res.msg);
-                }
-              });
+          
         });
     });
   }
