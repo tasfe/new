@@ -184,7 +184,9 @@ $.widget('gl.pagination', {
       gotoPageIndex = Math.ceil(this.options.totalSize / this.options.pageSize);
     }
 
-    this.options.onPaginationChange(gotoPageIndex - 1);
+    this.options.pageIndex = gotoPageIndex - 1;
+
+    this.options.onPaginationChange(this.options.pageIndex);
   }
 });
 

@@ -8,6 +8,7 @@ math.import(require('mathjs/lib/function/arithmetic/subtract'));
 math.import(require('mathjs/lib/function/arithmetic/multiply'));
 math.import(require('mathjs/lib/function/arithmetic/divide'));
 math.import(require('mathjs/lib/function/arithmetic/floor'));
+math.import(require('mathjs/lib/function/arithmetic/mod'));
 
 _.mixin({
   //首字母大写
@@ -20,7 +21,11 @@ _.mixin({
   serializeObject: function(serializeArray) {
     return _(serializeArray).reduce(function(obj, prop) {
       if (prop.name.indexOf('[]') === -1) {
-        obj[prop.name] = prop.value;
+        if (!obj[prop.name]) {
+          obj[prop.name] = prop.value;
+        } else {
+          obj[prop.name] += ',' + prop.value;
+        }
       } else {
         prop.name = prop.name.replace('[]', '');
         if (_.isArray(obj[prop.name])) {
@@ -118,6 +123,42 @@ _.mixin({
 
     return format;
   },
+  formatSub:function(money,ratio,options){
+    var format;
+    options = _.extend({}, {
+      fixed: 0
+    }, options);
+
+    if (!_.isUndefined(money)) {
+
+      format = _(money).sub(ratio);
+
+      if (options.fixed) {
+        format  = format.toFixed(options.fixed);
+      }
+    }
+
+    return format;
+  },
+
+  formatMod: function(money, ratio, options) {
+    var format;
+
+    options = _.extend({}, {
+      fixed: 0
+    }, options);
+
+    if (!_.isUndefined(money)) {
+
+      format = _(money).mod(ratio);
+
+      if (options.fixed) {
+        format  = format.toFixed(options.fixed);
+      }
+    }
+
+    return format;
+  },
 
   toLink: function(arg) {
     var href = window.location.href;
@@ -199,6 +240,10 @@ _.mixin({
   //减法 arg1减arg2
   sub: function(arg1, arg2) {
     return math.subtract(arg1, arg2);
+  },
+
+  mod: function(arg1, arg2) {
+    return math.mod(arg1, arg2);
   },
 
   floor: function(arg1, index) {

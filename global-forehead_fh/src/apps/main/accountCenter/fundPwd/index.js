@@ -106,7 +106,7 @@ var FundPwdView = Base.ItemView.extend({
     var self = this;
     var $target = $(e.currentTarget);
     var type = $target.data('type');
-    var clpValidate = this.$setFundPasswordForm.parsley().validate();
+    var clpValidate = this.$setFundPasswordForm.parsley(Global.validator.getInlineErrorConfig()).validate();
 
     if (clpValidate) {
       $target.button('loading');
@@ -126,6 +126,7 @@ var FundPwdView = Base.ItemView.extend({
               title: '设置成功',
               content: '资金密码设置成功'
             }));
+            Global.m.states.fetch();
           } else {
             Global.ui.notification.show(res.msg);
           }
@@ -149,12 +150,9 @@ var FundPwdView = Base.ItemView.extend({
               title: '修改成功',
               content: '资金密码修改成功'
             }));
+            Global.m.states.fetch();
           } else {
-            if(_(res.root).isNumber && res.root > 0){
-              Global.ui.notification.show(res.msg + ',验证失败，剩余&nbsp;' + res.root + '&nbsp;次机会');
-            }else{
-              Global.ui.notification.show("验证失败，请一个小时后再验证！");
-            }
+            Global.ui.notification.show(res.msg);
           }
         });
       }

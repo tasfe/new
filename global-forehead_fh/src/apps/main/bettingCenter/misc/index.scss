@@ -1,10 +1,8 @@
 @charset "UTF-8";
 
-@import
-"~base/styles/imports",
+@import "~base/styles/imports",
 '~uiCom/tab-toolbar/index.scss',
 '~uiCom/pulse/index.scss';
-
 
 @mixin slide-nav-item($sfas, $size) {
   @each $class, $val in $sfas {
@@ -63,17 +61,19 @@ $main-area-width: 870px;
   border-radius: 8px;
   height: 552px;
   overflow: hidden;
-  background:url(julien/bottombg.jpg) no-repeat left bottom;
+  background: url(julien/bottombg.jpg) no-repeat left bottom;
 }
 
-.bc-play-super,.bc-play-optional{
-  display:block;
+.bc-play-super, .bc-play-optional {
+  display: block;
 }
+
 .rule-hide-optional {
   .bc-play-optional {
     display: none;
   }
 }
+
 .rule-hide-super {
   .bc-play-super {
     display: none;
@@ -102,8 +102,8 @@ $main-area-width: 870px;
     background-color: $deep-gray-color;
   }
 
-  .tab-circle{
-    .tab-group{
+  .tab-circle {
+    .tab-group {
       margin-left: 86px;
     }
   }
@@ -120,8 +120,8 @@ $main-area-width: 870px;
     .active {
       a {
         border-bottom-color: #fff;
-        background-image:linear-gradient(180deg,#eb3939,#a83d6b);
-        &:after{
+        background-image: linear-gradient(180deg, #eb3939, #a83d6b);
+        &:after {
           display: none;
         }
       }
@@ -131,11 +131,12 @@ $main-area-width: 870px;
     font-size: 12px;
   }
 }
+
 .bc-play-section {
   border-bottom: 1px solid #cccccc;
   background-color: #f8f8f8;
-  margin-top:-10px;
-  background-image:linear-gradient(180deg,#ffffff,#eeeeee);
+  margin-top: -10px;
+  background-image: linear-gradient(180deg, #ffffff, #eeeeee);
   padding-bottom: 10px;
   position: relative;
   height: 96px;
@@ -143,7 +144,7 @@ $main-area-width: 870px;
 
 .bc-advance-rules {
   //background-color: grey;
-  background:rgba(0,0,0,0.65);
+  background: rgba(0, 0, 0, 0.65);
   color: white;
   padding-top: 6px;
   float: left;
@@ -164,7 +165,7 @@ $main-area-width: 870px;
     padding: 5px;
 
   }
-  .bc-advance-rule:hover{
+  .bc-advance-rule:hover {
     text-decoration: underline;
   }
 }
@@ -191,7 +192,7 @@ $main-area-width: 870px;
   margin-left: 8px;
   color: $color-amber;
 
-  i{
+  i {
     color: #cc6699;
     font-size: 14px;
     display: inline-block;
@@ -203,23 +204,23 @@ $main-area-width: 870px;
   margin-bottom: 6px;
 }
 
-.bc-play-area{
-  .btn-dragon{
+.bc-play-area {
+  .btn-dragon {
     margin-right: 100px !important;
     margin-left: 30px !important;
-    > span{
+    > span {
       width: 160px !important;
       height: 160px !important;
       border: 0px !important;
-      background:url(~base/images/julien/btn-dragon.jpg) no-repeat !important;
+      background: url(~base/images/julien/btn-dragon.jpg) no-repeat !important;
       position: relative;
       margin-top: -34px;
 
-      &:hover{
+      &:hover {
         opacity: 0.8;
       }
 
-      span{
+      span {
         position: absolute;
         bottom: -34px;
         color: #333333;
@@ -227,27 +228,27 @@ $main-area-width: 870px;
         left: 66px;
       }
 
-      &.active{
-        background:url(~base/images/julien/btn-dragon.jpg) no-repeat 0px -160px !important;
+      &.active {
+        background: url(~base/images/julien/btn-dragon.jpg) no-repeat 0px -160px !important;
         opacity: 0.8;
       }
     }
   }
-  .btn-tiger{
+  .btn-tiger {
     margin-right: 100px !important;
-    > span{
+    > span {
       width: 160px !important;
       height: 160px !important;
       border: 0px !important;
-      background:url(~base/images/julien/btn-tiger.jpg) no-repeat !important;
+      background: url(~base/images/julien/btn-tiger.jpg) no-repeat !important;
       position: relative;
       margin-top: -34px;
 
-      &:hover{
+      &:hover {
         opacity: 0.8;
       }
 
-      span{
+      span {
         position: absolute;
         bottom: -34px;
         color: #333333;
@@ -255,24 +256,24 @@ $main-area-width: 870px;
         left: 66px;
       }
 
-      &.active{
-        background:url(~base/images/julien/btn-tiger.jpg) no-repeat 0px -160px !important;
+      &.active {
+        background: url(~base/images/julien/btn-tiger.jpg) no-repeat 0px -160px !important;
       }
     }
   }
-  .btn-draw{
-    > span{
+  .btn-draw {
+    > span {
       width: 160px !important;
       height: 160px !important;
       border: 0px !important;
-      background:url(~base/images/julien/btn-draw.jpg) no-repeat !important;
+      background: url(~base/images/julien/btn-draw.jpg) no-repeat !important;
       position: relative;
       margin-top: -34px;
 
-      &:hover{
+      &:hover {
         opacity: 0.8;
       }
-      span{
+      span {
         position: absolute;
         bottom: -34px;
         color: #333333;
@@ -280,8 +281,8 @@ $main-area-width: 870px;
         left: 66px;
       }
 
-      &.active{
-        background:url(~base/images/julien/btn-draw.jpg) no-repeat 0px -160px !important;
+      &.active {
+        background: url(~base/images/julien/btn-draw.jpg) no-repeat 0px -160px !important;
       }
     }
   }
@@ -358,7 +359,7 @@ $main-area-width: 870px;
   }
 }
 
-.bc-betDetail-text{
+.bc-betDetail-text {
   word-wrap: break-word;
   white-space: pre;
   padding-left: 35px !important;
@@ -397,7 +398,7 @@ $main-area-width: 870px;
 .bc-textarea-main {
   width: 100%;
   height: 100%;
-  padding: 30px;
+  padding: 10px;
   box-sizing: border-box;
   color: $light-dark-color-2;
 
@@ -432,7 +433,6 @@ $main-area-width: 870px;
   float: left;
 }
 
-
 .bet-lefttime {
   margin-top: -136px;
   margin-left: 220px;
@@ -445,7 +445,6 @@ $main-area-width: 870px;
   float: left;
 }
 
-
 .bet-openprize {
   background: url(~base/images/fh/bet/open-prize.png);
   margin-top: -149px;
@@ -455,7 +454,6 @@ $main-area-width: 870px;
   height: 110px;
   background-repeat: no-repeat;
 }
-
 
 .bet-playrules {
   background: url(~base/images/fh/bet/play-rules.png);
@@ -480,10 +478,8 @@ $main-area-width: 870px;
 .btn-confirm {
   position: absolute;
   float: left;
-  bottom:-184px;
+  bottom: -184px;
 }
-
-
 
 .bet-manager1 {
   background: url(~base/images/fh/bet/btn-bet-manager.png);
@@ -529,10 +525,9 @@ $main-area-width: 870px;
   top: 50px;
 }
 
-
 .float-time-div {
-  position:absolute;
-  z-index:2;
+  position: absolute;
+  z-index: 2;
 }
 
 .bet-information1 {
@@ -552,7 +547,6 @@ $main-area-width: 870px;
   line-height: 35px;
 }
 
-
 .bet-case {
   background: url(~base/images/fh/bet/case.png) no-repeat 0 8px;
   width: 70px;
@@ -562,8 +556,8 @@ $main-area-width: 870px;
 .number-div-style {
   height: 24px;
   width: 40px;
-  border:1px solid $gray-color;
-  text-align:center;
+  border: 1px solid $gray-color;
+  text-align: center;
   display: inline-block;
   cursor: pointer;
   border-radius: $globalBtnRadius;
@@ -653,14 +647,14 @@ $main-area-width: 870px;
   position: absolute;
 }
 
-.nav-title{
+.nav-title {
   background: url(~base/images/fh/bet/nav-title.png) no-repeat;
   width: 1150px;
   height: 145px;
   padding-left: 50px;
   font-family: '微软雅黑';
 
-  .bc-banner{
+  .bc-banner {
     width: 120px;
     height: 100px;
     display: block;
@@ -669,31 +663,31 @@ $main-area-width: 870px;
     margin-right: 40px;
   }
 
-  .leftBlock{
+  .leftBlock {
     float: left;
     width: 285px;
     height: 80px;
     background: url(~base/images/julien/timebg.png) no-repeat bottom left;
     margin-top: 24px;
 
-    .title{
+    .title {
       color: #333333;
       font-size: 18px;
-      span{
+      span {
         color: #999999;
         font-size: 14px;
       }
     }
 
-    .countdown-block{
+    .countdown-block {
       font-size: 24px;
       color: #fff;
       margin-top: 17px;
-      div{
+      div {
         display: inline-block;
         width: 76px;
 
-        span{
+        span {
           width: 30px;
           margin-right: 2px;
           text-align: center;
@@ -704,12 +698,12 @@ $main-area-width: 870px;
     }
   }
 
-  .centerBlock{
+  .centerBlock {
     width: 400px;
     float: left;
     margin-top: 24px;
 
-    .julien-trendBtn{
+    .julien-trendBtn {
       font-size: 12px;
       color: #666666;
       float: right;
@@ -723,27 +717,27 @@ $main-area-width: 870px;
       cursor: pointer;
       position: relative;
 
-      .tendency{
+      .tendency {
         display: none;
       }
 
-      &:hover{
-        .tendency{
+      &:hover {
+        .tendency {
           display: block;
         }
       }
     }
 
-    .title{
+    .title {
       color: #333333;
       font-size: 18px;
-      span{
+      span {
         color: #999999;
         font-size: 14px;
       }
     }
 
-    .text-circle{
+    .text-circle {
       width: 52px;
       height: 52px;
       line-height: 52px;
@@ -751,17 +745,17 @@ $main-area-width: 870px;
       margin-right: 18px;
     }
 
-    .bc-last-results{
+    .bc-last-results {
       margin: 8px 0px 0px 0px;
     }
   }
 
-  .rightBlock{
+  .rightBlock {
     padding-right: 30px;
     float: right;
     padding-top: 45px;
 
-    a{
+    a {
       color: #333333;
       font-size: 14px;
       display: inline-block;
@@ -769,7 +763,7 @@ $main-area-width: 870px;
       height: 70px;
       text-align: center;
 
-      span{
+      span {
         display: block;
         height: 40px;
       }
@@ -777,14 +771,14 @@ $main-area-width: 870px;
   }
 }
 
-.bc-main-area{
-  &:after{
-    display:block;
+.bc-main-area {
+  &:after {
+    display: block;
     content: '';
     clear: both;
   }
 
-  .bet-quick{
+  .bet-quick {
     width: 134px;
     height: 32px;
     line-height: 32px;
@@ -799,25 +793,25 @@ $main-area-width: 870px;
     cursor: pointer;
     border: 1px solid #ba4587;
     border-radius: 32px;
-    background-image:-webkit-linear-gradient(180deg, #ef66ab, #cd338a);
-    background-image:linear-gradient(180deg,#ef66ab,#cd338a);
+    background-image: -webkit-linear-gradient(180deg, #ef66ab, #cd338a);
+    background-image: linear-gradient(180deg, #ef66ab, #cd338a);
 
-    i{
+    i {
       display: inline-block;
       margin-right: 5px;
     }
 
-    &:hover{
-background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
-    background-image:linear-gradient(180deg,#cd338a,#ef66ab);
+    &:hover {
+      background-image: -webkit-linear-gradient(180deg, #cd338a, #ef66ab);
+      background-image: linear-gradient(180deg, #cd338a, #ef66ab);
     }
 
   }
-  .bet-quick:hover{
+  .bet-quick:hover {
     background-color: #eb4929;
   }
 
-  .bet-quick1{
+  .bet-quick1 {
     width: 134px;
     height: 32px;
     line-height: 32px;
@@ -833,18 +827,18 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
     border: 1px solid #d7d7d7;
     border-radius: 32px;
 
-    i{
+    i {
       display: inline-block;
       margin-right: 5px;
     }
   }
 
-  .bc-menu{
+  .bc-menu {
     background-color: #fff;
     height: auto;
     position: relative;
 
-    .bc-toggle{
+    .bc-toggle {
       width: 100px;
       height: 26px;
       position: absolute;
@@ -869,20 +863,20 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
       }
     }
 
-    .bc-basic-rules{
-      a{
+    .bc-basic-rules {
+      a {
         padding: 0 20px;
-        border:0;
+        border: 0;
 
-        .bc-first-prize{
+        .bc-first-prize {
           font-size: 14px;
           color: #999999;
         }
       }
 
-      li.active{
+      li.active {
 
-        .bc-first-prize{
+        .bc-first-prize {
           color: #bdbdbd;
         }
       }
@@ -890,20 +884,20 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
   }
 }
 
-.bc-play-container{
+.bc-play-container {
   height: 335px;
   border-bottom: 1px solid #ccc;
   background-color: #fff;
-      overflow: hidden !important;
+  overflow: hidden !important;
 
-  .bc-select-item{
-    .tab{
+  .bc-select-item {
+    .tab {
       color: #666666;
       font-size: 22px;
     }
   }
 
-  .tab{
+  .tab {
     width: 28px;
     height: 28px;
     line-height: 28px;
@@ -911,10 +905,10 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
     border: 1px solid #d5d5d5;
     color: #999999;
     font-size: 16px;
-    border-radius:3px;
+    border-radius: 3px;
   }
 
-  .bc-playArea-items{
+  .bc-playArea-items {
     margin: 10px 0;
   }
 }
@@ -929,8 +923,8 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
   padding: 0 15px;
   margin-left: 50px;
 
-  .tab-group{
-    .tab{
+  .tab-group {
+    .tab {
       width: 26px;
       height: 26px;
       color: #666666;
@@ -938,37 +932,36 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
       background-color: #fff;
     }
   }
-  
-  .price{
+
+  .price {
     color: #cc3333;
     display: inline-block;
     margin-left: 15px;
   }
-  .bc-type-select{
-      width: 88px;
+  .bc-type-select {
+    width: 92px;
   }
 }
 
-.pull-bottom{
+.pull-bottom {
   clear: both;
   margin-bottom: 75px;
-  font-family: '微软雅黑';
 
-  a{
+  a {
     width: 133px;
     height: 40px;
     line-height: 40px;
-    color: #fff; 
+    color: #fff;
     font-size: 18px;
     text-align: center;
     display: inline-block;
     background-color: #d8855a;
-    &:hover{
+    &:hover {
       background-color: #eb4929;
     }
   }
 
-  .add-number{
+  .add-number {
     width: 134px;
     height: 40px;
     line-height: 40px;
@@ -981,11 +974,11 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
     cursor: pointer;
     margin-left: 585px;
   }
-  .add-number:hover{
+  .add-number:hover {
     background-color: #eb4929;
   }
 
-  .add-number1{
+  .add-number1 {
     width: 134px;
     height: 40px;
     line-height: 40px;
@@ -1012,12 +1005,11 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
     width: 212px;
     margin-left: 30px;
   }
-  .commit-number:hover{
+  .commit-number:hover {
     background-color: #eb4929;
   }
 
-
-  .chase-number{
+  .chase-number {
     height: 40px;
     line-height: 40px;
     background-color: #d8855a;
@@ -1031,18 +1023,18 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
     margin-left: -4px;
     //&h
   }
-  .chase-number:hover{
+  .chase-number:hover {
     background-color: #eb4929;
   }
 }
 
 .bc-side-area {
   width: 310px;
-  height:500px;
+  height: 500px;
   font-family: '微软雅黑';
   color: #666666;
 
-  a{
+  a {
     color: #666666;
   }
 
@@ -1050,7 +1042,7 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
     @include slide-nav-item($sfa-d-tickets, 120px);
   }
 
-  .bc-records{
+  .bc-records {
     background-color: #fff;
     height: 326px;
     border: 1px solid #ccc;
@@ -1069,25 +1061,25 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
 }
 
 .betting-button-clear {
-    background-image:  url(~base/images/fh/nav/bet-clear-num.png);
-    width: 140px;
-    height: 40px;
+  background-image: url(~base/images/fh/nav/bet-clear-num.png);
+  width: 140px;
+  height: 40px;
 }
 
 .betting-button-remove {
-  background-image:  url(~base/images/fh/nav/bet-remove-num.png);
+  background-image: url(~base/images/fh/nav/bet-remove-num.png);
   width: 140px;
   height: 40px;
 }
 
 .betting-button-importer {
-  background-image:  url(~base/images/fh/nav/bet-importer.png);
+  background-image: url(~base/images/fh/nav/bet-importer.png);
   width: 140px;
   height: 40px;
 }
 
-.chase-confirm{
-  background-image:  url(~base/images/fh/bet/chase-confirm.png);
+.chase-confirm {
+  background-image: url(~base/images/fh/bet/chase-confirm.png);
   width: 100px;
   height: 30px;
   position: absolute;
@@ -1099,12 +1091,12 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
 }
 
 .btn-pressdown-color2 {
-      background-color: #cc6699;
-    color: #fff  !important;
+  background-color: #cc6699;
+  color: #fff !important;
 }
 
-.cang01{
-  background-image:  url(~base/images/fh/bet/cang01.png);
+.cang01 {
+  background-image: url(~base/images/fh/bet/cang01.png);
   width: 30px;
   height: 30px;
   background-repeat: no-repeat;
@@ -1113,8 +1105,8 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
   margin-top: -173px;
 }
 
-.cang02{
-  background-image:  url(~base/images/fh/bet/cang02.png);
+.cang02 {
+  background-image: url(~base/images/fh/bet/cang02.png);
   width: 30px;
   height: 30px;
   background-repeat: no-repeat;
@@ -1123,11 +1115,11 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
   margin-top: -173px;
 }
 
-.bc-left{
+.bc-left {
   width: 880px;
   float: left;
 
-  .banner{
+  .banner {
     height: 108px;
     border: 1px solid #b63c60;
     border-radius: 8px;
@@ -1135,16 +1127,16 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
     color: #666666;
     font-size: 14px;
 
-    .bc-banner{
+    .bc-banner {
       //width: 120px;
       //height: 94px;
       display: block;
-      margin: 10px 40px 0 26px;
+      margin: 10px 40px 0 10px;
       position: relative;
       float: left;
 
-      &:after{
-        border-right:1px solid #ccc;
+      &:after {
+        border-right: 1px solid #ccc;
         height: 62px;
         position: absolute;
         right: 0px;
@@ -1154,22 +1146,22 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
       }
     }
 
-    .bc-result{
+    .bc-result {
       width: 324px;
       float: left;
       padding-top: 15px;
 
-      .title{
+      .title {
         margin-bottom: 11px;
         padding-right: 37px;
 
-        span{
+        span {
           display: inline-block;
           margin: 0px 5px;
           color: #333333;
         }
 
-        a{
+        a {
           font-weight: normal;
           padding: 1px 12px;
           display: inline-block;
@@ -1178,8 +1170,8 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
           float: right;
           font-size: 12px;
 
-          &:hover{
-            background-color:#bf5985;
+          &:hover {
+            background-color: #bf5985;
             color: #fff;
             cursor: pointer;
           }
@@ -1187,23 +1179,23 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
       }
     }
 
-    .bc-time{
+    .bc-time {
       width: 275px;
       float: left;
       padding-top: 15px;
 
-      p{
+      p {
         margin-bottom: 15px;
 
-        span{
+        span {
           color: #333333;
           display: inline-block;
           margin-right: 10px;
         }
       }
 
-      .countdown-block{
-        div{
+      .countdown-block {
+        div {
           width: 60px;
           height: 40px;
           line-height: 40px;
@@ -1215,7 +1207,7 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
           color: #fff;
           text-align: center;
 
-          span{
+          span {
             width: 30px;
             float: left;
 
@@ -1226,7 +1218,7 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
   }
 }
 
-.bc-right{
+.bc-right {
   float: right;
   width: 300px;
   position: relative;
@@ -1234,17 +1226,17 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
   .bc-records-open-container {
     position: absolute;
     width: 290px;
-    height: 98px;
+    height: 108px;
     overflow: hidden;
     border: 1px solid #ccc;
     background-color: #fff;
     border-radius: 8px;
-    padding: 5px;
+    padding: 0 5px;
     text-align: center;
     transition: height 0.2s ease;
 
     .showList {
-      height: 94px;
+      height: 104px;
       overflow: hidden;
     }
 
@@ -1261,17 +1253,17 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
       }
     }
 
-    .showListBtn{
+    .showListBtn {
       position: relative;
 
-      > i{
+      > i {
         cursor: pointer;
         color: #ccc;
         position: absolute;
-        bottom: -10px;
+        bottom: -5px;
 
-        &:hover{
-          color:#cc3333;
+        &:hover {
+          color: #cc3333;
         }
       }
     }
@@ -1307,7 +1299,7 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
     }
   }
 
-  .rightBlock2{
+  .rightBlock2 {
     margin-top: 120px;
     width: 290px;
     height: 89px;
@@ -1319,7 +1311,7 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
     text-align: center;
     color: #333333;
 
-    .topTips{
+    .topTips {
       height: 38px;
       padding: 5px 5px 10px 5px;
       border-bottom: 1px solid #ccc;
@@ -1333,17 +1325,17 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
       }
     }
 
-    .bet-act-available{
+    .bet-act-available {
       text-align: left;
       line-height: 40px;
 
-      i{
+      i {
         color: #cc6699;
         display: inline-block;
         margin: 0px 5px 0px 5px;
       }
 
-      a{
+      a {
         padding: 4px 10px;
         border: 1px solid #ccc;
         border-radius: 15px;
@@ -1351,18 +1343,18 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
         line-height: 12px;
         margin-top: 10px;
 
-        &:hover{
-              background-color: #cc6699;
-    color: #fff;
+        &:hover {
+          background-color: #cc6699;
+          color: #fff;
         }
       }
     }
   }
 
-  .rightBlock3{
+  .rightBlock3 {
     margin-top: 10px;
     width: 300px;
-    height: 426px;
+    height: 430px;
     border: 1px solid #ccc;
     background-color: #fff;
     border-radius: 8px;
@@ -1370,34 +1362,34 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
     text-align: center;
     color: #333333;
 
-    .bc-title{
+    .bc-title {
       height: 35px;
       line-height: 35px;
       padding: 0 8px;
       border-bottom: 2px solid #a83d6b;
       font-size: 14px;
 
-      a{
+      a {
         display: block;
         float: left;
         height: 35px;
         width: 142px;
         color: #666666;
 
-        i{
+        i {
           display: inline-block;
           margin-right: 10px;
           font-size: 16px;
         }
 
-        &:hover{
+        &:hover {
           margin-top: -2px;
         }
 
-        &.active{
+        &.active {
           background-color: #ec3838;
-          background-image:-webkit-linear-gradient(180deg, #ec3838, #a83d6b);
-          background-image:linear-gradient(180deg,#ec3838,#a83d6b);
+          background-image: -webkit-linear-gradient(180deg, #ec3838, #a83d6b);
+          background-image: linear-gradient(180deg, #ec3838, #a83d6b);
           color: #fff;
           border-top-left-radius: 3px;
           border-top-right-radius: 3px;
@@ -1406,10 +1398,10 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
       }
     }
 
-    .btnList{
+    .btnList {
       margin: 15px 0px 10px 2px;
 
-      span,a{
+      span, a {
         display: inline-block;
         height: 29px;
         line-height: 29px;
@@ -1421,41 +1413,41 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
         cursor: pointer;
         font-size: 14px;
 
-        &:hover{
-          background-color:#e67eb2;
+        &:hover {
+          background-color: #e67eb2;
           color: #fff;
           border: 2px solid #e67eb2;
         }
 
-        &.no{
+        &.no {
           background-color: #f3f3f3;
           color: #999999;
         }
       }
     }
 
-    .order-bottom{
+    .order-bottom {
       height: 43px;
       line-height: 43px;
       background-color: #fefefe;
-      background-image:-webkit-linear-gradient(180deg, #fefefe, #eeeeee);
-      background-image:linear-gradient(180deg,#fefefe,#eeeeee);
+      background-image: -webkit-linear-gradient(180deg, #fefefe, #eeeeee);
+      background-image: linear-gradient(180deg, #fefefe, #eeeeee);
       border-bottom: 1px solid #cccccc;
       border-top: 2px solid #a83d6b;
       position: relative;
       font-size: 14px;
       color: #666666;
 
-      span{
+      span {
         display: inline-block;
         margin: 0px 3px;
         color: #e22919;
       }
 
-      .collect{
+      .collect {
         width: 31px;
         height: 33px;
-        background:url(julien/collect.png) no-repeat;
+        background: url(julien/collect.png) no-repeat;
         cursor: pointer;
         margin-bottom: 5px;
         margin-right: 5px;
@@ -1465,60 +1457,60 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
       }
     }
 
-    .commit-number{
+    .commit-number {
       width: 286px;
       padding-left: 10px;
       height: 54px;
       line-height: 48px;
       font-size: 20px;
       color: #fff;
-      background:url(julien/confirmBtnBg.jpg) no-repeat;
+      background: url(julien/confirmBtnBg.jpg) no-repeat;
       display: block;
       clear: both;
       margin-left: 2px;
       cursor: pointer;
 
-      &:hover{
-         background:url(julien/confirmBtnBg.jpg) no-repeat 0px -54px;
+      &:hover {
+        background: url(julien/confirmBtnBg.jpg) no-repeat 0px -54px;
       }
     }
   }
 }
 
-.js-bc-advance-rules{
+.js-bc-advance-rules {
   display: block !important;
   height: auto !important;
   padding-top: 10px;
 
 }
 
-.bc-advance-rules-container{
+.bc-advance-rules-container {
 
 }
 
-.js-bc-rules-toolbar{
+.js-bc-rules-toolbar {
   line-height: 30px;
-  .tab-title{
+  .tab-title {
     display: inline-block;
     margin-left: 20px;
     margin-right: 10px;
   }
-  .tab-group{
+  .tab-group {
     display: inline-block;
-    label{
+    label {
       display: inline-block;
       padding: 0 10px;
-      border: 1px solid $gray-color;
+      border: 1px solid #545454;
       background-color: #fff;
       border-radius: 30px;
 
-      &.active{
+      &.active {
         background-color: #cc6699;
         color: #fff !important;
         border: 1px solid #cc6699;
       }
 
-      &:hover{
+      &:hover {
         border: 1px solid #cc6699;
         color: #cc6699;
       }
@@ -1526,11 +1518,11 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
   }
 }
 
-.rightMenu{
+.rightMenu {
   display: none;
 }
 
-.bc-play-tip{
+.bc-play-tip {
   text-decoration: none;
   float: right;
   display: inline-block;
@@ -1542,28 +1534,28 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
   right: 0;
   top: 0;
   color: #cc6699;
-  .infor-tip{
+  .infor-tip {
     display: none;
   }
 
-  &:hover{
+  &:hover {
     background-color: #cc6699;
     border: 1px solid #cc6699;
     color: $white-color;
-    span{
+    span {
       display: none;
     }
 
-    .infor-tip{
+    .infor-tip {
       display: block;
     }
   }
 }
 
-.js-bc-select-item-title{
+.js-bc-select-item-title {
   position: relative;
   margin-right: 10px;
-  div{
+  div {
     font-size: 14px !important;
     color: #ffffff !important;
     background: url(../misc/julien/content-titlebg.jpg);
@@ -1573,26 +1565,25 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
     margin-top: 8px;
   }
 
-
 }
 
-.tab-toolbar.tab-circle .tab{
+.tab-toolbar.tab-circle .tab {
   height: 36px;
   width: 36px;
   line-height: 36px;
   font-size: 20px;
   color: #666666;
   border-radius: 0px;
-  background:url(../misc/julien/btn2.png) no-repeat;
+  background: url(../misc/julien/btn2.png) no-repeat;
   background-size: cover;
   border: 0px;
 
-  &:hover{
-    font-size:22px;
+  &:hover {
+    font-size: 22px;
   }
 
-  &.active{
-    background:url(../misc/julien/btn.png) no-repeat;
+  &.active {
+    background: url(../misc/julien/btn.png) no-repeat;
     border-radius: 0px;
     color: #fff;
     border: 0px;
@@ -1600,67 +1591,68 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
   }
 }
 
-.js-be-playArea-items-toolbar{
+.js-be-playArea-items-toolbar {
   width: 660px;
 }
 
-.tab-toolbar.tab-border .tab{
+.tab-toolbar.tab-border .tab {
   border: 0px;
   color: #666666;
   margin-top: 3px;
   border-radius: 20px;
 
-  &:hover{
-    background:#e67eb2 !important;
-  }
-}
-
-.bc-playArea-items .tab-border{
-  padding-right: 5px;
-  padding-left: 3px;
-}
-
-.js-bc-play-area{
-  .m-left-md{
-    margin-left: 10px !important;
-  }
-}
-
-.js-bc-select-op{
-  &:hover{
+  &:hover {
     background: #e67eb2 !important;
   }
 }
 
-.tab-toolbar.tab-border .tab{
+.bc-playArea-items .tab-border {
+  padding-right: 5px;
+  padding-left: 3px;
+}
+
+.js-bc-play-area {
+  .m-left-md {
+    margin-left: 10px !important;
+  }
+}
+
+.js-bc-select-op {
+  &:hover {
+    background: #e67eb2 !important;
+  }
+}
+
+.tab-toolbar.tab-border .tab {
   border-radius: 3px;
 }
-.tab-toolbar.tab-border .tab.active{
+
+.tab-toolbar.tab-border .tab.active {
   background: #e67eb2;
   border-radius: 3px;
 }
 
-.add-number{
-  border:1px solid #cd338a !important;
-  background-image:-webkit-linear-gradient(180deg, #ef66ab, #cd338a);
-  background-image:linear-gradient(180deg,#ef66ab,#cd338a);
+.add-number {
+  border: 1px solid #cd338a !important;
+  background-image: -webkit-linear-gradient(180deg, #ef66ab, #cd338a);
+  background-image: linear-gradient(180deg, #ef66ab, #cd338a);
   color: #fff !important;
 
-  &:hover{
-    background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
-    background-image:linear-gradient(180deg,#cd338a,#ef66ab);
+  &:hover {
+    background-image: -webkit-linear-gradient(180deg, #cd338a, #ef66ab);
+    background-image: linear-gradient(180deg, #cd338a, #ef66ab);
   }
 }
 
-.add-number1{
+.add-number1 {
   color: #999999 !important;
   background-color: #f3f3f3 !important;
   border: 1px solid #ccc !important;
 }
 
 .order-list {
-  table{
-    tr{
+  table {
+    tr {
       padding: 0 10px;
     }
 
@@ -1670,132 +1662,86 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
   }
   .table {
     thead {
-      th{
+      th {
         background: #f6f6f6;
         border-bottom: 1px solid #cccccc;
       }
     }
-    td {
-      padding: 5px 3px;
-    }
+    //td {
+    //  padding: 5px 3px;
+    //}
   }
 }
 
-.tab-toolbar.tab-circle .active{
-  div{
+.tab-toolbar.tab-circle .active {
+  div {
     background-position: 0px -29px;
   }
 }
 
-.btn-dragon{
-    position: absolute;
-   left: 100px;
-   top: 100px
-  }
-.btn-draw{
+.btn-dragon {
   position: absolute;
-   right: 30px;
-    top: 100px
+  left: 100px;
+  top: 100px
 }
 
-  .btn-tiger{
-    position: absolute;
-     
-     right: 200px;
-     top: 100px
-  }
+.btn-draw {
+  position: absolute;
+  right: 30px;
+  top: 100px
+}
 
-.bc-left{
-  .bc-time{
+.btn-tiger {
+  position: absolute;
+
+  right: 200px;
+  top: 100px
+}
+
+.bc-left {
+  .bc-time {
     position: relative;
-    .d1{
+    .d1 {
       font-size: 30px;
       color: #333333;
       position: absolute;
-          left: 62px;
-    top: 48px;
+      left: 62px;
+      top: 48px;
     }
-    .d2{
+    .d2 {
       font-size: 30px;
       color: #333333;
-          left: 132px;
+      left: 132px;
       top: 48px;
-       position: absolute;
+      position: absolute;
     }
   }
 }
 
-.pk10{
-  .bc-left .banner .bc-result .text-circle{
+.pk10 {
+  .bc-left .banner .bc-result .text-circle {
     width: 30px;
     height: 30px;
     line-height: 28px;
     font-size: 14px;
     margin-bottom: 2px;
   }
-  .bc-last-results{
+  .bc-last-results {
     margin-top: -5px;
   }
 }
 
-.x5{
-      margin-left: 90px;
+.x5 {
+  margin-left: 90px;
 }
 
-.js-bc-btn-lottery-add{
-  i{
+.js-bc-btn-lottery-add {
+  i {
     margin-right: 2px;
   }
 }
 
-.bc-input-opration-container-div-julien{
-  .btn-sun-imp1{
-    width: 97px;
-    height: 24px;
-    border: 1px solid #bb5283;
-    background-image:-webkit-linear-gradient(180deg, #cb6598, #b74e7e);
-    background-image:linear-gradient(180deg,#cb6598,#b74e7e);
-    margin-bottom: 10px;
-    font-size: 12px;
-    border-radius: 3px;
-    text-align: left;
-
-    &:hover{
-      background-image:-webkit-linear-gradient(180deg, #b74e7e, #cb6598);
-      background-image:linear-gradient(180deg,#b74e7e,#cb6598);
-    }
-
-    i{
-      margin-left: 5px;
-      width: 12px;
-    }
-  }
-
-  .btn-sun-imp{
-    width: 97px;
-    height: 24px;
-    border: 1px solid #cbcbcb;
-    background-image:linear-gradient(180deg,#f5f5f5,#e6e6e6);
-    margin-bottom: 10px;
-    font-size: 12px;
-    border-radius: 3px;
-    color: #666666;
-    text-align: left;
-
-    &:hover{
-      background-image:linear-gradient(180deg,#e6e6e6,#f5f5f5);
-    }
-
-    i{
-      margin-left: 5px;
-      width: 12px;
-      display: inline-block;
-      text-align: center;
-    }
-  }
-}
-
-.bc-hgcaculate-examplerow{
+.bc-hgcaculate-examplerow {
   height: 20px;
   margin: 2px 5px 2px 5px;
 }

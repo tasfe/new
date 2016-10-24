@@ -31,18 +31,19 @@ var TrackRecordsView = TabView.extend({
           name: 'low',
           id: 'jsUCLowFrequentTab',
           template: '<div class="js-uc-lowContainer price-container"><div class="js-uc-lowNotice"></div><div class="js-uc-lowGrid portlet-filter uc-prize"></div></div>'
-        },
+        }
         // {
         //   label: '秒秒彩',
         //   name: 'mmc',
         //   id: 'jsUCMmcFrequentTab',
         //   template: '<div class="js-uc-mmcContainer price-container"><div class="js-uc-mmcNotice"></div><div class="js-uc-mmcGrid portlet-filter uc-prize"></div></div>'
         // },
+        ,
         {
-          label: '老虎机秒秒彩',
-          name: 'smmc',
-          id: 'jsUCSmmcFrequentTab',
-          template: '<div class="js-uc-smmcContainer price-container"><div class="js-uc-smmcNotice"></div><div class="js-uc-smmcGrid portlet-filter uc-prize"></div></div>'
+          label: '快乐彩',
+          name: 'happy',
+          id: 'jsUCHappyFrequentTab',
+          template: '<div class="js-uc-happyContainer price-container"><div class="js-uc-happyNotice"></div><div class="js-uc-happyGrid portlet-filter uc-prize"></div></div>'
         }
       ],
       // append:  '<div class="controls fc-lesson">' +
@@ -91,7 +92,11 @@ var TrackRecordsView = TabView.extend({
     var params = {ticketSeriesId: 6, subAcctId: this.options.userId};
     this._loadPage(params, 'js-uc-smmcGrid');
   },
-
+  onHappyRender: function () {
+    var self = this;
+    var params = {ticketSeriesId: 4, subAcctId: this.options.userId};
+    this._loadPage(params, 'js-uc-happyGrid');
+  },
   
   _loadPage: function (params, classValue) {
     this.$('.' + classValue).html(Global.ui.loader.get());

@@ -177,6 +177,7 @@ define(function (require, exports, module) {
                     self.$('.js-ag-platform').html('<option value="">全部</option>');
                 }
             });
+            self.$('.js-ag-type').html('<option value="">全部</option>');
 
         },
 
@@ -185,14 +186,38 @@ define(function (require, exports, module) {
             row.push(rowInfo.billNo);
             row.push(rowInfo.player);
             if(rowInfo.platformType==0){
-                row.push("AG国际厅");
-            }else{
                 row.push("/");
+            }else if(rowInfo.platformType==1){
+                row.push("国际厅");
+            }else if(rowInfo.platformType==2){
+                row.push("旗舰厅");
+            }else if(rowInfo.platformType==3){
+                row.push("包桌厅");
+            }else if(rowInfo.platformType==4){
+                row.push("豪华厅");
             }
-            if(rowInfo.gameType==1){
-                row.push("百家乐");
-            }else{
+            if(rowInfo.gameType==0){
                 row.push("/");
+            }else if(rowInfo.gameType==1){
+                row.push("百家乐");
+            }else if(rowInfo.gameType==2){
+                row.push("包桌百家乐");
+            }else if(rowInfo.gameType==3){
+                row.push("连环百家乐");
+            }else if(rowInfo.gameType==4){
+                row.push("龙虎");
+            }else if(rowInfo.gameType==5){
+                row.push("骰宝");
+            }else if(rowInfo.gameType==6){
+                row.push("轮盘");
+            }else if(rowInfo.gameType==7){
+                row.push("番摊");
+            }else if(rowInfo.gameType==8){
+                row.push("竞咪百家乐");
+            }else if(rowInfo.gameType==9){
+                row.push("终极德州扑克");
+            }else if(rowInfo.gameType==10){
+                row.push("保险百家乐");
             }
             row.push(rowInfo.gameCode);
             row.push(rowInfo.tableCode);

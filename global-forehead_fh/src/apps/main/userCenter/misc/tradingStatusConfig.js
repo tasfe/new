@@ -51,10 +51,17 @@ var status = [
   },
   {
     index: 'INCOME_SYSTEM',
+    id: 112,
+    zhName: 'AG返点',
+    searchName: '&nbsp;&nbsp;&nbsp;&nbsp;>AG返点'
+  },
+  {
+    index: 'INCOME_SYSTEM',
     id: 105,
     zhName: '系统加币',
     searchName: '&nbsp;&nbsp;&nbsp;&nbsp;>系统加币'
   },
+
   {
     index: 'OUTCOME_ALL',
     id: 11,

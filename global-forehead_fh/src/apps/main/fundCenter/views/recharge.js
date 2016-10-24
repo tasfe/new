@@ -22,11 +22,11 @@ var RechargeView = TabView.extend({
 
     if (this.$hasFare){
       var amount = $('.js-fc-re-amount').val();
-      var fare = amount*(this.$feeLimit/100);
+      var fare = _(amount).chain().formatMul(this.$feeLimit).formatDiv(100, {fixed: 4}).value();
       if (fare>=this.$maxFeeLimit){
         fare = this.$maxFeeLimit;
       }
-      amount = amount-fare;
+      amount = _(amount).formatSub(fare,{fixed:4});
       this.$fareResult.html(isNaN(fare)?0:fare);
       this.$amountResult.html(isNaN(amount)?0:amount);
     }
@@ -188,6 +188,7 @@ var RechargeView = TabView.extend({
     var $target = $(e.currentTarget);
     $target.addClass('active').siblings().removeClass('active');
     this.initPaymentPage(e);
+    this.$('.js-fc-re-amount').trigger('keyup');
   },
 
   formatAmount: function(amount) {
@@ -206,8 +207,7 @@ var RechargeView = TabView.extend({
     $target.toggleClass('active');
     $target.siblings().removeClass('active');
     var amount = $target.data('type');
-    this.$('.js-fc-re-amount').val(amount);
-    this.keyOnChangeHandler();
+    this.$('.js-fc-re-amount').val(amount).trigger('change').trigger('keyup');
   },
 
   bankSelectHandler: function(e) {

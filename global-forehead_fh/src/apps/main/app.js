@@ -5,6 +5,8 @@ var NavbarView = require('skeleton/bases/navbar');
 var RechargeView = require('fundCenter/views/recharge');
 var DesktopNewsView = require('skeleton/bases/desktopNews');
 var EntryView = require('skeleton/bases/entry');
+//活动快捷入口
+var ActivityEntryView = require('skeleton/bases/activityEntry');
 var FooterView = require('com/footer');
 var NoticeBoardView = require('dynamicCenter/views/noticeBoardFH');
 
@@ -13,6 +15,7 @@ var NoticeBoardView = require('dynamicCenter/views/noticeBoardFH');
 var FirstLoginUpdatePasswd = require('com/firstLoginUpdatePasswd');
 
 var EntryModel = require('skeleton/models/entry');
+
 var NewsModel = require('skeleton/models/news');
 
 var App = new window.Base.Application();
@@ -27,6 +30,8 @@ App.addRegions({
   navbarRegion: '#navbar',
   mainRegin: '#main',
   entryRegion: '#quickEntry',
+  // 活动快捷入口
+  activityEntryRegion: '#activityEntry',
   subMainRegin: '#subMain',
   topRegin: '#topProfile',
   // newbieRegin: '#newbie',
@@ -49,6 +54,9 @@ App.addInitializer(function(options) {
     model: entryModel
   }));
 
+  //活动快捷入口。
+  App.activityEntryRegion.show(new ActivityEntryView({}));
+
   App.desktopNewsRegion.show(new DesktopNewsView());
 
   // $('body').append(new RainActivity().render().$el);
@@ -66,42 +74,58 @@ App.addInitializer(function(options) {
   _bindClosePopoverHandler();
   _bindClickFeedbackHandler();
 
+  //关闭浏览器时，sessionStorage丢失，导致无法正确判断用户状态
+  var actInfo = Global.memoryCache.get('acctInfo');
+  var status = Number(actInfo.userStatus);
+  if(status===103 || status===104 || status===105 || status===106){
+    sessionStorage.status = 1;
+  }
+  //
   this.firstLoginUpdatePasswd = new FirstLoginUpdatePasswd();
+  this.firstLoginUpdatePasswd.on('close', function() {
+    if(!Global.cookieCache.get('hasLoadBulletin')) {
+      Global.cookieCache.set('hasLoadBulletin', true);
+      openNotice();
+    }
+  });
   this.firstLoginUpdatePasswd.checkState(function(state) {
     if(state !== 1 && !Global.cookieCache.get('hasLoadBulletin')){
       Global.cookieCache.set('hasLoadBulletin', true);
-      $('.js-gl-notice').trigger('click');
+      openNotice();
     }
   });
 });
 
 function _bindNoticeHandler() {
   $(document).off('click.notice').on('click.notice', '.js-gl-notice', function(e) {
-    var noticeBoardView;
-
-    var $dialog = Global.ui.dialog.show({
-      title: '平台公告',
-      size: '',
-      body: '<div class="js-head-bulletin-container"></div>',
-      bodyClass: 'no-padding',
-      modalClass: 'header-bulletin-dialog',
-      footer: ''
-    });
-
-    var $bulletinContainer = $dialog.find('.js-head-bulletin-container');
-
-    $dialog.on('hidden.modal', function() {
-      $(this).remove();
-      noticeBoardView.destroy();
-    });
-
-    noticeBoardView = new NoticeBoardView({
-      el: $bulletinContainer,
-      reqData: {
-       bulletinId: $(e.currentTarget).data('bulletin-id')
-      }
-    }).render();
+    openNotice($(e.currentTarget).data('bulletin-id'));
   });
+}
+
+function openNotice(id) {
+  var noticeBoardView;
+  var $dialog = Global.ui.dialog.show({
+    title: '平台公告',
+    size: '',
+    body: '<div class="js-head-bulletin-container"></div>',
+    bodyClass: 'no-padding',
+    modalClass: 'header-bulletin-dialog',
+    footer: ''
+  });
+
+  var $bulletinContainer = $dialog.find('.js-head-bulletin-container');
+
+  $dialog.on('hidden.modal', function() {
+    $(this).remove();
+    noticeBoardView.destroy();
+  });
+
+  noticeBoardView = new NoticeBoardView({
+    el: $bulletinContainer,
+    reqData: {
+      bulletinId: id
+    }
+  }).render();
 }
 
 
@@ -171,6 +195,9 @@ function _bindClosePopoverHandler() {
       });
     }
   });
+
+  // $(document).on('[data-toggle=popover]').on("hide", function (e) {
+  // });
 }
 
 function _bindClickFeedbackHandler() {

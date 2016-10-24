@@ -32,11 +32,13 @@ var DashboardView = Base.ItemView.extend({
     'mouseover .js-athena_st_08': 'tempMouseover',
     'mouseover .js-athena_st_09': 'tempMouseover',
     'mouseover .js-athena_st_10': 'tempMouseover',
+    'mouseover .js-gl-notice' : 'generateRollListMouseover',
 
     'mouseout .js-athena_st_07': 'tempMouseOut',
     'mouseout .js-athena_st_08': 'tempMouseOut',
     'mouseout .js-athena_st_09': 'tempMouseOut',
     'mouseout .js-athena_st_10': 'tempMouseOut',
+    'mouseout .js-gl-notice' : 'generateRollListMouseOut',
 
     'mousedown  .js-athena_st_07': 'tempClick',
     'mousedown  .js-athena_st_08': 'tempClick',
@@ -243,6 +245,14 @@ var DashboardView = Base.ItemView.extend({
     $('.js-athena_st_09').addClass('athnea-Reality_01');
     $('.js-athena_st_10').addClass('athnea-ticket_01');
 
+  },
+
+  generateRollListMouseover:function () {
+    clearInterval(this.timer22);
+  },
+
+  generateRollListMouseOut:function () {
+    this.generateRollListTimer();
   },
 
   lottertyEnterHandler: function () {
@@ -656,6 +666,13 @@ var DashboardView = Base.ItemView.extend({
     self.rollSetInterval();
 
     clearInterval(self.timer22);
+    this.generateRollListTimer();
+
+
+  },
+
+  generateRollListTimer:function () {  //公告timer
+    var self = this;
     var w = 0;
     var w2 = 0;
     var w3 = 1130;
@@ -664,11 +681,16 @@ var DashboardView = Base.ItemView.extend({
     this.$rollListItem = this.$('.db-slogan .g2 a');
     this.$currentRollingItem = this.$('.db-slogan .g2 .on');
     w = this.$currentRollingItem.width();
-    w2 = w;
-
+    //w2 = w;
+    w2 = Number(this.$currentRollingItem.css('left').replace('px',''));
     self.timer22 = setInterval(function () {
       if (w2 + w <= 0) {
-        next += 1;
+        if(childLength === 1){
+          next = 0;
+        }else{
+          next += 1;
+        }
+
         self.$rollListItem.css('left', "1130px");
         self.$rollListItem.removeClass("on");
         self.$rollListItem.eq(next).addClass("on");
@@ -683,10 +705,10 @@ var DashboardView = Base.ItemView.extend({
       else {
         w2 -= 1;
       }
-
       self.$currentRollingItem.css('left', w2);
     }, 20);
   },
+
   //定时获取公告数据 5分钟
   rollSetInterval: function () {
     var self = this;

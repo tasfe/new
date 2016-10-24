@@ -4,11 +4,11 @@
 
 .ac-openAccount-view {
   .linkAddress{
-    width: 145px;
+    width: 150px;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    margin-left: 15px;
+    margin-left: 10px;
   }
 
   .ac-openAccount-rebate-notice {
@@ -35,7 +35,6 @@
           background-color: #f2f2f2;
           line-height: 38px;
           color: #999999;
-          font-family: '微软雅黑';
           font-size: 14px;
 
           th{

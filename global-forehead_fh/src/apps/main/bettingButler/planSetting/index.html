@@ -4,15 +4,15 @@
 
 <div class="js-ac-type-group m-TB-md p-bottom-sm border-bottom"></div>
 
-<form class="js-bb-form form-horizontal min-height-lg" action="javascript:void(0)">
+<form class="js-bb-form form-horizontal min-height-lg" action="javascript:void(0)" data-parsley-excluded="[disabled]">
   <div class="control-group">
     <label class="control-label">选择彩种：</label>
     <div class="controls">
-      <select class="js-bb-ticket-list" name="ticketId"></select>
+      <select class="js-bb-ticket-list" name="ticketId" required></select>
     </div>
   </div>
   <div class="js-bb-plan-details hidden">
-    <div class="control-group">
+    <div class="js-bb-start-time-container control-group">
       <div class="control-inline">
         <label class="control-label">开始时间：</label>
         <div class="controls">
@@ -22,27 +22,35 @@
           </div>
         </div>
       </div>
+    </div>
+    <div class="js-bb-cycle-select-container control-group">
       <div class="control-inline">
-        <label class="control-label">自动追：</label>
+        <label class="control-label">选择计划：</label>
         <div class="controls">
-          <div class="input-in-append inline-block">
-            <input name="periods" type="text" class="js-bb-periods js-gl-monitor input-sm" data-monitor-type="number" data-monitor-range="[1, 240]" value="0">
-            <span class="add-on">期</span>
-          </div>
+          <select class="js-bb-cycle-select" name="cycle" required></select>
+          <div class="help-inline"><button type="button" class="js-bb-plan-cycle-add btn btn-linear btn-blue btn-circle vertical-sub">添加</button></div>
         </div>
       </div>
     </div>
-    <!--<div class="control-group">-->
-      <!--<label class="control-label">选择计划：</label>-->
-      <!--<div class="controls">-->
-        <!--<select class="js-pf-select-ticket-list" name="ticketId"></select>-->
-      <!--</div>-->
-    <!--</div>-->
+    <div class="js-bb-plan-cycle-detail control-group">
+      <div class="control-inline">
+        <label class="control-label">计划详情：</label>
+        <div class="controls js-bb-plan-cycle-detail-inner"></div>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label">自动追：</label>
+      <div class="controls">
+        <div class="input-in-append inline-block">
+          <input name="periods" type="text" class="js-bb-periods js-gl-monitor input-sm" data-monitor-type="number" data-monitor-range="[1, 240]" value="0">
+          <span class="add-on">期</span>
+        </div>
+      </div>
+    </div>
     <div class="control-group">
       <label class="control-label">选择方案名：</label>
       <div class="controls">
         <select class="js-bb-collection-list input-md"></select>
-        <!--<div class="help-inline"><button class="btn btn-linear btn-blue btn-circle">添加</button></div>-->
       </div>
     </div>
     <div class="js-bb-plan-grid-container hidden">
@@ -68,7 +76,7 @@
         <div class="control-inline">
           <div class="controls">
         <span class="custom-checkbox">
-          <input type="checkbox" id="jsBbTimes" class="js-bb-times-switch" name="optional">
+          <input type="checkbox" id="jsBbTimes" class="js-bb-times-switch">
           <label class="checkbox-label" for="jsBbTimes"></label>
         </span>
             连投

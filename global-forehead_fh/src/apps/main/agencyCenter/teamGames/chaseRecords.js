@@ -99,23 +99,27 @@ var TrackRecordsView = SearchGrid.extend({
       el: this.$btnGroup,
       btnGroup: [
         {
-          title: '今天',
+          title: '今日',
           value: 0,
           active: true
         },
         {
-          title: '三天',
-          value: -3
+          title: '昨天',
+          value: -1
         },
         {
-          title: '七天',
-          value: -7
+          title: '本半月',
+          value: -15
+        },
+        {
+          title: '本月',
+          value: -30
         }
       ],
       onBtnClick: function(offset) {
         self.timeset.$startDate.data("DateTimePicker").date(moment().add(offset, 'days').startOf('day'));
         self.timeset.$endDate.data("DateTimePicker").date(moment().add(offset === -1 ? -1 : 0, 'days').endOf('day'));
-        (self.$('.js-ac-search-form') && !self.firstTime) && self.$('.js-ac-search-form').trigger('submit');
+        self.search();
         return false;
       }
     }).render();

@@ -1,4 +1,4 @@
-var servers = require('skeleton/misc/servers');
+//var servers = require('skeleton/misc/servers');
 
 require('./index.scss');
 require('./../misc/common-init.js');
@@ -7,11 +7,19 @@ $.widget('gl.changeUrl', {
 
   template: require('./index.html'),
 
+  getServerListXhr:function () {
+    return Global.sync.ajax({
+      url: '/info/urls/list.json'
+    });
+  },
+
   _create: function () {
+    var self =this;
     this.element.html(_(this.template).template()({
       time: moment().format('M月DD日 ddd'),
       remember: Global.localCache.get('account.remember')
     }));
+
     this._connectTest();
 
     $('.js-downloadList li').on('click',function () {
@@ -19,7 +27,12 @@ $.widget('gl.changeUrl', {
       $('.js-downloadList li').eq( $(this).data('id') ).addClass('sd');
       $('.js-right div').addClass('hidden');
       $('.js-right div').eq( $(this).data('id') ).removeClass('hidden');
-    })
+    });
+
+    $('.js-refresh').on('click',function () {
+      //$('.js-cu-List').empty();
+      self._connectTest();
+    });
 
     $('.js-collect').on('click',function () {
       var url = 'http://www.baidu.com/';
@@ -41,22 +54,75 @@ $.widget('gl.changeUrl', {
   _connectTest: function() {
     var self = this;
     var showIndex = 0;
+    var linList = [];
 
-    console.log(servers);
+    this.getServerListXhr()
+        .done(function (res) {
+          if(res.result === 0){
+            var servers = res.root;
 
-    _(servers).each(function(serverInfo, index) {
-      var start = Date.now();
+            var defer = $.Deferred()
+                .done(function() {
+                  self.append(linList);
+                });
 
-      $.ajax({
-        url: serverInfo.server + '/connect-test.json',
-        dataType: 'jsonp',
-        jsonpCallback: 'abc',
-        timeout: 2000
-      })
-      .always(function(res) {
-          //self.element.find('.js-connect-server-' + index).addClass('connect-speeds-tested connect-speeds-' + Math.floor((Date.now() - start) / 200));
-      });
+            var contentCount = 0;
+
+            _(servers).each(function(serverInfo, index, list) {
+              var start = Date.now();
+                serverInfo = serverInfo.indexOf('http://') > -1 ? serverInfo : 'http://'+serverInfo;
+              $.ajax({
+                url: serverInfo + '/connect-test.json',
+                dataType: 'jsonp',
+                jsonpCallback: 'abc',
+                timeout: 2000
+              })
+                  .always(function(res) {
+                    //self.element.find('.js-connect-server-' + index).addClass('connect-speeds-tested connect-speeds-' + Math.floor((Date.now() - start) / 200));
+                    var serverAddress = serverInfo;
+                    var timems = Math.floor((Date.now() - start));
+                    linList.push({time:timems,server:serverAddress});
+                    if (++contentCount === list.length) {
+                      defer.resolve();
+                    }
+                  });
+
+            });
+          }else{
+            Global.ui.notification.show('数据请求失败');
+          }
+        });
+
+  },
+
+  append: function(linList) {
+    linList.sort(function (a, b) {
+      return (a.time > b.time) ? 1 : -1;
     });
+
+    this._cuListAppend(linList);
+  },
+
+  _cuListAppend:function (linList) {
+
+    var html = '';
+    _(linList).each(function (info,index) {
+      if(index > -1 && index <2){
+        var className = '';
+      }else if(index >= 2 && index <= 3){
+        var className = 'color2';
+      }else{
+        var className = 'color3';
+      }
+      html += ('<li>' +
+          '<span class="k1 '+className+'">'+info.time+'ms</span>' +
+          '<span class="k2">></span>' +
+          '<span class="k3">'+info.server+'</span>' +
+          '<a href="'+info.server+'">进入网站</a>' +
+          '</li>');
+    });
+    $('.js-cu-List').html(html);
+
   }
 });
 

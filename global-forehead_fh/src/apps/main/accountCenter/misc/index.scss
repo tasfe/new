@@ -52,10 +52,10 @@
   border: 1px solid #c2c2c2;
   border-radius: 3px;
 
-  .step-inner-SQNotSet {
-    position: relative;
-    margin-top: -15px;
-  }
+  //.step-inner-SQNotSet {
+  //  position: relative;
+  //  margin-top: -15px;
+  //}
 }
 
 .btn-round {
@@ -64,7 +64,6 @@
 
 .find-select {
   padding-top: 35px;
-  overflow: hidden;
   padding-right: 20px;
 }
 
@@ -92,7 +91,7 @@
 }
 
 .login-table{
-  margin:0px 10px;
+  /*margin:0px 10px;*/
 }
 
 .ac-setemail-content{
@@ -379,6 +378,9 @@
   }
   .pm-complete-text {
     //line-height: 50px;
+    .help-block {
+      font-size: 12px;
+    }
   }
   .pm-complete-img {
     position: relative;

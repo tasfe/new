@@ -11,6 +11,7 @@ import * as BankCardAction from  'redux/modules/User/bankCard'
 import * as FundAction from  'redux/modules/User/fundPwd'
 import { routerActions } from 'react-router-redux';
 import Tile from 'components/Tile'
+import { setLeftButton } from 'redux/modules/toolbar'
 
 @connect(
   state => ({
@@ -24,7 +25,8 @@ import Tile from 'components/Tile'
     ...actions,
     ...BankCardAction,
     ...FundAction,
-    pushState: routerActions.push
+    pushState: routerActions.push,
+    setLeftButton
   }
 )
 @WithStyles(styles)
@@ -49,6 +51,7 @@ class Bankcard extends Page {
 
   componentDidMount () {
     this.props.setTitle('银行卡管理')
+    this.props.setLeftButton(true);
     //this.verify(['moneyPassword'])
     var self = this;
     ajax({url: '/fund/moneypd/checkpaypwd.json'}, function(res) {
@@ -674,7 +677,7 @@ class Bankcard extends Page {
   }
 
   contactService() {
-    window.open('http://fh1.learnsaas.com/chat/chatClient/chatbox.jsp?companyID=673018&configID=57128&jid=9677541409&skillId=3205','service');
+    window.open('http://v88.live800.com/live800/chatClient/chatbox.jsp?companyID=731101&configID=2579&jid=4521278370','service');
   }
 
 

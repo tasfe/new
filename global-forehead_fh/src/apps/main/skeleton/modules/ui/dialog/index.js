@@ -38,12 +38,14 @@ var DialogModule = Base.Module.extend({
 
     if (options.title) {
       html.push('<div class="modal-header">');
-      html.push('<i class="fa fa-times-circle close"  aria-hidden="true" data-dismiss="modal">');
-      //html.push('<span aria-hidden="true">&times;</span>');
-      html.push('</i>');
+      html.push('<span class="close"  aria-hidden="true" data-dismiss="modal">X</span>');
       html.push('<h4 class="modal-title" id="' + id + 'Label">' +
         //'<span class="portlet-icon sfa sfa-sub-title-user vertical-sub"></span> ' +
         options.title + '</h4>');
+      html.push('</div>');
+    } else if (options.titleClose) {
+      html.push('<div class="modal-header clearfix">');
+      html.push('<i class="fa fa-times-circle close"  aria-hidden="true" data-dismiss="modal"></i>');
       html.push('</div>');
     }
 

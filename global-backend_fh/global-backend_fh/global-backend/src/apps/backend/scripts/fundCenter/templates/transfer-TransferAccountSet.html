@@ -16,18 +16,29 @@
               </label>
             </div>
           </div>
-          <div class="form-group  no-m-bottom ">
+          <div class="form-group  no-m-bottom " style="margin-left: 45px;">
+            <div class="col-sm-2  "><input type="checkbox" class="" name="downTransferList" value="0" disabled><span
+              class="switch-round">招商号</span></div>
             <div class="col-sm-2  "><input type="checkbox" class="" name="downTransferList" value="1" disabled><span
-              class="switch-round">总代</span></div>
+              class="switch-round">直属号</span></div>
             <div class="col-sm-2  "><input type="checkbox" class="" name="downTransferList" value="2" disabled><span
-              class="switch-round">一代</span></div>
+              class="switch-round">总代</span></div>
             <div class="col-sm-2  "><input type="checkbox" class="" name="downTransferList" value="3" disabled><span
-              class="switch-round">二代</span></div>
+              class="switch-round">平级12.8</span></div>
             <div class="col-sm-2  "><input type="checkbox" class="" name="downTransferList" value="4" disabled required><span
-              class="switch-round">三代</span></div>
-            <div class="col-sm-4  "><input type="checkbox" class="" name="downTransferList" value="5" disabled><span
-              class="switch-round">四代包含以下</span></div>
-
+              class="switch-round">代理12.7</span></div>
+            <div class="col-sm-2 "><input type="checkbox" class="" name="downTransferList" value="5" disabled><span
+              class="switch-round">平级12.7</span></div>
+            <div class="col-sm-2 "><input type="checkbox" class="" name="downTransferList" value="6" disabled><span
+              class="switch-round">代理12.6</span></div>
+            <div class="col-sm-2 "><input type="checkbox" class="" name="downTransferList" value="7" disabled><span
+              class="switch-round">平级12.6</span></div>
+            <div class="col-sm-2  "><input type="checkbox" class="" name="downTransferList" value="8" disabled><span
+              class="switch-round">代理12.5</span></div>
+            <div class="col-sm-2  "><input type="checkbox" class="" name="downTransferList" value="9" disabled><span
+              class="switch-round">平级12.5</span></div>
+            <div class="col-sm-2  "><input type="checkbox" class="" name="downTransferList" value="10" disabled><span
+              class="switch-round">12.5以下</span></div>
           </div>
         </div>
       </div>
@@ -49,18 +60,29 @@
               </label>
             </div>
           </div>
-          <div class="form-group  no-m-bottom  ">
-            <div class="col-sm-2  "><input type="checkbox" class="" name="upTransferList" value="0" disabled required><span
-              class="switch-round">直属</span></div>
-            <div class="col-sm-2  "><input type="checkbox" class="" name="upTransferList" value="1" disabled ><span
-              class="switch-round">总代</span></div>
+          <div class="form-group  no-m-bottom  " style="margin-left: 45px;">
+            <div class="col-sm-2  "><input type="checkbox" class="" name="upTransferList" value="0" disabled><span
+              class="switch-round">招商号</span></div>
+            <div class="col-sm-2  "><input type="checkbox" class="" name="upTransferList" value="1" disabled><span
+              class="switch-round">直属号</span></div>
             <div class="col-sm-2  "><input type="checkbox" class="" name="upTransferList" value="2" disabled><span
-              class="switch-round">一代</span></div>
+              class="switch-round">总代</span></div>
             <div class="col-sm-2  "><input type="checkbox" class="" name="upTransferList" value="3" disabled><span
-              class="switch-round">二代</span></div>
-            <div class="col-sm-4  "><input type="checkbox" class="" name="upTransferList" value="4" disabled><span
-              class="switch-round">三代包含以下</span>
-            </div>
+              class="switch-round">平级12.8</span></div>
+            <div class="col-sm-2  "><input type="checkbox" class="" name="upTransferList" value="4" disabled required><span
+              class="switch-round">代理12.7</span></div>
+            <div class="col-sm-2 "><input type="checkbox" class="" name="upTransferList" value="5" disabled><span
+              class="switch-round">平级12.7</span></div>
+            <div class="col-sm-2 "><input type="checkbox" class="" name="upTransferList" value="6" disabled><span
+              class="switch-round">代理12.6</span></div>
+            <div class="col-sm-2 "><input type="checkbox" class="" name="upTransferList" value="7" disabled><span
+              class="switch-round">平级12.6</span></div>
+            <div class="col-sm-2  "><input type="checkbox" class="" name="upTransferList" value="8" disabled><span
+              class="switch-round">代理12.5</span></div>
+            <div class="col-sm-2  "><input type="checkbox" class="" name="upTransferList" value="9" disabled><span
+              class="switch-round">平级12.5</span></div>
+            <div class="col-sm-2  "><input type="checkbox" class="" name="upTransferList" value="10" disabled><span
+              class="switch-round">12.5以下</span></div>
           </div>
         </div>
       </div>
@@ -99,6 +121,15 @@
             <div class="form-group col-sm-3 ">
               <div class=" input-group  no-m-left ">
                 <input type="text" class="js-fc-TAS-maxMoneyLimit form-control input-sm"
+                       data-parsley-range="[0, 5000000]" data-parsley-type="integer" required>
+                <span class="input-group-addon">元</span>
+              </div>
+            </div>
+
+            <label class="control-label col-sm-3">单日上限：</label>
+            <div class="form-group col-sm-3 ">
+              <div class=" input-group  no-m-left ">
+                <input type="text" class="js-fc-TAS-totalMoney form-control input-sm"
                        data-parsley-range="[0, 5000000]" data-parsley-type="integer" required>
                 <span class="input-group-addon">元</span>
               </div>

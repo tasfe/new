@@ -1,6 +1,6 @@
 "use strict";
-var bankCard = require('./bankCard.png');
-var fundPwd = require('./fundPwd.png');
+
+require('./index.scss');
 
 $.widget('gl.securityTip', {
 
@@ -22,54 +22,59 @@ $.widget('gl.securityTip', {
     var self = this;
 
     var body = [];
-    body.push('<div class="text-center">');
-    body.push('<div class="m-bottom-md font-md fc-security-notice-content">' + this.options.content + '</div>');
-    body.push('<div class="fc-security-notice-link">');
-    if(this.options.showMoneyPwd){
-      body.push('<div class="security-notice-type-div">');
-      var fundPasswordHmtl = '<span class="security-notice-span text-left">资金密码已设置完毕</span>';
-      if (!this.options.hasMoneyPwd) {
-        fundPasswordHmtl = '<span class="security-notice-span text-left">建议您</span><a class="js-fc-aHref btn-link text-pleasant" href="#pm/pf" >去设置资金密码</a>';
+    body.push('<dl class="pf-security-tip">');
+    body.push('<dt class="pf-security-icon"><div class="circle-icon circle-icon-lg"><i class="fa fa-pencil-square-o"></i></div></dt>');
+    body.push('<dd class="m-TB-xs font-md">' + this.options.content + '</dd>');
+    body.push('<dd class="overflow">');
+    if(this.options.showMoneyPwd) {
+      body.push('<div class="">');
+      var fundPasswordHmtl = '<span class="text-amber">资金密码已设置完毕</span>';
+      if(!this.options.hasMoneyPwd) {
+        fundPasswordHmtl = '<span class="text-amber">资金密码未设置：</span><a class="js-fc-aHref btn-link text-pleasant" href="#pm/pf" >点击设置</a>';
       }
-      body.push(fundPasswordHmtl+'</div>');
+      body.push(fundPasswordHmtl + '</div>');
     }
 
-    if(this.options.showBankCard){
-      body.push('<div class="security-notice-type-div">');
-      var bankCardHtml = '<span class="security-notice-span text-left">银行卡已绑定</span>';
-      if (!this.options.hasBankCard) {
-        bankCardHtml = '<span class="security-notice-span text-left">建议您</span><a class="js-fc-aHref  btn-link text-pleasant " href="#uc/cm" >去绑定银行卡</a>';
+    if(this.options.showBankCard) {
+      body.push('<div class="">');
+      var bankCardHtml = '<span class="text-amber">银行卡已绑定</span>';
+      if(!this.options.hasBankCard) {
+        bankCardHtml = '<span class="text-amber">银行卡未绑定：</span><a class="js-fc-aHref  btn-link text-pleasant " href="#uc/cm" >点击绑定</a>';
       }
-      body.push(bankCardHtml+'</div>');
+      body.push(bankCardHtml + '</div>');
     }
 
-    if(this.options.showSecurity){
+    if(this.options.showSecurity) {
 
-      body.push('<div class="security-notice-type-div">');
-      var securityHtml = '<span class="security-notice-span text-left">安全问题已绑定</span>';
-      
-      if (!this.options.hasSecurity) {
-        securityHtml = '<span class="security-notice-span text-left">建议您</span><a class="js-fc-aHref  btn-link text-pleasant " href="#pm/sq" >去绑定安全问题</a>';
+      body.push('<div class="">');
+      var securityHtml = '<span class="text-amber">安全问题已绑定</span>';
+
+      if(!this.options.hasSecurity) {
+        securityHtml = '<span class="text-amber">安全问题未绑定：</span><a class="js-fc-aHref  btn-link text-pleasant " href="#pm/sq" >点击绑定</a>';
       }
-      body.push(securityHtml+'</div>');
+      body.push(securityHtml + '</div>');
     }
 
-    body.push('</div>');
-    body.push('</div>');
+    body.push('</dd>');
+    body.push('</dl>');
+
+    var footer = [];
+    footer.push('<div class="border-top p-top-md"><button class="btn btn-pink btn-linear" data-dismiss="modal">确认</button></div>');
 
     this.uuid = this.options.id || this.options.namespace + _.now();
 
-    if (this.options.body) {
+    if(this.options.body) {
       this.options.body.html(body.join(''));
     } else {
       this.$dialog = Global.ui.dialog.show({
         id: this.uuid,
         title: this.options.title,
-        size: 'modal-smd',
-        body: body.join('')
+        size: 'modal-md',
+        body: body.join(''),
+        footer: footer.join('')
       });
 
-      this.$dialog.on('hidden.bs.modal', function (e) {
+      this.$dialog.on('hidden.bs.modal', function(e) {
         $(this).remove();
         self.destroy();
       });
@@ -85,7 +90,7 @@ $.widget('gl.securityTip', {
   },
 
   changeHrefHandler: function(e) {
-    if (this.$dialog) {
+    if(this.$dialog) {
       this.$dialog.modal('hide');
     }
   },

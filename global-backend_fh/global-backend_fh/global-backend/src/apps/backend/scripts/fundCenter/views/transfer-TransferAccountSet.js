@@ -6,7 +6,7 @@ define(function (require, exports, module) {
 
     events: {
       'click .js-fc-TransferSet-submit': 'TransferSetSubmitHandler',
-      'click .js-fc-TransferSet-cancel': 'TransferSetSubmitHandler',
+      'click .js-fc-TransferSet-cancel': 'TransferSetCancelHandler',
       'click .js-fc-transferSet-downTransferOpen':'OperationSwitch',
       'click .js-fc-transferSet-upTransferOpen':'OperationSwitch'
     },
@@ -66,7 +66,8 @@ define(function (require, exports, module) {
           upTransferList: upTransferList,
           timesLimit: this.$('.js-fc-TAS-timesLimit').val(),
           minMoneyLimit:this.$('.js-fc-TAS-minMoneyLimit').val(),
-          maxMoneyLimit: this.$('.js-fc-TAS-maxMoneyLimit').val()
+          maxMoneyLimit: this.$('.js-fc-TAS-maxMoneyLimit').val(),
+          totalMoney:this.$('.js-fc-TAS-totalMoney').val()
         };
         $target.button('loading');
         this.saveTransferSetXhr(data).always(function () {
@@ -124,6 +125,7 @@ define(function (require, exports, module) {
       this.$('.js-fc-TAS-timesLimit').val(root.timesLimit);
       this.$('.js-fc-TAS-minMoneyLimit').val(_(root.minMoneyLimit).convert2yuan());
       this.$('.js-fc-TAS-maxMoneyLimit').val(_(root.maxMoneyLimit).convert2yuan());
+      this.$('.js-fc-TAS-totalMoney').val(_(root.totalMoney).convert2yuan());
 
     },
 
@@ -154,19 +156,24 @@ define(function (require, exports, module) {
       }
     },
 
-
+    TransferSetCancelHandler: function(){
+      var self = this;
+      Global.appRouter.navigate(_('#fc/ta'+self.$('.js-bc-ticketId').text()).addHrefArgs({
+        _t:_.now()
+      }), {trigger: true, replace: false});
+    },
     insertNotice: function (html) {
       this.$('.js-fc-TransferRangeSet-notice').html(this._getErrorMsg(html));
     },
     //组装错误提示框
     _getErrorMsg: function (text) {
       return '<div class="alert alert-danger alert-dismissible" role="alert">' +
-        '<button type="button" class="close" data-dismiss="alert">' +
-        '<span aria-hidden="true">×</span>' +
-        '</button>' +
-        '<i class="fa fa-times-circle m-right-xs"></i>' +
-        '<strong>提示！</strong> ' + text +
-        '</div>';
+          '<button type="button" class="close" data-dismiss="alert">' +
+          '<span aria-hidden="true">×</span>' +
+          '</button>' +
+          '<i class="fa fa-times-circle m-right-xs"></i>' +
+          '<strong>提示！</strong> ' + text +
+          '</div>';
     }
 
   });

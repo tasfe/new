@@ -42,12 +42,9 @@ var FirstLoginUpdatePasswd = Base.ItemView.extend({
   },
 
   close: function () {
-    this.destroy();
+    this.trigger('close');
 
-    if(!Global.cookieCache.get('hasLoadBulletin')){
-      Global.cookieCache.set('hasLoadBulletin', true);
-      $('.js-gl-notice').trigger('click');
-    }
+    this.destroy();
   },
 
   close2: function () {

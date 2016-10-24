@@ -13,6 +13,13 @@
   line-height: 42px;
   color: $white-color;
   font-size: 25px;
+
+  &.circle-icon-lg {
+    border-radius: 55px;
+    width: 55px;
+    height: 55px;
+    line-height: 55px;
+  }
 }
 
 .bc-detail-grid {

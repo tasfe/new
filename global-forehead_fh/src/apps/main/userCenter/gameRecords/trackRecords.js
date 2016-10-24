@@ -19,10 +19,10 @@ var TrackRecordsView = SearchGrid.extend({
   initialize: function() {
     _(this.options).extend({
       columns: [
-        {
+        /*{
           name: '账号',
           width: '10%'
-        },
+        },*/
         {
           name: '追号编号',
           width: '18%'
@@ -99,23 +99,27 @@ var TrackRecordsView = SearchGrid.extend({
       el: this.$btnGroup,
       btnGroup: [
         {
-          title: '今天',
+          title: '今日',
           value: 0,
           active: true
         },
         {
-          title: '三天',
-          value: -3
+          title: '昨天',
+          value: -1
         },
         {
-          title: '七天',
-          value: -7
+          title: '本半月',
+          value: -15
+        },
+        {
+          title: '本月',
+          value: -30
         }
       ],
       onBtnClick: function(offset) {
         self.timeset.$startDate.data("DateTimePicker").date(moment().add(offset, 'days').startOf('day'));
         self.timeset.$endDate.data("DateTimePicker").date(moment().add(offset === -1 ? -1 : 0, 'days').endOf('day'));
-        (self.$('.js-ac-search-form') && !self.firstTime) && self.$('.js-ac-search-form').trigger('submit');
+        self.search();
         return false;
       }
     }).render();
@@ -155,7 +159,7 @@ var TrackRecordsView = SearchGrid.extend({
     this.grid.addFooterRows({
       trClass: 'tr-footer',
       columnEls: [
-        '所有页总计', '', '', '', '',
+        '所有页总计', '', '', '',
         _(gridData.betMoneyTotal).fixedConvert2yuan(),
         '<div class="text-hot">' + _(gridData.prizeMoneyTotal).convert2yuan() + '</div>',
         ''
@@ -166,7 +170,7 @@ var TrackRecordsView = SearchGrid.extend({
 
   formatRowData: function(rowInfo) {
     var row = [];
-    row.push(rowInfo.userName);
+    /*row.push(rowInfo.userName);*/
     row.push('<a class="router btn-link" href="' + _.getUrl('/detail/' + rowInfo.ticketTradeNo) + '">' + rowInfo.ticketTradeNo + '</a>');
     row.push(rowInfo.ticketName);
 

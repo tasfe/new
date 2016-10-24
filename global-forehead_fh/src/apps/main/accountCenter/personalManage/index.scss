@@ -9,13 +9,15 @@
     width: 49%;
     height: 431px;
     overflow: hidden;
+    position: relative;
+    z-index: 1;
   }
 
   .personal-main {
     float: right;
     width: 49%;
     height: 431px;
-    overflow: hidden;
+    //overflow: hidden;
   }
 
   .changeinformation-items {
@@ -70,4 +72,9 @@
       background: #d1a566;
     }
   }
+}
+
+.pm-modify-tip {
+  width: 400px;
+  margin: 135px auto;
 }

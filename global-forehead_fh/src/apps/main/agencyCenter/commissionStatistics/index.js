@@ -74,7 +74,7 @@ var ReportManageView = SearchGrid.extend({
       iIs = 1;
     }
 
-    this.grid.addFooterRows2({
+    this.grid.addFooterRows({
       trClass: 'julien-table-footer',
       columnEls: [
         '所有页面总计',

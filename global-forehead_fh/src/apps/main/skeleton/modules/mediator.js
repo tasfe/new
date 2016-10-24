@@ -14,6 +14,9 @@ var MediatorModule = Base.Module.extend({
       'message:updating': {
         message: true
       },
+      'states:updating': {
+        states: true
+      },
       'acct:updating': {
         acct: true
       }

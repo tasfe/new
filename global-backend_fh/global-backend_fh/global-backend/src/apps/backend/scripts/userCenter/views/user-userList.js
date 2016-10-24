@@ -229,7 +229,9 @@ define(function (require, exports, module) {
             }
             if(Global.authority.uc && Global.authority.uc.ul && Global.authority.uc.ul.drop) {
                 if (_(rowInfo.parentId) != 0 && _(rowInfo.rebate)!= 0) {
-                    cell.push('<button data-id="' + rowInfo.userId + '" data-group="' + rowInfo.userGroup + '" data-name="' + rowInfo.username + '" data-rebate="' + rowInfo.rebate + '" class="js-ul-drop btn btn-link">降点</button>');
+                    if (rowInfo.userGroup == '代理' || rowInfo.userGroup == '总代') {
+                        cell.push('<button data-id="' + rowInfo.userId + '" data-group="' + rowInfo.userGroup + '" data-name="' + rowInfo.username + '" data-rebate="' + rowInfo.rebate + '" class="js-ul-drop btn btn-link">降点</button>');
+                    }
                 }
             }
             return cell.join('');

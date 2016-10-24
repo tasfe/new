@@ -30,7 +30,7 @@
       </div>
     </div>
   </div>
-  <div class="bc-main-area">
+  <div class="js-bc-main-area bc-main-area">
     <div class="js-bc-rules bc-menu">
       <div class="js-bc-toggle bc-toggle hidden">
         <span class="js-bc-play-toggle bc-play-toggle" data-type="special">
@@ -78,7 +78,8 @@
         <span class="bc-result-container2 m-left-md hidden">
         投注金额
           <span class="input-in-append inline-block">
-            <input name="customizeMoney" type="text" class="js-gl-monitor js-bc-customize-money input-sm" data-monitor-type="number" data-monitor-range="[1, 9999]" value="0">
+            <input name="customizeMoney" type="text" class="js-gl-monitor js-bc-customize-money input-smd" data-monitor-type="float"
+                   data-monitor-range="[0, 400000]" value="<%=Global.localCache.get('customizeMoney') || 0 %>">
             <span class="add-on">元</span>
           </span>
       </span>
@@ -102,7 +103,7 @@
         <span class="">共<span class="js-bc-statistics-money">0</span>元</span>
       </span>
       <span class="js-bc-quick-bet bet-quick hidden"><i class="fa fa-check-circle"></i>直接投注</span>
-      <span class="js-bc-quick-bet1 bet-quick1"><i class="fa fa-check-circle"></i>直接投注</span>
+      <span class="js-bc-cant-quick-bet bet-quick1"><i class="fa fa-check-circle"></i>直接投注</span>
     </div>
   </div>
 </div>
@@ -171,8 +172,3 @@
     <span class="js-bc-btn-lottery-confirm commit-number">确认投注</span>
   </div>
 </div>
-
-<div class="js-cang01"></div>
-<a href="javascript:null;">
-  <div class="js-cang02" style="display: none"></div>
-</a>

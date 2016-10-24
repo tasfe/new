@@ -18,7 +18,7 @@ var ReportManageView = SearchGrid.extend({
       title: '报表查询',
       columns: [
         {
-          name: '用户名',
+          name: '日期',
           width: '10%'
         },
         {
@@ -117,23 +117,27 @@ var ReportManageView = SearchGrid.extend({
       el: this.$btnGroup,
       btnGroup: [
         {
-          title: '今天',
+          title: '今日',
           value: 0,
           active: true
         },
         {
-          title: '三天',
-          value: -3
+          title: '昨天',
+          value: -1
         },
         {
-          title: '七天',
-          value: -7
+          title: '本半月',
+          value: -15
+        },
+        {
+          title: '本月',
+          value: -30
         }
       ],
       onBtnClick: function(offset) {
         self.timeset.$startDate.data("DateTimePicker").date(moment().add(offset, 'days').startOf('day'));
         self.timeset.$endDate.data("DateTimePicker").date(moment().add(offset === -1 ? -1 : 0, 'days').endOf('day'));
-        (self.$searchForm && !self.firstTime) && self.$searchForm.trigger('submit');
+        self.search();
         return false;
       }
     }).render();
@@ -207,14 +211,14 @@ var ReportManageView = SearchGrid.extend({
 
   formatRowData:function(rowInfo) {
     var row = [];
-    if(this.hasSub() && rowInfo.userName === this.getCurtSub().label || !rowInfo.hasSubUser) {
+    /*if(this.hasSub() && rowInfo.userName === this.getCurtSub().label || !rowInfo.hasSubUser) {
       row.push(rowInfo.userName);
     } else {
       row.push('<a class="js-pf-sub btn-link btn-link-hot" data-label="' + rowInfo.userName +
         '" data-user-id="' + rowInfo.userId + '" href="javascript:void(0)">' +
         rowInfo.userName + '</a>');
-    }
-
+    }*/
+    row.push(rowInfo.day);
     row.push(_(rowInfo.recharge).convert2yuan({fixed:2, clear: false}));
     row.push(_(rowInfo.withdraw).convert2yuan({fixed:2, clear: false}));
     row.push(_(rowInfo.bet).convert2yuan({clear: false}));

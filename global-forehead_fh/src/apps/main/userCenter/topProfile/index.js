@@ -53,13 +53,17 @@ TopProfileView = Base.ItemView.extend({
     }
 
     this.$avatar.addClass('avatar-' + acctInfo.headId);
+    this.$avatar.attr('data-type', acctInfo.headId);
   },
 
   //event handlers
 
-  editIconsHandler: function () {
+  editIconsHandler: function(e) {
     var self = this;
-    $(document).editIcons();
+    var $target = $(e.currentTarget);
+    var headId = $target.attr("data-type");
+
+    $(document).editIcons({headId:headId});
   },
 
   editUNameHandler: function () {
@@ -81,8 +85,18 @@ TopProfileView = Base.ItemView.extend({
 
           var parsley = $form.parsley();
 
-          if (!parsley.validate()) {
-            return false;
+        self.updateUNameXhr(_($form.serializeArray()).serializeObject())
+          .always(function() {
+            $submit.button('reset');
+          }).done(function (res) {
+            console.log(JSON.stringify(res));
+          if (res && res.result === 0) {
+            Global.ui.notification.show('修改成功');
+            Global.m.oauth.check();
+
+            $dialog.modal('hide');
+          } else {
+            Global.ui.notification.show(res.msg === 'fail' ? '昵称重复' : res.msg);
           }
 
           $submit.button('loading');

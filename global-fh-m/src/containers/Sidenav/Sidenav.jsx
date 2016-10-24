@@ -10,6 +10,9 @@ class Sidenav extends Component {
     return (
       <div className="nav-content hideNav hidden">
         <div className="nav-content-wrapper">
+          <div className="nav-shield">
+            <span></span>
+          </div>
           <div className="nav-userInfo">
             <div className="nav-userInfo-userName"><span className="js-nav-userName">{this.props.props.username}</span>(<a className="js-nav-nickName js-nav-link" href="/#/user/profile">{this.props.props.uName}</a>)<a href="/#/message/dynamic" className="js-nav-link"><img className="nav-userInfo-insideLetter" src="images/icon/fh-inside-letter.png"/></a></div>
             <div className="nav-userInfo-img">
@@ -60,9 +63,6 @@ class Sidenav extends Component {
               </li>
             </ul>
           </div>
-          <div className="nav-shield">
-            <span></span>
-          </div>
         </div>
       </div>
     )
@@ -70,7 +70,7 @@ class Sidenav extends Component {
   }
 
   contactService() {
-    window.open('http://fh1.learnsaas.com/chat/chatClient/chatbox.jsp?companyID=673018&configID=57128&jid=9677541409&skillId=3205','service');
+    window.open('http://v88.live800.com/live800/chatClient/chatbox.jsp?companyID=731101&configID=2579&jid=4521278370','service');
   }
 
   hideSideNav () {

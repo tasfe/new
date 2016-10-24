@@ -17,10 +17,10 @@ var BettingRecordsView = SearchGrid.extend({
   initialize: function() {
     _(this.options).extend({
       columns: [
-        {
+        /*{
           name: '账号',
           width: '15%'
-        },
+        },*/
         {
           name: '订单编号',
           width: '15%'
@@ -99,23 +99,27 @@ var BettingRecordsView = SearchGrid.extend({
       el: this.$btnGroup,
       btnGroup: [
         {
-          title: '今天',
+          title: '今日',
           value: 0,
           active: true
         },
         {
-          title: '三天',
-          value: -3
+          title: '昨天',
+          value: -1
         },
         {
-          title: '七天',
-          value: -7
+          title: '本半月',
+          value: -15
+        },
+        {
+          title: '本月',
+          value: -30
         }
       ],
       onBtnClick: function(offset) {
         self.timeset.$startDate.data("DateTimePicker").date(moment().add(offset, 'days').startOf('day'));
         self.timeset.$endDate.data("DateTimePicker").date(moment().add(offset === -1 ? -1 : 0, 'days').endOf('day'));
-        (self.$('.js-ac-search-form') && !self.firstTime) && self.$('.js-ac-search-form').trigger('submit');
+        self.search();
         return false;
       }
     }).render();
@@ -145,7 +149,7 @@ var BettingRecordsView = SearchGrid.extend({
     this.grid.addFooterRows({
       trClass: 'tr-footer',
       columnEls: [
-        '所有页总计', '', '', '', '',
+        '所有页总计', '', '', '',
         '<div class="text-hot">' + _(gridData.betTotalAmount).fixedConvert2yuan() + '</div>', '', ''
       ]
     }).hideLoading();
@@ -153,14 +157,14 @@ var BettingRecordsView = SearchGrid.extend({
 
   formatRowData: function(rowInfo) {
     var row = [];
-    row.push(rowInfo.playerName);
+    /*row.push(rowInfo.playerName);*/
     row.push(rowInfo.billNo);
     row.push(rowInfo.gameName);
     row.push(rowInfo.gameCode);
     row.push(_(rowInfo.betTime).toTime());
-    row.push(rowInfo.betAmount);
+    row.push(_.formatDiv(rowInfo.betAmount,10000));
     row.push(rowInfo.settlmentStatus);
-    row.push(rowInfo.profitLossMoney);
+    row.push(_.formatDiv(rowInfo.profitLossMoney,10000));
     return row;
   }
 });

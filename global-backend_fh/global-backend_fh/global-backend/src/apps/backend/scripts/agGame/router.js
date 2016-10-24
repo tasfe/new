@@ -12,7 +12,9 @@ define(function (require, exports, module) {
             'ag/aa': 'agProfitAndLossReport',
             'ag/fcs': 'agRechargeSetView',
             'ag/fcl': 'agRechargeReportView',
-            'ag/fcr':'agRebateSetView'
+            'ag/fcr':'agRebateSetView',
+            'sc/sbc':'agSubDividConf',
+            'sc/sbl':'agSubDividManagement'
         });
 
     };

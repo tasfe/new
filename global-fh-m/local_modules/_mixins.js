@@ -194,6 +194,34 @@ _.mixin({
 
     return status;
   },
+
+  checkBettingStatusForDetail: function(bet) {
+    //0:未中奖，1：已中奖，2：用户撤单，3：系统撤单 4: 未开始,ticketResult,prizeTotalMoney
+    //betStatus, hasException, openNumbers, openStatus, prized, prizeTotalMoney
+    var status = '';
+    if (bet.betStatus === 4) {
+      status = '未开始';
+    } else if (bet.betStatus === 2) {
+      status = '用户撤单';
+    } else if (bet.betStatus === 3) {
+      status = '系统撤单';
+    } else if (bet.hasException) {
+      status = '等待开奖';
+    } else if (bet.openNumbers === null) {
+      if (bet.openStatus > 0) {
+        status = '未中奖';
+      } else {
+        status = '等待开奖';
+      }
+    } else if (bet.prizeTotalMoney > 0) {
+      status = '<span class="' + bet.prizeClass + '">已中奖</span>';
+    } else if (bet.prizing) {
+      status = '正在开奖';
+    } else if (bet.prizeTotalMoney === 0) {
+      status = '未中奖';
+    }
+    return status;
+  },
   checkChaserStatus: function(rowInfo) {
     var status = '';
     switch(rowInfo.chaseStatus) {

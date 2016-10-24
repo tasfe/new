@@ -118,7 +118,7 @@ var WithdrawRecordsView = SearchGrid.extend({
       onBtnClick: function(offset) {
         self.timeset.$startDate.data("DateTimePicker").date(moment().add(offset, 'days').startOf('day'));
         self.timeset.$endDate.data("DateTimePicker").date(moment().add(offset === -1 ? -1 : 0, 'days').endOf('day'));
-        (self.$('.js-ac-search-form') && !self.firstTime) && self.$('.js-ac-search-form').trigger('submit');
+        self.search();
         return false;
       }
     }).render();
@@ -153,8 +153,8 @@ var WithdrawRecordsView = SearchGrid.extend({
 
   formatRowData: function(rowInfo) {
     var row = [];
-
-    row.push(rowInfo.userName);
+/*
+    row.push(rowInfo.userName);*/
     row.push(rowInfo.tradeNo);
     row.push(_(rowInfo.createTime).toTime());
     row.push(_(rowInfo.amount).fixedConvert2yuan());

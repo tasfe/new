@@ -19,8 +19,9 @@ input, textarea, select {
   }
 }
 .parsley-errors-list {
-  margin: 2px 0 3px;
+  //margin: 2px 0 3px;
   padding: 0;
+  //top: 0;
   list-style-type: none;
   font-size: 0.9em;
   line-height: 0.9em;
@@ -30,11 +31,18 @@ input, textarea, select {
   //@include transition(all .3s ease-in);
 
   &.filled {
-    display: block !important;
+    display: block;
+    //display: block !important;
     opacity: 1;
   }
   &.filled-inline {
     display: inline-block !important;
-    opacity: 1;
+  }
+
+  .parsley-error {
+    display: none;
+    &:first-child, &:last-child {
+      display: block;
+    }
   }
 }

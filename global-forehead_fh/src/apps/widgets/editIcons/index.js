@@ -62,7 +62,7 @@ $.widget('gl.editIcons', {
   _bindEvents: function() {
     var self = this;
 
-    var headId;
+    var headId = this.options.headId;
 
     this.$icons.on('click',function () {
       self.$icons.removeClass('sd');

@@ -1,41 +1,45 @@
-<form class="ag-transfer-content" >
+<form class="js-ag-transfer-form ag-transfer-content p-LR-sm" action="javascript:void(0)">
 
-    <div class="ag-transger-header">
-        <div class="ag-lottery-account">彩票账户（主账户）余额：<span class="js-cp-balance">10000.6666</span></div>
-        <div class="ag-game-account">AG账户余额：<span class="js-ag-balance">0</span></div>
-        <div class="ag-transfer-alert"><span class="text-hot">温馨提示：</span>AG账户可以转出流水1倍的金额。</br><span class="text-hot">转账限额：</span>最低1元，最高50000元</div>
+  <div class="ag-transger-header">
+    <div class="ag-lottery-account">彩票账户（主账户）余额：<span class="js-cp-balance">-</span></div>
+    <div class="ag-game-account">AG账户余额：<span class="js-ag-balance">-</span></div>
+    <div class="ag-transfer-alert">
+      <div><span class="text-hot">温馨提示：</span>AG账户可以转出流水<span class="js-ag-limit">-</span>倍的金额。</div>
+      <div><span class="text-hot">转账限额：</span>最低<span class="js-ag-transfer-min">-</span>元，最高<span
+          class="js-ag-transfer-max"></span>元
+      </div>
     </div>
+  </div>
 
-    <div class="m-bottom-md rc-seperate-line"></div>
+  <div class="m-bottom-md rc-seperate-line"></div>
 
-    <div class="ag-transfer-input">
-        <label class="ag-trans-lab">转出：</label>
-        <div class="js-lt-account ag-trans-text">彩票账户（主账户）</div>
-    </div>
+  <div class="ag-transfer-input">
+    <label class="ag-trans-lab">转出：</label>
+    <div class="js-lt-account ag-trans-text">彩票账户（主账户）</div>
+  </div>
 
-    <div class="ag-transfer-input">
-        <label class="ag-trans-lab">转入：</label>
-        <div class="js-ag-account ag-trans-text">AG账户</div>
-    </div>
+  <div class="ag-transfer-input">
+    <label class="ag-trans-lab">转入：</label>
+    <div class="js-ag-account ag-trans-text">AG账户</div>
+  </div>
 
-    <div class="ag-transfer-input">
-        <label class="ag-trans-lab">金额：</label>
-        <input type="text" class="js-agTransfer-amount ag-trans-amount"></input>
-    </div>
+  <div class="ag-transfer-input">
+    <label class="ag-trans-lab">金额：</label>
+    <input type="text" class="js-agTransfer-amount ag-trans-amount" required data-parsley-errors-messages-disabled />
+  </div>
 
-    <div class="ag-transfer-tip">您本次最多可转50000元，今日还可以转5次</div>
+  <div class="ag-transfer-tip">您本次最多可转<span class="js-ag-transfer-current-max">-</span>元，今日还可以转<span
+      class="js-ag-transfer-times">-</span>次
+  </div>
 
-    <div class="ag-transfer-switch">
-        <div class="js-ag-switchBtn ag-switch-button" data-switch="1">切换</div>
-    </div>
-
-
-    <div class="m-bottom-md m-top-md rc-seperate-line"></div>
-
-    <div class="text-center  m-bottom-md fc-next-button">
-        <button type="button" class="js-ag-submitTransfer btn fc-wd-commit" data-loading-text="加载中">转账</button>
-    </div>
+  <div class="ag-transfer-switch">
+    <div class="js-ag-switchBtn ag-switch-button" data-switch="1">切换</div>
+  </div>
 
 
+  <div class="m-bottom-md m-top-md rc-seperate-line"></div>
 
+  <div class="text-center m-bottom-md">
+    <button type="submit" class="js-ag-submitTransfer btn btn-linear btn-pink" data-loading-text="转账中">转账</button>
+  </div>
 </form>

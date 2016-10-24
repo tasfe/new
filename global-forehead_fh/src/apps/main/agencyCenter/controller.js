@@ -25,7 +25,7 @@ var ProfitAndLossView = require('agencyCenter/profitAndLoss');
 var DividendMangeView = require('./dividendManage');
 var RedPacketView = require('./redPacket');
 
-var CommissionStatisticsView = require('./commissionStatistics');
+// var CommissionStatisticsView = require('./commissionStatistics');
 
 //充值、提现、投注 记录
 var RechargeRecordsView = require('userCenter/rechargeRecords');
@@ -199,15 +199,15 @@ var AgencyCenterController = RouterController.extend({
       sidebar: 'ac'
     });
   },
-  commissionStatistics: function() {
-    this.changeMainReginView(new CommissionStatisticsView(), {
-      main: {
-        title: '佣金管理'
-      },
-      sidebar: 'ac',
-      topView: 'team'
-    });
-  },
+  // commissionStatistics: function() {
+  //   this.changeMainReginView(new CommissionStatisticsView(), {
+  //     main: {
+  //       title: '佣金管理'
+  //     },
+  //     sidebar: 'ac',
+  //     topView: 'team'
+  //   });
+  // },
   rechargeRecords4Report: function(tabName) {
     var startTime = _.getUrlParam('startTime');
     var endTime = _.getUrlParam('endTime');

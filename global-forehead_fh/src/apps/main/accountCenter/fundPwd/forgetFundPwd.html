@@ -2,83 +2,46 @@
   <div class="portlet-title">找回资金密码</div>
 </div>
 <div class="portlet-body">
-<div class="js-ac-findFundPasswordContainer form-horizontal as-step-container-short wizard-long">
-  <!-- Step1 选择密码找回方式 -->
-  <!--<h3>选择找回方式</h3>-->
-  <div class="js-ac-findWayContainer js-ac-steps m-top-md">
-    <div class="js-ac-selectWay ac-selectWay">
-      <div class="step-inner step-inner-find">
-        <div class="step-number">
-          <!--<span class="sfa ac-banck-card m-top-sm"></span>-->
-          <i class="fa fa-commenting ac-findFundPwd-way-icon" aria-hidden="true"></i>
-        </div>
-        <div class="step-inner-main">
-          <span class="pull-left">通过“密保问题+银行卡信息”找回资金密码</span>
-          <button type="button" class="js-ac-findByCIBtn btn btn-light-blue btn-linear btn-round pull-right hidden">立即找回</button>
-          <div class="js-ac-findByCI-notice text-center step-inner-SQNotSet pull-right">
-            <a href="#uc/cm" class="btn btn-light-blue btn-linear btn-round">立即设置</a>
-            <div class="help-block">未设置，不可用</div>
+  <div class="js-ac-findFundPasswordContainer form-horizontal as-step-container-short wizard-long">
+    <!-- Step1 选择密码找回方式 -->
+    <!--<h3>选择找回方式</h3>-->
+    <div class="js-ac-findWayContainer js-ac-steps m-top-md">
+      <div class="js-ac-selectWay ac-selectWay">
+        <div class="step-inner step-inner-find">
+          <div class="step-number">
+            <!--<span class="sfa ac-banck-card m-top-sm"></span>-->
+            <i class="fa fa-commenting ac-findFundPwd-way-icon" aria-hidden="true"></i>
+          </div>
+          <div class="step-inner-main">
+            <span class="pull-left">通过“密保问题+银行卡信息”找回资金密码</span>
+            <% if (hasBankCard && hasSecurity) { %>
+            <button type="button" class="js-ac-findByCIBtn btn btn-blue btn-linear btn-round pull-right">立即找回</button>
+            <% } else { %>
+            <div class="js-ac-findByCI-notice text-center pull-right">
+              <!--<a href="#uc/cm" class="btn btn-blue btn-linear btn-round">立即设置</a>-->
+              <div class="help-block">未设置，不可用</div>
+            </div>
+            <% } %>
           </div>
         </div>
-      </div>
-      <div class="step-inner step-inner-find m-top-sm">
-        <div class="step-number">
-          <!--<span class="sfa verify-email m-top-sm"></span>-->
-          <i class="fa fa-envelope ac-findFundPwd-way-icon" aria-hidden="true"></i>
-        </div>
-        <div class="step-inner-main">
-          <span class="pull-left">通过“密保问题+验证邮箱”找回资金密码</span>
-          <button type="button" class="js-ac-findByEMBtn btn btn-light-blue btn-linear btn-round pull-right hidden">立即找回</button>
-          <div class="js-ac-findByEM-notice text-center step-inner-SQNotSet pull-right">
-            <a href="#pm/se" class="btn btn-light-blue btn-linear btn-round">立即设置</a>
-            <div class="help-block">未设置，不可用</div>
+        <div class="step-inner step-inner-find m-top-sm">
+          <div class="step-number">
+            <!--<span class="sfa verify-email m-top-sm"></span>-->
+            <i class="fa fa-envelope ac-findFundPwd-way-icon" aria-hidden="true"></i>
+          </div>
+          <div class="step-inner-main">
+            <span class="pull-left">通过“密保问题+验证邮箱”找回资金密码</span>
+            <% if (hasEmail && hasSecurity) { %>
+            <button type="button" class="js-ac-findByEMBtn btn btn-blue btn-linear btn-round pull-right">立即找回</button>
+            <% } else { %>
+            <div class="js-ac-findByEM-notice text-center pull-right">
+              <!--<a href="#pm/se" class="btn btn-blue btn-linear btn-round">立即设置</a>-->
+              <div class="help-block">未设置，不可用</div>
+            </div>
+            <% } %>
           </div>
         </div>
       </div>
     </div>
   </div>
-
-  <!-- Step2 验证密保信息 -->
-  <!--<h3>重置密码</h3>-->
-  <!--<form class="js-ac-resetPayPwd-form js-ac-steps form-horizontal">-->
-    <!--&lt;!&ndash; Case1 验证成功 开始重置 &ndash;&gt;-->
-    <!--<div class="js-ac-reset-div ac-reset-div">-->
-        <!--<div class="control-group">-->
-          <!--<label class="control-label" for="newFundPassword">输入新密码：</label>-->
-          <!--<div class="controls">-->
-            <!--<input type="password" id="newFundPassword" data-parsley-length="[6, 20]" required>-->
-            <!--<span class="js-help-inline2 help-inline">&nbsp;&nbsp;长度6-20位字符，支持数字，大小写字母和符号组合（不含空格）,不能是9位以下的纯数字</span>-->
-          <!--</div>-->
-        <!--</div>-->
-        <!--<div class="js-passwdSafetyTips3 passwdSafetyTips">-->
-          <!--<span></span> <span></span> <span></span> <b class="s1">弱</b>-->
-          <!--<p>连续字符密码易被破解，请用多组合的密码</p>-->
-        <!--</div>-->
-        <!--<div class="control-group">-->
-          <!--<label class="control-label">确认密码：</label>-->
-          <!--<div class="controls">-->
-            <!--<input type="password" id="newFundPassword1" data-parsley-length="[6, 20]"-->
-                   <!--data-parsley-equalto="#newFundPassword" required>-->
-            <!--<span class="help-inline">再次输入密码</span>-->
-          <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
-    <!--<div class="js-tip3 tip hide"></div>-->
-    <!--<div class="control-confirm text-center m-top-md text-center">-->
-      <!--<button type="button" class="btn btn-sun btn-linear input2 js-forbidden-button3" >修改</button>-->
-      <!--<button type="button" class="js-as-resetFundPassword-submit btn btn-sun btn-linear input1 m-right-sm hide " data-loading-text="修改中">修改</button>-->
-      <!--<button type="button" class="js-ac-findFundGoStep btn btn-b-white input1" data-type="0">返回</button>-->
-      <!--<div class="js-ac-resetNotice-div m-top-md"></div>-->
-    <!--</div>-->
-  <!--</form>-->
-
-  <!--&lt;!&ndash; Step3 重置资金密码 &ndash;&gt;-->
-  <!--<h3>完成</h3>-->
-  <!--<form class="js-ac-steps">-->
-    <!--<div class="text-center">-->
-      <!--<span class="sfa sfa-face-success m-TB-md"></span>-->
-      <!--<p class="font-md">恭喜你，设置成功</p>-->
-    <!--</div>-->
-  <!--</form>-->
-</div>
 </div>

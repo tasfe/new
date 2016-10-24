@@ -62,7 +62,7 @@ var specialConfig = {
       defaultSelectPlay: defaultSelectSSC,
       board: true,
       badge: 'hot'
-    },
+    }/*,
     {
       id: 20,
       type: 'ssc',
@@ -74,7 +74,7 @@ var specialConfig = {
       board: true,
       badge: 'purple',
     }
-
+*/
   ]
 };
 
@@ -221,7 +221,7 @@ var oneFiveConfig = {
       desc: '全天24小时 共1440期',
       defaultSelectPlay: defaultSelect115,
       hot: true
-    },
+    }
   ]
 };
 
@@ -246,7 +246,7 @@ var threeDConfig = [
     isSuper: false,
     desc: '全天24小时 共1440期',
     defaultSelectPlay: defaultSelectDPC
-  },
+  }
 ];
 
 //p5p3

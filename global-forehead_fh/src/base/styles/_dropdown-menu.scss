@@ -2,7 +2,7 @@
   > li > a {
     padding: 4px 20px;
     &:focus, &:hover {
-      background: #f4f8fb;
+      //background: #f4f8fb;
       color: #666;
     }
     img {
@@ -30,8 +30,6 @@
         border: none;
         a {
           border-radius: 0 0 2px 2px;
-          -moz-border-radius: 0 0 2px 2px;
-          -webkit-border-radius: 0 0 2px 2px;
           background: #fff;
           color: #777;
         }

@@ -58,7 +58,12 @@
 }
 
 .nav-shield {
-  height: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 4;
 }
 
 .nav-content-wrapper {
@@ -72,6 +77,8 @@
   background: #191211;
   height: 1.25rem;
   padding: 0.05rem;
+  position: relative;
+  z-index: 5;
 }
 .nav-userInfo-userName {
   margin-bottom: 0.06rem;
@@ -101,6 +108,8 @@
 .nav-list-container {
   color: white;
   background: #333333;
+  position: relative;
+  z-index: 5;
 }
 .nav-list {
   list-style: none;
@@ -310,9 +319,13 @@
   animation: hideNav 1s ease forwards;
 }
 
-.hidden {
+.hideNav .nav-shield{
   display: none;
 }
+
+/*.hidden {*/
+  /*display: none;*/
+/*}*/
 
 .nav-userInfo-insideLetter {
   width: 0.25rem;

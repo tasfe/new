@@ -119,6 +119,19 @@ var ValidatorModule = Base.Module.extend({
       return !myReg.test(value);
     }, 42)
       .addMessage('zh_cn', 'nospacechar', '不能包含空格');
+
+    ParsleyValidator.addValidator('zhemail', function (value) {
+      var myReg = /^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/i;
+      return myReg.test(value);
+    }, 42)
+      .addMessage('zh_cn', 'zhemail', '请输入正确的邮箱地址，如abc123@163.com');
+  },
+
+  getInlineErrorConfig: function() {
+    return {
+      errorsWrapper: '<div class="tooltip right parsley-errors-list filled-inline tooltip-error ellipsis"><div class="tooltip-arrow"></div></div>',
+      errorTemplate: '<div class="tooltip-inner parsley-error">'
+    };
   }
 });
 

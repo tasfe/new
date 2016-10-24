@@ -27,7 +27,7 @@ class FundPwd extends Page {
       type: 'password',
       hidden: true,
       //rules: ['required','noSpecialChar', 'minLength::6', 'maxLength::20'],
-      rules: ['required', 'minLength::6', 'maxLength::20', 'pattern::^[^\\s]?[\\S]*[^\\s]?$'],
+      rules: ['required','noSpaceChar','notIsNumAndLessThen9', 'minLength::6', 'maxLength::20'],
       saveUrl:'/acct/userinfo/updatepaypwd.json',
     }
 
@@ -50,7 +50,7 @@ class FundPwd extends Page {
           type: 'password',
           hidden: false,
           //rules: ['required','noSpecialChar', 'minLength::6', 'maxLength::20'],
-          rules: ['required', 'minLength::6', 'maxLength::20', 'pattern::^[^\\s]?[\\S]*[^\\s]?$'],
+          rules: ['required','noSpaceChar','notIsNumAndLessThen9', 'minLength::6', 'maxLength::20'],
           saveUrl:'/acct/userinfo/updatepaypwd.json'
         });
         $a.html('修改资金密码');
@@ -104,7 +104,7 @@ class FundPwd extends Page {
           tip: '6-20位字符；区分大小写；不允许空白符|9位以下纯数字|与原密码相同|与登陆密码相同',
           validation: {
             //rules: ['required','noSpecialChar', 'minLength::6', 'maxLength::20','notEqualTo::{oldPayPwd}', 'pattern::^[^\\s]?[\\S][^\\s]?$'],
-            rules: ['required', 'minLength::6', 'maxLength::20','notEqualTo::{oldPwd}', 'pattern::^[^\\s]?[\\S]*[^\\s]?$'],
+            rules: ['required','noSpaceChar','notIsNumAndLessThen9', 'minLength::6', 'maxLength::20','notEqualTo::{oldPwd}'],
             errorMsg: '请输入正确的新密码'
           }
         },
@@ -147,7 +147,7 @@ class FundPwd extends Page {
           //todo 输出错误提示
           window.Alert({
             title: '系统提示',
-            content: errorData.msg||'请求失败'
+            content: errorData.root||'请求失败'
           });
         }
       }

@@ -1,4 +1,4 @@
-"use strict";
+ "use strict";
 
 require('./index.scss');
 
@@ -21,7 +21,9 @@ var EntryView = Base.ItemView.extend({
     'click .js-gl-entry-item': 'entryClickHandler',
     'mouseover .js-qe-setting': 'inSettingHandler',
     'mouseout .js-qe-setting': 'outSettingHandler',
-    'click .js-qe-setting': 'openSettingHandler'
+    'click .js-qe-setting': 'openSettingHandler',
+    //点击红包活动事件
+    'click .js-qe-redpacket': 'openRedpacketActivityHandler'
   },
 
   serializeData: function() {
@@ -483,7 +485,6 @@ var EntryView = Base.ItemView.extend({
         });
     });
   }
-
 
 });
 

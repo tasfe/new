@@ -35,6 +35,9 @@ window.Global = App;
         //开启系统通知监听
         Global.m.news.start();
 
+        //个人信息监听
+        Global.m.states.start();
+
         //开启菜单权限监听
         Global.ui.menu.start();
 

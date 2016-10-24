@@ -6,13 +6,13 @@
     <div class="js-ac-oldFundPwdContainer control-group">
       <label class="control-label">当前密码：</label>
       <div class="controls">
-        <input type="password" class="js-ac-oldFundPwdContainer"  id="oldFundPassword" data-parsley-length="[6, 20]" required>
+        <input type="password" class="js-ac-oldFundPwd"  id="oldFundPassword"  data-parsley-length="[6, 20]" required>
       </div>
     </div>
     <div class="control-group">
       <label class="control-label">新密码：</label>
       <div class="controls">
-        <input type="password"  id="newUpdateFundPassword" data-parsley-length="[6, 20]"
+        <input type="password"  id="newUpdateFundPassword"  data-parsley-length="[6, 20]"
                data-parsley-notEqualTo="oldFundPassword" data-parsley-notEqualTo-message="新旧密码不能一致" required>
         <div class="help-block">长度6-20位字符，支持数字，大小写字母和符号组合（不含空格）,不能是9位以下的纯数字</div>
       </div>
@@ -29,14 +29,12 @@
       </div>
     </div>
 
-    <div class="js-invalid-pwd-tip invalid-pwd-tip hidden"></div>
+    <div class="js-invalid-pwd-tip invalid-pwd-tip"></div>
 
     <div class="control-group m-top-sm">
       <div class="controls">
-        <button type="submit" class="btn btn-pink btn-linear js-ac-setFundPassword-submit" data-loading-text="保存中" disabled>保存</button>
-      </div>
-      <div class="controls m-top-sm">
-        <a href="#pm/pff" class="text-hot js-ac-forgetPwd ac-forgetPwd hidden">忘记资金密码？</a>
+        <button type="submit" class="js-ac-setFundPassword-submit btn btn-pink btn-linear m-right-sm" data-loading-text="保存中" disabled>保存</button>
+        <a href="#pm/pff" class="router text-hot js-ac-forgetPwd ac-forgetPwd hidden">忘记资金密码？</a>
       </div>
     </div>
   </form>

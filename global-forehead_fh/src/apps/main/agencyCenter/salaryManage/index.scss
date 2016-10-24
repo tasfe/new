@@ -1,4 +1,6 @@
+@charset "UTF-8";
 
+@import "~base/styles/imports";
 .ac-sm-agree-notice{
   color: #666;
   font-size: 12px;
@@ -19,6 +21,11 @@
   height: 194px;
 
 }
+
+.ac-sm-conf-table{
+  height: 280px;
+}
+
 
 .ac-sm-agree-agreement-title{
   color: #da5144;
@@ -57,10 +64,10 @@
 }
 
 .ac-sm-sign-table{
-  width: 800px;
+  width: 840px;
   height: 286px;
   .ac-sm-sign-saleAmount{
-    width: 80px;
+    width: 50px;
   }
   .ac-sm-sign-select-div{
     width: 100%;
@@ -70,18 +77,17 @@
       width: 60px;
     }
     .ac-sm-sign-lossLimit{
-      width: 80px;
+      width: 50px;
     }
   }
 
   .ac-sm-sign-salary{
-    width: 80px;
+    width: 50px;
   }
   .ac-sm-sign-delete{
     button{
-      background-color: #e25d47;
+      background-color: #fff;
       border: 0px;
-      color: #fff;
     }
   }
 }
@@ -135,7 +141,7 @@
 
 .ac-sm-sign-type-container{
   vertical-align: middle;
-  height: 20px;
+  height: 17px;
   line-height: 20px;
   label{
     display: inline-block;
@@ -148,8 +154,63 @@
 .ac-sm-sign-username{
   height: 35px;
   margin-bottom: 15px;
+  .ac-sm-sign-max-place{
+    margin-left: 13px;
+  }
 }
+.ac-sm-sign-set-title-div{
+  border-bottom:1px solid #cccccc;
+  width: 840px;
+  margin-top:20px;
+}
+.ac-sm-sign-username-size{
+  margin-top: 25px;
+}
+.ac-sm-sign-body{
+  width: 840px;
+  height: 95px;
+  .ac-sm-sign-body-left-left{
+    background: #f2f2f2;
+    display: inline-block;
+    height: 32px;
+    border: 1px solid #c9c9c9;
+    width: 130px;
+    text-align: center;
+    line-height: 32px;
+  }
+  .ac-sm-sign-body-left-right{
+    display: inline-block;
+    height: 32px;
+    border: 1px solid #c9c9c9;
+    line-height: 32px;
+    width: 227px;
+    margin-left: -5px;
+    text-align: center;
+  }
+  .ac-sm-sign-body-left-down{
+    border-top:0px;
+  }
+  .ac-sm-sign-body-left{
+    width: 360px;
+    display: inline-block;
 
+  }
+
+  .ac-sm-sign-body-center{
+    width: 98px;
+    display: inline-block;
+    margin-left: 14px;
+    color: #999;
+    .ac-sm-sign-body-center-tip{
+      font-size: 47px;
+      margin-left: 7px;
+    }
+  }
+  .ac-sm-sign-body-right{
+    width: 360px;
+    display: inline-block;
+  }
+}
 .ac-sm-agree-special-example{
   height: 72px;
   padding: 10px;
@@ -164,7 +225,19 @@
     height: 18px;
   }
 }
+.ac-sm-sign-input-width{
+  width: 50px;
+  margin-top: -3px;
 
+}
+.ac-sm-sign-select-width{
+  width: 65px;
+}
+.ac-sm-sign-input-width-place{
+  width: 50px;
+  margin-left: 22px;
+  margin-top:-3px;
+}
 .ac-sm-conf-title{
   color: #da5144;
   font-size: 17px;
@@ -189,4 +262,15 @@
     line-height: 18px;
     height: 18px;
   }
+}
+
+.fc-sm-sign-tabs{
+  a{
+    border: 1px solid #cccccc;
+    border-bottom: 1px solid #ececec;
+    color: #c93339;
+  }
+}
+.fc-sm-form{
+  margin-top:65px;
 }

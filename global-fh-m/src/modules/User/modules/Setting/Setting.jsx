@@ -46,7 +46,7 @@ class Setting extends Page {
           <li><a className="open-acc" href="/#/agency/oa">开户管理</a></li>
         </ul>
         <ul>
-          <li><a className="online-service" href="http://fh1.learnsaas.com/chat/chatClient/chatbox.jsp?companyID=673018&configID=57128&jid=9677541409&skillId=3205" target="_blank">在线客服</a></li>
+          <li><a className="online-service" href="http://v88.live800.com/live800/chatClient/chatbox.jsp?companyID=731101&configID=2579&jid=4521278370" target="_blank">在线客服</a></li>
           {/*<li>
             <a className="set-notice" href="">
               <Toggles

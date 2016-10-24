@@ -59,10 +59,14 @@ var TopLevelView = TabView.extend({
     _(this.options).extend({
       tabClass: 'view-tabs nav nav-tabs nav-tabs-special',
       tabs: tabs,
-      append: '<div class="js-ac-sm-add-user cursor-pointer ac-add-user pull-right text-pleasant">' +
-      '<span class="sfa sfa-dividend-add vertical-bottom"></span> ' +
-      '签约日薪</div>' +
-      '</div>'
+      // append: '<div class="js-ac-sm-add-user cursor-pointer ac-add-user pull-right text-pleasant">' +
+      // '<span class="sfa sfa-dividend-add vertical-bottom"></span> ' +
+      // '签约日薪</div>' +
+      // '</div>'
+      append:'<button type="button" class="js-ac-sm-add-user btn btn-hot btn-linear ac-add-user pull-right">' +
+      '<i class="fa fa-plus-circle"></i>' +
+      '  签约日薪' +
+      '</button>'
     });
 
   },

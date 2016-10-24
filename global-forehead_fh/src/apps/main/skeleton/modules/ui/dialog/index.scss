@@ -80,29 +80,34 @@
 
 .modal-dialog {
   width: 100%;
-  overflow: hidden;
-
-  border: 2px solid #474747;
-  border-radius: $globalBoxRadius;
+  //overflow: hidden;
 }
 
 .modal-content {
   color: $dark-color;
   background-color: $white-color;
   outline: 0;
+  border: 2px solid #474747;
+  border-radius: $globalBoxRadius;
 }
 
 .modal-header {
   color: $new-black-color;
-  background-color: $white-color;
+  //background-color: $white-color;
 
-  margin: 7px 7px 0;
+  margin: 7px 10px 0;
   border-radius: 5px 5px 0 0;
 
   .close {
     width: 20px;
     height: 20px;
-    margin-right: -1px;
+    margin-right: 0;
+    background: $color-amber;
+    border-radius: 10px;
+    font-size: 12px;
+    color: $white-color;
+    text-align: center;
+    line-height: 20px;
   }
   h4 {
     margin-bottom: 3px;
@@ -128,8 +133,8 @@
 .modal-footer {
   padding: 14px 15px 15px;
   margin-bottom: 0;
-  text-align: right;
-  background-color: $white-color;
+  //text-align: right;
+  //background-color: $white-color;
   *zoom: 1;
   &:before {
     display: table;
@@ -191,7 +196,6 @@ button.close {
   margin-left: -508px;
   .modal-dialog{
     height:604px;
-    background-color: #fff;
   }
 }
 
@@ -203,7 +207,7 @@ button.close {
   //border-radius: 5px;
   .modal-body{
     padding: 0 10px 17px;
-    height:565px;
+    //height:565px;
   }
 }
 

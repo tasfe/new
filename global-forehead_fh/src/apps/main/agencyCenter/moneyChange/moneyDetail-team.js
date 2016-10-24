@@ -63,7 +63,7 @@ var MoneyDetailView = SearchGrid.extend({
         url: '/fund/balance/history.json'
       },
       reqData: {
-        subUser: 0
+        subUser: 1
       }
       // viewType: 'team'
     });
@@ -124,7 +124,7 @@ var MoneyDetailView = SearchGrid.extend({
       onBtnClick: function(offset) {
         self.timeset.$startDate.data("DateTimePicker").date(moment().add(offset, 'days').startOf('day'));
         self.timeset.$endDate.data("DateTimePicker").date(moment().add(offset === -1 ? -1 : 0, 'days').endOf('day'));
-        (self.$('.js-ac-search-form') && !self.firstTime) && self.$('.js-ac-search-form').trigger('submit');
+        self.search();
         return false;
       }
     }).render();
@@ -192,7 +192,7 @@ var MoneyDetailView = SearchGrid.extend({
       row.push('<span class="">'+_(info.amount).convert2yuan()+'</span>');
     }
 
-    row.push('<span class="text-bold-cool">'+_(info.balance).convert2yuan()+'</span>');
+    row.push('<span class="text-hot">'+_(info.balance).convert2yuan()+'</span>');
 
     row.push(info.remark);
 

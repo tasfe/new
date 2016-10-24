@@ -128,7 +128,7 @@ var SecurityQuestionView = Base.ItemView.extend({
   inputSecurityQuestionHandler: function (e) {
     var $target = $(e.currentTarget);
     var $currContainer = this.$('.js-as-inputSQForm');
-    var clpValidate = $currContainer.parsley().validate();
+    var clpValidate = $currContainer.parsley(Global.validator.getInlineErrorConfig()).validate();
 
     if (clpValidate) {
 
@@ -146,7 +146,6 @@ var SecurityQuestionView = Base.ItemView.extend({
     }
   },
 
-  //TODO 确认提交密保问题 1.3.3初始化 成功页面
   confirmSecurityQuestionHandler: function (e) {
     var $target = $(e.currentTarget);
       //设置按钮为处理中状态
@@ -169,6 +168,7 @@ var SecurityQuestionView = Base.ItemView.extend({
       $target.button('reset');//恢复确认按钮的状态
     }).done(function (res) {
       if (res && res.result === 0) {
+        Global.m.states.fetch();
         // Global.ui.notification.show('密保问题保存成功', {
         //   type: 'success',
         //   event: function() {
@@ -213,7 +213,7 @@ var SecurityQuestionView = Base.ItemView.extend({
     var self = this;
     var $target = $(e.currentTarget);
     var $currContainer = this.$('.js-as-verifySQForm');
-    var clpValidate = $currContainer.parsley().validate();
+    var clpValidate = $currContainer.parsley(Global.validator.getInlineErrorConfig()).validate();
     if (clpValidate) {
       //设置按钮为处理中状态
       $target.button('loading');

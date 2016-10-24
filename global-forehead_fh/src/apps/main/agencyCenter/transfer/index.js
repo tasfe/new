@@ -94,7 +94,6 @@ var TransferView = Base.ItemView.extend({
         self.loadingFinish();
       })
       .done(function (res) {
-        console.log(res);
         if (res && res.result === 0 && res.root) {
           self.$form.removeClass('hidden');
           // if (res.root.pStatus === 1 && res.root.sStatus === 1) {
@@ -277,7 +276,7 @@ var TransferView = Base.ItemView.extend({
           });
           self.$(".U-cancel").hide();
         } else {
-          Global.ui.notification.show('转账失败,' + (res.msg || res.root || ''));
+          Global.ui.notification.show('转账失败,' + (res.root || res.msg || ''));
           self.$(".U-cancel").hide();
         }
       });
