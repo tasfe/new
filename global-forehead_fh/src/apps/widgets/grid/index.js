@@ -315,6 +315,8 @@ $.widget('gl.grid', {
       var $checkbox = $(checkbox);
       if(!$checkbox.prop('checked')){
         $checkbox.closest('tr').addClass('active')
+      }else{
+        $checkbox.closest('tr').removeClass('active')
       }
       $checkbox.prop('checked', !$checkbox.prop('checked'));
     });

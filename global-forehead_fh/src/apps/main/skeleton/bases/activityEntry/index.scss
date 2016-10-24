@@ -23,32 +23,54 @@ $activity-item-wh: 58px;
     position: absolute;
     right: -60px;
     width: $activity-item-wh;
-    top: 750px;
+    top: 650px;
+    min-height:121px;
   }
   .entry-group{
     position:relative;
+    min-height: 121px;
   }
   .activity-item{
     cursor: pointer;
-    position: absolute;
     bottom: 0;
     display: block;
-    width: $activity-item-wh;
-    height: $activity-item-wh;
-    background-color: #0b93d5;
+    overflow: hidden;
+    width:123px;
   }
   //活动图标
   //红包活动按钮
   .redpacket-btn{
+    display: block;
+    position: relative;
     width:123px;
     height:121px;
     background: url("images/redpacket.gif");
     -webkit-background-size:123px 121px;
     background-size:123px 121px;
+    .redpacket-count{
+      position: absolute;
+      width:20px;
+      height:20px;
+      top:0;
+      right:20px;
+      border:2px solid #4a0202;
+      background-color: #cd0e0e;
+      font-size:14px;
+      color: #fff;
+      font-weight:bold;
+      -webkit-border-radius:50%;
+      -moz-border-radius:50%;
+      border-radius:50%;
+      text-align: center;
+      line-height:20px;
+    }
   }
   .redpacket-btn-op{
     background:url("images/redpacket-op.png");
     -webkit-background-size:123px 121px;
     background-size:123px 121px;
+    .redpacket-count{
+      display: none;
+    }
   }
 }
