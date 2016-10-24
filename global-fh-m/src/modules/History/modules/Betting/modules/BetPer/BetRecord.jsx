@@ -41,7 +41,6 @@ class OpenLottery extends Page {
   }
 
   refresh(resolve, reject) {
-    //debugger
     if (!this.state.canRefreshResolve) return reject();
     this.pageIndex = 0;
     this.betList = [];
