@@ -9,8 +9,8 @@ var PersonalStatesModel = Model.extend({
   defaults: {
     hasMoneyPwd: false,
     hasBankCard: false,
-    hasSecurity: true,
-    hasEmail: true,
+    hasSecurity: false,
+    hasEmail: false,
     email: '',
     complete: false
   },

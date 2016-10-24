@@ -43,7 +43,7 @@ var PersonalManageView = Base.ItemView.extend({
     this.$form = this.$('.js-uc-personalInfo-form');
     this.$btnConfirm = this.$('.js-uc-confirm');
 
-    this.parsley = this.$form.parsley();
+    this.parsley = this.$form.parsley(Global.validator.getInlineErrorConfig());
     // window.ParsleyExtend.addAsyncValidator('checkusername', function(xhr) {
     //   return xhr.responseJSON.result === 0;
     // }, '/acct/userinfo/checkuname.json');

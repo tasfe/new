@@ -1,0 +1,12 @@
+{
+  "result": 0,
+  "msg": "",
+  "root": {
+    "hasMoneyPwd": true,
+    "hasBankCard": true,
+    "hasSecurity": true,
+    "hasEmail": true,
+    "email": "fdcsd**@a.com",
+    "complete": true
+  }
+}

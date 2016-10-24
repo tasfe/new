@@ -76,7 +76,7 @@ var LoginPwdView = Base.ItemView.extend({
     var self = this;
     var $target = $(e.currentTarget);
     
-    var clpValidate = this.$changeLoginPasswordForm.parsley().validate();
+    var clpValidate = this.$changeLoginPasswordForm.parsley(Global.validator.getInlineErrorConfig()).validate();
     if (clpValidate) {
       $target.button('loading');
 
