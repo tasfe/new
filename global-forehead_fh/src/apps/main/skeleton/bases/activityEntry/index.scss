@@ -69,5 +69,8 @@ $activity-item-wh: 58px;
     background:url("images/redpacket-op.png");
     -webkit-background-size:123px 121px;
     background-size:123px 121px;
+    .redpacket-count{
+      display: none;
+    }
   }
 }
