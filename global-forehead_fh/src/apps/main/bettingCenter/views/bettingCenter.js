@@ -280,9 +280,9 @@ var BettingCenterView = Base.ItemView.extend({
       },
       onOverMax: function(maxNum) {
         Global.ui.notification.show(
-          '您填写的倍数已超出平台限定的单注中奖限额<span class="text-sunshine">' +
+          '您填写的倍数已超出平台限定的单注中奖限额<span class="text-blue">' +
           _(self.rulesCollection.limitMoney).convert2yuan() + '</span>元，' +
-          '已为您计算出本次最多可填写倍数为：<span class="text-sunshine">' + maxNum + '</span>倍'
+          '已为您计算出本次最多可填写倍数为：<span class="text-blue">' + maxNum + '</span>倍'
         );
       }
     });
@@ -417,7 +417,7 @@ var BettingCenterView = Base.ItemView.extend({
       this.infoModel.changeToUpdate();
     } else {
       if (this.$el.closest('html').length !== 0 && planInfo.sale && planInfo.lastPlanId !== planInfo.planId) {
-        Global.ui.notification.show('<span class="text-sunshine">' + planInfo.lastPlanId + '</span>期已截止<br/>当前期为<span class="text-sunshine">' + planInfo.planId + '</span>期<br/>投注时请注意期号！',{id:'ticketNotice'});
+        Global.ui.notification.show('<span class="text-blue">' + planInfo.lastPlanId + '</span>期已截止<br/>当前期为<span class="text-blue">' + planInfo.planId + '</span>期<br/>投注时请注意期号！',{id:'ticketNotice'});
       }
     }
   },
