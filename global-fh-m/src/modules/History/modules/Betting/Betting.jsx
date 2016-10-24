@@ -14,6 +14,8 @@ import BetGroup from './modules/BetGroup/BetGroup'
 import BetRecord from './modules/BetPer/BetRecord'
 import ChaseRecord from './modules/BetPer/ChaseRecord'
 
+import headConfig from 'misc/headConfig'
+
 @connect(
   state => ({
     title: state.toolbar.title,
@@ -50,19 +52,25 @@ class Betting extends Page {
     console.log(userRoot&&userRoot.uName);
     let props = {
       username: userRoot && userRoot.username || '赌神',
+      headId:userRoot && userRoot.headId ||'1',
       uName: userRoot && userRoot.uName || '未命名',
       balance: userRoot && _(userRoot.balance).convert2yuan() || '0',
       vip: userRoot && ('V'+userRoot.memberLevel) || 'V0',
       letterNum: ''
     };
 
-    let children = this.props.children
+    let children = this.props.children;
+
+    let config = headConfig.get(props.headId) || {};
+    console.log(config,props.headId);
+
     return children ? children :(
       <div>
         <div className="betting-userInfo">
           <div className="betting-userInfo-img">
-            <img className="betting-userInfo-img-head" src="images/userImg.png"/>
-            <div className="betting-userInfo-img-vip">{props.vip}</div>
+            <img className="betting-userInfo-img-head " src={config.img}/>
+
+
           </div>
           <div className="betting-userInfo-right">
             <div className="betting-userInfo-row1 ">

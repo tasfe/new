@@ -4,12 +4,12 @@ require('./index.scss');
 
 var comingSoon =  require('base/images/coming-soon.png');
 
-var TopProfileView = Base.ItemView.extend({
+var TopProfileView;
+TopProfileView = Base.ItemView.extend({
 
   template: require('./index.html'),
 
   updateUNameTpl: _(require('./updateUName.html')).template(),
-
 
 
   events: {
@@ -17,14 +17,14 @@ var TopProfileView = Base.ItemView.extend({
     'click .js-personal-avatar': 'editIconsHandler'
   },
 
-  updateUNameXhr: function(data) {
+  updateUNameXhr: function (data) {
     return Global.sync.ajax({
       url: '/acct/userinfo/updateuname.json',
       data: data
     });
   },
 
-  onRender: function() {
+  onRender: function () {
     var self = this;
 
     this.$uName = this.$('.js-personal-u-name');
@@ -32,14 +32,14 @@ var TopProfileView = Base.ItemView.extend({
     this.$loginLoc = this.$('.js-personal-login-loc');
     this.$regTime = this.$('.js-personal-reg-time');
     this.$avatar = this.$('.js-personal-avatar');
-    this.$('.js-uc-personal-profile-vip-coming-soon').attr('src',comingSoon);
+    this.$('.js-uc-personal-profile-vip-coming-soon').attr('src', comingSoon);
 
-    this.subscribe('acct', 'acct:updating', function() {
+    this.subscribe('acct', 'acct:updating', function () {
       self.checkState();
     });
   },
 
-  checkState: function() {
+  checkState: function () {
     var acctInfo = Global.memoryCache.get('acctInfo');
 
     this.$uName.html(acctInfo.uName);
@@ -57,12 +57,12 @@ var TopProfileView = Base.ItemView.extend({
 
   //event handlers
 
-  editIconsHandler: function() {
+  editIconsHandler: function () {
     var self = this;
     $(document).editIcons();
   },
 
-  editUNameHandler: function() {
+  editUNameHandler: function () {
     var self = this;
 
     var $dialog = Global.ui.dialog.show({
@@ -75,32 +75,32 @@ var TopProfileView = Base.ItemView.extend({
     });
 
     $dialog.off('submit.uName')
-      .on('submit.uName', '.js-personal-form', function(e) {
-        var $form = $(e.currentTarget);
-        var $submit = $form.find('.js-btn-submit');
+        .on('submit.uName', '.js-personal-form', function (e) {
+          var $form = $(e.currentTarget);
+          var $submit = $form.find('.js-btn-submit');
 
-        var parsley = $form.parsley();
+          var parsley = $form.parsley();
 
-        if (!parsley.validate()) {
-          return false;
-        }
-
-        $submit.button('loading');
-
-        self.updateUNameXhr(_($form.serializeArray()).serializeObject())
-          .always(function() {
-            $submit.button('reset');
-          }).done(function (res) {
-          if (res && res.result === 0) {
-            Global.ui.notification.show('修改成功');
-            Global.m.oauth.check();
-
-            $dialog.modal('hide');
-          } else {
-            Global.ui.notification.show(res.msg);
+          if (!parsley.validate()) {
+            return false;
           }
+
+          $submit.button('loading');
+
+          self.updateUNameXhr(_($form.serializeArray()).serializeObject())
+              .always(function () {
+                $submit.button('reset');
+              }).done(function (res) {
+                if (res && res.result === 0) {
+                  Global.ui.notification.show('修改成功');
+                  Global.m.oauth.check();
+
+                  $dialog.modal('hide');
+                } else {
+                  Global.ui.notification.show(res.msg);
+                }
+              });
         });
-      });
   }
 });
 
