@@ -84,7 +84,7 @@ var LowLevelView = SearchGrid.extend({
       //tip: '<span class="m-right-sm vertical-middle"><span class="js-pf-select-all cursor-pointer">全选</span> | ' +
       //'<span class="js-pf-inverse cursor-pointer">反选</span></span>' +
       //'<div class="btn-group"><button class="js-ac-multi-grant btn btn-sm btn-hot">发放</button></div>',
-      headTip: '<div class="table-head-tip"><button class=" btn btn-hot btn-linear js-ac-dm-ll-multi-grant m-right-sm ">提交分红申请</button><span >温馨提示：下级分红每月1号和16号结算，只保留上一次的记录，未按时下发分红给下级平台会强制发放。</span></div>',
+      headTip: '<div class="table-head-tip"><button class=" btn btn-hot btn-linear js-ac-dm-ll-multi-grant m-right-sm ">派发分红</button><span >温馨提示：下级分红每月1号和16号结算，只保留上一次的记录，未按时下发分红给下级平台会强制发放。</span></div>',
       height: 310
     });
   },
