@@ -480,18 +480,19 @@ $btns: (
     bg-color: $white-color,
     border-color: $gray-color,
     hover: (
-      color: $color-amber,
+      color: $pink-color,
+      border-color: $pink-color,
       bg-color: $white-color
     ),
     focus: (
-      color: $color-amber,
-      bg-color: $white-color
-      //box-shadow: none
+      color: $white-color,
+      border-color: $pink-color,
+      bg-color: $pink-color
     ),
     active: (
-      color: $color-amber,
-      bg-color: $white-color
-      //box-shadow: none
+      color: $white-color,
+      border-color: $pink-color,
+      bg-color: $pink-color
     ),
   ),
   group-pink: (

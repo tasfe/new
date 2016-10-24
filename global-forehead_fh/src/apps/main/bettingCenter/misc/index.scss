@@ -1329,6 +1329,11 @@ $main-area-width: 870px;
         height: 20px;
         float: left;
         text-align: left;
+        span {
+          width: 80px;
+          display: inline-block;
+          overflow: hidden;
+        }
       }
     }
 
