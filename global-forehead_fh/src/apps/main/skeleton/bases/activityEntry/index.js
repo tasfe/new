@@ -42,10 +42,6 @@ var ActivityEntryView = Base.ItemView.extend({
   checkRedPacketState: function(){
     var self = this;
     this.getRedpacketInfoXhr().done(function(res){
-<<<<<<< HEAD
-=======
-      // console.log(res);
->>>>>>> a33e605885ea66df3ead8fd3b96df60146aa1a9f
       if(res && res.result == 0){
         var data = res.root;
         if(data.status != 1){
