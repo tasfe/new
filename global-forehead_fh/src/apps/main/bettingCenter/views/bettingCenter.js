@@ -295,6 +295,7 @@ var BettingCenterView = Base.ItemView.extend({
     this.countdown = new Countdown({
       el: this.$countdown,
       color: 'red',
+      countdownAnimation: true,
       size: ''
     })
       .render()

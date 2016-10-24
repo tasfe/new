@@ -9,6 +9,13 @@
     margin-right:10px;
   }
 }
+.countdown-num {
+  &.twinkling {
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+  }
+}
 
 .countdown-colon {
   font-size: 30px;
@@ -24,3 +31,4 @@
   color: #777;
   margin-right:7px;
 }
+
