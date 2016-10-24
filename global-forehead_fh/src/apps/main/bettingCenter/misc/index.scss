@@ -1226,17 +1226,17 @@ $main-area-width: 870px;
   .bc-records-open-container {
     position: absolute;
     width: 290px;
-    height: 98px;
+    height: 108px;
     overflow: hidden;
     border: 1px solid #ccc;
     background-color: #fff;
     border-radius: 8px;
-    padding: 5px;
+    padding: 0 5px;
     text-align: center;
     transition: height 0.2s ease;
 
     .showList {
-      height: 94px;
+      height: 104px;
       overflow: hidden;
     }
 
@@ -1260,7 +1260,7 @@ $main-area-width: 870px;
         cursor: pointer;
         color: #ccc;
         position: absolute;
-        bottom: -10px;
+        bottom: -5px;
 
         &:hover {
           color: #cc3333;
@@ -1500,7 +1500,7 @@ $main-area-width: 870px;
     label {
       display: inline-block;
       padding: 0 10px;
-      border: 1px solid $gray-color;
+      border: 1px solid #545454;
       background-color: #fff;
       border-radius: 30px;
 

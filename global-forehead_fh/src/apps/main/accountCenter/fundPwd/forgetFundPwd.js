@@ -331,7 +331,7 @@ var findPwdView = Base.ItemView.extend({
           $findFundPasswordContainer.steps('goTo', 2);
           self.$('#newFundPassword').bind('keyup', this, self.validatePwdHandler);
         } else {
-            self.$('.js-ac-sqNotice-div').html(self._getErrorMsg('验证失败,' + res.msg));
+            self.$('.js-ac-cardNotice-div').html(self._getErrorMsg('验证失败,' + res.msg)).removeClass('hidden');
         }
       });
     }
@@ -367,7 +367,7 @@ var findPwdView = Base.ItemView.extend({
           //   btnContent: '确定'
           // });
         }else{
-          self.$('.js-invalid-pwd-tip').html(self._getErrorMsg('重置失败，' + res.msg));
+          self.$('.js-invalid-pwd-tip').html(self._getErrorMsg('重置失败，' + res.msg)).removeClass('hidden');
         }
       });
     }
