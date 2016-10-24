@@ -141,7 +141,7 @@ var BettingChoiceModel = Model.extend({
     }
 
     function _calculate(customizeMoney, perPrice, unit) {
-      var multiple = Math.floor(_(customizeMoney).formatDiv(perPrice, {fixed: 0}));
+      var multiple = Math.floor(customizeMoney / perPrice);
       var restMoney = Number(_(customizeMoney).formatMod(perPrice, {fixed: 4}));
 
       //没有完全用完预算则继续

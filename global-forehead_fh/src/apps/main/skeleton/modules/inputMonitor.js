@@ -45,7 +45,7 @@ define(function(require, exports, module) {
         return true;
       }
 
-      var currentVal = $target.val();
+      var currentVal = $target.val() || '0';
       var min = range[0];
       var max = range[1];
       var test = true;
@@ -86,7 +86,7 @@ define(function(require, exports, module) {
         return true;
       }
 
-      var currentVal = $target.val();
+      var currentVal = $target.val() || '0';
       var min = range[0];
       var max = range[1];
       var test = true;
