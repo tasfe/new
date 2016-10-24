@@ -188,6 +188,7 @@ var RechargeView = TabView.extend({
     var $target = $(e.currentTarget);
     $target.addClass('active').siblings().removeClass('active');
     this.initPaymentPage(e);
+    this.$('.js-fc-re-amount').trigger('keyup');
   },
 
   formatAmount: function(amount) {
