@@ -52,7 +52,7 @@ var status = [
   {
     index: 'INCOME_SYSTEM',
     id: 112,
-    zhName: 'AG返点',
+    zhName: '返点',
     searchName: '&nbsp;&nbsp;&nbsp;&nbsp;>AG返点'
   },
   {

@@ -77,20 +77,28 @@ var NewrechargeView = Base.ItemView.extend({
 
 	//handler event
 	getPrizeHandler: function(){
-		this.getPrizeXhr().done(function (res) {
-			if(res && res.result === 0 && res.root != null){
-					var msg = '恭喜您，您成功领取'+ res.root.dataList[0].result / 10000 +'元！';
-				Global.ui.dialog.show({
-					title: '领取成功',
-					body: msg
-				});
-			}else{
-				Global.ui.dialog.show({
-					title: '领取失败',
-					body: res.msg
-				});
-			}
-		});
+			this.getPrizeXhr().done(function (res) {
+					if(res && res.result === 0 && res.root != null){
+							var money = res.root.dataList[0].result / 10000;
+							if(money != 0){  // 因接口实现本身有小问题，所以奖励为 0 时是领取失败的。
+									var msg = '恭喜您，您成功领取'+ money +'元！';
+									Global.ui.dialog.show({
+											title: '领取成功',
+											body: msg
+									});
+							}else{
+									Global.ui.dialog.show({
+											title: '领取失败',
+											body: res.msg
+									});
+							}
+					}else{
+							Global.ui.dialog.show({
+									title: '领取失败',
+									body: res.msg
+							});
+					}
+			});
 	},
 });
 

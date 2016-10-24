@@ -43,6 +43,18 @@ define(function(require, exports, module) {
       zhName: '上级转账',
       searchName: '    >上级转账'
     },
+          {
+              index: 'OUTCOME_TRANSFER',
+              id: 111,
+              zhName: '转账',
+              searchName: '    >转出AG'
+          },
+          {
+              index: 'INCOME_TRANSFER',
+              id: 112,
+              zhName: '返点',
+              searchName: '    >AG返点'
+          },
     {
       index: 'INCOME_SYSTEM',
       id: 105,
@@ -72,6 +84,12 @@ define(function(require, exports, module) {
       id: 108,
       zhName: '下级转账',
       searchName: '    >下级转账'
+    },
+    {
+              index: 'OUTCOME_TRANSFER',
+              id: 110,
+              zhName: '转账',
+              searchName: '    >转入AG'
     },
     {
       index: 'OUTCOME_SYSTEM',

@@ -16,7 +16,7 @@
     <div class="control-group">
       <label class="control-label">新密码：</label>
       <div class="controls">
-        <input type="password" name="NewPwd" id="newLoginPassword" data-parsley-length="[6, 20]"
+        <input type="password" name="NewPwd" id="newLoginPassword" data-parsley-length="[6, 20]" data-parsley-notisnumandlessthen9 data-parsley-nospacechar
                data-parsley-notEqualTo="#oldLoginPassword" data-parsley-notEqualTo-message="新旧密码不能一致"  required>
         <div class="help-block">长度6-20位字符，支持数字，大小写字母和符号组合（不含空格）,不能是9位以下的纯数字</div>
       </div>

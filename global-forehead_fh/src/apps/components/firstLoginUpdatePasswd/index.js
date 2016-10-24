@@ -16,29 +16,38 @@ var FirstLoginUpdatePasswd = Base.ItemView.extend({
     require.ensure(['./index.scss'], function(require) {
       require('./index.scss');
     });
+
+  },
+  onRender: function(){
+    var acctInfo = Global.memoryCache.get('acctInfo');
+    this.$('.js-fl-up-username').html(acctInfo.username);
   },
 
   affirm: function () {
     var self = this;
-    
-    if(this.loginPwd(1) == 1)
-    {
-      this.updateLoginPwdAndUName().done(function (data) {
-        if (data.result === 0) {
-          $('.js-firstLoginUpdatePasswd .js-window').addClass('hidden');
-          $('.js-firstLoginUpdatePasswd .js-window2').removeClass('hidden');
+    var $form = this.$('.js-fl-up-form');
+    var validate = $form.parsley().validate();
+    if(validate){
+      if(this.loginPwd(1) == 1)
+      {
+        this.updateLoginPwdAndUName().done(function (data) {
+          if (data.result === 0) {
+            $('.js-firstLoginUpdatePasswd .js-window').addClass('hidden');
+            $('.js-firstLoginUpdatePasswd .js-window2').removeClass('hidden');
 
-          sessionStorage.status = 0;
+            sessionStorage.status = 0;
 
-          Global.sync.setLogout();
-        } else {
-          Global.ui.notification.show(data.msg);
-        }
-      })
-      .always(function() {
-        $('.js-firstLoginUpdatePasswd .js-affirm').text('确认');
-      });
+            Global.sync.setLogout();
+          } else {
+            Global.ui.notification.show(data.msg);
+          }
+        })
+          .always(function() {
+            $('.js-firstLoginUpdatePasswd .js-affirm').text('确认');
+          });
+      }
     }
+
   },
 
   close: function () {

@@ -7,6 +7,7 @@ define(function (require, exports, module) {
     var CancelCurPlanBetView = require('betCenter/views/species-LotteryMonitor-cancelCurPlanBet');
     var CancelChaseBetView = require('betCenter/views/species-LotteryMonitor-cancelChasebet');
     var RightOpenNumView = require('betCenter/views/species-LotteryMonitor-rightOpenNum');
+    var KoreaSourceView = require('betCenter/views/ticket-koreaSource-detail');
     var LotteryMonitorDetailView = Base.ItemView.extend({
 
         //初次渲染页面时会调用的模板
@@ -17,7 +18,8 @@ define(function (require, exports, module) {
             'click .js-bc-rightOpenTime': 'rightOpenTimeHandler',
             'click .js-bc-cancelCurPlanBet': 'cancelCurPlanBetHandler',
             'click .js-bc-cancelChaseBet': 'cancelChaseBetHandler',
-            'click .js-bc-rightOpenNum': 'rightOpenNumHandler'
+            'click .js-bc-rightOpenNum': 'rightOpenNumHandler',
+            'click .js-BC-koreaSource':'showKoreaSourcelHandler'
         },
 
         //在view 被 new 出来的时候自动调用，主要用来初始化options等配置文件
@@ -79,6 +81,9 @@ define(function (require, exports, module) {
                             self.$('.js-bc-rightOpenNum-choose').html('<button class="btn btn-sm btn-default m-left-sm js-bc-rightOpenNum " >输入官方正确开奖号</button>');
                         } else {
                             self.$('.js-bc-rightOpenNum-choose').html('<button class="btn btn-sm btn-default m-left-sm js-bc-rightOpenNum disabled" >输入官方正确开奖号</button>');
+                        }
+                        if(res.root.ticketOrgOpenNum != null){
+                            self.$('.js-bc-openNum').after('<label class="control-label js-bc-orgOpenNum"> <a class="js-BC-koreaSource btn-link btn-link-cool" data-opennum="'+res.root.ticketOrgOpenNum+'">查看号源</a></label>');
                         }
                     } else {
                         Global.ui.notification.show('数据异常。');
@@ -294,6 +299,31 @@ define(function (require, exports, module) {
                         });
 
                 });
+        },
+        showKoreaSourcelHandler: function (e) {
+            var $target = $(e.currentTarget);
+            var koreaSourceView;
+            var openNum = $target.data('opennum');
+            var $dialog = Global.ui.dialog.show({
+                title: '查看号源',
+                size: 'modal-md',
+                body: '<div class="js-bc-sourceDetail-container"></div>',
+                bodyClass: 'no-padding',
+                footer: ''
+            });
+
+            var $sourceContainer = $dialog.find('.js-bc-sourceDetail-container');
+
+            $dialog.on('hidden.modal', function() {
+                $(this).remove();
+                koreaSourceView.destroy();
+            });
+
+            koreaSourceView  = new KoreaSourceView({
+                el: $sourceContainer,
+                openNum:openNum
+            }).render();
+
         }
 
     });

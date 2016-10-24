@@ -18,6 +18,7 @@ $activity-item-wh: 58px;
   position: relative;
   width: 1200px;
   margin: 0 auto;
+  z-index: 10;
 
   .shortcut-right{
     position: absolute;
