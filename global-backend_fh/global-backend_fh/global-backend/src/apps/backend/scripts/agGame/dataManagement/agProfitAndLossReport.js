@@ -66,7 +66,6 @@ define(function (require, exports, module) {
           }
 
         ],
-        pagination: false,
         gridOps: {
           emptyTip: '无记录'
         },
@@ -83,8 +82,8 @@ define(function (require, exports, module) {
       //初始化时间选择
       new Global.Prefab.Timeset({
         el: this.$('.js-pl-timeset'),
-        startTime: 'startTime',
-        endTime: 'endTime',
+        startTime: 'fromDate',
+        endTime: 'endDate',
         endDate: moment().add(1, 'year'),
         showToday: true,
         startFormat: 'YYYY-MM-DD',
@@ -101,7 +100,7 @@ define(function (require, exports, module) {
         };
       }, this);
 
-      this.grid.refreshRowData(rowsData, gridData.rowCount, {
+      this.grid.refreshRowData(rowsData, gridData.total.rowCount, {
         pageIndex: this.filterHelper.get('pageIndex'),
         initPagination: true
       });
