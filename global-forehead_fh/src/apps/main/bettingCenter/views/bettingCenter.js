@@ -661,7 +661,8 @@ var BettingCenterView = Base.ItemView.extend({
 
     this.timer = _.delay(function() {
       self.getNewPlan();
-    }, 2200);
+    }, 5000);
+    // }, 2200);
 
     //只有销售时才进行倒计时
     if (sale) {

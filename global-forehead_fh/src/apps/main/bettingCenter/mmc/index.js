@@ -668,8 +668,8 @@ var BettingCenterView = Base.ItemView.extend({
 
     var idStr =this.$('.js-rule-title-hidden-temp').html();
 
-    this.$('.js-rule-title-clear').html('');
-    this.$(".js-rule-title-sub-"+idStr).html($target.data('title'));
+    // this.$('.js-rule-title-clear').html('');
+    // this.$(".js-rule-title-sub-"+idStr).html($target.data('title'));
   },
 
   betModeChangeHandler: function(e) {

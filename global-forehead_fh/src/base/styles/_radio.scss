@@ -1,8 +1,8 @@
 .custom-radio {
   position: relative;
   display: inline-block;
-  width: 10px;
-  height: 10px;
+  width: 12px;
+  height: 12px;
   margin-top: -2px;
   vertical-align: middle;
   border-radius: 50em;
@@ -22,11 +22,11 @@
   label {
     cursor: pointer;
     position: absolute;
-    width: 16px;
-    height: 16px;
+    width: 18px;
+    height: 18px;
     border-radius: 50em;
-    left: -4px;
-    top: -4px;
+    left: -3px;
+    top: -3px;
     margin: 0;
     &:after {
       opacity: 0;

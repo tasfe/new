@@ -192,7 +192,7 @@ var BettingCenterChaseNormalView = Base.ItemView.extend({
         }}
       ],
       startOnLoading: false,
-      height: 155
+      height: 170
 
     }).staticGrid('instance');
   },

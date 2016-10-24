@@ -4,6 +4,7 @@ import { setTitle } from 'redux/modules/toolbar'
 import Table from 'components/Table'
 import Header from '../../../components/Header'
 import { chase, reset as resetChase } from 'redux/modules/Lottery/chase'
+import { setLeftButton } from 'redux/modules/toolbar'
 
 @connect(state => ({
   chasePlanList: state.chase.chasePlanList,
@@ -13,10 +14,12 @@ import { chase, reset as resetChase } from 'redux/modules/Lottery/chase'
   setTitle,
   chase,
   resetChase,
+  setLeftButton
 })
 class Confirm extends Component {
   componentDidMount() {
     this.props.setTitle('高级追号确认')
+    this.props.setLeftButton(true);
   }
 
   getTableConfig () {
@@ -70,7 +73,7 @@ class Confirm extends Component {
 
   chase () {
     let { previewList, chasePlanList, suspend } = this.props
-
+    let actionType = '追号'
     this.props.chase({
       previewList: previewList,
       chasePlanList: chasePlanList,

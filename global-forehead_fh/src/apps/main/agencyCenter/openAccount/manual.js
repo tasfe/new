@@ -42,6 +42,7 @@ var OpenAccountManageView = Base.ItemView.extend({
 	
     this.$rebate = this.$('.js-ac-manual-rebate');
     this.$limit = this.$('.js-ac-quota-container');
+    this.$manualTip = this.$('.js-ac-manual-tip');
     this.acctInfo = Global.memoryCache.get('acctInfo');
 		
     this.getSubAcctXhr()
@@ -56,8 +57,10 @@ var OpenAccountManageView = Base.ItemView.extend({
           if(self.acctInfo.userGroupLevel === 0) {
             // self.$rebate.attr('data-parsley-range', '[' + _(data.subRebateRange.rebateMin).formatDiv(10, {fixed: 1}) + ', ' + _(127).formatDiv(10, {fixed: 1}) + ']');
             self.$rebate.attr('data-parsley-range', '[' + _(data.subRebateRange.rebateMax).formatDiv(10, {fixed: 1}) + ', ' + _(data.subRebateRange.rebateMax).formatDiv(10, {fixed: 1}) + ']');
+            self.$manualTip.text('可配置范围(' + data.subRebateRange.rebateMax + '～' + _(data.subRebateRange.rebateMax).formatDiv(10, {fixed: 1}) + ')');
           } else {
             self.$rebate.attr('data-parsley-range', '[' + _(data.subRebateRange.rebateMin).formatDiv(10, {fixed: 1}) + ', ' + _(data.subRebateRange.rebateMax).formatDiv(10, {fixed: 1}) + ']');
+            self.$manualTip.text('可配置范围(' + data.subRebateRange.rebateMin + '～' + _(data.subRebateRange.rebateMax).formatDiv(10, {fixed: 1}) + ')');
           }
 
           self._getTable(_(data.ticketSeriesList).chain().filter(function(ticketSeries) {
@@ -209,7 +212,7 @@ var OpenAccountManageView = Base.ItemView.extend({
       $target.val(range[0]);
     }
     rebate = Number($target.val());
-    var $maxBonus = $target.parent().parent().parent().find('.js-ac-openAccount-maxBonus');
+    var $maxBonus = this.$('.js-ac-rebate-set-container').find('.js-ac-openAccount-maxBonus');
     _($maxBonus).each(function(item, index) {
       var $item = $(item);
       var maxBonus = $item.data('maxbonus');
