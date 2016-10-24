@@ -26,15 +26,17 @@ var PersonalManageView = Base.ItemView.extend({
         self.loadingFinish();
       })
       .done(function (res) {
+        var data;
         if (res && res.result === 0) {
-          self.$('.js-uc-userName').html(res.root.userName);
-          self.$('.js-uc-gender-val-res').val(res.root.userSex);
-          res.root.userSex ? self.$('.js-uc-gender-female').addClass('selected') : self.$('.js-uc-gender-male').addClass('selected') ;
-          res.root.memberLevel ? self.$('.js-uc-memberLevel').html('<span class="sfa sfa-vip-'+ res.root.memberLevel +'"></span>') : self.$('.js-uc-memberLevel').html('<span class="sfa sfa-vip-0"></span>') ;
-          self.$('.js-uc-integral').html(res.root.integral);
-          res.root.userQq && self.$('.js-uc-userQq-val-res').removeClass('hidden').html(res.root.userQq) && self.$('.js-uc-userQq').addClass('hidden').val(res.root.userQq);
-          res.root.userCellphone && self.$('.js-uc-userCellphone-val-res').removeClass('hidden').html(res.root.userCellphone.replace(/(\d{3})\d{4}(\d{4})/, '$1****$2')) && self.$('.js-uc-userCellphone').addClass('hidden').val(res.root.userCellphone);
-          res.root.userBithday && self.$('.js-uc-userBithday-val-res').html(res.root.userBithday).removeClass('hidden') && self.$('.js-uc-select-userBithday-month').addClass('hidden') && self.$('.js-uc-select-userBithday-day').addClass('hidden') && self.$('.js-uc-helpBlock').addClass('hidden');
+          data = res.root;
+          self.$('.js-uc-userName').html(data.userName);
+          self.$('.js-uc-gender-val-res').val(data.userSex);
+          data.userSex ? self.$('.js-uc-gender-female').addClass('selected') : self.$('.js-uc-gender-male').addClass('selected') ;
+          data.memberLevel ? self.$('.js-uc-memberLevel').html('<span class="sfa sfa-vip-'+ data.memberLevel +'"></span>') : self.$('.js-uc-memberLevel').html('<span class="sfa sfa-vip-0"></span>') ;
+          self.$('.js-uc-integral').html(data.integral);
+          data.userQq && self.$('.js-uc-userQq-val-res').removeClass('hidden').html(data.userQq) && self.$('.js-uc-userQq').addClass('hidden').prop('disabled', true);
+          data.userCellphone && self.$('.js-uc-userCellphone-val-res').removeClass('hidden').html(data.userCellphone.replace(/(\d{3})\d{4}(\d{4})/, '$1****$2')) && self.$('.js-uc-userCellphone').addClass('hidden').prop('disabled', true);
+          data.userBithday && self.$('.js-uc-userBithday-val-res').html(data.userBithday).removeClass('hidden') && self.$('.js-uc-select-userBithday-month').addClass('hidden') && self.$('.js-uc-select-userBithday-day').addClass('hidden') && self.$('.js-uc-helpBlock').addClass('hidden');
         } else {
           Global.ui.notification.show('获取用户个人信息失败');
         }
@@ -43,7 +45,7 @@ var PersonalManageView = Base.ItemView.extend({
     this.$form = this.$('.js-uc-personalInfo-form');
     this.$btnConfirm = this.$('.js-uc-confirm');
 
-    this.parsley = this.$form.parsley();
+    this.parsley = this.$form.parsley(Global.validator.getInlineErrorConfig());
     // window.ParsleyExtend.addAsyncValidator('checkusername', function(xhr) {
     //   return xhr.responseJSON.result === 0;
     // }, '/acct/userinfo/checkuname.json');
@@ -71,15 +73,20 @@ var PersonalManageView = Base.ItemView.extend({
     }else{
       var canSubmint = true;
     }
+
+    var reqData = {
+      userSex: this.$('.js-uc-gender-val-res').val(),
+      userQqNum: this.$('.js-uc-userQq').val(),
+      userCellphone: this.$('.js-uc-userCellphone').val(),
+      userBirthday: this.$('.js-uc-userBithday-val-res').text() || ((this.$('.js-uc-select-userBithday-month').val() && this.$('.js-uc-select-userBithday-day').val()) ? this.$('.js-uc-select-userBithday-month').val() + '-' + this.$('.js-uc-select-userBithday-day').val() : null),
+    };
+
+    reqData = _(reqData).pick(_.identity);
+
     if(canSubmint){
       Global.sync.ajax({
         url: '/acct/userinfo/saveuser.json',
-        data: {
-          userSex: this.$('.js-uc-gender-val-res').val(),
-          userQqNum: this.$('.js-uc-userQq').val(),
-          userCellphone: this.$('.js-uc-userCellphone').val(),
-          userBirthday: this.$('.js-uc-userBithday-val-res').text() || ((this.$('.js-uc-select-userBithday-month').val() && this.$('.js-uc-select-userBithday-day').val()) ? this.$('.js-uc-select-userBithday-month').val() + '-' + this.$('.js-uc-select-userBithday-day').val() : null),
-        }
+        data: reqData
       })
           .always(function() {
             self.$btnConfirm.button('reset');
@@ -90,6 +97,7 @@ var PersonalManageView = Base.ItemView.extend({
                 title: '设置成功',
                 content: '个人资料信息设置成功'
               }));
+              Global.m.states.fetch();
               // Global.ui.notification.show('修改个人信息成功', {
               //   type: 'success'
               // });

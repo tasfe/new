@@ -1,0 +1,21 @@
+<div class="alert m-bottom-md">
+    <span class="sfa sfa-tip-heart vertical-middle m-right-xs"></span>
+    请完善好您的安全信息后再设定密码保护
+</div>
+
+<div class="security-check-container">
+  <div class="security-check-box">
+    <div class="security-check-inner <% if (hasMoneyPwd) { %>security-check-finished<% } %>">
+      <div class="security-check-icon"><i class="fa fa-key"></i></div>
+      <div class="security-check-tip"><% if (hasMoneyPwd) { %>您已设置资金密码<% } else { %>您还未设置资金密码<% } %></div>
+      <div class="security-check-button"><a href="#pm/pf" class="router btn btn-linear" data-dismiss="modal">马上去设置资金密码</a></div>
+    </div>
+  </div>
+  <div class="security-check-box">
+    <div class="security-check-inner security-check-blue <% if (hasBankCard) { %>security-check-finished<% } %>">
+      <div class="security-check-icon"><i class="fa fa-credit-card"></i></div>
+      <div class="security-check-tip"><% if (hasBankCard) { %>您已设置银行卡<% } else { %>您还未设置银行卡<% } %></div>
+      <div class="security-check-button"><a href="#uc/cm" class="router btn btn-linear" data-dismiss="modal">马上去设置银行卡</a></div>
+    </div>
+  </div>
+</div>

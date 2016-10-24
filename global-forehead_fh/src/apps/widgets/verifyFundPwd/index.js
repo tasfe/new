@@ -12,27 +12,11 @@ $.widget('gl.verifyFundPwd', {
   _create: function() {
     var self = this;
     var body = [];
-    body.push('<div class="text-center margin-sm">');
-    body.push('<form class=" uc-cm-fund-pwd-form form-horizontal" action="javascript:void(0)">');
-    body.push('<div class="uc-bank-manage-lock">');
-    body.push('<div class="control-group uc-cm-fund-pwd-div">');
-    body.push('<label class="control-label uc-cm-fund-label">资金密码</label>');
-    body.push('<div class="controls text-left">');
-    body.push('<input type="password" class="js-uc-cmPayPwd uc-cmPayPwd "/>');
-    body.push('</div>');
-    body.push('</div>');
-    body.push('<div class="control-group uc-cm-fund-pwd-notice-div">');
-    body.push('<div class="controls text-left">');
-    body.push('<ul class="js-uc-cmValPayPwdNotice parsley-errors-list filled font-sm">');
-    body.push('</ul>');
-    body.push('</div>');
-    body.push('</div>');
-    body.push('<div class="control-group">');
-    body.push('<div class="controls text-left">');
-    body.push('<button type="button" class="js-uc-cmValidatePayPwd uc-cmValidatePayPwd btn-liner width-250 ">下一步</button>');
-    body.push('</div>');
-    body.push('</div>');
-    body.push('</div>');
+    body.push('<div class="text-center m-TB-lg">');
+    body.push('<form class="js-gl-fund-check-form form-horizontal" action="javascript:void(0)">');
+    body.push('<div class="font-sm m-bottom-sm text-amber">输入资金密码：</div>');
+    body.push('<div class="m-bottom-lg p-bottom-lg"><input type="password" class="js-uc-cmPayPwd input-md text-center" name="payPwd" placeholder="请输入资金密码" required /></div>');
+    body.push('<button type="submit" class="js-uc-cmValidatePayPwd btn btn-pink btn-linear" data-loading-text="确定">确定</button>');
     body.push('</form>');
     body.push('</div>');
 
@@ -44,8 +28,12 @@ $.widget('gl.verifyFundPwd', {
       size: 'modal-md',
       body: body.join('')
     });
-    this.$validateError = this.$dialog.find('.js-uc-cmValPayPwdNotice');
-    this.$dialog.on('hidden.bs.modal', function (e) {
+
+    this.$form = this.$dialog.find('.js-gl-fund-check-form');
+
+    this.$submit = this.$form.find('.js-uc-cmValidatePayPwd');
+
+    this.$dialog.on('hidden.modal', function(e) {
       $(this).remove();
       self.destroy();
     });
@@ -55,47 +43,54 @@ $.widget('gl.verifyFundPwd', {
 
   _bindEvents: function() {
     var self = this;
-    this.$dialog.off('click.verifyPwd')
-        .on('click.verifyPwd', '.js-uc-cmValidatePayPwd',function () {
-          //验证密码
-          var payPwd = self.$dialog.find('.js-uc-cmPayPwd').val();
-          if(!payPwd || payPwd === '') {
-            self.$validateError.html('资金密码不能为空');
-            return ;
-          }
+    this.$dialog.off('submit')
+      .on('submit', '.js-gl-fund-check-form', function() {
 
-          var data = {
-            payPwd: payPwd,
-            type:'1'
-          };
+        var parsley = self.$form.parsley(Global.validator.getInlineErrorConfig());
+        var inputParsley = self.$form.find('[name=payPwd]').parsley();
 
-          self.verifyPayPwdXhr(data)
-              .done(function(res) {
-                if (res.result === 0) {
-                 
-                  self.$dialog.modal('hide');
-                  //self.$('.js-uc-pwdToken').val(res.root);
-                  //self.$('.js-uc-cm-fundPwdInput').addClass('hidden');
+        ParsleyUI.removeError(inputParsley, 'remoteError');
 
-                  self.options.onValidated(payPwd);
+        if(!parsley.validate()) {
+          return false;
+        }
+
+        self.$submit.button('loading');
+
+        //验证密码
+        var payPwd = self.$dialog.find('.js-uc-cmPayPwd').val();
+
+        var data = {
+          payPwd: payPwd,
+          type: '1'
+        };
+
+        self.verifyPayPwdXhr(data)
+          .always(function() {
+            self.$submit.button('reset');
+          })
+          .done(function(res) {
+            if(res.result === 0) {
+              self.$dialog.modal('hide');
+              self.options.onValidated(payPwd);
+            } else {
+              if(_(res.root).isNull()) {
+                ParsleyUI.addError(inputParsley, 'remoteError', '验证失败，' + res.msg, 'required');
+              } else {
+                if(res.root > 0) {
+                  ParsleyUI.addError(inputParsley, 'remoteError', '验证失败，剩余' + res.root + '次机会', 'required');
                 } else {
-                  if(_(res.root).isNull()) {
-                    self.renderError('验证失败，' + res.msg);
-                  }else{
-                    if (res.root > 0) {
-                      self.renderError('验证失败，剩余' + res.root + '次机会');
-                    } else {
-                      self.renderError('验证失败，请一个小时后在验证！');
-                    }
-                  }
+                  ParsleyUI.addError(inputParsley, 'remoteError', '验证失败，请一个小时后在验证！', 'required');
                 }
-              });
-        });
+              }
+            }
+          });
+      });
 
   },
 
   changeHrefHandler: function(e) {
-    if (this.$dialog) {
+    if(this.$dialog) {
       this.$dialog.modal('hide');
     }
   },
@@ -107,12 +102,8 @@ $.widget('gl.verifyFundPwd', {
   verifyPayPwdXhr: function(data) {
     return Global.sync.ajax({
       url: '/fund/moneypd/verify.json',
-      data:data
+      data: data
     });
-  },
-  renderError: function(text) {
-    this.$validateError.closest('.control-group').removeClass('hidden');
-    this.$validateError.html(text);
   }
 });
 

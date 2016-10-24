@@ -2,9 +2,6 @@
 
 require('./index.scss');
 
-var bankCard = require('./bankCard.png');
-var fundPwd = require('./fundPwd.png');
-
 $.widget('gl.securityTip', {
 
   options: {

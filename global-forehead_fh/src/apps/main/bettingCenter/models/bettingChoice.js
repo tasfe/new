@@ -120,7 +120,7 @@ var BettingChoiceModel = Model.extend({
     var unit = 10000;
     var perPrice = info.statistics * this.unitPrice;
 
-    var prefab = _calculate(info.customizeMoney, perPrice, unit);
+    var prefab = _calculate(_(info.customizeMoney).formatMul(10000), _(perPrice).formatMul(10000), unit);
 
     if (prefab.multiple) {
       var prefabMoney = _(info.statistics).chain().mul(prefab.multiple).mul(this.unitPrice).mul(prefab.unit).value();
@@ -142,15 +142,21 @@ var BettingChoiceModel = Model.extend({
 
     function _calculate(customizeMoney, perPrice, unit) {
       var multiple = Math.floor(customizeMoney / perPrice);
-      if (multiple === 0 && unit > 10) {
+      var restMoney = Number(_(customizeMoney).formatMod(perPrice, {fixed: 4}));
+
+      //没有完全用完预算则继续
+      if (unit > 10 && restMoney !== 0) {
+      // if (multiple === 0 && unit > 10 && restMoney !== 0) {
         return _calculate(customizeMoney, perPrice / 10, unit / 10);
       }
 
-      multiple = multiple > info.maxMultiple ? info.maxMultiple : multiple;
+      var maxMultiple = _(info.maxMultiple).chain().mul(10000).div(unit).value();
+      multiple = multiple > maxMultiple ? maxMultiple : multiple;
 
       return {
         multiple: multiple,
-        unit: unit
+        unit: unit,
+        restMoney: restMoney
       };
     }
   },

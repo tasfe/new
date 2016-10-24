@@ -685,7 +685,12 @@ var DashboardView = Base.ItemView.extend({
     w2 = Number(this.$currentRollingItem.css('left').replace('px',''));
     self.timer22 = setInterval(function () {
       if (w2 + w <= 0) {
-        next += 1;
+        if(childLength === 1){
+          next = 0;
+        }else{
+          next += 1;
+        }
+
         self.$rollListItem.css('left', "1130px");
         self.$rollListItem.removeClass("on");
         self.$rollListItem.eq(next).addClass("on");

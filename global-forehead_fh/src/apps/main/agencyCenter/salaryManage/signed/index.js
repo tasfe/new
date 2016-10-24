@@ -47,6 +47,7 @@ var SignedView = Base.ItemView.extend({
 
   onRender: function() {
     var self = this;
+    this.indexLast=0;
     this.$table = this.$('.js-ac-sm-sign-common-table');
     this.$CommonForm = this.$('.js-ac-signed-common-form');
     this.$SpecialForm = this.$('.js-ac-signed-special-form');
@@ -80,7 +81,7 @@ var SignedView = Base.ItemView.extend({
             var users = [];
             _(res.root).each(function(item,index){
               users.push(item.userName);
-            })
+            });
             return process(users);
           }
         });
@@ -112,8 +113,8 @@ var SignedView = Base.ItemView.extend({
 
 
 
-    this.$CommonForm.parsley();
-    this.$SpecialForm.parsley();
+    this.$CommonForm.parsley(Global.validator.getInlineErrorConfig());
+    this.$SpecialForm.parsley(Global.validator.getInlineErrorConfig());
 
     window.ParsleyExtend.addAsyncValidator('accheckusername', function(xhr) {
       var valid = xhr.responseJSON.result === 0;
@@ -125,10 +126,11 @@ var SignedView = Base.ItemView.extend({
         if(user){
           self.$('.js-ac-sm-sign-userid').val(user.userId);
         }else{
-          this.$element.parsley().domOptions.remoteMessage='未找到该下级用户';
+          this.$element.parsley().domOptions.remoteMessage='用户名不存在，请重新输入!';
+          //$form.parsley(Global.validator.getInlineErrorConfig());
         }
       }else{
-        this.$element.parsley().domOptions.remoteMessage='未找到该下级用户';
+        this.$element.parsley().domOptions.remoteMessage='用户名不存在，请重新输入!';
       }
       //this.$element.parsley().domOptions.remoteMessage = xhr.responseJSON.msg || '';
 
@@ -138,29 +140,37 @@ var SignedView = Base.ItemView.extend({
     this.$table.staticGrid({
       tableClass: 'table table-bordered table-no-lr table-center',
       colModel: [
-        {label: '日薪日量要求', name: 'saleAmount', key: true, width: '30%', formatter: function(val) {
-          return '≥&nbsp;' +
+        {label: '阶段', name: 'step', key: true, width: '15%', formatter: function(val) {
+          return '阶段' +val;
+
+        }},
+        {label: '日薪日量要求', name: 'saleAmount', key: true, width: '25%', formatter: function(val) {
+          return '日量&nbsp;≥&nbsp;' +
             '<input type="text" class="js-ac-sm-sign-saleAmount ac-sm-sign-saleAmount  m-right-sm" ' +
             'data-parsley-range="[0, 100000000]" data-parsley-threeDecimal value="'+val+'" required>' +
             '元/日'
         }},
-        {label: '是否需要亏损', name: 'needLoss', width: '40%', formatter: function(val,index,rowInfo) {
+        {label: '日薪值', name: 'salaryAmount', width: '25%', formatter: function(val,index,rowInfo) {
+          return '<input type="text" class="form-control js-ac-sm-sign-salary ac-sm-sign-salary  m-right-sm" name="salaryAmount" ' +
+              'value="'+val+'" required data-parsley-range="[0, 100000000]"  data-parsley-type="integer" />元';
+        }},
+        {label: '是否需要亏损', name: 'needLoss', width: '25%', formatter: function(val,index,rowInfo) {
           return '<div class="ac-sm-sign-select-div"><select class="js-ac-sm-sign-select ac-sm-sign-select  m-right-sm" name="needLoss" value="'+((val===true||val==1)?'1':'0')+'">' +
             '<option value="1" '+((val===true||val==1)?'selected':'')+'>是</option>' +
             '<option value="0" '+((val===true||val==1)?'':'selected')+'>否</option></select>' +
             '<div class="js-ac-sm-sign-tag1 margin-right-sm inline-block '+((val===true||val==1)?'':'hidden')+'">≥' +
             '<input type="text" class="form-control js-ac-sm-sign-lossLimit ac-sm-sign-lossLimit m-left-sm m-right-sm " data-parsley-range="[0, 100000000]" ' +
-            ' name="lossLimit" data-parsley-integer value="'+rowInfo.lossLimit+'" required>元</div><span class="js-ac-sm-sign-tag2 hidden">/</span></div>';
+            ' name="lossLimit" data-parsley-integer value="'+rowInfo.lossLimit+'" required>元</div><!--<span class="js-ac-sm-sign-tag2 hidden">/</span>--></div>';
         }},
-        {label: '日薪标准', name: 'salaryAmount', width: '30%', formatter: function(val,index,rowInfo) {
-          return '<input type="text" class="form-control js-ac-sm-sign-salary ac-sm-sign-salary  m-right-sm" name="salaryAmount" ' +
-            'value="'+val+'" required data-parsley-range="[0, 100000000]"  data-parsley-type="integer" />元' +
-            '<div class="js-ac-sm-sign-delete ac-sm-sign-delete inline-block m-left-sm"><button>X</button></div>';
-        }},
+
+        {label: '操作', name: 'operator', key: true, width: '10%', formatter: function(val) {
+          return '<div class="js-ac-sm-sign-delete ac-sm-sign-delete inline-block"><button>删除</button></div>';
+        }}
       ],
       height: 248,
-      row:this.options.agreementList||[],
+      row:this.formatData(this.options.agreementList||[]),
       startOnLoading: false
+
     });
     this.StaticGrid = this.$table.staticGrid('instance');
 
@@ -173,9 +183,16 @@ var SignedView = Base.ItemView.extend({
     var salarySpan = this.$salarySpan.val(this.options.salarySpan || '0');
     var maxSalary = this.$maxSalary.val(this.options.maxSalary || '0');
     var needLoss = this.$needLoss.val(this.options.needLoss=='1'? '1' : '0');
-
   },
-
+  formatData:function(list){
+    var self=this;
+    _(list).each(function(item,index){
+    item.step=index+1;
+    self.indexLast++;
+  });
+    return list;
+  }
+  ,
   usernameBlurHandler: function(e){
     var self = this;
     var item = $(e.currentTarget).val();
@@ -191,6 +208,7 @@ var SignedView = Base.ItemView.extend({
 
   addAgreementHandler: function(e,obj) {
     this.StaticGrid.addRows([{
+      step:++this.indexLast,
       saleAmount: 0,
       needLoss: false,
       lossLimit: 0,
@@ -199,7 +217,7 @@ var SignedView = Base.ItemView.extend({
     this.StaticGrid.scrollBottom();
   },
   delAgreementHandler: function(e) {
-     $(e.currentTarget).closest('tr').remove();;
+     $(e.currentTarget).closest('tr').remove();
   },
 
   selectTypeHandler: function(e) {
@@ -336,9 +354,11 @@ var SignedView = Base.ItemView.extend({
     if(type===0){
       this.$CommonContainer.removeClass('hidden');
       this.$SpecialContainer.addClass('hidden');
+      this.$('.js-fc-re-message').html('温馨提示：请填写需要签约的下级，并设置好签约日薪设置值，设置阶段值的下一级段必须大于上一阶段值。');
     }else{
       this.$SpecialContainer.removeClass('hidden');
       this.$CommonContainer.addClass('hidden');
+      this.$('.js-fc-re-message').html('温馨提示：请填写需要签约的下级，并设置好签约日薪设置值。');
     }
   }
 

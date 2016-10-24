@@ -119,7 +119,7 @@ var BettingRecordsView = SearchGrid.extend({
       onBtnClick: function(offset) {
         self.timeset.$startDate.data("DateTimePicker").date(moment().add(offset, 'days').startOf('day'));
         self.timeset.$endDate.data("DateTimePicker").date(moment().add(offset === -1 ? -1 : 0, 'days').endOf('day'));
-        (self.$('.js-ac-search-form') && !self.firstTime) && self.$('.js-ac-search-form').trigger('submit');
+        self.search();
         return false;
       }
     }).render();
@@ -162,9 +162,9 @@ var BettingRecordsView = SearchGrid.extend({
     row.push(rowInfo.gameName);
     row.push(rowInfo.gameCode);
     row.push(_(rowInfo.betTime).toTime());
-    row.push(rowInfo.betAmount);
+    row.push(_.formatDiv(rowInfo.betAmount,10000));
     row.push(rowInfo.settlmentStatus);
-    row.push(rowInfo.profitLossMoney);
+    row.push(_.formatDiv(rowInfo.profitLossMoney,10000));
     return row;
   }
 });

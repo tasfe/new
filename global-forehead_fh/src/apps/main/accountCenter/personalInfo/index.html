@@ -3,7 +3,7 @@
 </div>
 <div class="portlet-body">
 
-  <form action="javascript:void(0);" class="js-uc-personalInfo-form form-horizontal uc-personalInfo-form">
+  <form action="javascript:void(0);" class="js-uc-personalInfo-form form-horizontal uc-personalInfo-form" data-parsley-excluded=":hidden">
     <div class="control-group">
       <label class="control-label">用户名：</label>
       <div class="controls">
@@ -20,7 +20,7 @@
           <span class="fa fa-venus">女</span>
         </span>
       </div>
-      <input type="hidden" class="js-uc-gender-val-res" value="0" name="userSex">
+      <input type="hidden" class="js-uc-gender-val-res" value="0" name="userSex" autocomplete="off">
     </div>
     <!--<div class="control-group">-->
       <!--<label class="control-label">昵称：</label>-->
@@ -49,7 +49,7 @@
     <div class="control-group">
       <label class="control-label">QQ：</label>
       <div class="controls">
-        <input type="text" class="js-uc-userQq input-lg" name="userQqNum" data-parsley-QQ data-parsley-length="[4,15]" placeholder="请输入4-15位阿拉伯数字"/>
+        <input type="text" class="js-uc-userQq input-lg" name="userQqNum" data-parsley-QQ data-parsley-length="[4,15]" placeholder="请输入5-15位阿拉伯数字" autocomplete="off"/>
         <!--<span class="help-inline">请输入4-15位阿拉伯数字</span>-->
         <span class="js-uc-userQq-val-res hidden controls-span"></span>
       </div>
@@ -58,7 +58,7 @@
     <div class="control-group">
       <label class="control-label">手机号：</label>
       <div class="controls">
-        <input type="text" class="js-uc-userCellphone input-lg" name="userCellphone" placeholder="请输入11位手机号码"
+        <input type="text" class="js-uc-userCellphone input-lg" name="userCellphone" placeholder="请输入11位手机号码"  autocomplete="off"
                data-parsley-length="[11,11]" data-parsley-type="number"
                data-parsley-length-message="手机号不符合要求"/>
         <!--<span class="help-inline">请输入11位手机号码</span>-->

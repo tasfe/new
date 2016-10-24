@@ -19,6 +19,7 @@ var ActivityEntryView = Base.ItemView.extend({
     this.checkEntryShow();
     //检查红包大放送状态
     this.checkRedPacketState();
+    this.updateRedPacketCount();
     window.onhashchange = function () {
       self.checkEntryShow();
     }
@@ -31,27 +32,36 @@ var ActivityEntryView = Base.ItemView.extend({
   //检查是否为博彩页面，不是隐藏活动入口
   checkEntryShow: function(){
     var strHash = document.location.hash;
-    console.log(strHash.slice(1,3));
     if (strHash.slice(1,3) == 'bc') {
       $('.activity-entry-container').removeClass('hidden');
     }else{
       $('.activity-entry-container').addClass('hidden');
     }
   },
+
   //检查是否在红包大放送活动时间内，不是则隐藏红包大放送活动入口
   checkRedPacketState: function(){
     var self = this;
     this.getRedpacketInfoXhr().done(function(res){
-      console.log(res);
-      if(res && res.result == 0){
+      if(res && res.result === 0){
         var data = res.root;
-        if(data.status!=0){
+        if(data.status != 1){
           self.$('.js-redpacket-btn').addClass('hidden');
         }
       }else{
         self.$('.js-redpacket-btn').addClass('hidden');
       }
     });
+  },
+  //更新可抽红包数量
+  updateRedPacketCount: function(){
+    var self = this;
+    this.getRedpacketCountXhr().done(function(res){
+      if(res && res.result === 0){
+        var data = res.root;
+        self.$('.js-redpacket-count').html(data.totalTimes - data.useTimes);
+      }
+    })
   },
 
   //Xhr's
@@ -60,9 +70,18 @@ var ActivityEntryView = Base.ItemView.extend({
     return Global.sync.ajax({
       url:'/info/moneytreeactivity/info.json',
       data:{
-        activityId: 9
+        activityId:9
       }
     });
+  },
+  //获得可抽奖次数
+  getRedpacketCountXhr: function(){
+    return Global.sync.ajax({
+      url:'/info/moneytreeactivity/info1.json',
+      data:{
+        activityId:9
+      }
+    })
   },
   //领取红包大放送奖励
   getRedpacketAwardXhr: function(){
@@ -83,11 +102,17 @@ var ActivityEntryView = Base.ItemView.extend({
     // $('body').append(this.redpacketActivityView.$el);
     // this.redpacketActivityView.render();
     this.getRedpacketAwardXhr().done(function(res){
-      if(res && res.result == 0){
+      if(res && res.result == 0 && res.root != null){
+        var msg = '恭喜您成功打开红包，您抽中了' + momey + '元！';
         self.$('js-redpacket-btn').addClass('redpacket-btn-op');
-        Global.ui.dialog.show({
+        $(document).confirm({
           title:'领取成功',
-          body:res.msg
+          content: msg,
+          noFooter:true,
+          hiddenCallback: function() {
+            self.updateRedPacketCount();
+            self.$('.js-redpacket-btn').removeClass('redpacket-btn-op');
+          }
         });
       }else{
         Global.ui.dialog.show({
@@ -97,7 +122,6 @@ var ActivityEntryView = Base.ItemView.extend({
       }
     });
   }
-
 
 });
 

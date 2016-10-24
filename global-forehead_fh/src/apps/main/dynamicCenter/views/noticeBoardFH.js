@@ -6,7 +6,7 @@ var NoticeBoardView = Base.ItemView.extend({
 
   template: require('dynamicCenter/templates/noticeBoardFH.html'),
 
-  startOnLoading: true,
+  startOnLoading: false,
 
   dynamicTpl: _(require('dynamicCenter/templates/noticeBoardFH-item.html')).template(),
 

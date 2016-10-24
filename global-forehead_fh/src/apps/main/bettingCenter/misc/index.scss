@@ -397,7 +397,7 @@ $main-area-width: 870px;
 .bc-textarea-main {
   width: 100%;
   height: 100%;
-  padding: 30px;
+  padding: 10px;
   box-sizing: border-box;
   color: $light-dark-color-2;
 
@@ -945,14 +945,13 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
     margin-left: 15px;
   }
   .bc-type-select{
-      width: 88px;
+      width: 92px;
   }
 }
 
 .pull-bottom{
   clear: both;
   margin-bottom: 75px;
-  font-family: '微软雅黑';
 
   a{
     width: 133px;
@@ -1675,9 +1674,9 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
         border-bottom: 1px solid #cccccc;
       }
     }
-    td {
-      padding: 5px 3px;
-    }
+    //td {
+    //  padding: 5px 3px;
+    //}
   }
 }
 
@@ -1745,53 +1744,6 @@ background-image:-webkit-linear-gradient(180deg, #cd338a, #ef66ab);
 .js-bc-btn-lottery-add{
   i{
     margin-right: 2px;
-  }
-}
-
-.bc-input-opration-container-div-julien{
-  .btn-sun-imp1{
-    width: 97px;
-    height: 24px;
-    border: 1px solid #bb5283;
-    background-image:-webkit-linear-gradient(180deg, #cb6598, #b74e7e);
-    background-image:linear-gradient(180deg,#cb6598,#b74e7e);
-    margin-bottom: 10px;
-    font-size: 12px;
-    border-radius: 3px;
-    text-align: left;
-
-    &:hover{
-      background-image:-webkit-linear-gradient(180deg, #b74e7e, #cb6598);
-      background-image:linear-gradient(180deg,#b74e7e,#cb6598);
-    }
-
-    i{
-      margin-left: 5px;
-      width: 12px;
-    }
-  }
-
-  .btn-sun-imp{
-    width: 97px;
-    height: 24px;
-    border: 1px solid #cbcbcb;
-    background-image:linear-gradient(180deg,#f5f5f5,#e6e6e6);
-    margin-bottom: 10px;
-    font-size: 12px;
-    border-radius: 3px;
-    color: #666666;
-    text-align: left;
-
-    &:hover{
-      background-image:linear-gradient(180deg,#e6e6e6,#f5f5f5);
-    }
-
-    i{
-      margin-left: 5px;
-      width: 12px;
-      display: inline-block;
-      text-align: center;
-    }
   }
 }
 

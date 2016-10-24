@@ -20,6 +20,8 @@ var SearchGrid = Base.PrefabView.extend({
     headTip: ''
   },
 
+  initSearch: false,
+
   constructor: function() {
     Base.PrefabView.prototype.constructor.apply(this, arguments);
 
@@ -47,10 +49,6 @@ var SearchGrid = Base.PrefabView.extend({
       options: this.options
     }));
 
-    this.triggerMethod('render', this);
-  },
-
-  onRender: function() {
     this.$searchForm = this.$('.js-pf-search-form');
 
     this.$breadcrumb = this.$('.js-pf-breadcrumb');
@@ -63,7 +61,13 @@ var SearchGrid = Base.PrefabView.extend({
 
     this._initGrid(this.$grid);
 
-    this.$searchForm.trigger('submit');
+    this.triggerMethod('render', this);
+  },
+
+  onRender: function() {
+    if (!this.initSearch) {
+      this.$searchForm.trigger('submit');
+    }
   },
 
   refresh: function() {
@@ -267,10 +271,8 @@ var SearchGrid = Base.PrefabView.extend({
     return _(this._breadList).last() || {};
   },
 
-  //events handler
-
-  searchHandler: function(e) {
-
+  search: function() {
+    this.initSearch = true;
     var filter = this.filterHelper.serializeObject({
       reset: true
     });
@@ -284,6 +286,12 @@ var SearchGrid = Base.PrefabView.extend({
     this._getGridXhr({
       url: this.options.ajaxOps.url
     });
+  },
+
+  //events handler
+
+  searchHandler: function(e) {
+    this.search();
 
     return false;
   },
