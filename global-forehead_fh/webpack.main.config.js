@@ -24,34 +24,18 @@ module.exports = {
       entry: ['./src/apps/packages/resetPassword/resetPassword.js'],
       //hot: true
     },
-    '1.updateUserInfo': {
-      entry: ['./src/apps/packages/updateUserInfo/updateUserInfo.js'],
-      //hot: true
-    },
+
     '1.gengxin': {
       entry: ['./src/apps/packages/update/update.js'],
       //hot: true
     },
-    '1.client': {
-      entry: ['./src/apps/packages/client/index.js'],
-      hot: true
-    },
+
     '1.download': {
       entry: ['./src/apps/packages/download/index.js'],
       hot: true
     },
-    //'1.super3000': {
-    //    entry: ['./src/apps/packages/super3000/index.js'],
-    //    hot: true
-    //  },
-    //'1.vip': {
-    //  entry: ['./src/apps/packages/vip/index.js'],
-    //  hot: true
-    //},
-    //'1.mmc': {
-    //  entry: ['./src/apps/packages/mmc/index.js'],
-    //  hot: true
-    //},
+
+
     '1.404': {
       entry: ['./src/apps/packages/404/index.js'],
     //  //hot: true
@@ -112,40 +96,16 @@ module.exports = {
       template: './entry/package.html',
       chunks: ['common.1', '4.vendor', '2.base', '1.charge']
     },
-    client: {
-      title: '繁华娱乐在线娱乐',
-      template: './entry/package.html',
-      chunks: ['common.1', '4.vendor', '2.base', '1.client','1.download']
-    },
+
     download: {
       title: '繁华娱乐在线娱乐',
       template: './entry/package.html',
       chunks: ['common.1', '4.vendor', '2.base','1.download']
     },
-    //super3000: {
-    //    title: '繁华娱乐在线娱乐',
-    //    template: './entry/package.html',
-    //    chunks: ['common.1', '4.vendor', '2.base','1.super3000']
-    //  },
-    //vip: {
-    //  title: '繁华娱乐在线娱乐',
-    //  template: './entry/package.html',
-    //  chunks: ['common.1', '4.vendor', '2.base','1.vip']
-    //},
-    //mmc: {
-    //  title: '繁华娱乐在线娱乐',
-    //  template: './entry/package.html',
-    //  chunks: ['common.1', '4.vendor', '2.base','1.mmc']
-    //},
     resetPassword: {
       title: '繁华娱乐在线娱乐',
       template: './entry/package.html',
       chunks: ['common.1', '4.vendor', '2.base', '1.resetPassword']
-    },
-    updateUserInfo: {
-      title: '繁华娱乐在线娱乐',
-      template: './entry/package.html',
-      chunks: ['common.1', '4.vendor', '2.base', '1.updateUserInfo']
     },
     404: {
       title: '繁华娱乐在线娱乐',

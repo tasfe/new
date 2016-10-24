@@ -25,11 +25,6 @@ Global.m.oauth.check({
           init(require('./redpacket'), activityId);
         }, 'redpacket');
         break;
-      case '12':
-        require.ensure(['./drift'], function(require) {
-          init(require('./drift'), activityId);
-        }, 'drift');
-        break;
       case '38':
         require.ensure(['./newrecharge'], function(require) {
           init(require('./newrecharge'), activityId);

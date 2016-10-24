@@ -13,7 +13,7 @@ var TopLevelView = TabView.extend({
 
   className: 'ac-topLevel',
 
-  //startOnLoading: true,
+  startOnLoading: true,
 
   events: {
     'click .js-ac-add-user': 'addUserHandler'
