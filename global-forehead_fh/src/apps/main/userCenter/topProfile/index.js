@@ -115,6 +115,7 @@ TopProfileView = Base.ItemView.extend({
                 }
               });
         });
+    });
   }
 });
 
