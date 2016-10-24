@@ -96,7 +96,7 @@ var ActiveCenterView = Base.ItemView.extend({
         var leftBanner = '<a href="'+ _.getUrl('/detail/' + activity.activityId) + '">' +
           '<img class="ac-activity-image" src=' + activity.bannerPicUrl + '/>' +
           '</a>';
-        var rightBanner = '<div class="ac-activity-word"><div class="ac-activity-title">' + activity.activityTitle + '</div><div class="activity-badge">' + badgeInner + '</div>' +
+        var rightBanner = '<div class="ac-activity-word"><div class="ac-activity-title">' + activity.activityTitle + '</div><div class="activity-badge text-center">' + badgeInner + '</div>' +
           '<div class="ac-activity-des"><div class="ac-activity-time">活动时间：' + _(activity.startTime).toTime('YYYY年MM月DD日') + '&nbsp;至&nbsp;' + _(activity.startTime).toTime('YYYY年MM月DD日') + '</div>' +
           '<div class="ac-activity-time">活动介绍：' + (activity.des || '') + '</div></div></div>';
         var banner = '<div class="at-activity-main"><div class="ac-activity-banner ' + badgeClass + '">' + leftBanner + rightBanner + '</div></div>';

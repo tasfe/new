@@ -3,19 +3,31 @@
 @import "~base/styles/imports";
 
 .personal-profile {
-  padding: 15px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  padding-left: 28px;
+  height: 90px;
 
   .personal-profile-main {
     float: left;
     border-right: 1px solid $gray-color;
     padding-right: 20px;
+    height: 95px;
+    .update-update-size{
+      margin-left: 10px;
+      .update-uname{
+        margin-left: 6px;
+      }
+    }
   }
 
   .dl-horizontal {
+    margin-top:5px;
     dt {
       width: 84px;
       font-weight: normal;
       margin-bottom: 5px;
+
     }
     dd {
       width: 450px;
@@ -24,8 +36,8 @@
     }
   }
   .profile-image {
-    width: 100px;
-    height: 100px;
+    width: 95px;
+    height: 95px;
     display: block;
     float: left;
     margin: 0 30px;
@@ -40,10 +52,14 @@
   }
 
   .personal-profile-vip {
-    padding: 20px 0 0 80px;
+    padding: 10px 0 0 67px;
     float: left;
     width: 40%;
     position: relative;
+
+  }
+  .progress-bar-red{
+    background-color: #c65f94!important;
   }
   .personal-vip-progress {
     height: 10px;
