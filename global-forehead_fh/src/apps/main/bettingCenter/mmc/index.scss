@@ -373,6 +373,7 @@
           width: 818px ;
           .tab-title{
             text-align: left;
+            width: 69px;
             div{
               background: transparent;
               margin-top: 2px !important;
@@ -460,7 +461,7 @@
         width: 866px;
         height: 240px;
         border: 1px solid #c2c2c2;
-        margin-top: 19px !important;
+        margin-top: 10px ;
       }
       .bc-optional-main{
         margin-left: 0px;
@@ -472,6 +473,7 @@
         height: 240px;
         display: inline-block;
         padding: 0 20px;
+        margin-top: 10px ;
         button {
           padding-top: 4px;
           padding-bottom: 4px;
@@ -613,12 +615,17 @@
     .bc-mmc-btn-lottery-add{
       position: relative;
       margin-top: -55px;
-      width: 224px;
-      height: 51px;
-      background: linear-gradient(to bottom , #868686,#3d3d3d) ;
+      width: 226px;
+      height: 53px;
+      //background: linear-gradient(to bottom , #868686,#3d3d3d) ;
+      background: url(mmc-add.png) no-repeat;
       font-size: 20px;
       color: #fff;
       border-radius: 25px;
+      border: 0;
+      &:hover{
+        background: url(mmc-add-hover.png) no-repeat;
+      }
     }
 
   }
