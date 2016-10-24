@@ -89,7 +89,7 @@ var NewrechargeView = Base.ItemView.extend({
 							}else{
 									Global.ui.dialog.show({
 											title: '领取失败',
-											body: res.msg
+											body: '对不起，您未达到满足条件，充值金额大于等于100元。'
 									});
 							}
 					}else{
