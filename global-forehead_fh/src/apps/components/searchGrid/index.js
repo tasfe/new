@@ -267,10 +267,7 @@ var SearchGrid = Base.PrefabView.extend({
     return _(this._breadList).last() || {};
   },
 
-  //events handler
-
-  searchHandler: function(e) {
-
+  search: function() {
     var filter = this.filterHelper.serializeObject({
       reset: true
     });
@@ -284,6 +281,12 @@ var SearchGrid = Base.PrefabView.extend({
     this._getGridXhr({
       url: this.options.ajaxOps.url
     });
+  },
+
+  //events handler
+
+  searchHandler: function(e) {
+    this.search();
 
     return false;
   },

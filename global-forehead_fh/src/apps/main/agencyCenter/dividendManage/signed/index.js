@@ -29,6 +29,7 @@ var SignedView = Base.ItemView.extend({
 
   onRender: function() {
     var self = this;
+    this.indexLast=0;
     this.$table = this.$('.js-ac-sm-sign-table');
     this.$form = this.$('.js-ac-signed-form');
     var dividMax = _(this.options.dividConf.dividMax).formatDiv(100);
@@ -78,7 +79,7 @@ var SignedView = Base.ItemView.extend({
     });
 
 
-    this.$form.parsley();
+    this.$form.parsley(Global.validator.getInlineErrorConfig());
 
     window.ParsleyExtend.addAsyncValidator('accheckusername', function(xhr) {
       var valid = xhr.responseJSON.result === 0;
@@ -90,11 +91,11 @@ var SignedView = Base.ItemView.extend({
         if(user){
           self.$('.js-ac-sm-sign-userid').val(user.userId);
         }else{
-          this.$element.parsley().domOptions.remoteMessage='未找到该下级用户';
+          this.$element.parsley().domOptions.remoteMessage='用户名不存在，请重新输入!';
         }
 
       }else{
-        this.$element.parsley().domOptions.remoteMessage='未找到该下级用户';
+        this.$element.parsley().domOptions.remoteMessage='用户名不存在，请重新输入!';
       }
       //this.$element.parsley().domOptions.remoteMessage = xhr.responseJSON.msg || '';
 
@@ -104,27 +105,41 @@ var SignedView = Base.ItemView.extend({
     this.$table.staticGrid({
       tableClass: 'table table-bordered table-no-lr table-center',
       colModel: [
-        {label: '分红要求1：日量标准', name: 'betTotal', key: true, width: '50%', formatter: function(val) {
-          return '≥&nbsp;' +
+        {label: '阶段', name: 'step', key: true, width: '15%', formatter: function(val) {
+          return '阶段' +val;
+
+        }},
+        {label: '分红要求1：日量标准', name: 'betTotal', key: true, width: '35%', formatter: function(val) {
+          return '日量&nbsp;≥&nbsp;' +
             '<input type="text" class="js-ac-sm-sign-saleAmount ac-sm-sign-saleAmount  m-right-sm" ' +
             'data-parsley-range="[0, 100000000]" data-parsley-threeDecimal value="'+val+'" required>' +
             '元/日'
         }},
 
-        {label: '分红比例', name: 'divid', width: '50%', formatter: function(val,index,rowInfo) {
+        {label: '分红比例', name: 'divid', width: '35%', formatter: function(val,index,rowInfo) {
           return '<input type="text" class="form-control js-ac-sm-sign-salary ac-sm-sign-salary  m-right-sm" name="salaryAmount" ' +
-            'value="'+val+'" required data-parsley-range="['+dividMin+', '+dividMax+']"  data-parsley-oneDecimal />%' +
-            '<div class="js-ac-sm-sign-delete ac-sm-sign-delete inline-block m-left-sm"><button>X</button></div>';
+            'value="'+val+'" required data-parsley-range="['+dividMin+', '+dividMax+']"  data-parsley-oneDecimal />%'
         }},
+        {label: '操作', name: 'operator', key: true, width: '15%', formatter: function(val) {
+          return '<div class="js-ac-sm-sign-delete ac-sm-sign-delete inline-block"><button>删除</button></div>';
+        }}
       ],
       height: 248,
-      row:this.options.agreementList||[],
+      row:this.formatData(this.options.agreementList||[]),
       startOnLoading: false
     });
     this.StaticGrid = this.$table.staticGrid('instance');
 
   },
-
+  formatData:function(list){
+    var self=this;
+    _(list).each(function(item,index){
+      item.step=index+1;
+      self.indexLast++;
+    });
+    return list;
+  }
+  ,
   usernameBlurHandler: function(e){
     var self = this;
     var item = $(e.currentTarget).val();
@@ -140,6 +155,7 @@ var SignedView = Base.ItemView.extend({
 
   addAgreementHandler: function(e,obj) {
     this.StaticGrid.addRows([{
+      step:++this.indexLast,
       betTotal: 0,
       divid: 0
     }])
