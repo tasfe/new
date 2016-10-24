@@ -41,6 +41,8 @@ var UserCenterController = RouterController.extend({
       main: {
         subReturn: true
       },
+      needParent: false,
+      // needRegion: false,
       // sidebar: 'pc',
       topView: 'personal'
     });

@@ -3,42 +3,35 @@
   <div class="js-bc-numbers-container bc-textarea-main pull-left">
     <div class="js-bc-file-tip height-100 width-100 cursor-text">
       <p style="font-size:12px;line-height:170%;">
-        说明：<br>
+        方案标准格式：<br>
         <!--1、请参照"标准格式样本"格式录入或上传方案。<br>-->
         <!--1、每一注号码之间的间隔符支持 回车 空格[ 逗号[,] 分号[;] 冒号[:] 竖线 [|]<br>-->
-        1、每一注号码之间的间隔符支持 回车 [ 逗号[,] 分号[;] 冒号[:] 竖线 [|]<br>
-        2、文件格式必须是.txt格式。<br>
-        3、导入文本内容后将覆盖文本框中现有的内容。
+        可多行投注，号码之间可以用回车 逗号[,] 分号[;] 冒号[:] 竖线 [|]分隔。<br>
+        文件格式必须是.txt格式。<br>
+        导入文本内容后将覆盖文本框中现有的内容。
       </p>
     </div>
     <textarea class="js-bc-numbers-area height-100 width-100 no-resize no-padding no-margin no-border hidden"></textarea>
   </div>
 </div>
 
-<div class="bc-input-opration-container bc-input-opration-container-div-julien">
+<div class="bc-input-opration-container">
 
 
-  <div class="js-bc-fileLoad"></div>
+  <div class="js-bc-fileLoad min-width-sm m-bottom-sm"></div>
   <!--<div>-->
     <!--<button type="button" class="js-bc-numbers-del-error btn m-bottom-sm">删除错误项</button>-->
   <!--</div>-->
   <div>
-    <button type="button" class="js-bc-numbers-del-repeat btn-sun-imp ">
+    <button type="button" class="js-bc-numbers-del-repeat btn btn-linear min-width-sm m-bottom-sm text-amber text-left">
       <i class="fa fa-remove"></i>
       删除重复号
     </button>
   </div>
   <div>
-    <button type="button" class="js-bc-numbers-empty btn-sun-imp ">
+    <button type="button" class="js-bc-numbers-empty btn btn-linear min-width-sm m-bottom-sm text-amber text-left">
     <i class="fa fa-trash"></i>
     清空号码
     </button>
   </div>
-
-<!--  <div class="js-bc-fileLoad betting-button-importer"></div></br>
-
-  <div class="js-bc-numbers-del-repeat betting-button-remove"></div></br>
-
-  <div class="js-bc-numbers-empty betting-button-clear"></div>-->
-
 </div>
