@@ -1,6 +1,8 @@
 require('./resetPassword.scss');
 require('./../misc/common-init.js');
 
+var myReg = /[~`\-\_^@\/\'\\\"#$%&\*\?\(\),\+;\[\]\{\}\|\.:：<>!！￥？（），。、—]/;
+
 $.widget('gl.resetPassword', {
 
   template: require('./resetPassword.html'),
@@ -319,6 +321,10 @@ $.widget('gl.resetPassword', {
         $('.panel03 dl').eq(0).addClass('wrong');
         $('.panel03 dl').eq(0).removeClass('correct');
         $('.panel03 dl .messageBox span').eq(0).html('不能包含空格');
+      }else if (myReg.test(str)) {
+        $('.panel03 dl').eq(0).addClass('wrong');
+        $('.panel03 dl').eq(0).removeClass('correct');
+        $('.panel03 dl .messageBox span').eq(0).html('您输入的值不可包含特殊字符');
       }
       else if (str.length < 6 || str.length > 20) {
         $('.panel03 dl').eq(0).addClass('wrong');
@@ -462,6 +468,11 @@ $.widget('gl.resetPassword', {
     }
     else if (sessionStorage.getItem('update') != 'ok') {
       Global.ui.notification.show('安全报错');
+    }
+    else if (myReg.test(str)) {
+      $('.panel03 dl').eq(0).addClass('wrong');
+      $('.panel03 dl').eq(0).removeClass('correct');
+      $('.panel03 dl .messageBox span').eq(0).html('您输入的值不可包含特殊字符');
     }
     else{
       $('.panel03 dl').eq(0).removeClass('wrong');
