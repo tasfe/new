@@ -76,7 +76,7 @@ class Confirm extends Component {
     }
   }
 
-  chase () {debugger
+  chase () {
     let { previewList, chasePlanList, suspend, lotteryInfo} = this.props
     let actionType = '追号'
 
