@@ -65,6 +65,68 @@ dl,dt,dd{
 }
 
 
+.scroll {
+  position: relative;
+  li{
+    width: 100%;
+    display: none;
+    position: relative;
+    float:left;
+    height: 255px;
+    img{
+      width: 100%;
+      height: 100%;
+    }
+  }
+  li:first-child{
+    display: block;
+  }
+}
+.scroll > div {
+  overflow: hidden;
+}
+
+.register-banner{
+  float: right;
+  background: #fff;
+  //padding:8px 8px 28px;
+  //margin-right:80px;
+  margin-top: 30px;
+  width: 576px;
+  .col-1 {
+    width: 100%;
+  }
+  .btn.left
+  , .btn.right{
+    position: absolute;
+    top: 50%;
+    margin-top: -18px;
+    width: 21px;
+    height: 37px;
+    border: none;
+  }
+}
+
+.scroll-dots{
+  font-size: 0;
+  text-align: center;
+  width: 100%;
+  bottom: -16px;
+  left: 0;
+  margin: 0 auto;
+}
+.scroll-dots li{
+  width: 40px;
+  height: 6px;
+  display: inline-block;
+  background-color: #cccccc;
+  margin: 0;
+  cursor: pointer;
+}
+.scroll-dots li.active{
+  background-color: #cc3333;
+}
+
 .register{
   border: 1px solid #cccccc;
   width: 1200px;
@@ -137,7 +199,7 @@ dl,dt,dd{
     clear: both;
     margin: 30px 0px;
 
-    .left{
+    .left-content{
       width: 580px;
       height: 300px;
       float: left;
@@ -364,15 +426,13 @@ dl,dt,dd{
       bottom: 0px;
       width: 100%;
       margin: 0px;
-      padding: 10px 0px 4px 0px;
+      padding: 4px 0;
       left: 0;
-      background: rgba(0, 0, 0, 0.5);
+      background: transparent;
       li{
-        width: 13px;
-        height: 13px;
-        border-radius: 13px;
-        background-color: #fff;
-        margin: 0px 4px;
+        width: 63px;
+        height: 5px;
+        background-color: $gray-color;
 
         &.active{
           background-color: #990000;
@@ -447,5 +507,11 @@ a.logo{
 
   .messageBox{
     display: block;
+  }
+}
+
+.carousel-inner {
+  img {
+    height: 300px;
   }
 }

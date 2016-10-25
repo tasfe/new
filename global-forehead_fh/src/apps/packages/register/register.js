@@ -10,6 +10,8 @@ $.widget('gl.register', {
 
   template: require('./register.html'),
 
+  bannerTpl: _(require('./banner.html')).template(),
+
   _create: function () {
 
     this.element.html(_(this.template).template()());
@@ -32,6 +34,10 @@ $.widget('gl.register', {
 
     this.$form = this.element.find('.js-register-form');
     this.parsley = this.$form.parsley(Global.validator.getInlineErrorConfig());
+
+    this.$navigationLiList = $('.scroll-dots');
+    this.$imgList = $('.js-banner-list');
+    this.renderRegistrationBannerAD();
   },
 
 
@@ -64,15 +70,13 @@ $.widget('gl.register', {
     });
   },
 
-   registerXhr: function () {
+   registerXhr: function(data) {
     return $.ajax({
       type: 'POST',
       url: '/acct/reg/doreg.json',
-      data: {
-        userName: $('.js-re-userName').val(),
-        loginPwd: $('.js-rp-loginPwd1').val(),
+      data: _(data).extend({
         linkId: _.getUrlParam('linkId')
-      }
+      })
     });
   },
 
@@ -86,69 +90,28 @@ $.widget('gl.register', {
   registerSubmit: function (e) {
     var self = this;
     var $target = $(e.currentTarget);
-    var iIs = 0;
-
-    //var $form = this.element.find('.js-register-form');
-
-    //var parsley = $form.parsley(Global.validator.getInlineErrorConfig());
 
     if (!this.parsley.validate()) {
       return false;
     }
-    //var clpValidate = this.$changeLoginPasswordForm.parsley(Global.validator.getInlineErrorConfig()).validate();
 
-    var str= $('.js-rp-loginPwd1').val();
-    var str2= $('.js-rp-loginPwd2').val();
-    //if (str.length == 0) {
-    //  self.$('.content-julien .right dl').eq(1).addClass('wrong');
-    //  self.$('.content-julien .right dl').eq(1).removeClass('correct');
-    //  self.$('.content-julien .right dl .messageBox span').eq(0).html('不能为空');
-    //
-    //  iIs = 1;
-    //}
-    //else{
-    //  if (str2.length == 0) {
-    //    $('.content-julien .right dl').eq(2).addClass('wrong');
-    //    $('.content-julien .right dl').eq(2).removeClass('correct');
-    //
-    //    iIs = 1;
-    //  }
-    //}
-    //
-    //var str3= $('.js-re-userName').val();
-    //if (str3.length == 0) {
-    //  $('.content-julien .right dl').eq(0).addClass('wrong');
-    //  $('.content-julien .right dl').eq(0).removeClass('correct');
-    //  $('.content-julien .right dl .messageBox span').eq(0).html('不能为空');
-    //
-    //  iIs = 1;
-    //}
-    //
-    //if ($('.js-rp-valCode').val() == '') {
-    //  self.refreshValCodeHandler();
-    //  $('.js-code').addClass('wrong');
-    //  $('.js-code').removeClass('correct');
-    //
-    //  iIs = 1;
-    //}
-
-    var obj = $('.content-julien .right dl');
-    if ( iIs == 0 && obj.eq(0).hasClass('correct') && obj.eq(1).hasClass('correct') && obj.eq(2).hasClass('correct') && obj.eq(3).hasClass('correct') ) {
-      
-      this.registerXhr().always(function() {
+    this.registerXhr(_(this.$form.serializeArray()).serializeObject())
+      .always(function() {
         $target.button('reset');
-      }).fail(function() {
+      })
+      .fail(function() {
         Global.ui.notification.show('注册失败！',{btnContent:'重新注册',event:function(){
           self._create();
         }});
-      }).done(function (res) {
+      })
+      .done(function (res) {
         if (res.result === 0) {
           Global.ui.notification.show('注册成功！',{type:'success',btnContent:'登陆',event:function(){
             Global.cookieCache.set('token', res.root.token);
             window.location.href = 'index.html';
           }});
         } else {
-         // self.element.find('.js-re-notice').html(self._getErrorEl('注册失败！' + res.msg));
+          // self.element.find('.js-re-notice').html(self._getErrorEl('注册失败！' + res.msg));
           var msg = '注册失败！';
           if(res.msg!=='fail'){
             msg = res.msg;
@@ -162,7 +125,6 @@ $.widget('gl.register', {
           }
         }
       });
-    }
   },
 
   safetyTipsBind: function () {
@@ -348,8 +310,6 @@ $.widget('gl.register', {
   _setupForm: function () {
     var self = this;
     var linkId = _.getUrlParam('linkId');
-    //加载广告信息
-    this.renderRegistrationBannerAD();
   },
 
   renderRegistrationBannerAD: function () {
@@ -375,12 +335,21 @@ $.widget('gl.register', {
       div.push('<a href="' + (item.advUrl ? item.advUrl : 'javascript:void(0)') + '" target="_blank"><img src="' + item.picUrl + '" alt="' + item.advName + '"></a>');
       div.push('</div>');
       divList.push(div.join(''));
-      liList.push('<li data-target="#jsREADCarousel" data-slide-to="' + index + (index === 0 ? '" class="active"' : '"') + '></li>');
+      // liList.push('<li data-target="#jsREADCarousel" data-slide-to="' + index + (index === 0 ? '" class="active"' : '"') + '></li>');
     });
-    if(_(liList).size()>1){
-      this.element.find('.js-re-navigate').html(liList.join(''));
+
+    _(data).each(function(item, index) {
+      liList.push('<li data-target="#jsDbCarousel" data-slide-to="' + index + (index === 0 ? '" class="active"' : '"') + '></li>');
+      // liList.push('<a ' + (index === 0 ? ' class="active"' : '') + '></a>');
+    });
+
+    if(_(liList).size()>0){
+      this.$navigationLiList.html(liList.join('')).removeClass('hidden');
     }
-    this.element.find('.js-re-ad-container').html(divList.join(''));
+
+    this.$imgList.html(divList.join(''));
+
+    this.element.find('#jsDbCarousel').carousel()
   },
 
 
