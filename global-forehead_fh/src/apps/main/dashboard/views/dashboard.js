@@ -27,6 +27,7 @@ var DashboardView = Base.ItemView.extend({
     'click .js-db-ticket-scroll': 'ticketScrollHandler',
     'click .js-dynamic-itemShow': 'dynamicItemShowHandler',
     'click .js-lottery': 'lottertyEnterHandler',
+    'click .js-betting-steward':'comingSoonHandler',
     'mouseover .js-athena_st_07': 'tempMouseover',
     'mouseover .js-athena_st_08': 'tempMouseover',
     'mouseover .js-athena_st_09': 'tempMouseover',
@@ -289,7 +290,9 @@ var DashboardView = Base.ItemView.extend({
     });
 
   },
-
+  comingSoonHandler:function () {
+    Global.ui.notification.show("尚未开通，敬请期待");
+  },
   serializeData: function () {
     return {
       loading: Global.ui.loader.get()

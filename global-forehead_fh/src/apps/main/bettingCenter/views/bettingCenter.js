@@ -45,7 +45,9 @@ var BettingCenterView = Base.ItemView.extend({
     'click .js-bc-quick-bet': 'quickBetHandler',
     'click .js-bc-btn-lottery-confirm': 'lotteryConfirmHandler',
     'click .js-bc-records-tab': 'toggleTabHandler',
-    'click .js-collect':'confirmCollectHandler'
+    // 'click .js-collect':'confirmCollectHandler', //收藏事件
+    'click .js-collect':'comingSoonHandler', //收藏事件
+    'click .js-betting-steward':'comingSoonHandler'
   },
 
   getPersonalInfoXhr: function() {
@@ -1187,6 +1189,9 @@ var BettingCenterView = Base.ItemView.extend({
           Global.ui.notification.show(res.msg);
         }
       });
+  },
+  comingSoonHandler:function () {
+    Global.ui.notification.show("尚未开通，敬请期待");
   },
 
   addCollect: function(collectId) {
