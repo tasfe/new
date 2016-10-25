@@ -95,6 +95,7 @@ var TopLevelView = TabView.extend({
           }
         });
     }else{
+      self.loadingFinish();
       TabView.prototype.onRender.apply(self, arguments);
     }
   },
