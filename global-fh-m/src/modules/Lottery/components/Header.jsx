@@ -95,7 +95,9 @@ class Header extends Component {
             callback={::this.showBetMissTip}
           />
         </div>
-        {rightComponent || (showShaker && <Shaker />)}
+        {rightComponent }
+        {//屏蔽摇一摇rightComponent || (showShaker && <Shaker />)
+        }
       </div>)
     
   }
