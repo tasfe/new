@@ -13,6 +13,7 @@ import { connect } from 'react-redux'
 import { create, setHelper, set as chaseConfig } from 'redux/modules/Lottery/chase'
 import { routerActions } from 'react-router-redux'
 import { setTitle } from 'redux/modules/toolbar'
+import { setLeftButton } from 'redux/modules/toolbar'
 
 @connect(state => ({
   lottery: state.lottery.lottery,
@@ -24,6 +25,7 @@ import { setTitle } from 'redux/modules/toolbar'
   create,
   pushState: routerActions.push,
   setTitle,
+  setLeftButton
 })
 @withStyles(styles)
 class Chase extends Component {
@@ -61,8 +63,9 @@ class Chase extends Component {
     })
   }
 
-  componentDidMount() {
+  componentDidMount() {debugger
     this.props.setTitle('高级追号设置')
+    this.props.setLeftButton(true);
 
     if (!this.props.plans.length) {
       ajax({
@@ -83,27 +86,34 @@ class Chase extends Component {
           title: '错误',
           content: '追号数据请求失败'
         })
+        window.history.back();
       })
     } else {
       this.kickoffExpiredPlans()
     }
   }
 
+  componentWillUpdate () {
+    this.props.setLeftButton(true);
+  }
+
   componentWillReceiveProps(nextProps) {
     if (this.planId !== nextProps.lottery.planId) {
       this.planId = nextProps.lottery.planId
       this.kickoffExpiredPlans()
+      window.history.back();
     }
   }
 
   kickoffExpiredPlans () {
-    let plans = this.state.plans
-    while (plans[0] && plans[0].ticketPlanId !== this.planId) {
-      plans.shift()
+    let plansList = this.state.plans
+    while (plansList[0] && plansList[0].ticketPlanId !== this.planId) {
+      plansList.shift()
     }
     this.setState({
-      plans
+      plans: plansList
     })
+    console.log('plan expired!')
   }
 
   render () {

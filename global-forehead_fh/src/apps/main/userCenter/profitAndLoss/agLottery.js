@@ -39,12 +39,12 @@ var ReportManageView = SearchGrid.extend({
           sortable: true,
           id: 3
         },
-        {
-          name: '中奖',
-          width: '10%',
-          sortable: true,
-          id: 4
-        },
+        // {
+        //   name: '中奖',
+        //   width: '10%',
+        //   sortable: true,
+        //   id: 4
+        // },
         {
           name: '返点',
           width: '10%',
@@ -184,7 +184,7 @@ var ReportManageView = SearchGrid.extend({
         _(gridData.total.recharge).convert2yuan({fixed:2}),
         _(gridData.total.withdraw).convert2yuan({fixed:2}),
         _(gridData.total.bet).fixedConvert2yuan(),
-        _(gridData.total.prize).convert2yuan(),
+        //_(gridData.total.prize).convert2yuan(),
         _(gridData.total.rebate).convert2yuan(),
         _(gridData.total.activity).convert2yuan(),
         _(gridData.total.profit).convert2yuan(),
@@ -208,7 +208,7 @@ var ReportManageView = SearchGrid.extend({
     row.push(_(rowInfo.recharge).convert2yuan({fixed:2, clear: false}));
     row.push(_(rowInfo.withdraw).convert2yuan({fixed:2, clear: false}));
     row.push(_(rowInfo.bet).convert2yuan({clear: false}));
-    row.push(_(rowInfo.prize).convert2yuan({clear: false}));
+    //row.push(_(rowInfo.prize).convert2yuan({clear: false}));
     row.push(_(rowInfo.rebate).convert2yuan({clear: false}));
     row.push(_(rowInfo.activity).convert2yuan({clear: false}));
 
