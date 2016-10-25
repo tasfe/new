@@ -45,7 +45,7 @@
     "gulp-util": "^3.0.6",
     "gulp.spritesmith": "^4.1.1",
     "html-loader": "^0.3.0",
-    "html-webpack-plugin": "2.3.0",
+    "html-webpack-plugin": "2.24.0",
     "http-rewrite-middleware": "^0.1.6",
     "imagemin-pngquant": "^4.2.0",
     "imagemin-svgo": "^5.2.0",

@@ -1,122 +1,122 @@
 module.exports = {
   entry: {
-    '1.main': {
+    'main': {
       entry: ['./src/apps/main/index.js'],
       hot: true
     },
-    '1.login': {
+    'login': {
       entry: ['./src/apps/packages/login/login.js'],
       //hot: true
     },
-    '1.emailverify': {
+    'emailverify': {
       entry: ['./src/apps/packages/emailVerify/index.js'],
       //hot: true
     },
-    '1.register': {
+    'register': {
       entry: ['./src/apps/packages/register/register.js'],
       //hot: true
     },
-    '1.trend': {
+    'trend': {
       entry: ['./src/apps/packages/trend/index.js'],
       //hot: true
     },
-    '1.resetPassword': {
+    'resetPassword': {
       entry: ['./src/apps/packages/resetPassword/resetPassword.js'],
       //hot: true
     },
 
-    '1.gengxin': {
+    'gengxin': {
       entry: ['./src/apps/packages/update/update.js'],
       //hot: true
     },
 
-    '1.download': {
+    'download': {
       entry: ['./src/apps/packages/download/index.js'],
       hot: true
     },
 
 
-    '1.404': {
+    '404': {
       entry: ['./src/apps/packages/404/index.js'],
     //  //hot: true
     },
-    '1.charge': {
+    'charge': {
       entry: ['./src/apps/packages/charge/index.js'],
       //hot: true
     },
-    '2.base': {
+    'base': {
       entry: ['./src/base/build.base.js'],
       //hot: true
     },
-    '4.vendor': {
+    'vendor': {
       entry: ['./src/vendor/build.core.js']
     },
-    '1.changeUrl': {
+    'changeUrl': {
       entry: ['./src/apps/packages/changeUrl/index.js'],
       //hot: true
-    },
+    }
   },
   port: 3001,
   commonChunks: {
-    'common.1': []
+    'common': []
   },
   entries: {
     index: {
       title: '繁华娱乐在线娱乐',
       template: './entry/index.html',
-      chunks: ['common.1', '4.vendor', '2.base', '1.main']
+      chunks: ['base', 'vendor', 'main', 'common']
     },
     login: {
       title: '繁华娱乐在线娱乐',
       template: './entry/package.html',
-      chunks: ['common.1', '4.vendor', '2.base', '1.login']
+      chunks: ['common', 'vendor', 'base', 'login']
     },
     emailverify: {
       title: '繁华娱乐在线娱乐',
       template: './entry/package.html',
-      chunks: ['common.1', '4.vendor', '2.base', '1.emailverify']
+      chunks: ['common', 'vendor', 'base', 'emailverify']
     },
     register: {
       title: '繁华娱乐在线娱乐',
       template: './entry/package.html',
-      chunks: ['common.1', '4.vendor', '2.base', '1.register']
+      chunks: ['common', 'vendor', 'base', 'register']
     },
     trend: {
       title: '繁华娱乐在线娱乐',
       template: './entry/package.html',
-      chunks: ['common.1', '4.vendor', '2.base', '1.trend']
+      chunks: ['common', 'vendor', 'base', 'trend']
     },
     gengxin: {
       title: '繁华娱乐在线娱乐',
       template: './entry/package.html',
-      chunks: ['common.1', '4.vendor', '2.base',  '1.gengxin']
+      chunks: ['common', 'vendor', 'base',  'gengxin']
     },
     charge: {
       title: '充值结果',
       template: './entry/package.html',
-      chunks: ['common.1', '4.vendor', '2.base', '1.charge']
+      chunks: ['common', 'vendor', 'base', 'charge']
     },
 
     download: {
       title: '繁华娱乐在线娱乐',
       template: './entry/package.html',
-      chunks: ['common.1', '4.vendor', '2.base','1.download']
+      chunks: ['common', 'vendor', 'base','download']
     },
     resetPassword: {
       title: '繁华娱乐在线娱乐',
       template: './entry/package.html',
-      chunks: ['common.1', '4.vendor', '2.base', '1.resetPassword']
+      chunks: ['common', 'vendor', 'base', 'resetPassword']
     },
     404: {
       title: '繁华娱乐在线娱乐',
       template: './entry/package.html',
-      chunks: ['common.1', '2.base', '1.404']
+      chunks: ['common', 'base', '404']
     },
     changeUrl: {
       title: '繁华娱乐在线娱乐',
       template: './entry/package.html',
-      chunks: ['common.1', '4.vendor', '2.base', '1.changeUrl']
-    },
+      chunks: ['common', 'vendor', 'base', 'changeUrl']
+    }
   },
   output: {
     path: 'main',

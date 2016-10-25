@@ -48,4 +48,5 @@ require('./scripts/icheck.min');
 require('selectize/dist/js/selectize.js');
 
 window.moment = require('moment');
+require('moment/locale/zh-cn');
 window.moment.locale('zh-cn');
