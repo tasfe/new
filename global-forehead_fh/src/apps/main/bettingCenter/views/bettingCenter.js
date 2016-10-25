@@ -206,10 +206,10 @@ var BettingCenterView = Base.ItemView.extend({
     this.lotteryPreview = this.$lotteryPreview.staticGrid({
       tableClass: 'table',
       colModel: [
-        {label: '玩法/投注内容', name: 'title', key: true, width: '160px'},
+        {label: '玩法/投注内容', name: 'title', key: true, width: '40%'},
         //{label: '奖金模式', name: 'bonusMode', width: '20%'},
-        {label: '注数', name: 'mode', width: '60px'},
-        {label: '投注金额', name: 'mode2', width: '20%'},
+        {label: '注数', name: 'mode', width: '20%'},
+        {label: '投注金额', name: 'mode2', width: '27%'},
         {label: '<i class="js-bc-lottery-clear fa fa-trash font-sm"></i>', name: 'mode3', width: '10%'}
         //{label: '注数/倍数/模式', name: 'mode', width: '20%'}
         //{label: '投注金额', name: 'bettingMoney', width: '17%'}
@@ -700,20 +700,18 @@ var BettingCenterView = Base.ItemView.extend({
   },
 
   renderLotteryPreviewAdd: function() {
-    var previewList = this.model.get('previewList');
     var self = this;
+
+    var previewList = this.model.get('previewList');
     var rows = _(previewList).map(function(previewInfo) {
-      // if(!(IDsSuper3.getArr().indexOf(parseInt(previewInfo.playId.toString().slice(0,3))) === -1)){
-      //   var title = '<span class="text-hot">【超级3000_' + previewInfo.levelName + '_' + previewInfo.playName + '】 ';
-      //   var sf = true;
-      // }else{
-        var title = '[' + previewInfo.levelName + '_' + previewInfo.playName + '] ';
-        var sf = false;
-      // }
+      var title = '';
+
       if (previewInfo.formatBettingNumber.length > 7) {
-        title += '<a href="javascript:void(0)" class="js-bc-betting-preview-detail btn-link">' +
-          previewInfo.formatBettingNumber.slice(0, 7) + '...</a></span>';
+        title += '<a href="javascript:void(0)" class="js-bc-betting-preview-detail">' +
+          '<span class="preview-row-title ellipsis btn-link">[' + previewInfo.levelName + '_' + previewInfo.playName + '] ';
+        title += previewInfo.formatBettingNumber.slice(0, 7) + '</span></a>';
       } else {
+        title += '<span class="preview-row-title ellipsis">[' + previewInfo.levelName + '_' + previewInfo.playName + '] ';
         title += previewInfo.formatBettingNumber + '</span>';
       }
       return {
@@ -733,15 +731,15 @@ var BettingCenterView = Base.ItemView.extend({
       var $detail = $row.find('.js-bc-betting-preview-detail');
       var betNumber = previewList[index].bettingNumber;
       var is11X5 = (self.options.ticketInfo.title.indexOf('11选5') !== -1);
-      betNumber = is11X5 ? betNumber : betNumber.replace(/ /g,'');
+      betNumber = is11X5 ? betNumber : betNumber.replace(/ /g, '');
 
-      if ($detail.length) {
+      if($detail.length) {
         $detail.popover({
           title: '详细号码',
           trigger: 'click',
           html: true,
-          container: this.$el,
-          content: '<div class="js-pf-popover">'+betNumber+ '</div>',
+          container: self.$el,
+          content: '<div class="js-pf-popover">' + betNumber + '</div>',
           placement: 'bottom'
         });
       }
