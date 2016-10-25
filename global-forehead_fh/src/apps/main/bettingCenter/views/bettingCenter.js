@@ -525,7 +525,7 @@ var BettingCenterView = Base.ItemView.extend({
 
   renderPlayInfo: function(playInfo) {
 
-    this.$playExample.html('<i class="fa fa-question-circle"></i>玩法说明：' + playInfo.playExample).attr('title', playInfo.playExample);
+    this.$playExample.html('<i class="fa fa-question-circle"></i>中奖举例：' + playInfo.playExample).attr('title', playInfo.playExample);
     this.$playExample2.html( playInfo.playDes.replace(/\|/g, '<br />').replace(/\[max\]/g,_(playInfo.betMethodMax).chain().formatDiv(10000).floor(4).value()).replace(/\[min\]/g,_(playInfo.betMethodMin).chain().formatDiv(10000).floor(4).value()) );
     // if (this.$playTip.data('popover')) {
     //   this.$playTip.popover('destroy');

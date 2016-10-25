@@ -1419,7 +1419,12 @@ $.fn.steps.insert = function (index, step)
 
 $.fn.steps.goTo = function (index)
 {
-    return paginationClick(this, getOptions(this), getState(this), index);
+    var options = getOptions(this);
+    var prevForceMoveForward = options.forceMoveForward;
+    options.forceMoveForward = false;
+    paginationClick(this, options, getState(this), index);
+    options.forceMoveForward = prevForceMoveForward;
+    return;
 };
 
 /**
