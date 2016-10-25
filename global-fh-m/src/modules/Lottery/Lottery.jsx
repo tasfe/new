@@ -62,6 +62,10 @@ class Lottery extends Page {
     })
   }
 
+  componentWillUpdate () {
+    this.props.setLeftButton(true);
+  }
+
   componentWillUnmount () {
     this.stopInfiniteCountingDown()
     this.props.resetChase()
