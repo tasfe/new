@@ -43,15 +43,15 @@ var specialConfig = {
       desc: '全天24小时 共480期',
       badge: '',
       img: 'images/fh-ticket-3fc.png'*/
-    },{
-      id: 19,
-      mark: 'ssc-mmc',
-      zhName: "秒秒彩",
-      quickShowName: "秒秒彩",
-      optional: true,
-      defaultSelectPlay: defaultSelectSSC,
-      badge: 'hot',
-      img: 'images/fh-ticket-mmc.png'
+    // },{
+    //   id: 19,
+    //   mark: 'ssc-mmc',
+    //   zhName: "秒秒彩",
+    //   quickShowName: "秒秒彩",
+    //   optional: true,
+    //   defaultSelectPlay: defaultSelectSSC,
+    //   badge: 'hot',
+    //   img: 'images/fh-ticket-mmc.png'
     /*},{
       id: 20,
       mark: 'ssc-mmc',
