@@ -355,6 +355,11 @@ var LowLevelManageView = SearchGrid.extend({
     var self = this;
     var $target = $(e.currentTarget);
     var rowInfo = this.grid.getRowData($target);
+    if(rowInfo === undefined){
+      var rowInfo = {};
+      rowInfo.userId = "";
+      rowInfo.userName = "";
+    }
     var acctInfo = Global.memoryCache.get('acctInfo');
     if(!acctInfo || acctInfo.userStatus === 100) {
       this.$dialog.modal('hide');

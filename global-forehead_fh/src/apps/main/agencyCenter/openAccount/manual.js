@@ -42,6 +42,7 @@ var OpenAccountManageView = Base.ItemView.extend({
 	
     this.$rebate = this.$('.js-ac-manual-rebate');
     this.$limit = this.$('.js-ac-quota-container');
+    this.$manualTip = this.$('.js-ac-manual-tip');
     this.acctInfo = Global.memoryCache.get('acctInfo');
 		
     this.getSubAcctXhr()
@@ -56,8 +57,10 @@ var OpenAccountManageView = Base.ItemView.extend({
           if(self.acctInfo.userGroupLevel === 0) {
             // self.$rebate.attr('data-parsley-range', '[' + _(data.subRebateRange.rebateMin).formatDiv(10, {fixed: 1}) + ', ' + _(127).formatDiv(10, {fixed: 1}) + ']');
             self.$rebate.attr('data-parsley-range', '[' + _(data.subRebateRange.rebateMax).formatDiv(10, {fixed: 1}) + ', ' + _(data.subRebateRange.rebateMax).formatDiv(10, {fixed: 1}) + ']');
+            self.$manualTip.text('可配置范围(' + data.subRebateRange.rebateMax + '～' + _(data.subRebateRange.rebateMax).formatDiv(10, {fixed: 1}) + ')');
           } else {
             self.$rebate.attr('data-parsley-range', '[' + _(data.subRebateRange.rebateMin).formatDiv(10, {fixed: 1}) + ', ' + _(data.subRebateRange.rebateMax).formatDiv(10, {fixed: 1}) + ']');
+            self.$manualTip.text('可配置范围(' + data.subRebateRange.rebateMin + '～' + _(data.subRebateRange.rebateMax).formatDiv(10, {fixed: 1}) + ')');
           }
 
           self._getTable(_(data.ticketSeriesList).chain().filter(function(ticketSeries) {
@@ -209,7 +212,7 @@ var OpenAccountManageView = Base.ItemView.extend({
       $target.val(range[0]);
     }
     rebate = Number($target.val());
-    var $maxBonus = $target.parent().parent().parent().find('.js-ac-openAccount-maxBonus');
+    var $maxBonus = this.$('.js-ac-rebate-set-container').find('.js-ac-openAccount-maxBonus');
     _($maxBonus).each(function(item, index) {
       var $item = $(item);
       var maxBonus = $item.data('maxbonus');
@@ -232,7 +235,7 @@ var OpenAccountManageView = Base.ItemView.extend({
       '<div class="control-group"><label class="text-left">账号:&nbsp;&nbsp;' + data.userName + '</label></div>' +
       '<div class="control-group"><label class="text-left">密码:&nbsp;&nbsp;' + data.loginPwd + '</label></div>' +
       '<div class="control-group m-bottom-md"><label class="text-left">返点:&nbsp;&nbsp;' + _(data.rebate).formatDiv(10, {fixed: 1}) + '</label></div>' +
-      '<button type="button" class="js-ac-ocm-copy btn btn-pink btn-linear" data-dismiss="modal">复制并关闭</button></div></form>'
+      '<button type="button" class="js-ac-ocm-copy btn btn-pink btn-linear m-left-lg" data-dismiss="modal">复制并关闭</button></div></form>'
     });
 
     $dialog.on('hidden.modal', function() {

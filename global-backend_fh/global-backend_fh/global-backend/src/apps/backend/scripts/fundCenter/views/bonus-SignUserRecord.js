@@ -1,5 +1,5 @@
 define(function (require, exports, module) {
-
+  var ShowAgreementDetailView = require('fundCenter/views/bonus-ShowAgreementDetail');
   require('prefab/views/searchGrid');
 
   var operateCheckView = Base.Prefab.SearchGrid.extend({
@@ -7,7 +7,8 @@ define(function (require, exports, module) {
     template: require('text!fundCenter/templates/bonus-SignUserRecord.html'),
 
     events: {
-      'click .js-fc-su-rescind-detail': 'checkRescindDetailHandler'
+      'click .js-fc-su-rescind-detail': 'checkRescindDetailHandler',
+      'click .js-pm-show': 'showAgreementDetailHandler'
     },
 
     initialize: function () {
@@ -30,10 +31,6 @@ define(function (require, exports, module) {
           {
             name: '下级用户名',
             width: '15%'
-          },
-          {
-            name: '分红比例',
-            width: '10%'
           },
           {
             name: '协议内容',
@@ -104,7 +101,7 @@ define(function (require, exports, module) {
         pageIndex: this.filterHelper.get('pageIndex'),
         initPagination: true
       });
-      this.bindPopoverHandler(gridData.agreeList);
+      /*this.bindPopoverHandler(gridData.agreeList);*/
 
       //加上统计行
       this.grid.hideLoading();
@@ -115,8 +112,7 @@ define(function (require, exports, module) {
       row.push(dividend.effectDate);
       row.push(dividend.username);
       row.push( dividend.subUsername);
-      row.push(_(dividend.divid).formatDiv(100)+'%');
-      row.push('<a class="js-fc-su-agreement btn btn-link">点击查看</a>');
+      row.push("<button data-agreement='"+ JSON.stringify(dividend.itemList)+ "' class='js-pm-show btn btn-link'>点击查看</button>");
       //status:0申请中，1已签约，2已拒绝，3申请解约中，4已经解约
       var status = '';
       switch(dividend.status){
@@ -129,20 +125,24 @@ define(function (require, exports, module) {
       row.push(status );
       return row;
     },
-    bindPopoverHandler: function(agreeList){
+    showAgreementDetailHandler: function(e){
       var self = this;
-      _(agreeList).each(function(agree,index){
-        var agreementLink = self.$('.js-fc-su-agreement');
-        if(_(agreementLink).size()>=index){
-          $(agreementLink[index]).popover({
-            title: '协议内容',
-            trigger: 'click',
-            html: true,
-            container: 'body',
-            content: '<div class="js-pf-popover"><span class="word-break">'+ agree.agreement +'</span></div>',
-            placement: 'left'
-          });
-        }
+      var $target = $(e.currentTarget);
+      var agreement = $target.data('agreement');
+      var $dialog = Global.ui.dialog.show(
+          {   size: 'modal-lg',
+            title: '查看协议',
+            body: '<div class="js-il-show-agreement"></div>'
+          }
+      );
+      var $selectContainer = $dialog.find('.js-il-show-agreement');
+
+      var showAgreementDetailView = new ShowAgreementDetailView({agreement: agreement});
+      $selectContainer.html(showAgreementDetailView.render().el);
+
+      $dialog.on('hidden.bs.modal', function (e) {
+        $(this).remove();
+        showAgreementDetailView.destroy();
       });
     },
     checkRescindDetailHandler: function(e){

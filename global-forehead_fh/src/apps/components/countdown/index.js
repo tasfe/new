@@ -13,6 +13,9 @@ var Countdown = Base.PrefabView.extend({
     format: '%H:%M:%S',
     type: 'label',
     color: '',
+    countdownAnimation: false,
+    animationTime: 30,
+    animationClass: 'twinkling text-hot',
     prevClass: 'js-pf'
   },
 
@@ -86,6 +89,7 @@ var Countdown = Base.PrefabView.extend({
     // Starts the countdown
     this.$el.countdown(leftTime, function(event) {
       var newDate = event.strftime(self.options.format);
+      var seconds = Number(event.strftime('%S'));
 
       if (self.options.type === 'label') {
         var data;
@@ -105,10 +109,18 @@ var Countdown = Base.PrefabView.extend({
             var $node = self.$el.find(selector);
             var nums = data.next[label].split('');
 
-            $node.html([
-              '<span>'+ nums[0] +'</span>',
-              '<span>'+ nums[1] +'</span>'
-            ].join(''));
+            var firstNum;
+            var secondNum;
+
+            if (self.options.countdownAnimation && label === 'seconds' && self.options.animationTime >= seconds) {
+              firstNum = '<span class="countdown-num">'+ nums[0] +'</span>';
+              secondNum = '<span class="countdown-num ' + self.options.animationClass + '">'+ nums[1] +'</span>';
+            } else {
+              firstNum = '<span>'+ nums[0] +'</span>';
+              secondNum = '<span>'+ nums[1] +'</span>';
+            }
+
+            $node.html([firstNum, secondNum].join(''));
           });
 
           self.trigger('change:leftTime', event);

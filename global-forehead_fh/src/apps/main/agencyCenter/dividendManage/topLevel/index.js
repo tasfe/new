@@ -13,7 +13,7 @@ var TopLevelView = TabView.extend({
 
   className: 'ac-topLevel',
 
-  //startOnLoading: true,
+  startOnLoading: true,
 
   events: {
     'click .js-ac-add-user': 'addUserHandler'
@@ -60,10 +60,14 @@ var TopLevelView = TabView.extend({
       _(this.options).extend({
         tabs: tabs,
         tabClass: 'view-tabs nav nav-tabs nav-tabs-special',
-        append: '<div class="js-ac-add-user cursor-pointer ac-add-user pull-right text-pleasant">' +
-        '<span class="sfa sfa-dividend-add vertical-bottom"></span> ' +
-        '签约分红用户</div>' +
-        '</div>'
+        // append: '<div class="js-ac-add-user cursor-pointer ac-add-user pull-right text-pleasant">' +
+        // '<span class="sfa sfa-dividend-add vertical-bottom"></span> ' +
+        // '签约分红用户</div>' +
+        // '</div>'
+          append:'<button type="button" class="js-ac-add-user btn btn-hot btn-linear ac-add-user pull-right">' +
+          '<i class="fa fa-plus-circle"></i>' +
+          '  签约分红用户' +
+          '</button>'
       });
     }else{
       _(this.options).extend({

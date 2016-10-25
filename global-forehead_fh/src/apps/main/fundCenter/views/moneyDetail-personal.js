@@ -117,7 +117,7 @@ var MoneyDetailView = SearchGrid.extend({
       row.push('<span class="">'+_(info.amount).convert2yuan()+'</span>');
     }
 
-    row.push('<span class="text-bold-cool">'+_(info.balance).convert2yuan()+'</span>');
+    row.push('<span class="text-cool">'+_(info.balance).convert2yuan()+'</span>');
     //var remark = info.remark;
     //
     //if (remark.replace(/[\u4e00-\u9fa5]/g, '**').length>16) {

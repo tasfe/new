@@ -30,7 +30,7 @@
       </div>
     </div>
   </div>
-  <div class="bc-main-area">
+  <div class="js-bc-main-area bc-main-area">
     <div class="js-bc-rules bc-menu">
       <div class="js-bc-toggle bc-toggle hidden">
         <span class="js-bc-play-toggle bc-play-toggle" data-type="special">
@@ -78,8 +78,8 @@
         <span class="bc-result-container2 m-left-md hidden">
         投注金额
           <span class="input-in-append inline-block">
-            <input name="customizeMoney" type="text" class="js-gl-monitor js-bc-customize-money input-sm" data-monitor-type="float"
-                   data-monitor-range="[0, 99999]" value="<%=Global.localCache.get('customizeMoney') || 0 %>">
+            <input name="customizeMoney" type="text" class="js-gl-monitor js-bc-customize-money input-smd" data-monitor-type="float"
+                   data-monitor-range="[0, 400000]" value="<%=Global.localCache.get('customizeMoney') || 0 %>">
             <span class="add-on">元</span>
           </span>
       </span>
@@ -156,14 +156,14 @@
       <span class="js-bc-btn-lottery-add add-number hidden"><i class="fa fa-plus-circle"></i>添加号码</span>
       <span class="js-bc-btn-lottery-add1  add-number1 inline-block"> <i class="fa fa-plus-circle"></i>
         添加号码</span>
-      <a href="#bb/ps" class="router">
-        <i class="fa fa-group"></i>
-        投注管家
-      </a>
-      <!--<a href="javascript:void(0)">-->
+      <!--<a href="#bb/ps" class="router">-->
         <!--<i class="fa fa-group"></i>-->
         <!--投注管家-->
       <!--</a>-->
+      <a href="javascript:void(0)">
+        <i class="fa fa-group"></i>
+        投注管家
+      </a>
       <span class="js-bc-chase">
         <i class="fa fa-tags"></i>
         追号

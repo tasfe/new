@@ -68,7 +68,6 @@ var sscConfig = [
     num: _.range(10),
     positions: sscPositions,
     oneDay: sscOneDay,
-    isSuper:true,
     zhName: "江西时时彩"
   },
   {
@@ -77,7 +76,6 @@ var sscConfig = [
     num: _.range(10),
     positions: sscPositions,
     oneDay: sscOneDay,
-    isSuper:true,
     zhName: "新疆时时彩"
   },
   {
@@ -86,7 +84,6 @@ var sscConfig = [
     num: _.range(10),
     positions: sscPositions,
     oneDay: sscOneDay,
-    isSuper:true,
     zhName: "天津时时彩"
   },
   {
@@ -95,8 +92,23 @@ var sscConfig = [
     num: _.range(10),
     positions: sscPositions,
     oneDay: sscOneDay,
-    isSuper:true,
     zhName: "黑龙江时时彩"
+  },
+  {
+    id: 24,
+    count: 5,
+    num: _.range(10),
+    positions: sscPositions,
+    oneDay: sscOneDay,
+    zhName: "台湾5分彩"
+  },
+  {
+    id: 24,
+    count: 5,
+    num: _.range(10),
+    positions: sscPositions,
+    oneDay: sscOneDay,
+    zhName: "新加坡2分彩"
   }
 ];
 

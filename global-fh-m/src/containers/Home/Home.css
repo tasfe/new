@@ -103,8 +103,8 @@
       transition: stroke-dashoffset 1s linear;
     }
     img{
-      height: .4rem;
-      margin-top: .2rem;
+      height: .25rem;
+      margin-top: .28rem;
     }
   }
   .item-badge {

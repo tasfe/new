@@ -24,16 +24,16 @@ var helpConfig = {
           name: '平台功能',
           html: require('helpCenter/greenhand/function.html')
         },
-        {
-          args: 'page=gr-feature',
-          name: '繁华特色',
-          html: require('helpCenter/greenhand/feature.html')
-        },
-        {
-          args: 'page=gr-agency',
-          name: '代理繁华',
-          html: require('helpCenter/greenhand/agency.html')
-        }
+        // {
+        //   args: 'page=gr-feature',
+        //   name: '繁华特色',
+        //   html: require('helpCenter/greenhand/feature.html')
+        // },
+        // {
+        //   args: 'page=gr-agency',
+        //   name: '代理繁华',
+        //   html: require('helpCenter/greenhand/agency.html')
+        // }
       ]
     },
     {

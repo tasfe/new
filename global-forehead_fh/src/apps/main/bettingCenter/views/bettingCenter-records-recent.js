@@ -35,17 +35,17 @@ var BettingRecordsView = Base.ItemView.extend({
     var self = this;
     if (!this.bettingRecords) {
      this.bettingRecords = this.$el.staticGrid({
-       tableClass: 'table',
+       tableClass: 'table table-center',
        colModel: [
-         {label: '<div class="text-center">期号</div>', name: 'ticketPlanId', width: '23%',formatter: function(val, index, bet) {
+         {label: '<div class="text-center">期号</div>', name: 'ticketPlanId', width: '17%',formatter: function(val, index, bet) {
          var planId = val.replace(/.*-/, '');
-           // val.substring(4)
+           planId = planId.slice(-4);
            return '<a class="router btn-link" href="#gr/br/detail/' + bet.ticketTradeNo + '">' + planId + '</a>';
          }},
-         {label: '<div class="text-center">投注金额</div>', name: 'betTotalMoney', width: '30%', formatter: function(val) {
-           return _(val).fixedConvert2yuan();
+         {label: '<div class="text-center">投注金额</div>', name: 'betTotalMoney', width: '27%', formatter: function(val) {
+           return _(val).fixedConvert2yuan({fixed: 2});
          }},
-         {label: '<div class="text-center">状态</div>', name: 'prizeTotalMoney', width: '18%', formatter: function(val, index, bet) {
+         {label: '<div class="text-center">状态</div>', name: 'prizeTotalMoney', width: '28%', formatter: function(val, index, bet) {
            //0:未中奖，1：已中奖，2：用户撤单，3：系统撤单,ticketResult,prizeTotalMoney
            return _.checkBettingStatus({
              betStatus: bet.ticketBetStatus,
@@ -55,16 +55,17 @@ var BettingRecordsView = Base.ItemView.extend({
              prizing: bet.prizing,
              prizeTotalMoney: bet.prizeTotalMoney,
              betTime: bet.betTime,
-             prizeClass: 'text-pink'
+             prizeClass: 'text-pink',
+             fixed: 2
            });
          }},
-         {label: '<div class="text-center">操作</div>', name: 'betTotalMoney', width: '28%', formatter: function(val, index, bet) {
+         {label: '<div class="text-center">操作</div>', name: 'betTotalMoney', width: '27%', formatter: function(val, index, bet) {
            var html = [];
 
-           html.push('<button class="js-bc-betting-again btn btn-xxs btn-pure" data-loading-text="再投">再投</button>');
+           html.push('<button class="js-bc-betting-again btn btn-xxs" data-loading-text="再投">再投</button>');
 
            if (bet.canCancel) {
-             html.push('<button class="js-bc-cancel-betting btn btn-xxs btn-pure" data-loading-text="撤单">撤单</button>');
+             html.push('<button class="js-bc-cancel-betting btn btn-xxs" data-loading-text="撤单">撤单</button>');
            }
 
            return html.join(' ');

@@ -59,12 +59,12 @@ class Confirm extends Page {
     this.renderComponent()
   }
 
-  render () {
-    return (
-      <div>
-        <div ref="verifyContainer"　className="verify-item-container"></div>
-      </div>
-    )
+    render () {
+      return (
+          <div>
+            <div ref="verifyContainer"　className="verify-item-container"></div>
+          </div>
+      )
   }
 
 }

@@ -28,10 +28,6 @@ define(function (require, exports, module) {
                         width: '15%'
                     },
                     {
-                        name: '链接地址',
-                        width: '15%'
-                    },
-                    {
                         name: '状态',
                         width: '5%'
                     },
@@ -93,33 +89,32 @@ define(function (require, exports, module) {
             row.push(rowInfo.title);
             if (_.isEmpty(rowInfo.type)) {
                 if (rowInfo.type == 1) {
-                    row.push('<div class="text-center">日常活动</div>');
+                    row.push('<div class="">彩票活动</div>');
                 }
                 if (rowInfo.type == 2) {
-                    row.push('<div class="text-center">大型活动</div>');
+                    row.push('<div class="">真人娱乐</div>');
                 }
             }
             row.push('<br>' + _(rowInfo.startTime).toTime() + '</br><br>' + _(rowInfo.endTime).toTime() + '</br>');
-            row.push(rowInfo.actUrl);
-            row.push(rowInfo.createrName);
             if (_.isEmpty(rowInfo.isDel)) {
                 if (rowInfo.isDel == 0) {
                     if (_.isEmpty(rowInfo.actStatus)) {
                         if (rowInfo.actStatus == 0) {
-                            row.push('<div class="text-center">未开始</div>');
+                            row.push('<div class="">未开始</div>');
                         }
                         if (rowInfo.actStatus == 1) {
-                            row.push('<div class="text-center">进行中</div>');
+                            row.push('<div class="">进行中</div>');
                         }
                         if (rowInfo.actStatus == 2) {
-                            row.push('<div class="text-center">已过期</div>');
+                            row.push('<div class="">已过期</div>');
                         }
                     }
                 }
                 if (rowInfo.isDel == 1) {
-                    row.push('<div class="text-center">已删除</div>');
+                    row.push('<div class="">已删除</div>');
                 }
             }
+            row.push(rowInfo.createrName);
             row.push(this._formatOperation(rowInfo));
             return row;
         },

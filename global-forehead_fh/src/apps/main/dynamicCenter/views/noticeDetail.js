@@ -1,6 +1,5 @@
 "use strict";
 
-var bannerConfig = require('dynamicCenter/misc/bannerConfig');
 
 var NoticeDetailView = Base.ItemView.extend({
 

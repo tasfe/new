@@ -2,9 +2,13 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/app.routers.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/betCenter/templates/ticket-koreaSource-detail.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/betCenter/views/ticket-koreaSource-detail.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/fundCenter/rwManagement" charset="GBK" />
     <file url="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/fundCenter/rwManagement/bankList-tab.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/fundCenter/templates/bonus-ShowAgreementDetail.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/fundCenter/templates/dividCfg.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/fundCenter/views/bonus-ShowAgreementDetail.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/fundCenter/views/dividCfg.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/saleCenter/firstRechargeSendActivity/firstRechargeSendCfg.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/global-backend/src/apps/backend/scripts/saleCenter/firstRechargeSendActivity/firstRechargeSendCfg.js" charset="UTF-8" />

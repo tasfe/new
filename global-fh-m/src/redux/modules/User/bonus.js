@@ -10,23 +10,23 @@ const initialState = {
 export default (state = initialState, action = {}) => {
   switch (action.type) {
     case LOAD:
-      return {
-        ...state,
-        loading: true
-      };
+          return {
+            ...state,
+            loading: true
+          };
     case LOAD_SUCCESS:
-      return {
-        ...state,
-        loading: false,
-        loaded: true,
-        bonusData: action.result.root
-      };
+          return {
+            ...state,
+            loading: false,
+            loaded: true,
+            bonusData: action.result.root
+          };
     case LOAD_FAIL:
-      return {
-        ...state,
-        loading: false,
-        loaded: false,
-        error: action.error
+          return {
+            ...state,
+            loading: false,
+            loaded: false,
+            error: action.error
       };
     default:
       return state;

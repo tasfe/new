@@ -45,7 +45,6 @@ var BettingCenterView = Base.ItemView.extend({
     'click .js-bc-quick-bet': 'quickBetHandler',
     'click .js-bc-btn-lottery-confirm': 'lotteryConfirmHandler',
     'click .js-bc-records-tab': 'toggleTabHandler',
-    //需要重构的代码
     'click .js-collect':'confirmCollectHandler'
   },
 
@@ -146,6 +145,7 @@ var BettingCenterView = Base.ItemView.extend({
     this.$lastPlanId = this.$('.js-bc-last-planId');
     this.$lastResults = this.$('.js-bc-last-plan-results');
     this.$saleStop = this.$('.js-bc-sale-stop');
+    this.$mainArea = this.$('.js-bc-main-area');
 
     this.$videoMain = this.$('.js-bc-video-main');
 
@@ -280,9 +280,9 @@ var BettingCenterView = Base.ItemView.extend({
       },
       onOverMax: function(maxNum) {
         Global.ui.notification.show(
-          '您填写的倍数已超出平台限定的单注中奖限额<span class="text-blue">' +
+          '您填写的倍数已超出平台限定的单注中奖限额<span class="text-passion">' +
           _(self.rulesCollection.limitMoney).convert2yuan() + '</span>元，' +
-          '已为您计算出本次最多可填写倍数为：<span class="text-blue">' + maxNum + '</span>倍'
+          '已为您计算出本次最多可填写倍数为：<span class="text-passion">' + maxNum + '</span>倍'
         );
       }
     });
@@ -295,6 +295,7 @@ var BettingCenterView = Base.ItemView.extend({
     this.countdown = new Countdown({
       el: this.$countdown,
       color: 'red',
+      countdownAnimation: true,
       size: ''
     })
       .render()
@@ -320,12 +321,16 @@ var BettingCenterView = Base.ItemView.extend({
     $('.js-bc-last-planId').html('第' + planInfo.lastOpenId  + '期');
 
     this.$lastResults.html(_(model.get('lastOpenNum')).map(function(num, index, nums) {
-      return '<span class="text-circle text-circle-bet-ball' + (nums.length > 5 ? ' text-circle-bet-ball-sm' : '') + '">' + num + '</span>';
+      var html = '<span class="text-circle text-circle-bet-ball' + (nums.length > 5 ? ' text-circle-bet-ball-sm' : '') + '">' + num + '</span>';
+      if (nums.length > 5 && index === 4) {
+        html += '<br />';
+      }
+      return html;
     }));
 
     //目前只有韩国1.5分彩需要显示
 
-    if(planInfo.ticketId === 21) {
+    if(_([21, 24, 25]).contains(planInfo.ticketId)) {
       this.renderSpecialHoverNums(planInfo);
     }
 
@@ -417,7 +422,7 @@ var BettingCenterView = Base.ItemView.extend({
       this.infoModel.changeToUpdate();
     } else {
       if (this.$el.closest('html').length !== 0 && planInfo.sale && planInfo.lastPlanId !== planInfo.planId) {
-        Global.ui.notification.show('<span class="text-blue">' + planInfo.lastPlanId + '</span>期已截止<br/>当前期为<span class="text-blue">' + planInfo.planId + '</span>期<br/>投注时请注意期号！',{id:'ticketNotice'});
+        Global.ui.notification.show('<span class="text-passion">' + planInfo.lastPlanId + '</span>期已截止<br/>当前期为<span class="text-passion">' + planInfo.planId + '</span>期<br/>投注时请注意期号！',{id:'ticketNotice'});
       }
     }
   },
@@ -584,7 +589,10 @@ var BettingCenterView = Base.ItemView.extend({
     }
     switch (playRule.type) {
       case 'select':
-        this.currentPlayAreaView = new PlayAreaSelectView(playRule);
+        this.currentPlayAreaView = new PlayAreaSelectView(playRule)
+          .on('area:render', function(rowNum) {
+            this.$mainArea.toggleClass('be-main-area-more-row', rowNum > 5);
+          }, this);
         break;
       case 'input':
         this.currentPlayAreaView = new PlayAreaInputView(playRule);
@@ -653,7 +661,8 @@ var BettingCenterView = Base.ItemView.extend({
 
     this.timer = _.delay(function() {
       self.getNewPlan();
-    }, 2200);
+    }, 5000);
+    // }, 2200);
 
     //只有销售时才进行倒计时
     if (sale) {
