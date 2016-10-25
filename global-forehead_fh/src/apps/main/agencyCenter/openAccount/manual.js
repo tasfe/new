@@ -230,7 +230,7 @@ var OpenAccountManageView = Base.ItemView.extend({
   showCopyDailog: function(data) {
     var $dialog = Global.ui.dialog.show({
       title: '开户成功',
-      size: 'modal-sm',
+      size: 'modal-sm modal-top-mlg',
       body: '<form><div class="width-smd m-center ">' +
       '<div class="control-group"><label class="text-left">账号:&nbsp;&nbsp;' + data.userName + '</label></div>' +
       '<div class="control-group"><label class="text-left">密码:&nbsp;&nbsp;' + data.loginPwd + '</label></div>' +

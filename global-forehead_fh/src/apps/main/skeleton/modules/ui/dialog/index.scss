@@ -20,10 +20,6 @@
   opacity: $modal-fade-opacity;
 }
 
-.modal-open {
-  overflow: hidden;
-}
-
 .modal {
   position: fixed;
   top: 0;
@@ -67,14 +63,10 @@
     }
   }
 
-  .btn.confirm-agree {
-    color: $font-color-coffee;
-    background: $color-sunshine;
-    border: 0;
-    border-radius: 2px;
-  }
-  .btn.btn-link {
-    color: $font-color-coffee;
+  &.modal-top-mlg {
+    &.in {
+      top: 25%;
+    }
   }
 }
 
@@ -229,6 +221,12 @@ button.close {
     &.fade {
       &.in {
         top: 5%;
+      }
+    }
+
+    &.modal-top-mlg {
+      &.in {
+        top: 10%;
       }
     }
 
