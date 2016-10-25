@@ -103,6 +103,13 @@ class Home extends Page {
     }, resp => {
       var leftSecond = resp.root.dataList[0] && resp.root.dataList[0].leftSeconds;
       var totalSeconds = resp.root.dataList[0] && resp.root.dataList[0].totalSeconds;
+      // var cId = 'js-sec-circle'+id;
+      // var circle = document.getElementById(cId);
+      // $(circle).attr('transform','rotate(-90 117 117)');
+      // $(circle).attr('-webkit-transform','rotate(-90 117 117)');
+      // $(circle).attr('-moz-transform','rotate(-90 117 117 ');
+      // $(circle).attr('-ms-transform','rotate(-90 117 117');
+      // $(circle).attr('-o-transform','rotate(-90 117 117');
       if(leftSecond){
         let timmer2;
         timmer2 = setInterval(function() {
@@ -128,9 +135,9 @@ class Home extends Page {
     var e = leftTime / totalSeconds * this.deg;
     var cId = 'js-sec-circle'+id;
     var n = document.getElementById(cId);
-    if(n){
-      n.style.strokeDashoffset = e - this.deg;
-    }
+    // if(n){
+    //   n.style.strokeDashoffset = e - this.deg;
+    // }
     var hours = Math.floor(leftTime/(60*60));
     var minutes = Math.floor((leftTime%(60*60))/60);
     var seconds = leftTime%60;
