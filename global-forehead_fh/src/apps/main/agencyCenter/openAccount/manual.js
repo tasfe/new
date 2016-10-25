@@ -57,10 +57,10 @@ var OpenAccountManageView = Base.ItemView.extend({
           if(self.acctInfo.userGroupLevel === 0) {
             // self.$rebate.attr('data-parsley-range', '[' + _(data.subRebateRange.rebateMin).formatDiv(10, {fixed: 1}) + ', ' + _(127).formatDiv(10, {fixed: 1}) + ']');
             self.$rebate.attr('data-parsley-range', '[' + _(data.subRebateRange.rebateMax).formatDiv(10, {fixed: 1}) + ', ' + _(data.subRebateRange.rebateMax).formatDiv(10, {fixed: 1}) + ']');
-            self.$manualTip.text('可配置范围(' + data.subRebateRange.rebateMax + '～' + _(data.subRebateRange.rebateMax).formatDiv(10, {fixed: 1}) + ')');
+            self.$manualTip.text('可配置范围(' + _(data.subRebateRange.rebateMax).formatDiv(10, {fixed: 1}) + '～' + _(data.subRebateRange.rebateMax).formatDiv(10, {fixed: 1}) + ')');
           } else {
             self.$rebate.attr('data-parsley-range', '[' + _(data.subRebateRange.rebateMin).formatDiv(10, {fixed: 1}) + ', ' + _(data.subRebateRange.rebateMax).formatDiv(10, {fixed: 1}) + ']');
-            self.$manualTip.text('可配置范围(' + data.subRebateRange.rebateMin + '～' + _(data.subRebateRange.rebateMax).formatDiv(10, {fixed: 1}) + ')');
+            self.$manualTip.text('可配置范围(' + _(data.subRebateRange.rebateMin).formatDiv(10, {fixed: 1}) + '～' + _(data.subRebateRange.rebateMax).formatDiv(10, {fixed: 1}) + ')');
           }
 
           self._getTable(_(data.ticketSeriesList).chain().filter(function(ticketSeries) {

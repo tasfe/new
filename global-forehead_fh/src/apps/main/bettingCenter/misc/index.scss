@@ -187,7 +187,7 @@ $main-area-width: 870px;
 }
 
 .bc-play-example {
-  margin-right: 40px;
+  margin-right: 15px;
   display: inline-block;
   width: 600px;
   white-space: nowrap;
@@ -558,20 +558,20 @@ $main-area-width: 870px;
   height: 40px;
 }
 
-.number-div-style {
-  height: 24px;
-  width: 40px;
-  border: 1px solid $gray-color;
-  text-align: center;
-  display: inline-block;
-  cursor: pointer;
-  border-radius: $globalBtnRadius;
-  vertical-align: middle;
-
-  //&.seq-div {
-  //  background-color: lightgrey;
-  //}
-}
+//.number-div-style {
+//  height: 24px;
+//  width: 40px;
+//  border: 1px solid $gray-color;
+//  text-align: center;
+//  display: inline-block;
+//  cursor: pointer;
+//  border-radius: $globalBtnRadius;
+//  vertical-align: middle;
+//
+//  //&.seq-div {
+//  //  background-color: lightgrey;
+//  //}
+//}
 
 .control-inlin-quick {
   display: inline-block;

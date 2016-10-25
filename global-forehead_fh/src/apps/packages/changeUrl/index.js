@@ -40,8 +40,13 @@ $.widget('gl.changeUrl', {
                     }else{
                         var className = '';
                     }
+                    if (bannerinfo.advUrl) {
+                        var href = bannerinfo.advUrl;
+                    }else{
+                        var href = 'javascript:void(0)';
+                    }
                     html += '<div class="item '+className+'">' +
-                        '<a href="'+bannerinfo.advUrl+'" target="_blank">' +
+                        '<a href="'+href+'" target="_blank">' +
                         '<img src="'+bannerinfo.picUrl+'" alt="'+bannerinfo.advName+'" >' +
                         '</a>' +
                         '</div>';
