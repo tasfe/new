@@ -3,11 +3,13 @@ var path = require('path');
 var rsync = require('gulp-rsync');
 
 gulp.task('rsync', function() {
-  return gulp.src(path.resolve('./local_modules'))
+  console.log(gulp.src(path.resolve('./local_modules') + '/mockup/dev-proxy.js'));
+  return gulp.src(path.resolve('./local_modules') + '/mockup/dev-proxy.js')
     .pipe(rsync({
       progress: true,
-      root: '/',
+      root: path.resolve('./local_modules'),
       hostname: '52.196.220.175',
-      destination: 'data/test'
+      username: 'root',
+      destination: '/data/test'
     }));
 });
