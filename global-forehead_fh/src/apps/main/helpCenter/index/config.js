@@ -16,7 +16,7 @@ var helpConfig = {
         },
         {
           args: 'page=gr-register',
-          name: '注册和购彩',
+          name: '平台购彩',
           html: require('helpCenter/greenhand/register.html')
         },
         {
@@ -154,11 +154,11 @@ var helpConfig = {
       name: '客户端',
       icon: require('./help-client.png'),
       sub: [
-        {
-          args: 'page=client-pc',
-          name: ' PC客户端',
-          html: require('helpCenter/client/client-pc.html')
-        },
+        // {
+        //   args: 'page=client-pc',
+        //   name: ' PC客户端',
+        //   html: require('helpCenter/client/client-pc.html')
+        // },
         {
           args: 'page=client-mobile',
           name: '手机移动端',

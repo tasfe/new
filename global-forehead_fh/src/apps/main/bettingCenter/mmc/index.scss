@@ -626,6 +626,9 @@
       &:hover{
         background: url(mmc-add-hover.png) no-repeat;
       }
+      &:focus{
+        outline: none;
+      }
     }
 
   }

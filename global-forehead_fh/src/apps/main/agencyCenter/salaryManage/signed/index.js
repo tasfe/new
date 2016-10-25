@@ -175,8 +175,8 @@ var SignedView = Base.ItemView.extend({
     this.StaticGrid = this.$table.staticGrid('instance');
 
 
-    this.$('.js-ac-sm-sign-type[data-id='+(this.options.salaryType=='1'?'1':'0')+']').addClass('active');
-    this.$('.js-ac-sm-sign-type').eq(0).trigger('click');
+    this.$('.js-ac-sm-sign-type[data-type='+(this.options.salaryType=='1'?'1':'0')+']').trigger('click');
+    // this.$('.js-ac-sm-sign-type').eq(0).trigger('click');
     var minSales = this.$minSales.val(this.options.minSales || '0');
     var minSalary = this.$minSalary.val(this.options.minSalary || '0');
     var salesSpan = this.$salesSpan.val(this.options.salesSpan || '0');
@@ -325,7 +325,7 @@ var SignedView = Base.ItemView.extend({
       return false;
     }
 
-    if( _(salaryList).size()===0 && salaryType==='0' ){
+    if( _(salaryList).size()===0 && salaryType===0 ){
       return false;
     }else{
       return {
@@ -341,8 +341,6 @@ var SignedView = Base.ItemView.extend({
         needLoss: needLoss
       }
     }
-
-
   },
   signTypeSelectHandler: function(e){
     this.$CommonContainer = this.$('.js-ac-sm-sign-common');
