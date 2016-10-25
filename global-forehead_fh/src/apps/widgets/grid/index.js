@@ -12,7 +12,8 @@ $.widget('gl.grid', {
     namespace: 'glGrid',
     tableClass: 'table table-bordered ',
     footerClass: '',
-    height: 300,
+    height: 330,
+    footerHeight: 33,
     columnDefinitions: [],
     tip: '',
     emptyTip: '暂无数据',
@@ -99,6 +100,10 @@ $.widget('gl.grid', {
     ));
 
     this.pagination = this.$pagination.pagination('instance');
+
+    if (this.options.footerHeight) {
+      this.$footerDiv.height(this.options.footerHeight);
+    }
 
     this._bindEvents();
   },
