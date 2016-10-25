@@ -1401,6 +1401,9 @@ var BettingCenterView = Base.ItemView.extend({
 
       this.$CurrentResult.addClass('hidden');
       this.$CurrentResult.html('<span></span>');
+      if(this.BetTimes==1){
+        return ;
+      }
       if (prize > 0) {
         var $dialog = Global.ui.dialog.show({
           body: this.betResultTotalWinTpl({
