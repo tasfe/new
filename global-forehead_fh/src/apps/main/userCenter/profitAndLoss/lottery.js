@@ -74,6 +74,7 @@ var ReportManageView = SearchGrid.extend({
         //  width: '9%'
         //}
       ],
+      initPagination: false,
       tip: '<div class="m-left-md">注意: 盈亏记录只保留最近35天数据。</div>',
       gridOps: {
         emptyTip: '没有盈亏记录'

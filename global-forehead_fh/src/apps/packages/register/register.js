@@ -29,6 +29,9 @@ $.widget('gl.register', {
     this._setupForm();
     this._bindEvent();
     this.safetyTipsBind();
+
+    this.$form = this.element.find('.js-register-form');
+    this.parsley = this.$form.parsley(Global.validator.getInlineErrorConfig());
   },
 
 
@@ -84,40 +87,50 @@ $.widget('gl.register', {
     var self = this;
     var $target = $(e.currentTarget);
     var iIs = 0;
+
+    //var $form = this.element.find('.js-register-form');
+
+    //var parsley = $form.parsley(Global.validator.getInlineErrorConfig());
+
+    if (!this.parsley.validate()) {
+      return false;
+    }
+    //var clpValidate = this.$changeLoginPasswordForm.parsley(Global.validator.getInlineErrorConfig()).validate();
+
     var str= $('.js-rp-loginPwd1').val();
     var str2= $('.js-rp-loginPwd2').val();
-    if (str.length == 0) {
-      self.$('.content-julien .right dl').eq(1).addClass('wrong');
-      self.$('.content-julien .right dl').eq(1).removeClass('correct');
-      self.$('.content-julien .right dl .messageBox span').eq(0).html('不能为空');
-
-      iIs = 1;
-    }
-    else{
-      if (str2.length == 0) {
-        $('.content-julien .right dl').eq(2).addClass('wrong');
-        $('.content-julien .right dl').eq(2).removeClass('correct');
-
-        iIs = 1;
-      }
-    }
-
-    var str3= $('.js-re-userName').val();
-    if (str3.length == 0) {
-      $('.content-julien .right dl').eq(0).addClass('wrong');
-      $('.content-julien .right dl').eq(0).removeClass('correct');
-      $('.content-julien .right dl .messageBox span').eq(0).html('不能为空');
-
-      iIs = 1;
-    }
-
-    if ($('.js-rp-valCode').val() == '') {
-      self.refreshValCodeHandler();
-      $('.js-code').addClass('wrong');
-      $('.js-code').removeClass('correct');
-
-      iIs = 1;
-    }
+    //if (str.length == 0) {
+    //  self.$('.content-julien .right dl').eq(1).addClass('wrong');
+    //  self.$('.content-julien .right dl').eq(1).removeClass('correct');
+    //  self.$('.content-julien .right dl .messageBox span').eq(0).html('不能为空');
+    //
+    //  iIs = 1;
+    //}
+    //else{
+    //  if (str2.length == 0) {
+    //    $('.content-julien .right dl').eq(2).addClass('wrong');
+    //    $('.content-julien .right dl').eq(2).removeClass('correct');
+    //
+    //    iIs = 1;
+    //  }
+    //}
+    //
+    //var str3= $('.js-re-userName').val();
+    //if (str3.length == 0) {
+    //  $('.content-julien .right dl').eq(0).addClass('wrong');
+    //  $('.content-julien .right dl').eq(0).removeClass('correct');
+    //  $('.content-julien .right dl .messageBox span').eq(0).html('不能为空');
+    //
+    //  iIs = 1;
+    //}
+    //
+    //if ($('.js-rp-valCode').val() == '') {
+    //  self.refreshValCodeHandler();
+    //  $('.js-code').addClass('wrong');
+    //  $('.js-code').removeClass('correct');
+    //
+    //  iIs = 1;
+    //}
 
     var obj = $('.content-julien .right dl');
     if ( iIs == 0 && obj.eq(0).hasClass('correct') && obj.eq(1).hasClass('correct') && obj.eq(2).hasClass('correct') && obj.eq(3).hasClass('correct') ) {
@@ -258,8 +271,12 @@ $.widget('gl.register', {
     $('.js-rp-loginPwd1').on('blur', newLoginPassword);
     $('.js-rp-loginPwd2').on('blur', newLoginPassword2);
 
-    $('.js-rp-valCode').on('input', function() {
+    var $valCode = $('.js-rp-valCode');
+    inputParsley = $valCode.parsley(Global.validator.getInlineErrorConfig());
+    $valCode.on('input', function() {
       if ($('.js-rp-valCode').val().length == 4) {
+
+        ParsleyUI.removeError(inputParsley, 'remoteError');
         Global.sync.ajax({
           type: 'POST',
           url: '/acct/imgcode/val.json',
@@ -268,16 +285,13 @@ $.widget('gl.register', {
           }
         }).done(function (data, status, xhr) {
           if (data.result === 0) {
-            $('.js-code').removeClass('wrong');
-            $('.js-code').addClass('correct');
           }else{
             self.refreshValCodeHandler();
-            $('.js-code').addClass('wrong');
-            $('.js-code').removeClass('correct');
+            ParsleyUI.addError(inputParsley, 'remoteError', '验证码不正确');
           }
         }).fail(function () {
             self.refreshValCodeHandler();
-            Global.ui.notification.show('验证码报错');
+            //Global.ui.notification.show('验证码报错');
         });
       }
     });

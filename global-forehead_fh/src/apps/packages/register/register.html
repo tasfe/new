@@ -5,25 +5,43 @@
   <a href="download.html" class="m3">客户端下载</a>
 </div>
 <div class="register">
-  <div class="title-julien">
+  <div class="register-title">
     用户注册
+    <span class="register-title-eng">USER</span>
+    <span class="register-title-eng">REGISTER</span>
+    <div class="serverOnline">
+      <span class="serverOnline-msg">遇到问题？联系</span><a href="javascript:void(0)" onclick="newwin = window.open('http://v88.live800.com/live800/chatClient/chatbox.jsp?companyID=731101&configID=2579&jid=4521278370','service',' width=800,height=680'); newwin.moveTo(100,50);" title="联系客服">在线客服</a>
+      <!--联系<a href="javascript:void(0)" title="联系客服">在线客服</a>-->
+    </div>
   </div>
-  <div class="serverOnline">
-    联系<a href="javascript:void(0)" onclick="newwin = window.open('http://v88.live800.com/live800/chatClient/chatbox.jsp?companyID=731101&configID=2579&jid=4521278370','service',' width=800,height=680'); newwin.moveTo(100,50);" title="联系客服">在线客服</a>
-    <!--联系<a href="javascript:void(0)" title="联系客服">在线客服</a>-->
-  </div>
-  <div class="content-julien">
+
+  <form class="js-register-form register-content" action="javascript:void(0)">
+    <div class="content-up">
     <div id="jsREADCarousel" class="carousel slide left" data-ride="carousel">
-      <ol class="js-re-navigate carousel-indicators">
-      </ol>
-      <div class="js-re-ad-container carousel-inner" role="listbox">
+      <div class="js-login-banner">
+        <div class="row scroll" id="kvsSrollFade">
+          <div class="col-1">
+            <ul>
+
+            </ul>
+          </div>
+          <div class="scroll-btn">
+            <div class="btn left"></div>
+            <div class="btn right"></div>
+          </div>
+          <div class="scroll-dots indexKV-scroll">
+            <!-- <a class="active">1</a>
+            <a class="">2</a>
+            <a class="">3</a> -->
+          </div>
+        </div>
       </div>
     </div>
-    <div class="right">
+    <div class="right-content">
       <dl>
-        <dt><span>*</span> 用户名：</dt>
+        <dt>用户名：</dt>
         <dd>
-          <input type="text" class="js-re-userName" />
+          <input type="text" class="js-re-userName" required  data-parsley-username />
           <p>4-16个字符，支持英文和数字，不能以数字开头</p>
           <i></i>
           <div class="messageBox">
@@ -33,9 +51,9 @@
         </dd>
       </dl>
       <dl>
-        <dt><span>*</span> 请输密码：</dt>
+        <dt>输入密码：</dt>
         <dd>
-          <input type="password" class="js-rp-loginPwd1" />
+          <input type="password" class="js-rp-loginPwd1" required data-parsley-nospacechar data-parsley-notisnumandlessthen9  data-parsley-length="[6, 20]" />
           <p>长度6-20位字符，支持数字，大小写字母和符号组合（不含空格）,不能是9位以下的纯数字</p>
           <i></i>
           <div class="messageBox">
@@ -49,8 +67,8 @@
         <p>连续字符密码易被破解，请用多组合的密码</p>
       </div>
       <dl>
-        <dt><span>*</span> 确认密码：</dt>
-        <dd><input type="password" class="js-rp-loginPwd2" >
+        <dt>确认密码：</dt>
+        <dd><input type="password" class="js-rp-loginPwd2" required data-parsley-equalto=".js-rp-loginPwd1">
         <i></i>
           <div class="messageBox">
             <b></b>
@@ -59,8 +77,8 @@
         </dd>
       </dl>
       <dl class="js-code code">
-        <dt><span>*</span> 验证码：</dt>
-        <dd><input type="text" class="js-rp-valCode" maxlength="4" ><img  class="js-re-valImg var-code">
+        <dt>验证码：</dt>
+        <dd><input type="text" class="js-rp-valCode" maxlength="4" required ><img  class="js-re-valImg var-code">
         <i></i>
           <div class="messageBox">
             <b></b>
@@ -72,26 +90,42 @@
         <dt></dt>
         <dd>
           <button type="button" class="js-re-register-submit" data-loading-text="提交中">立即注册</button>
-          <a href="login.html">已有账号登录</a>
+          <span class="register-login-msg">已有账号</span><a href="login.html" ><span class="register-login-login">登录</span></a>
         </dd>
       </dl>
     </div>
-    <div class="bottom">
-      <a href="#">
-        充值更快捷
-      </a>
-      <a href="#">
-        账户更安全
-      </a>
-      <a href="#">
-        投注更简单
-      </a>
-      <a href="#">
-        玩法更丰富
-      </a>
-      <a href="#">
-        服务更贴心
-      </a>
+      </div>
+    <div class="register-bottom-pic">
+      </div>
+    <div class="register-bottom">
+      <div class="register-bottom-item">
+        <div class="register-bottom-item-ios-img"></div>
+        <div class="register-bottom-item-msg">
+          <div class="register-bottom-item-msg-title">IOS客户端</div>
+          <div class="register-bottom-item-msg-content">畅快有玩 乐在其中</div>
+        </div>
+      </div>
+      <div class="register-bottom-item">
+        <div class="register-bottom-item-android-img"></div>
+        <div class="register-bottom-item-msg">
+          <div class="register-bottom-item-msg-title">Android客户端</div>
+          <div class="register-bottom-item-msg-content">掌上购彩 轻松自在</div>
+        </div>
+      </div>
+      <div class="register-bottom-item">
+        <div class="register-bottom-item-wap-img"></div>
+        <div class="register-bottom-item-msg">
+          <div class="register-bottom-item-msg-title">手机WAP</div>
+          <div class="register-bottom-item-msg-content">让完美更完美</div>
+        </div>
+      </div>
+      <div class="register-bottom-item">
+        <div class="register-bottom-item-pc-img"></div>
+        <div class="register-bottom-item-msg">
+          <div class="register-bottom-item-msg-title">PC客户端</div>
+          <div class="register-bottom-item-msg-content">更方便更稳定</div>
+        </div>
+      </div>
     </div>
-  </div>
+  </form>
 </div>

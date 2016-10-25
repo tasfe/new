@@ -67,63 +67,87 @@ dl,dt,dd{
 
 .register{
   border: 1px solid #cccccc;
-  width: 1182px;
-  height: 723px;
-  margin: 132px auto 20px auto; 
-
-  padding: 0px 8px;
+  width: 1200px;
+  height: 590px;
+  margin: 132px auto 20px auto;
+  background-color: #fff;
+  box-shadow: 0 1px 1px 0 rgba(5,5,5,.1);
+  border-radius: 5px;
+  padding: 0px 20px;
   font-family: '微软雅黑';
   font-size: 14px;
 
   button{
-    width: 100px;
-    height: 30px;
+    width: 164px;
+    height: 37px;
     color: #fff;
     background-color: #cc0000;
-    font-size: 16px;
+    font-size: 15px;
     border: 0px;
     margin-right: 13px;
     float: left;
+    background: url(./register.png) no-repeat;
+    &:active{
+      outline: none;
+    }
   }
-
-  .title-julien{
-    height: 60px;
+  .register-login-msg{
+    font-size: 12px;
+    margin-left: 20px;
+    margin-right: 6px;
+  }
+  .register-login-login{
+    font-size: 12px;
+    color: #cf3034;
+  }
+  .register-title{
+    height: 50px;
     border-bottom: 1px solid #cccccc;
-    text-align: center;
-    font-size: 16px;
-    line-height: 60px;
+    text-align: left;
+    font-size: 20px;
+    line-height: 50px;
+    .register-title-eng{
+      font-size: 16px;
+      color: #a8a8a8;
+      font-family: BaskOldface;
+    }
   }
-
+  .content-up{
+    width: 100%;
+    height: 365px;
+  }
   .serverOnline{
     height: 50px;
     line-height: 50px;
-    background: url(~base/images/julien/28.png) no-repeat left center;
-    width: 100px;
     padding-left: 27px;
     color: #666666;
     float: right;
-
+    font-size: 12px!important;
+    width: inherit;
+    .serverOnline-msg{
+      margin-right: 5px;
+    }
     a{
-      color: #ff3333;
+      color: #cf3034;
       text-decoration: underline;
     }
   }
 
-  .content-julien{
+  .register-content{
     clear: both;
-    margin: 0px 20px;
+    margin: 30px 0px;
 
     .left{
-      width: 503px;
-      height: 327px;
+      width: 580px;
+      height: 300px;
       float: left;
     }
 
-    .right{
+    .right-content{
       width: 620px;
-      height: 450px;
+      height: 300px;
       float: right;
-
+      margin-top: 10px; 
       .correct{
           i{
             left: 365px;
@@ -142,7 +166,7 @@ dl,dt,dd{
 
 
       input{
-        width: 240px;
+        width: 200px;
       }
 
       dl{
@@ -172,14 +196,16 @@ dl,dt,dd{
       dd{
         width: 500px;
         float: left;
-        line-height: 30px;
+        line-height: 26px;
+        padding: 2px 0;
+        vertical-align: top;
 
         p{
           line-height: 28px;
           font-size: 12px;
           margin: 0px;
           color: #999999;
-          width: 284px;
+          width: 485px;
         }
 
         a{
@@ -191,14 +217,14 @@ dl,dt,dd{
 
       .code{
         margin-bottom: 20px;
-
+        margin-top: 20px;
         input{
           width: 96px;
         }
 
         img{
           height: 28px;
-          margin-left: 10px;
+          margin-left: 105px;
           cursor: pointer;
         }
 
@@ -257,18 +283,70 @@ dl,dt,dd{
         }
       }
     }
-
-    .bottom{
-      background: url(~base/images/julien/re-bottom-bg.png) no-repeat bottom;
+    .register-bottom-pic{
+      background: url(./shadow.png) no-repeat;
+      width: 100%;
+      height: 30px;
+      margin-left: 115px;
+    }
+    .register-bottom{
       height: 81px;
-      width: 978px;
+      width: 100%;
       margin: 0px auto;
-      padding-top: 20px;
       clear: both;
+      margin-top: 10px;
       font-size: 14px;
       font-family: '微软雅黑';
       color: #000000;
-
+      .register-bottom-item{
+        width: 230px;
+        height: 55px;
+        margin-left: 60px;
+        display: inline-block;
+      .register-bottom-item-ios-img{
+        width: 55px;
+        height: 55px;
+        display: inline-block;
+        background: url(./icon1.png) no-repeat;
+        float: left;
+      }
+        .register-bottom-item-android-img{
+          width: 55px;
+          height: 55px;
+          display: inline-block;
+          background: url(./icon2.png) no-repeat;
+          float: left;
+        }
+        .register-bottom-item-wap-img{
+          width: 55px;
+          height: 55px;
+          display: inline-block;
+          background: url(./icon3.png) no-repeat;
+          float: left;
+        }
+        .register-bottom-item-pc-img{
+          width: 55px;
+          height: 55px;
+          display: inline-block;
+          background: url(./icon4.png) no-repeat;
+          float: left;
+        }
+        .register-bottom-item-msg{
+          width: 135px;
+          height: 55px;
+          display: inline-block;
+          margin-top: 5px;
+          margin-left: 15px;
+          .register-bottom-item-msg-title{
+            font-size: 18px;
+            color: #333;
+          }
+          .register-bottom-item-msg-content{
+            font-size: 12px;
+            color: #999;
+          }
+        }
+      }
       a{
         margin-right: 145px;
         text-align: center;
