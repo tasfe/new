@@ -153,6 +153,7 @@ li{
     border: 1px #ccc solid;
     padding: 10px;
     margin-bottom: 60px;
+    height: 450px;
 
     h3{
       font-size: 20px;
@@ -376,4 +377,7 @@ li{
   height: 40px;
   line-height: 35px;
   text-align: center;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;;
 }

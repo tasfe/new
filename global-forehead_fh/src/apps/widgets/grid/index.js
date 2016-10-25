@@ -27,6 +27,7 @@ $.widget('gl.grid', {
     divStyle: '',
 
     //pagination
+    initPagination: true,
     pageIndex: 0,
     pageSize: 10,
     maxPaginationNum: 6,
@@ -92,7 +93,8 @@ $.widget('gl.grid', {
       'maxPaginationNum',
       'onPaginationChange',
       'totalSize'
-    ));
+    ))
+    this.$pagination.toggleClass('hidden', !this.options.initPagination);
 
     this.pagination = this.$pagination.pagination('instance');
 

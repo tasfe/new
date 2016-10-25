@@ -101,6 +101,18 @@ var LoginPwdView = Base.ItemView.extend({
             title: '修改成功',
             content: '登录密码修改成功，请重新登录'
           }));
+          setTimeout(function(){
+            Global.oauth.logout().done(function(data) {
+              if(data && data.result === 0) {
+                Global.cookieCache.clear('token');
+
+                window.location.href = 'login.html';
+              }
+            }).always(function() {
+              Global.ui.loader.hide();
+            });
+          }, 2000);
+
         } else {
           if(res.msg=="fail"&&(res.root!=null)){
           Global.ui.notification.show("验证失败，"+res.root);
