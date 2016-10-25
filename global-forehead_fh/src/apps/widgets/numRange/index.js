@@ -61,7 +61,7 @@ $.widget('gl.numRange', {
 
   //common APIs
 
-  setRange: function(min, max) {
+  setRange: function(min, max, silent) {
     min = Number(min) || 0;
     max = Number(max) || 0;
 
@@ -72,8 +72,12 @@ $.widget('gl.numRange', {
     this.options.min = min;
     this.options.max = max;
 
-    this.numChange(Number(this.$number.val()) || 0);
-    this.options.onChange.call(this, Number(this.$number.val()));
+    var currentVal  = Number(this.$number.val()) || 0;
+
+    if (currentVal < min || currentVal > max || !silent) {
+      this.numChange(currentVal);
+      this.options.onChange.call(this, Number(this.$number.val()));
+    }
   },
 
   //event handlers
@@ -97,7 +101,7 @@ $.widget('gl.numRange', {
       }, 50);
     }, 300);
 
-    $(document).on('mouseup', function() {
+    $(document).one('mouseup', function() {
       clearTimeout(timeout);
       clearInterval(timer);
       self.options.onChange.call(self, Number(self.$number.val()));

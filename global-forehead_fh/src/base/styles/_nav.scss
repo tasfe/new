@@ -182,7 +182,13 @@
       }
     }
     li {
-      &:hover, &.active {
+      &:hover {
+        a {
+          border: 1px solid $pink-color;
+          border-bottom: 1px solid #ececec;
+        }
+      }
+      &.active {
         color: $hot-color;
         a {
           border: 1px solid $gray-color;

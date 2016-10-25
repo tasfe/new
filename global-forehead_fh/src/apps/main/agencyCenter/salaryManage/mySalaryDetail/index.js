@@ -53,7 +53,7 @@ var SalaryRecordsView = SearchGrid.extend({
 
     _(this.options).extend({
 
-	  height: '309',
+	  height: 330,
 
       columns: [
         {

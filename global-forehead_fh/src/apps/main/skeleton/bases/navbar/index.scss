@@ -49,7 +49,7 @@
       font-size: 20px;
       margin-bottom: -3px;
       position: absolute;
-      top: 6px;
+      top: 7px;
       left: 14px;
     }
 
@@ -68,7 +68,7 @@
     margin-top: 20px;
 
     li {
-      font-size: 18px;
+      font-size: 16px;
       display: inline-block;
       position: relative;
 
@@ -102,10 +102,100 @@
         }
       }
 
-      div {
+      //div {
+      //  display: none;
+      //  position: absolute;
+      //  width: 362px;
+      //  //height: 303px;
+      //  border: 1px solid #999999;
+      //  border-radius: 5px;
+      //  z-index: 999;
+      //  background-color: #ffffff;
+      //  padding: 0px 8px 5px 8px;
+      //  text-align: left;
+      //  left: -150px;
+      //
+      //  > i {
+      //    width: 0;
+      //    height: 0;
+      //    border-width: 6px;
+      //    border-style: dashed dashed solid dashed;
+      //    border-color: transparent transparent #999999 transparent;
+      //    position: absolute;
+      //    left: 180px;
+      //    top: -12px;
+      //  }
+      //
+      //  dl {
+      //    display: block;
+      //
+      //    dt {
+      //      display: block;
+      //      font-size: 14px;
+      //      color: #fff;
+      //      border-bottom: 1px solid #ccc;
+      //      margin-top: 4px;
+      //
+      //      span {
+      //        display: block;
+      //        margin-left: -8px;
+      //        width: 79px;
+      //        padding-right: 20px;
+      //        height: 28px;
+      //        line-height: 28px;
+      //        text-align: center;
+      //        background: url(title-bg.png) no-repeat;
+      //      }
+      //    }
+      //
+      //    &:hover {
+      //      dt {
+      //        span {
+      //          background: url(title-bg.png) no-repeat 0 -28px;
+      //        }
+      //      }
+      //    }
+      //
+      //    dd {
+      //      font-size: 12px;
+      //      float: left;
+      //      margin-right: 5px;
+      //      margin-top: 3px;
+      //
+      //      b {
+      //        font-size: 10px;
+      //        display: inline-block;
+      //        padding: 0px 3px;
+      //        background-color: #f1a14a;
+      //        color: #fff;
+      //        border-radius: 3px;
+      //        margin-left: 2px;
+      //        line-height: 14px;
+      //      }
+      //
+      //      a {
+      //        display: inline-block;
+      //        padding: 0px 8px;
+      //        border-radius: 20px;
+      //
+      //        &:hover {
+      //          color: #fff;
+      //          background-color: #c3395e;
+      //        }
+      //      }
+      //    }
+      //
+      //    &:after {
+      //      display: block;
+      //      clear: both;
+      //      content: '';
+      //    }
+      //  }
+      //}
+      .lottery-all {
         display: none;
         position: absolute;
-        width: 362px;
+        width: 810px;
         //height: 303px;
         border: 1px solid #999999;
         border-radius: 5px;
@@ -113,8 +203,8 @@
         background-color: #ffffff;
         padding: 0px 8px 5px 8px;
         text-align: left;
-        left: -150px;
-
+        left: -400px;
+        box-shadow: 0px 5px 5px #c0c0c0;
         > i {
           width: 0;
           height: 0;
@@ -122,55 +212,84 @@
           border-style: dashed dashed solid dashed;
           border-color: transparent transparent #999999 transparent;
           position: absolute;
-          left: 180px;
+          left: 430px;
           top: -12px;
         }
-
-        dl {
+        .split-line{
           display: block;
-
-          dt {
+          float: left;
+          width: 1px;
+          height: 140px;
+          margin-top: 15px;
+          background-color: #cccccc;
+        }
+        .lottery {
+          display: block;
+          float: left;
+          .lottery-title {
             display: block;
-            font-size: 14px;
-            color: #fff;
-            border-bottom: 1px solid #ccc;
-            margin-top: 4px;
-
-            span {
-              display: block;
-              margin-left: -8px;
-              width: 79px;
-              padding-right: 20px;
-              height: 28px;
-              line-height: 28px;
-              text-align: center;
-              background: url(title-bg.png) no-repeat;
+            width: 50px;
+            height: 23px;
+            line-height: 23px;
+            text-align: center;
+            //background: url(title-new-bg.png) no-repeat;
+            color: #333333;
+            margin: 0 auto;
+            margin-top: 10px;
+          }
+          .lottery-title-bottom{
+            display: block;
+            width: 50px;
+            height: 5px;
+            margin: 0 auto;
+            margin-bottom: 10px;
+            &.lottery-title-bottom-ssc{
+              background: linear-gradient(to bottom,#f8a6bc,#ce4f71);
+            }
+            &.lottery-title-bottom-fhc{
+              background: linear-gradient(to bottom,#92bafc,#547cbe);
+            }
+            &.lottery-title-bottom-choose{
+              background: linear-gradient(to bottom,#f18dfd,#b353be);
+            }
+            &.lottery-title-bottom-last{
+              background: linear-gradient(to bottom,#b6ded0,#5bb898);
+            }
+            &.lottery-title-bottom-happy{
+              background: linear-gradient(to bottom,#ecc383,#c89442);
             }
           }
-
-          &:hover {
-            dt {
-              span {
-                background: url(title-bg.png) no-repeat 0 -28px;
-              }
-            }
+          dl{
+            width: 100%;
+            min-height: 130px;
+            display: block;
+            //border: 1px solid #e4e4e4;
+            //border-radius: 5px;
           }
-
           dd {
+            min-width: 100px;
             font-size: 12px;
             float: left;
             margin-right: 5px;
             margin-top: 3px;
-
+            position: relative;
             b {
               font-size: 10px;
               display: inline-block;
               padding: 0px 3px;
-              background-color: #f1a14a;
+             // background-color: #f1a14a;
               color: #fff;
               border-radius: 3px;
               margin-left: 2px;
               line-height: 14px;
+              position: absolute;
+              margin-top: 3px;
+              &.new{
+                background-color: #69bd3b;
+              }
+              &.hot{
+                background-color: #c53131;
+              }
             }
 
             a {
@@ -191,6 +310,19 @@
             content: '';
           }
         }
+        .ssc{
+          max-width: 240px;
+        }
+        .fhc,.choose,.last,.happy-pk10{
+          width: 140px;
+          //margin-left: 8px;
+          text-align: center;
+          dd{
+            width: 100%;
+            margin-left: 0px;
+          }
+        }
+
       }
     }
   }

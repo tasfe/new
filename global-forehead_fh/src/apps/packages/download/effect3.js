@@ -7,7 +7,7 @@ $(function () {
     var $loading = $(".loading");
 
     var $PCDownloadBtn = $('.js-dc-pc-download');
-    var url = _('/yb.exe').toLink();
+    var url = _('/fh.exe').toLink();
     $PCDownloadBtn.attr('href',url);
 
     var clear_page_01;

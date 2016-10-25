@@ -2,7 +2,6 @@
 
 require('./../misc/index.scss');
 
-var bannerConfig = require('../misc/bannerConfig');
 var ticketConfig = require('skeleton/misc/ticketConfig');
 
 var LotteryTypeListView = require('dashboard/views/lotteryTypeList');
@@ -28,6 +27,7 @@ var DashboardView = Base.ItemView.extend({
     'click .js-db-ticket-scroll': 'ticketScrollHandler',
     'click .js-dynamic-itemShow': 'dynamicItemShowHandler',
     'click .js-lottery': 'lottertyEnterHandler',
+    'click .js-betting-steward':'comingSoonHandler',
     'mouseover .js-athena_st_07': 'tempMouseover',
     'mouseover .js-athena_st_08': 'tempMouseover',
     'mouseover .js-athena_st_09': 'tempMouseover',
@@ -290,7 +290,9 @@ var DashboardView = Base.ItemView.extend({
     });
 
   },
-
+  comingSoonHandler:function () {
+    Global.ui.notification.show("尚未开通，敬请期待");
+  },
   serializeData: function () {
     return {
       loading: Global.ui.loader.get()
@@ -596,7 +598,6 @@ var DashboardView = Base.ItemView.extend({
     var liList = [];
 
     if (_(data).isEmpty()) {
-      //data = bannerConfig;
       data = "";
     }
 
@@ -678,35 +679,37 @@ var DashboardView = Base.ItemView.extend({
     var w3 = 1130;
     var next = 0;
     var childLength = this.$('.db-slogan .g2').children().length;
-    this.$rollListItem = this.$('.db-slogan .g2 a');
-    this.$currentRollingItem = this.$('.db-slogan .g2 .on');
-    w = this.$currentRollingItem.width();
-    //w2 = w;
-    w2 = Number(this.$currentRollingItem.css('left').replace('px',''));
-    self.timer22 = setInterval(function () {
-      if (w2 + w <= 0) {
-        if(childLength === 1){
-          next = 0;
-        }else{
-          next += 1;
-        }
+    if(childLength > 0){
+      this.$rollListItem = this.$('.db-slogan .g2 a');
+      this.$currentRollingItem = this.$('.db-slogan .g2 .on');
+      w = this.$currentRollingItem.width();
+      //w2 = w;
+      w2 = Number(this.$currentRollingItem.css('left').replace('px',''));
+      self.timer22 = setInterval(function () {
+        if (w2 + w <= 0) {
+          if(childLength === 1){
+            next = 0;
+          }else{
+            next += 1;
+          }
 
-        self.$rollListItem.css('left', "1130px");
-        self.$rollListItem.removeClass("on");
-        self.$rollListItem.eq(next).addClass("on");
-        self.$currentRollingItem = self.$rollListItem.eq(next);
-        // console.log(next);
-        if (next == childLength - 1) {
-          next = -1;
-        }
+          self.$rollListItem.css('left', "1130px");
+          self.$rollListItem.removeClass("on");
+          self.$rollListItem.eq(next).addClass("on");
+          self.$currentRollingItem = self.$rollListItem.eq(next);
+          // console.log(next);
+          if (next == childLength - 1) {
+            next = -1;
+          }
 
-        w2 = w3;
-      }
-      else {
-        w2 -= 1;
-      }
-      self.$currentRollingItem.css('left', w2);
-    }, 20);
+          w2 = w3;
+        }
+        else {
+          w2 -= 1;
+        }
+        self.$currentRollingItem.css('left', w2);
+      }, 20);
+    }
   },
 
   //定时获取公告数据 5分钟

@@ -46,7 +46,7 @@ var SalaryManageView = SearchGrid.extend({
 
   initialize: function () {
     _(this.options).extend({
-      height: 309,
+      height: 330,
       title: '报表查询',
       columns: [
         {

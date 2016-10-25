@@ -13,7 +13,7 @@ var TopLevelView = TabView.extend({
 
   className: 'ac-topLevel',
 
-  //startOnLoading: true,
+  startOnLoading: true,
 
   events: {
     'click .js-ac-add-user': 'addUserHandler'
@@ -95,6 +95,7 @@ var TopLevelView = TabView.extend({
           }
         });
     }else{
+      self.loadingFinish();
       TabView.prototype.onRender.apply(self, arguments);
     }
   },

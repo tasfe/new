@@ -60,7 +60,7 @@ var BettingRecordsView = SearchGrid.extend({
       },
       listProp: 'root.betList',
       tip: '',
-      height: 310
+      height: 330
     });
     Global.memoryCache.set('ticketCachedList', []);
   },

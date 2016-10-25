@@ -16,13 +16,6 @@ var FooterView = Base.ItemView.extend({
     var self = this;
     this.$el.html(_(this.template).template()(this.options));
     this.$qrcodebig = this.$(".js-qrcode-big");
-    // this.$('.footer-title-wechat').popover({
-    //   trigger: 'click',
-    //   html: true,
-    //   container: '.footer-wechat-main',
-    //   content: '<div class="js-gl-popover footer-popover"><img src="'+ require('./wechat-qrcode.png')+'"></div>',
-    //   placement: 'top'
-    // });
 
     var $body = $('body');
     var $html = $('html');

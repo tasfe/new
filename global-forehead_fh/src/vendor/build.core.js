@@ -2,7 +2,6 @@
 
 require('./styles/animate.css');
 require('./scripts/modernizr');
-require('./styles/normalize-3.0.2.css');
 
 //from bower
 var s = require('underscore.string/index');

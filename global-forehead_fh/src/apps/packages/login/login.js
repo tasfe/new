@@ -15,12 +15,6 @@ $.widget('gl.login', {
 
   resetInput: false,
 
-  getServerListXhr:function () {
-    return Global.sync.ajax({
-      url: '/info/urls/list.json'
-    });
-  },
-
   _create: function () {
     $('body').css('display','none');
 

@@ -318,10 +318,6 @@
   width: 440px;
 }
 
-.price-ul {
-  position: relative;
-}
-
 .uc-cm-bindDialog {
   background-color: #fff;
   //width: 560px;;
@@ -650,29 +646,8 @@
 
 }
 
-.price-ul {
-  height: 500px;
-}
-
-.price-ul > ul > li.active a {
-  background-color: lightgrey;
-}
-
-.price-ul > ul > li > a {
-
-  &:hover {
-    background-color: lightgrey;
-  }
-  &:visited {
-    background-color: lightgrey;
-  }
-  &:focus {
-    background-color: lightgrey;
-  }
-}
-
 .price-container {
-  height: 500px;
+  height: 400px;
 }
 
 .uc-search-buttondiv {

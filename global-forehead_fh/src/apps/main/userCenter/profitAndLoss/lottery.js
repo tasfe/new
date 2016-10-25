@@ -14,7 +14,7 @@ var ReportManageView = SearchGrid.extend({
 
   initialize: function () {
     _(this.options).extend({
-      height: 434,
+      height: 330,
       title: '报表查询',
       columns: [
         {
@@ -79,10 +79,10 @@ var ReportManageView = SearchGrid.extend({
         emptyTip: '没有盈亏记录'
       },
       ajaxOps: {
-        url: '/fund/fundreport/profitreport.json'
+        url: '/fund/fundreport/amountreport.json'
       },
       subOps: {
-        url: '/fund/fundreport/profitreport.json',
+        url: '/fund/fundreport/amountreport.json',
         data: ['userId']
       }
     });

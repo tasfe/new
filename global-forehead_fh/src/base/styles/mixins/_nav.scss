@@ -1,12 +1,13 @@
 @mixin nav-tab($props) {
 
   $borderColor: map_get($props, border-color);
+  $bottomBorderColor: map_get($props, bottom-border-color);
   $color: map_get($props, color);
   //$bgColor: map_get($props, bg-color);
   $activeColor: map_get($props, active-color);
   $activeBgColor: map_get($props, active-bg-color);
 
-  border-bottom: 3px solid $borderColor;
+  border-bottom: 3px solid $bottomBorderColor;
 
   > {
     li {

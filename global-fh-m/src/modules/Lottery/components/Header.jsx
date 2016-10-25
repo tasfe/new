@@ -14,16 +14,40 @@ import Shaker from './Shaker'
 }))
 class Header extends Component {
 
-  constructor () {
-    super()
-
+  constructor (props) {
+    super(props)
+    var self = this;
     this.refreshId = window.keyGenerator()
+    this.state = {
+      leftSecond: 0,
+      totalSeconds: 0
+    }
+
+    ajax({
+      url: '/ticket/ticketmod/ticketinfo.json',
+      data: {ticketId: props.id || props.lotteryInfo.ticketId},
+      abort: false
+    }, resp => {
+      this.refreshId = window.keyGenerator()
+      self.setState({
+        leftSecond: resp.root && resp.root.leftSecond,
+        totalSeconds: resp.root && resp.root.totalSecond
+      });
+    }, err => {
+      // window.Alert({
+      //   content: err.msg || '获取倒计时信息失败！'
+      // });
+    })
   }
 
   componentWillReceiveProps (nextProps) {
-    if (nextProps.lotteryInfo !== this.props.lotteryInfo) {
-      this.refreshId = window.keyGenerator()
-    }
+    // if (nextProps.lotteryInfo !== this.props.lotteryInfo) {
+    //   this.refreshId = window.keyGenerator()
+    // }
+  }
+
+  componentWillUnmount() {
+    console.log('ummount header XXXX')
   }
 
   showBetMissTip () {
@@ -34,7 +58,7 @@ class Header extends Component {
       noControl: true,
       autoHide: true,
       title: '奖期切换',
-      content: lotteryConfig.info.zhName + `本期已结束，投注进入第<a class="link">${lotteryInfo.nextPlanId}</a>期`
+      content: lotteryConfig.info.zhName + `本期已结束，投注进入第<a class="link">${lotteryInfo.nextPlanId}</a>期`,
     })
   }
 
@@ -64,14 +88,16 @@ class Header extends Component {
           <span> </span>
           <CountingDown
             refreshId={this.refreshId}
-            time={lotteryInfo.totalSecond}
-            left={lotteryInfo.sale ? lotteryInfo.leftSecond : 0}
+            time={this.state.totalSeconds}
+            left={lotteryInfo.sale ? this.state.leftSecond : 0}
             loop={!!lotteryInfo.sale}
             format="H:M:S"
             callback={::this.showBetMissTip}
           />
         </div>
-        {rightComponent || (showShaker && <Shaker />)}
+        {rightComponent }
+        {//屏蔽摇一摇rightComponent || (showShaker && <Shaker />)
+        }
       </div>)
     
   }

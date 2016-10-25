@@ -105,7 +105,18 @@ module.exports = function(options) {
       chunks: entryInfo.chunks,
       inject: 'body',
       favicon: entryInfo.favicon,
-      resources : entryInfo.resources
+      resources : entryInfo.resources,
+      chunksSortMode: function(a, b) {
+        if (a.entry !== b.entry) {
+          return b.entry ? 1 : -1;
+        } else if (a.names[0] === 'base' || b.names[0] === 'base') {
+          return b.names[0] === 'base' ? 1 : -1;
+        } else if (a.names[0] === 'vendor' || b.names[0] === 'vendor') {
+          return b.names[0] === 'vendor' ? 1 : -1;
+        } else {
+          return b.id - a.id;
+        }
+      }
     }));
   });
 

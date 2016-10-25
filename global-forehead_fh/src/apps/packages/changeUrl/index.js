@@ -12,6 +12,12 @@ $.widget('gl.changeUrl', {
       url: '/info/urls/list.json'
     });
   },
+  getBannerADXhr: function () {
+     return Global.sync.ajax({
+          url: '/acct/usernotice/getroadadvertise.json'
+     });
+  },
+
 
   _create: function () {
     var self =this;
@@ -19,6 +25,39 @@ $.widget('gl.changeUrl', {
       time: moment().format('M月DD日 ddd'),
       remember: Global.localCache.get('account.remember')
     }));
+      $('#jsDbCarouselChangeUrl').carousel({
+          interval: 5000
+      });
+    this.getBannerADXhr()
+        .done(function (res) {
+            console.log(JSON.stringify(res));
+            if(res.result === 0){
+                var datainfo = res.root;
+                var html = '';
+                _(datainfo).each(function (bannerinfo,index,list) {
+                    if(index === 0){
+                        var className = 'active';
+                    }else{
+                        var className = '';
+                    }
+                    if (bannerinfo.advUrl) {
+                        var href = bannerinfo.advUrl;
+                    }else{
+                        var href = 'javascript:void(0)';
+                    }
+                    html += '<div class="item '+className+'">' +
+                        '<a href="'+href+'" target="_blank">' +
+                        '<img src="'+bannerinfo.picUrl+'" alt="'+bannerinfo.advName+'" >' +
+                        '</a>' +
+                        '</div>';
+                });
+                $(".js-db-mb-item").html(html);
+            }else{
+                //数据请求失败
+                $(".banner").addClass("banner-defult");
+            }
+
+        });
 
     this._connectTest();
 

@@ -45,7 +45,9 @@ var BettingCenterView = Base.ItemView.extend({
     'click .js-bc-quick-bet': 'quickBetHandler',
     'click .js-bc-btn-lottery-confirm': 'lotteryConfirmHandler',
     'click .js-bc-records-tab': 'toggleTabHandler',
-    'click .js-collect':'confirmCollectHandler'
+    // 'click .js-collect':'confirmCollectHandler', //收藏事件
+    'click .js-collect':'comingSoonHandler', //收藏事件
+    'click .js-betting-steward':'comingSoonHandler'
   },
 
   getPersonalInfoXhr: function() {
@@ -206,10 +208,10 @@ var BettingCenterView = Base.ItemView.extend({
     this.lotteryPreview = this.$lotteryPreview.staticGrid({
       tableClass: 'table',
       colModel: [
-        {label: '玩法/投注内容', name: 'title', key: true, width: '160px'},
+        {label: '玩法/投注内容', name: 'title', key: true, width: '40%'},
         //{label: '奖金模式', name: 'bonusMode', width: '20%'},
-        {label: '注数', name: 'mode', width: '60px'},
-        {label: '投注金额', name: 'mode2', width: '20%'},
+        {label: '注数', name: 'mode', width: '20%'},
+        {label: '投注金额', name: 'mode2', width: '27%'},
         {label: '<i class="js-bc-lottery-clear fa fa-trash font-sm"></i>', name: 'mode3', width: '10%'}
         //{label: '注数/倍数/模式', name: 'mode', width: '20%'}
         //{label: '投注金额', name: 'bettingMoney', width: '17%'}
@@ -280,9 +282,9 @@ var BettingCenterView = Base.ItemView.extend({
       },
       onOverMax: function(maxNum) {
         Global.ui.notification.show(
-          '您填写的倍数已超出平台限定的单注中奖限额<span class="text-blue">' +
+          '您填写的倍数已超出平台限定的单注中奖限额<span class="text-passion">' +
           _(self.rulesCollection.limitMoney).convert2yuan() + '</span>元，' +
-          '已为您计算出本次最多可填写倍数为：<span class="text-blue">' + maxNum + '</span>倍'
+          '已为您计算出本次最多可填写倍数为：<span class="text-passion">' + maxNum + '</span>倍'
         );
       }
     });
@@ -330,7 +332,7 @@ var BettingCenterView = Base.ItemView.extend({
 
     //目前只有韩国1.5分彩需要显示
 
-    if(planInfo.ticketId === 21) {
+    if(_([21, 24, 25]).contains(planInfo.ticketId)) {
       this.renderSpecialHoverNums(planInfo);
     }
 
@@ -422,7 +424,7 @@ var BettingCenterView = Base.ItemView.extend({
       this.infoModel.changeToUpdate();
     } else {
       if (this.$el.closest('html').length !== 0 && planInfo.sale && planInfo.lastPlanId !== planInfo.planId) {
-        Global.ui.notification.show('<span class="text-blue">' + planInfo.lastPlanId + '</span>期已截止<br/>当前期为<span class="text-blue">' + planInfo.planId + '</span>期<br/>投注时请注意期号！',{id:'ticketNotice'});
+        Global.ui.notification.show('<span class="text-passion">' + planInfo.lastPlanId + '</span>期已截止<br/>当前期为<span class="text-passion">' + planInfo.planId + '</span>期<br/>投注时请注意期号！',{id:'ticketNotice'});
       }
     }
   },
@@ -525,7 +527,7 @@ var BettingCenterView = Base.ItemView.extend({
 
   renderPlayInfo: function(playInfo) {
 
-    this.$playExample.html('<i class="fa fa-question-circle"></i>玩法说明：' + playInfo.playExample).attr('title', playInfo.playExample);
+    this.$playExample.html('<i class="fa fa-question-circle"></i>中奖举例：' + playInfo.playExample).attr('title', playInfo.playExample);
     this.$playExample2.html( playInfo.playDes.replace(/\|/g, '<br />').replace(/\[max\]/g,_(playInfo.betMethodMax).chain().formatDiv(10000).floor(4).value()).replace(/\[min\]/g,_(playInfo.betMethodMin).chain().formatDiv(10000).floor(4).value()) );
     // if (this.$playTip.data('popover')) {
     //   this.$playTip.popover('destroy');
@@ -589,7 +591,10 @@ var BettingCenterView = Base.ItemView.extend({
     }
     switch (playRule.type) {
       case 'select':
-        this.currentPlayAreaView = new PlayAreaSelectView(playRule);
+        this.currentPlayAreaView = new PlayAreaSelectView(playRule)
+          .on('area:render', function(rowNum) {
+            this.$mainArea.toggleClass('be-main-area-more-row', rowNum > 5);
+          }, this);
         break;
       case 'input':
         this.currentPlayAreaView = new PlayAreaInputView(playRule);
@@ -658,7 +663,8 @@ var BettingCenterView = Base.ItemView.extend({
 
     this.timer = _.delay(function() {
       self.getNewPlan();
-    }, 2200);
+    }, 5000);
+    // }, 2200);
 
     //只有销售时才进行倒计时
     if (sale) {
@@ -696,20 +702,18 @@ var BettingCenterView = Base.ItemView.extend({
   },
 
   renderLotteryPreviewAdd: function() {
-    var previewList = this.model.get('previewList');
     var self = this;
+
+    var previewList = this.model.get('previewList');
     var rows = _(previewList).map(function(previewInfo) {
-      // if(!(IDsSuper3.getArr().indexOf(parseInt(previewInfo.playId.toString().slice(0,3))) === -1)){
-      //   var title = '<span class="text-hot">【超级3000_' + previewInfo.levelName + '_' + previewInfo.playName + '】 ';
-      //   var sf = true;
-      // }else{
-        var title = '[' + previewInfo.levelName + '_' + previewInfo.playName + '] ';
-        var sf = false;
-      // }
+      var title = '';
+
       if (previewInfo.formatBettingNumber.length > 7) {
-        title += '<a href="javascript:void(0)" class="js-bc-betting-preview-detail btn-link">' +
-          previewInfo.formatBettingNumber.slice(0, 7) + '...</a></span>';
+        title += '<a href="javascript:void(0)" class="js-bc-betting-preview-detail">' +
+          '<span class="preview-row-title ellipsis btn-link">[' + previewInfo.levelName + '_' + previewInfo.playName + '] ';
+        title += previewInfo.formatBettingNumber.slice(0, 7) + '</span></a>';
       } else {
+        title += '<span class="preview-row-title ellipsis">[' + previewInfo.levelName + '_' + previewInfo.playName + '] ';
         title += previewInfo.formatBettingNumber + '</span>';
       }
       return {
@@ -729,15 +733,15 @@ var BettingCenterView = Base.ItemView.extend({
       var $detail = $row.find('.js-bc-betting-preview-detail');
       var betNumber = previewList[index].bettingNumber;
       var is11X5 = (self.options.ticketInfo.title.indexOf('11选5') !== -1);
-      betNumber = is11X5 ? betNumber : betNumber.replace(/ /g,'');
+      betNumber = is11X5 ? betNumber : betNumber.replace(/ /g, '');
 
-      if ($detail.length) {
+      if($detail.length) {
         $detail.popover({
           title: '详细号码',
           trigger: 'click',
           html: true,
-          container: this.$el,
-          content: '<div class="js-pf-popover">'+betNumber+ '</div>',
+          container: self.$el,
+          content: '<div class="js-pf-popover">' + betNumber + '</div>',
           placement: 'bottom'
         });
       }
@@ -1185,6 +1189,9 @@ var BettingCenterView = Base.ItemView.extend({
           Global.ui.notification.show(res.msg);
         }
       });
+  },
+  comingSoonHandler:function () {
+    Global.ui.notification.show("尚未开通，敬请期待");
   },
 
   addCollect: function(collectId) {

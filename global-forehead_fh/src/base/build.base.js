@@ -1,5 +1,7 @@
 "use strict";
 
+require('./styles/normalize-3.0.2.css');
+
 require('./styles/style');
 require("font-awesome-webpack");
 
@@ -48,4 +50,5 @@ require('./scripts/icheck.min');
 require('selectize/dist/js/selectize.js');
 
 window.moment = require('moment');
+require('moment/locale/zh-cn');
 window.moment.locale('zh-cn');

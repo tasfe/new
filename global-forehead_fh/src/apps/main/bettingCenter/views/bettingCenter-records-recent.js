@@ -37,12 +37,12 @@ var BettingRecordsView = Base.ItemView.extend({
      this.bettingRecords = this.$el.staticGrid({
        tableClass: 'table table-center',
        colModel: [
-         {label: '<div class="text-center">期号</div>', name: 'ticketPlanId', width: '18%',formatter: function(val, index, bet) {
+         {label: '<div class="text-center">期号</div>', name: 'ticketPlanId', width: '17%',formatter: function(val, index, bet) {
          var planId = val.replace(/.*-/, '');
            planId = planId.slice(-4);
            return '<a class="router btn-link" href="#gr/br/detail/' + bet.ticketTradeNo + '">' + planId + '</a>';
          }},
-         {label: '<div class="text-center">投注金额</div>', name: 'betTotalMoney', width: '28%', formatter: function(val) {
+         {label: '<div class="text-center">投注金额</div>', name: 'betTotalMoney', width: '27%', formatter: function(val) {
            return _(val).fixedConvert2yuan({fixed: 2});
          }},
          {label: '<div class="text-center">状态</div>', name: 'prizeTotalMoney', width: '28%', formatter: function(val, index, bet) {
@@ -55,10 +55,11 @@ var BettingRecordsView = Base.ItemView.extend({
              prizing: bet.prizing,
              prizeTotalMoney: bet.prizeTotalMoney,
              betTime: bet.betTime,
-             prizeClass: 'text-pink'
+             prizeClass: 'text-pink',
+             fixed: 2
            });
          }},
-         {label: '<div class="text-center">操作</div>', name: 'betTotalMoney', width: '26%', formatter: function(val, index, bet) {
+         {label: '<div class="text-center">操作</div>', name: 'betTotalMoney', width: '27%', formatter: function(val, index, bet) {
            var html = [];
 
            html.push('<button class="js-bc-betting-again btn btn-xxs" data-loading-text="再投">再投</button>');

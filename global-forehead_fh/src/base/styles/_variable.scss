@@ -106,7 +106,7 @@ $font-warning: #e8675d !default;
 $font-light-pleasant: #fc9792 !default;
 $font-main: #e8675d !default;
 $font-inverse: $light-color;
-$font-passion: #fbd663 !default;
+$font-passion: #f08519 !default;
 
 $font-colors: (
   default: $dark-color,
@@ -339,11 +339,16 @@ $radios: (
     wrapper-color: $pink-color,
     inner-color: linear-gradient(to bottom, #ffcc53, #ffb70d)
   ),
+  pink: (
+    bg-color: $light-color,
+    wrapper-color: $pink-color,
+    inner-color: $pink-color
+  ),
   blue: (
     bg-color: $light-color,
     wrapper-color: $blue-color,
     inner-color: $blue-color
-  ),
+  )
 );
 
 //popover
@@ -480,18 +485,19 @@ $btns: (
     bg-color: $white-color,
     border-color: $gray-color,
     hover: (
-      color: $color-amber,
+      color: $pink-color,
+      border-color: $pink-color,
       bg-color: $white-color
     ),
     focus: (
-      color: $color-amber,
-      bg-color: $white-color
-      //box-shadow: none
+      color: $white-color,
+      border-color: $pink-color,
+      bg-color: $pink-color
     ),
     active: (
-      color: $color-amber,
-      bg-color: $white-color
-      //box-shadow: none
+      color: $white-color,
+      border-color: $pink-color,
+      bg-color: $pink-color
     ),
   ),
   group-pink: (
@@ -655,14 +661,18 @@ $text-circle-sizes: (
 //nav
 $navTabs: (
   default: (
-    border-color: $color-sunshine,
+    border-color: $color-amber,
+    bottom-border-color: $color-amber,
     color: $font-color-coffee,
     //bg-color: #f7f7f7,
+    hover-border-color: $pink-color,
     active-color: #cc3333,
     active-bg-color: $white-linear-color
   ),
   hot: (
-    border-color: #a83d6b,
+    //border-color: transparent,
+    border-color: transparent,
+    bottom-border-color: #a83d6b,
     color: $font-color,
     //bg-color: $white-color,
     active-color: $white-color,

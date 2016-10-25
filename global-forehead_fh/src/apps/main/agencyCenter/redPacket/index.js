@@ -24,7 +24,7 @@ var RedPacketView = SearchGrid.extend({
 
   initialize: function() {
     _(this.options).extend({
-      height: 310,
+      height: 330,
       title: '报表查询',
       columns: [
         {

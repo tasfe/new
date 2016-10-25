@@ -2,7 +2,7 @@
 
 require('./index.scss');
 
-var comingSoon =  require('base/images/coming-soon.png');
+var comingSoon = require('base/images/coming-soon.png');
 
 var TopProfileView;
 TopProfileView = Base.ItemView.extend({
@@ -17,14 +17,14 @@ TopProfileView = Base.ItemView.extend({
     'click .js-personal-avatar': 'editIconsHandler'
   },
 
-  updateUNameXhr: function (data) {
+  updateUNameXhr: function(data) {
     return Global.sync.ajax({
       url: '/acct/userinfo/updateuname.json',
       data: data
     });
   },
 
-  onRender: function () {
+  onRender: function() {
     var self = this;
 
     this.$uName = this.$('.js-personal-u-name');
@@ -34,12 +34,12 @@ TopProfileView = Base.ItemView.extend({
     this.$avatar = this.$('.js-personal-avatar');
     this.$('.js-uc-personal-profile-vip-coming-soon').attr('src', comingSoon);
 
-    this.subscribe('acct', 'acct:updating', function () {
+    this.subscribe('acct', 'acct:updating', function() {
       self.checkState();
     });
   },
 
-  checkState: function () {
+  checkState: function() {
     var acctInfo = Global.memoryCache.get('acctInfo');
 
     this.$uName.html(acctInfo.uName);
@@ -48,7 +48,7 @@ TopProfileView = Base.ItemView.extend({
     this.$regTime.html(_(acctInfo.registerTime).toTime());
     // this.$('.uc-info div span').html('您当前VIP等级：VIP' + acctInfo.memberLevel + '级');
 
-    for (var i = 1; i <= 12; i++) {
+    for(var i = 1; i <= 12; i++) {
       this.$avatar.removeClass('avatar-' + i);
     }
 
@@ -63,10 +63,10 @@ TopProfileView = Base.ItemView.extend({
     var $target = $(e.currentTarget);
     var headId = $target.attr("data-type");
 
-    $(document).editIcons({headId:headId});
+    $(document).editIcons({headId: headId});
   },
 
-  editUNameHandler: function () {
+  editUNameHandler: function() {
     var self = this;
 
     var $dialog = Global.ui.dialog.show({
@@ -74,23 +74,23 @@ TopProfileView = Base.ItemView.extend({
       body: this.updateUNameTpl()
     });
 
-    $dialog.on('hidden.modal', function (e) {
+    $dialog.on('hidden.modal', function(e) {
       $(this).remove();
     });
 
     $dialog.off('submit.uName')
-        .on('submit.uName', '.js-personal-form', function (e) {
-          var $form = $(e.currentTarget);
-          var $submit = $form.find('.js-btn-submit');
+      .on('submit.uName', '.js-personal-form', function(e) {
+        var $form = $(e.currentTarget);
+        var $submit = $form.find('.js-btn-submit');
 
-          var parsley = $form.parsley();
+        var parsley = $form.parsley();
 
         self.updateUNameXhr(_($form.serializeArray()).serializeObject())
           .always(function() {
             $submit.button('reset');
-          }).done(function (res) {
-            console.log(JSON.stringify(res));
-          if (res && res.result === 0) {
+          }).done(function(res) {
+          console.log(JSON.stringify(res));
+          if(res && res.result === 0) {
             Global.ui.notification.show('修改成功');
             Global.m.oauth.check();
 
@@ -99,22 +99,9 @@ TopProfileView = Base.ItemView.extend({
             Global.ui.notification.show(res.msg === 'fail' ? '昵称重复' : res.msg);
           }
 
-          $submit.button('loading');
 
-          self.updateUNameXhr(_($form.serializeArray()).serializeObject())
-              .always(function () {
-                $submit.button('reset');
-              }).done(function (res) {
-                if (res && res.result === 0) {
-                  Global.ui.notification.show('修改成功');
-                  Global.m.oauth.check();
-
-                  $dialog.modal('hide');
-                } else {
-                  Global.ui.notification.show(res.msg);
-                }
-              });
         });
+      });
   }
 });
 

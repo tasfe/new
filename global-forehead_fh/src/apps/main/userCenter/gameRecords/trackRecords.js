@@ -63,7 +63,7 @@ var TrackRecordsView = SearchGrid.extend({
         subUser: 0
       },
       tip: '',
-      height: 310
+      height: 330
     });
   },
 

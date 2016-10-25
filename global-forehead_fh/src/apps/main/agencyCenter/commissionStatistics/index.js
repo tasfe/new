@@ -13,7 +13,7 @@ var ReportManageView = SearchGrid.extend({
 
   initialize: function () {
     _(this.options).extend({
-      height: '364',
+      height: 330,
       title: '报表查询',
       columns: [
         {
@@ -33,7 +33,7 @@ var ReportManageView = SearchGrid.extend({
           width: '10%'
         }
       ],
-      tip: 'juliencs',
+      // tip: 'juliencs',
       gridOps: {
         emptyTip: '没有佣金变更记录'
       },

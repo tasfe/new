@@ -140,7 +140,7 @@ var findPwdView = Base.ItemView.extend({
       stepLength: 540,
       headerTag: "h3",
       bodyTag: 'form',
-      forceMoveForward: false,
+      forceMoveForward: true,
       enablePagination: false,
       transitionEffect: "slideLeft",
       onStepChanging: function(event, currentIndex, newIndex) {

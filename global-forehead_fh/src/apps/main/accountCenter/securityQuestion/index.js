@@ -71,7 +71,7 @@ var SecurityQuestionView = Base.ItemView.extend({
       stepLength: 540,
       headerTag: 'h3',
       bodyTag: 'form',
-      forceMoveForward: false,//允许返回
+      forceMoveForward: true,//允许返回
       enablePagination: false,
       transitionEffect: "slideLeft",
       onStepChanging: changingFunc

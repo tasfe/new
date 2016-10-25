@@ -47,7 +47,7 @@ var PointsListView = SearchGrid.extend({
       },
       listProp: 'root.dataList',
       //listProp: 'root.betList',
-      height: 345
+      height: 330
       ,showHead: 'hidden'
     });
 
