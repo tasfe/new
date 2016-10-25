@@ -10,7 +10,7 @@ var TrackRecordsView = TabView.extend({
 
   initialize: function() {
     _(this.options).defaults({
-      height: 392,
+      height: 330,
       tabClass: 'view-tabs nav nav-tabs nav-tabs-special',
       tabs: [
         {

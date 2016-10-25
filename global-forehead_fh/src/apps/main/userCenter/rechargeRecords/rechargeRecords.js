@@ -87,7 +87,7 @@ var RechargeRecordsView = SearchGrid.extend({
         subUser: 0
       },
       listProp: 'root.rechargeList',
-      height: 315
+      height: 330
     });
   },
 

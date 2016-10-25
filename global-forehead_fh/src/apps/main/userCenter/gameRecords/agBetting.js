@@ -62,7 +62,7 @@ var BettingRecordsView = SearchGrid.extend({
       },
       listProp: 'root.data',
       tip: '',
-      height: 310
+      height: 330
     });
     Global.memoryCache.set('agBetCachedList', []);
   },

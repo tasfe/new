@@ -49,7 +49,7 @@ var MoneyDetailView = SearchGrid.extend({
     });
 
     _(this.options).extend({
-      height: '330',
+      height: 330,
       columns: [
         {
           name: '账号',
