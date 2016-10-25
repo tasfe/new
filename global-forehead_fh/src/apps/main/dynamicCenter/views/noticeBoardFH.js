@@ -83,10 +83,10 @@ var NoticeBoardView = Base.ItemView.extend({
             self.$prevPage.addClass('active');
           }
           self.$rowCount.val(res.root.rowCount);
-          self.$prevPage.toggleClass('disabled', data.pageIndex < 1);
-
           var pageSize = Number(self.$pageSize.val());
           var rowCount = Number(res.root.rowCount);
+          self.$prevPage.toggleClass('disabled', data.pageIndex < 1);
+          self.$nextPage.toggleClass('disabled', data.pageIndex >=Math.ceil(rowCount / pageSize) - 1);
           if (_(pageSize).isNumber() && _(pageSize).isFinite() && _(rowCount).isNumber() && _(rowCount).isFinite()) {
             if (data.pageIndex >= Math.ceil(rowCount / pageSize) - 1) {
               self.$nextPage.removeClass('active');
@@ -136,7 +136,7 @@ var NoticeBoardView = Base.ItemView.extend({
     var rowCount = Number(this.$rowCount.val());
 
     if (_(pageSize).isNumber() && _(pageSize).isFinite() && _(rowCount).isNumber() && _(rowCount).isFinite()) {
-      if (pageIndex === Math.ceil(rowCount / pageSize) - 1) {
+      if (pageIndex === Math.ceil(rowCount / pageSize)) {
         return false;
       } else {
         var data = {
