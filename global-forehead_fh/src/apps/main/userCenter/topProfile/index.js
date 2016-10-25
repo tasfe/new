@@ -99,7 +99,7 @@ TopProfileView = Base.ItemView.extend({
             Global.ui.notification.show(res.msg === 'fail' ? '昵称重复' : res.msg);
           }
 
-          
+
         });
     });
   }

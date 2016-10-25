@@ -18,6 +18,12 @@ var MoneyDetailView = TabView.extend({
       tabClass: 'view-tabs nav nav-tabs nav-tabs-special',
       tabs: [
         {
+          label: '账变明细',
+          name: 'moneydetail',
+          id: 'jsMoneyDetail',
+          view: PersonalView
+        },
+        {
           label: '充值记录',
           name: 'recharge',
           id: 'jsRecharge',
@@ -27,11 +33,6 @@ var MoneyDetailView = TabView.extend({
           name: 'withdraw',
           id: 'jsWithdraw',
           view: WithdrawView
-        }, {
-          label: '账变明细',
-          name: 'moneydetail',
-          id: 'jsMoneyDetail',
-          view: PersonalView
         }
       ]
     });

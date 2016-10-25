@@ -131,6 +131,7 @@ var MoneyDetailView = SearchGrid.extend({
   },
 
   renderGrid: function(gridData) {
+    console.log(JSON.stringify(gridData));
     var rowsData = _(gridData.balanceList).map(function(bet, index, betList) {
       return {
         columnEls: this.formatRowData(bet, index, betList),
@@ -148,8 +149,8 @@ var MoneyDetailView = SearchGrid.extend({
         trClass: 'tr-cool',
         columnEls: [
           '<div class="text-hot">所有页总计</div>',
-          '','','',
-          '<div class="text-hot">' +  _(gridData.income + gridData.spending).convert2yuan() + '</div>',
+          '','','<div class="text-hot">' +  _(gridData.income + gridData.spending).convert2yuan() + '</div>',
+          '',
           ''
         ]
       })
@@ -171,12 +172,12 @@ var MoneyDetailView = SearchGrid.extend({
     row.push(tradingStatusConfig.toZh(info.tradeType));
 
     if (info.amount >= 0) {
-      row.push('<span class="">+'+_(info.amount).convert2yuan()+'</span>');
+      row.push('<span class="text-cool">+'+_(info.amount).convert2yuan()+'</span>');
     } else {
       row.push('<span class="">'+_(info.amount).convert2yuan()+'</span>');
     }
 
-    row.push('<span class="text-cool">'+_(info.balance).convert2yuan()+'</span>');
+    row.push('<span class="">'+_(info.balance).convert2yuan()+'</span>');
     row.push(info.remark);
     return row;
   }
