@@ -13,6 +13,7 @@ var cache = require('gulp-cache');
 var Fontmin = require('fontmin');
 var svgo = require('imagemin-svgo');
 var fs = require('fs');
+var rsync = require('./local_modules/rsync');
 
 var _ = require('underscore');
 
