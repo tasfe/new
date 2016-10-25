@@ -35,7 +35,6 @@ module.exports = {
       hot: true
     },
 
-
     '404': {
       entry: ['./src/apps/packages/404/index.js'],
     //  //hot: true
