@@ -33,7 +33,7 @@ var ReportManageView = SearchGrid.extend({
           width: '10%'
         }
       ],
-      tip: 'juliencs',
+      // tip: 'juliencs',
       gridOps: {
         emptyTip: '没有佣金变更记录'
       },

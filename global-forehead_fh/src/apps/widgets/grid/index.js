@@ -40,11 +40,6 @@ $.widget('gl.grid', {
 
     this._data = [];
 
-    if (this.options.tip == 'juliencs') {
-      this.options.tip = '';
-      this.options.divStyle = 'marginlr20 tableNoBorder';
-    }
-
     if (!this._formatColumnDefinitions()) {
       window.WemartApp.ui.notification.show('Table 列定义信息不足');
       return false;

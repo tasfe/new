@@ -229,7 +229,7 @@ var SearchGrid = Base.PrefabView.extend({
       this.grid.height(this.options.height);
 
     } else {
-      this.grid.height(this.options.height - 41);
+      this.grid.height(this.options.height - 33);
 
       _(this._breadList).each(function(breadInfo, index) {
 
