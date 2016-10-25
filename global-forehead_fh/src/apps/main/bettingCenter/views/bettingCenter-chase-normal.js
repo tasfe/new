@@ -4,6 +4,8 @@ var FilterHelper = require('skeleton/misc/filterHelper');
 
 var ChaseModel = require('bettingCenter/models/bettingChase-normal');
 
+var BtnGroup = require('com/btnGroup');
+
 var BettingCenterChaseNormalView = Base.ItemView.extend({
 
   template: require('bettingCenter/templates/bettingCenter-chase-normal.html'),
@@ -49,7 +51,7 @@ var BettingCenterChaseNormalView = Base.ItemView.extend({
       //this.getPlans();
     });
 
-    this.listenTo(this.model, 'sync change:plans', this.renderBaseInfo);
+    this.listenTo(this.model, 'change:plans', this.renderBaseInfo);
     this.listenTo(this.model, 'change:plans', function(model, val) {
       var length = val.length;
       this.$leftPlans.text(length);
@@ -80,7 +82,12 @@ var BettingCenterChaseNormalView = Base.ItemView.extend({
     });
 
     this.$chasePlans.numRange({
-      min: 1
+      min: 1,
+      onChange: function() {
+        if(self.btnGroup) {
+          self.btnGroup.clearSelect();
+        }
+      }
     });
     // this.$chasePlans.spinner({
     //   min: 1
@@ -121,6 +128,36 @@ var BettingCenterChaseNormalView = Base.ItemView.extend({
       max: 99999
     });
 
+    var $btnGroup = this.$('.js-number-group');
+
+    this.btnGroup = new BtnGroup({
+      el: $btnGroup,
+      btnGroup: [
+        {
+          title: '5期',
+          value: 5,
+          active: true
+        },
+        {
+          title: '10期',
+          value: 10
+        },
+        {
+          title: '15期',
+          value: 15
+        },
+        {
+          title: '20期',
+          value: 20
+        }
+      ],
+      onBtnClick: function(offset) {
+        self.$chasePlans.val(offset);
+
+        return false;
+      }
+    }).render();
+
     this.initStaticInfo();
 
     this.getPlans();
@@ -155,7 +192,7 @@ var BettingCenterChaseNormalView = Base.ItemView.extend({
     }
 
     this.$leftPlans.html(plans.length);
-    this.$chasePlans.numRange('setRange', 1, plans.length);
+    this.$chasePlans.numRange('setRange', 1, plans.length, true);
 
     if (!isInDate && currentPlanId) {
       this.chaseCreateHandler();
@@ -273,16 +310,7 @@ var BettingCenterChaseNormalView = Base.ItemView.extend({
     function changePlanId() {
       confirm.hide();
     }
-  },
-
-  numSeqHandler: function(e) {
-    $('.js-number-seq').removeClass('seq-div');
-    var $target = $(e.currentTarget);
-    var num_Seq = $target.data('value');
-    $target.addClass('seq-div');
-    $('.js-bc-chase-chasePlans').val(num_Seq);
   }
-
 });
 
 module.exports = BettingCenterChaseNormalView;
