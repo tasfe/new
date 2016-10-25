@@ -96,6 +96,7 @@ var SearchGrid = Base.PrefabView.extend({
       checkable: this.options.checkable,
       columnDefinitions: this.options.columns,
       emptyTip: this.options.gridOps && this.options.gridOps.emptyTip,
+      defaultEmptyTip: this.options.gridOps && this.options.gridOps.defaultEmptyTip,
       onPaginationChange: function(index) {
         self.filterHelper.set('pageIndex', index);
         self._getGridXhr({
