@@ -81,7 +81,10 @@ var SearchGrid = Base.PrefabView.extend({
       if (!$searchItem.is('checkbox,radio')) {
         //todo 需要时再处理
         $searchItem.val(val);
+      }else if($searchItem.is('select')){
+        $searchItem.find('option[value='+val+']').prop('selected',true);
       }
+
     }, this);
   },
 

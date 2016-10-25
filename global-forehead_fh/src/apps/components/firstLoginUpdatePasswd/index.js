@@ -146,7 +146,7 @@ var FirstLoginUpdatePasswd = Base.ItemView.extend({
       url: '/acct/userinfo/updateloginpwd.json',
       data: {
         token: Global.cookieCache.get('token'),
-        //uName: this.$form.find('.js-uu-uName').val(),
+        uName: self.$('.js-fl-up-user-uName').val(),
         //oldPwd: this.$form.find('#oldLoginPassword').val(),
         newPwd: $('.js-firstLoginUpdatePasswd .js-loginPwd').val()
       },
