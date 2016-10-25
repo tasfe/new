@@ -87,7 +87,7 @@ var TrackRecordsView = SearchGrid.extend({
         subUser: 0
       },
       tip: '<div class="m-left-md m-top-md text-hot"><span>注意:</span> 追号记录只保留最近30天。</div>',
-      height: 310
+      height: 330
     });
   },
 

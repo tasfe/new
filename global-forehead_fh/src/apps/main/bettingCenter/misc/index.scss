@@ -180,6 +180,11 @@ $main-area-width: 870px;
 .bc-play-tip {
   margin-right: 16px;
 }
+.preview-row-title {
+  display: inline-block;
+  width: 110px;
+  overflow: hidden;
+}
 
 .bc-play-example {
   margin-right: 40px;
@@ -1356,8 +1361,8 @@ $main-area-width: 870px;
         margin-top: 10px;
 
         &:hover {
-          background-color: #cc6699;
-          color: #fff;
+          color: $pink-color;
+          border-color: $pink-color;
         }
       }
     }

@@ -46,7 +46,7 @@ var UpgradeListView = SearchGrid.extend({
         subUser: 1
       },
       listProp: 'root.dataList',
-      height: 345
+      height: 330
     });
   },
 

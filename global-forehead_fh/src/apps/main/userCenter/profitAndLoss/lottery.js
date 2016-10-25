@@ -14,7 +14,7 @@ var ReportManageView = SearchGrid.extend({
 
   initialize: function () {
     _(this.options).extend({
-      height: 434,
+      height: 330,
       title: '报表查询',
       columns: [
         {

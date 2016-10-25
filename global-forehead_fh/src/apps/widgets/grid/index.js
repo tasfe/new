@@ -12,10 +12,12 @@ $.widget('gl.grid', {
     namespace: 'glGrid',
     tableClass: 'table table-bordered ',
     footerClass: '',
-    height: 300,
+    height: 330,
+    footerHeight: 33,
     columnDefinitions: [],
     tip: '',
     emptyTip: '暂无数据',
+    defaultEmptyTip: true,
     onRowItemClick: _.noop,
     onRowCheckboxClick: _.noop,
     onSelectAll: _.noop,
@@ -37,11 +39,6 @@ $.widget('gl.grid', {
     this.options.hasBorder = this.options.tableClass.indexOf('table-bordered') > -1;
 
     this._data = [];
-
-    if (this.options.tip == 'juliencs') {
-      this.options.tip = '';
-      this.options.divStyle = 'marginlr20 tableNoBorder';
-    }
 
     if (!this._formatColumnDefinitions()) {
       window.WemartApp.ui.notification.show('Table 列定义信息不足');
@@ -98,6 +95,10 @@ $.widget('gl.grid', {
     ));
 
     this.pagination = this.$pagination.pagination('instance');
+
+    if (this.options.footerHeight) {
+      this.$footerDiv.height(this.options.footerHeight);
+    }
 
     this._bindEvents();
   },
@@ -296,8 +297,12 @@ $.widget('gl.grid', {
     if (this.options.emptyTip) {
       html.push('<div class="js-wt-empty-container empty-container text-center hidden">');
       html.push('<div class="empty-container-main">');
-      // html.push('<div class="sfa-grid-empty"></div>');
-      html.push(this.options.emptyTip);
+      if (this.options.defaultEmptyTip) {
+        html.push('<div class="sfa-grid-empty"></div>');
+        html.push('<div class="text-amber">' + this.options.emptyTip + '</div>');
+      } else {
+        html.push(this.options.emptyTip);
+      }
       html.push('</div>');
       html.push('</div>');
     }

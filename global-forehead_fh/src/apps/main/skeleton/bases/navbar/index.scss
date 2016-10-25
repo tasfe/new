@@ -49,7 +49,7 @@
       font-size: 20px;
       margin-bottom: -3px;
       position: absolute;
-      top: 6px;
+      top: 7px;
       left: 14px;
     }
 
@@ -195,7 +195,7 @@
       .lottery-all {
         display: none;
         position: absolute;
-        width: 840px;
+        width: 810px;
         //height: 303px;
         border: 1px solid #999999;
         border-radius: 5px;
@@ -204,6 +204,7 @@
         padding: 0px 8px 5px 8px;
         text-align: left;
         left: -400px;
+        box-shadow: 0px 5px 5px #c0c0c0;
         > i {
           width: 0;
           height: 0;
@@ -214,29 +215,56 @@
           left: 430px;
           top: -12px;
         }
+        .split-line{
+          display: block;
+          float: left;
+          width: 1px;
+          height: 140px;
+          margin-top: 15px;
+          background-color: #cccccc;
+        }
         .lottery {
           display: block;
           float: left;
           .lottery-title {
             display: block;
-            //margin-left: -8px;
-            width: 95px;
-            //padding-right: 20px;
+            width: 50px;
             height: 23px;
             line-height: 23px;
             text-align: center;
-            background: url(title-new-bg.png) no-repeat;
-            color: #FFFFFF;
+            //background: url(title-new-bg.png) no-repeat;
+            color: #333333;
             margin: 0 auto;
             margin-top: 10px;
+          }
+          .lottery-title-bottom{
+            display: block;
+            width: 50px;
+            height: 5px;
+            margin: 0 auto;
             margin-bottom: 10px;
+            &.lottery-title-bottom-ssc{
+              background: linear-gradient(to bottom,#f8a6bc,#ce4f71);
+            }
+            &.lottery-title-bottom-fhc{
+              background: linear-gradient(to bottom,#92bafc,#547cbe);
+            }
+            &.lottery-title-bottom-choose{
+              background: linear-gradient(to bottom,#f18dfd,#b353be);
+            }
+            &.lottery-title-bottom-last{
+              background: linear-gradient(to bottom,#b6ded0,#5bb898);
+            }
+            &.lottery-title-bottom-happy{
+              background: linear-gradient(to bottom,#ecc383,#c89442);
+            }
           }
           dl{
             width: 100%;
             min-height: 130px;
             display: block;
-            border: 1px solid #e4e4e4;
-            border-radius: 5px;
+            //border: 1px solid #e4e4e4;
+            //border-radius: 5px;
           }
           dd {
             min-width: 100px;
@@ -244,6 +272,7 @@
             float: left;
             margin-right: 5px;
             margin-top: 3px;
+            position: relative;
             b {
               font-size: 10px;
               display: inline-block;
@@ -253,11 +282,13 @@
               border-radius: 3px;
               margin-left: 2px;
               line-height: 14px;
+              position: absolute;
+              margin-top: 3px;
               &.new{
-                background-color: #ff6666;
+                background-color: #69bd3b;
               }
               &.hot{
-                background-color: #f1a14a;
+                background-color: #c53131;
               }
             }
 
@@ -280,11 +311,11 @@
           }
         }
         .ssc{
-          max-width: 230px;
+          max-width: 240px;
         }
         .fhc,.choose,.last,.happy-pk10{
           width: 140px;
-          margin-left: 8px;
+          //margin-left: 8px;
           text-align: center;
           dd{
             width: 100%;

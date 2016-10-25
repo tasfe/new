@@ -58,7 +58,7 @@ var UserManageView = SearchGrid.extend({
       },
       listProp: 'root.subUserList',
       headTip: '<div class="table-head-tip"><span class="ac-dm-sm-notice">温馨提示：</span>您还剩余可签约名额 <span class="js-ac-leftQuota ">0</span> 个，已签约用户：<span class="js-ac-usedQuota ">0</span> 个</div>',
-      height: 310
+      height: 330
     });
   },
 

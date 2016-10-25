@@ -53,7 +53,7 @@ var RechargeRecordsView = SearchGrid.extend({
         subUser: 0
       },
       listProp: 'root.withdrawList',
-      height: 345
+      height: 330
     });
   },
 

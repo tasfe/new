@@ -59,7 +59,7 @@ var LowLevelManageView = SearchGrid.extend({
 
   initialize: function() {
     _(this.options).extend({
-      height: 297,
+      height: 330,
       title: '下级管理',
       columns: [
         {

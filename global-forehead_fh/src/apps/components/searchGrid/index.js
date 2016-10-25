@@ -96,6 +96,7 @@ var SearchGrid = Base.PrefabView.extend({
       checkable: this.options.checkable,
       columnDefinitions: this.options.columns,
       emptyTip: this.options.gridOps && this.options.gridOps.emptyTip,
+      defaultEmptyTip: this.options.gridOps && this.options.gridOps.defaultEmptyTip,
       onPaginationChange: function(index) {
         self.filterHelper.set('pageIndex', index);
         self._getGridXhr({
@@ -228,7 +229,7 @@ var SearchGrid = Base.PrefabView.extend({
       this.grid.height(this.options.height);
 
     } else {
-      this.grid.height(this.options.height - 41);
+      this.grid.height(this.options.height - 33);
 
       _(this._breadList).each(function(breadInfo, index) {
 

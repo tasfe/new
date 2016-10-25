@@ -1,5 +1,7 @@
 "use strict";
 
+require('./styles/normalize-3.0.2.css');
+
 require('./styles/style');
 require("font-awesome-webpack");
 
