@@ -63,7 +63,7 @@ class Chase extends Component {
     })
   }
 
-  componentDidMount() {debugger
+  componentDidMount() {
     this.props.setTitle('高级追号设置')
     this.props.setLeftButton(true);
 

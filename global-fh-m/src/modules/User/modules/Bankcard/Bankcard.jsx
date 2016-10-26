@@ -181,8 +181,9 @@ class Bankcard extends Page {
                   }
                 </div>
               </div>
-              { !locked ?
-                <a className="remove-bc bankcard-txt-lv14" data-id={card.cardId} onClick={::this.removeBc}><i className="fa fa-trash-o"></i></a>:''
+              { //屏蔽删除功能
+                //!locked ?
+                //<a className="remove-bc bankcard-txt-lv14" data-id={card.cardId} onClick={::this.removeBc}><i className="fa fa-trash-o"></i></a>:''
               }
             </li>
           </ul>

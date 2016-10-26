@@ -44,6 +44,8 @@ $.widget('gl.pagination', {
     if (options.initPagination || pageIndex) {
       this._initPagination(this.options.totalSize, Number(pageIndex));
     }
+
+    this.element.toggleClass('hidden', !options.initPagination);
   },
 
   clean: function() {

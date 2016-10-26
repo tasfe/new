@@ -67,15 +67,15 @@ class LoginPwd extends Page {
             title: '系统提示',
             content: '密码修改成功,请重新登录',
             callback: () => {
-              console.log('limian1')
-              this.props.logout()
+              // console.log('limian1')
+              // this.props.logout()
             }
           });
-          console.log('limian2')
-          // window.setTimeout(function(){
-          //   console.log('limian3')
-          //   self.props.logout();
-          // },1000)
+          // console.log('limian2')
+          window.setTimeout(function(){
+            console.log('limian3')
+            self.props.logout();
+          },2000)
 
         },
         onError: (errorData) => {

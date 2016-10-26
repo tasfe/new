@@ -14,7 +14,7 @@ define(function (require, exports, module) {
                 columns: [
                     {
                         name: '交易流水号',
-                        width: '10%'
+                        width: '20%'
                     },
                     {
                         name: 'AG账号',
@@ -26,7 +26,7 @@ define(function (require, exports, module) {
                     },
                     {
                         name: '交易类型',
-                        width: '10%'
+                        width: '5%'
                     },
                     {
                         name: '收入',
@@ -42,7 +42,7 @@ define(function (require, exports, module) {
                     },
                     {
                         name: '转账状态',
-                        width: '10%'
+                        width: '5%'
                     },
                     {
                         name: '备注',
@@ -93,9 +93,8 @@ define(function (require, exports, module) {
                     {
                         colspan: 3
                     },
-
-                    _(gridData.speedTotal).convert2yuan(),
                     _(gridData.inComeTotal).fixedConvert2yuan(),
+                    _(gridData.speedTotal).convert2yuan(),
                     {
                         colspan: 3
                     }
@@ -109,17 +108,22 @@ define(function (require, exports, module) {
             row.push(rowInfo.billNo);
             row.push(rowInfo.userName);
             row.push(_(rowInfo.createTime).toTime());
-            if(rowInfo.tradeType==110){
+            if( rowInfo.amount>0){
                 row.push("转入AG");
-                row.push("/");
-                row.push(_(rowInfo.amount).fixedConvert2yuan());
-
-            }else{
-                row.push("转出AG");
-
-                row.push(_(rowInfo.amount).fixedConvert2yuan());
-                row.push("/");
             }
+            if( rowInfo.amount<0){
+                row.push("转出AG");
+            }
+            var get = '';
+            var pay ='';
+            if( rowInfo.amount>0){
+                get = +_(rowInfo.amount).formatDiv(10000,{fixed:4});
+            }
+            if( rowInfo.amount<0){
+                pay =  +_(rowInfo.amount).formatDiv(10000,{fixed:4});
+            }
+            row.push(get);
+            row.push(pay);
             row.push(_(rowInfo.balance).fixedConvert2yuan());
             if(rowInfo.status==1){
                 row.push("转账成功");
