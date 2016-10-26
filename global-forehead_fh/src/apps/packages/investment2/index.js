@@ -1,6 +1,6 @@
 require('./index.scss');
-require('./../../../base/flat/red.css');
-require('./jquery-ui');
+// require('./../../../base/flat/red.css');
+// require('./jquery-ui');
 require('./../misc/common-init.js');
 
 $.widget('gl.investment', {

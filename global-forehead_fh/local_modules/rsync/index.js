@@ -3,23 +3,24 @@ var path = require('path');
 var rsync = require('gulp-rsync');
 
 gulp.task('rsync', function() {
-  // console.log(gulp.src(path.resolve('./local_modules') + '/mockup/dev-proxy.js'));
-  var abc = gulp.src([path.resolve('./www/main/')]);
+
+  process.env.PATH += ';' + path.resolve('./local_modules/rsync/cwRsync/bin');
+
   return gulp.src([path.resolve('./www/main/')])
     .pipe(rsync({
       progress: true,
       root: path.resolve('./www/main'),
-      shell: 'ssh -i C:/Users/Administrator/.ssh/id_rsa',
+      shell: 'ssh -i C:/Users/Administrator/.ssh/env_test_fh',
       hostname: '52.196.220.175',
       username: 'root',
       // relative: false,
+      time: true,
       recursive: true,
       // archive: true,
       chmod: '644',
       chown: 'root:root',
       // command: true,
       // relative: false,
-      // include: ['*.png'],
-      destination: '/data/html/www/test'
+      destination: '/data/html/www/forehead'
     }));
 });
