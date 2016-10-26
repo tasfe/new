@@ -97,19 +97,19 @@ var UserManageView = SearchGrid.extend({
       tradition: true
     });
   },
-  //搜索
-  getSubUser: function () {
-    var username = this.$(".username").val();
-    var status = Number(this.$(".status").val());
-    this.initGrid({ 'userName': username, 'status': status, pageSize: 100 })
-  },
+  // //搜索
+  // getSubUser: function () {
+  //   var username = this.$(".username").val();
+  //   var status = Number(this.$(".status").val());
+  //   this.initGrid({ 'userName': username, 'status': status, pageSize: 100 })
+  // },
 
   onRender: function () {
     var self = this;
     this.$usedQuota = this.$('.js-ac-usedQuota');
     this.$leftQuota = this.$('.js-ac-leftQuota');
-    this.$grid = this.$('.js-ac-user-grid');
-    this.grid = null;
+    // this.$grid = this.$('.js-ac-user-grid');
+    // this.grid = null;
     this.$usedQuota.html(this._parentView.dividConf.quotaLimit - this._parentView.dividConf.quotaLeft);
     this.$leftQuota.html(this._parentView.dividConf.quotaLeft);
     // this.initGrid({ pageSize: 100 });
@@ -128,7 +128,8 @@ var UserManageView = SearchGrid.extend({
 
     this.grid.refreshRowData(rowsData, gridData.rowCount, {
       pageIndex: this.filterHelper.get('pageIndex'),
-      initPagination: false
+      initPagination: false,
+      height: '330'
     });
     this.grid.hideLoading();
   },
