@@ -45,6 +45,10 @@
   background: var(--white);
   border-radius: .05rem;
   box-shadow: 0 4px 4px rgba(0, 0, 0, .1);
+  position: absolute;
+  padding: .33rem 0 .33rem;
+  overflow: auto;
+  width: 100%;
 }
 
 .chase-page__card-title {
