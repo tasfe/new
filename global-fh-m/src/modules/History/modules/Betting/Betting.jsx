@@ -62,10 +62,9 @@ class Betting extends Page {
     let children = this.props.children;
 
     let config = headConfig.get(props.headId) || {};
-    console.log(config,props.headId);
 
     return children ? children :(
-      <div>
+      <div style={{height:'100%'}}>
         <div className="betting-userInfo">
           <div className="betting-userInfo-img">
             <img className="betting-userInfo-img-head " src={config.img}/>

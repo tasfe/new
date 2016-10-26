@@ -12,6 +12,8 @@ import waveEffect from 'components/Toggles/Toggles.css'
 
 import DividendConfig from 'modules/Agency/modules/DivisionManage/dividendConfig'
 
+import Tab from 'components/Tab'
+
 @connect(state => ({
   user: state.auth.user
 }), {
@@ -40,6 +42,7 @@ class App extends Component {
 
     $.material.init();
     this.setupAutoAuth();
+
   }
 
   componentWillReceiveProps(nextProps) {
@@ -60,6 +63,7 @@ class App extends Component {
     let props = {
       isGeneralAgency : isGeneralAgency,
       username: userRoot && userRoot.username || '赌神',
+      headId:userRoot && userRoot.headId ||'1',
       uName: userRoot && userRoot.uName || '未命名',
       balance: userRoot && _(userRoot.balance).convert2yuan() || '0'
     };

@@ -25,6 +25,7 @@ class Tab extends Component {
 
   changeTabBorderPosition () {
     let activePos = $('.tabs-header .active').position()
+    console.log(activePos);
     $('.border').stop().css({
       left: activePos.left
     })
@@ -54,6 +55,8 @@ class Tab extends Component {
   }
 
   componentDidMount () {
+    var self = this;
+
     $('.tabs-header .border').css({
       width: $('.tabs-header li:eq(0)').width()
     })
@@ -67,7 +70,9 @@ class Tab extends Component {
 
       this.tabIndex = $target.data('tabid')
       this.mountTabComponent(this.tabIndex)
+
     });
+
 
     $('.tabs-header').off('click.delegate')
       .on('click.delegate', '.waves-effect', function (e) {
@@ -85,7 +90,87 @@ class Tab extends Component {
         }, 1500);
       });
 
+  //  this.mountTabComponent(this.tabIndex)
     this.mountTabComponent()
+
+
+  //左右滑动事件
+    var tabsContent = $('.tabs-content');
+    var tabsHeaderLi = $('.tabs-header li');
+    console.log('tabsContent'+tabsContent);
+
+    var sX = 0;    // 手指初始x坐标
+    var sY = 0;   // 手指初始y坐标
+    var sLeft = 0; // 初始x方向位移
+    var sRight = 0;// 初始y方向位移
+    var index = 0;
+    var curLeft = 0; // 当前位移
+    var disX = 0;  // 滑动差值
+    tabsContent[0].addEventListener('touchstart', Touchstart, true);
+
+    function Touchstart(e) {
+      e.preventDefault();
+      sX = e.changedTouches[0].pageX;
+      sY = e.changedTouches[0].pageY;
+
+      console.log('start x : '+sX);
+      console.log('start y : '+sY);
+
+      //if(sY > sX) return
+      
+      // 计算初始位移
+
+      sLeft = tabsContent[0].style.transformX ? -parseInt(/\d+/.exec(tabsContent[0].style.transformX)[0]) : 0;
+      sRight = tabsContent[0].style.transformY ? -parseInt(/\d+/.exec(tabsContent[0].style.transformY)[0]) : 0;
+
+      console.log('start movediatance'+sLeft);
+      tabsContent[0].style.transition = 'none';
+
+      tabsContent[0].addEventListener('touchmove', Touchmove, true);
+      tabsContent[0].addEventListener('touchend', Touchend, true);
+    }
+
+    function Touchmove(e) {
+      disX = e.changedTouches[0].pageX - sX;
+      curLeft = sLeft + disX;
+      tabsContent[0].style.transform = 'translateX(' + curLeft + 'px)';
+    }
+
+    function Touchend(e) {
+      var tabIndex = $('.tabs-header li.active a').data('tabid');
+
+      if (disX > 100) {
+
+        if (index != 0) {
+          index -= 1;
+
+          $('.tabs-header .border').css({
+            left:(index)*245
+          })
+
+         $('.tabs-header li:eq('+index+') a').trigger('click');
+
+        }
+      }
+      if (disX < -100) {
+
+        if (index !=  tabsHeaderLi.length - 1) {
+          index += 1;
+
+          $('.tabs-header .border').css({
+            left:(index)*245
+          })
+
+          $('.tabs-header li:eq('+index+') a').trigger('click');
+
+        };
+      };
+      tabsContent[0].style.transition = '.5s';
+      tabsContent[0].style.transform = 'translateX(' + -index*tabsHeaderLi[0].offsetWidth + 'px)';
+    }
+
+
+
   }
 
   componentWillUnmount () {
