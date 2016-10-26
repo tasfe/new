@@ -57,7 +57,7 @@ var BettingChoiceModel = Model.extend({
     })
       .done(function(res) {
         if (res && res.result === 0) {
-          self.emptyPrevBetting();
+          // self.emptyPrevBetting();
         }
       });
   },
