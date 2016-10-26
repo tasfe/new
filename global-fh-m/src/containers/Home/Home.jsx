@@ -17,7 +17,7 @@ class Home extends Page {
   constructor () {
     super()
     this.state = {
-      ticktetInfo : [1,10,21]
+      ticktetInfo : [1,10,21,14,6,18]
     }
     this.TimmerList = [];
     console.log(innerWidth);
@@ -46,7 +46,7 @@ class Home extends Page {
       url: '/ticket/ticketmod/getticketcustomized.json',
     }, resp => {
       this.setState({
-        ticktetInfo: resp.root || [1,10,21]
+        ticktetInfo: resp.root || [1,10,21,14,6,18]
       })
 
       this.countDownTicket(this.state.ticktetInfo)
@@ -222,8 +222,9 @@ class Home extends Page {
             </ul>
           </div>
         </div>
-        <Link className="home-gc" to="/"><img src="images/banner-gc.png" /></Link>
-
+        {//屏蔽真人入口
+          // <Link className="home-gc" to="/"><img src="images/banner-gc.png" /></Link>
+        }
       </div>
     )
   }
