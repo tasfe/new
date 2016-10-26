@@ -53,6 +53,10 @@ module.exports = {
     'changeUrl': {
       entry: ['./src/apps/packages/changeUrl/index.js'],
       //hot: true
+    },
+    'investment': {
+      entry: ['./src/apps/packages/investment2/index.js'],
+      //hot: true
     }
   },
   port: 3001,
@@ -115,6 +119,11 @@ module.exports = {
       title: '繁华娱乐在线娱乐',
       template: './entry/package.html',
       chunks: ['common', 'vendor', 'base', 'changeUrl']
+    },
+    investment: {
+      title: '繁华娱乐在线娱乐',
+      template: './entry/package.html',
+      chunks: ['common', 'vendor', 'base', 'investment']
     }
   },
   output: {
