@@ -132,7 +132,7 @@ var HeaderView = Base.ItemView.extend({
         Global.oauth.logout().done(function(data) {
           if(data && data.result === 0) {
             Global.cookieCache.clear('token');
-
+            Global.sessionCache.clear('hasLoadBulletin');
             window.location.href = 'login.html';
           }
         }).always(function() {
