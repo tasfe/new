@@ -63,7 +63,7 @@ class Account extends Page {
   render () {
     return (
 
-      <div>
+      <div style={{height:'100%'}}>
         <div className="account-detail">
           <div className="account-detail-item account-detail-item1">
             <div className="account-detail-item-desc" >
