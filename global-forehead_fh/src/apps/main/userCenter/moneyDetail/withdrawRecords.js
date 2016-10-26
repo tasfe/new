@@ -25,7 +25,9 @@ var WithdrawRecordsView = SearchGrid.extend({
         },
         {
           name: '提现时间',
-          width: '18%'
+          width: '18%',
+          sortable: true,
+          id: -1
         },
         {
           name: '金额',
@@ -56,7 +58,9 @@ var WithdrawRecordsView = SearchGrid.extend({
         abort: false
       },
       reqData: {
-        subUser: 0
+        subUser: 0,
+        sortFlag:-1,
+        sortType:1
       },
       listProp: 'root.withdrawList',
       height: 330
