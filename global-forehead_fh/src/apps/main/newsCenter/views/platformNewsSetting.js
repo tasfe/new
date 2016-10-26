@@ -27,7 +27,7 @@ var PlatformNewsSettingView = Base.ItemView.extend({
           self.$('.js-nc-smSetting-container').html(html);
           self.selectItem(res.root.userConf);
         } else {
-          Global.ui.notification.show('获取下级用户列表失败');
+          Global.ui.notification.show('获取通知设置失败!');
         }
       });
   },

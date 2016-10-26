@@ -34,6 +34,7 @@ define(function (require, exports, module) {
             self.$('.js-ca-place').html('<option value="0">全部</option>' + placeData.join(''));
             self.barList = res.root;
             self.$('.js-ca-arManageUpload-btn').imgBar();
+            self.$('.js-ca-sort').html('<option value="0">全部</option>');
           } else {
             Global.ui.notification.show('数据异常。');
           }

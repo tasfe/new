@@ -83,14 +83,14 @@ App.addInitializer(function(options) {
   //
   this.firstLoginUpdatePasswd = new FirstLoginUpdatePasswd();
   this.firstLoginUpdatePasswd.on('close', function() {
-    if(!Global.cookieCache.get('hasLoadBulletin')) {
-      Global.cookieCache.set('hasLoadBulletin', true);
+    if(!Global.sessionCache.get('hasLoadBulletin')) {
+      Global.sessionCache.set('hasLoadBulletin', true);
       openNotice();
     }
   });
   this.firstLoginUpdatePasswd.checkState(function(state) {
-    if(state !== 1 && !Global.cookieCache.get('hasLoadBulletin')){
-      Global.cookieCache.set('hasLoadBulletin', true);
+    if(state !== 1 && !Global.sessionCache.get('hasLoadBulletin')){
+      Global.sessionCache.set('hasLoadBulletin', true);
       openNotice();
     }
   });

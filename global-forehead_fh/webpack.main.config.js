@@ -53,6 +53,10 @@ module.exports = {
     'changeUrl': {
       entry: ['./src/apps/packages/changeUrl/index.js'],
       //hot: true
+    },
+    'investment': {
+      entry: ['./src/apps/packages/investment2/index.js'],
+      //hot: true
     }
   },
   port: 3001,
@@ -61,60 +65,65 @@ module.exports = {
   },
   entries: {
     index: {
-      title: '繁华娱乐在线娱乐',
+      title: '繁华世界',
       template: './entry/index.html',
       chunks: ['base', 'vendor', 'main', 'common']
     },
     login: {
-      title: '繁华娱乐在线娱乐',
+      title: '繁华世界',
       template: './entry/package.html',
       chunks: ['common', 'vendor', 'base', 'login']
     },
     emailverify: {
-      title: '繁华娱乐在线娱乐',
+      title: '繁华世界',
       template: './entry/package.html',
       chunks: ['common', 'vendor', 'base', 'emailverify']
     },
     register: {
-      title: '繁华娱乐在线娱乐',
+      title: '繁华世界',
       template: './entry/package.html',
       chunks: ['common', 'vendor', 'base', 'register']
     },
     trend: {
-      title: '繁华娱乐在线娱乐',
+      title: '繁华世界',
       template: './entry/package.html',
       chunks: ['common', 'vendor', 'base', 'trend']
     },
     gengxin: {
-      title: '繁华娱乐在线娱乐',
+      title: '繁华世界',
       template: './entry/package.html',
       chunks: ['common', 'vendor', 'base',  'gengxin']
     },
     charge: {
-      title: '充值结果',
+      title: '繁华世界充值结果',
       template: './entry/package.html',
       chunks: ['common', 'vendor', 'base', 'charge']
     },
 
     download: {
-      title: '繁华娱乐在线娱乐',
+      title: '繁华世界',
       template: './entry/package.html',
       chunks: ['common', 'vendor', 'base','download']
     },
     resetPassword: {
-      title: '繁华娱乐在线娱乐',
+      title: '繁华世界',
       template: './entry/package.html',
       chunks: ['common', 'vendor', 'base', 'resetPassword']
     },
     404: {
-      title: '繁华娱乐在线娱乐',
+      title: '繁华世界',
       template: './entry/package.html',
       chunks: ['common', 'base', '404']
     },
     changeUrl: {
-      title: '繁华娱乐在线娱乐',
+      title: '繁华世界',
       template: './entry/package.html',
       chunks: ['common', 'vendor', 'base', 'changeUrl']
+    },
+    investment: {
+      title: '繁华世界',
+      template: './entry/package.html',
+      chunks: ['common', 'vendor', 'base', 'investment']
     }
   },
   output: {

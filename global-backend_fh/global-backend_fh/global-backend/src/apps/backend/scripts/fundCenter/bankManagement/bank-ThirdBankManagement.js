@@ -182,6 +182,24 @@ define(function (require, exports, module) {
           platformId: 18
         }
       });
+      tabs.push({
+        label: '首信易',
+        name: 'syxPay',
+        id: 'jsSyxPayTab',
+        view: ConfigView,
+        options: {
+          platformId: 22
+        }
+      });
+      tabs.push({
+        label: '汇聚支付',
+        name: 'hjPay',
+        id: 'jsHjPayTab',
+        view: ConfigView,
+        options: {
+          platformId: 23
+        }
+      });
 
       _(this.options).extend({
         tabs: tabs

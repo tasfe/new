@@ -82,7 +82,7 @@ class TicketSet extends Page {
     ajax({
       url: '/ticket/ticketmod/getticketcustomized.json'
     }, resp => {
-      let myConfig = resp.root || [1,10,21]
+      let myConfig = resp.root || [1,10,21,14,6,18];
       ticketConfig.getCompleteAll().map(item => {
         item.list.map (item => {
           self.formFields.push({

@@ -131,7 +131,7 @@ var MoneyDetailView = SearchGrid.extend({
   },
 
   renderGrid: function(gridData) {
-    console.log(JSON.stringify(gridData));
+
     var rowsData = _(gridData.balanceList).map(function(bet, index, betList) {
       return {
         columnEls: this.formatRowData(bet, index, betList),
