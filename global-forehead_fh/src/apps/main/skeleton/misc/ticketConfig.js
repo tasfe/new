@@ -290,7 +290,7 @@ var happyConfig = {
   ]
 };
 
-var allConfig = specialConfig.list.concat( sscConfig.list, oneFiveConfig.list, threeDConfig.list,threeDConfig, p5p3Config);
+var allConfig = specialConfig.list.concat( sscConfig.list, oneFiveConfig.list,threeDConfig, p5p3Config,happyConfig.list);
 
 var completeAllConfig = [ specialConfig, sscConfig, oneFiveConfig, lowConfig,happyConfig];
 
