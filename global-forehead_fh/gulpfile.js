@@ -36,6 +36,7 @@ var productionFactory = require('./webpack.production.factory');
 
 var mainConfig = require('./webpack.main.config');
 var externalConfig = require('./webpack.external.config');
+var dllConfig = require('./webpack.dll.config');
 
 var fontConfig = require('./font-config.json');
 
@@ -113,7 +114,17 @@ gulp.task("server.webpack", function(callback) {
     },
     headers: {'X-Custom-Header': 'no'},
     stats: {
-      colors: true
+      colors: true,
+      // reasons: DEBUG,
+      hash: true,
+      version: true,
+      timings: true,
+      chunks: false,
+      chunkModules: true,
+      cached: true,
+      cachedAssets: true,
+      assets: false
+      // chunkModules: false
     }
   }).listen(devConfig.port, function(err, result) {
       if (err) {
@@ -297,10 +308,26 @@ gulp.task('release.clean', function(callback) {
   callback();
 });
 
+//编译dll
+gulp.task('dll:prepare', function(callback) {
+  del('./dist/dll/*');
+  global.DLL = 1;
+
+  var dllWebpackConfig = require('./webpack-config-factory')({
+    appConfig: dllConfig
+  });
+
+  webpack(dllWebpackConfig, function(err, stats) {
+    if(err) throw new gutil.PluginError("webpack", err);
+    gutil.log("[webpack]", stats.toString({
+      // output options
+    }));
+    callback();
+  });
+});
+
 //编译生产版本
 gulp.task("release.build", function(callback) {
-  del('./dist/' + projectPath + '/*');
-
   var productionConfig = productionFactory({
     appConfig: packageConfig
   });

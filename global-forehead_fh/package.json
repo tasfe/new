@@ -45,6 +45,7 @@
     "gulp-uglify": "^0.2.1",
     "gulp-util": "^3.0.6",
     "gulp.spritesmith": "^4.1.1",
+    "happypack": "^2.2.1",
     "html-loader": "^0.3.0",
     "html-webpack-plugin": "2.24.0",
     "http-rewrite-middleware": "^0.1.6",

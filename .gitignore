@@ -8,3 +8,4 @@ error
 bower_components
 test
 webpack-assets.json
+.happypack

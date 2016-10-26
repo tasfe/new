@@ -25,11 +25,6 @@ module.exports = {
       //hot: true
     },
 
-    'gengxin': {
-      entry: ['./src/apps/packages/update/update.js'],
-      //hot: true
-    },
-
     'download': {
       entry: ['./src/apps/packages/download/index.js'],
       hot: true
@@ -43,13 +38,6 @@ module.exports = {
       entry: ['./src/apps/packages/charge/index.js'],
       //hot: true
     },
-    'base': {
-      entry: ['./src/base/build.base.js'],
-      //hot: true
-    },
-    'vendor': {
-      entry: ['./src/vendor/build.core.js']
-    },
     'changeUrl': {
       entry: ['./src/apps/packages/changeUrl/index.js'],
       //hot: true
@@ -57,7 +45,14 @@ module.exports = {
     'investment': {
       entry: ['./src/apps/packages/investment2/index.js'],
       //hot: true
+    },
+    'base': {
+      entry: ['./src/base/build.base.js'],
+      //hot: true
     }
+    // 'vendor': {
+    //   entry: ['./src/vendor/build.core.js']
+    // }
   },
   port: 3001,
   commonChunks: {
@@ -88,11 +83,6 @@ module.exports = {
       title: '繁华娱乐在线娱乐',
       template: './entry/package.html',
       chunks: ['common', 'vendor', 'base', 'trend']
-    },
-    gengxin: {
-      title: '繁华娱乐在线娱乐',
-      template: './entry/package.html',
-      chunks: ['common', 'vendor', 'base',  'gengxin']
     },
     charge: {
       title: '充值结果',

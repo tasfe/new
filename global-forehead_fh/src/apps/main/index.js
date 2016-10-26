@@ -1,5 +1,7 @@
 "use strict";
 
+require('vendor');
+
 var App = require('./app');
 var modules = require('skeleton/modules');
 
@@ -8,6 +10,7 @@ require('widgets');
 window.Global = App;
     window.Global.Prefab = Base.Prefab;
     window.Global.appRouter = new Base.AppRouter();
+// window.Global.appRouter = new Base.AppRouter();
 
     /*******************************************************************/
 // 初始化系统级别 Modules
