@@ -14,6 +14,7 @@ var HappyPack = require('happypack');
 var AssetsPlugin = require('assets-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin')
 var CommonsChunkPlugin = webpack.optimize.CommonsChunkPlugin;
 
 module.exports = function(options) {
@@ -42,7 +43,7 @@ module.exports = function(options) {
   if (global.DLL) {
     output.filename = appConfig.output.filename;
     output.library = appConfig.output.library;
-    output.context = appConfig.output.context;
+    // output.context = appConfig.output.context;
     // output.publicPath = '.' + appConfig.output.publicPath;
   } else {
     if (options.debug) {
@@ -64,7 +65,7 @@ module.exports = function(options) {
       root: [
         path.join(__dirname, 'src'),
         path.join(__dirname, 'bower_components'),
-        path.join(__dirname, 'node_modules')
+        path.join(__dirname, 'node_modules'),
         // path.join(__dirname, 'local_modules')
       ],
       // modulesDirectories: ['local_modules', 'node_modules'],
@@ -126,24 +127,14 @@ module.exports = function(options) {
 
   if (global.DLL) {
     plugins.push(new webpack.DllPlugin({
-      /**
-       * path
-       * 定义 manifest 文件生成的位置
-       * [name]的部分由entry的名字替换
-       */
       path: path.join(__dirname, 'dist/' + appConfig.output.path, '[name]-manifest.json'),
-      /**
-       * name
-       * dll bundle 输出到那个全局变量上
-       * 和 output.library 一样即可。
-       */
       name: '[name]_library'
     }));
   } else {
     plugins.push(new webpack.DllReferencePlugin({
-      // context: __dirname,
+      context: path.join(__dirname),
       scope: 'vendor',
-      manifest: require(path.join(__dirname, 'dist/dll', 'vendor-manifest.json'))
+      manifest: require('./dist/dll/vendor-manifest.json')
     }));
   }
 
@@ -195,6 +186,10 @@ module.exports = function(options) {
       }
     }));
   });
+  plugins.push(new AddAssetHtmlPlugin({
+    filepath: require.resolve('./dist/dll/vendor.js'),
+    includeSourcemap: false
+  }));
 
   //==============module================
   var module = {

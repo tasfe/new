@@ -1,5 +1,7 @@
 "use strict";
 
+window.Modernizr = require('vendor');
+
 var HeaderView = require('skeleton/bases/header');
 var NavbarView = require('skeleton/bases/navbar');
 var RechargeView = require('fundCenter/views/recharge');

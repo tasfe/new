@@ -1,7 +1,5 @@
 "use strict";
 
-require('vendor');
-
 var App = require('./app');
 var modules = require('skeleton/modules');
 

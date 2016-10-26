@@ -1,7 +1,7 @@
 "use strict";
 
 require('./styles/animate.css');
-require('./scripts/modernizr');
+// require('./scripts/modernizr');
 
 //from bower
 var s = require('underscore.string/index');

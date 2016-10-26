@@ -50,9 +50,6 @@ module.exports = {
       entry: ['./src/base/build.base.js'],
       //hot: true
     }
-    // 'vendor': {
-    //   entry: ['./src/vendor/build.core.js']
-    // }
   },
   port: 3001,
   commonChunks: {
@@ -62,7 +59,7 @@ module.exports = {
     index: {
       title: '繁华娱乐在线娱乐',
       template: './entry/index.html',
-      chunks: ['base', 'vendor', 'main', 'common']
+      chunks: ['base', 'main', 'common']
     },
     login: {
       title: '繁华娱乐在线娱乐',

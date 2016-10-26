@@ -167,7 +167,7 @@ gulp.task('release.rsync', function(callback) {
 });
 
 gulp.task("webpack", function(callback) {
-  var productionConfig = productionFactory({
+  var productionConfig = devFactory({
     appConfig: packageConfig
   });
 
