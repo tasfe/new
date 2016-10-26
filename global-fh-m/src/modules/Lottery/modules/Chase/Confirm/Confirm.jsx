@@ -10,6 +10,7 @@ import { setLeftButton } from 'redux/modules/toolbar'
   chasePlanList: state.chase.chasePlanList,
   previewList: state.betting.previewList,
   suspend: state.chase.suspend,
+  lotteryInfo: state.lottery.lottery,
 }), {
   setTitle,
   chase,
@@ -21,7 +22,11 @@ class Confirm extends Component {
     this.props.setTitle('高级追号确认')
     this.props.setLeftButton(true);
   }
-
+  
+  componentWillUnmount() {
+    console.log('ummount confirm')
+  }
+  
   getTableConfig () {
     return {
       height: '4rem',
@@ -72,26 +77,41 @@ class Confirm extends Component {
   }
 
   chase () {
-    let { previewList, chasePlanList, suspend } = this.props
+    let { previewList, chasePlanList, suspend, lotteryInfo} = this.props
     let actionType = '追号'
-    this.props.chase({
-      previewList: previewList,
-      chasePlanList: chasePlanList,
-      suspend: suspend,
-    }, (done, resp) => {
+
+    if (lotteryInfo.planId !== chasePlanList[0].ticketPlanId) {
       Alert({
         noCancel: true,
-        title: done ? '恭喜': '错误',
+        title: '错误',
         type: 'confirm',
-        content: done ? `${actionType}成功` : (resp.msg || `${actionType}失败`),
+        content: '当前期号已过期，请重新选择追号',
         callback : () => {
-          if (done) {
-            this.props.resetChase()
-            window.history.back()
-          }
+          this.props.resetChase()
+          window.history.back()
         }
       })
-    })
+    } else {
+      this.props.chase({
+        previewList: previewList,
+        chasePlanList: chasePlanList,
+        suspend: suspend,
+      }, (done, resp) => {
+        Alert({
+          noCancel: true,
+          title: done ? '恭喜': '错误',
+          type: 'confirm',
+          content: done ? `${actionType}成功` : (resp.msg || `${actionType}失败`),
+          callback : () => {
+            if (done) {
+              this.props.resetChase()
+              window.history.back()
+            }
+          }
+        })
+      })
+    }
+
   }
 
   render () {

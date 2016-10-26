@@ -25,9 +25,9 @@ class Profile extends Page {
           text: '昵称',
           name: 'uname',
           type: 'text',
-          tip: '2-16个字符，支持中英文和数字，不能以数字开头',
+          tip: '4-16个字符，支持中英文和数字，不能以数字开头',
           validation: {
-            rules: ['required','pattern::^[a-zA-Z\u4e00-\u9fa5][a-zA-Z0-9\u4e00-\u9fa5]*', 'minLength::2', 'maxLength::10'],
+            rules: ['required','pattern::^[a-zA-Z\u4e00-\u9fa5][a-zA-Z0-9\u4e00-\u9fa5]*', 'minLength::4', 'maxLength::16'],
             errorMsg: '请输入符合要求的昵称'
           },
           format: (value, data) => {
