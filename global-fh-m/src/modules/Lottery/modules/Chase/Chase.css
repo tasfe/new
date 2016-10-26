@@ -5,12 +5,23 @@
   background: var(--eggshell);
   position: relative;
 }
-
+.chase-page__body{
+  position: absolute;
+  overflow: auto;
+  width: 100%;
+  height: 100%;
+  padding: .38rem 0 .33rem;
+}
 .chase-page__header {
   background: #fff;
   padding: .1rem;
   margin-bottom: .1rem;
   border-bottom: 1px solid var(--border-grey);
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 0.35rem;
 }
 
 .chase-page__header .checkbox {
