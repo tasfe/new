@@ -3,10 +3,16 @@ import Link from 'react-router/lib/Link'
 import withStyles from 'with-style'
 import styles from './Sidenav.css'
 
+import headConfig from 'misc/headConfig'
+
 @withStyles(styles)
 class Sidenav extends Component {
 
   render () {
+
+    let config = headConfig.get(this.props.props.headId) || {};
+
+
     return (
       <div className="nav-content hideNav hidden">
         <div className="nav-content-wrapper">
@@ -16,7 +22,7 @@ class Sidenav extends Component {
           <div className="nav-userInfo">
             <div className="nav-userInfo-userName"><span className="js-nav-userName">{this.props.props.username}</span>(<a className="js-nav-nickName js-nav-link" href="/#/user/profile">{this.props.props.uName}</a>)<a href="/#/message/dynamic" className="js-nav-link"><img className="nav-userInfo-insideLetter" src="images/icon/fh-inside-letter.png"/></a></div>
             <div className="nav-userInfo-img">
-              <img src="images/userImg.png"/>
+              <img src={config.img}/>
             </div>
             <div className="nav-userInfo-balance text-center">
               <div>账户余额</div>
