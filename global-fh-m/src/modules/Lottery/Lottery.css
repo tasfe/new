@@ -45,8 +45,7 @@
   border-bottom: 1px solid var(--border-grey);
   text-align: center;
   background: var(--white);
-  position: absolute;
-  top: 0;
+
 
   .middle {
     display: inline-block;
