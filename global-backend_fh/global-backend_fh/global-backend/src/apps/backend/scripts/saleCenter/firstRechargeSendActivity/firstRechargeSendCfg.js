@@ -67,7 +67,7 @@ define(function (require, exports, module) {
         this.$('.js-sc-rbac-count').val(root.count);
         this._getTable(this._formatCfgData(res.root.itemList, res.root), classValue);
       }else {
-        self.staticGrid =self.$('.' + classValue).staticGrid({
+        this.staticGrid =this.$('.' + classValue).staticGrid({
           colModel: [
             {label: '存款金额', name: 'recharge', width: 100},
             {label: '奖金', name: 'bonus', width: 100},

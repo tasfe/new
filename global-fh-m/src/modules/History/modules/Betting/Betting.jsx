@@ -42,7 +42,8 @@ class Betting extends Page {
       },{
         title: '未中奖',
         content: <BetRecord config={{betStatus:'4'}}/>
-      },]
+      },],
+      claName: 'betting-tab'
     }
   }
 
@@ -85,8 +86,8 @@ class Betting extends Page {
             </div>
           </div>
         </div>
-      <Tab config = {this.tabConfig} />
-        </div>
+        <Tab config = {this.tabConfig}  />
+      </div>
     )
   }
 }

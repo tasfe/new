@@ -6,12 +6,23 @@
   background: #191211;
   height: 0.9rem;
   padding: 0.15rem;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index:1;
+}
+.betting-tab{
+  position: absolute;
+  top:0;
+  height: 100%;
+  padding-top: .9rem ;
 }
 
 .betting-userInfo-img {
   float: left;
   height: .6rem;
   width: 30%;
+
 }
 .betting-userInfo-img-head {
   border-radius: 50%;

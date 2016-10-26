@@ -25,7 +25,6 @@ class Tab extends Component {
 
   changeTabBorderPosition () {
     let activePos = $('.tabs-header .active').position()
-    console.log(activePos);
     $('.border').stop().css({
       left: activePos.left
     })
@@ -55,7 +54,6 @@ class Tab extends Component {
   }
 
   componentDidMount () {
-    var self = this;
 
     $('.tabs-header .border').css({
       width: $('.tabs-header li:eq(0)').width()
@@ -70,9 +68,7 @@ class Tab extends Component {
 
       this.tabIndex = $target.data('tabid')
       this.mountTabComponent(this.tabIndex)
-
     });
-
 
     $('.tabs-header').off('click.delegate')
       .on('click.delegate', '.waves-effect', function (e) {
@@ -93,82 +89,82 @@ class Tab extends Component {
   //  this.mountTabComponent(this.tabIndex)
     this.mountTabComponent()
 
-
-  //×óÓÒ»¬¶¯ÊÂ¼ş
-    var tabsContent = $('.tabs-content');
-    var tabsHeaderLi = $('.tabs-header li');
-    console.log('tabsContent'+tabsContent);
-
-    var sX = 0;    // ÊÖÖ¸³õÊ¼x×ø±ê
-    var sY = 0;   // ÊÖÖ¸³õÊ¼y×ø±ê
-    var sLeft = 0; // ³õÊ¼x·½ÏòÎ»ÒÆ
-    var sRight = 0;// ³õÊ¼y·½ÏòÎ»ÒÆ
-    var index = 0;
-    var curLeft = 0; // µ±Ç°Î»ÒÆ
-    var disX = 0;  // »¬¶¯²îÖµ
-    tabsContent[0].addEventListener('touchstart', Touchstart, true);
-
-    function Touchstart(e) {
-      e.preventDefault();
-      sX = e.changedTouches[0].pageX;
-      sY = e.changedTouches[0].pageY;
-
-      console.log('start x : '+sX);
-      console.log('start y : '+sY);
-
-      //if(sY > sX) return
-      
-      // ¼ÆËã³õÊ¼Î»ÒÆ
-
-      sLeft = tabsContent[0].style.transformX ? -parseInt(/\d+/.exec(tabsContent[0].style.transformX)[0]) : 0;
-      sRight = tabsContent[0].style.transformY ? -parseInt(/\d+/.exec(tabsContent[0].style.transformY)[0]) : 0;
-
-      console.log('start movediatance'+sLeft);
-      tabsContent[0].style.transition = 'none';
-
-      tabsContent[0].addEventListener('touchmove', Touchmove, true);
-      tabsContent[0].addEventListener('touchend', Touchend, true);
-    }
-
-    function Touchmove(e) {
-      disX = e.changedTouches[0].pageX - sX;
-      curLeft = sLeft + disX;
-      tabsContent[0].style.transform = 'translateX(' + curLeft + 'px)';
-    }
-
-    function Touchend(e) {
-      var tabIndex = $('.tabs-header li.active a').data('tabid');
-
-      if (disX > 100) {
-
-        if (index != 0) {
-          index -= 1;
-
-          $('.tabs-header .border').css({
-            left:(index)*245
-          })
-
-         $('.tabs-header li:eq('+index+') a').trigger('click');
-
-        }
-      }
-      if (disX < -100) {
-
-        if (index !=  tabsHeaderLi.length - 1) {
-          index += 1;
-
-          $('.tabs-header .border').css({
-            left:(index)*245
-          })
-
-          $('.tabs-header li:eq('+index+') a').trigger('click');
-
-        };
-      };
-      tabsContent[0].style.transition = '.5s';
-      tabsContent[0].style.transform = 'translateX(' + -index*tabsHeaderLi[0].offsetWidth + 'px)';
-    }
-
+  //
+  // //ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Â¼ï¿½
+  //   var tabsContent = $('.tabs-content');
+  //   var tabsHeaderLi = $('.tabs-header li');
+  //   console.log('tabsContent'+tabsContent);
+  //
+  //   var sX = 0;    // ï¿½ï¿½Ö¸ï¿½ï¿½Ê¼xï¿½ï¿½ï¿½ï¿½
+  //   var sY = 0;   // ï¿½ï¿½Ö¸ï¿½ï¿½Ê¼yï¿½ï¿½ï¿½ï¿½
+  //   var sLeft = 0; // ï¿½ï¿½Ê¼xï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½
+  //   var sRight = 0;// ï¿½ï¿½Ê¼yï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½
+  //   var index = 0;
+  //   var curLeft = 0; // ï¿½ï¿½Ç°Î»ï¿½ï¿½
+  //   var disX = 0;  // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ
+  //   tabsContent[0].addEventListener('touchstart', Touchstart, true);
+  //
+  //   function Touchstart(e) {
+  //     e.preventDefault();
+  //     sX = e.changedTouches[0].pageX;
+  //     sY = e.changedTouches[0].pageY;
+  //
+  //     console.log('start x : '+sX);
+  //     console.log('start y : '+sY);
+  //
+  //     //if(sY > sX) return
+  //
+  //     // ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼Î»ï¿½ï¿½
+  //
+  //     sLeft = tabsContent[0].style.transformX ? -parseInt(/\d+/.exec(tabsContent[0].style.transformX)[0]) : 0;
+  //     sRight = tabsContent[0].style.transformY ? -parseInt(/\d+/.exec(tabsContent[0].style.transformY)[0]) : 0;
+  //
+  //     console.log('start movediatance'+sLeft);
+  //     tabsContent[0].style.transition = 'none';
+  //
+  //     tabsContent[0].addEventListener('touchmove', Touchmove, true);
+  //     tabsContent[0].addEventListener('touchend', Touchend, true);
+  //   }
+  //
+  //   function Touchmove(e) {
+  //     disX = e.changedTouches[0].pageX - sX;
+  //     curLeft = sLeft + disX;
+  //     tabsContent[0].style.transform = 'translateX(' + curLeft + 'px)';
+  //   }
+  //
+  //   function Touchend(e) {
+  //     var tabIndex = $('.tabs-header li.active a').data('tabid');
+  //
+  //     if (disX > 100) {
+  //
+  //       if (index != 0) {
+  //         index -= 1;
+  //
+  //         $('.tabs-header .border').css({
+  //           left:(index)*245
+  //         })
+  //
+  //        $('.tabs-header li:eq('+index+') a').trigger('click');
+  //
+  //       }
+  //     }
+  //     if (disX < -100) {
+  //
+  //       if (index !=  tabsHeaderLi.length - 1) {
+  //         index += 1;
+  //
+  //         $('.tabs-header .border').css({
+  //           left:(index)*245
+  //         })
+  //
+  //         $('.tabs-header li:eq('+index+') a').trigger('click');
+  //
+  //       };
+  //     };
+  //     tabsContent[0].style.transition = '.5s';
+  //     tabsContent[0].style.transform = 'translateX(' + -index*tabsHeaderLi[0].offsetWidth + 'px)';
+  //   }
+  //
 
 
   }
@@ -179,10 +175,10 @@ class Tab extends Component {
 
   render() {
 
-    let {fields} = this.props.config;
+    let {fields,claName} = this.props.config;
 
     return (
-      <div className="tabs">
+      <div className={"tabs "+(claName||'')} >
         <div className="tabs-header">
           <div className="border"></div>
           <ul>
