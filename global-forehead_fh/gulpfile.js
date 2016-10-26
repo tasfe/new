@@ -147,6 +147,14 @@ gulp.task('release', function(callback) {
   );
 });
 
+gulp.task('release.rsync', function(callback) {
+  runSequence(
+    'release',
+    'rsync',
+    callback
+  );
+});
+
 gulp.task("webpack", function(callback) {
   var productionConfig = productionFactory({
     appConfig: packageConfig

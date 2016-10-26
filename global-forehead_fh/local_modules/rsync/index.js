@@ -4,7 +4,8 @@ var rsync = require('gulp-rsync');
 
 gulp.task('rsync', function() {
   // console.log(gulp.src(path.resolve('./local_modules') + '/mockup/dev-proxy.js'));
-  return gulp.src([path.resolve('./www/main/**')])
+  var abc = gulp.src([path.resolve('./www/main/')]);
+  return gulp.src([path.resolve('./www/main/')])
     .pipe(rsync({
       progress: true,
       root: path.resolve('./www/main'),
@@ -13,10 +14,12 @@ gulp.task('rsync', function() {
       username: 'root',
       // relative: false,
       recursive: true,
-      archive: true,
+      // archive: true,
+      chmod: '644',
+      chown: 'root:root',
       // command: true,
       // relative: false,
       // include: ['*.png'],
-      destination: '/data/test/'
+      destination: '/data/html/www/test'
     }));
 });
