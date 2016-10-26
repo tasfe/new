@@ -285,14 +285,15 @@ class Update extends Page {
     var selectedValue = opt.val();
     var selectedTxt = opt.html();
     var selectingValue = $target.val();
+    var $parentPanel =  $target.closest('.question-panel ');
 
     /*$('.panel1 .getqes_sel').not($target).find('option[value=' + selectedValue + ']').removeClass('hidden');
     $('.panel1 .getqes_sel').not($target).find('option[value=' + selectingValue + ']').addClass('hidden');*/
 
     if(selectedValue){
-      $('.panel1 .getqes_sel').not($target).append('<option value="'+ selectedValue +'">'+ selectedTxt +'</option>');
+      $parentPanel.find('.getqes_sel').not($target).append('<option value="'+ selectedValue +'">'+ selectedTxt +'</option>');
     }
-    $('.panel1 .getqes_sel').not($target).find('option[value=' + selectingValue + ']').remove();
+    $parentPanel.find('.getqes_sel').not($target).find('option[value=' + selectingValue + ']').remove();
 
     $option.addClass('selected');
   }
