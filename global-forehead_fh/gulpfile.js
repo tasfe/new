@@ -13,6 +13,7 @@ var cache = require('gulp-cache');
 var Fontmin = require('fontmin');
 var svgo = require('imagemin-svgo');
 var fs = require('fs');
+var rsync = require('./local_modules/rsync');
 
 var _ = require('underscore');
 
@@ -142,6 +143,14 @@ gulp.task('release', function(callback) {
     'release.clean',
     'release.build',
     ['release.js', 'release.css', 'release.assets', 'release.html', 'release.compatible'],
+    callback
+  );
+});
+
+gulp.task('release.rsync', function(callback) {
+  runSequence(
+    'release',
+    'rsync',
     callback
   );
 });
