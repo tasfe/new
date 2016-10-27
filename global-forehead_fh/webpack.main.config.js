@@ -60,16 +60,12 @@ module.exports = {
     login: {
       title: '繁华世界',
       template: './entry/package.html',
-<<<<<<< HEAD
       chunks: ['common', 'base', 'login']
-=======
-      chunks: ['common', 'vendor', 'base', 'login']
     },
     emailverify: {
       title: '繁华世界',
       template: './entry/package.html',
       chunks: ['common', 'vendor', 'base', 'emailverify']
->>>>>>> 2f5cbbc2bf4458e8007d2eadbf6e9ede0d95d42f
     },
     register: {
       title: '繁华世界',
@@ -79,16 +75,7 @@ module.exports = {
     trend: {
       title: '繁华世界',
       template: './entry/package.html',
-<<<<<<< HEAD
       chunks: ['common', 'base', 'trend']
-=======
-      chunks: ['common', 'vendor', 'base', 'trend']
-    },
-    gengxin: {
-      title: '繁华世界',
-      template: './entry/package.html',
-      chunks: ['common', 'vendor', 'base',  'gengxin']
->>>>>>> 2f5cbbc2bf4458e8007d2eadbf6e9ede0d95d42f
     },
     charge: {
       title: '繁华世界充值结果',
