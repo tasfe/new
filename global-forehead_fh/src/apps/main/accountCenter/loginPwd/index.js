@@ -20,6 +20,13 @@ var LoginPwdView = Base.ItemView.extend({
     this.$pwdTip = this.$('.js-invalid-pwd-tip');
     this.$submitBtn = this.$('.js-changeLoginPassword-submit');
     this.$saftyLevel = this.$('.js-passwdSafetyTips');
+
+    var acctInfo = Global.memoryCache.get('acctInfo');
+    if(!_.isNull(acctInfo.uName) && !_.isUndefined(acctInfo.uName) && acctInfo.uName != ""){
+      this.uName = acctInfo.uName;
+    }else{
+      this.uName = acctInfo.username;
+    }
   },
 
   validatePwdHandler: function (e) {
@@ -80,10 +87,13 @@ var LoginPwdView = Base.ItemView.extend({
     if (clpValidate) {
       $target.button('loading');
 
+
+
       Global.sync.ajax({
         url: '/acct/userinfo/updateloginpwd.json',
 
         data: {
+          uName:this.uName,
           oldPwd: this.$('#oldLoginPassword').val(),
           NewPwd: this.$('#newLoginPassword').val()
         }

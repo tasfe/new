@@ -416,9 +416,9 @@ class Bankcard extends Page {
           name: 'cardNo',
           type: 'number',
           placeHolder: '请填写银行卡号',
-          tip: '请输入长度在13位到19位之间的银行卡号',
+          tip: '请输入长度在16位到19位之间的银行卡号',
           validation: {
-            rules: ['required','pattern::^[0-9]{13,19}$'],
+            rules: ['required','pattern::^[0-9]{16,19}$'],
             errorMsg: '请填写正确的银行卡号'
           }
         },
