@@ -179,7 +179,7 @@ $.widget('gl.login', {
     linList.sort(function (a, b) {
       return (a.time > b.time) ? 1 : -1;
     });
-    console.log(JSON.stringify(linList));
+    // console.log(JSON.stringify(linList));
     if(linList[0].server.indexOf(window.location.host) === -1){
       this.$changeUrl.attr('href',linList[0].server);
       this.$tips.removeClass('hidden');
