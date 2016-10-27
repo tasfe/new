@@ -14,46 +14,6 @@ var sscConfig = [
     zhName: "老虎机秒秒彩"
   },*/
   {
-    id: 19,
-    count: 5,
-    num: _.range(10),
-    positions: sscPositions,
-    oneDay: -1,
-    zhName: "秒秒彩"
-  },
-  {
-    id: 18,
-    count: 10,
-    num: _.range(1, 11),
-    positions: PK10Positions,
-    oneDay: -1,
-    zhName: "北京PK10"
-  },
-  {
-    id: 10,
-    count: 5,
-    num: _.range(10),
-    positions: sscPositions,
-    oneDay: 1440,
-    zhName: "分分彩"
-  },
-  {
-    id: 13,
-    count: 5,
-    num: _.range(10),
-    positions: sscPositions,
-    oneDay: 480,
-    zhName: "三分彩"
-  },
-  {
-    id: 12,
-    count: 5,
-    num: _.range(10),
-    positions: sscPositions,
-    oneDay: 288,
-    zhName: "五分彩"
-  },
-  {
     id: 1,
     count: 5,
     num: _.range(10),
@@ -62,20 +22,20 @@ var sscConfig = [
     isSuper:true,
     zhName: "重庆时时彩"
   },
-  {
-    id: 2,
-    count: 5,
-    num: _.range(10),
-    positions: sscPositions,
-    oneDay: sscOneDay,
-    zhName: "江西时时彩"
-  },
+  // {
+  //   id: 2,
+  //   count: 5,
+  //   num: _.range(10),
+  //   positions: sscPositions,
+  //   oneDay: sscOneDay,
+  //   zhName: "江西时时彩"
+  // },
   {
     id: 3,
     count: 5,
     num: _.range(10),
     positions: sscPositions,
-    oneDay: sscOneDay,
+    oneDay: 96,
     zhName: "新疆时时彩"
   },
   {
@@ -83,7 +43,7 @@ var sscConfig = [
     count: 5,
     num: _.range(10),
     positions: sscPositions,
-    oneDay: sscOneDay,
+    oneDay: 84,
     zhName: "天津时时彩"
   },
   {
@@ -91,24 +51,72 @@ var sscConfig = [
     count: 5,
     num: _.range(10),
     positions: sscPositions,
-    oneDay: sscOneDay,
+    oneDay: 84,
     zhName: "黑龙江时时彩"
   },
   {
-    id: 24,
+    id: 21,
     count: 5,
     num: _.range(10),
     positions: sscPositions,
-    oneDay: sscOneDay,
-    zhName: "台湾5分彩"
+    oneDay: 880,
+    zhName: "韩国1.5分彩"
   },
   {
     id: 24,
     count: 5,
     num: _.range(10),
     positions: sscPositions,
-    oneDay: sscOneDay,
+    oneDay: 203,
+    zhName: "台湾5分彩"
+  },
+  {
+    id: 25,
+    count: 5,
+    num: _.range(10),
+    positions: sscPositions,
+    oneDay: 660,
     zhName: "新加坡2分彩"
+  },
+  {
+    id: 10,
+    count: 5,
+    num: _.range(10),
+    positions: sscPositions,
+    oneDay: 1440,
+    zhName: "繁华分分彩"
+  },
+  {
+    id: 13,
+    count: 5,
+    num: _.range(10),
+    positions: sscPositions,
+    oneDay: 480,
+    zhName: "繁华三分彩"
+  },
+  {
+    id: 12,
+    count: 5,
+    num: _.range(10),
+    positions: sscPositions,
+    oneDay: 288,
+    zhName: "繁华五分彩"
+  },
+  {
+    id: 19,
+    count: 5,
+    num: _.range(10),
+    positions: sscPositions,
+    oneDay: -1,
+    zhName: "繁华秒秒彩"
+  },
+  {
+    id: 18,
+    count: 10,
+    num: _.range(1, 11),
+    positions: PK10Positions,
+    oneDay: 179,
+    zhName: "北京PK10"
   }
 ];
 
@@ -123,14 +131,14 @@ var oneFiveConfig = [
     oneDay: 1440,
     zhName: "11选5分分彩"
   },
-  {
-    id: 15,
-    count: 5,
-    num: _.range(1, 12),
-    positions: oneFivePosition,
-    oneDay: 480,
-    zhName: "11选5三分彩"
-  },
+  // {
+  //   id: 15,
+  //   count: 5,
+  //   num: _.range(1, 12),
+  //   positions: oneFivePosition,
+  //   oneDay: 480,
+  //   zhName: "11选5三分彩"
+  // },
   {
     id: 5,
     count: 5,
@@ -166,14 +174,14 @@ var threeDConfig = [
     oneDay: 1440,
     zhName: "3D分分彩"
   },
-  {
-    id: 17,
-    count: 3,
-    num: _.range(10),
-    positions: ['百位', '十位', '个位'],
-    oneDay: 288,
-    zhName: "3D五分彩"
-  },
+  // {
+  //   id: 17,
+  //   count: 3,
+  //   num: _.range(10),
+  //   positions: ['百位', '十位', '个位'],
+  //   oneDay: 288,
+  //   zhName: "3D五分彩"
+  // },
   {
     id: 6,
     count: 3,

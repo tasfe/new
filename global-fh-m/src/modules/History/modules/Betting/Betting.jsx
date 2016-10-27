@@ -42,7 +42,8 @@ class Betting extends Page {
       },{
         title: '未中奖',
         content: <BetRecord config={{betStatus:'4'}}/>
-      },]
+      },],
+      claName: 'betting-tab'
     }
   }
 
@@ -62,10 +63,9 @@ class Betting extends Page {
     let children = this.props.children;
 
     let config = headConfig.get(props.headId) || {};
-    console.log(config,props.headId);
 
     return children ? children :(
-      <div>
+      <div style={{height:'100%'}}>
         <div className="betting-userInfo">
           <div className="betting-userInfo-img">
             <img className="betting-userInfo-img-head " src={config.img}/>
@@ -86,8 +86,8 @@ class Betting extends Page {
             </div>
           </div>
         </div>
-      <Tab config = {this.tabConfig} />
-        </div>
+        <Tab config = {this.tabConfig}  />
+      </div>
     )
   }
 }

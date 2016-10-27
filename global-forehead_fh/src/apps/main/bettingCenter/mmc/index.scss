@@ -1129,11 +1129,12 @@
 
 //返回首页按钮
 .mmc-gotoIndex{
-  position: absolute;
+  position: fixed;
   width: 131px;
   height: 37px;
-  top:70px;
-  right: -250px;
+  top:345px;
+  right:20px;
+  z-index: 10;
   a{
     display: block;
     width: 100%;
