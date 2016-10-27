@@ -36,16 +36,19 @@ module.exports = function(options) {
   }, {});
 
   //==============output================
-  var output = {
-    path: path.join(__dirname, 'dist/' + appConfig.output.path)
-  };
+  var output;
 
   if (global.DLL) {
-    output.filename = appConfig.output.filename;
-    output.library = appConfig.output.library;
-    // output.context = appConfig.output.context;
-    // output.publicPath = '.' + appConfig.output.publicPath;
+    output = {
+      path: path.join(__dirname, 'src/' + appConfig.output.path),
+      filename: appConfig.output.filename,
+      library: appConfig.output.library
+    }
   } else {
+     output = {
+       path: path.join(__dirname, 'dist/' + appConfig.output.path)
+     };
+
     if (options.debug) {
 
       output.publicPath = 'http://localhost:' + appConfig.port + appConfig.output.publicPath;
@@ -123,7 +126,7 @@ module.exports = function(options) {
 
   if (global.DLL) {
     plugins.push(new webpack.DllPlugin({
-      path: path.join(__dirname, 'dist/' + appConfig.output.path, '[name]-manifest.json'),
+      path: path.join(__dirname, 'src/' + appConfig.output.path, '[name]-manifest.json'),
       name: '[name]_library'
     }));
   } else {
@@ -131,7 +134,7 @@ module.exports = function(options) {
       // context: path.join(__dirname, 'src', 'vendor'),
       context: __dirname,
       // scope: 'vendorDLL',
-      manifest: require('./dist/dll/vendor-manifest.json'),
+      manifest: require('./src/dll/vendor-manifest.json'),
       extensions: ['', '.js']
     }));
   }
@@ -156,7 +159,11 @@ module.exports = function(options) {
       }));
     });
     //plugins.push(new CommonsChunkPlugin('vendor.[hash].js', appConfig.commonChunks));
-    plugins.push(new ExtractTextPlugin('[name].[hash].styles.css'));
+    if (global.DLL) {
+      plugins.push(new ExtractTextPlugin('[name].styles.css'));
+    } else {
+      plugins.push(new ExtractTextPlugin('[name].[hash].styles.css'));
+    }
     plugins.push(new AssetsPlugin());
   }
 
@@ -176,18 +183,27 @@ module.exports = function(options) {
           return b.entry ? 1 : -1;
         } else if (a.names[0] === 'base' || b.names[0] === 'base') {
           return b.names[0] === 'base' ? 1 : -1;
-        } else if (a.names[0] === 'vendor' || b.names[0] === 'vendor') {
-          return b.names[0] === 'vendor' ? 1 : -1;
         } else {
           return b.id - a.id;
         }
       }
     }));
   });
-  plugins.push(new AddAssetHtmlPlugin({
-    filepath: require.resolve('./dist/dll/vendor.js'),
-    includeSourcemap: false
-  }));
+
+  if (!global.DLL) {
+    plugins.push(new AddAssetHtmlPlugin([
+      {
+        filepath: require.resolve('./src/dll/vendor.styles.css'),
+        typeOfAsset: 'css',
+        includeSourcemap: false
+      },
+      {
+        filepath: require.resolve('./src/dll/vendor.js'),
+        hash: true,
+        includeSourcemap: false
+      }
+    ]));
+  }
 
   //==============module================
   var module = {

@@ -38,6 +38,7 @@ _.mixin(s.exports());
 require('./scripts/jquery.steps');
 require('./scripts/bootstrap-datetimepicker');
 require('./scripts/jquery.countdown');
+require('./scripts/jquery.fileupload-5.42.3');
 require('jquery-slimscroll');
 
 require('parsleyjs');

@@ -4,7 +4,7 @@ module.exports = {
       entry: [
         './src/vendor/build.core.js',
         './src/vendor/scripts/md5',
-        './src/vendor/scripts/sha512',
+        './src/vendor/scripts/sha512'
       ]
     }
   },

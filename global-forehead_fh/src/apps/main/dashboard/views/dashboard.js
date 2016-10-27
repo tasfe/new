@@ -4,8 +4,6 @@ require('./../misc/index.scss');
 
 var ticketConfig = require('skeleton/misc/ticketConfig');
 
-var LotteryTypeListView = require('dashboard/views/lotteryTypeList');
-
 var DashboardView = Base.ItemView.extend({
 
   template: require('dashboard/templates/dashboard.html'),
@@ -26,24 +24,9 @@ var DashboardView = Base.ItemView.extend({
     'click .js-db-ticket-bread-item': 'ticketBreadHandler',
     'click .js-db-ticket-scroll': 'ticketScrollHandler',
     'click .js-dynamic-itemShow': 'dynamicItemShowHandler',
-    'click .js-lottery': 'lottertyEnterHandler',
     'click .js-betting-steward':'comingSoonHandler',
-    'mouseover .js-athena_st_07': 'tempMouseover',
-    'mouseover .js-athena_st_08': 'tempMouseover',
-    'mouseover .js-athena_st_09': 'tempMouseover',
-    'mouseover .js-athena_st_10': 'tempMouseover',
     'mouseover .js-gl-notice' : 'generateRollListMouseover',
-
-    'mouseout .js-athena_st_07': 'tempMouseOut',
-    'mouseout .js-athena_st_08': 'tempMouseOut',
-    'mouseout .js-athena_st_09': 'tempMouseOut',
-    'mouseout .js-athena_st_10': 'tempMouseOut',
-    'mouseout .js-gl-notice' : 'generateRollListMouseOut',
-
-    'mousedown  .js-athena_st_07': 'tempClick',
-    'mousedown  .js-athena_st_08': 'tempClick',
-    'mousedown  .js-athena_st_09': 'tempClick',
-    'mousedown  .js-athena_st_10': 'tempClick',
+    'mouseout .js-gl-notice' : 'generateRollListMouseOut'
   },
 
   getTicketStatXhr: function(ticketId) {
@@ -121,132 +104,6 @@ var DashboardView = Base.ItemView.extend({
     return html.join('');
   },
 
-
-  tempMouseover: function (e) {
-    //this.clearClick();
-
-    var $target = $(e.currentTarget);
-    var index = $target.data('index');
-    var self = this;
-    //alert(index);
-    if (index == 7) {
-      if (!self.$('.js-athena_st_07').hasClass('athnea-education_03')) {
-        self.$('.js-athena_st_07').removeClass('athnea-education_01').removeClass('athnea-education_02').removeClass('athnea-education_03');
-        self.$('.js-athena_st_07').addClass('athnea-education_02');
-      }
-    }
-    ;
-    if (index == 8) {
-      if (!self.$('.js-athena_st_08').hasClass('athnea-tiger_03')) {
-        self.$('.js-athena_st_08').removeClass('athnea-tiger_01').removeClass('athnea-tiger_02').removeClass('athnea-tiger_03');
-        self.$('.js-athena_st_08').addClass('athnea-tiger_02');
-      }
-    }
-    ;
-    if (index == 9) {
-      if (!self.$('.js-athena_st_09').hasClass('athnea-Reality_03')) {
-        self.$('.js-athena_st_09').removeClass('athnea-Reality_01').removeClass('athnea-Reality_02').removeClass('athnea-Reality_03');
-        self.$('.js-athena_st_09').addClass('athnea-Reality_02');
-      }
-    }
-    ;
-    if (index == 10) {
-      if (!self.$('.js-athena_st_10').hasClass('athnea-ticket_03')) {
-        self.$('.js-athena_st_10').removeClass('athnea-ticket_01').removeClass('athnea-ticket_02').removeClass('athnea-ticket_03');
-        self.$('.js-athena_st_10').addClass('athnea-ticket_02');
-      }
-    }
-    ;
-  },
-
-  tempMouseOut: function (e) {
-    //this.clearClick();
-    var $target = $(e.currentTarget);
-    //$(e.currentTarget).mouseover(function(){
-    //      alert(index);
-    //})
-    var index = $target.data('index');
-    var self = this;
-    // alert(index);
-
-    if (index == 7) {
-      //if(! self.$('.js-athena_st_07').hasClass('athnea-education_03')) {
-      self.$('.js-athena_st_07').removeClass('athnea-education_01').removeClass('athnea-education_02').removeClass('athnea-education_03');
-      self.$('.js-athena_st_07').addClass('athnea-education_01');
-    }
-    //};
-    if (index == 8) {
-      //if(! self.$('.js-athena_st_08').hasClass('athnea-tiger_03')) {
-      self.$('.js-athena_st_08').removeClass('athnea-tiger_01').removeClass('athnea-tiger_02').removeClass('athnea-tiger_03');
-      self.$('.js-athena_st_08').addClass('athnea-tiger_01');
-      //}
-    }
-    ;
-    if (index == 9) {
-      //if(! self.$('.js-athena_st_09').hasClass('athnea-Reality_03')) {
-      self.$('.js-athena_st_09').removeClass('athnea-Reality_01').removeClass('athnea-Reality_02').removeClass('athnea-Reality_03');
-      self.$('.js-athena_st_09').addClass('athnea-Reality_01');
-      //}
-    }
-    ;
-    if (index == 10) {
-      //if(! self.$('.js-athena_st_10').hasClass('athnea-ticket_03')) {
-      self.$('.js-athena_st_10').removeClass('athnea-ticket_01').removeClass('athnea-ticket_02').removeClass('athnea-ticket_03');
-      self.$('.js-athena_st_10').addClass('athnea-ticket_01');
-      //}
-    }
-    ;
-  },
-
-  tempClick: function (e) {
-
-    this.clearClick();
-    var $target = $(e.currentTarget);
-    //$(e.currentTarget).mouseover(function(){
-    //      alert(index);
-    //})
-    var index = $target.data('index');
-    //alert(index);
-
-    if (index == 7) {
-      this.$('.js-athena_st_07').removeClass('athnea-education_01').removeClass('athnea-education_02').removeClass('athnea-education_03');
-      $('.js-athena_st_07').addClass('athnea-education_03');
-    }
-    ;
-    if (index == 8) {
-      this.$('.js-athena_st_08').removeClass('athnea-tiger_01').removeClass('athnea-tiger_02').removeClass('athnea-tiger_03');
-      $('.js-athena_st_08').addClass('athnea-tiger_03');
-    }
-    ;
-    if (index == 9) {
-      this.$('.js-athena_st_09').removeClass('athnea-Reality_01').removeClass('athnea-Reality_02').removeClass('athnea-Reality_03');
-      $('.js-athena_st_09').addClass('athnea-Reality_03');
-      $('.js-athena_st_03').removeClass('athnea-zr_01').removeClass('athnea-zr_02').removeClass('athnea-zr_03');
-      $('.js-athena_st_03').addClass('athnea-zr_03');
-      $('.js-athena_st_01').removeClass('athnea-st_01').removeClass('athnea-st_02').removeClass('athnea-st_03');
-      $('.js-athena_st_01').addClass('athnea-st_01');
-    }
-    ;
-    if (index == 10) {
-      this.$('.js-athena_st_10').removeClass('athnea-ticket_01').removeClass('athnea-ticket_02').removeClass('athnea-ticket_03');
-      $('.js-athena_st_10').addClass('athnea-ticket_03');
-    }
-    ;
-  },
-
-  clearClick: function () {
-    $('.js-athena_st_07').removeClass('athnea-education_01').removeClass('athnea-education_02').removeClass('athnea-education_03');
-    $('.js-athena_st_08').removeClass('athnea-tiger_01').removeClass('athnea-tiger_02').removeClass('athnea-tiger_03');
-    $('.js-athena_st_09').removeClass('athnea-Reality_01').removeClass('athnea-Reality_02').removeClass('athnea-Reality_03');
-    $('.js-athena_st_10').removeClass('athnea-ticket_01').removeClass('athnea-ticket_02').removeClass('athnea-ticket_03');
-
-    $('.js-athena_st_07').addClass('athnea-education_01');
-    $('.js-athena_st_08').addClass('athnea-tiger_01');
-    $('.js-athena_st_09').addClass('athnea-Reality_01');
-    $('.js-athena_st_10').addClass('athnea-ticket_01');
-
-  },
-
   generateRollListMouseover:function () {
     clearInterval(this.timer22);
   },
@@ -255,41 +112,6 @@ var DashboardView = Base.ItemView.extend({
     this.generateRollListTimer();
   },
 
-  lottertyEnterHandler: function () {
-
-    var self = this;
-
-    var $dialogRe = Global.ui.dialog.show({
-      id: _.now(),
-      title: '彩票游戏',
-      size: 'modal-lg',
-      body: '<div class="js-fc-quick-lottery active-container-header"></div>'
-    });
-
-    var lotteryTypeListView = new LotteryTypeListView({parentView: self});
-    lotteryTypeListView.onRender();
-
-    $dialogRe.on('click', '.js-list-active1', function (e) {
-      $('.list-active').removeClass('list-active');
-      var $target = $(e.currentTarget);
-      $target.addClass('list-active');
-
-      var currentIndex = $target.data('index');
-      $('.js-lotteryList-0').addClass('hidden');
-      $('.js-lotteryList-1').addClass('hidden');
-      $('.js-lotteryList-2').addClass('hidden');
-      $('.js-lotteryList-3').addClass('hidden');
-      $('.js-lotteryList-4').addClass('hidden');
-      $('.js-lotteryList-' + currentIndex).removeClass('hidden');
-
-
-    });
-
-    $dialogRe.on('click', '.js-list-close1', function (e) {
-      $dialogRe.modal('hide');
-    });
-
-  },
   comingSoonHandler:function () {
     Global.ui.notification.show("尚未开通，敬请期待");
   },

@@ -16,13 +16,13 @@ exports.install = function() {
     'uc/md': 'moneyDetail', // 账变明细
     'uc/pd': 'priceDetails',//奖金详情
 
-    'uc/cm': 'cardManage', //银行卡管理
+    'uc/cm': 'cardManage' //银行卡管理
 
-    'vip/point': 'vipPoint',
-    'vip/level': 'vipLevel',
-    'vip/prize': 'vipPrize',
-    'vip/cash': 'vipCash',
-    'vip/credit': 'vipCredit'
+    // 'vip/point': 'vipPoint',
+    // 'vip/level': 'vipLevel',
+    // 'vip/prize': 'vipPrize',
+    // 'vip/cash': 'vipCash',
+    // 'vip/credit': 'vipCredit'
 
   });
 

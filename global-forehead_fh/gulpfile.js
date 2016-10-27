@@ -312,7 +312,7 @@ gulp.task('release.clean', function(callback) {
 
 //编译dll
 gulp.task('dll:prepare', function(callback) {
-  del('./dist/dll/*');
+  del('./src/dist/dll/*');
   global.DLL = 1;
 
   var dllWebpackConfig = require('./webpack-config-factory')({
