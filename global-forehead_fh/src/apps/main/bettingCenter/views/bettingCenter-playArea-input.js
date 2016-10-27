@@ -13,6 +13,8 @@ var BettingCenterPlayAreaInputView = Base.ItemView.extend({
     'click .js-bc-numbers-container': 'focusHandler',
     'blur .js-bc-numbers-area': 'blurHandler',
     'keyup .js-bc-numbers-area': 'betChangeHandler',
+    // 'mouseup .js-bc-numbers-area': 'betChangeHandler',
+    'paste .js-bc-numbers-area': 'betChangeDeferHandler',
     'click .js-bc-numbers-del-error': 'delErrorHandler',
     'click .js-bc-numbers-del-repeat': 'delRepeatHandler',
     'click .js-bc-numbers-empty': 'emptyHandler'
@@ -171,6 +173,13 @@ var BettingCenterPlayAreaInputView = Base.ItemView.extend({
       this.$numbersArea.val('').addClass('hidden');
       this.$fileTip.removeClass('hidden');
     }
+  },
+
+  betChangeDeferHandler: function() {
+    var self = this;
+    _.defer(function() {
+      self.statisticsLottery();
+    });
   },
 
   betChangeHandler: function(e) {
