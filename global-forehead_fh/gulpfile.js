@@ -345,14 +345,20 @@ gulp.task("release.build", function(callback) {
 
 //压缩转移js
 gulp.task('release.js', function() {
-  return gulp.src(['./dist/' + projectPath + '/*.js'])
+  return gulp.src([
+    './dist/' + projectPath + '/*.js',
+    './src/dll/*.js'
+  ])
     .pipe(uglify())
     .pipe(gulp.dest(path.join('./www/', packageConfig.output.path + packageConfig.output.publicPath)));
 });
 
 //压缩转移css
 gulp.task('release.css', function() {
-  return gulp.src(['./dist/' + projectPath + '/*.css'])
+  return gulp.src([
+    './dist/' + projectPath + '/*.css',
+    './src/dll/*.css'
+  ])
     .pipe(minfyCss({
       compatibility: 'ie8'
     }))
@@ -361,7 +367,10 @@ gulp.task('release.css', function() {
 
 //压缩转移其它资源 assets
 gulp.task('release.assets', function() {
-  return gulp.src(['./dist/' + projectPath + '/*.+(jpg|png|gif|eot|woff|svg|tff|eot|woff2|swf|ico)'])
+  return gulp.src([
+    './dist/' + projectPath + '/*.+(jpg|png|gif|eot|woff|svg|tff|eot|woff2|swf|ico)',
+    './src/dll/*.+(jpg|png|gif|eot|woff|svg|tff|eot|woff2|swf|ico)'
+  ])
     .pipe(gulp.dest(path.join('./www/', packageConfig.output.path + packageConfig.output.publicPath)));
 });
 
