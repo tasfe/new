@@ -59,7 +59,7 @@ var sscConfig = [
     count: 5,
     num: _.range(10),
     positions: sscPositions,
-    oneDay: sscOneDay,
+    oneDay: 880,
     zhName: "韩国1.5分彩"
   },
   {
