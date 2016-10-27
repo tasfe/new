@@ -183,6 +183,15 @@ define(function (require, exports, module) {
         }
       });
       tabs.push({
+        label: '乐盈支付',
+        name: 'leYing',
+        id: 'jsFCLeYingTab',
+        view: ConfigView,
+        options: {
+          platformId: 19
+        }
+      });
+      tabs.push({
         label: '首信易',
         name: 'syxPay',
         id: 'jsSyxPayTab',
