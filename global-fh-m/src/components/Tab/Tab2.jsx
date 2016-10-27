@@ -105,7 +105,7 @@ class Tab extends Component {
     tabsContent[0].addEventListener('touchstart', Touchstart, true);
 
     function Touchstart(e) {
-      e.preventDefault();
+
       sX = e.changedTouches[0].pageX;
       sY = e.changedTouches[0].pageY;
 
@@ -113,23 +113,25 @@ class Tab extends Component {
       sLeft = tabsContent[0].style.transform ? -parseInt(/\d+/.exec(tabsContent[0].style.transform)) : 0;
       tabsContent[0].style.transition = 'none';
 
-      tabsContent[0].addEventListener('touchmove', Touchmove, true);
       tabsContent[0].addEventListener('touchend', Touchend, true);
     }
 
-
-    function Touchmove(e) {
+    function Touchend(e) {
       disX = e.changedTouches[0].pageX - sX;
       disY = e.changedTouches[0].pageY - sY;
+      console.log('xxxxx'+disX)
+      console.log('yyyyyy'+disY)
 
-      if( Math.abs(disX) < Math.abs(disY)) return
+      if(disX <= 100 && disX >= -100) return
+      if(Math.abs(disX) < Math.abs(disY)) return
 
       curLeft = sLeft + disX;
       tabsContent[0].style.transform = 'translateX(' + curLeft + 'px)';
-    }
 
-    function Touchend(e) {
-  //    var tabIndex = $('.tabs-header li.active a').data('tabid');
+      /*
+      if (disX <= 100 && disX >= -100 ) {
+        return;
+      }*/
       if (disX > 100) {
         if (index != 0) {
           index -= 1;
