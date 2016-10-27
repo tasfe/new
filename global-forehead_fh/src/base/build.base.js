@@ -1,6 +1,6 @@
 "use strict";
 
-require('vendor/build.core.js');
+require('./src/vendor/build.core.js');
 
 require('./styles/style');
 

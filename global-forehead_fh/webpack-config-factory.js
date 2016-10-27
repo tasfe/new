@@ -42,9 +42,7 @@ module.exports = function(options) {
 
   if (global.DLL) {
     output.filename = appConfig.output.filename;
-    output.library = appConfig.output.library
-    output.context = path.join(__dirname, 'dist', 'dll');
-
+    output.library = appConfig.output.library;
     // output.context = appConfig.output.context;
     // output.publicPath = '.' + appConfig.output.publicPath;
   } else {
@@ -135,7 +133,7 @@ module.exports = function(options) {
     }));
   } else {
     plugins.push(new webpack.DllReferencePlugin({
-      context: path.join(__dirname, 'dist', 'dll'),
+      context: path.join(__dirname, 'src', 'vendor'),
       // scope: 'vendorDLL',
       manifest: require('./dist/dll/vendor-manifest.json'),
       extensions: ['', '.js']
