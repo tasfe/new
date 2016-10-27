@@ -9,9 +9,9 @@
   },
   "scripts": {
     "dev.main": "gulp server",
-    "dev.external": "gulp external",
-    "analysis": "webpack --profile --json > stats.json --config=webpack.production.config.js",
-    "deploy": "NODE_ENV=production gulp release -p --config"
+    "deploy.all": "gulp release.rsync && gulp release.rsync --package=external",
+    "deploy.main": "gulp release.rsync",
+    "deploy.external": "gulp release.rsync --package=external"
   },
   "devDependencies": {
     "add-asset-html-webpack-plugin": "^1.0.2",
