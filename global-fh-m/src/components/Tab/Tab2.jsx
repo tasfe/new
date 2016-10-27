@@ -94,18 +94,19 @@ class Tab extends Component {
     this.mountTabComponent()
 
 
-  //◊Û”“ª¨∂Ø ¬º˛
+  //Â∑¶Âè≥ÊªëÂä®‰∫ã‰ª∂
     var tabsContent = $('.tabs-content');
     var tabsHeaderLi = $('.tabs-header li');
-    console.log('tabsContent'+tabsContent);
 
-    var sX = 0;    //  ÷÷∏≥ı ºx◊¯±Í
-    var sY = 0;   //  ÷÷∏≥ı ºy◊¯±Í
-    var sLeft = 0; // ≥ı ºx∑ΩœÚŒª“∆
-    var sRight = 0;// ≥ı ºy∑ΩœÚŒª“∆
+
+    var sX = 0;    // ÊâãÊåáÂàùÂßãxÂùêÊ†á
+    var sY = 0;   // ÊâãÊåáÂàùÂßãyÂùêÊ†á
+    var sLeft = 0; // ÂàùÂßãxÊñπÂêë‰ΩçÁßª
     var index = 0;
-    var curLeft = 0; // µ±«∞Œª“∆
-    var disX = 0;  // ª¨∂Ø≤Ó÷µ
+    var curLeft = 0; // ÂΩìÂâçxÊñπÂêë‰ΩçÁßª
+    var disX = 0;  // xÊñπÂêëÊªëÂä®Â∑ÆÂÄº
+    var disY = 0;  // yÊñπÂêëÊªëÂä®Â∑ÆÂÄº
+
     tabsContent[0].addEventListener('touchstart', Touchstart, true);
 
     function Touchstart(e) {
@@ -116,22 +117,24 @@ class Tab extends Component {
       console.log('start x : '+sX);
       console.log('start y : '+sY);
 
-      //if(sY > sX) return
-      
-      // º∆À„≥ı ºŒª“∆
-
-      sLeft = tabsContent[0].style.transformX ? -parseInt(/\d+/.exec(tabsContent[0].style.transformX)[0]) : 0;
-      sRight = tabsContent[0].style.transformY ? -parseInt(/\d+/.exec(tabsContent[0].style.transformY)[0]) : 0;
-
-      console.log('start movediatance'+sLeft);
+      // ËÆ°ÁÆóÂàùÂßã‰ΩçÁßª
+      sLeft = tabsContent[0].style.transform ? -parseInt(/\d+/.exec(tabsContent[0].style.transform)) : 0;
       tabsContent[0].style.transition = 'none';
 
       tabsContent[0].addEventListener('touchmove', Touchmove, true);
       tabsContent[0].addEventListener('touchend', Touchend, true);
     }
 
+
     function Touchmove(e) {
       disX = e.changedTouches[0].pageX - sX;
+      disY = e.changedTouches[0].pageY - sY;
+
+      console.log('xxxx'+disX);
+      console.log('yyyy'+disY);
+
+      if( Math.abs(disX) < Math.abs(disY)) return
+
       curLeft = sLeft + disX;
       tabsContent[0].style.transform = 'translateX(' + curLeft + 'px)';
     }
@@ -140,35 +143,25 @@ class Tab extends Component {
       var tabIndex = $('.tabs-header li.active a').data('tabid');
 
       if (disX > 100) {
-
         if (index != 0) {
           index -= 1;
-
-          $('.tabs-header .border').css({
-            left:(index)*245
-          })
-
-         $('.tabs-header li:eq('+index+') a').trigger('click');
-
         }
       }
       if (disX < -100) {
-
         if (index !=  tabsHeaderLi.length - 1) {
           index += 1;
-
-          $('.tabs-header .border').css({
-            left:(index)*245
-          })
-
-          $('.tabs-header li:eq('+index+') a').trigger('click');
-
         };
       };
+
+      $('.tabs-header .border').css({
+        left:(index)*245
+      })
+
+      $('.tabs-header li:eq('+index+') a').trigger('click');
+
       tabsContent[0].style.transition = '.5s';
       tabsContent[0].style.transform = 'translateX(' + -index*tabsHeaderLi[0].offsetWidth + 'px)';
     }
-
 
 
   }

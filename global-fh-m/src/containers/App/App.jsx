@@ -12,7 +12,6 @@ import waveEffect from 'components/Toggles/Toggles.css'
 
 import DividendConfig from 'modules/Agency/modules/DivisionManage/dividendConfig'
 
-import Tab from 'components/Tab'
 
 @connect(state => ({
   user: state.auth.user
