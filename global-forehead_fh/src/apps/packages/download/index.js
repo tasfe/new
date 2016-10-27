@@ -1,6 +1,5 @@
 "use strict";
 
-require('./jquery-1.10.2');
 require('./effect');
 
 var DownloadView = Base.ItemView.extend({

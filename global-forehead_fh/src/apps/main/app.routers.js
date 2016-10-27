@@ -15,11 +15,11 @@ var bettingButlerRouter = require('bettingButler/router');
 
 exports.install = function() {
   dashboardRouter.install();
+  userCenterRouter.install();
   accountCenterRouter.install();
   activeCenterRouter.install();
   agencyCenterRouter.install();
   fundCenterRouter.install();
-  userCenterRouter.install();
   bettingCenterRouter.install();
   newsCenterRouter.install();
   dynamicCenterRouter.install();

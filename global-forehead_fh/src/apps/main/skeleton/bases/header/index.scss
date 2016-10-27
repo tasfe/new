@@ -67,15 +67,6 @@
     top:-12px !important;
   }
 }
-.athena-fresh{
-  background: url("images/fresh.png") no-repeat 5px 8px !important ;
-  display: inline-block;
-  width:20px;
-  height:20px;
-}
-.athena-line{
-  background: url("images/athena-line.png") no-repeat 45px 5px !important ;
-}
 .home-head-badge{
   display: inline-flex;
   background-color: red;
@@ -96,40 +87,6 @@
   background-color: darkcyan;
 }
 
-.athena-mosttip{
-  padding: 0;
-  margin: 0;
-  li{
-    list-style: none;
-    height:20px;
-    border-bottom:1px solid #ccc;
-    line-height:30px;
-    padding: 5px;
-    margin-left: 12px;
-  }
-  li:hover{
-
-    background: #eee;
-  }
-  a{
-      background: url("images/three_first.png") no-repeat -3px 11px !important ;
-      display: inline-block;
-      padding-left: 5px;
-      color:#999;
-  }
-  a:hover{
-      color:#e56a28;
-    text-decoration: underline;
-    background: url("images/three_second.png") no-repeat -3px 11px !important ;
-  }
-  span{
-      display: inline-block;
-      float:right;
-      width:130px;
-      height:30px;
-      line-height: 30px !important;
-  }
-}
 .tipDiv{
   height:50px;
   line-height:50px;

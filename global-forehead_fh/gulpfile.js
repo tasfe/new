@@ -167,7 +167,7 @@ gulp.task('release.rsync', function(callback) {
 });
 
 gulp.task("webpack", function(callback) {
-  var productionConfig = devFactory({
+  var productionConfig = productionFactory({
     appConfig: packageConfig
   });
 
@@ -176,8 +176,10 @@ gulp.task("webpack", function(callback) {
     gutil.log("[webpack]", stats.toString({
       // output options
     }));
-    gulp.pipe(stats.toJson())
-      .dest('./stats.json');
+
+    fs.writeFileSync('./stats.json', JSON.stringify(stats.toJson()));
+    // gulp.pipe(stats.toJson())
+    //   .dest('./stats.json');
 
     callback();
   });

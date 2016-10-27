@@ -106,11 +106,6 @@ module.exports = function(options) {
     //   loaders: ['url?limit=10000&minetype=application/font-woff']
     // }),
     new HappyPack({
-      id: 'file',
-      threadPool: happyThreadPool,
-      loaders: ['file']
-    }),
-    new HappyPack({
       id: 'html',
       threadPool: happyThreadPool,
       loaders: ['html']
@@ -133,7 +128,8 @@ module.exports = function(options) {
     }));
   } else {
     plugins.push(new webpack.DllReferencePlugin({
-      context: path.join(__dirname, 'src', 'vendor'),
+      // context: path.join(__dirname, 'src', 'vendor'),
+      context: __dirname,
       // scope: 'vendorDLL',
       manifest: require('./dist/dll/vendor-manifest.json'),
       extensions: ['', '.js']
@@ -210,7 +206,7 @@ module.exports = function(options) {
       },
       {
         test: /\.(ttf|eot|svg|swf)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        loader: 'happypack/loader?id=file'
+        loader: 'file'
       },
       {
         test: /(.*)\.html$/,
@@ -246,7 +242,6 @@ module.exports = function(options) {
       test: /\.css$/,
       loader: 'happypack/loader?id=css'
     });
-
   } else {
 
     module.loaders.push({
