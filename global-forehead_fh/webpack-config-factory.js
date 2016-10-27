@@ -195,6 +195,7 @@ module.exports = function(options) {
       {
         filepath: require.resolve('./src/dll/vendor.styles.css'),
         typeOfAsset: 'css',
+        hash: true,
         includeSourcemap: false
       },
       {
