@@ -79,7 +79,7 @@ module.exports = function(options) {
   }
 
   var happyThreadPool = HappyPack.ThreadPool({
-    size: 10
+    size: 4
   });
 
   //==============plugins================
