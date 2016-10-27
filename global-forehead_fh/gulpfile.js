@@ -36,6 +36,7 @@ var productionFactory = require('./webpack.production.factory');
 
 var mainConfig = require('./webpack.main.config');
 var externalConfig = require('./webpack.external.config');
+var dllConfig = require('./webpack.dll.config');
 
 var fontConfig = require('./font-config.json');
 
@@ -113,7 +114,17 @@ gulp.task("server.webpack", function(callback) {
     },
     headers: {'X-Custom-Header': 'no'},
     stats: {
-      colors: true
+      colors: true,
+      // reasons: DEBUG,
+      hash: true,
+      version: true,
+      timings: true,
+      chunks: false,
+      chunkModules: true,
+      cached: true,
+      cachedAssets: true,
+      assets: false
+      // chunkModules: false
     }
   }).listen(devConfig.port, function(err, result) {
       if (err) {
@@ -165,8 +176,10 @@ gulp.task("webpack", function(callback) {
     gutil.log("[webpack]", stats.toString({
       // output options
     }));
-    gulp.pipe(stats.toJson())
-      .dest('./stats.json');
+
+    fs.writeFileSync('./stats.json', JSON.stringify(stats.toJson()));
+    // gulp.pipe(stats.toJson())
+    //   .dest('./stats.json');
 
     callback();
   });
@@ -297,10 +310,26 @@ gulp.task('release.clean', function(callback) {
   callback();
 });
 
+//编译dll
+gulp.task('dll:prepare', function(callback) {
+  del('./src/dist/dll/*');
+  global.DLL = 1;
+
+  var dllWebpackConfig = require('./webpack-config-factory')({
+    appConfig: dllConfig
+  });
+
+  webpack(dllWebpackConfig, function(err, stats) {
+    if(err) throw new gutil.PluginError("webpack", err);
+    gutil.log("[webpack]", stats.toString({
+      // output options
+    }));
+    callback();
+  });
+});
+
 //编译生产版本
 gulp.task("release.build", function(callback) {
-  del('./dist/' + projectPath + '/*');
-
   var productionConfig = productionFactory({
     appConfig: packageConfig
   });
@@ -316,14 +345,20 @@ gulp.task("release.build", function(callback) {
 
 //压缩转移js
 gulp.task('release.js', function() {
-  return gulp.src(['./dist/' + projectPath + '/*.js'])
+  return gulp.src([
+    './dist/' + projectPath + '/*.js',
+    './src/dll/*.js'
+  ])
     .pipe(uglify())
     .pipe(gulp.dest(path.join('./www/', packageConfig.output.path + packageConfig.output.publicPath)));
 });
 
 //压缩转移css
 gulp.task('release.css', function() {
-  return gulp.src(['./dist/' + projectPath + '/*.css'])
+  return gulp.src([
+    './dist/' + projectPath + '/*.css',
+    './src/dll/*.css'
+  ])
     .pipe(minfyCss({
       compatibility: 'ie8'
     }))
@@ -332,7 +367,10 @@ gulp.task('release.css', function() {
 
 //压缩转移其它资源 assets
 gulp.task('release.assets', function() {
-  return gulp.src(['./dist/' + projectPath + '/*.+(jpg|png|gif|eot|woff|svg|tff|eot|woff2|swf|ico)'])
+  return gulp.src([
+    './dist/' + projectPath + '/*.+(jpg|png|gif|eot|woff|svg|tff|eot|woff2|swf|ico)',
+    './src/dll/*.+(jpg|png|gif|eot|woff|svg|tff|eot|woff2|swf|ico)'
+  ])
     .pipe(gulp.dest(path.join('./www/', packageConfig.output.path + packageConfig.output.publicPath)));
 });
 

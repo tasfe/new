@@ -9,7 +9,6 @@ var WithdrawView = require('fundCenter/views/withdraw');
 var HeaderView = Base.ItemView.extend({
 
   template: require('./index.html'),
-  dialog: _.template(require('skeleton/bases/header/indexmostDialog.html')),
   noticeItemTpl: _(require('./notice-item-header.html')).template(),
 
   events: {

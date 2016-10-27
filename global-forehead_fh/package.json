@@ -9,11 +9,12 @@
   },
   "scripts": {
     "dev.main": "gulp server",
-    "dev.external": "gulp external",
-    "analysis": "webpack --profile --json > stats.json --config=webpack.production.config.js",
-    "deploy": "NODE_ENV=production gulp release -p --config"
+    "deploy.all": "gulp release.rsync && gulp release.rsync --package=external",
+    "deploy.main": "gulp release.rsync",
+    "deploy.external": "gulp release.rsync --package=external"
   },
   "devDependencies": {
+    "add-asset-html-webpack-plugin": "^1.0.2",
     "assets-webpack-plugin": "^2.2.3",
     "autoprefixer": "^6.1.1",
     "connect": "~2.18.0",
@@ -45,6 +46,7 @@
     "gulp-uglify": "^0.2.1",
     "gulp-util": "^3.0.6",
     "gulp.spritesmith": "^4.1.1",
+    "happypack": "^2.2.1",
     "html-loader": "^0.3.0",
     "html-webpack-plugin": "2.24.0",
     "http-rewrite-middleware": "^0.1.6",

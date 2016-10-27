@@ -1,7 +1,6 @@
 "use strict";
 
 require('./index.scss');
-require('./jquery.fileupload-5.42.3');
 
 $.widget('gl.upload', {
 

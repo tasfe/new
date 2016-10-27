@@ -8,10 +8,6 @@ module.exports = {
       entry: ['./src/apps/packages/login/login.js'],
       //hot: true
     },
-    'emailverify': {
-      entry: ['./src/apps/packages/emailVerify/index.js'],
-      //hot: true
-    },
     'register': {
       entry: ['./src/apps/packages/register/register.js'],
       //hot: true
@@ -22,11 +18,6 @@ module.exports = {
     },
     'resetPassword': {
       entry: ['./src/apps/packages/resetPassword/resetPassword.js'],
-      //hot: true
-    },
-
-    'gengxin': {
-      entry: ['./src/apps/packages/update/update.js'],
       //hot: true
     },
 
@@ -43,19 +34,16 @@ module.exports = {
       entry: ['./src/apps/packages/charge/index.js'],
       //hot: true
     },
-    'base': {
-      entry: ['./src/base/build.base.js'],
-      //hot: true
-    },
-    'vendor': {
-      entry: ['./src/vendor/build.core.js']
-    },
     'changeUrl': {
       entry: ['./src/apps/packages/changeUrl/index.js'],
       //hot: true
     },
     'investment': {
-      entry: ['./src/apps/packages/investment2/index.js'],
+      entry: ['./src/apps/packages/investment/index.js'],
+      //hot: true
+    },
+    'base': {
+      entry: ['./src/base/build.base.js'],
       //hot: true
     }
   },
@@ -67,12 +55,12 @@ module.exports = {
     index: {
       title: '繁华世界',
       template: './entry/index.html',
-      chunks: ['base', 'vendor', 'main', 'common']
+      chunks: ['base', 'main', 'common']
     },
     login: {
       title: '繁华世界',
       template: './entry/package.html',
-      chunks: ['common', 'vendor', 'base', 'login']
+      chunks: ['common', 'base', 'login']
     },
     emailverify: {
       title: '繁华世界',
@@ -82,33 +70,28 @@ module.exports = {
     register: {
       title: '繁华世界',
       template: './entry/package.html',
-      chunks: ['common', 'vendor', 'base', 'register']
+      chunks: ['common', 'base', 'register']
     },
     trend: {
       title: '繁华世界',
       template: './entry/package.html',
-      chunks: ['common', 'vendor', 'base', 'trend']
-    },
-    gengxin: {
-      title: '繁华世界',
-      template: './entry/package.html',
-      chunks: ['common', 'vendor', 'base',  'gengxin']
+      chunks: ['common', 'base', 'trend']
     },
     charge: {
       title: '繁华世界充值结果',
       template: './entry/package.html',
-      chunks: ['common', 'vendor', 'base', 'charge']
+      chunks: ['common', 'base', 'charge']
     },
 
     download: {
       title: '繁华世界',
       template: './entry/package.html',
-      chunks: ['common', 'vendor', 'base','download']
+      chunks: ['common', 'base','download']
     },
     resetPassword: {
       title: '繁华世界',
       template: './entry/package.html',
-      chunks: ['common', 'vendor', 'base', 'resetPassword']
+      chunks: ['common', 'base', 'resetPassword']
     },
     404: {
       title: '繁华世界',
@@ -118,12 +101,12 @@ module.exports = {
     changeUrl: {
       title: '繁华世界',
       template: './entry/package.html',
-      chunks: ['common', 'vendor', 'base', 'changeUrl']
+      chunks: ['common', 'base', 'changeUrl']
     },
     investment: {
       title: '繁华世界',
       template: './entry/package.html',
-      chunks: ['common', 'vendor', 'base', 'investment']
+      chunks: ['common', 'base', 'investment']
     }
   },
   output: {

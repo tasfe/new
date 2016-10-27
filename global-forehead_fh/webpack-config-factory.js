@@ -10,9 +10,11 @@ var unrgba = require('postcss-unrgba');
 var gradient = require('postcss-filter-gradient');
 var pxtorem = require('postcss-pxtorem');
 
+var HappyPack = require('happypack');
 var AssetsPlugin = require('assets-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin')
 var CommonsChunkPlugin = webpack.optimize.CommonsChunkPlugin;
 
 module.exports = function(options) {
@@ -34,20 +36,30 @@ module.exports = function(options) {
   }, {});
 
   //==============output================
-  var output = {
-    path: path.join(__dirname, 'dist/' + appConfig.output.path)
-  };
+  var output;
 
-  if (options.debug) {
-
-    output.publicPath = 'http://localhost:' + appConfig.port + appConfig.output.publicPath;
-    output.filename = '[name].bundle.js';
-    output.chunkFilename = '[name].bundle.js';
+  if (global.DLL) {
+    output = {
+      path: path.join(__dirname, 'src/' + appConfig.output.path),
+      filename: appConfig.output.filename,
+      library: appConfig.output.library
+    }
   } else {
-    //临时解决绝对路径在线上无法找到css中下级资源的问题
-    output.publicPath = '.' + appConfig.output.publicPath;
-    output.filename = '[name].[hash].bundle.js';
-    output.chunkFilename = '[name].[hash].bundle.js';
+     output = {
+       path: path.join(__dirname, 'dist/' + appConfig.output.path)
+     };
+
+    if (options.debug) {
+
+      output.publicPath = 'http://localhost:' + appConfig.port + appConfig.output.publicPath;
+      output.filename = '[name].bundle.js';
+      output.chunkFilename = '[name].bundle.js';
+    } else {
+      //临时解决绝对路径在线上无法找到css中下级资源的问题
+      output.publicPath = '.' + appConfig.output.publicPath;
+      output.filename = '[name].[hash].bundle.js';
+      output.chunkFilename = '[name].[chunkhash].bundle.js';
+    }
   }
 
   //==============resolve================
@@ -56,20 +68,76 @@ module.exports = function(options) {
       path.join(__dirname, 'src'),
       path.join(__dirname, 'bower_components'),
       path.join(__dirname, 'node_modules')
+      // path.join(__dirname, 'local_modules')
     ],
-    modulesDirectories: ['local_modules', 'node_modules'],
-    extensions: ['', '.js', '.scss', 'html'],
-    alias: appConfig.resolve.alias
+    // modulesDirectories: ['local_modules', 'node_modules'],
+    extensions: ['', '.js', '.scss']
   };
+
+  if (appConfig.resolve) {
+    resolve.alias = appConfig.resolve.alias;
+  }
+
+  var happyThreadPool = HappyPack.ThreadPool({
+    size: 4
+  });
 
   //==============plugins================
   var plugins = [
     new webpack.ResolverPlugin(
       new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin("bower.json", ["main"])
     ),
-    new webpack.ProvidePlugin(appConfig.providePlugin),
-    new webpack.ContextReplacementPlugin(/moment[\\\/]locale$/, /zh-cn/)
+    new webpack.ContextReplacementPlugin(/moment[\\\/]locale$/, /zh-cn/),
+    new HappyPack({
+      id: 'js',
+      threadPool: happyThreadPool,
+      loaders: ['react-hot']
+    }),
+    new HappyPack({
+      id: 'scss',
+      threadPool: happyThreadPool,
+      loaders: ['style!css?sourceMap!postcss!sass']
+    }),
+    new HappyPack({
+      id: 'css',
+      threadPool: happyThreadPool,
+      loaders: ['style!css!postcss']
+    }),
+    // new HappyPack({
+    //   id: 'woff',
+    //   threadPool: happyThreadPool,
+    //   loaders: ['url?limit=10000&minetype=application/font-woff']
+    // }),
+    new HappyPack({
+      id: 'html',
+      threadPool: happyThreadPool,
+      loaders: ['html']
+    }),
+    new HappyPack({
+      id: 'snap',
+      threadPool: happyThreadPool,
+      loaders: ['imports?this=>window,fix=>module.exports=0']
+    })
   ];
+
+  if (appConfig.providePlugin) {
+    plugins.push(new webpack.ProvidePlugin(appConfig.providePlugin));
+  }
+
+  if (global.DLL) {
+    plugins.push(new webpack.DllPlugin({
+      path: path.join(__dirname, 'src/' + appConfig.output.path, '[name]-manifest.json'),
+      name: '[name]_library'
+    }));
+  } else {
+    plugins.push(new webpack.DllReferencePlugin({
+      // context: path.join(__dirname, 'src', 'vendor'),
+      context: __dirname,
+      // scope: 'vendorDLL',
+      manifest: require('./src/dll/vendor-manifest.json'),
+      extensions: ['', '.js']
+    }));
+  }
 
   if (options.debug) {
     //plugins.push(new CommonsChunkPlugin('vendor.js', appConfig.commonChunks));
@@ -91,7 +159,11 @@ module.exports = function(options) {
       }));
     });
     //plugins.push(new CommonsChunkPlugin('vendor.[hash].js', appConfig.commonChunks));
-    plugins.push(new ExtractTextPlugin('[name].[hash].styles.css'));
+    if (global.DLL) {
+      plugins.push(new ExtractTextPlugin('[name].styles.css'));
+    } else {
+      plugins.push(new ExtractTextPlugin('[name].[hash].styles.css'));
+    }
     plugins.push(new AssetsPlugin());
   }
 
@@ -111,8 +183,6 @@ module.exports = function(options) {
           return b.entry ? 1 : -1;
         } else if (a.names[0] === 'base' || b.names[0] === 'base') {
           return b.names[0] === 'base' ? 1 : -1;
-        } else if (a.names[0] === 'vendor' || b.names[0] === 'vendor') {
-          return b.names[0] === 'vendor' ? 1 : -1;
         } else {
           return b.id - a.id;
         }
@@ -120,16 +190,28 @@ module.exports = function(options) {
     }));
   });
 
+  if (!global.DLL) {
+    plugins.push(new AddAssetHtmlPlugin([
+      {
+        filepath: require.resolve('./src/dll/vendor.styles.css'),
+        typeOfAsset: 'css',
+        hash: true,
+        includeSourcemap: false
+      },
+      {
+        filepath: require.resolve('./src/dll/vendor.js'),
+        hash: true,
+        includeSourcemap: false
+      }
+    ]));
+  }
+
   //==============module================
   var module = {
     loaders: [
       {
-        test: /\.jpg$/,
-        loaders: ['url?limit=1024']
-      },
-      {
-        test: /\.gif$/,
-        loaders: ['url?limit=1024']
+        test: /\.(jpg|gif)$/,
+        loader: 'url?limit=1024'
       },
       {
         test: /\.png$/,
@@ -145,14 +227,14 @@ module.exports = function(options) {
       },
       {
         test: /(.*)\.html$/,
-        loaders: ['html'],
+        loader: 'happypack/loader?id=html',
         include: [
           path.join(__dirname, 'src/apps')
         ]
       },
       {
         test: /snap/,
-        loader: 'imports?this=>window,fix=>module.exports=0'
+        loader: 'happypack/loader?id=snap'
       }
     ]
   };
@@ -160,41 +242,29 @@ module.exports = function(options) {
   if (options.debug) {
     module.loaders.push({
       test: /\.js$/,
-      loader: 'react-hot',
+      loader: 'happypack/loader?id=js',
+      include: [path.join(__dirname, 'src')]
+      // query: {
+      //   cacheDirectory: true
+      // }
+    });
+
+    module.loaders.push({
+      test:   /\.scss$/,
+      loader: 'happypack/loader?id=scss',
       include: [path.join(__dirname, 'src')]
     });
 
     module.loaders.push({
-      test:   /\.scss$/,
-      loader: 'style!css?sourceMap!postcss?pack=rem!sass',
-      include: [path.join(__dirname, 'src/apps/packages/merchants')]
-    });
-
-    module.loaders.push({
-      test:   /\.scss$/,
-      loader: 'style!css?sourceMap!postcss!sass',
-      include: [path.join(__dirname, 'src')],
-      exclude: [path.join(__dirname, 'src/apps/packages/merchants')]
-    });
-
-    module.loaders.push({
       test: /\.css$/,
-      loader: 'style!css!postcss'
+      loader: 'happypack/loader?id=css'
     });
-
   } else {
 
     module.loaders.push({
       test: /\.scss$/,
       loader: ExtractTextPlugin.extract('style', 'css!postcss!sass'),
-      include: [path.join(__dirname, 'src')],
-      exclude: [path.join(__dirname, 'src/apps/packages/merchants')]
-    });
-
-    module.loaders.push({
-      test:   /\.scss$/,
-      loader: ExtractTextPlugin.extract('style', 'css!postcss?pack=rem!sass'),
-      include: [path.join(__dirname, 'src/apps/packages/merchants')]
+      include: [path.join(__dirname, 'src')]
     });
 
     module.loaders.push({
@@ -207,14 +277,14 @@ module.exports = function(options) {
     devtool: options.devtool ? options.devtool : false,
     entry: entry,
     output: output,
-    debug: options.debug,
+    debug: options.debug || false,
     externals: {
     //require("jquery") 是引用自外部模块的
     //对应全局变量 jQuery
     '$': 'jQuery'
     },
-    resolve: resolve,
-    noParse: appConfig.noParse,
+    resolve: resolve || {},
+    noParse: appConfig.noParse || {},
     plugins: plugins,
     module: module,
     postcss: function () {
@@ -243,7 +313,7 @@ module.exports = function(options) {
         ]
       };
     },
-    port: appConfig.port,
+    port: appConfig.port || '3000',
     jshint: {
       "noempty": true,
       "noarg": true,

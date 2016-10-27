@@ -1,9 +1,6 @@
 "use strict";
 
-var swfUrl = require('vendor/assets/ZeroClipboard.swf');
 var ZeroClipboard = require('vendor/scripts/ZeroClipboard');
-
-ZeroClipboard.config({swfPath: swfUrl});
 
 $.widget('gl.textCopy', {
 

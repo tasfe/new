@@ -1,11 +1,9 @@
 "use strict";
 
-require('./styles/normalize-3.0.2.css');
+require('vendor/build.core.js');
 
 require('./styles/style');
-require("font-awesome-webpack");
 
-window.Backbone = require('backbone');
 window.Base = require('./scripts/base');
 
 require('./scripts/under-helper');
@@ -32,23 +30,3 @@ require('./scripts/appRouter');
 require('./scripts/application');
 require('./scripts/module');
 
-require('jquery-ui/ui/core');
-require('jquery-ui/ui/widget');
-require('jquery-ui/ui/mouse');
-require('jquery-ui/ui/position');
-require('jquery-ui/ui/button');
-require('jquery-ui/ui/slider');
-require('jquery-ui/ui/draggable');
-require('jquery-ui/ui/sortable');
-require('./scripts/spinner');
-
-$.widget.bridge('uiButton', $.ui.button);
-
-require('./scripts/bootstrap');
-require('./scripts/jquery.mousewheel.min');
-require('./scripts/icheck.min');
-require('selectize/dist/js/selectize.js');
-
-window.moment = require('moment');
-require('moment/locale/zh-cn');
-window.moment.locale('zh-cn');

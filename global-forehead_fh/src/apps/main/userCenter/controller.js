@@ -12,11 +12,11 @@ var ProfitAndLossView = require('userCenter/profitAndLoss');
 var CardManageView = require('userCenter/views/cardManage');
 var PriceDetailsView = require('userCenter/views/priceDetails');
 
-var VipPointView = require('userCenter/vipPoint');
-var VipLevelView = require('userCenter/vipLevel');
-var VipPrizeView = require('userCenter/vipPrize');
-var VipCashView = require('userCenter/vipCash');
-var VipCreditView = require('userCenter/vipCredit');
+// var VipPointView = require('userCenter/vipPoint');
+// var VipLevelView = require('userCenter/vipLevel');
+// var VipPrizeView = require('userCenter/vipPrize');
+// var VipCashView = require('userCenter/vipCash');
+// var VipCreditView = require('userCenter/vipCredit');
 
 
 var ReportManageView = require('agencyCenter/reportManage/teamReport');

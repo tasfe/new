@@ -1,9 +1,9 @@
 "use strict";
 
-var swfUrl = require('vendor/assets/ZeroClipboard.swf');
+// var swfUrl = require('vendor/assets/ZeroClipboard.swf');
 var ZeroClipboard = require('vendor/scripts/ZeroClipboard');
 
-ZeroClipboard.config({swfPath: swfUrl});
+// ZeroClipboard.config({swfPath: swfUrl});
 
 var OpenAccountManageView = Base.ItemView.extend({
 
