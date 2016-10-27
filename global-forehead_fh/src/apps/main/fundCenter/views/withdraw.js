@@ -54,6 +54,7 @@ var MoneyWithdrawalView = Base.ItemView.extend({
     this.$AmountMax = this.$('.js-fc-wd-amount-limit-max');
     this.acctInfo = Global.memoryCache.get('acctInfo');
     this.$('.js-fc-wd-username').html(this.acctInfo.username);
+    this.$nextClick = this.$('.js-fc-wd-commit');
 
     //TODO 待修改
     this.$ConfirmBank = this.$('.js-fc-wd-confirm-bank');
@@ -119,6 +120,7 @@ var MoneyWithdrawalView = Base.ItemView.extend({
   },
 
   renderCardList: function(cardList) {
+    console.log(JSON.stringify(cardList));
     this.cardList = cardList;
     if (_(cardList).isEmpty()) {
       this.$cardList.html();
@@ -126,9 +128,11 @@ var MoneyWithdrawalView = Base.ItemView.extend({
       this.$cardList.html(_(cardList).map(function(card, index) {
         var valMin = _(card.minMoneyLimit).convert2yuan();
         var valMax = _(card.maxMoneyLimit).convert2yuan();
-        return '<option value="' + card.cardId + '" data-min="' + valMin + '" data-max="' + valMax +'" data-bankid="' +card.bankId +'" data-cusname="' + card.name + '" data-cardno="' + card.cardNo +'">'+card.bankName+ ' '+ card.cardNo + ' ' + (card.canWithdraw ? '' : '(不可用)') + '</option>';
+        return '<option value="' + card.cardId + '" data-min="' + valMin + '" data-max="' + valMax +'" data-bankid="' +card.bankId +'" data-cusname="' + card.name + '" data-cardno="' + card.cardNo +'" data-status='+card.canWithdraw+'>'+card.bankName+ ' '+ card.cardNo + ' ' + (card.canWithdraw ? '' : '(不可用)') + '</option>';
       }, this).join(''));
     }
+    console.log(this.$cardList.find('option:first-child').attr('data-status'));
+    this.canWithdrawHandler(this.$cardList.find('option:first-child').attr('data-status'));
     this.$('.js-fc-wd-bankList').trigger('change');
   },
 
@@ -137,6 +141,9 @@ var MoneyWithdrawalView = Base.ItemView.extend({
     var $option = this.$('.js-fc-wd-bankList').find('option:selected')
     var valMin = $option.data('min');
     var valMax = $option.data('max');
+    var status = $option.data('status');
+    console.log(status);
+    this.canWithdrawHandler(status);
     if (valMin === 0 || valMin === undefined) {
       valMin = 1;
     }
@@ -148,6 +155,11 @@ var MoneyWithdrawalView = Base.ItemView.extend({
     this.$AmountMin.html(valMin);
     this.$AmountMax.html(valMax);
     this.parsley.reset();
+  },
+  canWithdrawHandler:function (status) {
+
+    this.$nextClick.prop('disabled',!status);
+
   },
 
   confirmHandler: function() {
