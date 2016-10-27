@@ -42,7 +42,9 @@ module.exports = function(options) {
 
   if (global.DLL) {
     output.filename = appConfig.output.filename;
-    output.library = appConfig.output.library;
+    output.library = appConfig.output.library
+    output.context = path.join(__dirname, 'dist', 'dll');
+
     // output.context = appConfig.output.context;
     // output.publicPath = '.' + appConfig.output.publicPath;
   } else {
@@ -60,18 +62,19 @@ module.exports = function(options) {
   }
 
   //==============resolve================
+  var resolve = {
+    root: [
+      path.join(__dirname, 'src'),
+      path.join(__dirname, 'bower_components'),
+      path.join(__dirname, 'node_modules')
+      // path.join(__dirname, 'local_modules')
+    ],
+    // modulesDirectories: ['local_modules', 'node_modules'],
+    extensions: ['', '.js', '.scss']
+  };
+
   if (appConfig.resolve) {
-    var resolve = {
-      root: [
-        path.join(__dirname, 'src'),
-        path.join(__dirname, 'bower_components'),
-        path.join(__dirname, 'node_modules'),
-        // path.join(__dirname, 'local_modules')
-      ],
-      // modulesDirectories: ['local_modules', 'node_modules'],
-      extensions: ['', '.js', '.scss'],
-      alias: appConfig.resolve.alias
-    };
+    resolve.alias = appConfig.resolve.alias;
   }
 
   var happyThreadPool = HappyPack.ThreadPool({
@@ -132,9 +135,10 @@ module.exports = function(options) {
     }));
   } else {
     plugins.push(new webpack.DllReferencePlugin({
-      context: path.join(__dirname),
-      scope: 'vendor',
-      manifest: require('./dist/dll/vendor-manifest.json')
+      context: path.join(__dirname, 'dist', 'dll'),
+      // scope: 'vendorDLL',
+      manifest: require('./dist/dll/vendor-manifest.json'),
+      extensions: ['', '.js']
     }));
   }
 

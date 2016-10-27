@@ -1,11 +1,12 @@
 module.exports = {
   entry: {
     'vendor': {
-      entry: ['./src/vendor/scripts/modernizr']
+      entry: [
+        './src/vendor/build.core.js',
+        './src/vendor/scripts/ZeroClipboard',
+        './src/vendor/assets/ZeroClipboard.swf'
+      ]
     }
-    // 'vendor': {
-    //   entry: ['./src/vendor/build.core.js']
-    // }
   },
   output: {
     path: 'dll',

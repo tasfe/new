@@ -8,10 +8,6 @@ module.exports = {
       entry: ['./src/apps/packages/login/login.js'],
       //hot: true
     },
-    'emailverify': {
-      entry: ['./src/apps/packages/emailVerify/index.js'],
-      //hot: true
-    },
     'register': {
       entry: ['./src/apps/packages/register/register.js'],
       //hot: true
@@ -43,7 +39,7 @@ module.exports = {
       //hot: true
     },
     'investment': {
-      entry: ['./src/apps/packages/investment2/index.js'],
+      entry: ['./src/apps/packages/investment/index.js'],
       //hot: true
     },
     'base': {
@@ -64,38 +60,33 @@ module.exports = {
     login: {
       title: '繁华娱乐在线娱乐',
       template: './entry/package.html',
-      chunks: ['common', 'vendor', 'base', 'login']
-    },
-    emailverify: {
-      title: '繁华娱乐在线娱乐',
-      template: './entry/package.html',
-      chunks: ['common', 'vendor', 'base', 'emailverify']
+      chunks: ['common', 'base', 'login']
     },
     register: {
       title: '繁华娱乐在线娱乐',
       template: './entry/package.html',
-      chunks: ['common', 'vendor', 'base', 'register']
+      chunks: ['common', 'base', 'register']
     },
     trend: {
       title: '繁华娱乐在线娱乐',
       template: './entry/package.html',
-      chunks: ['common', 'vendor', 'base', 'trend']
+      chunks: ['common', 'base', 'trend']
     },
     charge: {
       title: '充值结果',
       template: './entry/package.html',
-      chunks: ['common', 'vendor', 'base', 'charge']
+      chunks: ['common', 'base', 'charge']
     },
 
     download: {
       title: '繁华娱乐在线娱乐',
       template: './entry/package.html',
-      chunks: ['common', 'vendor', 'base','download']
+      chunks: ['common', 'base','download']
     },
     resetPassword: {
       title: '繁华娱乐在线娱乐',
       template: './entry/package.html',
-      chunks: ['common', 'vendor', 'base', 'resetPassword']
+      chunks: ['common', 'base', 'resetPassword']
     },
     404: {
       title: '繁华娱乐在线娱乐',
@@ -105,12 +96,12 @@ module.exports = {
     changeUrl: {
       title: '繁华娱乐在线娱乐',
       template: './entry/package.html',
-      chunks: ['common', 'vendor', 'base', 'changeUrl']
+      chunks: ['common', 'base', 'changeUrl']
     },
     investment: {
       title: '繁华娱乐在线娱乐',
       template: './entry/package.html',
-      chunks: ['common', 'vendor', 'base', 'investment']
+      chunks: ['common', 'base', 'investment']
     }
   },
   output: {

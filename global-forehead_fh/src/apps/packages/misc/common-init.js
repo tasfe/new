@@ -1,3 +1,4 @@
+require('vendor/build.core.js');
 require('./minor-page-common.scss');
 
 window.Global = new window.Base.Application();

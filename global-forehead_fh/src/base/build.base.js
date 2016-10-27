@@ -1,11 +1,9 @@
 "use strict";
 
-require('./styles/normalize-3.0.2.css');
+require('vendor/build.core.js');
 
 require('./styles/style');
-require("font-awesome-webpack");
 
-window.Backbone = require('backbone');
 window.Base = require('./scripts/base');
 
 require('./scripts/under-helper');

@@ -1,6 +1,6 @@
 require('./index.scss');
-require('./../../../base/flat/red.css');
-require('./jquery-ui');
+// require('./../../../base/flat/red.css');
+// require('./jquery-ui');
 require('./../misc/common-init.js');
 
 $.widget('gl.investment', {
@@ -219,7 +219,7 @@ function menu(resize) {
 	$('.menu').css({'top':realTop,'right':realRight});
 	$('.menu li').removeClass('hidden');
 	$('.menu li').eq(pageNum).addClass('hidden');
-
+	$('.menu li').eq(4).addClass('hidden');
 	if (resize) {
 		$('.menu li').eq(liShow[0]).css({'top':liTop[liShow[0]],'opacity':1});
 		$('.menu li').eq(liShow[1]).css({'top':liTop[liShow[1]],'opacity':1});
@@ -1434,7 +1434,7 @@ function listener () {
 			if (i == 0) {
 				i = 1;
 
-				if (pageNum == 4) {
+				if (pageNum == 3) {
 					i = 0;
 				}
 				else{
@@ -1617,7 +1617,7 @@ $(document).ready(function() {
 				}
 			}
 			else if (delta < 0){
-				if (pageNum == 4) {
+				if (pageNum == 3) {
 					pageNum = 0;
 				}
 				else{
