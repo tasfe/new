@@ -25,7 +25,6 @@ class Tab extends Component {
 
   changeTabBorderPosition () {
     let activePos = $('.tabs-header .active').position()
-    console.log(activePos);
     $('.border').stop().css({
       left: activePos.left
     })
@@ -55,7 +54,6 @@ class Tab extends Component {
   }
 
   componentDidMount () {
-    var self = this;
 
     $('.tabs-header .border').css({
       width: $('.tabs-header li:eq(0)').width()
@@ -70,9 +68,7 @@ class Tab extends Component {
 
       this.tabIndex = $target.data('tabid')
       this.mountTabComponent(this.tabIndex)
-
     });
-
 
     $('.tabs-header').off('click.delegate')
       .on('click.delegate', '.waves-effect', function (e) {
@@ -92,7 +88,6 @@ class Tab extends Component {
 
   //  this.mountTabComponent(this.tabIndex)
     this.mountTabComponent()
-
 
   //左右滑动事件
     var tabsContent = $('.tabs-content');
@@ -114,9 +109,6 @@ class Tab extends Component {
       sX = e.changedTouches[0].pageX;
       sY = e.changedTouches[0].pageY;
 
-      console.log('start x : '+sX);
-      console.log('start y : '+sY);
-
       // 计算初始位移
       sLeft = tabsContent[0].style.transform ? -parseInt(/\d+/.exec(tabsContent[0].style.transform)) : 0;
       tabsContent[0].style.transition = 'none';
@@ -130,9 +122,6 @@ class Tab extends Component {
       disX = e.changedTouches[0].pageX - sX;
       disY = e.changedTouches[0].pageY - sY;
 
-      console.log('xxxx'+disX);
-      console.log('yyyy'+disY);
-
       if( Math.abs(disX) < Math.abs(disY)) return
 
       curLeft = sLeft + disX;
@@ -140,8 +129,7 @@ class Tab extends Component {
     }
 
     function Touchend(e) {
-      var tabIndex = $('.tabs-header li.active a').data('tabid');
-
+  //    var tabIndex = $('.tabs-header li.active a').data('tabid');
       if (disX > 100) {
         if (index != 0) {
           index -= 1;
@@ -163,7 +151,6 @@ class Tab extends Component {
       tabsContent[0].style.transform = 'translateX(' + -index*tabsHeaderLi[0].offsetWidth + 'px)';
     }
 
-
   }
 
   componentWillUnmount () {
@@ -172,10 +159,10 @@ class Tab extends Component {
 
   render() {
 
-    let {fields} = this.props.config;
+    let {fields,claName} = this.props.config;
 
     return (
-      <div className="tabs">
+      <div className={"tabs "+(claName||'')} >
         <div className="tabs-header">
           <div className="border"></div>
           <ul>

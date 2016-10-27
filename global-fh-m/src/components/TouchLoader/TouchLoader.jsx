@@ -75,7 +75,7 @@ class TouchLoader extends Component {
     touchMove(e) {
         //console.log('touchMove1')
         if(!this.canRefresh()) return;
-        var scrollTop = $('.main.wrapper > div').scrollTop() || window.pageYOffset || document.body.scrollTop;
+        var scrollTop = $('.tabs-content').scrollTop() || window.pageYOffset || document.body.scrollTop;
         //var scrollTop = 0;
         var distance = this.calculateDistance(e.touches[0]);
         //console.log('===',$('.main.wrapper > div').scrollTop());
