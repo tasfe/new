@@ -105,7 +105,7 @@ class Confirm extends Component {
           callback : () => {
             if (done) {
               this.props.resetChase()
-              window.history.back()
+              window.history.go(-2)
             }
           }
         })
