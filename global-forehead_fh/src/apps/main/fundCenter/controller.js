@@ -4,9 +4,9 @@ require('./misc/index.scss');
 
 var RouterController = require('skeleton/controllers/router');
 
-var MoneyTransferView = require('fundCenter/views/moneyTransfer');
-
-var MoneyDetailsView = require('fundCenter/views/moneyDetail-team');
+// var MoneyTransferView = require('fundCenter/views/moneyTransfer');
+//
+// var MoneyDetailsView = require('fundCenter/views/moneyDetail-team');
 
 var FundCenterController = RouterController.extend({
 
