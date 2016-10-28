@@ -731,7 +731,7 @@ var BettingCenterView = Base.ItemView.extend({
     $rows.each(function(index, row) {
       var $row = $(row);
       var $detail = $row.find('.js-bc-betting-preview-detail');
-      var betNumber = previewList[index].bettingNumber;
+      var betNumber = previewList[index].formatBettingNumber;
       var is11X5 = (self.options.ticketInfo.title.indexOf('11选5') !== -1);
       betNumber = is11X5 ? betNumber : betNumber.replace(/ /g, '');
 
