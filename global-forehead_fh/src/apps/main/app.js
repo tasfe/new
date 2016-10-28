@@ -182,17 +182,27 @@ function _bindServiceHandler() {
 }
 
 function _bindClosePopoverHandler() {
-  $(document).off('click.popover').on('click.popover', '.popover', function(e) {
-    var $target = $(e.target);
-    var $popover = $target.closest('.popover');
-    if (!$popover.length) {
-      _($(':data(popover)')).each(function(el) {
-        var $el = $(el);
-        if ($el.data('popover') !== $target.data('popover') &&
-          $el.data('popover') && $el.data('popover').$tip && $el.data('popover').$tip.hasClass('in')) {
-          $el.popover('hide');
-        }
-      });
+  $(document).off('click.popover').on('click.popover', '.js-popover', function(e) {
+    var $target = $(e.currentTarget);
+    var popover = $target.data('popover');
+    if (popover) {
+      var $popover = popover.$tip;
+      if ($popover.length) {
+        _($(':data(popover)')).each(function(el) {
+          var $el = $(el);
+          if ($el.data('popover') !== $target.data('popover')) {
+          // if ($el.data('popover') !== $target.data('popover') &&
+          //   $el.data('popover') && $el.data('popover').$tip && $el.data('popover').$tip.hasClass('in')) {
+            $el.popover('hide');
+          }
+        });
+        _($('.popover')).each(function(el) {
+          var $el = $(el);
+          if ($el[0] !== $popover[0]) {
+            $el.remove();
+          }
+        });
+      }
     }
   });
 
