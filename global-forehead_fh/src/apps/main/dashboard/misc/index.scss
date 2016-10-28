@@ -527,153 +527,241 @@ $float-height: 38px;
     height: 365px;
     float: left;
     background: url(~base/images/julien/indexleftbg.png) no-repeat;
-    position: relative;
-
-
-    >span{
-      position: absolute;
-      cursor: pointer;
-      display: block;
-      opacity: 0;
-
-      &:hover{
-        opacity: 1;
-      }
-
-      &.il1{
+    //position: relative;
+    .index-left-top{
+      width: 100%;
+      height: 200px;
+      .index-left-top-item{
         width: 170px;
         height: 189px;
-        background-color: #fff;
-        top: 20px;
-        left: 30px;
+        margin-left: 32px;
+        margin-right: 15px;
+        position: relative;
+        float: left;
 
-        a{
-          height: 30px;
-          line-height: 30px;
-          color: #333333;
-          border-bottom: 1px solid #ccc;
+        .index-left-top-title{
+          font-size: 20px;
+          font-family: "微软雅黑";
+        }
+        .index-left-top-smtitle{
+          font-size: 14px;
+          color: #999999;
+          font-family: "Bell MT";
+        }
+        >span{
+          position: absolute;
+          cursor: pointer;
           display: block;
-          text-align: left;
+          opacity: 0;
+          width: 100%;
+          height: 100%;
+          background-color: #fff;
+          top: 20px;
+          left:0px;
+          &.il1{
+            a{
+              height: 30px;
+              line-height: 30px;
+              color: #333333;
+              border-bottom: 1px solid #ccc;
+              display: block;
+              text-align: left;
 
+              &:hover{
+                color:#c00;
+              }
+
+              >span{
+                display: inline-block;
+                float: right;
+                color: #999999;
+              }
+
+              b{
+                font-size: 10px;
+                display: inline-block;
+                padding: 0px 3px;
+                background-color: #f1a14a;
+                color: #fff;
+                border-radius: 3px;
+                margin-left: 3px;
+                font-weight: normal;
+                height: 12px;
+                width: 12px;
+                background: url(~base/images/julien/34.png) no-repeat bottom;
+                margin-bottom: -2px;
+              }
+
+              &.bcBtn{
+                width: 132px;
+                height: 35px;
+                line-height: 35px;
+                border-radius: 18px;
+                font-size: 18px;
+                color: #fff;
+                background-color: #eb1c3e;
+                background-image:-webkit-linear-gradient(180deg, #eb1c3e, #be2a2a);
+                background-image:linear-gradient(180deg,#eb1c3e,#c0315c);
+                border:0px;
+                text-align: center;
+                margin: 10px auto 0px auto;
+                box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+                border: 1px solid #b2497c;
+
+                &:hover{
+                  background-color: #be2a2a;
+                  background-image:-webkit-linear-gradient(180deg, #be2a2a, #eb1c3e);
+                  background-image:linear-gradient(180deg,#be2a2a,#eb1c3e);
+                }
+              }
+            }
+
+          }
+          &.il2{
+            background: url(~base/images/julien/35.png) no-repeat center 20px #fff;
+
+            div{
+              font-size: 18px;
+              color: #333333;
+              margin-top: 90px;
+            }
+
+            a{
+              display: block;
+
+              &.bcBtn{
+                width: 132px;
+                height: 35px;
+                line-height: 35px;
+                border-radius: 18px;
+                font-size: 18px;
+                color: #fff;
+                background-color: #eb1c3e;
+                background-image:-webkit-linear-gradient(180deg, #eb1c3e, #be2a2a);
+                background-image:linear-gradient(180deg,#eb1c3e,#c0315c);
+                border:0px;
+                text-align: center;
+                margin: 20px auto 0px auto;
+                box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+                border: 1px solid #b2497c;
+
+                &:hover{
+                  background-color: #be2a2a;
+                  background-image:-webkit-linear-gradient(180deg, #be2a2a, #eb1c3e);
+                  background-image:linear-gradient(180deg,#be2a2a,#eb1c3e);
+                }
+              }
+            }
+          }
+          &.il3{
+            background: url(~base/images/julien/wait.png) no-repeat center 20px #fff;
+          }
+          &.il4{
+            background: url(~base/images/julien/wait.png) no-repeat center 20px #fff;
+          }
           &:hover{
-            color:#c00;
+            opacity: 1;
           }
 
-          >span{
-            display: inline-block;
-            float: right;
-            color: #999999;
+        }
+        .index-left-top-icon{
+          width: 100%;
+          height: 150px;
+          line-height: 150px;
+          img{
+            margin: 0 auto;
           }
+        }
 
-          b{
-            font-size: 10px;
-            display: inline-block;
-            padding: 0px 3px;
-            background-color: #f1a14a;
-            color: #fff;
-            border-radius: 3px;
-            margin-left: 3px;
-            font-weight: normal;
-            height: 12px;
-            width: 12px;
-            background: url(~base/images/julien/34.png) no-repeat bottom;
-            margin-bottom: -2px;
+        &.index-left-aggame{
+          .index-left-top-icon{
+            padding-left: 15px;
           }
+        }
+        &.index-left-ptgame{
+          .index-left-top-icon{
+            padding-left: 15px;
+          }
+        }
+        &.index-left-sportgame{
+          .index-left-top-icon{
+            padding-left: 10px;
+          }
+        }
 
-          &.bcBtn{
-            width: 132px;
-            height: 35px;
-            line-height: 35px;
-            border-radius: 18px;
+      }
+    }
+
+
+    .index-left-bottom {
+      height: 81px;
+      width: 100%;
+      margin: 0px auto;
+      clear: both;
+      margin-top: 73px;
+      font-size: 14px;
+      font-family: '微软雅黑';
+      color: #000000;
+      .index-left-bottom-item{
+        //width: 180px;
+        height: 55px;
+        //margin-left: 20px;
+        //display: inline-block;
+        float: left;
+        position: relative;
+        cursor: pointer;
+        margin-left: 20px;
+        .index-left-bottom-item-ios-img{
+          width: 55px;
+          height: 55px;
+          display: inline-block;
+          background: url(~base/images/icon1.png) no-repeat;
+          float: left;
+        }
+        .index-left-bottom-item-android-img{
+          width: 55px;
+          height: 55px;
+          display: inline-block;
+          background: url(~base/images/icon2.png) no-repeat;
+          float: left;
+        }
+        .index-left-bottom-item-wap-img{
+          width: 55px;
+          height: 55px;
+          display: inline-block;
+          background: url(~base/images/icon3.png) no-repeat;
+          float: left;
+        }
+        .index-left-bottom-item-pc-img{
+          width: 55px;
+          height: 55px;
+          display: inline-block;
+          background: url(~base/images/icon4.png) no-repeat;
+          float: left;
+        }
+        .index-left-bottom-item-msg{
+          width: 125px;
+          height: 55px;
+          display: inline-block;
+          margin-top: 5px;
+          text-align: left;
+          margin-left: 20px;
+          .index-left-bottom-item-msg-title{
             font-size: 18px;
-            color: #fff;
-            background-color: #eb1c3e;
-            background-image:-webkit-linear-gradient(180deg, #eb1c3e, #be2a2a);
-            background-image:linear-gradient(180deg,#eb1c3e,#c0315c);
-            border:0px;
-            text-align: center;
-            margin: 10px auto 0px auto;
-            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
-            border: 1px solid #b2497c;
-
-            &:hover{
-              background-color: #be2a2a;
-              background-image:-webkit-linear-gradient(180deg, #be2a2a, #eb1c3e);
-              background-image:linear-gradient(180deg,#be2a2a,#eb1c3e);
-            }
+            color: #333;
+          }
+          .index-left-bottom-item-msg-content{
+            font-size: 12px;
+            color: #999;
           }
         }
-      }
-      &.il2{
-        width: 170px;
-        height: 189px;
-        top: 20px;
-        left: 250px;
-        background: url(~base/images/julien/35.png) no-repeat center 20px #fff;
-
-        div{
-          font-size: 18px;
-          color: #333333;
-          margin-top: 90px;
-        }
-
-        a{
-          display: block;
-
-          &.bcBtn{
-            width: 132px;
-            height: 35px;
-            line-height: 35px;
-            border-radius: 18px;
-            font-size: 18px;
-            color: #fff;
-            background-color: #eb1c3e;
-            background-image:-webkit-linear-gradient(180deg, #eb1c3e, #be2a2a);
-            background-image:linear-gradient(180deg,#eb1c3e,#c0315c);
-            border:0px;
-            text-align: center;
-            margin: 20px auto 0px auto;
-            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
-            border: 1px solid #b2497c;
-
-            &:hover{
-              background-color: #be2a2a;
-              background-image:-webkit-linear-gradient(180deg, #be2a2a, #eb1c3e);
-              background-image:linear-gradient(180deg,#be2a2a,#eb1c3e);
-            }
-          }
-        }
-      }
-
-      &.il3{
-        width: 170px;
-        height: 189px;
-        top: 20px;
-        left: 470px;
-        background: url(~base/images/julien/wait.png) no-repeat center 20px #fff;
-      }
-
-      &.il4{
-        width: 170px;
-        height: 189px;
-        top: 20px;
-        left: 690px;
-        background: url(~base/images/julien/wait.png) no-repeat center 20px #fff;
-      }
-
-      &.il5{
-        width: 180px;
-        top: 270px;
-        left: 15px;
-        height: 60px;
         &:hover{
-          >div{
+          .code{
             display: block;
-            //display: none;
           }
         }
-
-        >div{
+        .code{
+          display: none;
           border: 2px solid #bf6d8f;
           box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
           padding: 5px;
@@ -682,7 +770,6 @@ $float-height: 38px;
           bottom: 70px;
           left:2px;
           background-color: #fff;
-          display: none;
 
           p{
             margin-top: 5px;
@@ -691,104 +778,271 @@ $float-height: 38px;
             font-size: 14px;
           }
         }
+
       }
 
-      &.il6{
-        width: 180px;
-        top: 270px;
-        left: 265px;
-        height: 60px;
-        &:hover{
-          >div{
-            display: block;
-            //display: none;
-          }
-        }
-
-        >div{
-          border: 2px solid #bf6d8f;
-          box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
-          padding: 5px;
-          position: absolute;
-          //top: -170px;
-          bottom: 70px;
-          left:0px;
-          background-color: #fff;
-          display: none;
-
-          p{
-            margin-top: 5px;
-            margin-bottom: 5px;
-            color: #333333;
-            font-size: 14px;
-          }
-        }
-      }
-
-      &.il7{
-        width: 180px;
-        top: 270px;
-        left: 490px;
-        height: 60px;
-        &:hover{
-          >div{
-            display: block;
-            //display: none;
-          }
-        }
-
-        >div{
-          border: 2px solid #bf6d8f;
-          box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
-          padding: 5px;
-          position: absolute;
-          //top: -170px;
-          bottom: 70px;
-          left:0px;
-          background-color: #fff;
-          display: none;
-
-          p{
-            margin-top: 5px;
-            margin-bottom: 5px;
-            color: #333333;
-            font-size: 14px;
-          }
-        }
-      }
-
-      &.il8{
-        width: 180px;
-        top: 270px;
-        left: 685px;
-        height: 60px;
-        &:hover{
-          >div{
-            display: block;
-            //display: none;
-          }
-        }
-
-        >div{
-          border: 2px solid #bf6d8f;
-          box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
-          padding: 5px;
-          position: absolute;
-          //top: -170px;
-          bottom: 70px;
-          left:0px;
-          background-color: #fff;
-          display: none;
-
-          p{
-            margin-top: 5px;
-            margin-bottom: 5px;
-            color: #333333;
-            font-size: 14px;
-          }
-        }
-      }
     }
+
+
+    //>span{
+    //  position: absolute;
+    //  cursor: pointer;
+    //  display: block;
+    //  opacity: 0;
+    //
+    //  &:hover{
+    //    opacity: 1;
+    //  }
+    //
+    //  &.il1{
+    //    width: 170px;
+    //    height: 189px;
+    //    background-color: #fff;
+    //    top: 20px;
+    //    left: 30px;
+    //
+    //    a{
+    //      height: 30px;
+    //      line-height: 30px;
+    //      color: #333333;
+    //      border-bottom: 1px solid #ccc;
+    //      display: block;
+    //      text-align: left;
+    //
+    //      &:hover{
+    //        color:#c00;
+    //      }
+    //
+    //      >span{
+    //        display: inline-block;
+    //        float: right;
+    //        color: #999999;
+    //      }
+    //
+    //      b{
+    //        font-size: 10px;
+    //        display: inline-block;
+    //        padding: 0px 3px;
+    //        background-color: #f1a14a;
+    //        color: #fff;
+    //        border-radius: 3px;
+    //        margin-left: 3px;
+    //        font-weight: normal;
+    //        height: 12px;
+    //        width: 12px;
+    //        background: url(~base/images/julien/34.png) no-repeat bottom;
+    //        margin-bottom: -2px;
+    //      }
+    //
+    //      &.bcBtn{
+    //        width: 132px;
+    //        height: 35px;
+    //        line-height: 35px;
+    //        border-radius: 18px;
+    //        font-size: 18px;
+    //        color: #fff;
+    //        background-color: #eb1c3e;
+    //        background-image:-webkit-linear-gradient(180deg, #eb1c3e, #be2a2a);
+    //        background-image:linear-gradient(180deg,#eb1c3e,#c0315c);
+    //        border:0px;
+    //        text-align: center;
+    //        margin: 10px auto 0px auto;
+    //        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+    //        border: 1px solid #b2497c;
+    //
+    //        &:hover{
+    //          background-color: #be2a2a;
+    //          background-image:-webkit-linear-gradient(180deg, #be2a2a, #eb1c3e);
+    //          background-image:linear-gradient(180deg,#be2a2a,#eb1c3e);
+    //        }
+    //      }
+    //    }
+    //  }
+    //  &.il2{
+    //    width: 170px;
+    //    height: 189px;
+    //    top: 20px;
+    //    left: 250px;
+    //    background: url(~base/images/julien/35.png) no-repeat center 20px #fff;
+    //
+    //    div{
+    //      font-size: 18px;
+    //      color: #333333;
+    //      margin-top: 90px;
+    //    }
+    //
+    //    a{
+    //      display: block;
+    //
+    //      &.bcBtn{
+    //        width: 132px;
+    //        height: 35px;
+    //        line-height: 35px;
+    //        border-radius: 18px;
+    //        font-size: 18px;
+    //        color: #fff;
+    //        background-color: #eb1c3e;
+    //        background-image:-webkit-linear-gradient(180deg, #eb1c3e, #be2a2a);
+    //        background-image:linear-gradient(180deg,#eb1c3e,#c0315c);
+    //        border:0px;
+    //        text-align: center;
+    //        margin: 20px auto 0px auto;
+    //        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+    //        border: 1px solid #b2497c;
+    //
+    //        &:hover{
+    //          background-color: #be2a2a;
+    //          background-image:-webkit-linear-gradient(180deg, #be2a2a, #eb1c3e);
+    //          background-image:linear-gradient(180deg,#be2a2a,#eb1c3e);
+    //        }
+    //      }
+    //    }
+    //  }
+    //
+    //  &.il3{
+    //    width: 170px;
+    //    height: 189px;
+    //    top: 20px;
+    //    left: 470px;
+    //    background: url(~base/images/julien/wait.png) no-repeat center 20px #fff;
+    //  }
+    //
+    //  &.il4{
+    //    width: 170px;
+    //    height: 189px;
+    //    top: 20px;
+    //    left: 690px;
+    //    background: url(~base/images/julien/wait.png) no-repeat center 20px #fff;
+    //  }
+    //
+    //  &.il5{
+    //    width: 180px;
+    //    top: 270px;
+    //    left: 15px;
+    //    height: 60px;
+    //    &:hover{
+    //      >div{
+    //        display: block;
+    //        //display: none;
+    //      }
+    //    }
+    //
+    //    >div{
+    //      border: 2px solid #bf6d8f;
+    //      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+    //      padding: 5px;
+    //      position: absolute;
+    //      //top: -170px;
+    //      bottom: 70px;
+    //      left:2px;
+    //      background-color: #fff;
+    //      display: none;
+    //
+    //      p{
+    //        margin-top: 5px;
+    //        margin-bottom: 5px;
+    //        color: #333333;
+    //        font-size: 14px;
+    //      }
+    //    }
+    //  }
+    //
+    //  &.il6{
+    //    width: 180px;
+    //    top: 270px;
+    //    left: 265px;
+    //    height: 60px;
+    //    &:hover{
+    //      >div{
+    //        display: block;
+    //        //display: none;
+    //      }
+    //    }
+    //
+    //    >div{
+    //      border: 2px solid #bf6d8f;
+    //      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+    //      padding: 5px;
+    //      position: absolute;
+    //      //top: -170px;
+    //      bottom: 70px;
+    //      left:0px;
+    //      background-color: #fff;
+    //      display: none;
+    //
+    //      p{
+    //        margin-top: 5px;
+    //        margin-bottom: 5px;
+    //        color: #333333;
+    //        font-size: 14px;
+    //      }
+    //    }
+    //  }
+    //
+    //  &.il7{
+    //    width: 180px;
+    //    top: 270px;
+    //    left: 490px;
+    //    height: 60px;
+    //    &:hover{
+    //      >div{
+    //        display: block;
+    //        //display: none;
+    //      }
+    //    }
+    //
+    //    >div{
+    //      border: 2px solid #bf6d8f;
+    //      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+    //      padding: 5px;
+    //      position: absolute;
+    //      //top: -170px;
+    //      bottom: 70px;
+    //      left:0px;
+    //      background-color: #fff;
+    //      display: none;
+    //
+    //      p{
+    //        margin-top: 5px;
+    //        margin-bottom: 5px;
+    //        color: #333333;
+    //        font-size: 14px;
+    //      }
+    //    }
+    //  }
+    //
+    //  &.il8{
+    //    width: 180px;
+    //    top: 270px;
+    //    left: 685px;
+    //    height: 60px;
+    //    &:hover{
+    //      >div{
+    //        display: block;
+    //        //display: none;
+    //      }
+    //    }
+    //
+    //    >div{
+    //      border: 2px solid #bf6d8f;
+    //      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+    //      padding: 5px;
+    //      position: absolute;
+    //      //top: -170px;
+    //      bottom: 70px;
+    //      left:0px;
+    //      background-color: #fff;
+    //      display: none;
+    //
+    //      p{
+    //        margin-top: 5px;
+    //        margin-bottom: 5px;
+    //        color: #333333;
+    //        font-size: 14px;
+    //      }
+    //    }
+    //  }
+    //}
   }
 
   .index-right{
