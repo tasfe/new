@@ -23,7 +23,7 @@ var ValidatorModule = Base.Module.extend({
       return value.replace(/[\u4e00-\u9fa5]/g, '**').length <= (lengthArr[1]) &&
         value.replace(/[\u4e00-\u9fa5]/g, '**').length >= (lengthArr[0]);
     }, 32)
-      .addMessage('zh_cn', 'zhlength', '长度要在%s到%s个字符之间');
+      .addMessage('zh_cn', 'zhlength', '长度要在%s到%s个字之间');
 
     ParsleyValidator.addValidator('nospecialchar', function (value) {
       var myReg = /[~`\-\_^@\/\'\\\"#$%&\*\?\(\),\+;\[\]\{\}\|\.:：<>!！￥？（），。、—]/;
