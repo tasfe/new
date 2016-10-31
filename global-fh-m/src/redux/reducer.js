@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux'
 import { routeReducer } from 'react-router-redux'
 
+import app from './modules/app';
 import auth from './modules/auth';
 import toolbar from './modules/toolbar'
 import form from './modules/form'
@@ -20,6 +21,7 @@ import oplottery from './modules/History/oplottery'
 
 module.exports = combineReducers({
   routing: routeReducer,
+  app,
   auth,
   toolbar,
   form,

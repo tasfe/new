@@ -11,6 +11,7 @@ import NumberRange from 'components/NumberRange'
 import Toggle from 'components/Toggles'
 import { connect } from 'react-redux'
 import { create, setHelper, set as chaseConfig } from 'redux/modules/Lottery/chase'
+import { toggleMainStyle } from 'redux/modules/app'
 import { routerActions } from 'react-router-redux'
 import { setTitle } from 'redux/modules/toolbar'
 import { setLeftButton } from 'redux/modules/toolbar'
@@ -25,6 +26,7 @@ import { setLeftButton } from 'redux/modules/toolbar'
   create,
   pushState: routerActions.push,
   setTitle,
+  toggleMainStyle,
   setLeftButton
 })
 @withStyles(styles)
@@ -46,7 +48,7 @@ class Chase extends Component {
       params[item.name] = +item.value ? +item.value : item.value
       return item
     })
-    if ('multiple' === params.chaseType) {
+    if ('multiple' === params.chaseType) {``
       this.props.setHelper('normal')
     } else {
       this.props.setHelper('profit')
@@ -64,8 +66,9 @@ class Chase extends Component {
   }
 
   componentDidMount() {
-    this.props.setTitle('高级追号设置')
+    this.props.setTitle('高级追号设置');
     this.props.setLeftButton(true);
+    this.props.toggleMainStyle('overflow-hidden');
 
     if (!this.props.plans.length) {
       ajax({
@@ -91,6 +94,10 @@ class Chase extends Component {
     } else {
       this.kickoffExpiredPlans()
     }
+  }
+
+  componentWillUnmount () {
+    this.props.toggleMainStyle('normal');
   }
 
   componentWillUpdate () {

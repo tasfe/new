@@ -92,6 +92,9 @@
 
 .chase-page__card--margin-top {
   margin-top: .1rem;
+  position: absolute;
+  width: 94%;
+
 }
 
 .chase-confirm-table .table thead td {

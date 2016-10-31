@@ -7,14 +7,15 @@ import Home from '../Home'
 // import Menubar from '../Menubar'
 import withStyles from 'with-style'
 import styles from './App.css'
+import { toggleMainStyle } from 'redux/modules/app';
 import { logout, load } from 'redux/modules/auth';
 import waveEffect from 'components/Toggles/Toggles.css'
 
 import DividendConfig from 'modules/Agency/modules/DivisionManage/dividendConfig'
 
-
 @connect(state => ({
-  user: state.auth.user
+  user: state.auth.user,
+  mainStyle: state.app.mainStyle
 }), {
   logout,
   load
@@ -70,7 +71,7 @@ class App extends Component {
       <div className="root-container">
         <Toolbar />
         <div className="main">
-          <div className="relative-main-container">
+          <div className={this.props.mainStyle}>
             {this.props.children || <Home />}
           </div>
         </div>
@@ -96,4 +97,4 @@ class App extends Component {
 
 }
 
-export default App 
+export default App

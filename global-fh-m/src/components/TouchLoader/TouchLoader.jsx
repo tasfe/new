@@ -76,8 +76,10 @@ class TouchLoader extends Component {
         //console.log('touchMove1')
         if(!this.canRefresh()) return;
         var scrollTop = $('.tabs-content').scrollTop() || window.pageYOffset || document.body.scrollTop;
+        console.log(scrollTop);
         //var scrollTop = 0;
         var distance = this.calculateDistance(e.touches[0]);
+        console.log('距离'+distance);
         //console.log('===',$('.main.wrapper > div').scrollTop());
         //console.log('touchMove2,this.refs.panel.scrollTop :'+this.refs.panel.scrollTop+' ,window.pageYOffset:'+this.refs.panel.pageYOffset+' , document.body.scrollTop:'+ this.refs.panel.scrollTop);
         if(distance > 0 && scrollTop <= 0){

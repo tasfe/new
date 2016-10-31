@@ -118,7 +118,7 @@ class Confirm extends Component {
     let { chasePlanList = [], previewList } = this.props
     let last = _(chasePlanList).last() || {}
 
-    return <div className="chase-confrim-page">
+    return <div className="chase-confrim-page" style={{height: '100%',overflow: 'hidden'}}>
       <Header />
       <div className="chase-page__card chase-page__card--margin-top" >
         <Table data={chasePlanList} config={this.getTableConfig()} />
