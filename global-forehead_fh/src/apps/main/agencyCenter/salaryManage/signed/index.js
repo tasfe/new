@@ -121,8 +121,8 @@ var SignedView = Base.ItemView.extend({
       var user ;
       if(self.ValidUser){
         user = _(self.ValidUser).find(function(userItem){
-          return userItem.userName== self.$username.val();
-        });
+          return userItem.userName== this.$element.val();
+        }, this);
         if(user){
           self.$('.js-ac-sm-sign-userid').val(user.userId);
         }else{

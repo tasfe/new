@@ -85,6 +85,10 @@ TopProfileView = Base.ItemView.extend({
 
         var parsley = $form.parsley();
 
+        if (!parsley.validate()) {
+          return false;
+        }
+
         self.updateUNameXhr(_($form.serializeArray()).serializeObject())
           .always(function() {
             $submit.button('reset');

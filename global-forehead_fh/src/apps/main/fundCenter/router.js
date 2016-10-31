@@ -5,8 +5,8 @@ define(function(require, exports, module) {
   exports.install = function() {
 
     window.Global.appRouter.processAppRoutes(new FundCenterController(), {
-      'fc/pt': 'platformTransfer',
-      'uc/ad': 'accountDetails'
+      // 'fc/pt': 'platformTransfer',
+      // 'uc/ad': 'accountDetails'
     });
   };
 

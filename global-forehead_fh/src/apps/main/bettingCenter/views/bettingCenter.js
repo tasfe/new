@@ -708,10 +708,10 @@ var BettingCenterView = Base.ItemView.extend({
     var rows = _(previewList).map(function(previewInfo) {
       var title = '';
 
-      if (previewInfo.formatBettingNumber.length > 7) {
-        title += '<a href="javascript:void(0)" class="js-bc-betting-preview-detail">' +
+      if ((previewInfo.levelName + '_' + previewInfo.playName).length + previewInfo.formatBettingNumber.length > 10) {
+        title += '<a href="javascript:void(0)" class="js-bc-betting-preview-detail js-popover">' +
           '<span class="preview-row-title ellipsis btn-link">[' + previewInfo.levelName + '_' + previewInfo.playName + '] ';
-        title += previewInfo.formatBettingNumber.slice(0, 7) + '</span></a>';
+        title += previewInfo.formatBettingNumber.slice(0, 10) + '</span></a>';
       } else {
         title += '<span class="preview-row-title ellipsis">[' + previewInfo.levelName + '_' + previewInfo.playName + '] ';
         title += previewInfo.formatBettingNumber + '</span>';
@@ -731,7 +731,7 @@ var BettingCenterView = Base.ItemView.extend({
     $rows.each(function(index, row) {
       var $row = $(row);
       var $detail = $row.find('.js-bc-betting-preview-detail');
-      var betNumber = previewList[index].bettingNumber;
+      var betNumber = previewList[index].formatBettingNumber;
       var is11X5 = (self.options.ticketInfo.title.indexOf('11选5') !== -1);
       betNumber = is11X5 ? betNumber : betNumber.replace(/ /g, '');
 

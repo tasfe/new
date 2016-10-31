@@ -270,7 +270,7 @@ define(function (require, exports, module) {
                         $dialog.find('.js-bc-openNum').removeAttr('data-parsley-numAndComma').attr('data-parsley-numAndCommaAndNoRep',true);
                     }else{
                         //$dialog.find('.js-bc-openNum-container').html('<input type="text" class="form-control js-bc-openNum width-md" data-parsley-numAndComma required>');
-                        $dialog.find('.js-bc-openNum').removeAttr('data-parsley-numAndCommaAndNoRep').attr('data-parsley-numAndComma',true);
+                        /*$dialog.find('.js-bc-openNum').removeAttr('data-parsley-numAndCommaAndNoRep').attr('data-parsley-numAndComma',true);*/
                     }
 
                     var $form = $dialog.find('.js-bc-form');

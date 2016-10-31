@@ -56,7 +56,7 @@ var RechargeRecordsView = SearchGrid.extend({
         abort: false
       },
       reqData: {
-        subUser: 0
+        subUser: 1
       },
       listProp: 'root.withdrawList',
       height: 345
