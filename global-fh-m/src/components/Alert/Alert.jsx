@@ -76,6 +76,9 @@ window.Alert = (option = {}) => {
     } else {
       hide()
     }
+    if ($(e.target).is('.alert-close') && $('.alert-content').text() == '资金密码修改成功') {
+      location.reload();
+    }
   })
 
   show()

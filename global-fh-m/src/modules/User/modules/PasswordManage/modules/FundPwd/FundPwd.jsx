@@ -77,6 +77,7 @@ class FundPwd extends Page {
     })
   }
 
+
   savePsd () {
     $('.pm-form').find('button.savePsdBtn').click();
   }
@@ -142,12 +143,13 @@ class FundPwd extends Page {
             title: '系统提示',
             content: '资金密码修改成功'
           })
-        },
+        }
+        ,
         onError: (errorData) => {
           //todo 输出错误提示
           window.Alert({
             title: '系统提示',
-            content: errorData.root||'请求失败'
+            content: errorData.msg||'请求失败'
           });
         }
       }
