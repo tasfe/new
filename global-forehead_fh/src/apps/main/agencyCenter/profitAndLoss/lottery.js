@@ -163,6 +163,7 @@ var ReportManageView = SearchGrid.extend({
   },
 
   renderGrid: function(gridData) {
+    console.log(JSON.stringify(gridData));
     var rowsData = _(gridData.amountList).map(function(fundTrace, index, betList) {
       return {
         columnEls: this.formatRowData(fundTrace, index, betList),

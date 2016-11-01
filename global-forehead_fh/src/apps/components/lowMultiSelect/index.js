@@ -104,7 +104,7 @@ var LowMultiSelect = Base.PrefabView.extend({
 
     if (this.options.showParent && data.parent) {
       var parent = data.parent;
-      parent.username = '我的上级';
+      parent.username = '私人助理';
       this.$('.js-fc-parent').removeClass('hidden');
       this.$('.js-pf-select-superior').data('data', parent);
 
