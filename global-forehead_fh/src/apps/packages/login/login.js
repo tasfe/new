@@ -237,7 +237,11 @@ $.widget('gl.login', {
             }
             self.resetInput = false;
           }else{
-            Global.ui.notification.show('用户名或密码错误');
+            if(data.msg=='该用户被冻结'){
+              Global.ui.notification.show('账户已被冻结，请联系在线客服');
+            }else{
+              Global.ui.notification.show(data.msg);
+            }
 
             //self.renderError(data.msg);
             self.resetInput = true;
