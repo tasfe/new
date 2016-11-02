@@ -33,25 +33,28 @@ var specialConfig = {
       planCount: '共288期',
       badge: '',
       img: require('images/fh-ticket-5fc.png')
-    /*},{
-      id: 13,
-      mark: 'ssc-sfc',
-      zhName: "繁华三分彩",
-      quickShowName: "繁华<br/>三分彩",
-      optional: true,
-      defaultSelectPlay: defaultSelectSSC,
-      desc: '全天24小时 共480期',
-      badge: '',
-      img: 'images/fh-ticket-3fc.png'*/
-    // },{
-    //   id: 19,
-    //   mark: 'ssc-mmc',
-    //   zhName: "秒秒彩",
-    //   quickShowName: "秒秒彩",
-    //   optional: true,
-    //   defaultSelectPlay: defaultSelectSSC,
-    //   badge: 'hot',
-    //   img: 'images/fh-ticket-mmc.png'
+      },
+    // {
+    //    id: 13,
+    //    mark: 'ssc-sfc',
+    //    zhName: "繁华三分彩",
+    //    quickShowName: "繁华<br/>三分彩",
+    //    optional: true,
+    //    defaultSelectPlay: defaultSelectSSC,
+    //    desc: '全天24小时 共480期',
+    //    badge: '',
+    //    img: 'images/fh-ticket-3fc.png'*/
+      // },
+      {
+        id: 19,
+        mark: 'ssc-mmc',
+        zhName: "繁华秒秒彩",
+        quickShowName: "秒秒彩",
+        optional: true,
+        defaultSelectPlay: defaultSelectSSC,
+        badge: 'hot',
+        desc: '全天24小时 即投即开',
+        img: require('images/fh-ticket-mmc.png')
     /*},{
       id: 20,
       mark: 'ssc-mmc',

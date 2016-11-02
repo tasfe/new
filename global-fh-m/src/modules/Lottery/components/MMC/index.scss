@@ -1,0 +1,1148 @@
+@charset "UTF-8";
+
+@import
+"~base/styles/imports";
+
+.bc-mmc-div{
+  //background-color: #efefef;
+  width:1112px;
+  margin: -135px 44px 0;
+  //height:1053px;
+  min-height:803px;
+
+  .bc-mmc-bg-area{
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: 0;
+    background-color: #000000;
+    background-image: url(mmc-bg.png);
+    background-repeat: no-repeat;
+    background-position: center 0px;
+
+  }
+
+  .bc-head-area{
+    width: 1112px;
+    position: relative;
+  }
+  .mmc-main-bg{
+    background:url(./mmc-box-head.png) top center no-repeat;
+    height:255px;
+    width: 1215px;
+    margin-left: -103px;
+    .mmc-header-light{
+      background: url(mmc-header-light.gif) no-repeat;
+      width: 961px;
+      height: 35px;
+      position: absolute;
+      left: 73px;
+      top: 56px;
+    }
+  }
+
+  .mmc-main{
+    width:100%;
+    height:218px;
+    position:relative;
+    margin:5px 0 0 0;
+  }
+
+  .mmc-num-box{
+    height: 110px;
+    width: 580px;
+    position: absolute;
+    left: 330px;
+    top: 105px;
+    z-index:1;
+    overflow:hidden;
+    text-align:center;
+  }
+  .mmc-num{
+    background:url(./num.png) top center repeat-y;
+    width:50px;
+    height:111px;
+    float:left;
+    margin: 0px 0 0px 58px;
+  }
+  .mmc-num-stop{
+    width:50px;
+    height:111px;
+    float:left;
+    margin: 23px 0 0px 57px;
+    color: #c21d15;
+    font-size: 42px;
+    font-weight: bold;
+  }
+  .bc-mmc-open-history-turn-page{
+    position: absolute;
+    right: 362px;
+
+  }
+  .bc-mmc-open-history-turn-page-up{
+    top:126px;
+  }
+  .bc-mmc-open-history-turn-page-down{
+    top:43px;
+  }
+  .bc-mmc-open-history {
+    overflow: hidden;
+    position: absolute;
+    right: 118px;
+    top: 126px;
+    height: 66px;
+    width: 150px;
+    font-size: 0;
+    .bc-mmc-open-history-div{
+      position: absolute;
+
+      .bc-mmc-open-history-num{
+        font-size: 0px;
+        margin-left: 20px;
+        span{
+          display: inline-block;
+          color: #c6c6c8;
+          line-height: 22px;
+          font-size: 12px;
+          margin: 0 4px 0 4px;
+          width: 15px;
+        }
+      }
+    }
+  }
+  .bc-mmc-more-history{
+    position: absolute;
+    right: 168px;
+    top: 207px;
+    color: #fff;
+    height: 20px;
+    width: 50px;
+    a {
+      color: #fff;
+    }
+  }
+  .mmc-bc-start{
+    background:url(./mmc_drawbar_up.png) 0px 0px no-repeat;
+    width:60px;
+    height:133px;
+    position:absolute;
+    right: -60px;
+    bottom: 16px;
+    margin:0 auto;
+    cursor:pointer;
+    clear:both;
+    &.active{
+      background:url(./mmc_drawbar_down.png) 0px 0px no-repeat;
+    }
+  }
+
+  .bc-mmc-sort-container{
+    position: absolute;
+    bottom: -3px;
+    left: 554px;
+    text-align: center;
+    font-size: 12px;
+    color: #fff;
+  }
+
+
+  .bc-main-area {
+    position: relative;
+    background:url(./mmc-middle-area.png) 12px 0  no-repeat;
+    width: 100%;
+    border: 0;
+    min-height: 0;
+    overflow: hidden;
+    margin-top: 0;
+    height: 588px;
+    .bc-first-title {
+      height: 34px;
+      line-height: 34px;
+    }
+    .nav-tabs{
+      padding-bottom: 3px;
+      border-bottom: 2px solid #802420;
+      padding-left: 10px;
+    }
+  }
+
+
+
+ /* .bc-rules {
+    border:1px solid #CCC;
+    border-bottom: 0px;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-top:10px;
+    width: 1140px;
+    .bc-basic-rules {
+      float: left;
+      width: 818px;
+      li{
+        width: 12.5%;
+        margin-left: 0px;
+        div{
+          width: 100% !important;
+        }
+      }
+    }
+    .bc-play-toggle {
+      width: 120px;
+      float: left;
+      top: 0px;
+      position: relative;
+      display: inline-block;
+    }
+  }*/
+  .bc-menu{
+    background-color: #313131 !important;
+    border-radius: 5px 5px 0 0;
+    height: 62px;
+    overflow: hidden;
+    border: 0 solid #cccccc;
+    width: 1060px;
+    margin: 18px 26px 0;
+    .bc-play-toggle {
+      background-color: #696969 !important;
+    }
+
+    //.bc-toggle{
+    //  width: 85px;
+    //  height: 62px;
+    //  background-color: #f2f2f2;
+    //  float: left;
+    //
+    //  span{
+    //    display: block;
+    //    height: 30px;
+    //    text-align: center;
+    //    border-right: 1px solid #cccccc;
+    //    border-bottom: 1px solid #cccccc;
+    //    color: #999999;
+    //    font-size: 14px;
+    //    line-height: 30px;
+    //    cursor: pointer;
+    //
+    //    &.sd{
+    //      border-left: 4px solid #2a7bc1;
+    //      border-right: 4px solid #fff;
+    //      background-color: #fff;
+    //      color: #333333;
+    //      line-height: 31px;
+    //      height: 31px;
+    //    }
+    //
+    //    &:last-child{
+    //      border-bottom: 0px;
+    //    }
+    //  }
+    //}
+
+    .bc-basic-rules{
+      a{
+        .bc-first-prize{
+          font-size: 14px;
+          color: #999999;
+        }
+      }
+
+      li{
+        a{
+          background-color: transparent;
+          color: #acacac;
+          height: 34px;
+        }
+      }
+
+      li.active{
+        //background-color: #666666;
+        a{
+          background:  linear-gradient(to bottom,#bf6f25,#812521);
+          border-bottom: 1px solid #812521;
+          border: 0 !important;
+          color: #fff;
+        }
+
+        .bc-first-prize{
+          color: #bdbdbd;
+        }
+      }
+    }
+  }
+
+  .bc-play-section {
+    border: 0;
+    height: 106px;
+    width: 1060px;
+    margin: 0 26px;
+    background: #313131 linear-gradient(to top, #313131, #313131) !important;
+    .tab-title{
+      color: #7b7b7b !important;
+    }
+    .tab-group{
+      label{
+        background-color: transparent ;
+        color: #b6b6b6;
+        border: 1px solid #545454;
+        &:hover{
+          border: 1px solid #cc3333;
+          color: #fff;
+          background-color: #cc3333;
+        }
+      }
+      label.active{
+        border: 1px solid #cc3333;
+        color: #fff;
+        background-color: #cc3333;
+      }
+    }
+  }
+  .bc-advance-rules {
+    background-color: #313131 !important;
+    color: white;
+    padding-top: 6px;
+    float: left;
+    z-index: 999;
+    margin-top: -13px;
+    position: absolute;
+    font-size: 15px;
+    margin-left: 30px;
+
+    .bc-advance-rules-container {
+      background-color: #313131;
+      padding-left: 12px;
+      display: inline-block;
+      vertical-align: text-top;
+
+    }
+    .bc-advance-rule {
+      min-width: 130px;
+      //display: inline-block;
+      font-size: 13px;
+      padding: 5px;
+    }
+
+  }
+
+  .bc-play-brief {
+    padding-left: 12px;
+    margin-top:10px;
+    color: #4e4e4e;
+    .bc-play-example{
+      width: 815px;
+    }
+    .bc-play-prize-modal{
+      color: #ddc94e;
+      line-height: 20px;
+      height: 20px;
+    }
+    .bc-play-tip{
+      height: 20px;
+      line-height: 20px;
+      border: 1px solid #391131;
+      color: #a6a6a6;
+      background-color: #444444;
+    }
+
+  }
+
+  .bc-mmc-play-container {
+    width: 1060px;
+    height: 309px;
+    margin: 0 26px;
+    border: 0;
+    background-color: #313131;
+    .bc-mmc-play-area.loaded  {
+      height: 276px;
+      width: 1028px;
+      border-top: 1px solid #404040;
+      border-bottom: 1px solid #222;
+      padding: 16px;
+      padding-left: 20px;
+      position: relative;
+
+      display: table-cell;
+      vertical-align: middle;
+
+
+      .bc-playArea-items {
+        /*padding-left: 18px;*/
+        .tab-toolbar.tab-circle{
+          width: 818px ;
+          .tab-title{
+            text-align: left;
+            width: 69px;
+            div{
+              background: transparent;
+              margin-top: 2px !important;
+              text-align: center;
+            }
+          }
+          .bc-select-item{
+            margin-right: 12px;
+            .tab{
+              color: #ddd;
+              background: url('mmc-bal.png') no-repeat;
+              &:hover{
+                background: url('mmc-bal-hover.png') no-repeat;
+              }
+            }
+            .active{
+                background:url(mmc-bal-active.png) no-repeat;
+                border-radius: 0;
+                color: #fff;
+                border: 0;
+                background-size: cover;
+            }
+          }
+          .btn-dragon{
+            position: relative !important;
+            top: 0;
+            left: 0;
+          }
+          .btn-tiger{
+            position: relative !important;
+            top: 0;
+            left: 0;
+          }
+          .btn-draw{
+            position: relative !important;
+            top: 0;
+            left: 0;
+          }
+        }
+
+        .tab-toolbar {
+          margin-bottom: 13px;
+        }
+        .tab-border{
+          border: 1px solid #606060;
+
+        }
+        .tab-toolbar .tab-group {
+          margin-left: 78px;
+
+          .tab{
+            background-color: transparent;
+            color: #909090;
+
+          }
+        }
+
+        .tab-toolbar.tab-border{
+          .tab-group{
+            .tab{
+              border-radius: 12px;
+              background-color: transparent;
+              color: #909090;
+              &:hover{
+                border: 1px solid #565656 !important;
+                //color: #fff;
+                background-color: transparent !important;
+              }
+            }
+          }
+        }
+
+      }
+
+      .bc-textarea-main {
+        height: 205px;
+      }
+
+      /*.js-bc-select-op {
+        background-color: #fff;
+      }*/
+
+      .bc-input-area {
+        margin-left: 0px;
+        width: 866px;
+        height: 240px;
+        border: 1px solid #c2c2c2;
+        margin-top: 10px ;
+      }
+      .bc-optional-main{
+        margin-left: 0px;
+      }
+      .bc-input-opration-container {
+        width: 105px;
+        //border: 1px solid #c2c2c2;
+        border-left: 0;
+        height: 240px;
+        display: inline-block;
+        padding: 0 20px;
+        margin-top: 10px ;
+        button {
+          padding-top: 4px;
+          padding-bottom: 4px;
+        }
+      }
+      //input
+
+    }
+
+    .bc-play-area.loaded.middle  {
+      .bc-optional-main {
+        margin-left: 35px;
+      }
+    }
+  }
+  .bc-example-container {
+    margin-left: 30px;
+    margin-bottom: -1px;
+    border: 1px solid #CCC;
+    background-color: #f2f2f2;
+    width: 1140px;
+    height: 40px;
+    font-size:14px;
+    
+  }
+
+  .bc-mmc-statics-area {
+    border: 0;
+    height: 87px;
+    line-height: 58px;
+    color: #333333;
+    font-size: 14px;
+    padding: 0 26px;
+    
+    .bc-result-container {
+      background-color: #313131;
+      width: 1060px;
+      height: 66px;
+      border-radius: 0 0 5px 5px;
+
+
+      .bc-result-span{
+        margin-left: 20px;
+        color: #909090;
+        .bc-mmc-total{
+          float: right;
+          margin-right: 20px;
+          .bc-mmc-price{
+            margin-left: 20px;
+            color: #ddc94e;
+          }
+        }
+      }
+    }
+    .bc-result-bet-model {
+      margin-top: 8px;
+      margin-left: 25px;
+    }
+    .bc-result-bet-total{
+      margin-top: 8px;
+      margin-right: 15px;
+    }
+    .bc-mmc-bet-total-text-italic {
+      font-size: 20px;
+      font-style: italic;
+      color: #cc0000;
+    }
+    .tab-group{
+      .tab{
+        width: 26px;
+        height: 26px;
+        color: #909090;
+        border: 1px solid #606060;
+        background-color: transparent;
+        margin-top: 0;
+        &.active{
+          border: 1px solid #cc3333 !important;
+          color: #fff;
+          background-color: #cc3333 !important;
+        }
+        &:hover{
+          border: 1px solid #999 !important;
+          //color: #fff;
+          background-color: transparent !important;
+        }
+      }
+    }
+
+    .price{
+      color: #cc3333;
+      display: inline-block;
+      margin-left: 15px;
+    }
+    .bc-multi-range{
+      height: 26px;
+      margin-right: 5px;
+      border: 1px solid #606060;
+
+      span{
+        width: 26px;
+        height: 26px;
+        padding: 0px;
+        background-color: #3c3c3c !important;
+        text-align: center;
+        position: relative;
+        cursor: pointer;
+
+        &.disabled{
+          background-color: #fff;
+        }
+
+        .fa{
+          position: absolute;
+          left: 8px;
+          top: 8px;
+          color:#999999;
+        }
+      }
+      .num-range-center{
+        width: 65px;
+        height: 26px;
+        background-color: #212121;
+        color: #666;
+
+      }
+      .num-range-left{
+        border-right: 0;
+      }
+      .num-range-right{
+        border-left: 0;
+      }
+    }
+  }
+  .bc-lottery-add{
+    position: relative;
+    text-align: center;
+    width: 100%;
+    height: 50px;
+    .bc-mmc-btn-lottery-add{
+      position: relative;
+      margin-top: -55px;
+      width: 226px;
+      height: 53px;
+      //background: linear-gradient(to bottom , #868686,#3d3d3d) ;
+      background: url(mmc-add.png) no-repeat;
+      font-size: 20px;
+      color: #fff;
+      border-radius: 25px;
+      border: 0;
+      &:hover{
+        background: url(mmc-add-hover.png) no-repeat;
+      }
+      &:focus{
+        outline: none;
+      }
+    }
+
+  }
+  .bc-mmc-selected-area {
+    height: 262px;
+    width: 1112px;
+    background: url('mmc-footer.png') no-repeat;
+    //background-color: #4f4f4f;
+    border-bottom-left-radius : 12px;
+    border-bottom-right-radius : 12px;
+    color: #fff;
+    position: relative;
+    .bc-mmc-lottery-time-show {
+      background-color: #fff;
+      color: #000;
+      border: 1px solid #474747;
+      border-radius: 5px;
+      position: absolute;
+      top: -20px;
+      left: 392px;
+      width: 328px;
+      height: 40px;
+      line-height: 40px;
+      font-size: 24px;
+      font-weight: 500;
+      text-align: center;
+      .bc-mmc-bet-times-num {
+        display: inline-block;
+        min-width: 10px;
+        padding: 0 5px;
+        height: 28px;
+        line-height: 28px;
+        font-size: 16px;
+        border-radius: 5px;
+        background-color: #fa565a;
+        color: #fff;
+      }
+    }
+    .bc-mmc-lottery-curr-prize-show{
+      background: url(mmc-curr-prize-bg.png) no-repeat;
+      width: 330px;
+      height: 45px;
+      position: absolute;
+      top: -20px;
+      left: 392px;
+      line-height: 40px;
+      font-size: 20px;
+      font-weight: 500;
+      text-align: center;
+    }
+
+    .bc-lottery-preview {
+      position: relative;
+      background-color: #666666;
+      width: 1028px;
+      height: 115px;
+      margin: 25px 0 13px 26px;
+      border-right: 0;
+      border-radius: 5px ;
+      table{
+        width: 100%;
+      }
+      .bc-mmc-result-win{
+        background: url('mmc-win-curr.png') no-repeat;
+        position: absolute;
+        margin: -68px 0 0 288px;
+        width: 296px;
+        text-align: center;
+        height: 71px;
+        padding: 27px 71px 0 64px;
+        span {
+          color: #c21d15;
+          font-size: 18px;
+          font-weight: 600;
+        }
+      }
+      .bc-mmc-result-total{
+        position: absolute;
+        width: 1022px;
+        height: 212px;
+        margin: -241px 0 0 -28px;
+        z-index: 1;
+
+        .bc-mmc-result-win-total {
+          background: url('mmc-win-end.png')  no-repeat;
+          position: absolute;
+          width: 469px;
+          height: 197px;
+          margin: 43px 0 0 271px;
+          padding: 143px 0 0 0;
+          text-align: center;
+          z-index: 2;
+          span{
+            position: relative;
+            color: #c21d15;
+            font-size: 18px;
+            .bc-mmc-result-win-total-amount {
+              color: #c21d15;
+              font-size: 30px;
+              font-weight: 600;
+            }
+          }
+        }
+
+      }
+
+      .bc-mmc-link-bet-record {
+        position: absolute;
+        right: -29px;
+        top : 5px;
+        width: 26px;
+        height: 105px;
+        background-color: #631b18;
+        a {
+          text-decoration: none;
+          color: #c86e70;
+        }
+        .btn{
+          min-width: 0;
+          padding: 6px ;
+        }
+      }
+      .bc-betting-preview-detail {
+        color: #fff;
+
+      }
+      td{
+        border:0;
+        height:22px;
+      }
+      .icon-block {
+        background-color: #fff;
+        &:before{
+          color: #c21d15;
+        }
+      }
+      .bc-mmc-gold-coin-win {
+        background: url(gold_coin_win.png) no-repeat;
+        width: 30px;
+        height: 16px;
+        margin-left: -29px;
+        margin-right: 13px;
+        padding-left: 16px;
+      }
+
+      .bc-mmc-result-num {
+        display: inline-block;
+        line-height: 15px;
+        height: 15px;
+        width: 15px;
+        border-radius: 100px;
+        border: 1px solid #fff;
+        background: #fff;
+        color: #b51810;
+        margin-left: 8px;
+        text-align: center;
+      }
+    }
+    .bc-mmc-brief-footer{
+    }
+
+    .bc-mmc-continue-lottery-select {
+      margin-left: 76px;
+      margin-top: 20px;
+      color: #909090;
+      .bc-mmc-continue-lottery-times {
+        max-width: 70px;
+        font-size: 0;
+        .btn-group{
+          line-height: 16px;
+        }
+        input {
+          display: inline-block !important;
+          background-color: #242424;
+          color: #9a9a9a;
+          border: 1px solid #454545;
+          border-right: 0;
+          height: 20px;
+          padding: 4px 5px;
+          width: 36px;
+          font-size: 12px;
+          border-radius: 3px 0 0 3px;
+        }
+        button{
+          width: 23px;
+          min-width: 23px;
+          height:20px;
+          background-color: #242424;
+          border: 1px solid #454545;
+          border-left: 0;
+          border-radius:  0 3px 3px 0;
+          padding: 8px 5px 0 5px;
+          font-size: 12px;
+          color: #9a9a9a;
+          line-height: 18px;
+          .caret{
+            border-top: 4px solid #9a9a9a;
+          }
+        }
+        .dropdown-menu{
+          margin-top:0px;
+          border-radius: 0px;
+          font-size: 12px;
+          width: 56px;
+          background-color: #242424;
+          bottom:100%;
+          top: inherit;
+          color: #7d7d7d;//000
+          left:-36px;
+          border: 1px solid #454545;
+          border-bottom: none;
+          box-shadow: none;
+          li{
+            background-color: #242424;
+            font-size: 12px;
+
+            &:hover{
+              background-color: #fff;;
+              color: #000;
+            }
+          }
+        }
+      }
+      .bc-mmc-continue-lottery-times-win-stop {
+        margin-left: 20px;
+        input{
+          margin-top: -5px;
+          margin-right: 5px;
+          width:13px;
+          height: 13px;
+        }
+      }
+
+    }
+
+    .bc-total-brief {
+      margin-right: 70px;
+      height: 50px;
+      line-height: 50px;
+      border: 0px;
+      color: #909090;
+      .bc-mmc-total-text-italic {
+        //font-size: 20px;
+        //font-style: italic;
+        color: #ffff00;
+      }
+    }
+
+    .bc-mmc-reSelect-btn {
+      position: absolute;
+      bottom: 68px;
+      right: 280px;
+      width: 108px;
+      height: 33px;
+      line-height: 33px;
+      background: url(mmc-reselect.png) no-repeat;
+      font-size: 14px;
+      color: #fff;
+      cursor:pointer;
+      border-radius: 6px;
+      padding: 0 20px;
+      letter-spacing: 2px;
+      &:hover{
+        background: url(mmc-reselect-hover.png) no-repeat;
+      }
+    }
+
+
+
+      .bc-mmc-lottery-confirm{
+        position: absolute;
+        text-align: center;
+        width: 226px;
+        bottom: 55px;
+        left: 440px;
+        background: url(mmc-btn.png) no-repeat;
+        height: 51px;
+        line-height: 41px;
+        border-radius: 27px;
+        border: 0;
+        color: #ffffff;
+        font-size: 23px;
+      }
+
+
+  }
+
+}
+
+//秒秒彩样式
+.bc-mmc-lose-model {
+  width: 1000px !important;
+  margin-top: -30px;
+  margin-left: -500px !important;
+  padding-top: 24px;
+  text-align: center;
+  .modal-dialog{
+    border: 0;
+    .modal-content{
+      background-color: transparent !important;
+      border: 0;
+    }
+  }
+  .modal-body {
+    background-color: transparent;
+  }
+  .bc-mmc-result{
+    background: url('mmc-loser.png') no-repeat top center;
+    height: 430px;
+  }
+  .bc-mmc-result-choose{
+    height: 40px;
+    font-size: 14px;
+    .bc-mmc-result-bet-again{
+      width: 130px;
+      height: 43px;
+      border: 1px solid #ff6600;
+      background-color: #ff6600;
+      margin-left: 0px;
+      color: #ffffff;
+      font-size: 23px;
+    }
+    .bc-mmc-result-choose-again{
+      width: 130px;
+      height: 43px;
+      border: 1px solid #cb7d54;
+      background-color: #cb7d54;
+      margin-left: 0px;
+      color: #ffffff;
+      font-size: 23px;
+    }
+  }
+}
+.bc-mmc-win-model {
+  width: 360px !important;
+  height: 120px;
+  margin-left: -180px !important;
+  padding-top: 18px;
+  text-align: center;
+
+  .bc-mmc-win-curr-bg{
+    position: fixed;
+    height: 906px;
+    width: 100%;
+    left: 48px;
+    top: 0;
+    z-index: 0;
+    background-color: transparent;
+    background-image: url(mmc-win-curr.png);
+    background-repeat: no-repeat;
+    background-position: center 0px;
+  }
+  .modal-dialog{
+    border: 0;
+    .modal-content{
+      background-color: transparent !important;
+    }
+  }
+  .modal-body {
+    background-color: transparent;
+    padding: 20px 20px 0;
+  }
+  .bc-mmc-result{
+    .bc-mmc-win-result{
+      width: 330px !important;
+      height: 60px;
+      line-height: 30px;
+      position: relative;
+      //background-color: #fff;
+      color: #fff;
+      //border-radius: 10px;
+      //border: 2px solid #ca3532;
+
+      font-size: 23px;
+
+      .bc-mmc-win-injection{
+        font-size: 16px;
+      }
+      .bc-mmc-win-title-price{
+        font-size: 16px;
+      }
+      .bc-mmc-win-price{
+
+        color: #f3c189;
+        font-size: 20px;
+      }
+    }
+  }
+  .bc-mmc-result-choose{
+    height: 40px;
+    font-size: 14px;
+    .bc-mmc-result-bet-again{
+      width: 130px;
+      height: 43px;
+      border: 1px solid #ff6600;
+      background-color: #ff6600;
+      margin-left: 0px;
+      color: #ffffff;
+      font-size: 23px;
+    }
+    .bc-mmc-result-choose-again{
+      width: 130px;
+      height: 43px;
+      border: 1px solid #cb7d54;
+      background-color: #cb7d54;
+      margin-left: 0px;
+      color: #ffffff;
+      font-size: 23px;
+    }
+  }
+}
+
+.bc-mmc-win-total-model {
+  width: 710px !important;
+  height: 509px;
+  margin-top: -187px !important;
+  margin-left: -338px !important;
+  padding-top: 0px;
+  text-align: center;
+
+  .bc-mmc-win-curr-bg{
+    position: fixed;
+    height: 906px;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: 0;
+    background-color: transparent;
+    background-image: url(mmc-win-curr.png);
+    background-repeat: no-repeat;
+    background-position: center 0px;
+  }
+  .modal-dialog{
+    border: 0;
+    .modal-content{
+      background-color: transparent !important;
+      border: 0;
+    }
+  }
+  .modal-body {
+    background-color: transparent;
+    padding: 0;
+  }
+  .bc-mmc-result{
+    background: url(mmc-win-end.png) no-repeat;
+    width: 710px !important;
+    height: 509px;
+    .bc-mmc-win-total-result{
+      width: 330px !important;
+      margin: 0 174px ;
+      padding-top: 265px;
+      height: 60px;
+      line-height: 60px;
+      position: relative;
+      //background-color: #fff;
+      //color: #000;
+      //border-radius: 10px;
+      //border: 2px solid #ca3532;
+
+      .bc-mmc-win-total-price-container{
+        font-size: 23px;
+        padding: 222px auto 0;
+        color: #fff;
+      }
+      .bc-mmc-win-title-price{
+        font-size: 12px;
+        color: #000;
+      }
+      .bc-mmc-win-price{
+        font-size: 16px;
+        color: #d23132;
+      }
+    }
+  }
+  .bc-mmc-result-choose{
+    height: 40px;
+    font-size: 14px;
+    .bc-mmc-result-bet-again{
+      width: 130px;
+      height: 43px;
+      border: 1px solid #ff6600;
+      background-color: #ff6600;
+      margin-left: 0px;
+      color: #ffffff;
+      font-size: 23px;
+    }
+    .bc-mmc-result-choose-again{
+      width: 130px;
+      height: 43px;
+      border: 1px solid #cb7d54;
+      background-color: #cb7d54;
+      margin-left: 0px;
+      color: #ffffff;
+      font-size: 23px;
+    }
+  }
+}
+
+//返回首页按钮
+.mmc-gotoIndex{
+  position: fixed;
+  width: 131px;
+  height: 37px;
+  top:345px;
+  right:20px;
+  z-index: 10;
+  a{
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: url("mmc-goindex.png") no-repeat;
+    &:hover{
+      background: url("mmc-goindexhover.png") no-repeat;
+    }
+  }
+
+}

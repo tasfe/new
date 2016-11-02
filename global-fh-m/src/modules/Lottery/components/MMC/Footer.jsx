@@ -4,10 +4,11 @@
 
 import React, { Component, PropTypes} from 'react'
 import Link from 'react-router/lib/Link'
-import NumberRange from './NumberRange'
+import NumberRange from '../NumberRange'
 import { set as setBetting, add } from 'redux/modules/Lottery/betting'
 import { connect } from 'react-redux'
 import { loadLottery } from 'redux/modules/Lottery/lottery'
+import { loadMMCLottery } from 'redux/modules/Lottery/lottery'
 
 @connect(state => ({
   lotteryInfo: state.lottery.lottery,
@@ -18,7 +19,8 @@ import { loadLottery } from 'redux/modules/Lottery/lottery'
 }), {
   setBetting,
   add,
-  loadLottery
+  loadLottery,
+  loadMMCLottery
 })
 class Footer extends Component {
 
