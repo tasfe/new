@@ -47,14 +47,14 @@ class Footer extends Component {
         </div>
         <div className="bet-area-line">
           <div className="bet-show bet-opt-btn">
-            <img src="/images/icon/fh-add-number.png" alt="添加号码"/>
+            <img src={require("/images/icon/fh-add-number.png")} alt="添加号码"/>
             <a className={cx({
             'more-history-numbers': true,
             disabled: !lotteryInfo.sale || !this.props.statistics
           })} onClick={::this.add}> 添加号码</a>
           </div>
           <div  className="bet-opt bet-opt-btn">
-            <img src="/images/icon/fh-shopping-cart.png" alt="号码篮"/>
+            <img src={require("/images/icon/fh-shopping-cart.png")} alt="号码篮"/>
             <Link to={{
               pathname: `/lottery/${this.props.id}/lotterylist`,
               state: {

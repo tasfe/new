@@ -84,7 +84,7 @@ class Header extends Component {
           期号:{lotteryInfo.planId}
         </div>
         <div className="middle">
-          <img src="/images/icon/fh-time-clock.png" alt="本期倒计时"/>
+          <img src={require("/images/icon/fh-time-clock.png")} alt="本期倒计时"/>
           <span> </span>
           <CountingDown
             refreshId={this.refreshId}

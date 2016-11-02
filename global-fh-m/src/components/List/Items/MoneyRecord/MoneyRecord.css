@@ -39,22 +39,22 @@
   height: .25rem;
 }
 .money-item-icon-bet{
-  background: url(/images/md-bet.png) no-repeat;
+  background: url(~images/md-bet.png) no-repeat;
 }
 
 .money-item-icon-prize{
-  background: url(/images/md-prize.png) no-repeat;
+  background: url(~images/md-prize.png) no-repeat;
 }
 
 .money-item-icon-recharge{
-  background: url(/images/md-recharge.png) no-repeat;
+  background: url(~images/md-recharge.png) no-repeat;
 }
 
 
 .money-item-icon-withdraw{
-  background: url(/images/md-withdraw.png) no-repeat;
+  background: url(~images/md-withdraw.png) no-repeat;
 }
 
 .money-item-icon-transfer{
-  background: url(/images/md-transfer.png) no-repeat;
+  background: url(~images/md-transfer.png) no-repeat;
 }
