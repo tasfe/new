@@ -55,16 +55,16 @@ class Menu extends Component {
   render () {
     console.log('render menu')
     let playInfo = this.props.playInfo || {}
-    return <div className="menu-holder" onClick={this.toggle.bind(this)}><img src="images/icon/fh-betting-menu.png" alt="投注菜单"/>
+    return <div className="menu-holder" onClick={this.toggle.bind(this)}><img src={require("images/icon/fh-betting-menu.png")} alt="投注菜单"/>
       <div ref="menu" className="menu">
         <div className="menu-overlay"></div>
         <ul>
           <li className="menu-item" onClick={this.props.showHistory}>
-            <img className="icon" src="images/icon/fh-betting-menu-trend.png" alt="近期走势"/>
+            <img className="icon" src={require("images/icon/fh-betting-menu-trend.png")} alt="近期走势"/>
             近期走势
           </li>
           <li className="menu-item" onClick={::this.showContent}>
-            <img className="icon" src="images/icon/fh-betting-menu-guide.png" alt="玩法说明"/>玩法说明
+            <img className="icon" src={require("images/icon/fh-betting-menu-guide.png")} alt="玩法说明"/>玩法说明
             <div className="content" style={{display: 'none'}}>{playInfo.playDes}</div>
           </li>
           <li className="menu-item">

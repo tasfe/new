@@ -182,7 +182,7 @@ class Selector extends Component {
           </ul>
         </div>
         <button className="play-group-list-toggle-button" onClick={::this.toggleSelectPanel}>
-          <img src={require("/images/icon/fh-triangle.png")} alt="点击选择玩法"/>
+          <img src={require("images/icon/fh-triangle.png")} alt="点击选择玩法"/>
         </button>
         <ul ref="VList" className="play-group-list">
         {groupData.map((item, index) => {

@@ -34,7 +34,7 @@ class SetpsdFirst extends Page {
     return (
       <div className="login-container setpsd-con">
         <div className="panel paddingtop">
-          <div className="login-logo"><img src={require("/images/fh-logo.png")} width="38%" /></div>
+          <div className="login-logo"><img src={require("images/fh-logo.png")} width="38%" /></div>
           <div className="login-row"><p className="setpsd-tit">修改个人资料</p></div>
           <div className="login-row"><input ref="userName" className="ui-input" type="text" name="username" defaultValue={_.getQuery('userName')} readOnly /></div>
           <div className="err err-usename"><div className="error-message-container"></div></div>

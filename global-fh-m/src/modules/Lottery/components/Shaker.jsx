@@ -31,7 +31,7 @@ class Shaker extends Component {
 
   render () {
     return <div className="shaker" onClick={::this.shakeEventDidOccur}>
-      <img src={require("/images/icon/fh-shake.png")} alt="摇一摇"/> 摇一摇
+      <img src={require("images/icon/fh-shake.png")} alt="摇一摇"/> 摇一摇
     </div>
   }
 }
