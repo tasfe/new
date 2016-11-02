@@ -7,7 +7,7 @@ import config from '../src/config'
 
 global.WATCH = true;
 
-const webpackConfig = require('./webpack.config').default[0]; // Client-side bundle configuration
+const webpackConfig = require('./webpack.config').getConfig('app'); // Client-side bundle configuration
 const bundler = webpack(webpackConfig);
 
 /**

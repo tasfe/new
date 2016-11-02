@@ -1,7 +1,7 @@
 import webpack from 'webpack';
 import task from './lib/task';
 
-const webpackConfig = require('./webpack.config').default[0]; // Client-side bundle configuration
+const webpackConfig = require('./webpack.config').getConfig('app'); // Client-side bundle configuration
 
 module.exports =  task('start', async () => {
 

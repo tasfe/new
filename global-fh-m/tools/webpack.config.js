@@ -13,16 +13,15 @@ const VERBOSE = process.argv.includes('verbose');
 
 const config = getConmmonConfig(DEBUG, VERBOSE)
 
-//
-// Configuration for the client-side bundle (app.js)
-// -----------------------------------------------------------------------------
+function getConfig(type) {
+  switch(type) {
+    case 'dll':
+      return getDLLConfig(config);
+      break;
+    default:
+      return getAppConfig(config ,WATCH, DEBUG, VERBOSE);
+      break;
+  }
+}
 
-const appConfig = getAppConfig(config ,WATCH, DEBUG, VERBOSE)
-
-//
-// Configuration for the server-side bundle (server.js)
-// -----------------------------------------------------------------------------
-
-const dllConfig = getDLLConfig(config)
-
-export default [appConfig, dllConfig];
+export {getConfig}

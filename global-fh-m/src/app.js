@@ -41,15 +41,5 @@ if (module.hot) {
       ReactDOM.unmountComponentAtNode(root);
       init();
     });
-
-    // render(
-    //   <NextProvider store={store} key="provider">
-    //     <NextRooter
-    //       history={hashHistory}
-    //       routes={nextGetRoutes(store)}
-    //     />
-    //   </NextProvider>,
-    //   document.getElementById('app')
-    // );
   });
 }
