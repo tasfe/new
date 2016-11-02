@@ -1,4 +1,5 @@
 import React, {Component, PropTypes} from 'react'
+import 'lib/js/datetimepicker.js'
 
 class Input extends Component {
   static propTypes = {

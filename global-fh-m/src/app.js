@@ -18,6 +18,7 @@ function init() {
   const Provider = require('react-redux').Provider;
   const Router = require('react-router/lib/Router');
   const getRoutes = require('./routes').default;
+
   render(
     <Provider store={store} key="provider">
       <Router

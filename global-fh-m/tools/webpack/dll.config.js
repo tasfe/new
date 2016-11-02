@@ -11,7 +11,6 @@ export default config => {
         'redux',
         'jquery',
         'underscore',
-        'imports?window=>global!./src/lib/js/jquery.mmenu.all.min.js',
         'imports?window=>global!./src/lib/js/material.js',
         'imports?window=>global!./src/lib/js/ripples.min.js',
         'imports?window=>global!./src/lib/js/datetimepicker.js',

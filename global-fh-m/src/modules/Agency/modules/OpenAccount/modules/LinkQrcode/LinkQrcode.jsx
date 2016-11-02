@@ -8,6 +8,7 @@ import withStyles from 'with-style'
 import styles from './LinkQrcode.css'
 import { setTitle } from 'redux/modules/toolbar'
 import { setLeftButton } from 'redux/modules/toolbar'
+import 'lib/js/jquery.qrcode.min.js'
 
 @connect(
   state => ({title: state.toolbar.title}),
