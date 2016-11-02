@@ -6,7 +6,7 @@ import React, { Component, PropTypes, } from 'react'
 import Selector from './../Selector'
 import Header from './../Header'
 import Body from './../Body'
-import Footer from './../Footer'
+import Footer from './Footer'
 
 const PULL_THRESHOLD = 100
 
@@ -80,7 +80,7 @@ class Main extends Component {
     return <div ref="touchTarget" className="bet-main" style={{height: '100%'}}>
       <div className="top-area">
         <Selector id={id} showHistory={::this.showHistory} />
-        <Header id={id} showShaker />
+        <Header id={id} />
       </div>
       <Body />
       <Footer id={id} />
