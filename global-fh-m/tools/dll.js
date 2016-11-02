@@ -3,7 +3,7 @@ import del from 'del';
 import task from './lib/task';
 
 
-const webpackConfig = require('./webpack.config').default[2]; // Client-side bundle configuration
+const webpackConfig = require('./webpack.config').default[1]; // Client-side bundle configuration
 
 /**
  * Launches a development web server with "live reload" functionality -

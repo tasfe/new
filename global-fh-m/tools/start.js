@@ -46,8 +46,6 @@ module.exports =  task('start', async () => {
 
   new WebpackDevServer(bundler, {
     publicPath: webpackConfig.output.publicPath,
-    // contentBase: './public',
-    // contentBase: webpackConfig.output.path,
     hot: true,
     historyApiFallback: true,
     proxy: proxy,
@@ -81,42 +79,4 @@ module.exports =  task('start', async () => {
 
     console.log(`Listening at localhost:${config.port}`);
   });
-
-  // browserSync({
-  //   port: config.proxy.port,
-  //   proxy: {
-  //     target: `localhost:${config.port}/`,
-  //
-  //     middleware: [
-  //       webpackDevMiddleware(bundler, {
-  //         // IMPORTANT: dev middleware can't access config, so we should
-  //         // provide publicPath by ourselves
-  //         publicPath: webpackConfig.output.publicPath,
-  //
-  //         // Pretty colored output
-  //         stats: webpackConfig.stats
-  //
-  //         // For other settings see
-  //         // http://webpack.github.io/docs/webpack-dev-middleware.html
-  //       }),
-  //
-  //       // bundler should be the same as above
-  //       webpackHotMiddleware(bundler),
-  //
-  //       proxyMiddleware('**/*.json', {
-  //         target: config.proxy[config.proxyType],
-  //         changeOrigin: true,
-  //         logLevel: 'debug'
-  //       })
-  //
-  //     ],
-  //   },
-  //
-  //   // no need to watch '*.js' here, webpack will take care of it for us,
-  //   // including full page reloads if HMR won't work
-  //   files: [
-  //     'build/public/**/*.css',
-  //     'build/public/**/*.html',
-  //   ],
-  // });
 });

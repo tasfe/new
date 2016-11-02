@@ -6,21 +6,21 @@ var quickPay = [
     name: 'unionpay',
     zhName: '银联支付',
     className: 'fc-re-union',
-    pic: 'images/union.png'
+    pic: require('images/union.png')
   },
   {
     id: 2,
     name: 'alipay',
     zhName: '支付宝',
     className: '',
-    pic: 'images/zhifubao.png'
+    pic: require('images/zhifubao.png')
   },
   {
     id: 3,
     name: 'weixin',
     zhName: '微信支付',
     className: 'fc-re-weixin',
-    pic: 'images/weixin.png'
+    pic: require('images/weixin.png')
   },
   //{
   //  id: 4,

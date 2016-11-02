@@ -1,12 +1,15 @@
+import webpack from 'webpack';
 import task from './lib/task';
 
-/**
- * Compiles the project from source files into a distributable
- * format and copies it to the output (build) folder.
- */
-module.exports = task('build', async () => {
-  await require('./clean')();
-  await require('./copy')();
-  // await require('./bundle')();
-});
+const webpackConfig = require('./webpack.config').default[0]; // Client-side bundle configuration
 
+module.exports =  task('start', async () => {
+
+  await require('./clean')();
+
+  webpack(webpackConfig, function(err, stats) {
+    if(err) throw new console.error("webpack", err);
+    console.log("[webpack]", stats.toString({
+    }));
+  });
+});

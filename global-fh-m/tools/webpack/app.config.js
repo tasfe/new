@@ -18,13 +18,15 @@ export default (config, WATCH, DEBUG, VERBOSE) => {
       ]
     },
     output: {
-      path: path.join(__dirname, '../../build/public'),
-      filename: DEBUG ? 'bundle.[name].js' : '[name].[hash].js',
-      chunkFilename: 'bundle.[chunkhash].js'
+      path: path.join(__dirname, '../../www'),
+      // path: path.join(__dirname, '../../build/public'),
+      filename: DEBUG ? 'bundle.[name].js' : '[name].[hash].bundle.js',
+      chunkFilename: '[name].[chunkhash].bundle.js'
     },
 
     // Choose a developer tool to enhance debugging
     // http://webpack.github.io/docs/configuration.html#devtool
+    // devtool: DEBUG ? 'cheap-eval-source-map' : false,
     devtool: DEBUG ? 'eval' : false,
     plugins: [
       ...config.plugins,

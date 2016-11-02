@@ -39,7 +39,14 @@ export default config => {
         path: path.join(__dirname, '../../src/dll', '[name]-manifest.json'),
         name: '[name]_library'
       }),
-      new ExtractTextPlugin('[name].styles.css')
+      new ExtractTextPlugin('[name].styles.css'),
+      new webpack.optimize.DedupePlugin(),
+      new webpack.optimize.UglifyJsPlugin({
+        compress: {
+          warnings: true,
+        },
+      }),
+      new webpack.optimize.AggressiveMergingPlugin()
     ],
     module: {
       loaders: [

@@ -257,12 +257,12 @@ _.mixin({
   getSpecialSrc: function(type){
     var cla = '';
     switch(type){
-      case '投注' : cla='/images/md-bet.png';break;
-      case '中奖' : cla='/images/md-prize.png';break;
-      case '返点' : cla='/images/md-prize.png';break;
-      case '充值' : cla='/images/md-recharge.png';break;
-      case '提现' : cla='/images/md-withdraw.png';break;
-      case '转账' : cla='/images/md-transfer.png';break;
+      case '投注' : cla=require('images/md-bet.png');break;
+      case '中奖' : cla=require('images/md-prize.png');break;
+      case '返点' : cla=require('images/md-prize.png');break;
+      case '充值' : cla=require('images/md-recharge.png');break;
+      case '提现' : cla=require('images/md-withdraw.png');break;
+      case '转账' : cla=require('images/md-transfer.png');break;
 
     }
     return cla;

@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "YB-M",
   "scripts": {
-    "start": "babel-node cross-env NODE_ENV=development -e \"require('./tools/start')().catch(err => console.error(err.stack))\"",
-    "prepare": "babel-node -e \"require('./tools/dll')().catch(err => console.error(err.stack))\"",
-    "build": "cross-env NODE_ENV=production babel-node -e \"require('./tools/build')().catch(err => console.error(err.stack))\""
+    "start": "cross-env NODE_ENV=development babel-node %NODE_DEBUG_OPTION%  -e \"require('./tools/start')().catch(err => console.error(err.stack))\"",
+    "prepare": "cross-env NODE_ENV=production babel-node %NODE_DEBUG_OPTION% -e \"require('./tools/dll')().catch(err => console.error(err.stack))\"",
+    "build": "cross-env NODE_ENV=production babel-node %NODE_DEBUG_OPTION% -e \"require('./tools/build')().catch(err => console.error(err.stack))\""
   },
   "author": "Joe",
   "license": "MIT",

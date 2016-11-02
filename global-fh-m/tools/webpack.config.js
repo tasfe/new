@@ -1,10 +1,9 @@
 import getConmmonConfig from './webpack/common.config'
 import getAppConfig from './webpack/app.config'
-import getServerConfig from './webpack/server.config'
 import getDLLConfig from './webpack/dll.config'
 
-let WATCH = global.WATCH === undefined ? false : global.WATCH;
-const DEBUG = !process.argv.includes('release');
+let WATCH = process.env.NODE_ENV === 'production' ? false : global.WATCH;
+const DEBUG = process.env.NODE_ENV !== 'production';
 const VERBOSE = process.argv.includes('verbose');
 
 //
@@ -24,8 +23,6 @@ const appConfig = getAppConfig(config ,WATCH, DEBUG, VERBOSE)
 // Configuration for the server-side bundle (server.js)
 // -----------------------------------------------------------------------------
 
-const serverConfig = getServerConfig(config)
-
 const dllConfig = getDLLConfig(config)
 
-export default [appConfig, serverConfig, dllConfig];
+export default [appConfig, dllConfig];
