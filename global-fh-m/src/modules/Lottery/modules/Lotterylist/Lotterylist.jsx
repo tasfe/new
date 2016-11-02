@@ -107,7 +107,7 @@ class Lotterylist extends Page {
         <ChaseBar update={::this.updateSuspendState} />
         <div className="summary">
           <span className="summary__text">{`${totalInfo.totalLottery}注 x ${chaseNumber}期 = ${_(totalMoney).convert2yuan()}元`}</span>
-          <a className="summary__button" onClick={::this.doSomething}><img src="images/icon/hammer.png" /> {this.isChase ? '追号' : '投注'}</a>
+          <a className="summary__button" onClick={::this.doSomething}><img src={require("images/icon/hammer.png")} /> {this.isChase ? '追号' : '投注'}</a>
         </div>
       </div>
     </div>

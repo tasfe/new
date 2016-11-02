@@ -125,7 +125,7 @@ class Confirm extends Component {
       </div>
       <div className="chase-bar">
         <div className="chase-summary-text">总金额: {previewList.length}注 x {chasePlanList.length}期 = {_(last.statisticsMoney).convert2yuan()}元</div>
-        <div className="chase-button" onClick={::this.chase}><img src="images/icon/hammer.png" /> 投注</div>
+        <div className="chase-button" onClick={::this.chase}><img src={require("images/icon/hammer.png")} /> 投注</div>
       </div>
     </div>
   }

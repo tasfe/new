@@ -81,10 +81,7 @@ export default (DEBUG, VERBOSE) => {
       return [
         require('postcss-smart-import')({
           onImport: files => files.forEach(this.addDependency),
-          path: ['./src/']
-        }),
-        require('postcss-assets')({
-          loadPaths: ['./src/public/']
+          path: ['./src/', './src/public/']
         }),
         require('postcss-nested')(),
         require('postcss-cssnext')({autoprefixer: AUTOPREFIXER_BROWSERS}),

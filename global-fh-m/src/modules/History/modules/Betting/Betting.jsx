@@ -76,7 +76,7 @@ class Betting extends Page {
             <div className="betting-userInfo-row1 ">
               <div className="pull-left"><span className="">{props.username}</span>(<a className="betting-userInfo-uName" href="/#/user/profile">{props.uName}</a>)</div>
               <a href="/#/message/dynamic" className="pull-right ">
-                <img className="nav-userInfo-insideLetter" src="images/icon/fh-inside-letter.png"/>
+                <img className="nav-userInfo-insideLetter" src={require("images/icon/fh-inside-letter.png")}/>
                 {props.letterNum}
               </a>
             </div>

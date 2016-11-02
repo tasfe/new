@@ -234,7 +234,7 @@ class Chase extends Component {
           </ul>
         </form>
       </div>
-      <div className="chase-page__footer" onClick={::this.confirmChasePlanList}><img src="images/icon/fh-tap.png" alt="点击"/> 生成计划</div>
+      <div className="chase-page__footer" onClick={::this.confirmChasePlanList}><img src={require("images/icon/fh-tap.png")} alt="点击"/> 生成计划</div>
     </div>
   }
 }
