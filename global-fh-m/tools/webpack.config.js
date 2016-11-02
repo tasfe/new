@@ -1,6 +1,7 @@
 import getConmmonConfig from './webpack/common.config'
 import getAppConfig from './webpack/app.config'
 import getServerConfig from './webpack/server.config'
+import getDLLConfig from './webpack/dll.config'
 
 let WATCH = global.WATCH === undefined ? false : global.WATCH;
 const DEBUG = !process.argv.includes('release');
@@ -25,4 +26,6 @@ const appConfig = getAppConfig(config ,WATCH, DEBUG, VERBOSE)
 
 const serverConfig = getServerConfig(config)
 
-export default [appConfig, serverConfig];
+const dllConfig = getDLLConfig(config)
+
+export default [appConfig, serverConfig, dllConfig];

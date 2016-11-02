@@ -2,28 +2,19 @@ import path from 'path'
 import merge from 'lodash.merge'
 import webpack from 'webpack'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
+import AddAssetHtmlPlugin from 'add-asset-html-webpack-plugin'
 
 export default (config, WATCH, DEBUG, VERBOSE) => {
   return merge({}, config, {
     entry: {
       app: [
         'font-awesome-webpack',
-        ...(WATCH ? ['webpack-hot-middleware/client'] : []),
+        ...(WATCH ? ['react-hot-loader/patch', 'webpack-dev-server/client?http://localhost:5000', 'webpack/hot/only-dev-server'] : []),
         './src/app'
       ],
       register: [
-        ...(WATCH ? ['webpack-hot-middleware/client'] : []),
+        ...(WATCH ? ['react-hot-loader/patch', 'webpack-dev-server/client?http://localhost:5000', 'webpack/hot/only-dev-server'] : []),
         './src/register'
-      ],
-      lib: ['react', 'redux', 'jquery', 'underscore'],
-      plugin: [
-        './src/lib/js/tiny-slider.min.js',
-        'imports?window=>global!./src/lib/js/jquery.mmenu.all.min.js',
-        'imports?window=>global!./src/lib/js/material.js',
-        'imports?window=>global!./src/lib/js/ripples.min.js',
-        //'imports?window=>global!./src/lib/js/jquery.mobile.datepicker.js',
-        'imports?window=>global!./src/lib/js/datetimepicker.js',
-        'imports?window=>global!./src/lib/js/jquery.qrcode.min.js'
       ]
     },
     output: {
@@ -44,16 +35,7 @@ export default (config, WATCH, DEBUG, VERBOSE) => {
             warnings: VERBOSE,
           },
         }),
-        new webpack.optimize.AggressiveMergingPlugin(),
-        new HtmlWebpackPlugin({
-          template: './src/templates/index.html',
-          excludeChunks: ['register']
-        }),
-        new HtmlWebpackPlugin({
-          template: './src/templates/index.html',
-          excludeChunks: ['app'],
-          filename: 'register.html'
-        })
+        new webpack.optimize.AggressiveMergingPlugin()
       ] : []),
       ...(WATCH ? [
         new webpack.HotModuleReplacementPlugin(),
@@ -62,11 +44,43 @@ export default (config, WATCH, DEBUG, VERBOSE) => {
       new webpack.optimize.CommonsChunkPlugin({
         name: 'lib',
         minChunks: Infinity
-      })
+      }),
+      new HtmlWebpackPlugin({
+        template: './src/templates/index.html',
+        excludeChunks: ['register']
+      }),
+      new HtmlWebpackPlugin({
+        template: './src/templates/index.html',
+        excludeChunks: ['app'],
+        filename: 'register.html'
+      }),
+      new webpack.DllReferencePlugin({
+        context: __dirname,
+        manifest: require('../../src/dll/vendor-manifest.json'),
+        extensions: ['', '.js']
+      }),
+      new AddAssetHtmlPlugin([
+        {
+          filepath: require.resolve('../../src/dll/vendor.styles.css'),
+          typeOfAsset: 'css',
+          hash: true,
+          includeSourcemap: false
+        },
+        {
+          filepath: require.resolve('../../src/dll/vendor.js'),
+          hash: true,
+          includeSourcemap: false
+        }
+      ])
     ],
     module: {
       loaders: [
         ...config.module.loaders,
+        {
+          test: /\.jsx?$/,
+          loader: 'babel',
+          include: [path.join(__dirname, '../../src')]
+        },
         {
           test: /\.css$/,
           loader: 'style-loader/useable!css-loader!postcss-loader',

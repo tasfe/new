@@ -4,8 +4,10 @@ import withStyles from 'with-style'
 import styles from './Home.css'
 import { setTitle } from 'redux/modules/toolbar'
 import { connect } from 'react-redux'
-import Link from 'react-router/lib/Link'
+import 'lib/js/tiny-slider.min'
 import ticketConfig from 'misc/ticketConfig'
+
+import bannerImg from 'images/banner-1.jpg'
 
 @connect(
   state => ({title: state.toolbar.title}),
@@ -166,13 +168,13 @@ class Home extends Page {
       <div className="home container-fluid">
         <ul className="slider">
           <li>
-            <img src="images/banner-1.jpg" alt="我是图片" />
+            <img src={bannerImg} alt="我是图片" />
           </li>
           <li>
-            <img src="images/banner-1.jpg" alt="我是图片" />
+            <img src={bannerImg} alt="我是图片" />
           </li>
           <li>
-            <img src="images/banner-1.jpg" alt="我是图片" />
+            <img src={bannerImg} alt="我是图片" />
           </li>
         </ul>
         <div className="hot-ticket">

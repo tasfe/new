@@ -82,7 +82,7 @@
 }
 
 .letter{
-  background: url(/images/letter.png) no-repeat;
+  background: url(~images/letter.png) no-repeat;
   width: 0.16rem;
   height: 0.1rem;
 }

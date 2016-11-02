@@ -63,35 +63,35 @@
         }
 
         &.change-psd-login:before{
-          background: url(/images/set/icon1.png) center no-repeat;
+          background: url(~images/set/icon1.png) center no-repeat;
           background-size: 100%;
         }
         &.change-psd-fund:before{
-          background: url(/images/set/icon2.png) center no-repeat;
+          background: url(~images/set/icon2.png) center no-repeat;
           background-size: 100%;
         }
         &.change-sq-quest:before{
-          background: url(/images/set/icon3.png) center no-repeat;
+          background: url(~images/set/icon3.png) center no-repeat;
           background-size: 100%;
         }
         &.bind-card:before{
-          background: url(/images/set/icon4.png) center no-repeat;
+          background: url(~images/set/icon4.png) center no-repeat;
           background-size: 100%;
         }
         &.open-acc:before{
-          background: url(/images/set/icon5.png) center no-repeat;
+          background: url(~images/set/icon5.png) center no-repeat;
           background-size: 100%;
         }
         &.online-service:before{
-          background: url(/images/set/icon6.png) center no-repeat;
+          background: url(~images/set/icon6.png) center no-repeat;
           background-size: 100%;
         }
         &.set-notice:before{
-          background: url(/images/set/icon7.png) center no-repeat;
+          background: url(~images/set/icon7.png) center no-repeat;
           background-size: 100%;
         }
         &.update:before{
-          background: url(/images/set/icon8.png) center no-repeat;
+          background: url(~images/set/icon8.png) center no-repeat;
           background-size: 100%;
         }
 

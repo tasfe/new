@@ -20,7 +20,7 @@ var specialConfig = {
       desc: '全天24小时',
       planCount: '共1440期',
       badge: 'hot',
-      img: 'images/fh-ticket-ffc.png'
+      img: require('images/fh-ticket-ffc.png')
     },
     {
       id: 12,
@@ -32,7 +32,7 @@ var specialConfig = {
       desc: '全天24小时',
       planCount: '共288期',
       badge: '',
-      img: 'images/fh-ticket-5fc.png'
+      img: require('images/fh-ticket-5fc.png')
     /*},{
       id: 13,
       mark: 'ssc-sfc',
@@ -91,7 +91,7 @@ var sscConfig = {
       desc: '10:00－01:55',
       planCount: '共120期',
       badge: 'hot',
-      img: 'images/fh-ticket-cqssc.png'
+      img: require('images/fh-ticket-cqssc.png')
     },
     /*{
      id: 2,
@@ -146,7 +146,7 @@ var sscConfig = {
       optional: true,
       badge: '',
       defaultSelectPlay: defaultSelectSSC,
-      img: 'images/fh-ticket-hg.png'
+      img: require('images/fh-ticket-hg.png')
     }
   ]
 };
@@ -167,7 +167,7 @@ var oneFiveConfig = {
       planCount: '共78期',
       defaultSelectPlay: defaultSelect115,
       badge: '',
-      img: 'images/fh-ticket-sd115.png'
+      img: require('images/fh-ticket-sd115.png')
     },
     /*{
       id: 4,
@@ -201,7 +201,7 @@ var oneFiveConfig = {
       quickShowName: "11选5<br/>分分彩",
       defaultSelectPlay: defaultSelect115,
       badge: '',
-      img: 'images/fh-ticket-ffc115.png'
+      img: require('images/fh-ticket-ffc115.png')
     }
   ]
 };
@@ -215,7 +215,7 @@ var threeDConfig = {
   planCount: '共1期',
   defaultSelectPlay: defaultSelectDPC,
   badge: '',
-  img: 'images/fh-ticket-3D.png'
+  img: require('images/fh-ticket-3D.png')
 };
 var p5p3Config = {
 /* id: 7,
@@ -244,7 +244,7 @@ var happyConfig = {
       defaultSelectPlay: defaultSelectDPC,
       optional: false,
       badge: '',
-      img: 'images/fh-ticket-pk10.png'
+      img: require('images/fh-ticket-pk10.png')
     }
   ]
 };

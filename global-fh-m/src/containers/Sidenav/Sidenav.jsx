@@ -20,7 +20,12 @@ class Sidenav extends Component {
             <span></span>
           </div>
           <div className="nav-userInfo">
-            <div className="nav-userInfo-userName"><span className="js-nav-userName">{this.props.props.username}</span>(<a className="js-nav-nickName js-nav-link" href="/#/user/profile">{this.props.props.uName}</a>)<a href="/#/message/dynamic" className="js-nav-link"><img className="nav-userInfo-insideLetter" src="images/icon/fh-inside-letter.png"/></a></div>
+            <div className="nav-userInfo-userName"><span className="js-nav-userName">{this.props.props.username}</span>
+              (<a className="js-nav-nickName js-nav-link" href="/#/user/profile">{this.props.props.uName}</a>)
+              <a href="/#/message/dynamic" className="js-nav-link">
+                <img className="nav-userInfo-insideLetter" src={require('images/icon/fh-inside-letter.png')}/>
+              </a>
+            </div>
             <div className="nav-userInfo-img">
               <img src={config.img}/>
             </div>
@@ -33,37 +38,37 @@ class Sidenav extends Component {
             <ul className="nav-list">
               <li className="nav-item btn-wave">
                 <a href="/#/fund/re" className="item-anchor js-nav-link">
-                  <img src="images/nav-icon1.png" />
+                  <img src={require("images/nav-icon1.png")} />
                   <div className="item-anchor-text">快速充值</div>
                 </a>
               </li>
               <li className="nav-item btn-wave">
                 <a href="/#/fund/wi" className="item-anchor js-nav-link">
-                  <img src="images/nav-icon2.png" />
+                  <img src={require("images/nav-icon2.png")} />
                   <div className="item-anchor-text">便捷提现</div>
                 </a>
               </li>
               <li className="nav-item btn-wave">
                 <a href="javascript:void(0);" className="item-anchor js-nav-link" onClick={::this.contactService}>
-                  <img src="images/nav-icon3.png" />
+                  <img src={require("images/nav-icon3.png")} />
                   <div className="item-anchor-text">在线客服</div>
                 </a>
               </li>
               <li className="nav-item btn-wave">
                 <a href="/#/history/betting" className="item-anchor js-nav-link">
-                  <img src="images/nav-icon4.png" />
+                  <img src={require("images/nav-icon4.png")} />
                   <div className="item-anchor-text">投注记录</div>
                 </a>
               </li>
               <li className="nav-item btn-wave">
                 <a href="/#/history/account" className="item-anchor js-nav-link">
-                  <img src="images/nav-icon5.png" />
+                  <img src={require("images/nav-icon5.png")} />
                   <div className="item-anchor-text">资金明细</div>
                 </a>
               </li>
               <li className="nav-item btn-wave">
                 <a href="/#/history/trade" className="item-anchor js-nav-link">
-                  <img src="images/nav-icon6.png" />
+                  <img src={require("images/nav-icon6.png")} />
                   <div className="item-anchor-text">我的追号</div>
                 </a>
               </li>

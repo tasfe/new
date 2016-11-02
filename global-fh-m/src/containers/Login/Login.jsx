@@ -8,9 +8,10 @@ import * as loginActions from 'redux/modules/auth'
 import Button from 'components/Button'
 import MD5 from 'md5'
 import SHA512 from 'sha512'
-import config from 'config'
 import Toggles from 'components/Toggles'
 import { cookie } from 'storeUtil'
+
+import logoPng from 'images/fh-logo.png'
 
 @WithStyles(styles)
 @connect(state => ({
@@ -70,7 +71,7 @@ class Login extends Page {
     return (
       <div className="login-container">
         <div className="panel paddingtop">
-          <div className="login-logo"><img src="/images/fh-logo.png" width="38%" /></div>
+          <div className="login-logo"><img src={logoPng} width="38%" /></div>
           <div className="login-row input-row row-user"><input ref="userName" className="ui-input" type="text" defaultValue={userName}  name="inputAccount" placeholder="请输入用户名" onFocus={::this.clearErrCon} /></div>
           <div className="login-row input-row row-psd"><input ref="password" className="ui-input" type="password"  defaultValue={password} name="inputPwd" placeholder="请输入登录密码" onFocus={::this.clearErrCon} /></div>
           {

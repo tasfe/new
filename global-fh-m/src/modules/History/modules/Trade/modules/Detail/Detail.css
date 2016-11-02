@@ -60,7 +60,7 @@
 }
 
 .chase-detail-check{
-  background: url(/images/chase-detail-check.png) ;
+  background: url(~images/chase-detail-check.png) ;
   width: 1.1rem;
   height: .3rem;
   line-height: .3rem;

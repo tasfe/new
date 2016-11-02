@@ -5,11 +5,12 @@
     "stage-0"
   ],
   "plugins": [
-    "transform-decorators-legacy"
+    "transform-decorators-legacy",
+    'react-hot-loader/babel'
   ],
   "env": {
     "development": {
-      "presets": ["react-hmre"]
+      "plugins": ['react-hot-loader/babel']
     }
   }
 }

@@ -8,7 +8,7 @@
     width: 90%;
   }
   .mmc-num-box{
-    background:url(/images/mmc/num_box.png) center no-repeat;
+    background:url(~images/mmc/num_box.png) center no-repeat;
     background-size: 100% 100%;
     width: 100%;
     height: 1rem;
@@ -17,7 +17,7 @@
     padding: 0 .2rem;
   }
   .mmc-num{
-    background:#fff url(/images/mmc/num_1.png) center -0.06rem repeat-y;
+    background:#fff url(~images/mmc/num_1.png) center -0.06rem repeat-y;
     background-size: 70%;
     width:16%;
     float:left;
@@ -33,7 +33,7 @@
     }
   }
   .mmc-bc-start{
-    background:url(/images/mmc/mmc_drawbar_up.png) 0px 0px no-repeat;
+    background:url(~images/mmc/mmc_drawbar_up.png) 0px 0px no-repeat;
     background-size: 100% 100%;
     width:.2rem;
     height:.9rem;
@@ -41,7 +41,7 @@
     right: -.2rem;
     top: .1rem;
     &.active{
-      background:url(/images/mmc/mmc_drawbar_down.png) 0px 0px no-repeat;
+      background:url(~images/mmc/mmc_drawbar_down.png) 0px 0px no-repeat;
       background-size: 100% 100%;
     }
   }

@@ -38,7 +38,7 @@ class ResetPassword extends Page {
 
     return (
       <div className="login-container setpsd-con">
-        <div className="login-logo paddingtop"><img src="/images/fh-logo.png" width="38%" /></div>
+        <div className="login-logo paddingtop"><img src={require("images/fh-logo.png")} width="38%" /></div>
         <div className="resetpwd-title-bar padding-h-sm">
           <div className="resetpwd-title reset-tt1 ">1.验证用户名 </div>
           <div className="resetpwd-title reset-tt2 hidden">2.选择密码找回方式</div>

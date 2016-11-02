@@ -97,7 +97,7 @@
     border-color: #009688; */
 }
 .checkbox input[type=checkbox]:checked + .checkbox-material .check:before {
-    background: url(/images/checkbox.png) center no-repeat;
+    background: url(~images/checkbox.png) center no-repeat;
     background-size: 80%;
     /* color: #009688;
     -webkit-box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 20px -12px 0 11px;

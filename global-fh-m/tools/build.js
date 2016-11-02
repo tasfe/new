@@ -7,6 +7,6 @@ import task from './lib/task';
 module.exports = task('build', async () => {
   await require('./clean')();
   await require('./copy')();
-  await require('./bundle')();
+  // await require('./bundle')();
 });
 

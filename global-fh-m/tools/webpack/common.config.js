@@ -59,6 +59,7 @@ export default (DEBUG, VERBOSE) => {
       modulesDirectories: ['node_modules', 'local_modules'],
       extensions: ['', '.webpack.js', '.web.js', '.js', '.jsx'],
       alias: {
+        'images': path.join(__dirname, '../../src/public/images'),
         'base-page': path.join(__dirname, '../../src/components/Page/Page.jsx'),
         'with-style': path.join(__dirname, '../../src/decorators/WithStyles.js')
       },
@@ -67,10 +68,6 @@ export default (DEBUG, VERBOSE) => {
 
     module: {
       loaders: [{
-          test: /\.jsx?$/,
-          loader: 'babel',
-          include: [path.join(__dirname, '../../src')]
-        }, {
           test: /\.(png|jpg|jpeg|gif|svg|woff|woff2)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
           loader: 'url-loader?name=font/[name].[ext]&limit=5000', // small than 5kb
         }, {
@@ -82,9 +79,12 @@ export default (DEBUG, VERBOSE) => {
 
     postcss: function plugins() {
       return [
-        require('postcss-import')({
+        require('postcss-smart-import')({
           onImport: files => files.forEach(this.addDependency),
-          path: ['./src']
+          path: ['./src/']
+        }),
+        require('postcss-assets')({
+          loadPaths: ['./src/public/']
         }),
         require('postcss-nested')(),
         require('postcss-cssnext')({autoprefixer: AUTOPREFIXER_BROWSERS}),

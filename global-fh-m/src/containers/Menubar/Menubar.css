@@ -26,23 +26,23 @@
     }
   }
   .m_icon1{
-    background: url(/images/m_icon1.png) center no-repeat;
+    background: url(~images/m_icon1.png) center no-repeat;
     background-size: 100%;
   }
   .m_icon2{
-    background: url(/images/m_icon2.png) center no-repeat;
+    background: url(~images/m_icon2.png) center no-repeat;
     background-size: 100%;
   }
   .m_icon3{
-    background: url(/images/m_icon3.png) center no-repeat;
+    background: url(~images/m_icon3.png) center no-repeat;
     background-size: 100%;
   }
   .m_icon4{
-    background: url(/images/m_icon4.png) center no-repeat;
+    background: url(~images/m_icon4.png) center no-repeat;
     background-size: 100%;
   }
   .m_icon5{
-    background: url(/images/m_icon5.png) center no-repeat;
+    background: url(~images/m_icon5.png) center no-repeat;
     background-size: 100%;
   }
   .notice-tips{
