@@ -173,7 +173,7 @@ function _bindServiceHandler() {
     var acctInfo = Global.memoryCache.get('acctInfo');
     var nickName = acctInfo.username;
      var newwin = window.open(
-       'http://v88.live800.com/live800/chatClient/chatbox.jsp?companyID=731101&configID=2579&jid=4521278370&info=' + encodeURIComponent('userId=' + acctInfo.userId + '&name=' + nickName),
+       _.getCustomerServiceUrl() + '&info=' + encodeURIComponent('userId=' + acctInfo.userId + '&name=' + nickName),
        'service',
        'width=800,height=680'
      );
