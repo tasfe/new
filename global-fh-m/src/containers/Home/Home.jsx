@@ -7,7 +7,7 @@ import { connect } from 'react-redux'
 import 'lib/js/tiny-slider.min'
 import ticketConfig from 'misc/ticketConfig'
 
-import bannerImg from 'images/banner-1.jpg'
+import bannerImg from 'images/banner-2.png'
 
 @connect(
   state => ({title: state.toolbar.title}),
@@ -230,6 +230,7 @@ class Home extends Page {
       </div>
     )
   }
+
 
 }
 

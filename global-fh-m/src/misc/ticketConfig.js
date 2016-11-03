@@ -45,7 +45,7 @@ var specialConfig = {
     //    badge: '',
     //    img: 'images/fh-ticket-3fc.png'*/
       // },
-      {
+  /* {
         id: 19,
         mark: 'ssc-mmc',
         zhName: "繁华秒秒彩",
@@ -55,7 +55,7 @@ var specialConfig = {
         badge: 'hot',
         desc: '全天24小时 即投即开',
         img: require('images/fh-ticket-mmc.png')
-    /*},{
+    },{
       id: 20,
       mark: 'ssc-mmc',
       zhName: "老虎机秒秒彩",
@@ -73,8 +73,8 @@ var specialConfig = {
       desc: '全天24小时 共1440期',
       defaultSelectPlay: defaultSelectDPC,
       badge: '',
-      img: 'images/fh-ticket-3D-ffc.png'*/
-    }
+      img: 'images/fh-ticket-3D-ffc.png'
+    }*/
   ]
 };
 
