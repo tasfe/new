@@ -50,7 +50,7 @@ var BettingRecordsView = SearchGrid.extend({
       ],
       gridOps: {
         defaultEmptyTip: false,
-        emptyTip: '<dl><dt><span class="sfa sfa-grid-no-result"></span></dt><dd><p>没有投注记录</p><span>去试试最热门的 <a href="#bc/21" class="router">韩国1.5分彩</a> 吧！</span></dd></dl>'
+        emptyTip: '<dl><dt><span class="sfa sfa-grid-no-result"></span></dt><dd><p>没有投注记录</p><span>去试试最热门的 <a href="#bc/10" class="router">繁华分分彩</a> 吧！</span></dd></dl>'
       },
       ajaxOps: {
         url: '/ticket/bethistory/userbethistory.json?_t=1',
