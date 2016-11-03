@@ -33,6 +33,7 @@ class Setting extends Page {
     let user = this.props.user && this.props.user.root?this.props.user.root:undefined;
     let userName = user && user.username;
     let btnText = '注销退出('+userName+')';
+    let customerServiceUrl = _.getCustomerServiceUrl();
     return (
       <div className="user-set-con">
         <ul>
@@ -46,7 +47,7 @@ class Setting extends Page {
           <li><a className="open-acc" href="/#/agency/oa">开户管理</a></li>
         </ul>
         <ul>
-          <li><a className="online-service" href="http://v88.live800.com/live800/chatClient/chatbox.jsp?companyID=731101&configID=2579&jid=4521278370" target="_blank">在线客服</a></li>
+          <li><a className="online-service" href={customerServiceUrl} target="_blank">在线客服</a></li>
           {/*<li>
             <a className="set-notice" href="">
               <Toggles

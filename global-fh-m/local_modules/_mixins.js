@@ -266,6 +266,9 @@ _.mixin({
 
     }
     return cla;
+  },
+  getCustomerServiceUrl: function(){
+    return 'http://v88.live800.com/live800/chatClient/chatbox.jsp?companyID=731101&configID=2579&jid=4521278370';
   }
 
 })
