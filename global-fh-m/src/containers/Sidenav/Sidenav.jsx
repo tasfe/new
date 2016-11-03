@@ -81,7 +81,7 @@ class Sidenav extends Component {
   }
 
   contactService() {
-    window.open(_.getCustomerServiceUrl(),'service');
+    window.open(_.getCustomerServiceUrl() +'&info=' + encodeURIComponent('userId=' + this.props.props.userId + '&name=' + this.props.props.uName),'service');
   }
 
   hideSideNav () {

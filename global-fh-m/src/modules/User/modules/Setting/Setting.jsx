@@ -32,8 +32,10 @@ class Setting extends Page {
   render () {
     let user = this.props.user && this.props.user.root?this.props.user.root:undefined;
     let userName = user && user.username;
+    let userId =  user && user.userId;
+    let uName =  user && user.uName;
     let btnText = '注销退出('+userName+')';
-    let customerServiceUrl = _.getCustomerServiceUrl();
+    let customerServiceUrl = _.getCustomerServiceUrl()+'&info=' + encodeURIComponent('userId=' +userId + '&name=' + uName);
     return (
       <div className="user-set-con">
         <ul>

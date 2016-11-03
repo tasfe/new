@@ -61,6 +61,7 @@ class App extends Component {
       isGeneralAgency = userRoot.dividendStatus !== DividendConfig.getByName('UN_APPLIED').id;
     }
     let props = {
+      userId: userRoot && userRoot.userId || '',
       isGeneralAgency : isGeneralAgency,
       username: userRoot && userRoot.username || '赌神',
       headId:userRoot && userRoot.headId ||'1',
