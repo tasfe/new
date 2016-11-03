@@ -26,14 +26,9 @@ export default config => {
       context: path.join(__dirname, '../..'),
       publicPath: '/'
     },
-    providePlugin: {
-      'jQuery': 'jquery',
-      '$': 'jquery',
-      'window.jQuery': 'jquery',
-      '_': 'underscore'
-    },
 
     plugins: [
+      ...config.plugins,
       new webpack.DllPlugin({
         path: path.join(__dirname, '../../src/dll', '[name]-manifest.json'),
         name: '[name]_library'

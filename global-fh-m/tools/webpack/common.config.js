@@ -13,8 +13,8 @@ export default (DEBUG, VERBOSE) => {
     'Safari >= 7.1',
   ]
   const GLOBALS = {
-    'process.env.NODE_ENV': DEBUG ? '"development"' : '"production"',
-    __DEV__: DEBUG,
+    'process.env.NODE_ENV': DEBUG ? JSON.stringify('development') : JSON.stringify('production'),
+    __DEV__: DEBUG
   }
 //
 // Common configuration chunk to be used for both
