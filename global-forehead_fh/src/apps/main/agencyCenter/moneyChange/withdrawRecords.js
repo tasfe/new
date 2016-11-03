@@ -25,7 +25,9 @@ var RechargeRecordsView = SearchGrid.extend({
         },
         {
           name: '提现时间',
-          width: '18%'
+          width: '18%',
+          sortable: true,
+          id: -1
         },
         {
           name: '金额',
