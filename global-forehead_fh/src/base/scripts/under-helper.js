@@ -18,6 +18,10 @@ _.mixin({
     });
   },
 
+  getCustomerServiceUrl: function(){
+    return 'https://v88.live800.com/live800/chatClient/chatbox.jsp?companyID=731101&configID=2579&jid=4521278370&s=1';
+  },
+
   serializeObject: function(serializeArray) {
     return _(serializeArray).reduce(function(obj, prop) {
       if (prop.name.indexOf('[]') === -1) {

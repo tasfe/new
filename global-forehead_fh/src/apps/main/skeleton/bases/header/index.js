@@ -21,7 +21,7 @@ var HeaderView = Base.ItemView.extend({
 
   getNoticeInfoXhr: function() {
     return Global.sync.ajax({
-      url: '/info/activitylist/getbroadcastlist.json'
+      url: '/info/activitylist/geturgentbulletinlist.json'
     });
   },
 

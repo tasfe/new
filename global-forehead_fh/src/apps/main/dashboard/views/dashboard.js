@@ -124,7 +124,7 @@ var DashboardView = Base.ItemView.extend({
   //获取平台动态
   getDynamicXhr: function (data) {
     return Global.sync.ajax({
-      url: '/info/activitylist/getbulletinlist.json',
+      url: '/info/activitylist/publist.json',
       data: data
     });
   },

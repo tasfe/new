@@ -93,7 +93,6 @@ TopProfileView = Base.ItemView.extend({
           .always(function() {
             $submit.button('reset');
           }).done(function(res) {
-          console.log(JSON.stringify(res));
           if(res && res.result === 0) {
             Global.ui.notification.show('修改成功');
             Global.m.oauth.check();

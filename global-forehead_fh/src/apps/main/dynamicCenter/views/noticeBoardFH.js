@@ -24,18 +24,18 @@ var NoticeBoardView = Base.ItemView.extend({
 
   //获取平台动态
   getDynamicXhr: function(data) {
-    if (this.outSide) {
-      return Global.sync.ajax({
-        url: '/info/activitylist/publist.json',
-        data: data
-      });
-    } else {
+    // if (this.outSide) {
+    //   return Global.sync.ajax({
+    //     url: '/info/activitylist/publist.json',
+    //     data: data
+    //   });
+    // } else {
       return Global.sync.ajax({
         url: '/info/activitylist/getbulletinlist.json',
         data: data,
         abort: false
       });
-    }
+    // }
 
   },
 
