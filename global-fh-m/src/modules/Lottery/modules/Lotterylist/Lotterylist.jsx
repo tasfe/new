@@ -215,6 +215,11 @@ class Lotterylist extends Page {
     this.isChase = chaseNumber > 1
     let totalMoney = chaseNumber > 1 ? _(chasePlanList).last().statisticsMoney : totalInfo.totalMoney
 
+    if (this.props.location.state.id == 19 ) {
+      chaseNumber = this.succession || 1
+      totalMoney = totalInfo.totalMoney * chaseNumber
+    }
+
     if (!list.length) {
       return <p style={{textAlign: 'center'}}>号码蓝为空，请返回添加号码后重试</p>
     }
