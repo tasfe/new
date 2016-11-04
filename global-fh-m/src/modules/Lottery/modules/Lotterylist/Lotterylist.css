@@ -43,6 +43,7 @@
 
   .control-area.button-group {
     padding: 0.1rem 0;
+    background: white;
     button {
       width: 40%;
       margin: 0 .05rem;

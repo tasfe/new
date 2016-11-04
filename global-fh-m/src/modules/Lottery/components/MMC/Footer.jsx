@@ -31,7 +31,8 @@ class Footer extends Component {
   }
 
   static defaultProps = {
-    update: () => {}
+    update: () => {},
+    succession: () => {}
   }
   
   constructor (props) {
@@ -48,21 +49,13 @@ class Footer extends Component {
   
   componentDidMount () {
     this.props.setHelper('normal')
-    // this.props.loadMMCLottery({
-    //   data: {
-    //     ticketId: this.props.id
-    //   }
-    // })
   }
 
   onNumberChange (number) {
     this.setState({
       chaseNumber: number
     })
-
-    if (number > 1) {
-
-    }
+    this.props.succession(number)
   }
 
   getchaseParams (previewList) {
@@ -86,6 +79,7 @@ class Footer extends Component {
   onChaseFlagChange (e) {
     this.props.update(e.target.checked)
   }
+  
 
   render () {
     let { lotteryInfo, statistics, prefabMoney, list, multiple } = this.props
@@ -97,7 +91,7 @@ class Footer extends Component {
         <Toggle config={{
           type: 'checkbox',
           text: '中奖即停',
-          checked: false,
+          checked: true,
           disabled: chaseNumber < 2,
           onClick: ::this.onChaseFlagChange,
         }} />

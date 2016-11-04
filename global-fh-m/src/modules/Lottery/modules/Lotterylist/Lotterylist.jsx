@@ -41,10 +41,13 @@ class Lotterylist extends Page {
     this.loading = false
     this.suspend = true
     this.isChase = false
-
+    this.succession = 1
     this.isBegin = false;
+
     this.state = {
       startOpen: '',
+      leftTime: 1,
+      cease: false,
       winPrize: 0,
       mmcResult: []
     }
@@ -80,15 +83,16 @@ class Lotterylist extends Page {
 
     window.Alert({
       noCancel: true,
-      title: done ? '恭喜': '错误',
+      title: done ? '提示': '错误',
       type: 'confirm',
-      content: done ? '投注成功,等待开奖' : (resp.msg || '投注失败'),
+      content: done ? (this.succession > this.state.leftTime ? '正在进入下一轮开奖...' : '投注成功,等待开奖') : (resp.msg || '投注失败'),
       callback : () => {
         if (done) {
           // this.props.resetBetting()
           // this.props.resetChase()
           this.setState({
-            startOpen: true
+            startOpen: true,
+            leftTime: this.state.leftTime-1
           });
           this.getStart(resp.root)
         }
@@ -116,6 +120,13 @@ class Lotterylist extends Page {
 
   updateSuspendState (state) {
     this.suspend = state
+  }
+
+  updateSuccession(count) {
+    this.succession = count
+    this.setState({
+      leftTime: this.succession
+    })
   }
 
   getStart (res) {
@@ -148,6 +159,7 @@ class Lotterylist extends Page {
                   winPrize: res.winPrize,
                   mmcResult: res.openResultList
                 });
+                self.checkLeftTime()
               }
             }
           });
@@ -156,12 +168,32 @@ class Lotterylist extends Page {
     }
   }
 
+  checkLeftTime () {
+    var self = this
+    if (this.suspend && this.state.winPrize || this.state.cease) {
+      return false
+    }
+    if (this.state.leftTime >0 ) {
+      setTimeout(function(){
+        self.setState({
+          startOpen: true,
+          winPrize: 0,
+          mmcResult: []
+        });
+        self.doSomething()
+      }, 2000)
+    }
+  }
+
   doSomethingAgain () {
     this.setState({
       startOpen: '',
+      cease: false,
+      leftTime: 1,
       winPrize: 0,
       mmcResult: []
     });
+    this.succession = 1;
     this.doSomething()
   }
 
@@ -169,8 +201,14 @@ class Lotterylist extends Page {
     this.props.resetBetting()
     window.history.back()
   }
+
+  cease () {
+    this.setState({
+      cease: true
+    });
+  }
   
-  render () {debugger
+  render () {
     let self = this
     let { totalInfo, list, chasePlanList = [] } = this.props
     let chaseNumber = chasePlanList.length || 1
@@ -193,18 +231,18 @@ class Lotterylist extends Page {
       <div className="lotlist-con">
         {this.props.location.state.id == 19 ? <Fhmmc /> : ''}
         {this.props.location.state.id == 19 && this.state.startOpen && !this.state.mmcResult.length ? <div className="startOpening-img">
-          <div className="opening-count">第1/1期 开奖中</div>
+          <div className="opening-count">第{this.succession-this.state.leftTime}/{this.succession}期 开奖中</div>
           <img src={require("images/mmc/mmc_win_curr.png")} />
           <div className="opening-text">正在开奖中，祝您好运</div>
         </div> : <span />}
         {this.props.location.state.id == 19 && this.state.startOpen && this.state.mmcResult.length && !this.state.winPrize? <div className="startOpening-img">
-          <div className="opening-count">第1/1期 已结束</div>
+          <div className="opening-count">第{this.succession-this.state.leftTime}/{this.succession}期 已结束</div>
           <img className="lost-img" src={require("images/mmc/mmc_lost.png")} />
           <img src={require("images/mmc/mmc_lost1.png")} />
           <div className="opening-text">这局没中，再来一局...</div>
         </div> : <span />}
         {this.props.location.state.id == 19 && this.state.startOpen && this.state.mmcResult.length && this.state.winPrize? <div className="startOpening-img">
-          <div className="opening-count">第1/1期 已结束</div>
+          <div className="opening-count">第{this.succession-this.state.leftTime}/{this.succession}期 已结束</div>
           <img src={require("images/mmc/mmc_win_end.png")} />
         </div> : <span />}
         {this.props.location.state.id == 19 && this.state.startOpen || this.state.mmcResult.length ? <List data={list} item={ResultListItem} claxx="iForm-list" itemClass="lotlist-con-li" /> : <List data={list} item={ListItem} claxx="iForm-list" itemClass="lotlist-con-li" />}
@@ -215,7 +253,7 @@ class Lotterylist extends Page {
             <i className="fa fa-trash-o" /> 清空
           </div>
           {
-            this.props.location.state.id == 19 ? <MMCFooter update={::this.updateSuspendState} /> : <ChaseBar update={::this.updateSuspendState} />
+            this.props.location.state.id == 19 ? <MMCFooter update={::this.updateSuspendState} succession={::this.updateSuccession} /> : <ChaseBar update={::this.updateSuspendState} />
           }
           <div className="summary">
             <span className="summary__text">{`${totalInfo.totalLottery}注 x ${chaseNumber}期 = ${_(totalMoney).convert2yuan()}元`}</span>
@@ -224,7 +262,7 @@ class Lotterylist extends Page {
         </div>
       }
       {
-        this.state.mmcResult.length ? <div className="control-area button-group">
+        (((this.suspend && this.state.winPrize) || !this.state.leftTime) || this.state.cease) && this.state.mmcResult.length ? <div className="control-area button-group">
           <Button config={{
               text: '再玩一次',
               className: 'btn-black waves-light btn-middle'
@@ -233,6 +271,15 @@ class Lotterylist extends Page {
               text: '重新选号',
               className: 'btn-red waves-light btn-middle'
             }} onClick={::this.rebetting} />
+        </div> : <span />
+      }
+      {
+        this.props.location.state.id == 19 && this.state.startOpen && this.state.leftTime && !(this.suspend && this.state.winPrize) && !this.state.mmcResult.length ? <div className="control-area button-group">
+          <Button config={{
+              text: this.state.cease ? '停止中' : '立即停止',
+              className: 'btn-black waves-light btn-middle',
+              disabled: this.state.cease
+            }} onClick={::this.cease} />
         </div> : <span />
       }
     </div>
