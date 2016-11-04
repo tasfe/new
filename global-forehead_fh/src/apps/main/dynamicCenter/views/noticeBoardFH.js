@@ -106,6 +106,7 @@ var NoticeBoardView = Base.ItemView.extend({
   },
 
   generateDynamicList: function(data) {
+    console.log(JSON.stringify(data));
     this.$dynamicList.html(_(data.buList).map(function(item) {
       var date = moment(item.time).format('YYYY-MM-DD');
 

@@ -162,7 +162,21 @@
               }
             }
           }
-
+          &:first-child{
+            .header-bulletin-list-title{
+              color: #cc3333;
+            }
+          }
+          &:nth-child(2){
+            .header-bulletin-list-title {
+              color: #eb6529;
+            }
+          }
+          &:nth-child(3){
+            .header-bulletin-list-title{
+              color: #f88926;
+            }
+          }
         }
         li.active{
           background-color: #ca6898;

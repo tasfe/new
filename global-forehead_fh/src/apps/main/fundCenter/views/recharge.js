@@ -54,7 +54,7 @@ var RechargeView = TabView.extend({
     this.getRechargeBaseInfoXhr()
       .done(function(res) {
         if (res.result === 0) {
-          self.generateTab(res.root.paymentList);
+          self.generateTab(res.root.paymentList,res.root.onlyBankPay);
           self.paymentList = res.root.paymentList;
           self.$('.js-fc-re-payment-type:first').trigger('click');
         }
@@ -98,18 +98,22 @@ var RechargeView = TabView.extend({
     $form.parsley().reset();
   },
 
-  generateTab: function(paymentList) {
-    var paymentInfoArr = [];
-    var html = [];
+  generateTab: function(paymentList,onlyBankPay) {
+      // self= this;
+      var paymentInfoArr = [];
+      var html = [];
+      var captions = [];
+      _(paymentList).each(function (payment) {
+          var paymentInfo = quickPayConfig.get(payment.paymentType);
+          //onlyBankPay表示只有银联充值方式
+          if(paymentInfo && (!onlyBankPay || (onlyBankPay && !paymentInfo.risky))){
+              paymentInfo.paymentType = payment.paymentType;
+              paymentInfo.paymentId = payment.paymentId;
+              paymentInfoArr.push(paymentInfo);
+          }
+      });
 
-    _(paymentList).map(function (payment) {
-      var paymentInfo = quickPayConfig.get(payment.paymentType);
-      paymentInfo.paymentType = payment.paymentType;
-      paymentInfo.paymentId = payment.paymentId;
-      paymentInfoArr.push(paymentInfo);
-    });
-
-    paymentInfoArr = _.sortBy(paymentInfoArr, 'sortId');
+      paymentInfoArr = _.sortBy(paymentInfoArr, 'sortId');
 
     _(paymentInfoArr).each(function(payment, index) {
 

@@ -7,7 +7,8 @@ var quickPay = [
     zhName: '银联支付一',
     className: 'fc-re-union',
     pic: require('./union.png'),
-    sortId:1
+    sortId:1,
+    risky:false
   },
   {
     type: 2,
@@ -15,7 +16,8 @@ var quickPay = [
     zhName: '支付宝扫码支付',
     className: 'fc-re-alipay',
     pic: require('./alipay.png'),
-    sortId:6
+    sortId:6,
+    risky:true
   },
   {
     type: 3,
@@ -23,7 +25,8 @@ var quickPay = [
     zhName: '微信小额支付',
     className: 'fc-re-wechat',
     pic: require('./wechat.png'),
-    sortId:4
+    sortId:4,
+    risky:true
   },
   {
     type: 4,
@@ -31,7 +34,8 @@ var quickPay = [
     zhName: '银联支付二',
     className: 'fc-re-union',
     pic: require('./union.png'),
-    sortId:2
+    sortId:2,
+    risky:false
   },
   {
     type: 5,
@@ -39,7 +43,8 @@ var quickPay = [
     zhName: '银联支付三',
     className: 'fc-re-union',
     pic: require('./union.png'),
-    sortId:3
+    sortId:3,
+    risky:false
   },
   {
     type: 6,
@@ -47,7 +52,8 @@ var quickPay = [
     zhName: '支付宝支付',
     className: 'fc-re-alipay',
     pic: require('./alipay.png'),
-    sortId:7
+    sortId:7,
+    risky:true
   },
   {
     type: 7,
@@ -55,7 +61,8 @@ var quickPay = [
     zhName: '微信大额支付',
     className: 'fc-re-wechat',
     pic: require('./wechat.png'),
-    sortId:5
+    sortId:5,
+    risky:true
   },
   {
     type: 8,
@@ -63,7 +70,8 @@ var quickPay = [
     zhName: '信用卡支付',
     className: 'fc-re-union',
     pic: require('./union.png'),
-    sortId:8
+    sortId:8,
+    risky:false
   }
 ];
 
