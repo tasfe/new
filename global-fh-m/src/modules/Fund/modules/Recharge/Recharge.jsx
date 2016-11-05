@@ -46,7 +46,9 @@ class Recharge extends Page {
         _(res.root.paymentList).each(function(payment,index){
           let paymentInfo = QuickPayConfig.get(payment.paymentType);
           let field = {title: paymentInfo.zhName, content: '', id: payment.paymentType, pic: paymentInfo.pic}
-          fields.push(field)
+          if(paymentInfo && (!res.root.onlyBankPay || (res.root.onlyBankPay && !paymentInfo.risky))){
+            fields.push(field)
+          }
         })
 
         self.setState({
@@ -103,7 +105,7 @@ class Recharge extends Page {
             <Tab config={this.tabConfig}/>
           }
         </div>
-        <form className="js-fc-re-form " action="/fund/recharge/dopaymentrecharge" method="post" target="_blank">
+        <form className="js-fc-re-form  margin-35" action="/fund/recharge/dopaymentrecharge" method="post" target="_blank">
           <div className=" ">
             <table className="js-fc-re-bankList fc-re-bankList">
               <tbody>

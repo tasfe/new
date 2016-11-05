@@ -6,6 +6,7 @@ var quickPay = [
     name: 'unionpay',
     zhName: '银联支付',
     className: 'fc-re-union',
+    risky:false,
     pic: require('images/union.png')
   },
   {
@@ -13,6 +14,7 @@ var quickPay = [
     name: 'alipay',
     zhName: '支付宝',
     className: '',
+    risky:true,
     pic: require('images/zhifubao.png')
   },
   {
@@ -20,6 +22,7 @@ var quickPay = [
     name: 'weixin',
     zhName: '微信支付',
     className: 'fc-re-weixin',
+    risky:true,
     pic: require('images/weixin.png')
   },
   //{

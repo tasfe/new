@@ -3,7 +3,7 @@
 
 .tabs {
     /* z-index: 15; */
-    /*position: relative;*/
+    position: relative;
     background: var(--white);
     width: 100%;
     border-radius: 4px;
@@ -13,7 +13,7 @@
     height: 100%;
 }
 .tabs-header {
-    position: absolute;
+    position: relative;
     background: #eee;
     overflow: hidden;
     width: 100%;
