@@ -324,6 +324,36 @@ class BettingHelper extends Base {
     })
   }
 
+  mmc (planId, cb) {
+    let params = _(this.state).pick('playId', 'multiple', 'userRebate', 'previewList');
+    let previewList = _(params.previewList).reduce(function(list, item) {
+      list.push({
+        betNum: item.bettingNumber,
+        playId: item.playId,
+        betMultiple: item.multiple,
+        moneyMethod: item.unit,
+        //0 高奖金 1 有返点
+        betMethod: item.betMethod
+      })
+
+      return list;
+    }, []);
+
+    return ajax({
+      url: '/ticket/bet/betMmc.json',
+      tradition: true,
+      data: {
+        planId: planId,
+        bet: previewList,
+        device: 3
+      }
+    }, resp => {
+      cb && cb(true, resp)
+    }, resp => {
+      cb && cb(false, resp)
+    })
+  }
+
   remove (index) {
     if (_.isNumber(index)) {
       let temp = $.extend(true, [], this.state.previewList)

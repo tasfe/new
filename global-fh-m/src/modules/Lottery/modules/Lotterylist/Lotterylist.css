@@ -17,7 +17,7 @@
       background: none;
       border-bottom: 1px dashed var(--border-grey);
       padding: .1rem;
-      &:first-child; {
+      &:first-child {
         border-top: none;
       }
 
@@ -38,6 +38,15 @@
 
     > div {
       border-bottom: 1px solid var(--border-grey);
+    }
+  }
+
+  .control-area.button-group {
+    padding: 0.1rem 0;
+    background: white;
+    button {
+      width: 40%;
+      margin: 0 .05rem;
     }
   }
 
@@ -108,4 +117,42 @@
   font-size: var(--font-size-lv16);
   padding:.05rem .1rem;
   border-left: 1px solid var(--border-grey);
+}
+.lotlist-con-res{
+  position: absolute;
+  right: .1rem;
+  top: 50%;
+  margin-top: -.16rem;
+  color: var(--gray-light);
+  font-size: var(--font-size-lv11);
+  padding:.05rem .1rem;
+  border-left: 1px solid var(--border-grey);
+}
+.lotlist-con-res.text-red {
+  color: var(--main-red);
+}
+
+.startOpening-img {
+  text-align: center;
+  font-size: 0.14rem;
+  .opening-count {
+    color: var(--coffee);
+  }
+  .opening-text {
+    color: white;
+    background-color: var(--orange);
+    height: 0.5rem;
+    padding: 0.1rem;
+    line-height: 0.35rem;
+    width: 60%;
+    margin: -0.12rem auto 0.1rem auto;
+    border-radius: 0.1rem;
+  }
+  img {
+    width: 50%;
+  }
+  img.lost-img {
+    display: block;
+    margin: 0.2rem auto -0.7rem auto;
+  }
 }
