@@ -10,7 +10,7 @@ function mulAll(rowsResult) {
 }
 
 function mulAllNotRepeat(rowsResult) {
-  var cTimes = rowsResult.length - 1;
+  var combinations = [];
   var total = _(rowsResult).reduce(function(total, result, index) {
     if (this.list[index].isShow) {
       total *= result.length;
@@ -18,63 +18,98 @@ function mulAllNotRepeat(rowsResult) {
     return total;
   }, 1, this);
 
-  var i;
-  var j;
-
   if (total > 0) {
-    total = _(total).sub(_repeat(rowsResult, 0, cTimes, [], true));
+    total = 0;
+    _count([]);
   }
 
-  function _repeat(rowsResult, parentIndex, cTimes, combinations, first) {
-    var length = rowsResult.length;
-    var total = 0;
-    var index;
-    --cTimes;
+  function _count() {
+    if (combinations.length < rowsResult.length) {
+      _(rowsResult[combinations.length]).each(function(item, index, row) {
+        var isFind = _(combinations).contains(item);
+        if (!isFind) {
+          combinations.push(item);
+          if (combinations.length === rowsResult.length) {
+            total++;
+            combinations.pop();
+          } else {
+            _count();
+          }
+        }
 
-    if (cTimes >= 0) {
-      for (index = parentIndex; index < length - cTimes; ++index) {
-
-        combinations.push(index);
-        total = _(total).add(_repeat(rowsResult, index + 1, cTimes, combinations, index === parentIndex));
-
-        if (index === length - cTimes - 1) {
+        if (index === row.length - 1) {
           combinations.pop();
         }
-      }
-    } else {
-      var otherRows = _(_(rowsResult.length).range()).difference(combinations);
-      var conflictRepeat = 0;
-      var repeatCount  = 0;
-      var repeatNum = rowsResult[combinations[0]];
-
-      if (combinations.length > 1) {
-        for (index = 1; index < combinations.length; ++index) {
-          repeatNum = _(repeatNum).intersection(rowsResult[combinations[index]]);
-        }
-        repeatCount = repeatNum.length;
-      }
-
-      var otherRowsCount = _(otherRows).reduce(function(total, rowIndex) {
-        if (first) {
-          conflictRepeat = _(conflictRepeat).add(_(repeatNum).intersection(rowsResult[rowIndex]).length);
-        }
-        return _(total).mul(rowsResult[rowIndex].length);
-      }, 1);
-
-      if (combinations.length % 2) {
-        total = _(total).sub(_(repeatCount).mul(otherRowsCount));
-        total = _(total).add(conflictRepeat);
-      } else {
-        total = _(total).add(_(repeatCount).mul(otherRowsCount));
-        total = _(total).sub(conflictRepeat);
-      }
-      combinations.pop();
+      });
     }
-
-    return total;
   }
 
   return total;
+  // var cTimes = rowsResult.length - 1;
+  // var total = _(rowsResult).reduce(function(total, result, index) {
+  //   if (this.list[index].isShow) {
+  //     total *= result.length;
+  //   }
+  //   return total;
+  // }, 1, this);
+  //
+  // var i;
+  // var j;
+  //
+  // if (total > 0) {
+  //   total = _(total).sub(_repeat(rowsResult, 0, cTimes, [], true));
+  // }
+  //
+  // function _repeat(rowsResult, parentIndex, cTimes, combinations, first) {
+  //   var length = rowsResult.length;
+  //   var total = 0;
+  //   var index;
+  //   --cTimes;
+  //
+  //   if (cTimes >= 0) {
+  //     for (index = parentIndex; index < length - cTimes; ++index) {
+  //
+  //       combinations.push(index);
+  //       total = _(total).add(_repeat(rowsResult, index + 1, cTimes, combinations, index === parentIndex));
+  //
+  //       if (index === length - cTimes - 1) {
+  //         combinations.pop();
+  //       }
+  //     }
+  //   } else {
+  //     var otherRows = _(_(rowsResult.length).range()).difference(combinations);
+  //     var conflictRepeat = 0;
+  //     var repeatCount  = 0;
+  //     var repeatNum = rowsResult[combinations[0]];
+  //
+  //     if (combinations.length > 1) {
+  //       for (index = 1; index < combinations.length; ++index) {
+  //         repeatNum = _(repeatNum).intersection(rowsResult[combinations[index]]);
+  //       }
+  //       repeatCount = repeatNum.length;
+  //     }
+  //
+  //     var otherRowsCount = _(otherRows).reduce(function(total, rowIndex) {
+  //       if (first) {
+  //         conflictRepeat = _(conflictRepeat).add(_(repeatNum).intersection(rowsResult[rowIndex]).length);
+  //       }
+  //       return _(total).mul(rowsResult[rowIndex].length);
+  //     }, 1);
+  //
+  //     if (combinations.length % 2) {
+  //       total = _(total).sub(_(repeatCount).mul(otherRowsCount));
+  //       total = _(total).add(conflictRepeat);
+  //     } else {
+  //       total = _(total).add(_(repeatCount).mul(otherRowsCount));
+  //       total = _(total).sub(conflictRepeat);
+  //     }
+  //     combinations.pop();
+  //   }
+  //
+  //   return total;
+  // }
+  //
+  // return total;
 }
 
 function addAll(rowsResult) {

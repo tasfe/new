@@ -11,21 +11,21 @@ var RedPacket = Base.ItemView.extend({
     var self = this;
     require.ensure(['./index.scss'], function(require) {
       require('./index.scss');
-      window.setTimeout(function() {
-        self._onRender();
-      }, 10);
+      // window.setTimeout(function() {
+      //   //self._onRender();
+      // }, 10);
     });
-	  $(window).on('resize.resizeview', this.onResize.bind(this));
+	 // $(window).on('resize.resizeview', this.onResize.bind(this));
   },
   _onRender: function() {
-    this.setAllSize();
+    //this.setAllSize();
   },
 	onResize: function () {
 		this.setAllSize();
 	},
   setAllSize: function(){
     var wh = $(window).height();
-	  var bgw = 1920 * (wh / 1024);
+	  var bgw = 1920 * (wh / 1000);
 
     this.$('.activity_mask').css({
     	'height' : wh,

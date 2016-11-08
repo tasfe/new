@@ -30,8 +30,43 @@ body{
     font-family: "微软雅黑", "黑体";
 }
 .activity_mask{
-    background: #183b4a url("images/bg.jpg") no-repeat center;
+    background: url("images/bg.png") no-repeat center;
     overflow: hidden;
+}
+.activity_content{
+    color: #ffffff;
+    margin: 0 auto;
+    height: 1000px;
+
+}
+.activity_content_body{
+    width: 450px;
+    margin: 0 auto;
+    position: relative;
+}
+.activity_content_num{
+    font-size: 35px;
+    color: #fbf148;
+    position: absolute;
+    left: 37%;
+    margin-top: 263px;
+
+
+}
+.activity_content_money{
+    font-size: 42px;
+    color: #fbf249;
+    position: absolute;
+    left: 54%;
+    margin-top: 258px;
+}
+.activity_time{
+    text-align: center;
+    font-size: 18px;
+    color: #fff;
+    position: absolute;
+    left: 19%;
+    margin-top: 425px;
 }
 .js-accept-btn{
     background-color: #fff;
