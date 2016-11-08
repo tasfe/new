@@ -6,7 +6,7 @@ import React, { Component, PropTypes, } from 'react'
 import Selector from './../Selector'
 import Header from './../Header'
 import Body from './../Body'
-import Footer from './Footer'
+import Footer from './../Footer'
 
 const PULL_THRESHOLD = 100
 
