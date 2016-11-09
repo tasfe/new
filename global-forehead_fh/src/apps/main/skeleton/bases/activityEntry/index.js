@@ -58,10 +58,10 @@ var ActivityEntryView = Base.ItemView.extend({
       if(res && res.result === 0){
         var data = res.root;
         if(data.status != 1){
-         // self.$('.js-redpacket-btn').addClass('hidden');
+          self.$('.js-redpacket-btn').addClass('hidden');
         }
       }else{
-       // self.$('.js-redpacket-btn').addClass('hidden');
+        self.$('.js-redpacket-btn').addClass('hidden');
       }
     });
   },

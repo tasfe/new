@@ -450,6 +450,7 @@ var BettingCenterView = Base.ItemView.extend({
 
   renderBasicRules: function() {
     var playLevels = this.rulesCollection.getPlayLevels();
+    console.log(playLevels);
     this.$basicRules.html(this.playLevelTpl({
       ruleClass: 'js-bc-basic-rule',
       rules: playLevels.normalList

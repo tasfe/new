@@ -425,7 +425,8 @@ function getCreateFunc(length, options) {
         return [bet.join(options.innerSplit)];
       });
     }
-
+    console.log('result:**'+JSON.stringify(result));
+    console.log('statistics:**'+JSON.stringify(statistics));
     return {
       lotteryList: result,
       statistics: statistics
