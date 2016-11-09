@@ -41,7 +41,7 @@ define(function (require, exports, module) {
         });
       }
       if(Global.memoryCache.get('acctInfo').groupId === 5
-        && _([10, 12, 13, 14, 15, 16, 17,19,20]).contains(Number(this.options.ticketId))) {
+        && _([10, 12, 13, 14, 15, 16, 17,19,20,26,28]).contains(Nmber(this.options.ticketId))) {
         tabs.push({
           label: '风险控制',
           name: 'riskControl',
