@@ -75,7 +75,7 @@ var sscConfig = [
     count: 5,
     num: _.range(10),
     positions: sscPositions,
-    oneDay: 288,
+    oneDay: 179,
     zhName: "北京5分彩"
   },
   // {
