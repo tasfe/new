@@ -178,19 +178,22 @@ var helpConfig = {
       name: '台湾5分彩',
       iconClass: 'sfa-d-ssc-tw'
 
-    },{
+    },
+    {
       id: 10,
       name: '繁华分分彩',
       iconClass: 'sfa-d-sp-ssc-ffc'
-    },{
+    },
+    {
       id: 18,
       name: '北京PK拾',
       iconClass: 'sfa-d-happy-pk10'
-    },{
-      id: 26,
-      name: '加拿大3.5分彩',
-      iconClass: 'sfa-d-ssc-jnd'
     }
+    // {
+    //   id: 26,
+    //   name: '加拿大3.5分彩',
+    //   iconClass: 'sfa-d-ssc-jnd'
+    // }
   ]
 };
 
