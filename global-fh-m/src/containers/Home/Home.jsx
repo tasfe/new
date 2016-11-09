@@ -59,6 +59,19 @@ class Home extends Page {
       });
     })
 
+    ajax({
+      url: '/acct/usernotice/getdashboardadvertise.json',
+      data: {device: -1 }
+    }, resp => {
+      if(resp.result === 0){
+        this.state.bannerList = resp.root;
+      }else {
+        window.Alert({
+          content: resp.msg || '获取轮播图失败！'
+        });
+      }
+
+    })
   }
 
   countDownTicket (ticktets) {
@@ -163,19 +176,21 @@ class Home extends Page {
     let cr = this.remToPx(0.37);
     let cbg = this.remToPx(0.03);
     let cbr = this.remToPx(0.03);
-    
+
     return (
       <div className="home container-fluid">
         <ul className="slider">
-          <li>
-            <img src={bannerImg} alt="我是图片" />
-          </li>
-          <li>
-            <img src={bannerImg} alt="我是图片" />
-          </li>
-          <li>
-            <img src={bannerImg} alt="我是图片" />
-          </li>
+          {
+            _(this.state.bannerList).map(function (bannerInfo) {
+              let href;
+              if (bannerInfo.picUrl) {
+                href = bannerInfo.picUrl;
+              } else {
+                href = 'javascript:void(0)';
+              }
+              return <li><img src={href} alt={bannerInfo.advName} /></li>
+            })
+          }
         </ul>
         <div className="hot-ticket">
           <div className="hot-t-title">

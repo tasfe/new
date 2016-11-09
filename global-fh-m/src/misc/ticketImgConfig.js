@@ -22,6 +22,7 @@ define(function(require, exports, module) {
       ticketId: 16,
       ticketName: '3D分分彩',
       img: require('images/fh-ticket-3D-ffc.png')*/
+    /*
     },{
       ticketId: 21,
       ticketName: "韩国1.5分彩",

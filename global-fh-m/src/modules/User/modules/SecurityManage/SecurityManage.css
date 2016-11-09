@@ -15,6 +15,7 @@
   line-height: .14rem;
   display: inline-block;
   vertical-align: middle;
+  background: transparent;
 }
 .row-outer{
   padding: .05rem .1rem;
