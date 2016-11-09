@@ -71,7 +71,8 @@ var ActivityEntryView = Base.ItemView.extend({
     this.getRedpacketCountXhr().done(function(res){
       if(res && res.result === 0){
         var data = res.root;
-        self.$redpacketCount.html(data.totalTimes - data.useTimes);
+        var num = data.totalTimes - data.useTimes < 0 ? 0 : data.totalTimes - data.useTimes;
+        self.$redpacketCount.html(num);
       }
     })
   },
