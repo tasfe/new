@@ -62,6 +62,17 @@ var specialConfig = {
       defaultSelectPlay: defaultSelectSSC,
       board: true,
       badge: 'hot'
+    },
+    {
+      id: 28,
+      type: 'ssc',
+      mark: 'ssc-ydw',
+      zhName: "繁华1.5分彩",
+      optional: true,
+      desc: '全天24小时 即投即开',
+      defaultSelectPlay: defaultSelectSSC,
+      board: true,
+      badge: 'hot'
     }/*,
     {
       id: 20,
@@ -150,6 +161,16 @@ var sscConfig = {
       desc: '',
       defaultSelectPlay: defaultSelectSSC
     },
+    {
+      id: 26,
+      mark: 'bj',
+      zhName: "北京5分彩",
+      quickShowName: "北京<br/>5分彩",
+      optional: true,
+      isSuper: true,
+      desc: '',
+      defaultSelectPlay: defaultSelectSSC
+    }
     // {
     //   id: 25,
     //   mark: 'xjp',
@@ -161,17 +182,17 @@ var sscConfig = {
     //   defaultSelectPlay: defaultSelectSSC,
     //
     // },
-    {
-      id: 26,
-      mark: 'jnd',
-      zhName: "加拿大3.5分彩",
-      quickShowName: "加拿大<br/>3.5分彩",
-      optional: true,
-      isSuper: true,
-      desc: '',
-      defaultSelectPlay: defaultSelectSSC,
-
-    }
+    // {
+    //   id: 26,
+    //   mark: 'jnd',
+    //   zhName: "加拿大3.5分彩",
+    //   quickShowName: "加拿大<br/>3.5分彩",
+    //   optional: true,
+    //   isSuper: true,
+    //   desc: '',
+    //   defaultSelectPlay: defaultSelectSSC,
+    //
+    // }
   ]
 };
 
