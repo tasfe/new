@@ -120,29 +120,23 @@ var ActivityEntryView = Base.ItemView.extend({
           self.$redpacketBtn.addClass('redpacket-btn-op');
           self.updateRedPacketCount();
           var money = res.root[0].result / 10000;
-          //var msg = '恭喜您成功打开红包，您抽中了' + money + '元！';
-          // $(document).confirm({
-          //   title:'领取成功',
-          //   content: msg,
-          //   noFooter:true,
-          //   hiddenCallback: function() {
-          //     self.$('.js-redpacket-btn').removeClass('redpacket-btn-op');
-          //   }
-          // });
+
           self.$shortCutRes.addClass("shortcut-res-top");
           self.$shortCutResSuccess.removeClass("hidden");
           self.$shortCutResNum.html(money);
+          self.$shortCutRes.removeClass("hidden");
+
         }else{
-          // Global.ui.dialog.show({
-          //   title:'领取失败',
-          //   body:res.msg
-          // });
-          self.$shortCutResFail.removeClass("hidden");
+          if(res.msg === '您已经领过福利了哦，明天再来吧！'){
+            Global.ui.notification.show(res.msg);
+          }else{
+            self.$shortCutRes.removeClass("hidden");
+            self.$shortCutResFail.removeClass("hidden");
+          }
         }
 
       })
           .always(function () {
-            self.$shortCutRes.removeClass("hidden");
             self.timerT = setTimeout(function () {
               self.redPackeDefault();
             },5000)
