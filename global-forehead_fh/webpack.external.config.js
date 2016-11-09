@@ -5,7 +5,7 @@ module.exports = {
       hot: true
     }
   },
-  port: 3001,
+  port: 3000,
   commonChunks: {
     'common.1': []
   },

@@ -7,32 +7,39 @@ var RedPacket = Base.ItemView.extend({
   template: require('./index.html'),
   events: {
   },
-  initialize: function() {
-    var self = this;
-    require.ensure(['./index.scss'], function(require) {
-      require('./index.scss');
-      // window.setTimeout(function() {
-      //   //self._onRender();
-      // }, 10);
-    });
-	 // $(window).on('resize.resizeview', this.onResize.bind(this));
-  },
-  _onRender: function() {
-    //this.setAllSize();
-  },
-	onResize: function () {
-		this.setAllSize();
-	},
-  setAllSize: function(){
-    var wh = $(window).height();
-	  var bgw = 1920 * (wh / 1000);
 
-    this.$('.activity_mask').css({
-    	'height' : wh,
-	    'background-size' : bgw + 'px ' + wh + 'px'
-    });
+  getServiceXhr:function () {
+      return Global.sync.ajax({
+          url: '/info/moneytreeactivity/info.json',
+          data: {
+              activityId: this.options.activityId
+          }
+      });
   },
-	//handler event
+
+  initialize: function() {
+      var self = this;
+      require.ensure(['./index.scss'], function (require) {
+          require('./index.scss');
+
+      });
+  },
+
+   onRender: function() {
+       var self = this;
+       this.$modeTextNum = this.$(".js_mode_text_num");
+       this.$activityTime = this.$(".js_activity_time");
+       this.getServiceXhr()
+           .done(function (res) {
+               if(res.result === 0){
+                   var sTime = _(res.root.fromDate).toTime('MM月DD日 H:mm:ss');
+                   var eTime = _(res.root.endDate).toTime('MM月DD日 H:mm:ss');
+                   var condition = _.formatDiv(res.root.limit,10000);
+                   self.$activityTime.html(sTime + ' - - ' + eTime);
+                   self.$modeTextNum.html(condition);
+               }
+           });
+   }
 });
 
 module.exports = RedPacket;

@@ -32,6 +32,7 @@ body{
 .activity_mask{
     background: url("images/bg.png") no-repeat center;
     overflow: hidden;
+    min-width: 1108px;
 }
 .activity_content{
     color: #ffffff;
@@ -68,6 +69,19 @@ body{
     left: 19%;
     margin-top: 425px;
 }
+.activity_content_mode{
+    position: relative;
+    width: 1108px;
+    margin: 0 auto;
+}
+.activity_mode_text{
+    position: absolute;
+    margin-top: 66%;
+    font-size: 16px;
+    padding-left: 18px;
+    padding-top: 5px;
+}
+
 .js-accept-btn{
     background-color: #fff;
     display: block;
