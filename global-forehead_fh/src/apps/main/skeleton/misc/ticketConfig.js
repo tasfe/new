@@ -130,16 +130,16 @@ var sscConfig = {
       //board: true,
       defaultSelectPlay: defaultSelectSSC
     },
-    {
-      id: 21,
-      mark: 'hg',
-      zhName: "韩国1.5分彩",
-      quickShowName: "韩国<br/>1.5分彩",
-      optional: true,
-      isSuper: true,
-      desc: '',
-      defaultSelectPlay: defaultSelectSSC
-    },
+    // {
+    //   id: 21,
+    //   mark: 'hg',
+    //   zhName: "韩国1.5分彩",
+    //   quickShowName: "韩国<br/>1.5分彩",
+    //   optional: true,
+    //   isSuper: true,
+    //   desc: '',
+    //   defaultSelectPlay: defaultSelectSSC
+    // },
     {
       id: 24,
       mark: 'tw',
@@ -150,17 +150,17 @@ var sscConfig = {
       desc: '',
       defaultSelectPlay: defaultSelectSSC
     },
-    {
-      id: 25,
-      mark: 'xjp',
-      zhName: "新加坡2分彩",
-      quickShowName: "新加坡<br/>2分彩",
-      optional: true,
-      isSuper: true,
-      desc: '',
-      defaultSelectPlay: defaultSelectSSC,
-
-    },
+    // {
+    //   id: 25,
+    //   mark: 'xjp',
+    //   zhName: "新加坡2分彩",
+    //   quickShowName: "新加坡<br/>2分彩",
+    //   optional: true,
+    //   isSuper: true,
+    //   desc: '',
+    //   defaultSelectPlay: defaultSelectSSC,
+    //
+    // },
     {
       id: 26,
       mark: 'jnd',

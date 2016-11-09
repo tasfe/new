@@ -188,7 +188,7 @@ var helpConfig = {
       iconClass: 'sfa-d-happy-pk10'
     },{
       id: 26,
-      name: '新加坡3.5分彩',
+      name: '加拿大3.5分彩',
       iconClass: 'sfa-d-ssc-jnd'
     }
   ]

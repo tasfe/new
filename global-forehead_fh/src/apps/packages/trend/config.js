@@ -54,14 +54,14 @@ var sscConfig = [
     oneDay: 84,
     zhName: "黑龙江时时彩"
   },
-  {
-    id: 21,
-    count: 5,
-    num: _.range(10),
-    positions: sscPositions,
-    oneDay: 880,
-    zhName: "韩国1.5分彩"
-  },
+  // {
+  //   id: 21,
+  //   count: 5,
+  //   num: _.range(10),
+  //   positions: sscPositions,
+  //   oneDay: 880,
+  //   zhName: "韩国1.5分彩"
+  // },
   {
     id: 24,
     count: 5,
@@ -70,14 +70,14 @@ var sscConfig = [
     oneDay: 203,
     zhName: "台湾5分彩"
   },
-  {
-    id: 25,
-    count: 5,
-    num: _.range(10),
-    positions: sscPositions,
-    oneDay: 660,
-    zhName: "新加坡2分彩"
-  },
+  // {
+  //   id: 25,
+  //   count: 5,
+  //   num: _.range(10),
+  //   positions: sscPositions,
+  //   oneDay: 660,
+  //   zhName: "新加坡2分彩"
+  // },
   {
     id: 10,
     count: 5,
