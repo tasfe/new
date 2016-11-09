@@ -70,6 +70,14 @@ var sscConfig = [
     oneDay: 203,
     zhName: "台湾5分彩"
   },
+  {
+    id: 26,
+    count: 5,
+    num: _.range(10),
+    positions: sscPositions,
+    oneDay: 288,
+    zhName: "北京5分彩"
+  },
   // {
   //   id: 25,
   //   count: 5,
@@ -109,6 +117,14 @@ var sscConfig = [
     positions: sscPositions,
     oneDay: -1,
     zhName: "繁华秒秒彩"
+  },
+  {
+    id: 28,
+    count: 5,
+    num: _.range(10),
+    positions: sscPositions,
+    oneDay: 960,
+    zhName: "繁华1.5分彩"
   },
   {
     id: 18,
