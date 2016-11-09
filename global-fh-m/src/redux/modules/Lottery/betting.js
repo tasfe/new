@@ -5,6 +5,7 @@ const RESET = 'betting/RESET'
 const ADD = 'betting/ADD'
 const REMOVE = 'betting/REMOVE'
 const ORDER = 'betting/ORDER'
+const MMC = 'betting/MMC'
 
 const initialState = {
   maxBonus: 195000,
@@ -42,6 +43,11 @@ export default (state = initialState, action) => {
       return {
         ...state
       }
+    case MMC:
+      __helper.with(state).mmc(action.id, action.cb)
+      return {
+        ...state
+      }
     default:
       return state
   }
@@ -76,6 +82,14 @@ export function remove (index) {
 export function order (id, cb) {
   return {
     type: ORDER,
+    id: id,
+    cb: cb
+  }
+}
+
+export function mmc (id, cb) {
+  return {
+    type: MMC,
     id: id,
     cb: cb
   }

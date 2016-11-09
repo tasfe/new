@@ -81,7 +81,7 @@ class Sidenav extends Component {
   }
 
   contactService() {
-    window.open('http://v88.live800.com/live800/chatClient/chatbox.jsp?companyID=731101&configID=2579&jid=4521278370','service');
+    window.open(_.getCustomerServiceUrl() +'&info=' + encodeURIComponent('userId=' + this.props.props.userId + '&name=' + this.props.props.uName),'service');
   }
 
   hideSideNav () {

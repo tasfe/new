@@ -56,7 +56,7 @@ var specialConfig = {
       planCount: '共288期',
       badge: '',
       img: require('images/fh-ticket-fh.png')
-    }, {
+      /*  },{
         id: 19,
         mark: 'ssc-mmc',
         zhName: "繁华秒秒彩",
@@ -114,7 +114,6 @@ var sscConfig = {
       optional: true,
       defaultSelectPlay: defaultSelectSSC,
       quickShowName: "北京<br/>五分彩",
-      defaultSelectPlay: defaultSelectSSC,
       img:require('images/fh-ticket-bj-5fc.png')
     }
     /*{

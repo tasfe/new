@@ -24,18 +24,18 @@ var NoticeBoardView = Base.ItemView.extend({
 
   //获取平台动态
   getDynamicXhr: function(data) {
-    if (this.outSide) {
-      return Global.sync.ajax({
-        url: '/info/activitylist/publist.json',
-        data: data
-      });
-    } else {
+    // if (this.outSide) {
+    //   return Global.sync.ajax({
+    //     url: '/info/activitylist/publist.json',
+    //     data: data
+    //   });
+    // } else {
       return Global.sync.ajax({
         url: '/info/activitylist/getbulletinlist.json',
         data: data,
         abort: false
       });
-    }
+    // }
 
   },
 
@@ -106,6 +106,7 @@ var NoticeBoardView = Base.ItemView.extend({
   },
 
   generateDynamicList: function(data) {
+    console.log(JSON.stringify(data));
     this.$dynamicList.html(_(data.buList).map(function(item) {
       var date = moment(item.time).format('YYYY-MM-DD');
 

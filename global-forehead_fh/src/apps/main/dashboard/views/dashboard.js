@@ -124,7 +124,7 @@ var DashboardView = Base.ItemView.extend({
   //获取平台动态
   getDynamicXhr: function (data) {
     return Global.sync.ajax({
-      url: '/info/activitylist/getbulletinlist.json',
+      url: '/info/activitylist/getnormalbulletinlist.json',
       data: data
     });
   },
@@ -195,7 +195,7 @@ var DashboardView = Base.ItemView.extend({
     this.getDynamicXhr(data)
       .done(function (res) {
         if (res.result === 0) {
-          //console.log("renderDynamicList res:" + res);
+          //console.log("renderDynamicList res:" + JSON.stringify(res));
           self.generateDynamicList(res.root);
           self.generateRollList(res.root);//添加首页滚动公告信息
           self.$pageIndex.val(data.pageIndex);

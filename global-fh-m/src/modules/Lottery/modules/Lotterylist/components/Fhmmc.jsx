@@ -68,7 +68,7 @@ class Fhmmc extends Component {
           <div className="mmc-num"></div>
           <div className="mmc-num"></div>
         </div>
-        <div className="js-bc-mmc-start mmc-bc-start" onClick={::this.getStart}></div>
+        <div className="js-bc-mmc-start mmc-bc-start"></div>
       </div>
     </div>
   }

@@ -6,12 +6,14 @@ import { connect } from 'react-redux'
 import withStyles from 'with-style'
 import styles from './Profile.css'
 import { setLeftButton } from 'redux/modules/toolbar'
+import { load } from 'redux/modules/auth';
 
 @withStyles(styles)
 
 @connect(state => ({}), {
   setTitle,
-  setLeftButton
+  setLeftButton,
+  load
 })
 
 class Profile extends Page {
@@ -55,6 +57,7 @@ class Profile extends Page {
             title: '系统提示',
             content: '昵称修改成功'
           })
+          this.load()
         },
         onError:(data) => {
           window.Alert({
@@ -81,6 +84,11 @@ class Profile extends Page {
       </div>
     )
   }
+
+  load() {
+    this.props.load();
+  }
+
 }
 
 module.exports = Profile

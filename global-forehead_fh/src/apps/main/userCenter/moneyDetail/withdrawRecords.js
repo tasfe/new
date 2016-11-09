@@ -58,9 +58,7 @@ var WithdrawRecordsView = SearchGrid.extend({
         abort: false
       },
       reqData: {
-        subUser: 0,
-        sortFlag:-1,
-        sortType:1
+        subUser: 0
       },
       listProp: 'root.withdrawList',
       height: 330

@@ -71,6 +71,12 @@ define(function (require, exports, module) {
             id: 9
           },
           {
+            name: '日薪',
+            width: '6%',
+            sortable: true,
+            id: 10
+          },
+          {
             name: '盈亏',
             width: '6%',
             sortable: true,
@@ -155,6 +161,7 @@ define(function (require, exports, module) {
           _(gridData.activityTotal).convert2yuan(),
           _(gridData.sysRebateTotal).convert2yuan(),
           _(gridData.sysReturnTotal).convert2yuan(),
+          _(gridData.salaryTotal).convert2yuan(),
           _(gridData.profitAndLossTotal).convert2yuan(),
           {
             colspan: 1
@@ -198,6 +205,7 @@ define(function (require, exports, module) {
       row.push(_(rowInfo.activity).convert2yuan());
       row.push(_(rowInfo.sysRebate).convert2yuan());
       row.push(_(rowInfo.sysReturn).convert2yuan());
+      row.push(_(rowInfo.salary).convert2yuan());
       row.push(_(rowInfo.profitAndLoss).convert2yuan());
       row.push(this._formatOperation(rowInfo));
       return row;
