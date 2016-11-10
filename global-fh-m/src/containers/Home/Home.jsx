@@ -19,7 +19,8 @@ class Home extends Page {
   constructor () {
     super()
     this.state = {
-      ticktetInfo : [1,10,21,14,6,18]
+      ticktetInfo : [1,10,21,14,6,18],
+      bannerList: []
     }
     this.TimmerList = [];
     console.log(innerWidth);
@@ -33,16 +34,6 @@ class Home extends Page {
     this.loaded()
 
     this.props.setTitle('精彩推荐');
-
-    tinySlider({
-      container: document.querySelector('.slider'),
-      items: 1,
-      responsive: false,
-      touch: true,
-      dots: false,
-      nav: false,
-      autoplay: true
-    })
 
     ajax({
       url: '/ticket/ticketmod/getticketcustomized.json',
@@ -65,6 +56,18 @@ class Home extends Page {
     }, resp => {
       if(resp.result === 0){
         this.state.bannerList = resp.root;
+
+        _.delay(function() {
+          tinySlider({
+            container: document.querySelector('.slider'),
+            items: 1,
+            responsive: false,
+            touch: true,
+            dots: false,
+            nav: false,
+            autoplay: true
+          });
+        });
       }else {
         window.Alert({
           content: resp.msg || '获取轮播图失败！'
@@ -188,9 +191,11 @@ class Home extends Page {
               } else {
                 href = 'javascript:void(0)';
               }
+
               return <li><img src={href} alt={bannerInfo.advName} /></li>
             })
           }
+
         </ul>
         <div className="hot-ticket">
           <div className="hot-t-title">

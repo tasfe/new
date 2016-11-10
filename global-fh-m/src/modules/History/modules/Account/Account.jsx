@@ -13,7 +13,7 @@ import RecordPer from './modules/RecordPer/RecordPer'
 import MoneyRecord from './modules/RecordPer/MoneyRecord'
 import RecordGroup from './modules/RecordGroup/RecordGroup'
 import { setTitle,setLeftButton } from 'redux/modules/toolbar'
-
+import { toggleMainStyle } from 'redux/modules/app'
 @connect(
   state => ({
     title: state.toolbar.title,
@@ -22,6 +22,7 @@ import { setTitle,setLeftButton } from 'redux/modules/toolbar'
   actions,
   logout,
   load,
+  toggleMainStyle,
   setTitle,
   setLeftButton
   }
@@ -51,13 +52,19 @@ class Account extends Page {
             title: '奖金派送',
             content: <MoneyRecord  config={{tradeType:'120'}}/>
           }
-      ]
+      ],
+      claName: 'account-detail-tab'
     };
   }
 
   componentDidMount () {
     this.props.setTitle('资金明细');
     this.props.setLeftButton(true);
+    this.props.toggleMainStyle('overflow-hidden');
+  }
+
+  componentWillUnmount () {
+    this.props.toggleMainStyle('normal');
   }
 
   render () {
