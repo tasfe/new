@@ -62,7 +62,7 @@ var specialConfig = {
       defaultSelectPlay: defaultSelectSSC,
       board: true,
       badge: 'hot'
-    },
+    }/*,
     {
       id: 28,
       type: 'ssc',
@@ -73,7 +73,7 @@ var specialConfig = {
       defaultSelectPlay: defaultSelectSSC,
       board: true,
       badge: 'hot'
-    }/*,
+    },
     {
       id: 20,
       type: 'ssc',
@@ -141,16 +141,16 @@ var sscConfig = {
       //board: true,
       defaultSelectPlay: defaultSelectSSC
     },
-    // {
-    //   id: 21,
-    //   mark: 'hg',
-    //   zhName: "韩国1.5分彩",
-    //   quickShowName: "韩国<br/>1.5分彩",
-    //   optional: true,
-    //   isSuper: true,
-    //   desc: '',
-    //   defaultSelectPlay: defaultSelectSSC
-    // },
+    {
+      id: 28,
+      mark: 'hg',
+      zhName: "韩国1.5分彩",
+      quickShowName: "韩国<br/>1.5分彩",
+      optional: true,
+      isSuper: true,
+      desc: '',
+      defaultSelectPlay: defaultSelectSSC
+    },
     {
       id: 24,
       mark: 'tw',

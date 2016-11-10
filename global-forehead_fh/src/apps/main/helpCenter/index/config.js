@@ -188,6 +188,11 @@ var helpConfig = {
       id: 18,
       name: '北京PK拾',
       iconClass: 'sfa-d-happy-pk10'
+    },
+    {
+      id: 28,
+      name: '韩国1.5分彩',
+      iconClass: 'sfa-d-ssc-hg'
     }
     // {
     //   id: 26,
