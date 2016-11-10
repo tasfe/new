@@ -600,7 +600,7 @@ var BettingCenterView = Base.ItemView.extend({
     clearInterval(this.timer);
     this.BeenDistoryed = true;
     _(this.TimeOutArr).each(function(item,index){
-      console.log('distroy timeout:index='+ index+ ',item='+item);
+      //console.log('distroy timeout:index='+ index+ ',item='+item);
       clearTimeout(item);
     })
   },
@@ -904,7 +904,7 @@ var BettingCenterView = Base.ItemView.extend({
     //TODEL  开发用于计时测试。待删除
     this.leftSecondCount =  setInterval(function(){
       self.left--;
-      console.log('this.left:'+self.left)
+      //console.log('this.left:'+self.left)
     },1000);
   },
 
@@ -966,8 +966,8 @@ var BettingCenterView = Base.ItemView.extend({
     //TODEL  待删除，开发时测试用于获取接口延时开奖情况
     //clearInterval(self.leftSecondCount);
 
-    console.log('this.left in stop:'+self.left);
-    console.log('this.isBegin in stop:'+self.isBegin);
+    //console.log('this.left in stop:'+self.left);
+   // console.log('this.isBegin in stop:'+self.isBegin);
 
     //如果单次开奖还未终止
     if(self.isBegin){
@@ -1143,7 +1143,7 @@ var BettingCenterView = Base.ItemView.extend({
     var delay2 = 3;
     var flag= false;
     flag= this.LeftTimes>0 && !this.UserStop && !this.NetException && !this.BettingFail &&  !(this.WinStop && this.HasWin);//新的一轮开始时，需要重置
-    console.log('showCurrResult: UserStop-'+ this.UserStop);
+   // console.log('showCurrResult: UserStop-'+ this.UserStop);
     if(flag){
       //5。未完毕，开启延时连续投注
       var GoOnLottery = setTimeout(function(){

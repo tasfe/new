@@ -251,7 +251,7 @@ var threeDConfig = [
   {
     id: 6,
     mark: '3d',
-    zhName: "3D",
+    zhName: "福彩3D",
     optional: false,
     isSuper: false,
     desc: '00:00－20:20  共1期',
@@ -262,7 +262,7 @@ var threeDConfig = [
     id: 16,
     type: '3d',
     mark: '3d-ffc',
-    zhName: "繁华3D分分彩",
+    zhName: "3D分分彩",
     optional: false,
     isSuper: false,
     desc: '全天24小时 共1440期',

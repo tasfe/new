@@ -1013,7 +1013,7 @@ var BettingCenterView = Base.ItemView.extend({
     //TODEL  开发用于计时测试。待删除
     this.leftSecondCount = setInterval(function () {
       self.left--;
-      console.log('this.left:' + self.left)
+      // console.log('this.left:' + self.left)
     }, 1000);
   },
 
@@ -1040,7 +1040,7 @@ var BettingCenterView = Base.ItemView.extend({
 
       })
       .done(function (res) {
-        console.log('请求已返回：' + self.isReturn + '--' + self.isBegin);
+        //console.log('请求已返回：' + self.isReturn + '--' + self.isBegin);
         if (!self.isReturn && self.isBegin && !self.BeenDistoryed) {
           self.isReturn = true;
 
@@ -1078,8 +1078,8 @@ var BettingCenterView = Base.ItemView.extend({
     //TODEL  待删除，开发时测试用于获取接口延时开奖情况
     clearInterval(self.leftSecondCount);
 
-    console.log('this.left in stop:' + self.left);
-    console.log('this.isBegin in stop:' + self.isBegin);
+    // console.log('this.left in stop:' + self.left);
+    // console.log('this.isBegin in stop:' + self.isBegin);
     var showIconIndex =_( [0,1,2,3,4]).shuffle();
     var num = this.BetRes.icons;
     var showList = showIconIndex.slice(0,num);
@@ -1268,7 +1268,7 @@ var BettingCenterView = Base.ItemView.extend({
     //TODO 当期投注结果显示停留时间，待调整
     var flag = false;
     flag = this.LeftTimes > 0 && !this.UserStop && !this.NetException && !this.BettingFail && !(this.WinStop && this.HasWin);//新的一轮开始时，需要重置
-    console.log('showCurrResult: UserStop-' + this.UserStop);
+    //console.log('showCurrResult: UserStop-' + this.UserStop);
     if (flag) {
       //5。未完毕，开启延时连续投注
       //todo 5.1.判断当前是否进入特殊流程
@@ -1978,7 +1978,7 @@ var BettingCenterView = Base.ItemView.extend({
 
       })
       .done(function (res) {
-        console.log('请求已返回：' + self.FreeGameIsReturn + '--' + self.isBegin);
+        //console.log('请求已返回：' + self.FreeGameIsReturn + '--' + self.isBegin);
         if (!self.FreeGameIsReturn && self.FreeGameIsBegin && !self.BeenDistoryed) {
           self.FreeGameIsReturn = true;
 
@@ -2161,7 +2161,7 @@ var BettingCenterView = Base.ItemView.extend({
     // 当期投注结果显示停留时间，待调整
     var freeGameFlag = false;
     freeGameFlag = this.FreeGameLeftTimes > 0 && !this.FreeGameNetException && !this.FreeGameBettingFail;//新的一轮开始时，需要重置 && !this.UserStop
-    console.log('showCurrResult: UserStop-' + this.UserStop);
+    //console.log('showCurrResult: UserStop-' + this.UserStop);
     if (freeGameFlag) {
       //判断当前是否进入下一轮下单
       var GoOnFreeGameLottery = setTimeout(function(){

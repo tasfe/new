@@ -4,118 +4,152 @@ var factory = require('bettingCenter/misc/betRulesFactory');
 var algorithm = require('bettingCenter/misc/betRulesAlgorithm');
 
 function _create(ticketId) {
-  //==================================================
+  //三星==================================================
+  function addThreeRules(rules){
+    //直选复式
+    factory.addRule(rules[0].ids, {
+      formType: 'GROUP',
+      keyPosition: rules[0].list,
+      algorithm: algorithm.mulAll,
+      list: factory.createList(rules[0].list),
+      create: algorithm.getCreateFunc(3, {
+        repeat: true
+      })
+    });
+
+    //直选单式
+    factory.addRule(rules[1].ids, {
+      formType: 'GROUP',
+      keyPosition: rules[0].list,
+      type: 'input',
+      validate: algorithm.getValidateFunc(3),
+      create: algorithm.getCreateFunc(3, {
+        slice: [2],
+        repeat: true,
+        innerSort: false
+      })
+    });
+
+    //直选和值
+    factory.addRule(rules[2].ids, {
+      formType: 'GROUP',
+      keyPosition: rules[0].list,
+      algorithm: algorithm.statistics,
+      algorithmProps: {
+        selectCount: 3
+      },
+      list: factory.createList([''], {
+        items: _.range(28),
+        operate: 'none'
+      }),
+      create: algorithm.getCreateFunc(1, {
+        range: _.range(28)
+      })
+    });
+
+    //组三
+    factory.addRule(rules[3].ids, {
+      formType: 'GROUP',
+      keyPosition: rules[0].list,
+      algorithm: algorithm.factorial,
+      algorithmProps: {
+        mainRow: 0,
+        cTimes: 2
+      },
+      list: factory.createList(['']),
+      create: algorithm.getCreateFunc(2, {
+        outerSort: true
+      })
+    });
+
+    //组六
+    factory.addRule(rules[4].ids, {
+      formType: 'GROUP',
+      keyPosition: rules[0].list,
+      algorithm: algorithm.group,
+      algorithmProps: {
+        mainRow: 0,
+        cTimes: 3
+      },
+      list: factory.createList(['']),
+      create: algorithm.getCreateFunc(3, {
+        outerSort: true
+      })
+    });
+    //组选和值
+    factory.addRule(rules[5].ids, {
+      formType: 'GROUP',
+      keyPosition: rules[0].list,
+      algorithm: algorithm.fromConfig,
+      algorithmProps: {
+        config: [null, 1, 2, 2, 4, 5, 6, 8, 10, 11, 13, 14, 14, 15, 15, 14, 14, 13, 11, 10, 8, 6, 5, 4, 2, 2, 1]
+      },
+      list: factory.createList([''], {
+        items: _.range(1, 27),
+        operate: 'none'
+      }),
+      create: algorithm.getCreateFunc(1, {
+        range: _.range(1, 27)
+      })
+    });
+
+    //混合组选
+    factory.addRule(rules[6].ids, {
+      formType: 'GROUP',
+      keyPosition: rules[0].list,
+      type: 'input',
+      validate: algorithm.getValidateFunc(3, {
+        acceptRepeat: 1,
+        maxRepeat: 2,
+        minRepeat: 1,
+        innerSort: true
+      }),
+      create: algorithm.getCreateFunc(3, {
+        outerSort: true,
+        slice: [2]
+      })
+    });
+  }
+
   //前三
-
-  //直选复式
-  factory.addRule([ticketId, '010101'], {
-    algorithm: algorithm.mulAll,
-    list: factory.createList(['百位', '十位', '个位']),
-    create: algorithm.getCreateFunc(3, {
-      repeat: true
-    })
-  });
-
-  //直选单式
-  factory.addRule([ticketId, '010102'], {
-    type: 'input',
-    validate: algorithm.getValidateFunc(3),
-    create: algorithm.getCreateFunc(3, {
-      slice: [2],
-      repeat: true,
-      innerSort: false
-    })
-  });
-
-  //直选和值
-  factory.addRule([ticketId, '010103'], {
-    algorithm: algorithm.statistics,
-    algorithmProps: {
-      selectCount: 3
+  addThreeRules([
+    {
+      ids: [ticketId, '010101'],
+      list: ['百位', '十位', '个位']
     },
-    list: factory.createList([''], {
-      items: _.range(28),
-      operate: 'none'
-    }),
-    create: algorithm.getCreateFunc(1, {
-      range: _.range(28)
-    })
-  });
+    {ids: [ticketId, '010102']},
+    {ids: [ticketId, '010103']},
+    {ids: [ticketId, '010201']},
+    {ids: [ticketId, '010202']},
+    {ids: [ticketId, '010203']},
+    {ids: [ticketId, '010204']}
+  ]);
 
-  //组三
-  factory.addRule([ticketId, '010201'], {
-    algorithm: algorithm.factorial,
-    algorithmProps: {
-      mainRow: 0,
-      cTimes: 2
-    },
-    list: factory.createList(['']),
-    create: algorithm.getCreateFunc(2, {
-      outerSort: true
-    })
-  });
 
-  //组六
-  factory.addRule([ticketId, '010202'], {
-    algorithm: algorithm.group,
-    algorithmProps: {
-      mainRow: 0,
-      cTimes: 3
-    },
-    list: factory.createList(['']),
-    create: algorithm.getCreateFunc(3, {
-      outerSort: true
-    })
-  });
 
-  //组选和值
-  factory.addRule([ticketId, '010203'], {
-    algorithm: algorithm.fromConfig,
-    algorithmProps: {
-      config: [null, 1, 2, 2, 4, 5, 6, 8, 10, 11, 13, 14, 14, 15, 15, 14, 14, 13, 11, 10, 8, 6, 5, 4, 2, 2, 1]
-    },
-    list: factory.createList([''], {
-      items: _.range(1, 27),
-      operate: 'none'
-    }),
-    create: algorithm.getCreateFunc(1, {
-      range: _.range(1, 27)
-    })
-  });
-
-  //混合组选
-  factory.addRule([ticketId, '010204'], {
-    type: 'input',
-    validate: algorithm.getValidateFunc(3, {
-      acceptRepeat: 1,
-      maxRepeat: 2,
-      minRepeat: 1,
-      innerSort: true
-    }),
-    create: algorithm.getCreateFunc(3, {
-      outerSort: true,
-      slice: [2]
-    })
-  });
 
   //==================================================
   //二星
 
   function addTwoRules(rules) {
-    var rule = rules.shift();
+    //var rule = rules.shift();
     //直选复式
-    factory.addRule(rule.ids, {
+    factory.addRule(rules[0].ids, {
+      formType: 'PAIR',
+      keyPosition: rules[0].list,
       algorithm: algorithm.mulAll,
-      list: factory.createList(rule.list),
+      list: factory.createList(rules[0].list),
       create: algorithm.getCreateFunc(2, {
         repeat: true,
         matching: true
       })
     });
 
-    rule = rules.shift();
+    //rule = rules.shift();
     //直选单式
-    factory.addRule(rule.ids, {
+    factory.addRule(rules[1].ids, {
+      formType: 'PAIR',
+      keyPosition: rules[0].list,
       type: 'input',
       validate: algorithm.getValidateFunc(2),
       create: algorithm.getCreateFunc(2, {
@@ -125,9 +159,11 @@ function _create(ticketId) {
       })
     });
 
-    rule = rules.shift();
+    //rule = rules.shift();
     //组选复式
-    factory.addRule(rule.ids, {
+    factory.addRule(rules[2].ids, {
+      formType: 'PAIR',
+      keyPosition: rules[0].list,
       algorithm: algorithm.group,
       algorithmProps: {
         mainRow: 0,
@@ -139,9 +175,11 @@ function _create(ticketId) {
       })
     });
 
-    rule = rules.shift();
+    //rule = rules.shift();
     //组选单式
-    factory.addRule(rule.ids, {
+    factory.addRule(rules[3].ids, {
+      formType: 'PAIR',
+      keyPosition: rules[0].list,
       type: 'input',
       validate: algorithm.getValidateFunc(2, {
         acceptRepeat: 0,
