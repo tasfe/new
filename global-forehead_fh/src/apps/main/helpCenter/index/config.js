@@ -194,11 +194,7 @@ var helpConfig = {
       name: '韩国1.5分彩',
       iconClass: 'sfa-d-ssc-hg'
     }
-    // {
-    //   id: 26,
-    //   name: '加拿大3.5分彩',
-    //   iconClass: 'sfa-d-ssc-jnd'
-    // }
+    
   ]
 };
 

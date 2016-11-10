@@ -181,18 +181,8 @@ var sscConfig = {
     //   desc: '',
     //   defaultSelectPlay: defaultSelectSSC,
     //
-    // },
-    // {
-    //   id: 26,
-    //   mark: 'jnd',
-    //   zhName: "加拿大3.5分彩",
-    //   quickShowName: "加拿大<br/>3.5分彩",
-    //   optional: true,
-    //   isSuper: true,
-    //   desc: '',
-    //   defaultSelectPlay: defaultSelectSSC,
-    //
     // }
+
   ]
 };
 
