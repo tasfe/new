@@ -124,7 +124,7 @@ var sscConfig = [
     num: _.range(10),
     positions: sscPositions,
     oneDay: 960,
-    zhName: "韩国1.5分彩"
+    zhName: "新韩国1.5分彩"
   },
   {
     id: 18,

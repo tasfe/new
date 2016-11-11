@@ -144,8 +144,8 @@ var sscConfig = {
     {
       id: 28,
       mark: 'hg',
-      zhName: "韩国1.5分彩",
-      quickShowName: "韩国<br/>1.5分彩",
+      zhName: "新韩国1.5分彩",
+      quickShowName: "新韩国<br/>1.5分彩",
       optional: true,
       isSuper: true,
       desc: '',

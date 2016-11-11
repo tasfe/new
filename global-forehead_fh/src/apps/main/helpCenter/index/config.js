@@ -191,7 +191,7 @@ var helpConfig = {
     },
     {
       id: 28,
-      name: '韩国1.5分彩',
+      name: '新韩国1.5分彩',
       iconClass: 'sfa-d-ssc-hg'
     }
 
