@@ -194,7 +194,7 @@ var helpConfig = {
       name: '韩国1.5分彩',
       iconClass: 'sfa-d-ssc-hg'
     }
-    
+
   ]
 };
 
