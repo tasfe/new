@@ -78,14 +78,6 @@ var sscConfig = [
     oneDay: 179,
     zhName: "北京5分彩"
   },
-  // {
-  //   id: 25,
-  //   count: 5,
-  //   num: _.range(10),
-  //   positions: sscPositions,
-  //   oneDay: 660,
-  //   zhName: "新加坡2分彩"
-  // },
   {
     id: 10,
     count: 5,
