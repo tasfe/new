@@ -172,26 +172,29 @@ var helpConfig = {
       id: 1,
       name: '重庆时时彩',
       iconClass: 'sfa-d-ssc-cq'
-    },{
-      id: 21,
-      name: '韩国1.5分彩',
-      iconClass: 'sfa-d-ssc-hg'
-
     },
     {
       id: 24,
       name: '台湾5分彩',
       iconClass: 'sfa-d-ssc-tw'
 
-    },{
+    },
+    {
       id: 10,
       name: '繁华分分彩',
       iconClass: 'sfa-d-sp-ssc-ffc'
-    },{
+    },
+    {
       id: 18,
       name: '北京PK拾',
       iconClass: 'sfa-d-happy-pk10'
     },
+    {
+      id: 28,
+      name: '韩国1.5分彩',
+      iconClass: 'sfa-d-ssc-hg'
+    }
+
   ]
 };
 

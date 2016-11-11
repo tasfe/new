@@ -11,7 +11,9 @@ var ActivityEntryView = Base.ItemView.extend({
 
   events: {
     //点击红包活动事件
-    'click .js-redpacket-btn': 'clickRedpacketActivityHandler'
+    'click .js-redpacket-btn': 'clickRedpacketActivityHandler',
+    'click .js-close-modal' : 'redPackeDefault',
+    'click .js-shortcut-res-link' : 'redPackeDefault'
   },
 
   onRender: function(){
@@ -20,6 +22,13 @@ var ActivityEntryView = Base.ItemView.extend({
     //检查红包大放送状态
     this.checkRedPacketState();
     this.updateRedPacketCount();
+    this.$shortCutRes = this.$(".js-shortcut-res");
+    this.$shortCutResFail = this.$(".js-shortcut-res-fail");
+    this.$shortCutResSuccess = this.$(".js-shortcut-res-success");
+    this.$shortCutResNum = this.$(".js-shortcut-res-num");
+    this.$redpacketCount = this.$(".js-redpacket-count");
+    this.$redpacketBtn = this.$(".js-redpacket-btn");
+    this.canClick = true;
     window.onhashchange = function () {
       self.checkEntryShow();
       self.updateRedPacketCount();
@@ -36,9 +45,9 @@ var ActivityEntryView = Base.ItemView.extend({
   checkEntryShow: function(){
     var strHash = document.location.hash;
     if (strHash.slice(1,3) == 'bc') {
-      $('.activity-entry-container').removeClass('hidden');
+      $(".activity-entry-container").removeClass('hidden');
     }else{
-      $('.activity-entry-container').addClass('hidden');
+      $(".activity-entry-container").addClass('hidden');
     }
   },
 
@@ -62,7 +71,8 @@ var ActivityEntryView = Base.ItemView.extend({
     this.getRedpacketCountXhr().done(function(res){
       if(res && res.result === 0){
         var data = res.root;
-        self.$('.js-redpacket-count').html(data.totalTimes - data.useTimes);
+        var num = data.totalTimes - data.useTimes < 0 ? 0 : data.totalTimes - data.useTimes;
+        self.$redpacketCount.html(num);
       }
     })
   },
@@ -99,33 +109,55 @@ var ActivityEntryView = Base.ItemView.extend({
   //点击红包活动事件
   clickRedpacketActivityHandler: function(){
     var self = this;
-    // if(this.redpacketActivityView && this.redpacketActivityView.isDestroyed){
-    //   this.redpacketActivityView = new WinlossActivityView();
-    // }
-    // $('body').append(this.redpacketActivityView.$el);
-    // this.redpacketActivityView.render();
-    this.getRedpacketAwardXhr().done(function(res){
-      if(res && res.result == 0 && res.root != null){
-        self.$('.js-redpacket-btn').addClass('redpacket-btn-op');
-        self.updateRedPacketCount();
-        var money = res.root[0].result / 10000;
-        var msg = '恭喜您成功打开红包，您抽中了' + money + '元！';
-        $(document).confirm({
-          title:'领取成功',
-          content: msg,
-          noFooter:true,
-          hiddenCallback: function() {
-            self.$('.js-redpacket-btn').removeClass('redpacket-btn-op');
+    if(this.canClick){
+      this.canClick = false;
+      // if(this.redpacketActivityView && this.redpacketActivityView.isDestroyed){
+      //   this.redpacketActivityView = new WinlossActivityView();
+      // }
+      // $('body').append(this.redpacketActivityView.$el);
+      // this.redpacketActivityView.render();
+      this.getRedpacketAwardXhr().done(function(res){
+        if(res && res.result == 0 && res.root != null){
+          self.$redpacketBtn.addClass('redpacket-btn-op');
+          self.updateRedPacketCount();
+          var money = res.root[0].result / 10000;
+
+          self.$shortCutRes.addClass("shortcut-res-top");
+          self.$shortCutResSuccess.removeClass("hidden");
+          self.$shortCutResNum.html(money);
+          self.$shortCutRes.removeClass("hidden");
+
+        }else{
+          if(res.msg === '您已经领过福利了哦，明天再来吧！'){
+            Global.ui.notification.show(res.msg);
+          }else{
+            self.$shortCutRes.removeClass("hidden");
+            self.$shortCutResFail.removeClass("hidden");
           }
-        });
-      }else{
-        Global.ui.dialog.show({
-          title:'领取失败',
-          body:res.msg
-        });
-      }
-    });
+        }
+
+      })
+          .always(function () {
+            self.timerT = setTimeout(function () {
+              self.redPackeDefault();
+            },5000)
+          });
+    }
+
+  },
+
+  //红包恢复默认状态，隐藏结果框
+  redPackeDefault: function () {
+    this.canClick = true;
+    clearTimeout(this.timerT);
+    this.$shortCutRes.addClass("hidden");
+    this.$shortCutResSuccess.addClass("hidden");
+    this.$shortCutResFail.addClass("hidden");
+    this.$shortCutRes.removeClass("shortcut-res-top");
+    this.$redpacketBtn.removeClass('redpacket-btn-op');
   }
+
+
 
 });
 

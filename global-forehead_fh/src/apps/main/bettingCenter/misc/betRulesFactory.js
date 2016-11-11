@@ -46,7 +46,8 @@ define(function(require, exports, module) {
     options = _(options || {}).defaults({
       items: zero2nine,
       operate: 'all',
-      limits: []
+      limits: [],
+      showLogo:true
     });
 
     return _(titles).map(function(title) {
@@ -56,7 +57,8 @@ define(function(require, exports, module) {
           title: title.title,
           items: title.items || options.items,
           op: op[title.operate || options.operate],
-          limits: title.limits || options.limits
+          limits: title.limits || options.limits,
+          showLogo: title.showLogo || options.showLogo
         };
       } else {
         return {
@@ -64,7 +66,8 @@ define(function(require, exports, module) {
           title: title,
           items: options.items,
           op: op[options.operate],
-          limits: options.limits
+          limits: options.limits,
+          showLogo: options.showLogo
         };
       }
     });

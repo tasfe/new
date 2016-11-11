@@ -116,12 +116,15 @@ var BettingDetailView = Base.ItemView.extend({
       return '<span class="text-circle text-circle-bet-ball m-right-xs">' + openNum + '</span>';
     }).join(''));
 
-    if(betInfo.canCancel && this.isSelf){
-      this.$('.js-uc-bdCancelBetting-container').removeClass('hidden');
+    var selfName = Global.memoryCache.get('acctInfo').username;
+
+    if(!_(selfName).isUndefined() && !_(betInfo.username).isUndefined() && selfName === betInfo.username){
+      if(betInfo.canCancel && this.isSelf){
+        this.$('.js-uc-bdCancelBetting-container').removeClass('hidden');
+      }
     }
     this.$('#jsTicketBetId').val(betInfo.ticketBetId);
 
-    var selfName = Global.memoryCache.get('acctInfo').username;
 
     if(!_(selfName).isUndefined() && !_(betInfo.username).isUndefined() && selfName!==betInfo.username){
       this.$('.js-bd-title').html('查看' + betInfo.username + '的投注详情');

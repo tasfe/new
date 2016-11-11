@@ -5,7 +5,11 @@ var algorithm = require('bettingCenter/misc/betRulesAlgorithm');
 
 var ten = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10'];
 
+var seventeen = [ '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19'];
+
 var danshuang = ['大', '小', '单', '双'];
+
+var longhu = ['龙','虎'];
 
 var splitReg = /[\r\n,;:\|]+/;
 
@@ -195,6 +199,56 @@ function _create(ticketId) {
       matching: true
     })
   });
+
+  //==========================
+  //龙虎斗
+  // factory.addRule([ticketId, '080101'], {
+  //   algorithm: algorithm.addAll,
+  //   list: factory.createList(['冠军VS第十名', '亚军VS第九名', '季军VS第八名', '第四名VS第七名', '第五名VS第六名'], {
+  //     items: longhu,
+  //     operate: 'none',
+  //     showLogo:false
+  //   }),
+  //   format: {symbol: ' '},
+  //   formatToNum: true,
+  //   create: algorithm.getCreateFunc(2, {
+  //     range: longhu,
+  //     matching: true
+  //   })
+  // });
+  //
+  // //==========================
+  // //猜冠亚合
+  //
+  // //和值
+  // factory.addRule([ticketId, '090101'], {
+  //   algorithm: algorithm.mulAllNotRepeat,
+  //   list: factory.createList(['和值'], {
+  //     items: seventeen,
+  //     operate: 'none'
+  //   }),
+  //   format: {symbol: ' '},
+  //   formatToNum: true,
+  //   create: algorithm.getCreateFunc(2, {
+  //     range: seventeen,
+  //     matching: true
+  //   })
+  // });
+  //
+  // //大小单双
+  // factory.addRule([ticketId, '090201'], {
+  //   algorithm: algorithm.addAll,
+  //   list: factory.createList(['大小单双'], {
+  //     items: danshuang,
+  //     operate: 'none'
+  //   }),
+  //   format: {symbol: ' '},
+  //   formatToNum: true,
+  //   create: algorithm.getCreateFunc(2, {
+  //     range: danshuang,
+  //     matching: true
+  //   })
+  // });
 
 
 }

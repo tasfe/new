@@ -24,54 +24,94 @@ $activity-item-wh: 58px;
     position: absolute;
     right: -60px;
     width: $activity-item-wh;
-    top: 650px;
-    min-height:121px;
+    top: 535px;
+    min-height:257px;
   }
   .entry-group{
     position:relative;
-    min-height: 121px;
+    min-height: 257px;
   }
   .activity-item{
     cursor: pointer;
     bottom: 0;
     display: block;
     overflow: hidden;
-    width:123px;
+    width:212px;
   }
   //活动图标
   //红包活动按钮
   .redpacket-btn{
     display: block;
     position: relative;
-    width:123px;
-    height:121px;
-    background: url("images/redpacket.gif");
-    -webkit-background-size:123px 121px;
-    background-size:123px 121px;
+    width:212px;
+    height:257px;
+    background: url("images/redpacket.png") no-repeat;
+    -webkit-background-size:212px 257px;
+    background-size:212px 257px;
+    background-position: -10px;
     .redpacket-count{
       position: absolute;
-      width:23px;
-      height:23px;
-      top:0;
-      right:15px;
-      border:2px solid #4a0202;
-      background-color: #cd0e0e;
-      font-size:16px;
+      width: 23px;
+      height: 23px;
+      top: 105px;
+      left: 81px;
+      font-size: 16px;
       color: #fff;
-      font-weight:bold;
-      -webkit-border-radius:50%;
-      -moz-border-radius:50%;
-      border-radius:50%;
+      font-weight: bold;
       text-align: center;
-      line-height:22px;
+      line-height: 22px;
     }
   }
   .redpacket-btn-op{
-    background:url("images/redpacket-op.png");
-    -webkit-background-size:123px 121px;
-    background-size:123px 121px;
+    background:url("images/redpacket-op.png") no-repeat;
+    -webkit-background-size:212px 257px;
+    background-size:212px 257px;
+    background-position: -10px;
     .redpacket-count{
       display: none;
     }
+  }
+  .shortcut-res{
+    position: absolute;
+    right: -91px;
+    width: $activity-item-wh;
+    top: 535px;
+    min-height:257px;
+    .shortcut-res-main{
+      width: 120px;
+      height: 74px;
+      border: 1px solid #cccccc;
+      position: relative;
+      background: #ffffff;
+      .close-modal{
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        margin-right: 0;
+        background: #cccccc;
+        border-radius: 10px;
+        font-size: 12px;
+        color: #ffffff;
+        text-align: center;
+        line-height: 20px;
+        right: -10px;
+        top:-10px;
+        cursor: pointer;
+      }
+      .shortcut-res-text{
+        width: 100%;
+        height: 37px;
+        line-height: 37px;
+        text-align: center;
+        font-size: 14px;
+
+      }
+      .shortcut-res-num{
+        font-size: 24px;
+      }
+    }
+  }
+  .shortcut-res-top{
+    top:500px;
   }
 }

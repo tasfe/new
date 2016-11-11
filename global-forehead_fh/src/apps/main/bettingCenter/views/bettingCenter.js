@@ -708,7 +708,7 @@ var BettingCenterView = Base.ItemView.extend({
     var rows = _(previewList).map(function(previewInfo) {
       var title = '';
 
-      if ((previewInfo.levelName + '_' + previewInfo.playName).length + previewInfo.formatBettingNumber.length > 10) {
+      if ((previewInfo.levelName + '_' + previewInfo.playName).length + previewInfo.formatBettingNumber.length > 9) {
         title += '<a href="javascript:void(0)" class="js-bc-betting-preview-detail js-popover">' +
           '<span class="preview-row-title ellipsis btn-link">[' + previewInfo.levelName + '_' + previewInfo.playName + '] ';
         title += previewInfo.formatBettingNumber.slice(0, 10) + '</span></a>';
