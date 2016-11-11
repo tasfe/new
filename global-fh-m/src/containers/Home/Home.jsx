@@ -55,18 +55,18 @@ class Home extends Page {
       data: {device: -1 }
     }, resp => {
       if(resp.result === 0){
-        this.state.bannerList = resp.root;
+        this.setState({
+          bannerList: resp.root
+        });
 
-        _.delay(function() {
-          tinySlider({
-            container: document.querySelector('.slider'),
-            items: 1,
-            responsive: false,
-            touch: true,
-            dots: false,
-            nav: false,
-            autoplay: true
-          });
+        tinySlider({
+          container: document.querySelector('.slider'),
+          items: 1,
+          responsive: false,
+          touch: true,
+          dots: false,
+          nav: false,
+          autoplay: true
         });
       }else {
         window.Alert({
@@ -184,18 +184,16 @@ class Home extends Page {
       <div className="home container-fluid">
         <ul className="slider">
           {
-            _(this.state.bannerList).map(function (bannerInfo) {
+            _(this.state.bannerList).map(function (bannerInfo, index) {
               let href;
               if (bannerInfo.picUrl) {
                 href = bannerInfo.picUrl;
               } else {
                 href = 'javascript:void(0)';
               }
-
-              return <li><img src={href} alt={bannerInfo.advName} /></li>
+              return <li key={index}><img src={href} alt={bannerInfo.advName} /></li>
             })
           }
-
         </ul>
         <div className="hot-ticket">
           <div className="hot-t-title">
