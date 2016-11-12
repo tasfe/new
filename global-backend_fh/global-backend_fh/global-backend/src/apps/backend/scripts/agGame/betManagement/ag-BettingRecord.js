@@ -130,6 +130,23 @@ define(function (require, exports, module) {
                 ]
             }).render();
             this.platform = 0;
+
+            this.checkAgPlatformXhr().fail(function(){
+            }).done(function(res){
+                if(res.result===0){
+                    var userData = _(res.root).map(function (name) {
+                        return '<option value="' + name.hallId + '">' + name.hallName + '</option>';
+                    });
+                    if (self.platform === 0) {
+                        self.$('.js-ag-platform').html('<option value="">全部</option>' + userData.join(''));
+                        self.platform = 1;
+                    }
+                }else{
+                    self.$('.js-ag-platform').html('<option value="">全部</option>');
+                }
+            });
+            self.$('.js-ag-type').html('<option value="">全部</option>');
+
             Base.Prefab.SearchGrid.prototype.onRender.apply(this, arguments);
         },
 
@@ -163,22 +180,6 @@ define(function (require, exports, module) {
                 ]
             })
                 .hideLoading();
-            this.checkAgPlatformXhr().fail(function(){
-            }).done(function(res){
-                if(res.result===0){
-                    var userData = _(res.root).map(function (name) {
-                        return '<option value="' + name.hallId + '">' + name.hallName + '</option>';
-                    });
-                    if (self.platform === 0) {
-                        self.$('.js-ag-platform').html('<option value="">全部</option>' + userData.join(''));
-                        self.platform = 1;
-                    }
-                }else{
-                    self.$('.js-ag-platform').html('<option value="">全部</option>');
-                }
-            });
-            self.$('.js-ag-type').html('<option value="">全部</option>');
-
         },
 
         formatRowData: function (rowInfo) {
