@@ -109,10 +109,10 @@ define(function (require, exports, module) {
             row.push(rowInfo.userName);
             row.push(_(rowInfo.createTime).toTime());
             if( rowInfo.amount>0){
-                row.push("转入AG");
+                row.push("转出AG");
             }
             if( rowInfo.amount<0){
-                row.push("转出AG");
+                row.push("转入AG");
             }
             var get = '';
             var pay ='';
