@@ -4,7 +4,7 @@ var NewsMediatorModule = Base.Module.extend({
 
   startWithParent: false,
 
-  interval: 5000,
+  interval: 15000,
 
   login: true,
 
