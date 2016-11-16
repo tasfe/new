@@ -2,6 +2,8 @@
 
 require('main/bettingCenter/mmc/easing');
 
+var BettingInfoModel = require('bettingCenter/models/bettingInfo');
+
 var Easing = Base.PrefabView.extend({
 
     template:require('./index.html'),
@@ -15,6 +17,9 @@ var Easing = Base.PrefabView.extend({
     },
 
     initialize: function () {
+        this.infoModel = new BettingInfoModel();
+        
+        this.listenTo(this.infoModel, 'change:sale', this.renderSale);
     },
 
     onRender: function () {
