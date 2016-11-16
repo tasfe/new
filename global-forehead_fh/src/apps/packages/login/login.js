@@ -183,7 +183,7 @@ $.widget('gl.login', {
         // Global.cookieCache.set('hasLoadBulletin', false);
         Global.sessionCache.set('hasLoadBulletin',false);
 
-        sessionStorage.status = 0;
+        Global.sessionCache.set('status', 0);
         if (data.result === 0) {
           self.resetInput = false;
 
@@ -210,7 +210,7 @@ $.widget('gl.login', {
             window.location.href = 'index.html';
           }else if(status===103 || status===104 || status===105 || status===106){
             sessionStorage.username = data.root.username;
-            sessionStorage.status = 1;
+            Global.sessionCache.set('status', 1);
             window.location.href = 'index.html';
             //var ur ='userName='+data.root.username+(data.root.uName?'&uName='+data.root.uName:'')+'&status='+status;
             //window.location.href = 'updateUserInfo.html?'+encodeURI(ur);

@@ -78,7 +78,7 @@ App.addInitializer(function(options) {
   var actInfo = Global.memoryCache.get('acctInfo');
   var status = Number(actInfo.userStatus);
   if(status===103 || status===104 || status===105 || status===106){
-    sessionStorage.status = 1;
+    Global.sessionCache.set('status', 1);
   }
   //
   this.firstLoginUpdatePasswd = new FirstLoginUpdatePasswd();
