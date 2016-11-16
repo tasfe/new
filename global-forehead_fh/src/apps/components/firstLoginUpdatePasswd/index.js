@@ -8,7 +8,7 @@ var FirstLoginUpdatePasswd = Base.ItemView.extend({
 
   events: {
     'click .js-affirm': 'affirm',
-    'click .js-close': 'close',
+    'click .js-close': 'closeHandler',
     'click .js-fp-logout': 'logoutHandler'
   },
 
@@ -55,8 +55,10 @@ var FirstLoginUpdatePasswd = Base.ItemView.extend({
 
   },
 
-  close: function() {
+  closeHandler: function() {
     this.trigger('close');
+
+    Global.m.oauth.check();
 
     this.destroy();
   },

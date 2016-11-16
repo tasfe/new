@@ -74,7 +74,6 @@ App.addInitializer(function(options) {
   _bindClosePopoverHandler();
   _bindClickFeedbackHandler();
 
-  //关闭浏览器时，sessionStorage丢失，导致无法正确判断用户状态
   var actInfo = Global.memoryCache.get('acctInfo');
   var status = Number(actInfo.userStatus);
   if(status===103 || status===104 || status===105 || status===106){
