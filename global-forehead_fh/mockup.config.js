@@ -1,6 +1,6 @@
 module.exports = {
   routers: {
-    '/acct/userinfo/stat.json': 'mockup/stat.json',
+    '/ticket/ticketmod/ticketinfo.json': 'mockup/ticketInfo.json',
 
     '/info/moneytreeactivity/doget.json': 'mockup/activitydoget.json',
 

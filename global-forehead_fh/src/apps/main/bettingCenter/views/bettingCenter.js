@@ -13,8 +13,8 @@ var RecordsRecentView = require('bettingCenter/views/bettingCenter-records-recen
 var ticketConfig = require('skeleton/misc/ticketConfig');
 var betRulesConfig = require('bettingCenter/misc/betRulesConfig');
 
+var Easing = require('com/easing');
 var Countdown = require('com/countdown');
-
 
 var BettingCenterView = Base.ItemView.extend({
 
@@ -84,9 +84,9 @@ var BettingCenterView = Base.ItemView.extend({
     this.model.set('ticketId', Number(this.options.ticketId));
 
     this.listenTo(this.infoModel, 'change:sale', this.renderSale);
-    this.listenTo(this.infoModel, 'change:lastOpenId', this.renderLastPlan);
-
+    this.listenTo(this.infoModel, 'change:lastOpenId change:lastStatus change:lastOpenNum', this.renderLastPlan);
     this.listenTo(this.infoModel, 'change:leftSecond', this.updateCountdown);
+
     this.listenTo(this.infoModel, 'change:planId', this.renderBasicInfo);
     this.listenTo(this.infoModel, 'change:openVideoUrl', this.renderVideo);
 
@@ -336,40 +336,75 @@ var BettingCenterView = Base.ItemView.extend({
       .on('change:leftTime', function(e) {
         --times;
         if (times === 0) {
+
           var leftTime = moment.duration(e.finalDate.getTime() - new Date().getTime()).asSeconds();
+
           self.trigger('change:leftTime', leftTime, self.infoModel.get('totalSecond'));
           times = 1;
+          if (leftTime < 1) {
+            setTimeout(function() {
+              self.resultRolling && self.resultRolling.startAnimation();
+            }, leftTime * 1000);
+          }
         }
       });
   },
 
   renderLastPlan: function(model) {
     var planInfo = model.pick('lastOpenId', 'lastOpenNum', 'lastOrgOpenNum', 'ticketId');
-
-    //this.$lastPlanId.html(planInfo.lastOpenId);
+    var ticketInfo = this.options.ticketInfo;
 
     if (this.$lastPlanId.data('popover')) {
       this.$lastPlanId.popover('destroy');
     }
 
-    $('.js-bc-last-planId').html('第' + planInfo.lastOpenId  + '期');
+    this.$lastPlanId.html('第' + planInfo.lastOpenId  + '期');
 
-    this.$lastResults.html(_(model.get('lastOpenNum')).map(function(num, index, nums) {
-      var html = '<span class="text-circle text-circle-bet-ball' + (nums.length > 5 ? ' text-circle-bet-ball-sm' : '') + '">' + num + '</span>';
-      if (nums.length > 5 && index === 4) {
-        html += '<br />';
-      }
-      return html;
-    }));
+    if (!this.resultRolling) {
+      this.$lastResults.html(_(ticketInfo.info.nums).times(function(index) {
+        var html = '<span class="js-bc-result-ball text-circle text-circle-bet-ball' + (ticketInfo.info.nums > 5 ? ' text-circle-bet-ball-sm' : '') + '"></span>';
+        if (ticketInfo.info.nums > 5 && index === 4) {
+          html += '<br />';
+        }
 
-    //目前只有韩国1.5分彩需要显示
+        return html;
+      }).join(''));
 
+      this.resultRolling = new Easing({
+        el: this.$lastResults,
+        values: planInfo.lastOpenNum,
+        range: ticketInfo.info.range,
+        targetClass: '.js-bc-result-ball'
+      });
+    }
+
+    this.renderRolling(model, planInfo.lastOpenNum);
+
+    //需要显示详情的彩种
     if(_([21, 24, 25]).contains(planInfo.ticketId)) {
       this.renderSpecialHoverNums(planInfo);
     }
 
     this.recordsOpenView.update();
     this.recordsRecentView.update();
+  },
+
+  renderRolling: function(model, lastOpenNum) {
+    var lastStatus = model.get('lastStatus');
+    // if (!this.resultRolling) {
+    //   return false;
+    // }
+    if (!_.isEmpty(lastOpenNum)) {
+      this.resultRolling.stopAnimation(lastOpenNum);
+    } else if (lastStatus === 1) {
+      this.resultRolling.startAnimation();
+    } else if (lastStatus === 3) {
+      this.resultRolling.destroy();
+      this.resultRolling = null;
+      this.$lastResults.html(_('延迟开奖'.split('')).map(function(num) {
+        return '<span class="js-bc-result-ball text-circle text-circle-bet-ball">' + num + '</span>';
+      }).join(''));
+    }
   },
 
   renderSpecialHoverNums: function(planInfo) {
@@ -448,7 +483,7 @@ var BettingCenterView = Base.ItemView.extend({
     if (this.$planId.data('popover')) {
       this.$planId.popover('destroy');
     }
-    
+
     this.$planId.html('第' + planInfo.planId + '期');
 
 
@@ -695,7 +730,7 @@ var BettingCenterView = Base.ItemView.extend({
 
     this.timer = _.delay(function() {
       self.getNewPlan();
-    }, 5000);
+    }, 4000);
     // }, 2200);
 
     //只有销售时才进行倒计时

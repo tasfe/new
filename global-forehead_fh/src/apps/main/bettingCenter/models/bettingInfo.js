@@ -26,6 +26,7 @@ var BettingModel = Model.extend({
     //是否处于销售状态
     sale: true,
     ticketId: 1,
+    lastStatus: 2,// 1:开奖中2：正常开奖3：延迟开奖
     init: true
   },
 
@@ -36,7 +37,11 @@ var BettingModel = Model.extend({
       data = res.root || {};
 
       //格式化开奖结果
-      data.lastOpenNum = (data.lastOpenNum || '').split(',') || [];
+      if (data.lastOpenNum) {
+        data.lastOpenNum = data.lastOpenNum.split(',');
+      } else {
+        data.lastOpenNum = [];
+      }
     }
 
     return data;

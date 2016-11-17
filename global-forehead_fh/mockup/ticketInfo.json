@@ -1,0 +1,19 @@
+{
+  "result": 0,
+  "msg": "ok",
+  "sign": null,
+  "root": {
+    "ticketId": 13,
+    "planId": "20161117-300",
+    "leftSecond": 157,
+    "totalSecond": 180,
+    "lastStatus": 1,
+    "lastOpenId": "20161117-299",
+    "lastOpenNum": "2,2,4,9,2",
+    "lastOrgOpenNum": null,
+    "openVideoUrl": [],
+    "nextPlanId": "20161117-301",
+    "nextTotalSecond": 180,
+    "sale": true
+  }
+}

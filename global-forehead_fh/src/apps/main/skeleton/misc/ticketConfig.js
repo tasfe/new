@@ -301,7 +301,37 @@ var happyConfig = {
   ]
 };
 
-var allConfig = specialConfig.list.concat( sscConfig.list, oneFiveConfig.list,threeDConfig, p5p3Config,happyConfig.list);
+var elevenRange = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11'];
+var defaultRange = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+var pk10Range = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10'];
+
+_(specialConfig.list).each(function(info) {
+  info.range = defaultRange;
+  info.nums = 5;
+});
+
+_(sscConfig.list).each(function(info) {
+  info.range = defaultRange;
+  info.nums = 5;
+});
+_(threeDConfig).each(function(info) {
+  info.range = defaultRange;
+  info.nums = 3;
+});
+_(p5p3Config).each(function(info) {
+  info.range = defaultRange;
+  info.nums = 5;
+});
+_(oneFiveConfig.list).each(function(info) {
+  info.range = elevenRange;
+  info.nums = 5;
+});
+_(happyConfig.list).each(function(info) {
+  info.range = pk10Range;
+  info.nums = 10;
+});
+
+var allConfig = specialConfig.list.concat(sscConfig.list, oneFiveConfig.list,threeDConfig, p5p3Config,happyConfig.list);
 
 var completeAllConfig = [ specialConfig, sscConfig, oneFiveConfig, lowConfig,happyConfig];
 
