@@ -98,7 +98,7 @@ $.widget('gl.addSalaryUser', {
         $('.js-ac-quota-container').html(strTableTitle+strTableTtbody);
 
         $('.js-quota-rebate-01').on('input',function(){
-          console.log($(this).data('size'));
+          //console.log($(this).data('size'));
           //判断是不是数字
           if($(this).val()>=$(this).data('size')){
             $(this).val($(this).data('size'));

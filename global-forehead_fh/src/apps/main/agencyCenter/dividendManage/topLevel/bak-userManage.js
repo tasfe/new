@@ -52,13 +52,13 @@ var UserManageView = Base.ItemView.extend({
   // },
   // 表格填充
   initGrid: function (data) {
-    console.log(data)
+    //console.log(data)
     var self = this;
     this.getSubUserListXhr(data).done(function (res) {
-      console.log(res)
+     // console.log(res)
       if (res.result == 0) {
         if (self.grid) {
-          console.log("destroy staticGrid")
+          //console.log("destroy staticGrid")
           self.$grid.staticGrid("destroy");
         }
         self.userList = res.root.usbUserList;
@@ -145,8 +145,8 @@ var UserManageView = Base.ItemView.extend({
       $(this).remove()
     });
     var $container = $dialog.find('.js-ac-add-container');
-    console.log('查看签约');
-    console.log(config);
+    //console.log('查看签约');
+    //console.log(config);
     $container.staticGrid({
       colModel: [
         {
@@ -220,12 +220,12 @@ var UserManageView = Base.ItemView.extend({
 
       if (conf) {
         var VL = conf.itemList
-        console.log(VL)
+        //console.log(VL)
         // 如果大于一条数据就判断
         if (VL.length > 1) {
           for (var i = 0; i < VL.length - 1; i++) {
             if (Number(VL[i + 1].betTotal) <= Number(VL[i].betTotal) || Number(VL[i + 1].divid) <= Number(VL[i].divid)) {
-              console.log("同一列的填写数值，第二行必须大于第一行")
+              //console.log("同一列的填写数值，第二行必须大于第一行")
               return Global.ui.notification.show('同一列的填写数值，第二行必须大于第一行！');
             }
           }

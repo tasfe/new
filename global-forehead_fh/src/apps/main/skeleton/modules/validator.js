@@ -124,7 +124,7 @@ var ValidatorModule = Base.Module.extend({
       var myReg = /^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/i;
       return myReg.test(value);
     }, 42)
-      .addMessage('zh_cn', 'zhemail', '请输入正确的邮箱地址，如abc123@163.com');
+      .addMessage('zh_cn', 'zhemail', '请输入正确的邮箱地址(4-30位)，如abc123@163.com');
   },
 
   getInlineErrorConfig: function() {

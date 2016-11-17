@@ -132,7 +132,7 @@ var OpenAccountManageView = Base.ItemView.extend({
     var $cardBindingForm = this.$('.js-ac-openAccountManual-form');
     var clpValidate = $cardBindingForm.parsley().validate();
 		
-		console.log(self);
+		//console.log(self);
 		
     if (clpValidate) {
       $target.button('loading');

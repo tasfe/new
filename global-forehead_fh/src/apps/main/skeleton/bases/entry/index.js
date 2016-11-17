@@ -176,22 +176,22 @@ var EntryView = Base.ItemView.extend({
 
       //快捷入口不存在
       if (!$entry.length) {
-        entry.entryType = 'quick';
-        entryInfo = self._initEntry(entry);
-
-        if (entryInfo.view) {
-          Global.viewPool.quickPush({
-            regin: Global.mainRegin,
-            initId: entry.initId,
-            name: entry.name,
-            router: entry.router,
-            type: entry.type,
-            $entry: entryInfo.$entry,
-            view: entryInfo.view
-          });
-        }
-
-        return entryInfo.$entry;
+        // entry.entryType = 'quick';
+        // entryInfo = self._initEntry(entry);
+        //
+        // if (entryInfo.view) {
+        //   Global.viewPool.quickPush({
+        //     regin: Global.mainRegin,
+        //     initId: entry.initId,
+        //     name: entry.name,
+        //     router: entry.router,
+        //     type: entry.type,
+        //     $entry: entryInfo.$entry,
+        //     view: entryInfo.view
+        //   });
+        // }
+        //
+        // return entryInfo.$entry;
       } else {
         $entry.removeClass('js-gl-not-quick-entry-item');
         return $entry;
@@ -302,10 +302,10 @@ var EntryView = Base.ItemView.extend({
 
       entry.initId = viewInfo.initId;
 
-      var entryInfo = this._initEntry(entry);
-
-      $entry = entryInfo.$entry;
-      this.$entryGroup.append($entry);
+      // var entryInfo = this._initEntry(entry);
+      //
+      // $entry = entryInfo.$entry;
+      // this.$entryGroup.append($entry);
 
       this.updateQuickEntry();
 

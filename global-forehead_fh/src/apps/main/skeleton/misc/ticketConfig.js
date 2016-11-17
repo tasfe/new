@@ -64,6 +64,17 @@ var specialConfig = {
       badge: 'hot'
     }/*,
     {
+      id: 28,
+      type: 'ssc',
+      mark: 'ssc-ydw',
+      zhName: "繁华1.5分彩",
+      optional: true,
+      desc: '全天24小时 即投即开',
+      defaultSelectPlay: defaultSelectSSC,
+      board: true,
+      badge: 'hot'
+    },
+    {
       id: 20,
       type: 'ssc',
       mark: 'ssc-smmc',
@@ -131,10 +142,10 @@ var sscConfig = {
       defaultSelectPlay: defaultSelectSSC
     },
     {
-      id: 21,
+      id: 28,
       mark: 'hg',
-      zhName: "韩国1.5分彩",
-      quickShowName: "韩国<br/>1.5分彩",
+      zhName: "新韩国1.5分彩",
+      quickShowName: "新韩国<br/>1.5分彩",
       optional: true,
       isSuper: true,
       desc: '',
@@ -151,27 +162,27 @@ var sscConfig = {
       defaultSelectPlay: defaultSelectSSC
     },
     {
-      id: 25,
-      mark: 'xjp',
-      zhName: "新加坡2分彩",
-      quickShowName: "新加坡<br/>2分彩",
-      optional: true,
-      isSuper: true,
-      desc: '',
-      defaultSelectPlay: defaultSelectSSC,
-
-    },
-    {
       id: 26,
-      mark: 'jnd',
-      zhName: "加拿大3.5分彩",
-      quickShowName: "加拿大<br/>3.5分彩",
+      mark: 'bj',
+      zhName: "北京5分彩",
+      quickShowName: "北京<br/>5分彩",
       optional: true,
       isSuper: true,
       desc: '',
-      defaultSelectPlay: defaultSelectSSC,
-
+      defaultSelectPlay: defaultSelectSSC
     }
+    // {
+    //   id: 25,
+    //   mark: 'xjp',
+    //   zhName: "新加坡2分彩",
+    //   quickShowName: "新加坡<br/>2分彩",
+    //   optional: true,
+    //   isSuper: true,
+    //   desc: '',
+    //   defaultSelectPlay: defaultSelectSSC,
+    //
+    // }
+
   ]
 };
 
@@ -230,7 +241,7 @@ var threeDConfig = [
   {
     id: 6,
     mark: '3d',
-    zhName: "3D",
+    zhName: "福彩3D",
     optional: false,
     isSuper: false,
     desc: '00:00－20:20  共1期',
@@ -241,7 +252,7 @@ var threeDConfig = [
     id: 16,
     type: '3d',
     mark: '3d-ffc',
-    zhName: "繁华3D分分彩",
+    zhName: "3D分分彩",
     optional: false,
     isSuper: false,
     desc: '全天24小时 共1440期',

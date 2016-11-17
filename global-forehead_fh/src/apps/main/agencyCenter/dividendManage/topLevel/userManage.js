@@ -194,8 +194,8 @@ var UserManageView = SearchGrid.extend({
       $(this).remove()
     });
     var $container = $dialog.find('.js-ac-add-container');
-    console.log('查看签约');
-    console.log(config);
+    // console.log('查看签约');
+    // console.log(config);
     $container.staticGrid({
       tableClass: 'table table-bordered table-no-lr table-center',
       colModel: [
@@ -272,12 +272,12 @@ var UserManageView = SearchGrid.extend({
 
       if (conf) {
         var VL = conf.itemList
-        console.log(VL)
+        //console.log(VL)
         // 如果大于一条数据就判断
         if (VL.length > 1) {
           for (var i = 0; i < VL.length - 1; i++) {
             if (Number(VL[i + 1].betTotal) <= Number(VL[i].betTotal) || Number(VL[i + 1].divid) <= Number(VL[i].divid)) {
-              console.log("同一列的填写数值，第二行必须大于第一行")
+              // console.log("同一列的填写数值，第二行必须大于第一行")
               return Global.ui.notification.show('同一列的填写数值，第二行必须大于第一行！');
             }
           }

@@ -111,7 +111,8 @@ var TrackDetailView = Base.ItemView.extend({
   onRender: function() {
     var self = this;
     this.maxLength = 20;
-
+    this.seeName = _.getUrlParam('name');
+    this.selfName = Global.memoryCache.get('acctInfo').username;
     this.getBetDetailXhr({
       userId: (this.options.userId !=='undefined' &&  this.options.userId) || '',
       chaseFormId: this.options.chaseFormId,
@@ -228,8 +229,12 @@ var TrackDetailView = Base.ItemView.extend({
         }},
         {label: '操作', name: 'betStatus', width: '15%', formatter: function(val,index,thisRow) {
           if (thisRow.canCancel && self.isSelf) {
-            self.$('.js-uc-td-cancelAllTrack-container').removeClass('hidden');
-            return '<a class="js-uc-td-cancel btn btn-link btn-link-hot" href="javascript:void(0)" data-chasePlanId="'+thisRow.chasePlanId+'">撤销</a>';
+            if(self.seeName === self.selfName){
+              self.$('.js-uc-td-cancelAllTrack-container').removeClass('hidden');
+              return '<a class="js-uc-td-cancel btn btn-link btn-link-hot" href="javascript:void(0)" data-chasePlanId="'+thisRow.chasePlanId+'">撤销</a>';
+            }else{
+              return '';
+            }
           } else {
             if(thisRow.tradeId){
               return '<a class="js-uc-td-view router btn btn-link btn-link-hot" href="'+ self.options.detailPrevUrl + thisRow.tradeId + _.getUrlParamStr() + '">查看</a>';

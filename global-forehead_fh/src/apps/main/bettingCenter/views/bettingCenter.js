@@ -141,6 +141,8 @@ var BettingCenterView = Base.ItemView.extend({
       this.$el.addClass('pk10');
     }
 
+    this.$banner = this.$('.banner');
+
     this.$countdown = this.$('.js-bc-countdown');
     this.$planId = this.$('.js-bc-planId');
     this.$planIdStop = this.$('.js-bc-planId-stop');
@@ -205,6 +207,8 @@ var BettingCenterView = Base.ItemView.extend({
 
     this.renderCountdown();
 
+    //this.modifyBannerBackground();
+
     this.lotteryPreview = this.$lotteryPreview.staticGrid({
       tableClass: 'table',
       colModel: [
@@ -246,6 +250,34 @@ var BettingCenterView = Base.ItemView.extend({
       this.model.set({
         customizeMoney: Number(customizeMoney)
       });
+    }
+  },
+
+  //改变banner的背景图
+  modifyBannerBackground:function () {
+
+    var festivalConfig = [
+      {
+        festivalTime:'11-11',
+        name:'光棍节',
+        className:'singlesDay'
+      },
+      {
+        festivalTime:'12-25',
+        name:'圣诞节',
+        className:'christmas'
+      },
+      {
+        festivalTime:'1-1',
+        name:'元旦',
+        className:'newYearsDay'
+      }
+    ];
+    var nowDay = _(new Date().getTime()).toTime('MM-DD');
+    var festivalDetail = _.findWhere(festivalConfig,{festivalTime:nowDay});
+    console.log(festivalDetail);
+    if(festivalDetail && !_.isNull(festivalDetail) && !_.isUndefined(festivalDetail)){
+      this.$banner.addClass(festivalDetail.className);
     }
   },
 
@@ -708,7 +740,7 @@ var BettingCenterView = Base.ItemView.extend({
     var rows = _(previewList).map(function(previewInfo) {
       var title = '';
 
-      if ((previewInfo.levelName + '_' + previewInfo.playName).length + previewInfo.formatBettingNumber.length > 10) {
+      if ((previewInfo.levelName + '_' + previewInfo.playName).length + previewInfo.formatBettingNumber.length > 9) {
         title += '<a href="javascript:void(0)" class="js-bc-betting-preview-detail js-popover">' +
           '<span class="preview-row-title ellipsis btn-link">[' + previewInfo.levelName + '_' + previewInfo.playName + '] ';
         title += previewInfo.formatBettingNumber.slice(0, 10) + '</span></a>';

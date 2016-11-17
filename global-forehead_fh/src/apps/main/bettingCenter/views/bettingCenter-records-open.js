@@ -46,6 +46,23 @@ var BettingRecordsView = Base.ItemView.extend({
       formats: [
         function (val) {
           return val.substring(4);
+        },
+        function(val) {
+          var html = ['<div class="open-nums">'];
+          var numList = val.split(',');
+          _(numList).each(function (num, index) {
+            if (this.playRule && this.playRule.keyPosition && this.playRule.keyPosition[index] &&  this.playRule.keyPosition.indexOf(null) > -1) {
+              html.push('<span class="key-num">' + num + '</span>');
+            } else {
+              html.push('<span>' + num + '</span>');
+            }
+          }, this);
+          html.push('</div>');
+
+          return html.join('');
+        },
+        function(val) {
+          return this.getFormType(val, this.playRule && this.playRule.keyPosition, this.playRule && this.playRule.formType);
         }
       ]
     },
@@ -82,6 +99,7 @@ var BettingRecordsView = Base.ItemView.extend({
       var c115TicketIdArr = _(ticketConfig.getChoose5List()).pluck('id');
       var dpcTicketIdArr = _(ticketConfig.getLowList()).pluck('id');
       var bjpk10TicketIdArr = _(ticketConfig.getHappyList()).pluck('id');
+      var threeDTicketIdArr = _(ticketConfig.get3DList()).pluck('id');
 
       if (_(sscTicketIdArr).contains(this.options.ticketId)) {
         this.gridOps = this.GridOps['ssc'];
@@ -91,7 +109,7 @@ var BettingRecordsView = Base.ItemView.extend({
         this.gridOps = this.GridOps['DPC'];
       } else if(_(bjpk10TicketIdArr).indexOf(this.options.ticketId)!==-1) {
         this.gridOps = this.GridOps['pk10'];
-    }
+      }
       gridTable = this.generateGridOptions(this.gridOps);
       this.drawRecords = this.$el.staticGrid(gridTable).staticGrid('instance');
     } else {

@@ -202,7 +202,7 @@ define(function (require, exports, module) {
                 if (res && res.result === 0) {
                     betRealTimeOption.xAxis[0].data= res.root.dateList;
                     betRealTimeOption.series[0].data = _(res.root.moneyList).map(function(money){
-                        return _(money).formatDiv(10000,{fixed:0});
+                        return parseInt(_(money).formatDiv(10000,{fixed:0}));
                     });
                     new BetRealTimeChartView({
                         el: self.$betTotolChart
@@ -219,7 +219,7 @@ define(function (require, exports, module) {
                     rechargeTotalOption.xAxis[0].data= res.root.dateList;
 
                     rechargeTotalOption.series[0].data = _(res.root.moneyList).map(function(money){
-                        return _(money).formatDiv(10000,{fixed:0});
+                        return parseInt(_(money).formatDiv(10000,{fixed:0}));
                     });
 
                     new RechargeTotalChartView({
@@ -500,7 +500,12 @@ define(function (require, exports, module) {
                     {
                         name:'最高',
                         type:'line',
-                        data:[]
+                        data:[],
+                        markLine : {
+                            data : [
+                                {type : 'average', name: '平均值'}
+                            ]
+                        }
                     }
                 ]
             }
@@ -549,7 +554,12 @@ define(function (require, exports, module) {
                     {
                         name:'最高',
                         type:'line',
-                        data:[]
+                        data:[],
+                        markLine : {
+                            data : [
+                                {type : 'average', name: '平均值'}
+                            ]
+                        }
                     }
                 ]
             }

@@ -752,6 +752,9 @@ $sfa-d-tickets: (
   sfa-d-sp-ssc-wfc: (
     default: '~base/images/tickets/d-sp-ssc-wfc.png'
   ),
+  sfa-d-sp-ssc-ydw: (
+    default: '~base/images/tickets/d-sp-ssc-ydw.png'
+  ),
   sfa-d-ssc-cq: (
     default: '~base/images/tickets/d-ssc-cq.png'
   ),
@@ -775,5 +778,8 @@ $sfa-d-tickets: (
   ),
   sfa-d-ssc-xjp: (
     default: '~base/images/tickets/d-ssc-xjp.png'
+  ),
+  sfa-d-ssc-bj: (
+    default: '~base/images/tickets/d-ssc-bj.png'
   ),
 );
