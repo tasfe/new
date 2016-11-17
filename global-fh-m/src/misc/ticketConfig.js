@@ -45,7 +45,18 @@ var specialConfig = {
     //    badge: '',
     //    img: 'images/fh-ticket-3fc.png'*/
       // },
-  /* {
+    {
+      id: 28,
+      mark: 'fh15',
+      zhName: "繁华1.5分彩",
+      quickShowName: "繁华<br/>1.5分彩",
+      optional: true,
+      defaultSelectPlay: defaultSelectSSC,
+      desc: '全天24小时',
+      planCount: '共288期',
+      badge: '',
+      img: require('images/fh-ticket-fh.png')
+      /*  },{
         id: 19,
         mark: 'ssc-mmc',
         zhName: "繁华秒秒彩",
@@ -55,7 +66,7 @@ var specialConfig = {
         badge: 'hot',
         desc: '全天24小时 即投即开',
         img: require('images/fh-ticket-mmc.png')
-    },{
+    /*},{
       id: 20,
       mark: 'ssc-mmc',
       zhName: "老虎机秒秒彩",
@@ -73,8 +84,8 @@ var specialConfig = {
       desc: '全天24小时 共1440期',
       defaultSelectPlay: defaultSelectDPC,
       badge: '',
-      img: 'images/fh-ticket-3D-ffc.png'
-    }*/
+      img: 'images/fh-ticket-3D-ffc.png'*/
+    }
   ]
 };
 
@@ -96,6 +107,15 @@ var sscConfig = {
       badge: 'hot',
       img: require('images/fh-ticket-cqssc.png')
     },
+    {
+      id: 26,
+      mark: 'bj5fc',
+      zhName: "北京五分彩",
+      optional: true,
+      defaultSelectPlay: defaultSelectSSC,
+      quickShowName: "北京<br/>五分彩",
+      img:require('images/fh-ticket-bj-5fc.png')
+    }
     /*{
      id: 2,
      mark: 'jx',
@@ -141,6 +161,7 @@ var sscConfig = {
       badge: '',
       img: 'images/fh-ticket-hljssc.png'
     },*/
+    /*
     {
       id: 21,
       mark: 'hg',
@@ -150,7 +171,7 @@ var sscConfig = {
       badge: '',
       defaultSelectPlay: defaultSelectSSC,
       img: require('images/fh-ticket-hg.png')
-    }
+    }*/
   ]
 };
 

@@ -19,7 +19,8 @@ class Home extends Page {
   constructor () {
     super()
     this.state = {
-      ticktetInfo : [1,10,21,14,6,18]
+      ticktetInfo : [1,10,21,14,6,18],
+      bannerList: []
     }
     this.TimmerList = [];
     console.log(innerWidth);
@@ -33,16 +34,6 @@ class Home extends Page {
     this.loaded()
 
     this.props.setTitle('精彩推荐');
-
-    tinySlider({
-      container: document.querySelector('.slider'),
-      items: 1,
-      responsive: false,
-      touch: true,
-      dots: false,
-      nav: false,
-      autoplay: true
-    })
 
     ajax({
       url: '/ticket/ticketmod/getticketcustomized.json',
@@ -59,6 +50,31 @@ class Home extends Page {
       });
     })
 
+    ajax({
+      url: '/acct/usernotice/getdashboardadvertise.json',
+      data: {device: -1 }
+    }, resp => {
+      if(resp.result === 0){
+        this.setState({
+          bannerList: resp.root
+        });
+
+        tinySlider({
+          container: document.querySelector('.slider'),
+          items: 1,
+          responsive: false,
+          touch: true,
+          dots: false,
+          nav: false,
+          autoplay: true
+        });
+      }else {
+        window.Alert({
+          content: resp.msg || '获取轮播图失败！'
+        });
+      }
+
+    })
   }
 
   countDownTicket (ticktets) {
@@ -163,19 +179,21 @@ class Home extends Page {
     let cr = this.remToPx(0.37);
     let cbg = this.remToPx(0.03);
     let cbr = this.remToPx(0.03);
-    
+
     return (
       <div className="home container-fluid">
         <ul className="slider">
-          <li>
-            <img src={bannerImg} alt="我是图片" />
-          </li>
-          <li>
-            <img src={bannerImg} alt="我是图片" />
-          </li>
-          <li>
-            <img src={bannerImg} alt="我是图片" />
-          </li>
+          {
+            _(this.state.bannerList).map(function (bannerInfo, index) {
+              let href;
+              if (bannerInfo.picUrl) {
+                href = bannerInfo.picUrl;
+              } else {
+                href = 'javascript:void(0)';
+              }
+              return <li key={index}><img src={href} alt={bannerInfo.advName} /></li>
+            })
+          }
         </ul>
         <div className="hot-ticket">
           <div className="hot-t-title">

@@ -3,7 +3,12 @@
 .account-detail{
   background-color: #191312;
   padding: 0 .2rem;
+  position: absolute;
+  z-index: 15;
 
+}
+.account-detail-tab{
+  top:1rem;
 }
 .account-detail-item{
   display: inline-block;
