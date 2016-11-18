@@ -77,7 +77,11 @@ define(function(require, exports, module) {
       'sc/os/detail':'openSendReport',
 
       'sc/fs/conf':'firstRechargeSendCfg',
-      'sc/fs/detail':'firstRechargeSendRecord'
+      'sc/fs/detail':'firstRechargeSendRecord',
+
+      'sc/hp/conf':'happyPassThroughCfg',
+      'sc/hp/detailvip':'happyPassThroughDetailVIP',
+      'sc/hp/detailD':'happyPassThroughDetailDirectly'
 
     });
 

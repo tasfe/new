@@ -35,6 +35,11 @@ Global.m.oauth.check({
           init(require('./newuseract'), activityId);
         }, 'newuseract');
         break;
+      case '40':
+        require.ensure(['./happyPassThrough'], function(require) {
+          init(require('./happyPassThrough'), activityId);
+        }, 'happyPassThrough');
+        break;
     }
   });
 

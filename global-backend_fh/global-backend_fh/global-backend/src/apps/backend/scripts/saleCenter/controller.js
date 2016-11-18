@@ -79,6 +79,10 @@ define(function(require, exports, module) {
   var FirstRechargeSendCfgView = require('saleCenter/firstRechargeSendActivity/firstRechargeSendCfg');
   var FirstRechargeSendReportView = require('saleCenter/firstRechargeSendActivity/firstRechargeSendReport');
 
+  var happyPassThroughCfg = require('saleCenter/happyPassThroughActivity/config');
+  var happyPassThroughDetailVIP = require('saleCenter/happyPassThroughActivity/detailVip');
+  var happyPassThroughDetailDirectly = require('saleCenter/happyPassThroughActivity/detailDirectly');
+
   var SaleCenterController = RouterController.extend({
 
     advertisementManagement: function() {
@@ -279,6 +283,16 @@ define(function(require, exports, module) {
     },
     firstRechargeSendRecord:function(){
       this.changeMainReginView(new FirstRechargeSendReportView());
+    },
+
+    happyPassThroughCfg:function () {
+      this.changeMainReginView(new happyPassThroughCfg());
+    },
+    happyPassThroughDetailVIP:function () {
+      this.changeMainReginView(new happyPassThroughDetailVIP());
+    },
+    happyPassThroughDetailDirectly:function () {
+      this.changeMainReginView(new happyPassThroughDetailDirectly());
     }
 
   });

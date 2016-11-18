@@ -1,0 +1,287 @@
+* {
+  padding: 0px;
+  margin: 0px;
+}
+
+img {
+  border: none;
+  overflow: hidden;
+}
+
+a {
+  font-size: 12px;
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+  display: block;
+}
+
+
+
+
+.clear_div {
+  clear: both;
+}
+.happy-body{
+  min-width: 1200px;
+  background: url("images/bg.png") no-repeat center;
+
+}
+.happy-main{
+  width: 1200px;
+  min-height: 1610px;
+  margin: 0 auto;
+}
+.happy-banner{
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+  img{
+    width:510px;
+    height: 297px;
+    margin: 0 auto;
+    display: block;
+  }
+}
+.happy-receive-list{
+  width: 100%;
+  height: 410px;
+
+}
+.happy-list-title{
+  color: #ddc7af;
+  font-size: 22px;
+  text-align: center;
+  height: 65px;
+  line-height: 65px;
+}
+.happy-prize-list{
+  width: 100%;
+  height: 523px;
+}
+.happy-rule-list{
+  width: 100%;
+  height: auto;
+}
+.happy-receive-top{
+  width: 100%;
+  height: 130px;
+
+}
+.happy-receive-surplus{
+  width: 33%;
+  height: 130px;
+  float: left;
+  .happy-receive-surplus-text{
+    width: 140px;
+    margin: 0 auto;
+    margin-top: 45px;
+    .happy-receive-surplus-left{
+      float: left;
+    }
+    .happy-receive-surplus-right{
+      float: left;
+      color: #dccdad;
+      font-size: 14px;
+      .surplus-money{
+        color: #f6ff00;
+      }
+    }
+    &.surplus-now{
+      width: 310px;
+      button{
+        border: none;
+        background: #b58e49;
+        color: #ffffff;
+      }
+    }
+  }
+}
+.happy-receive-table{
+  width: 1122px;
+  height: 160px;
+  margin: 0 auto;
+  table{
+    width: 1122px;
+    height: 160px;
+    margin: 0 auto;
+    font-size: 14px;
+    text-align: center;
+    thead{
+      background: #47030f;
+      color: #c75b25;
+      tr{
+        th{
+          height: 34px;
+          border: 1px solid transparent;
+          border-color: rgba(0,0,0,0.2);
+        }
+      }
+    }
+    tbody{
+      color: #decaac;
+      .btn-active{
+        border: none;
+        color: #ffffff;
+        background: #b58e49;
+        &:hover{
+          background:#e2c48e;
+        }
+      }
+      .btn-disabled{
+        border: none;
+        color: #ffffff;
+        background: #565656;
+      }
+      tr{
+        td{
+          border: 1px solid transparent;
+          border-color: rgba(0,0,0,0.2);
+        }
+      }
+    }
+  }
+}
+
+.happy-prize-body{
+  width: 100%;
+  height: 461px;
+}
+.happy-prize-drawLottery{
+  width: 600px;
+  float: left;
+  padding-top: 15px;
+  //.banner{
+  //  display:block;
+  //  width:390px;
+  //  height: 390px;
+  //  margin-left:auto;
+  //  margin-right:auto;
+  //  margin-bottom: 20px;
+  //  .turnplate{
+  //    display:block;
+  //    width:100%;
+  //    height: 100%;
+  //    position:relative;
+  //    background: url("images/cj_bg.png");
+  //    background-size:100% 100%;
+  //    canvas{
+  //      item{width:100%;}
+  //    }
+  //    img{
+  //      &.pointer{
+  //        position: absolute;
+  //        width: 98px;
+  //        height: 137px;
+  //        left: 37.5%;
+  //        top: 27.5%;
+  //      }
+  //    }
+  //  }
+  //}
+  .prize-drawLottery-main{
+    width: 448px;
+    height: 430px;
+    background: url("images/cj_bg.png") no-repeat center;
+    margin: 0 auto;
+    position: relative;
+    .prize-drawLottery-roulette{
+      position: absolute;
+      width: 338px;
+      height: 337px;
+      left: 55px;
+      top:32.5px;
+    }
+    .prize-drawLottery-arrow{
+      position: absolute;
+      background: url("images/luckdraw.png");
+      width: 98px;
+      height: 137px;
+      top:107.5px;
+      left: 175px;
+      &:hover{
+        cursor: pointer;
+      }
+    }
+  }
+}
+.happy-prize-table{
+  width: 600px;
+  float: right;
+  padding-top: 70px;
+  table{
+    text-align: center;
+    width: 100%;
+    thead{
+      background: #47030f;
+      color: #c75b25;
+      tr{
+        th{
+          height: 34px;
+          border: 1px solid transparent;
+          border-color: rgba(0,0,0,0.2);
+        }
+      }
+    }
+    tbody{
+      color: #decaac;
+      tr{
+        td{
+          height: 34px;
+          border: 1px solid transparent;
+          border-color: rgba(0,0,0,0.2);
+          &.text-left{
+            text-align: left;
+            padding-left: 20px;
+          }
+        }
+      }
+    }
+  }
+}
+.happy-rule-list{
+  width: 100%;
+}
+.happy-rule-body{
+  width: 100%;
+  padding-left: 20px;
+  padding-top: 50px;
+  color: #decaac;
+  font-size: 14px;
+  .num{
+    float: left;
+    display: block;
+    width: 26px;
+    height: 16px;
+    overflow: hidden;
+    img{
+      width: 26px;
+      height: 19px;
+    }
+  }
+  .rule-body-text-detail{
+    margin-left: 50px;
+  }
+}
+.pop-main{
+  width: 100%;
+  margin-bottom: 25px;
+  .pop-yes{
+    display: block;
+    width: 58px;
+    height: 58px;
+    background: url("images/yes.png") no-repeat center;
+    margin-left: 100px;
+    float: left;
+  }
+  .pop-text{
+    padding-left: 170px;
+    padding-top: 10px;
+   .special-text{
+     color: #d77f74;
+
+   }
+  }
+}

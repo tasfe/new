@@ -45,7 +45,7 @@ var DialogModule = Base.Module.extend({
       html.push('</div>');
     } else if (options.titleClose) {
       html.push('<div class="modal-header clearfix">');
-      html.push('<i class="fa fa-times-circle close"  aria-hidden="true" data-dismiss="modal"></i>');
+      html.push('<span class="close" aria-hidden="true" data-dismiss="modal">X</span>');
       html.push('</div>');
     }
 
