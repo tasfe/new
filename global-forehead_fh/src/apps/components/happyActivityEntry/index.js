@@ -33,6 +33,8 @@ var ActivityEntry = Base.PrefabView.extend({
                     self.$num = _(res.root.bonusTotal).convert2yuan();
                     if(res.root.valid){
                         self.$main.removeClass('hidden');
+                    }else{
+                        self.destroy();
                     }
                 }else{
                     self.destroy();
@@ -47,7 +49,7 @@ var ActivityEntry = Base.PrefabView.extend({
     lookHandler:function () {
         this.$main.addClass('hidden');
 
-        window.location.href = window.location.host + '/activity.html?id=40'
+        window.location.href = window.location.host + '/activity.html?id=40';
         this.destroy();
     }
 

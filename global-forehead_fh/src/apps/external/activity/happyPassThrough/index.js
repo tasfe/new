@@ -21,7 +21,7 @@ var HappyPassThroughView = Base.ItemView.extend({
     levelCfg : [
         {
             level:1,
-            task:'完成绑定银行卡工作',
+            task:'完成绑定银行卡',
             href:'#uc/cm',//
             btnText:'去绑定',
             promptText:'完成绑定银行卡'
@@ -35,42 +35,42 @@ var HappyPassThroughView = Base.ItemView.extend({
         },
         {
             level:3,
-            task:'完成有效投注工作',
+            task:'完成有效投注',
             href:'#bc/10',
             btnText:'去投注',
             promptText:'活动期间累计有效投注达'
         },
         {
             level:4,
-            task:'完成有效投注工作',
+            task:'完成有效投注',
             href:'#bc/10',
             btnText:'去投注',
             promptText:'活动期间累计有效投注达'
         },
         {
             level:5,
-            task:'完成有效投注工作',
+            task:'完成有效投注',
             href:'#bc/10',
             btnText:'去投注',
             promptText:'活动期间累计有效投注达'
         },
         {
             level:6,
-            task:'完成有效投注工作',
+            task:'完成有效投注',
             href:'#bc/10',
             btnText:'去投注',
             promptText:'活动期间累计有效投注达'
         },
         {
             level:7,
-            task:'完成有效投注工作',
+            task:'完成有效投注',
             href:'#bc/10',
             btnText:'去投注',
             promptText:'活动期间完成一次提现'
         },
         {
             level:8,
-            task:'完成提现工作',
+            task:'完成提现',
             href:'提现',
             btnText:'去提现',
             promptText:'活动期间累计有效投注达'
@@ -273,37 +273,30 @@ var HappyPassThroughView = Base.ItemView.extend({
                         self.auto = false;
 
                         self.$image.rotate(self.gift(data.index));
-                        if(data.lotteryTimes === 0){
+
+                        if(data.index === 6){
                             var body = '<div class="pop-main">' +
-                                '<p class="text-center m-top-lg">感谢您的参与</p>' +
-                                '<p class="text-center font-30 special-text m-bottom-lg">敬请期待我们更多给力的活动</p>' +
+                                '<p class="text-center m-top-lg">谢谢参与</p>' +
+                                '<p class="text-center font-30 special-text m-bottom-lg">不要灰心！再接再厉！</p>' +
                                 '<hr class="m-top-md">' +
-                                '<p class="text-center">繁华世界·把精彩留给自己</p>' +
+                                '<div class="m-top-md m-bottom-md text-center"><button class="btn btn-pink btn-linear" data-dismiss="modal">确定</button></div>' +
                                 '</div>';
                         }else{
-                            if(data.index === 6){
-                                var body = '<div class="pop-main">' +
-                                    '<p class="text-center m-top-lg">谢谢参与</p>' +
-                                    '<p class="text-center font-30 special-text m-bottom-lg">不要灰心！再接再厉！</p>' +
-                                    '<hr class="m-top-md">' +
-                                    '<div class="m-top-md m-bottom-md text-center"><button class="btn btn-pink btn-linear" data-dismiss="modal">确定</button></div>' +
-                                    '</div>';
-                            }else{
-                                var body = '<div class="pop-main">' +
-                                    '<p class="text-center">恭喜您抽到</p>' +
-                                    '<p class="text-center font-30 special-text">'+ data.lotteryName+'</p>' +
-                                    '<hr class="m-top-md">' +
-                                    '<p class="text-center">您可以选择</p>' +
+                            var body = '<div class="pop-main">' +
+                                '<p class="text-center">恭喜您抽到</p>' +
+                                '<p class="text-center font-30 special-text">'+ data.lotteryName+'</p>' +
+                                '<hr class="m-top-md">' +
+                                '<p class="text-center">您可以选择</p>' +
 
-                                    '<div class="m-top-md" style="width: 225px; overflow: hidden; margin: 0 auto;">' +
-                                    '<span class="choice">领取实物物品</span>' +
-                                    '<span class="choice m-left-md">折现至平台账户余额</span>' +
-                                    '</div>' +
+                                '<div class="m-top-md" style="width: 225px; overflow: hidden; margin: 0 auto;">' +
+                                '<span class="choice">领取实物物品</span>' +
+                                '<span class="choice m-left-md">折现至平台账户余额</span>' +
+                                '</div>' +
 
-                                    '<div class="m-top-md m-bottom-md text-center">联系 <a href="javascript:void(0);"  onclick="newwin = window.open("<%= _.getCustomerServiceUrl() %>","service","width=800,height=680");newwin.moveTo(100,50);" class="special-text" data-dismiss="modal">在线客服</a>" 告知您的选择</div>' +
-                                    '</div>';
-                            }
+                                '<div class="m-top-md m-bottom-md text-center">联系 <a href="javascript:void(0);"  onclick="newwin = window.open("<%= _.getCustomerServiceUrl() %>","service","width=800,height=680");newwin.moveTo(100,50);" class="special-text" data-dismiss="modal">在线客服</a>" 告知您的选择</div>' +
+                                '</div>';
                         }
+
                         self.popShow(body);
 
                         setTimeout(function() {
@@ -424,7 +417,6 @@ var HappyPassThroughView = Base.ItemView.extend({
                     }
 
                     self.popShow(body);
-                    //Global.ui.notification.show(res.msg = '未达标' ? '您为达到领取要求' : res.msg);
                 }
             });
     },
