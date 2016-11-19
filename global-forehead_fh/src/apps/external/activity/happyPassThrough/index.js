@@ -22,7 +22,7 @@ var HappyPassThroughView = Base.ItemView.extend({
         {
             level:1,
             task:'完成绑定银行卡',
-            href:'#uc/cm',//
+            href:'#uc/cm',
             btnText:'去绑定',
             promptText:'完成绑定银行卡'
         },
@@ -431,15 +431,17 @@ var HappyPassThroughView = Base.ItemView.extend({
         var self = this;
         if(this.userStage != 1 && this.userStage != 8){
             var textInfoEnd = '元';
+            var textNum = _(this.nowStageLimit).convert2yuan();
         }else{
             var textInfoEnd = '';
+            var textNum = '';
         }
         var textInfo = _(this.levelCfg).findWhere({level:this.userStage});
         if(textInfo){
             var text = textInfo.promptText;
             var btnHref = textInfo.href;
             var btnText = textInfo.btnText;
-            var body = '<div class="m-top-md m-bottom-md text-center"><span class="font-lg">' + text + _(this.nowStageLimit).convert2yuan() + textInfoEnd + '</span><button class="btn btn-sm btn-link m-left-xs font-md js-task-btn" data-href="'+ btnHref +'" data-dismiss="modal">>>'+ btnText +'</button></div>';
+            var body = '<div class="m-top-md m-bottom-md text-center"><span class="font-lg">' + text + textNum + textInfoEnd + '</span><button class="btn btn-sm btn-link m-left-xs font-md js-task-btn" data-href="'+ btnHref +'" data-dismiss="modal">>>'+ btnText +'</button></div>';
             this.popShow(body);
         }
 
