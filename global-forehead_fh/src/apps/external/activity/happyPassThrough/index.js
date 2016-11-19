@@ -28,52 +28,52 @@ var HappyPassThroughView = Base.ItemView.extend({
         },
         {
             level:2,
-            task:'完成在线充值工作',
+            task:'完成在线充值',
             href:'充值',
             btnText:'去充值',
-            promptText:'活动期间累积充值满200元'
+            promptText:'活动期间累积充值满'
         },
         {
             level:3,
             task:'完成有效投注工作',
             href:'#bc/10',
             btnText:'去投注',
-            promptText:'活动期间累计有效投注达'+ this.nowStageLimit +'元 '
+            promptText:'活动期间累计有效投注达'
         },
         {
             level:4,
             task:'完成有效投注工作',
             href:'#bc/10',
             btnText:'去投注',
-            promptText:'活动期间累计有效投注达'+ this.nowStageLimit +'元 '
+            promptText:'活动期间累计有效投注达'
         },
         {
             level:5,
             task:'完成有效投注工作',
             href:'#bc/10',
             btnText:'去投注',
-            promptText:'活动期间累计有效投注达'+ this.nowStageLimit +'元 '
+            promptText:'活动期间累计有效投注达'
         },
         {
             level:6,
             task:'完成有效投注工作',
             href:'#bc/10',
             btnText:'去投注',
-            promptText:'活动期间累计有效投注达'+ this.nowStageLimit +'元 '
+            promptText:'活动期间累计有效投注达'
         },
         {
             level:7,
             task:'完成有效投注工作',
             href:'#bc/10',
             btnText:'去投注',
-            promptText:'活动期间累计有效投注达'+ this.nowStageLimit +'元 '
+            promptText:'活动期间完成一次提现'
         },
         {
             level:8,
             task:'完成提现工作',
             href:'提现',
             btnText:'去提现',
-            promptText:'活动期间累计有效投注达'+ this.nowStageLimit +'元 '
+            promptText:'活动期间累计有效投注达'
         },
     ],
     //获取活动详情
@@ -300,7 +300,7 @@ var HappyPassThroughView = Base.ItemView.extend({
                                     '<span class="choice m-left-md">折现至平台账户余额</span>' +
                                     '</div>' +
 
-                                    '<div class="m-top-md m-bottom-md text-center">联系 "<a href="javascript:void(0);"  onclick="newwin = window.open("<%= _.getCustomerServiceUrl() %>","service","width=800,height=680");newwin.moveTo(100,50);" class="special-text" data-dismiss="modal">在线客服</a>" 告知您的选择</div>' +
+                                    '<div class="m-top-md m-bottom-md text-center">联系 <a href="javascript:void(0);"  onclick="newwin = window.open("<%= _.getCustomerServiceUrl() %>","service","width=800,height=680");newwin.moveTo(100,50);" class="special-text" data-dismiss="modal">在线客服</a>" 告知您的选择</div>' +
                                     '</div>';
                             }
                         }
@@ -311,18 +311,29 @@ var HappyPassThroughView = Base.ItemView.extend({
                         }, 200);
                     }, 1000);
                 }else{
-                    if(res.msg === '未通关'){
-                        var textTop = '未完成通关';
-                        var textBottom = '当前没有抽奖机会可以使用';
+                    if(res.msg === '无抽奖次数'){
+                        var body = '<div class="pop-main">' +
+                            '<p class="text-center m-top-lg">感谢您的参与</p>' +
+                            '<p class="text-center font-30 special-text m-bottom-lg">敬请期待我们更多给力的活动</p>' +
+                            '<hr class="m-top-md">' +
+                            '<p class="text-center">繁华世界·把精彩留给自己</p>' +
+                            '</div>';
                     }else{
-                        var textTop = res.msg;
-                        var textBottom = '';
+                        if(res.msg === '未通关'){
+                            var textTop = '未完成通关';
+                            var textBottom = '当前没有抽奖机会可以使用';
+                        }else{
+                            var textTop = res.msg;
+                            var textBottom = '';
+                        }
+                        var body = '<div class="pop-main">' +
+                            '<p class="font-lg text-center m-top-lg">' + textTop + '</p>' +
+                            '<p class="text-center">'+ textBottom +'</p>' +
+                            '<div class="m-top-md m-bottom-md text-center"><button class="btn btn-pink btn-linear" data-dismiss="modal">确定</button></div>' +
+                            '</div>';
+
                     }
-                    var body = '<div class="pop-main">' +
-                        '<p class="font-lg text-center m-top-lg">' + textTop + '</p>' +
-                        '<p class="text-center">'+ textBottom +'</p>' +
-                        '<div class="m-top-md m-bottom-md text-center"><button class="btn btn-pink btn-linear" data-dismiss="modal">确定</button></div>' +
-                        '</div>';
+
                     self.popShow(body);
                     self.start = false;
                 }
@@ -399,14 +410,19 @@ var HappyPassThroughView = Base.ItemView.extend({
                     self.onRender();
                 }else{
                     if(res.msg === '未达标'){
-                        var text = '您为达到领取要求';
+                        var body = '<div class="pop-main">' +
+                            '<p class=" text-center m-top-md">当前关卡任务</p>' +
+                            '<p class="font-30 special-text text-center m-top-md">未完成</p>' +
+                            '<p class=" text-center m-top-md">无法领取奖励，继续加油哦！</p>' +
+                            '<div class="m-top-md m-bottom-md text-center"><button class="btn btn-pink btn-linear" data-dismiss="modal">确定</button></div>' +
+                            '</div>'
                     }else{
-                        var text = res.msg;
+                        var body = '<div class="pop-main">' +
+                            '<p class="font-lg text-center m-top-lg">' +  res.msg + '</p>' +
+                            '<div class="m-top-md m-bottom-md text-center"><button class="btn btn-pink btn-linear" data-dismiss="modal">确定</button></div>' +
+                            '</div>'
                     }
-                    var body = '<div class="pop-main">' +
-                        '<p class="font-lg text-center m-top-lg">' + text + '</p>' +
-                        '<div class="m-top-md m-bottom-md text-center"><button class="btn btn-pink btn-linear" data-dismiss="modal">确定</button></div>' +
-                        '</div>'
+
                     self.popShow(body);
                     //Global.ui.notification.show(res.msg = '未达标' ? '您为达到领取要求' : res.msg);
                 }
@@ -415,12 +431,17 @@ var HappyPassThroughView = Base.ItemView.extend({
 
     taskClickHandler:function () {
         var self = this;
+        if(this.userStage != 1 && this.userStage != 8){
+            var textInfoEnd = '元';
+        }else{
+            var textInfoEnd = '';
+        }
         var textInfo = _(this.levelCfg).findWhere({level:this.userStage});
         if(textInfo){
             var text = textInfo.promptText;
             var btnHref = textInfo.href;
             var btnText = textInfo.btnText;
-            var body = '<div class="m-top-md m-bottom-md text-center"><span class="font-lg">' + text + '</span><button class="btn btn-sm btn-link m-left-xs font-md js-task-btn" data-href="'+ btnHref +'" data-dismiss="modal">>>'+ btnText +'</button></div>';
+            var body = '<div class="m-top-md m-bottom-md text-center"><span class="font-lg">' + text + _(this.nowStageLimit).convert2yuan() + textInfoEnd + '</span><button class="btn btn-sm btn-link m-left-xs font-md js-task-btn" data-href="'+ btnHref +'" data-dismiss="modal">>>'+ btnText +'</button></div>';
             this.popShow(body);
         }
 
