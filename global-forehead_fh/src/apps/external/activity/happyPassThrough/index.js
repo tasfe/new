@@ -274,7 +274,7 @@ var HappyPassThroughView = Base.ItemView.extend({
 
                         self.$image.rotate(self.gift(data.index));
 
-                        if(data.index === 6){
+                        if(data.lotteryName === '谢谢参与'){
                             var body = '<div class="pop-main">' +
                                 '<p class="text-center m-top-lg">谢谢参与</p>' +
                                 '<p class="text-center font-30 special-text m-bottom-lg">不要灰心！再接再厉！</p>' +

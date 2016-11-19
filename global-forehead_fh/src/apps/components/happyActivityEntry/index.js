@@ -27,6 +27,9 @@ var ActivityEntry = Base.PrefabView.extend({
         var self = this;
         this.$main = this.$('.js-activity-entry-main');
         this.$num = this.$('.js-activity-entry-num');
+        this.$href = this.$('.js-activity-entry-look');
+        this.$href.attr('href','http://' + window.location.host + '/activity.html?id=40');
+        this.$href.attr('target','_blank');
         this.gitEntryStatusXhr(options.options.type)
             .done(function(res){
                 if(res.result === 0){
@@ -49,7 +52,7 @@ var ActivityEntry = Base.PrefabView.extend({
     lookHandler:function () {
         this.$main.addClass('hidden');
 
-        window.location.href = 'http://' + window.location.host + '/activity.html?id=40';
+        //window.location.href = 'http://' + window.location.host + '/activity.html?id=40';
         this.destroy();
     }
 
