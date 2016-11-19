@@ -103,20 +103,17 @@ define(function (require, exports, module) {
             row.push(rowInfo.userName);
             row.push('第'+rowInfo.status+'关');
             switch (rowInfo.type){
-                case 0:
+                case 1:
                     row.push('绑卡奖金');
                     break;
-                case 1:
+                case 2:
                     row.push('充值奖金');
                     break;
-                case 2:
+                case 3:
                     row.push('消费奖金');
                     break;
-                case 3:
-                    row.push('提现奖金');
-                    break;
                 case 4:
-                    row.push('抽奖奖金');
+                    row.push('提现奖金');
                     break;
                 case 5:
                     row.push('抽奖实物');
@@ -124,11 +121,16 @@ define(function (require, exports, module) {
             }
             row.push(_.formatDiv(rowInfo.bonus,10000));
             row.push(rowInfo.superName);
-            if(rowInfo.useStatus === 0){
-                row.push('<button class="btn btn-sm btn-success js-btn-discounted" data-tradeId="'+ rowInfo.tradeId +'">折现</button>');
-            }else if(rowInfo.useStatus === 1){
-                row.push('<button class="btn btn-sm btn-link" >已折现</button>');
+            if(rowInfo.type === 5){
+                if(rowInfo.useStatus === 0){
+                    row.push('<button class="btn btn-sm btn-success js-btn-discounted" data-tradeId="'+ rowInfo.tradeId +'">折现</button>');
+                }else if(rowInfo.useStatus === 1){
+                    row.push('<button class="btn btn-sm btn-link" >已折现</button>');
+                }
+            }else{
+                row.push('');
             }
+
             return row;
         },
 
