@@ -93,6 +93,14 @@ App.addInitializer(function(options) {
       openNotice();
     }
   });
+  var getUrl = _.getUrlParam();
+  if(getUrl){
+    if(getUrl.act === 'recharge'){
+      $(".js-fc-re").trigger('click');
+    }else if(getUrl.act === 'withdraw'){
+      $(".js-fc-wd").trigger('click');
+    }
+  }
 });
 
 function _bindNoticeHandler() {

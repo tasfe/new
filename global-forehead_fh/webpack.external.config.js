@@ -32,7 +32,9 @@ module.exports = {
 
       'snap': 'Snap.svg/dist/snap.svg',
       'bootstrap': 'vendor/scripts/bootstrap',
-      'modernizr': 'vendor/scripts/modernizr'
+      'modernizr': 'vendor/scripts/modernizr',
+      'userCenter': 'apps/main/userCenter',
+      'fundCenter':'apps/main/fundCenter'
     }
   },
   providePlugin: {

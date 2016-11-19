@@ -120,7 +120,7 @@ var MoneyWithdrawalView = Base.ItemView.extend({
   },
 
   renderCardList: function(cardList) {
-    console.log(JSON.stringify(cardList));
+    //console.log(JSON.stringify(cardList));
     this.cardList = cardList;
     if (_(cardList).isEmpty()) {
       this.$cardList.html();
@@ -131,7 +131,7 @@ var MoneyWithdrawalView = Base.ItemView.extend({
         return '<option value="' + card.cardId + '" data-min="' + valMin + '" data-max="' + valMax +'" data-bankid="' +card.bankId +'" data-cusname="' + card.name + '" data-cardno="' + card.cardNo +'" data-status='+card.canWithdraw+'>'+card.bankName+ ' '+ card.cardNo + ' ' + (card.canWithdraw ? '' : '(不可用)') + '</option>';
       }, this).join(''));
     }
-    console.log(this.$cardList.find('option:first-child').attr('data-status'));
+    //console.log(this.$cardList.find('option:first-child').attr('data-status'));
     this.canWithdrawHandler(this.$cardList.find('option:first-child').attr('data-status'));
     this.$('.js-fc-wd-bankList').trigger('change');
   },
@@ -142,7 +142,7 @@ var MoneyWithdrawalView = Base.ItemView.extend({
     var valMin = $option.data('min');
     var valMax = $option.data('max');
     var status = $option.data('status');
-    console.log(status);
+    //console.log(status);
     this.canWithdrawHandler(status);
     if (valMin === 0 || valMin === undefined) {
       valMin = 1;
