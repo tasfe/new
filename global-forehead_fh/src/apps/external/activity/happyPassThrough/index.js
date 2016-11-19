@@ -135,7 +135,7 @@ var HappyPassThroughView = Base.ItemView.extend({
                     self._getPrizeTable(root.cfg.lotteryCfg);
                 }else{
                     Global.ui.notification.show(res.msg);
-                    window.location.href = window.location.hash + 'index.html';
+                    //window.location.href = window.location.hash + 'index.html';
                 }
             });
 

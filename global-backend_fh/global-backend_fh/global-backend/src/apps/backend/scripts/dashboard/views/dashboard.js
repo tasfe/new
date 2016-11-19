@@ -394,7 +394,12 @@ define(function (require, exports, module) {
                     {
                         name:'最高',
                         type:'line',
-                        data:[]
+                        data:[],
+                        markLine : {
+                            data : [
+                                {type : 'average', name: '平均值'}
+                            ]
+                        }
                     }
                 ]
             }
@@ -451,7 +456,12 @@ define(function (require, exports, module) {
                     {
                         name:'最高',
                         type:'line',
-                        data:[]
+                        data:[],
+                        markLine : {
+                            data : [
+                                {type : 'average', name: '平均值'}
+                            ]
+                        }
                     }
                 ]
             }

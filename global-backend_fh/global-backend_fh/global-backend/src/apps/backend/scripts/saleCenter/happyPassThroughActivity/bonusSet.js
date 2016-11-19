@@ -79,7 +79,7 @@ define(function (require, exports, module) {
                     if(res.result === 0){
                         var configRoot = res.root;
                         self.$startTime.val(_(configRoot.fromDate).toTime());
-                        self.$endTime.val(_(configRoot.fromDate).toTime());
+                        self.$endTime.val(_(configRoot.endDate).toTime());
                         if(configRoot.userType.length > 0){
                             _(configRoot.userType).each(function (type,index) {
                                 $("input[type='checkbox'][name='user'][value='"+type+"']").attr("checked", "checked");
