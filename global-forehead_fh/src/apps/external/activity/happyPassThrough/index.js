@@ -66,14 +66,14 @@ var HappyPassThroughView = Base.ItemView.extend({
             task:'完成有效投注',
             href:'#bc/10',
             btnText:'去投注',
-            promptText:'活动期间完成一次提现'
+            promptText:'活动期间累计有效投注达'
         },
         {
             level:8,
             task:'完成提现',
             href:'提现',
             btnText:'去提现',
-            promptText:'活动期间累计有效投注达'
+            promptText:'活动期间完成一次提现'
         },
     ],
     //获取活动详情
