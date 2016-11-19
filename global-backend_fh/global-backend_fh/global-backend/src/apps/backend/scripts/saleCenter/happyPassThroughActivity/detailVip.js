@@ -101,7 +101,12 @@ define(function (require, exports, module) {
             var row = [];
             row.push(_(rowInfo.createTime).toTime());
             row.push(rowInfo.userName);
-            row.push('第'+rowInfo.status+'关');
+            if(rowInfo.status === 0){
+                row.push('/');
+            }else{
+                row.push('第'+rowInfo.status+'关');
+            }
+
             switch (rowInfo.type){
                 case 1:
                     row.push('绑卡奖金');
