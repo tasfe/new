@@ -86,7 +86,7 @@ var HappyPassThroughView = Base.ItemView.extend({
     //领取奖金事件
     getReceiveXhr:function () {
         return Global.sync.ajax({
-            url: '/info/happystageactivity/info.json',
+            url: '/info/happystageactivity/doget.json',
             data: {
                 activityId: this.options.activityId
             }
