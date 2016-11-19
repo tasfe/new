@@ -11,7 +11,10 @@ define(function (require, exports, module) {
         sendTradeidXhr:function (data) {
             return Global.sync.ajax({
                 url: '/intra/activitymanage/use.json',
-                tradeNo:data
+                data:{
+                    tradeNo:data
+                }
+
             });
         },
 
