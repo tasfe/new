@@ -201,7 +201,7 @@ define(function (require, exports, module) {
         }
       });
       tabs.push({
-        label: '汇聚支付',
+        label: '收付通支付',
         name: 'hjPay',
         id: 'jsHjPayTab',
         view: ConfigView,
