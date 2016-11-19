@@ -4,7 +4,7 @@ var TabView = require('com/tabView');
 
 var quickPayConfig = require('fundCenter/misc/quickPayConfig');
 var bankConfig = require('userCenter/misc/bankConfig');
-
+var happyAvtivityEntry = require('com/happyActivityEntry');
 var RechargeView = TabView.extend({
 
   template: require('fundCenter/templates/recharge.html'),
@@ -59,6 +59,10 @@ var RechargeView = TabView.extend({
           self.$('.js-fc-re-payment-type:first').trigger('click');
         }
       });
+    new happyAvtivityEntry({
+      el:this.$('.js-fc-re-activity-entry'),
+      type:2
+    }).render();
   },
   initPaymentPage: function(e) {
     var $target = $(e.currentTarget);

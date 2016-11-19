@@ -1,0 +1,43 @@
+@charset "UTF-8";
+@import "~base/styles/imports";
+
+.activity-entry-main{
+  position: fixed;
+  width: 196px;
+  height: 116px;
+  background: url("images/gift.png") no-repeat center;
+  .activity-entry-body{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    .activity-entry-text{
+      position: absolute;
+      position: absolute;
+      left: 15px;
+      bottom: 13px;
+      color: #ffffff;
+      .activity-entry-num{
+        margin-left: 3px;
+        margin-right: 3px;
+        color: #feea0b;
+      }
+      .activity-entry-look{
+        color: #faf88c;
+        margin-left:5px;
+        cursor: pointer;
+      }
+    }
+    .activity-entry-a{
+      display: block;
+      width: 25px;
+      height: 25px;
+      position: absolute;
+      right: 5px;
+      bottom: 8px;
+      cursor: pointer;
+
+    }
+  }
+
+}
+

@@ -4,6 +4,8 @@ require('./../misc/index.scss');
 
 var ticketConfig = require('skeleton/misc/ticketConfig');
 
+var happyAvtivityEntry = require('com/happyActivityEntry');
+
 var DashboardView = Base.ItemView.extend({
 
   template: require('dashboard/templates/dashboard.html'),
@@ -178,6 +180,11 @@ var DashboardView = Base.ItemView.extend({
     setInterval(function() {
       self.renderWinnerList();
     }, 30000);
+
+    new happyAvtivityEntry({
+      el:this.$('.js-activity-entry'),
+      type:1
+    }).render();
   },
 
   renderMainBannerAD: function () {

@@ -1,7 +1,7 @@
 "use strict";
 
 var WithdrawConfirmView = require('fundCenter/views/withdraw-confirm');
-
+var happyAvtivityEntry = require('com/happyActivityEntry');
 var MoneyWithdrawalView = Base.ItemView.extend({
 
   template: require('fundCenter/templates/withdraw.html'),
@@ -73,6 +73,11 @@ var MoneyWithdrawalView = Base.ItemView.extend({
           Global.ui.notification.show('服务器异常');
         }
       });
+
+    new happyAvtivityEntry({
+      el:this.$('.js-fc-wd-activity-entry'),
+      type:4
+    }).render();
   },
 
   renderBasicInfo: function(data) {

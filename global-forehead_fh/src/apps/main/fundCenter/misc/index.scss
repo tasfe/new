@@ -272,6 +272,14 @@
   display: table;
   width: 656px;
   border-bottom: 1px solid #ccc;
+  position: relative;
+}
+.fc-re-activity-entry{
+  position: absolute;
+  width: 196px;
+  height: 116px;
+  left:10px;
+  top:30px;
 }
 .fc-re-amount-container{
 
@@ -529,6 +537,15 @@
   margin-bottom: 75px;
   padding-left: 242px;
   color: #666;//#9a9a9a
+  position: relative;
+
+  .fc-wd-activity-entry{
+    position: absolute;
+    width: 196px;
+    height: 116px;
+    top: 30px;
+    right: 10px;
+  }
 
   .fc-wd-limit-notice{
     color:#9a9a9a;

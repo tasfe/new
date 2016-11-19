@@ -16,6 +16,8 @@ var betRulesConfig = require('bettingCenter/misc/betRulesConfig');
 var Easing = require('com/easing');
 var Countdown = require('com/countdown');
 
+var happyAvtivityEntry = require('com/happyActivityEntry');
+
 var BettingCenterView = Base.ItemView.extend({
 
   template: require('bettingCenter/templates/bettingCenter.html'),
@@ -251,6 +253,11 @@ var BettingCenterView = Base.ItemView.extend({
         customizeMoney: Number(customizeMoney)
       });
     }
+    new happyAvtivityEntry({
+      el:this.$('.js-bet-activity-entry'),
+      type:3
+    }).render();
+
   },
 
   //改变banner的背景图

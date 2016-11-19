@@ -133,6 +133,9 @@ var HappyPassThroughView = Base.ItemView.extend({
 
                     self.getCheckpointTable(root.cfg.bonusCfg);
                     self._getPrizeTable(root.cfg.lotteryCfg);
+                }else{
+                    Global.ui.notification.show(res.msg);
+                    window.location.href = window.location.hash + 'index.html';
                 }
             });
 
@@ -298,7 +301,7 @@ var HappyPassThroughView = Base.ItemView.extend({
                                     '<span class="choice m-left-md">折现至平台账户余额</span>' +
                                     '</div>' +
 
-                                    '<div class="m-top-md m-bottom-md text-center">联系 "<a href="#" class="special-text" data-dismiss="modal">在线客服</a>" 告知您的选择</div>' +
+                                    '<div class="m-top-md m-bottom-md text-center">联系 "<a href="javascript:void(0);"  onclick="newwin = window.open("<%= _.getCustomerServiceUrl() %>","service","width=800,height=680");newwin.moveTo(100,50);" class="special-text" data-dismiss="modal">在线客服</a>" 告知您的选择</div>' +
                                     '</div>';
                             }
                         }
