@@ -31,7 +31,7 @@ var ActivityEntry = Base.PrefabView.extend({
             .done(function(res){
                 if(res.result === 0){
                     self.$num = _(res.root.bonusTotal).convert2yuan();
-                    if(res.root.valid){
+                    if(res.root.valid === 0){
                         self.$main.removeClass('hidden');
                     }else{
                         self.destroy();
