@@ -293,7 +293,7 @@ var HappyPassThroughView = Base.ItemView.extend({
                                 '<span class="choice m-left-md">折现至平台账户余额</span>' +
                                 '</div>' +
 
-                                '<div class="m-top-md m-bottom-md text-center">联系 <a href="javascript:void(0);"  onclick="newwin = window.open("<%= _.getCustomerServiceUrl() %>","service","width=800,height=680");newwin.moveTo(100,50);" class="special-text" data-dismiss="modal">在线客服</a>" 告知您的选择</div>' +
+                                '<div class="m-top-md m-bottom-md text-center">联系 <a href="javascript:void(0);"  onclick="newwin = window.open(\'https://v88.live800.com/live800/chatClient/chatbox.jsp?companyID=731101&configID=2579&jid=4521278370&s=1\',\'service\',\'width=800,height=680\');newwin.moveTo(100,50);" class="special-text" data-dismiss="modal">在线客服</a>" 告知您的选择</div>' +
                                 '</div>';
                         }
 
@@ -326,7 +326,7 @@ var HappyPassThroughView = Base.ItemView.extend({
                             '</div>';
 
                     }
-
+                    
                     self.popShow(body);
                     self.start = false;
                 }
