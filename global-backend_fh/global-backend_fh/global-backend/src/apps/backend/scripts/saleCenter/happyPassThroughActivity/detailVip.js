@@ -71,32 +71,6 @@ define(function (require, exports, module) {
             Base.Prefab.SearchGrid.prototype.onRender.apply(this, arguments);
         },
         renderGrid: function (gridData) {
-            gridData = {
-                "rowCount": 2,
-                "bonusTotal": 70000,
-                "dataList": [
-                    {
-                        "createTime": 1479390012858,
-                        "userName": "lance2016",
-                        "status": 1,
-                        "type": 1,
-                        "bonus": 50000,
-                        "superName": null,
-                        "tradeId": "HD20161116214000IBJ6",
-                        "useStatus": 0
-                    },
-                    {
-                        "createTime": 1479194823309,
-                        "userName": "collen2016",
-                        "status": 0,
-                        "type": 0,
-                        "bonus": 20000,
-                        "superName": null,
-                        "tradeId": "HD20161115152700IB45",
-                        "useStatus": 1
-                    }
-                ]
-            };
             var rowsData = _(gridData.dataList).map(function (dataInfo, index) {
                 return {
                     columnEls: this.formatRowData(dataInfo, index),
