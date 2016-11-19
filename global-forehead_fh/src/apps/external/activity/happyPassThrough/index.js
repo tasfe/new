@@ -409,6 +409,12 @@ var HappyPassThroughView = Base.ItemView.extend({
                             '<p class=" text-center m-top-md">无法领取奖励，继续加油哦！</p>' +
                             '<div class="m-top-md m-bottom-md text-center"><button class="btn btn-pink btn-linear" data-dismiss="modal">确定</button></div>' +
                             '</div>'
+                    }else if(res.msg === '已领完'){
+                        var body = '<div class="pop-main">' +
+                            '<p class=" text-center m-top-md">亲，明天再来领吧</p>' +
+                            '<p class="font-30 special-text text-center m-top-md">今天的奖金已被领完</p>' +
+                            '<div class="m-top-md m-bottom-md text-center"><button class="btn btn-pink btn-linear" data-dismiss="modal">确定</button></div>' +
+                            '</div>'
                     }else{
                         var body = '<div class="pop-main">' +
                             '<p class="font-lg text-center m-top-lg">' +  res.msg + '</p>' +
