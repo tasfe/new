@@ -30,7 +30,7 @@ var ActivityEntry = Base.PrefabView.extend({
         this.gitEntryStatusXhr(options.options.type)
             .done(function(res){
                 if(res.result === 0){
-                    self.$num = _(res.root.bonusTotal).convert2yuan();
+                    self.$num.html(_(res.root.bonusTotal).convert2yuan());
                     if(res.root.valid === 0){
                         self.$main.removeClass('hidden');
                     }else{
@@ -49,7 +49,7 @@ var ActivityEntry = Base.PrefabView.extend({
     lookHandler:function () {
         this.$main.addClass('hidden');
 
-        window.location.href = window.location.host + '/activity.html?id=40';
+        window.location.href = 'http://' + window.location.host + '/activity.html?id=40';
         this.destroy();
     }
 

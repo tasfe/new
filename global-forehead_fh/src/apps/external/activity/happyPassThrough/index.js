@@ -326,7 +326,7 @@ var HappyPassThroughView = Base.ItemView.extend({
                             '</div>';
 
                     }
-                    
+
                     self.popShow(body);
                     self.start = false;
                 }
