@@ -417,6 +417,9 @@ var BettingCenterView = Base.ItemView.extend({
   renderSpecialHoverNums: function(planInfo) {
     var self = this;
     var html = [];
+    if(_.isNull(planInfo.lastOrgOpenNum)|| _.isUndefined(planInfo.lastOrgOpenNum)){
+      return
+    }
     var openNun = planInfo.lastOrgOpenNum.split(',');
     var count;
     var result;
