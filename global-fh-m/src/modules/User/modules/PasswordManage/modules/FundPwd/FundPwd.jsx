@@ -6,6 +6,7 @@ import { connect } from 'react-redux'
 import * as FundPwdAction from  'redux/modules/User/fundPwd'
 import withStyles from 'with-style'
 import styles from './FundPwd.css'
+import { setTitle,setLeftButton } from 'redux/modules/toolbar'
 
 @connect(
   state => ({
@@ -13,6 +14,8 @@ import styles from './FundPwd.css'
   }),
   {
     ...actions,
+    setLeftButton,
+    setTitle,
     ...FundPwdAction
   }
 )
@@ -40,6 +43,7 @@ class FundPwd extends Page {
     this.loading();
     this.props.setTitle('修改资金密码')
     this.props.setRightButton(<div onClick={::this.savePsd}>完成</div>)
+    this.props.setLeftButton(true);
 
     ajax({url: '/fund/moneypd/checkpaypwd.json'}, function(res) {
       let $a = $('.tabs-header').find('li').eq(1).find('a');
@@ -159,7 +163,7 @@ class FundPwd extends Page {
       <div className="pm-FundPwd">
         <div className="help-block">
           <div className="help-img">
-            <img src="images/eclaim.png" />
+            <img src={require("images/icon/eclaim.png")} />
           </div>
           <div className="help-text">温馨提示：如需找回资金密码,请前往PC端操作。</div>
         </div>

@@ -8,10 +8,15 @@ import withStyles from 'with-style'
 import styles from './OpenAccount.css'
 import HandOpen from './modules/HandOpen/HandOpen'
 import LinkOpen from './modules/LinkOpen/LinkOpen'
+import { setTitle,setLeftButton } from 'redux/modules/toolbar'
 
 @connect(
   state => ({title: state.toolbar.title, user: state.auth.user}),
-  actions
+  {
+    actions,
+    setTitle,
+    setLeftButton
+  }
 )
 @withStyles(styles)
 class OpenAccount extends Page {
@@ -40,6 +45,7 @@ class OpenAccount extends Page {
 
   componentDidMount () {
     this.props.setTitle('开户管理');
+    this.props.setLeftButton(true);
   }
 
   render () {

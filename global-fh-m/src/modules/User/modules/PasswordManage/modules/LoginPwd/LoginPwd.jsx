@@ -5,12 +5,15 @@ import * as actions from 'redux/modules/toolbar'
 import { connect } from 'react-redux'
 import withStyles from 'with-style'
 import styles from './LoginPwd.css'
-import { logout, load } from 'redux/modules/auth';
+import { logout, load } from 'redux/modules/auth'
+import { setTitle,setLeftButton } from 'redux/modules/toolbar'
 
 @connect( state => ({}),
   {
     logout,
-    ...actions
+    ...actions,
+    setTitle,
+    setLeftButton
   }
 )
 
@@ -91,6 +94,7 @@ class LoginPwd extends Page {
   componentDidMount () {
     this.props.setTitle('修改登录密码')
     this.props.setRightButton(<div onClick={::this.savePsd}>完成</div>)
+    this.props.setLeftButton(true);
   }
   
   savePsd () {

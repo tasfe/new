@@ -9,11 +9,16 @@ import { cookie, localStore } from 'storeUtil'
 import Button from 'components/Button'
 import Update from './modules/Update/Update'
 import Add from './modules/Add/Add'
+import { setTitle,setLeftButton } from 'redux/modules/toolbar'
 
 @WithStyles(styles)
 @connect(
   state => ({title: state.toolbar.title, user: state.auth.user}),
-  actions
+  {
+    actions,
+    setTitle,
+    setLeftButton
+  }
 )
 class SecurityManage extends Page {
 
@@ -27,6 +32,7 @@ class SecurityManage extends Page {
 
   componentDidMount () {
     this.props.setTitle('安全问题');
+    this.props.setLeftButton(true);
     let self = this;
     $.ajax({
       url: "/acct/usersecurity/getsecurity.json",

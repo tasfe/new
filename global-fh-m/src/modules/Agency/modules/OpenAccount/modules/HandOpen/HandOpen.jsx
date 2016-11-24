@@ -195,7 +195,7 @@ class HandOpen extends Page {
     this.props.setRightButton(<span />);
     ajax({url: '/acct/subaccount/getsubacct.json'}, (res) => {
       if (res && res.result === 0 && res.root.quotaList && res.root.quotaList.length) {
-        var helpHtml = '<div class="help-block"><div class="help-img"><img src="images/eclaim.png"></div><div class="help-text">您目前拥有';
+        var helpHtml = '<div class="help-block"><div class="help-img"><img src={require("images/icon/eclaim.png")}></div><div class="help-text">您目前拥有';
         _.each(res.root.quotaList, quota => {
           helpHtml += _.div(quota.quotaLevel, 10) + '配额' + quota.quotaLimit +'个，';
         });
