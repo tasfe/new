@@ -1,0 +1,17 @@
+@import 'variable.css';
+
+.MoneyDetail-list{
+  padding: 0 0.05rem;
+}
+
+.MoneyDetail-item{
+
+}
+
+.text-green {
+  color: #00AA00;
+}
+
+.text-red {
+  color: #d21e1e;
+}

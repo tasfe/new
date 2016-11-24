@@ -94,6 +94,10 @@
           background: url(~images/set/icon8.png) center no-repeat;
           background-size: 100%;
         }
+        &.report:before{
+          background: url(~images/set/icon9.png) center no-repeat;
+          background-size: 100%;
+        }
 
       }
     }

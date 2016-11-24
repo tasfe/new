@@ -1,0 +1,35 @@
+@import 'variable.css';
+
+.account-detail{
+  background-color: #191312;
+  position: absolute;
+  width: 100%;
+}
+.account-detail-item.active {
+  background-color: #993433;
+  .account-detail-amount{
+    color: #fff;
+  }
+}
+.account-detail-tab{
+  top:0.6rem;
+}
+.account-detail-item{
+  display: inline-block;
+  width: 50%;
+  height: .6rem;
+  color: #fff;
+  font-size: .12rem;
+}
+.account-detail-item1{
+  border-right: 1px solid #484340;
+}
+.account-detail-item-desc{
+  padding: .1rem .15rem;
+  text-align: center;
+}
+
+.account-detail-amount{
+  color: #ca3331;
+  font-size: .15rem;
+}

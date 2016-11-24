@@ -8,7 +8,9 @@ module.exports = {
         require('./modules/Trade'),
         require('./modules/Recharge'),
         require('./modules/Cash'),
-        require('./modules/Account')
+        require('./modules/Account'),
+        require('./modules/ReportManage'),
+        require('./modules/ReportManageAG'),
       ])
     })
   }

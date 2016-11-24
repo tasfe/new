@@ -47,6 +47,7 @@ class Setting extends Page {
         <ul>
           <li><a className="bind-card" href="/#/user/bankcard">银行卡绑定</a></li>
           <li><a className="open-acc" href="/#/agency/oa">开户管理</a></li>
+          <li><a className="report" href="/#/history/rm">报表管理</a></li>
         </ul>
         <ul>
           <li><a className="online-service" href={customerServiceUrl} target="_blank">在线客服</a></li>

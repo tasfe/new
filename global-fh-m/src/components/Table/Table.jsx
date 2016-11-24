@@ -90,10 +90,7 @@ class Table extends Component {
         
         $.extend(true, option, this.filterData)
         
-        $.extend(option.data, {
-          pageIndex: this.pageIndex,
-          pageSize: this.pageSize
-        }, data)
+        $.extend({pageSize: this.pageSize}, option.data,{pageIndex: this.pageIndex}, data)
       }
     }
 
